@@ -1,0 +1,386 @@
+[metadata]
+Code=TWI
+Date=2025-09-01
+Name=Exalts of Twiltrie
+Code2=TWI
+MciCode=twi
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
+Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+FatPack=8
+FatPackExtraSlots=40 BasicLands TWI
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+#ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+# Set designed by 
+
+#Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
+[Common]
+Base=Common:fromSheet("TWI cards"):!BasicLand
+
+[Uncommon]
+Base=Uncommon:fromSheet("TWI cards")
+
+[RareMythic]
+Base=RareMythic:fromSheet("TWI cards")
+
+[AnyLand]
+Base=BasicLand:fromSheet("TWI cards")
+Replace=.166F Land:fromSheet("TWI duals"):!BasicLand
+
+[Wildcard]
+Base=Uncommon:fromSheet("TWI cards")
+Replace=.125F Common:fromSheet("TWI cards"):!BasicLand
+Replace=.201F Rare:fromSheet("TWI cards")
+Replace=.033F Mythic:fromSheet("TWI cards")
+Replace=.016F fromSheet("TWI buy a box")
+
+[cards]
+1 U Advance of the Quiet Moon @Suke Su
+2 U Advance of the Sainted March @Kazaki360
+3 M Aegis of Grace @Danny Pavlov
+4 R Archon of the Final March @Zhong Yang
+5 C Bastion of Aureth @Nikita Shpitko
+6 C Blade of the Sunvrath @Andrea Tarzia
+7 U Blessed Linewarden @Namba
+8 U Boundlight Seraph @Ethan Brentson
+9 U Break the Tide @Fei Ren
+10 R Casus Belli @Zakhele Art
+11 R Clash at Aureth Cross @ch4os
+12 M Consume the Divine @Suzanne Helmigh
+13 R Dawnhymn Herald @Aleksandra Alekseeva
+14 C Dawnward Minister @Xo Xue
+15 R Diviner of the Sun @Thanet Thanakij
+16 U Ember-Caged Siegebreaker @Bo Chen
+17 U Fiendlight Tactician @V Wei
+18 R Henda Ravellan @XiangYu Zhou
+19 R Herald of the Radiant Banner @Aleksi Remes
+20 U Law Given Form @Sam Yang
+21 U Mandate of Conquest @Saiora
+22 C Radiance Unmade @fan_214522383
+23 R Radiant Devotee @Herbie Wang
+24 C Radiant Heritor @Stephen Sitton
+25 C Redeemer of the Fallen Line @jianning_kang
+26 C Resolute Reinforcements @Kyao
+27 R Sacrament of the Fallen @Andrew Chou
+28 C Saint of Stolen Flame @Kikicute
+29 U Sanctified Attendant @Valeria Casale
+30 U Sanctified Ravager @Hoang Tejieng
+31 C Sanctum of Repression @Claudiu-Antoniu Magherusan
+32 C Shaper of Luminous Will @Tsu Ran Ang
+33 C Shatter the Sigil @Ha My Dinh
+34 R Sigil of the Last Light @Tyler Edlin
+35 U Softlight Harmonist @Envar Studio
+36 C Sun-Frenzied Frontliner @Tangxiao
+37 U Sunvrath Exemplar @Pavel Tomashevskiy
+38 U Sunvrath Juggernaut @Crow God
+39 M Thorn and Trial @Kakayeyou
+40 C Too Late for Grace @Patricia Yassaka
+41 U Unyielding Conviction @Wild Blue Studios
+42 U Advance of Dreamwoven Law @Asur Misoa
+43 U Advance of Rune and Whisper @bulciks
+44 U Angler of the Crushing Sea @Nishshanka Weerasinghe
+45 C Chorus of One @Dk Hoanoo
+46 R Clash at Mistwrit Vale @Vagelio Kaliva
+47 R Cloudveil Reshaper @Denilve
+48 U Courtly Intrigue @Cherraluna
+49 U Coven of Brine @Erin Petersen
+50 U Crab of the Hollow Gale @Thomas Chamberlain
+51 M Dance of the Three Courts @Agustin Marceillac
+52 U Discern @koyamamichiru
+53 C Echoed Chant @Yini Shao
+54 C Erase from Existence @TUANZ
+55 C Flutter @Yellow7
+56 R Fluttering Sun @Exia Xiaotong
+57 R Frog of Eternal Gloom @Von Milano
+58 C Gift of Stillness @swans
+59 U Gilded Noon Skirmisher @Anthony Chong
+60 C Gossamer Dreamer @Anastasia Chaykovskaya
+61 C Hushed Briefing @Andy Napoles
+62 U Mistwrit Archivist @Monkae
+63 U Overrule Thought @Kamiu rei
+64 C Pagebinder Witch @Amekoi Eliza
+65 M Path of Scales @Vagelio Kaliva
+66 C Raven of Onyx Wing @Muhammx Fajri
+67 U Recital of the First Echo @Eraiviolett
+68 U Reflected Echo @Huyy Nguyen
+69 C Refuse to Bloom @Bayaro Wu
+70 C Seer of Shackled Breath @Amekoi Eliza
+71 R Seize the Golden Bloom @Veinte_L
+72 R Skytide Piercer @Lbobo
+73 M Speaker of Currents @lmjlucifer
+74 C Stargazing @Julia Yurtsev
+75 R Three Become One @Dan Bittencourt
+76 C Undertide Scout @doolyss
+77 R Unravel Thoughts @Asur Misoa
+78 R Voice of a Fallen Covenant @Colin Ha
+79 U Wasted Preparation @Mistocytka
+80 U Weigh the Whispers @Muhammx Fajri
+81 U Whisperthorn Weaver @Quaithz
+82 R Witch of the First Echoes @Elenadang
+83 U Advance of the Hollow Wake @Yuchen Wang
+84 U Advance of the Umbral Bargain @Qiyang Feng
+85 R Bleed for the Cause @Kang Jihun
+86 U Bull of the Branded Flame @Junjie Lu
+87 M Call of the Crown @Wilson Nugraha
+88 R Clash at the Shaded Maw @Dylan Deng
+89 U Cloak of Undeath @Reginald Sinkfield
+90 U Deathsworn Blade @Audy Ravindra
+91 C Die as Thou Wilt @ljofu
+92 C Drowntide Exhumer @Obliviost
+93 R Fiend of the Crimson Pact @Foritis wang
+94 C Go Blank @Chace-12
+95 U Grasp of the Drowned @Envar Studio
+96 U Graveborn Confidant @Han Flores
+97 R Guardian of Ashen Oaths @Gustavo Rossetto
+98 U Heart's Betrayal @Julian Oppermann
+99 C Herald of the Hollow Chant @Chutipa Duangmanee
+100 C Hollowbark Seer @Pinkly
+101 M Matriarch of Veiled Kin @AphroditeVT
+102 C Night's Whisper @Piscina
+103 U Outlive Usefulness @Tars-Go
+104 M Pact Beyond Death @Yuchen Wang
+105 C Pluck the Soul @Lbobo
+106 C Quiet the Heart @Mingjizhu
+107 R Rain of Blight @Pukun Wang
+108 U Ram of Obsidian Heart @Envar Studio
+109 U Reclaim the Fallen @Mihail Dava
+110 U Reliquary Sentinel @Susu
+111 R Reverie of the Endless Maw @Envar Studio
+112 R Rhiannona, Pactborne @fan_1847116996
+113 C Silent Veteran @Michal Ivan
+114 C Sovereign's Execution @C.Fm WU
+115 R Steep the Pactwen @Butchikhonguot
+116 U Stride Once More @Jiunn Kuo and LASSO
+117 C Sundered Heretic @Brian Adriel
+118 R Surge of Bitter Breath @Jiunn Kuo
+119 C Tendervow Witch @t582456309
+120 R Thrice Sealed Blessing @Aix Wyx
+121 U Unmaker of Thought @Wu Qilong
+122 U Vardo's Scalpel @Sun Pengbo
+123 U Weaver of Brooding Threads @user-1952934
+124 U Advance of Fire and Faith @Pedro Sena
+125 U Advance of the Blazing Court @Asur Misoa
+126 C Ashes of the Self @4 Seasons
+127 U Aspen's Oathguard @Saturn Z
+128 C Blaze Beyond Limits @Fuyuan Tee
+129 U Bloodline Inciter @Xhark (TU DO)
+130 R Burn to Obscurity @MiraSand
+131 R Burning Blood Orator @Richard Lay
+132 R Clash at Scorchroot Bluff @Alexandre Vieira
+133 C Convergence of Fae @C.Fm WU
+134 U Coordinated Shot @Lucas Matos
+135 U Despot of the Shifting Crown @Ilya Vatutin
+136 C Doctrine of Cleansing Flames @Linp
+137 U Doctrine of Sacrifice @Sergio M Mayorga
+138 R Dreamswept Duelist @Erick Etata
+139 M Eclipse of the Divine @Reginald Sinkfield
+140 U Elixir of Divine Hunger @Gauvin Remy
+141 C Ember-Eyed Skirmisher @Tales Irie
+142 C Emberforged Forerunner @Pedro Carlos Dutra
+143 U Evangel of Severed Doubt @Dovahcaine
+144 R Fang of the Pale Thorn @Thai Tranh
+145 C Fury Sprout @Fel Aragon
+146 U Gilded Noon Entertainer @Tasha Samutina
+147 C Gilded Noon Runner @Elena Dang
+148 R Gospel of Dominion @Gabriel Castro
+149 U Litany-Marked Schemer @Paulina Bochniak
+150 C Magma Spray @Levi Cristiano
+151 U Petalclaw Ambusher @Sh Mt
+152 U Proclaimer of Blooming Wing @Sophie Medvedeva
+153 U Pyrrhic Blast @Leija Chan
+154 U Rebirth through Seasons @Hung Nguyen
+155 M Rekindled Seraph @Paulina Bochniak
+156 C Righteous Evangel @Bx Moon Art Studio
+157 C Scorchroot Forerunner @Max Fan
+158 M Seed of the Golden Sun @Oksana Kerro
+159 R Silken Tactician @Yo Minh Tuan
+160 C Soulflame Mystic @Jordan Van Der Merwe
+161 C Thistrel Ascendant @Oldgun-K
+162 R Tyrant of Burning Judgment @Halybs
+163 R Undarah of Fervor and Flame @Alvin Lee
+164 R Verdant Radiance @Avetetsuya Studios
+165 U Advance of Rot and Ruin @Rafa Guisso
+166 U Advance of the Empty Throne @Oifent Lin
+167 U Angelbound Warden @Asur Misoa
+168 M Annick, Oathbound @Lime Marine
+169 U Architect of Resolve @Liu Lan
+170 U Banner Breaker @Eighteen_
+171 R Banners Unbroken @Dadi Z
+172 C Blade of Borrowed Breath @Nienminh
+173 R Clash at Dawnbloom Grove @Chertiloida
+174 M Commander of the Vow @Sam Yang
+175 C Crushed Under Conviction @Herbie Wang
+176 C Dawnhoof Behemoth @Evi Gilatio
+177 C Dawnspark Vanguard @Mirassand Allandrey
+178 U Dawnsworn Survivor @Florian Grondin
+179 C Dawnveil Infiltrator @Anastasia A7ann
+180 U Dreadchant Warcaller @Jack Hsu
+181 R Faithline Marshal @Billy Christian
+182 C Fellhorn Enforcer @LASSO
+183 M Gravebound Oath @Teodora Kamburova
+184 U Groveborn Envoy @Yihao Xu
+185 U Hopeworn Veteran @Zhuopeng Zhu
+186 U Huskforger Acolyte @XuNing Cui and Roanna Peroz
+187 C Lunate Sentinel @Georgi Madzharov
+188 C Oathbreaker's Challenge @PIka
+189 M Omnipresence @hkaa (Artstation)
+190 R Ossin, the Crown's Shadow @Huyy Nguyen
+191 R Paragon of Sacred Bellows @Narendra B Adi
+192 C Peaceweaver Adept @Nelty Jean
+193 U Purifier of Dawnbloom Grove @Patrick Buachak
+194 R Reaper of Blossoms @Jason Kiantoro
+195 R Redeemer of Hollowed Flesh @Claudiu-Antoniu Magherusan
+196 C Refusal of the Hollow Gift @Fanfan
+197 C Rend the Bonds @Wilson Nugraha
+198 R Ring of Promised Vows @Blake Byun
+199 C Risen Butcher @Epple Rice
+200 U Scour the Crownlands @Dariusz Kieliszek
+201 C Sentinel of Dawnbloom Grove @Gerald Parel and Chris Kintner
+202 U Stand in Unison @rishengrisheng42
+203 R Vestige of the King's Fall @Denilve
+204 R Vow's Reflection @Gerald Parel and Chris Kintner
+205 U Widow's Knight @Dasha y Park
+206 U Wrought in Hunger @Cola Alter
+207 U Binder of Greed and Merit @Fei Ren and Roanna Peroz
+208 R Ceriddwyn, Matron @Pandart Studio
+209 U Cidraeth Charm @Blackviii
+210 C Destructive Ambition @C Can Yang
+211 M The Ever-Gnashing Dark @KILART (choe, heonhwa)
+212 U Gravetithe Witch @Naifan Zhang
+213 R Gwyneira of Frosted Grace @sunnadier
+214 M Kazimierz, Bound in Flesh @Mateusz Michalski
+215 C Scornful Hexmistress @M Rafi
+216 C Sealed-Sigil Adept @WuMei!
+217 U Shared in Shadow @Koyamamichiru
+218 R Stag of the Broken Crown @Adriano Moraes
+219 R Trauma Spike @Neon viking
+220 R Choir Ascendant @Envar Studio
+221 R Cyra, Blade of Memory @Orz-II
+222 M Eirian, the Last Light @Sam Yang
+223 U Enduring Vowholder @Edward Chee
+224 C Legacy Denied @SUSU
+225 C Lighttouched Vanguard @Ll19
+226 U Lunate Charm @Anna Podedworna
+227 C Lunate Prowlwarden @Kayu Chan
+228 R Rite of Harmony @Chris Dylan
+229 R Rozen, Clad in Guilt @Jiajia Hua
+230 U Sanctified Cartography @Marco Trindade
+231 U Softstep Vowkeeper @Huang Xinbin
+232 M Sylvia, the Rewoven Oath @y4nk Lv
+233 M Aldegar of Path Unwoven @Vagelio Kaliva
+234 R Ambassador of Unseen Edges @Eric Xie
+235 R Blooming Wing @Silvia Meilliani and Setya Fani Wahyuga
+236 U Cloudveil Courier @Collette Curran
+237 C Gracebound Noble @Francis Tneh
+238 R Mass Conjuration @sealoflove
+239 U Secrets on Painted Wings @Morlevart
+240 M Snow on Petals @Angela O'Hara
+241 C Spear of the Pale Thorn @Francis Tneh
+242 C Sweeten the Deal @Erlandson Mayslan
+243 U Thistrel Charm @Lion Song
+244 R Towering Aspen @Nick Silva
+245 U Uplifting Chorus @sealoflove
+246 C Aureth Cross Crusader @Muhammx Fajri
+247 R Bogspawn Witness @Su Fu and LASSO
+248 U Cruxborn Tyrant @Francisco Castro
+249 R Culling Ritual @Heatheranne Lee
+250 U Dolcairn Charm @Marcos Kenji Uchima
+251 U Path of the Gentle End @Grath
+252 C Revivified Wrath @Timi Honkanen
+253 R Sevrith, Bound to Dusk @Justmoodychill
+254 C Soulhoarder @Adrian Pamplona
+255 M Vardo Ravellan, Forever King @Koyamamichiru
+256 U Withered Wyrm @Andre Hines
+257 R Zaccola, the Gentle End @Shauni Raven
+258 M Ameret, Seeker of the Sun @Emanuel Dias
+259 M Annan, Thief of the Sun @Rudy Siswanto
+260 R Bloodhorn Ravager @JIA95
+261 C Bloodied Zealot @Enzo Fernandez
+262 R Deafening Clarion @Deddy Faizal
+263 R Esdran, the Unburned @Chao Liu
+264 U Frenzied Dawnseeker @Paulina Bochniak
+265 R Ostarian, Architect of War @Zhuopeng Zhu
+266 U Rite of Consuming Glory @Victoria Evans
+267 U Sacrament Tactician @Ziyao Xu Yao
+268 C Siphoned Allegiance @Marie Magny
+269 U Sunvrath Charm @Wei Luo
+270 C Vow to Conquer @Erick Etata
+271 R Witchery @khaihoan
+272 R Honesty @Veronica O'Neill
+273 R Trickery @Tkitart
+274 R Anthropomancy @Koyamamichiru
+275 R Divinity @Kir Malov
+276 R Crucible of the Burning Sun @Halybs
+277 R The Forever Heart @Ryan Dening
+278 C Gleaming Barrier @Masaki Hsu
+279 R Golden Bloom of the Silenced @Harkale
+280 C Guardian of the Empty Throne @Jordan Kerbow
+281 R Heart of the Shed Soul @Francesco Chinchilla
+282 R Remnant of the Devoured Sun @Dmitriy Demidov
+283 U Thorn of Azurite @Raphaelle Ellehar Bieuville
+284 R The Throne of House Ravellan @Yongkun X
+285 C Zealforged Pathfinder @Thanet Thanakij
+286 C Blossoming Sands @Arnaud
+287 R Chasm of the Silent Covenant @Maxime Teppe
+288 U Crownfall Archive @Diana J Reid
+289 R Crucible of Bound Flame @Pei Gong
+290 U Crumbling Ruin @Michal Salata
+291 C Dismal Backwater @Miro Petrov
+292 R Fort Ravellan @Yongkun X
+293 R Gallowsprout Timber @Bastien Chapitaux
+294 U Gilded Court @CGlas
+295 R Glimmerveil Lake @shetingting
+296 U Hall of the Gentle Light @Hugo Puzzuoli
+297 C Jungle Hollow @Florian Herold
+298 U Lorespire Bluff @Arch Apolar
+299 U Sanctum of Bleeding Bark @Vincent Tran
+300 C Swiftwater Cliffs @Leo Lasfargue
+301 C Terramorphic Expanse @Anastasia Shestak
+302 U Thronehall of Reckoning @Mikael Javaid-Camua
+303 C Wind-Scarred Crag @Wang yi lei
+304 L Plains @Marc Magiliari
+305 L Plains @Ryan Anelowe
+306 L Island @Ricardo Azulazuli Coelho
+307 L Island @Yongkun X
+308 L Swamp @Yongkun X
+309 L Swamp @Winking Studios
+310 L Mountain @Ryan Anelowe
+311 L Mountain @Ricardo Azulazuli Coelho
+312 L Forest @Winking Studios
+313 L Forest @Marc Magiliari
+
+[buy a box]
+315 S Discern @Ognjen Sporen
+319 S Reaper of Blossoms @Ognjen Sporen
+321 S Choir Ascendant @Art of Li
+322 S Lunate Charm @Art of Li
+325 S Dolcairn Charm @Art of Li
+329 S Honesty @Art of Li
+332 S Divinity @Art of Li
+
+[duals]
+1 Blossoming Sands|TWI
+1 Dismal Backwater|TWI
+1 Jungle Hollow|TWI
+1 Swiftwater Cliffs|TWI
+1 Wind-Scarred Crag|TWI
+
+[tokens]
+b_1_1_spirit
+b_2_2_warlock_discard
+b_2_2_warlock_gainlife
+b_2_2_warlock_loselife
+b_2_2_warlock_shrink
+b_2_2_zombie_cantblock
+b_4_4_horror
+c_a_blood_draw
+c_a_treasure_sac
+everywhere
+r_1_1_berserker
+r_1_1_faerie_haste
+u_1_1_warlock_prowess
+w_1_1_soldier
+w_2_2_knight_vigilance
+w_4_4_angel_flying

@@ -1,0 +1,9 @@
+Name:Grinding
+ManaCost:G
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddKeyword$ mon_Experience | Description$ Enchanted creature has experience. (Whenever it attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Enchant creature\nEnchanted creature has experience. (Whenever it attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)

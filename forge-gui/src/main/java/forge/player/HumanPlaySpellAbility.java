@@ -84,6 +84,8 @@ public class HumanPlaySpellAbility {
             }
 
             ability = AbilityUtils.addSpliceEffects(ability);
+            //REVOLUTION
+            ability = AbilityUtils.addChantEffects(ability);
         }
 
         // used to rollback

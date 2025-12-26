@@ -214,6 +214,22 @@ public enum Keyword {
     MAYFLASHCOST("MayFlashCost", KeywordWithCost.class, false, "You may cast CARDNAME as though it had flash if you pay %s more to cast it."),
     MAYFLASHSAC("MayFlashSac", SimpleKeyword.class, false, "You may cast CARDNAME as though it had flash. If you cast it any time a sorcery couldn't have been cast, the controller of the permanent it becomes sacrifices it at the beginning of the next cleanup step."),
 
+    /**
+     * REVOLUTION
+     * new keywords, future-proofed
+     */
+    MON_EXPERIENCE("mon_Experience", SimpleKeyword.class, false, "Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it."),
+    MON_HARNESS("mon_Harness", KeywordWithCost.class, false, "You may tap a creature you control as you cast this spell. If you do, reduce this spell's mana cost by that creature's power."),
+    CYB_CYBERSOUL("cyb_Cybersoul", KeywordWithCost.class, false, "%s: Transform this permanent. Each other artifact you tap while activating this ability pays for {1}. Activate only as a sorcery."),
+    CYB_SOLIDARITY("cyb_Solidarity", SimpleKeyword.class, false, "Whenever you attack with six or more different creature types, create a Solidarity enchantment token with \"Attacking creatures you control get +1/+0\" if you haven't this turn."),
+    CCR_SURFACE("ccr_Surface", KeywordWithCost.class, false, "You may cast a copy of this card from your graveyard by paying its surface cost and exiling it from your graveyard as long as there are six or more other cards in your graveyard."),
+    KDT_REVERED("kdt_Revered", SimpleKeyword.class, false, "Each other creature you control with one or more counters on it has the abilities printed below this one."),
+    KDT_TIME_LOOP("kdt_Time loop", SimpleKeyword.class, true, "As this Saga's final chapter ability resolves, remove all lore counters from it."),
+    TWI_CHANT("twi_Chant", KeywordWithCost.class, false, "You may exile this card from your hand as you cast an instant or sorcery spell. If you do, that card gains the text found within square brackets in this card's rules text and you pay %s as an additional cost to cast that spell. You may cast this card as long as this card remains exiled."),
+    TWI_DECOY("twi_Decoy", SimpleKeyword.class, false, "Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile that token at the beginning of the next end step."),
+    TWI_RAPTURE("twi_Rapture", SimpleKeyword.class, false, "When this creature dies, return it to the battlefield with a haze counter on it. As long as it has a haze counter on it, it loses all abilities and can't block."),
+    TWI_REPRIEVE("twi_Reprieve", SimpleKeyword.class, false, "As this creature enters, you may return a creature you control without reprieve to its owner's hand."),
+    SOL_ALIGN("sol_Align", SimpleKeyword.class, true, "Each other creature you tap while casting this spell or activating its abilities pays for {1}."),
     ;
 
     protected final Class<? extends KeywordInstance<?>> type;

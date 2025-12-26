@@ -1,0 +1,406 @@
+[metadata]
+Code=ERR
+Date=2025-05-01
+Name=Errors in the Weft
+Code2=ERR
+MciCode=err
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
+Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+FatPack=8
+FatPackExtraSlots=40 BasicLands ERR
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+# Set designed by DrChipmunk
+
+#Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
+[Common]
+Base=Common:fromSheet("ERR cards")
+
+[Uncommon]
+Base=Uncommon:fromSheet("ERR cards")
+
+[RareMythic]
+Base=RareMythic:fromSheet("ERR cards")
+
+[AnyLand]
+Base=BasicLand:fromSheet("ERR cards")
+Replace=.1667F fromSheet("ERR soulspaces")
+Replace=.1666F fromSheet("ERR shocks")
+Replace=.1111F fromSheet("ERR fetches")
+Replace=.0556F Land:Rare:fromSheet("ERR cards")
+
+[Wildcard]
+Base=Common:fromSheet("ERR cards")
+# I don't know about these numbers, so i'm just copying them from MH3
+Replace=.417F Uncommon:fromSheet("ERR cards")
+Replace=.012F RareMythic:fromSheet("ERR cards")
+Replace=.020F fromSheet("ERR buy a box")
+
+[cards]
+1 C Ambitious Angel @Eddy Shinjuku
+2 U Assert Mediator @Adam Schumpert
+3 U Catch Vanguard @Zeno H
+4 U Centennial Maestro @Friedrich Pierbaumer
+5 C Checkpoint Daemon @Jeffufu
+6 R Complementarity @Phaserunner
+7 R Containment Seraph @Iceneuro
+8 C Daemonic Binding @Yorgos Cotronis
+9 R Darisha, Stack Exec @Aurore Folny
+10 C Download Courier @Allesandro Rossi
+11 R EXIT() @Scott Uminga
+12 C Element Aesthete @DanteWolfGuy
+13 R Futurist Ideal @Julian Faylona
+14 U Graceful Finalizer @Shalizeh
+15 U Imperious Admin @GomiSauce
+16 C Linked Hoversuit @Eddy Shinjuku
+17 U Lost Connection @HybridGothica
+18 C Lumen Irregular @Joao Oueiroz
+19 C MASK() @Bol Kunatz
+20 U Mail Daemon @Sara Ragaiy
+21 U Metatactician @Matt Zeilinger
+22 U Mobilization Technician @Lemon Art
+23 C Not_A_Teletype @Alex Chow
+24 R Pixel Pixie @Anastasiya Mo
+25 R Placeholder_Asset @Brandon Coyle
+26 C Plasma Strike @Kirinkarwai
+27 M Priority_Inversion @Zeno H
+28 U Reprieve from Mortality @Kristina Boyko
+29 U RETURN() @Scott Uminga
+30 R Root Navigator @Toby Lewin
+31 C Stack Strike Leader @Deiv Calviz
+32 U Student of Immortality @Macarious
+33 C Tapestry Guard @Joao Oueiroz
+34 C Telepresence Axiom @Julian Faylona
+35 U UNDO() @Scott Uminga
+36 U Use_After_Free @Petra Brnardic
+37 R Virtualized Onomastic @Max Elmberg Sjöholm
+38 M Voice of Utopia @Lucidsky
+39 U Weave Dispatcher @Cal Santiago
+40 R Architect of the Intangible @Alexandra Trauth
+41 C Archive Ascetic @Rup
+42 U Buoyant Datagrazer @Kode LGX
+43 C Codepath Runner @Li Xiyin
+44 M Composer of Skylines @Josh Hutchinson
+45 R Convol, Archive Exec @Liiga Smilshkalne
+46 U COPY() @Anderson Nioule
+47 C Cybersaurus @Daniela Naumovski
+48 U Data Staff @Almanegra
+49 U Decryption Puzzlemancer @Dan Cohen
+50 U Denotation Failure @HybridGothica
+51 R Echo Choreographer @Josh Hutchinson
+52 C FLOCK() @Liiga Smilshkalne
+53 C Glitchlands Sentinel @Shahan
+54 U JUMP() @Coolzone
+55 U Just-In-Time Interpreter @Bachzim
+56 U Mev's Holographist @Jay Axer
+57 C Mnemologist @Christopher Dennis
+58 C Negate @Huleeb
+59 C No_Response_Received @Kirinkarwai
+60 U Olis's Axiom @KartStudioDigi
+61 U Parse @Macie J Frolow
+62 R Post-Weft Psionic @Eddy Shinjuku
+63 R Preemption Daemon @Jarod Erwin & Sweeper3D
+64 C Ratiocinate @Donglu Yu
+65 U Reclusive Percipient @Pan Ping
+66 R RESET() @Liiga Smilshkalne
+67 U Rogue Daemon @Lan Sokigarden
+68 C Sensory Deprivation @VicentiusMatthew
+69 M Signal_Inversion @Scott Uminga
+70 U Soulspace Access @Scott Balmer
+71 C Soulspace Refit @Daniel Sia
+72 C Swap to Storage @Coolzone
+73 R SYSCALL() @Technochroma
+74 C Task Triage @Becky Green
+75 R Undefined_Behavior @Benjamin Giletti
+76 U Underflow_Error @Kirinkarwai
+77 R Unending Possibility @Scott Uminga
+78 U WAIT() @Scott Uminga
+79 U 0xdeadbeef @Sandra Duchiewisz
+80 U Absentia @Brendan Coyle
+81 C Backdoor Prowler @Jackson Tjota
+82 U BEHOLD() @Scott Uminga
+83 R BORROW() @Max Hay & Laurel
+84 C Burnout Champion @Sergio Brizeno
+85 C Carefree Moralist @Fuzzwolf
+86 U Catabolist @Till Freitag
+87 U Cheat Code @SzrnArts
+88 U Death's Believers @Bart Tchorzewski
+89 U Do_Not_Respond @Max Hay
+90 C Downlink Overload @Christopher Balaskas
+91 C Draconic Dungeoneer @Elkir
+92 C Dropped_Polygon @Tithi Luathong
+93 U Earworm DJ @Friedrich Pierbaumer
+94 M Entropy_Inversion @Mark A Facey
+95 R Exorcist of Errors @Magic Media
+96 U Failed Gateway @Cotnonekot
+97 R Fall Forever @Alicia Lasaga
+98 R Fan Favorite Daredevil @Alden Brownstone
+99 C Forced Shutdown @Alen Li
+100 U Grognard @Ludovic Sanson
+101 U Hang @Scott Uminga
+102 C Heap Delver @Allesandro Rossi
+103 C Hovering Delinquent @Chitrak Srivastava
+104 U Killscore Vanguard @Drak
+105 C Level Drain @Stas Yurev
+106 M Lifehacker @Aaron Joseph
+107 R Privilege_Escalation @Elreviiae
+108 R Qion, Heap Exec @Ortheza D Busido
+109 C Reboot @Tithi Luathong
+110 C RECV() @Scott Uminga
+111 U Rooftop Leaper @Scott Shi
+112 U Rumormonger @Matt Zeilinger
+113 R Seeker of the Pre-Weft @Timi Honkanen
+114 C Smog Hound @Higthneko
+115 R Spiteful Griefer @Danny Pavlov
+116 R A Tear in the Weft @Scott Uminga
+117 U Uptime Contestant @ZephyriusJackal
+118 C Abrasive Punk @Travis Anderson
+119 R Artful Hologram @Peter Ankermann
+120 U Bitscan Freerunner @Sho Xiang
+121 U Boorish Celebrant @Zeno H
+122 R Bootstrap Daemon @Liiga Smilshkalne
+123 U BYPASS() @Katrina Fedukowski
+124 R Cache Thrasher @Diana Shutka
+125 U Catch Defector @Kevin Glint
+126 C Charming Exceptional @Supercell
+127 U CHURN() @Scott Uminga
+128 M Coherence_Inversion @Scott Uminga
+129 C COMMIT() @Scott Uminga
+130 M Competitive Hedonist @Robert Remjak
+131 U Creative Commission @Olena
+132 C Crucible Takedown @Suhyeong Kan
+133 R Electronic Countermeasures @Aleaandr Elichev
+134 U Error Tide @Melina Caron
+135 R Eviviva, Grip Exec @Magic Media
+136 U FORK() @Julian Faylona
+137 C Frag @Bastien Grivet
+138 C Go for Gold @Deiv Calviz
+139 C Grip Pinch-Hitter @Ridley Dominguez
+140 U Groove Surfer @Katherine Makoyana
+141 U High Rollers @Dimitar Katsarov
+142 R Infinite_Loop @Dmitri Tikhomirov
+143 C Inversion's Herald @Wolfenstain1
+144 U Overwhelming Upload @Daniel Sia
+145 R PANIC() @Scott Uminga
+146 R Profiler of Pain @HybridGothica
+147 R Red-Hot Rider @Amarihel
+148 U Rowhammer @Scott Uminga
+149 C Segmentation_Fault @Eric Michelsen
+150 C Shock @Casey Weeks
+151 U Threadripper @Dinkartworks
+152 C Thrilljammer @Lauren Natvig
+153 U Token_Limit @Allesandro Rossi
+154 U Transgressive Trendsetter @Aurore Folny
+155 C Unfettered Spirit @Samson Castelino
+156 C Web Surfer @TheBakaArts
+157 R Aurore, Buffer Exec @Matt Zeilinger
+158 C Buffer Botanist @Shannon Brocas
+159 U Cathartic Parting @Phaserunner
+160 C Computing Titan @Alina Polovinkina
+161 U Concurrent Escapist @Wenqing Yan
+162 M Cyberzoologist @Travis Anderson
+163 R Digital Reliquary @Max Hay
+164 U Dream Big @Wenqing Yan
+165 C Ecosystem Revivalists @Hacatiko
+166 U Elma's Regular @Tricia Pathy
+167 R Errorsbane Deadshot @Kode LGX
+168 C Fault_Injection @Tony De Nero
+169 U Fickle Gourmand @Acepara Digm
+170 C Flowing Form @Delzaar Studio
+171 C Fond Reminiscence @Rita Fei
+172 C Garbage Collector @Pandorvirus
+173 U GENERATE() @Alina Polovinkina
+174 C Immersive Moment @Kay John Yim
+175 U Irreverent Modder @Fruitbloodmilkshake
+176 R ITERATE() @Julian Faylona
+177 U Lavis' Hydroponicist @Macarious
+178 U Masksmith @Alexander Aronsson & Laurel
+179 U Megafauna Knight @Jean Harell
+180 C Memorivore @Kirinkarwai
+181 R Menagerie Mechanic @Aurore Folny
+182 C Mirage Model @Kaana Moonshadow
+183 R Mystic of Returns @Joao Oueiroz
+184 R Record_Desync @Tithi Luathong
+185 U Recurring_Noise @Wan Bao
+186 R Rejuvenation Session @Macarious
+187 U RESONATE() @Shoonyah
+188 M Resource_Inversion @Heriberto_Martinez
+189 U Schematic Archer @ZephyriusJackal
+190 C SEEK() @Liiga Smilshkalne
+191 U Showstopping Couture @Eiji Masumoto
+192 C Skywatch Jockey @Marie Magny
+193 U Speculative_Execution @Matt Demino
+194 C Trawl the Net @Mike Antendido
+195 R Untethered Daemon @Vizlab Studios
+196 U Arcade Junkies @Su Ke
+197 U Burrow Checker @Liiga Smilshkalne
+198 R Gemi and Nu, Cachemates @Royz
+199 U Glitchdrinker @Alexander Aronsson
+200 U Install Wizard @Dimitri Chappuis
+201 R Kaluthax, Dungeon Master @Skelly & Jakub Bazyluk
+202 R Lavis, Root Exec @Przemek Duda
+203 M Lio, Daemon's Hope @Liiga Smilshkalne
+204 U Make the Last Night Count @Swamp Witch
+205 R Mev, Corruption Runner @Aurore Folny
+206 U NotFound_1 @Kosh Naranek
+207 U Nullsigil Grinder @Adam Schumpert
+208 R Olis Mars, Final Archivist @Dylan Choonhachat
+209 R Piroia, Perennial Sacrifice @Oliver Wetter
+210 M RECURSE() @Liiga Smilshkalne
+211 U Refresh Daemon @Max Hay
+212 U Scripting Sage @Alexander Aronsson
+213 R Toki, Celebrity Soldier @Aurore Folny
+214 R Vijkstra, Spine Breaker @Travis Anderson
+215 U Weft Dancer @Scott Uminga
+216 M The Weftheart @Keith Griego
+217 R Xeia, Record Chaser @Evan Lee
+218 R Ys, Trace Talker @Iamagri
+219 C Catch Constable @Jihwan Ha
+220 C Daemonmage @Joao Oueiroz
+221 C Error's Advocate @Matt Zeilinger
+222 C Etherkiller @Scott Uminga
+223 C Kaluthax's Challenger @Kite512
+224 C Lonesome Afterimage @Katherine Makoyana
+225 C LOOP() @Liiga Smilshkalne
+226 C Phantom_Interrupt @Hoyoverse
+227 C Request Handler @Rutger Van Der Steeg
+228 C Superuser @Nathaniel Himawan
+229 U Archival Storage @Max Hay
+230 U Autonomous Apiarist @Mack Illu
+231 C Burgeoning Consciousness @Kirinkarwai
+232 M CLICK() @Oleg Bercea
+233 C Common Laser Sword @M 073
+234 C Geometry Stabilizer @MiSBAH
+235 U Helen's Failsafe @Jeppe Mygh
+236 C MAP() @Cheyane S
+237 C Prototype Warform @Mabiruna
+238 U Recursive Cogitator @Michael Black
+239 U Remotist Axiom @Francesco Limos
+240 C Synthetic Connaisseur @Pablo Carpio
+241 R Archive Telemetrary @Tsu Wei Chen
+242 U Ardent Rise @Allesandro Rossi
+243 M Avatar Exchange @Alex Nakhleh
+244 R Buffer Reconservatory @Leon Tukker
+245 C Chimeric Soulspace @Marcin Basta
+246 C Clearwater Grotto @Kirinkarwai
+247 C Eidetic Soulspace @Huleeb
+248 C Enigmatic Fen @Kirinkarwai
+249 U Faulty Server @Allesandro Rossi
+250 C Footloose Soulspace @Sweeper3D
+251 U Forgotten Junkyard @Allesandro Rossi
+252 U Glittering Club @Allesandro Rossi
+253 R Grip Festivarium @Ivan Ortega
+254 R Heap Ludicon @Theo Di Malta
+255 C Hopeful Soulspace @Matiios Gebreselassie
+256 U Isolated Tower @Allesandro Rossi
+257 C Lonely Soulspace @Anderson Nioule
+258 U Lost and Found @Allesandro Rossi
+259 C Lucent Basin @Kirinkarwai
+260 C Macabre Soulspace @Huleeb
+261 U Meteoric Facade @Allesandro Rossi
+262 C Misty Peak @Kirinkarwai
+263 C Nostalgic Soulspace @Terraform Studios
+264 C Profane Grove @Kirinkarwai
+265 U Regrowing Outlands @Allesandro Rossi
+266 U Reified Borough @Allesandro Rossi
+267 C Sanguine Palace @Kirinkarwai
+268 U Silent Lakefront @Allesandro Rossi
+269 C Soaring Soulspace @Pablo Carpio
+270 R Stack Conviviplex @Felix Riano
+271 C Stark Expanse @Kirinkarwai
+272 C Urban Jungle @Kirinkarwai
+273 C Verdant Sanctum @Kirinkarwai
+274 C Vindictive Soulspace @Bastien Grivet
+275 C Windbeaten Stones @Kirinkarwai
+276 C Zealous Soulspace @Scott Uminga
+277 L Plains @Tiago Souza
+278 L Island @Leon Tukker
+279 L Swamp @Bastien Grivet
+280 L Mountain @Oliver Beck
+281 L Forest @Grazia Ferlito
+282 L Plains @Kirsten Zirngibl
+283 L Island @Kirsten Zirngibl
+284 L Swamp @Kirsten Zirngibl
+285 L Mountain @Kirsten Zirngibl
+286 L Forest @Kirsten Zirngibl
+287 M Fabricated Anomaly @Anh Lee
+288 M Offset Daemon @Jumpei
+
+[buy a box]
+290 S Futurist Ideal @Joao Oueiroz
+291 S Preemption Daemon @Donglu Yu
+294 S Cache Thrasher @Su Ke
+295 S Cyberzoologist @Olga Adriyenko
+299 S Complementarity @Dao Trong Le
+300 S Architect of the Intangible @Areakst Kingglost
+301 S Exorcist of Errors @Katrina Chiu
+302 S Red-Hot Rider @Qing Wen
+303 S Masksmith @Gaudi Buendia
+
+[soulspaces]
+1 Chimeric Soulspace|ERR
+1 Eidetic Soulspace|ERR
+1 Footloose Soulspace|ERR
+1 Hopeful Soulspace|ERR
+1 Lonely Soulspace|ERR
+1 Macabre Soulspace|ERR
+1 Nostalgic Soulspace|ERR
+1 Soaring Soulspace|ERR
+1 Vindictive Soulspace|ERR
+1 Zealous Soulspace|ERR
+
+[shocks]
+1 Clearwater Grotto|ERR
+1 Enigmatic Fen|ERR
+1 Lucent Basin|ERR
+1 Misty Peak|ERR
+1 Profane Grove|ERR
+1 Sanguine Palace|ERR
+1 Stark Expanse|ERR
+1 Urban Jungle|ERR
+1 Verdant Sanctum|ERR
+1 Windbeaten Stones|ERR
+
+[fetches]
+1 Ardent Rise|ERR
+1 Faulty Server|ERR
+1 Forgotten Junkyard|ERR
+1 Glittering Club|ERR
+1 Isolated Tower|ERR
+1 Lost and Found|ERR
+1 Meteoric Facade|ERR
+1 Regrowing Outlands|ERR
+1 Reified Borough|ERR
+1 Silent Lakefront|ERR
+
+[tokens]
+b_1_1_jellyfish_flying
+b_e_sub_tick
+c_a_memory_fdh
+c_a_memory_fdl
+c_a_memory_fub
+c_a_memory_fug
+c_a_memory_fuh
+c_a_memory_ful
+c_a_memory_repl
+c_a_memory_rfm
+c_a_treasure_sac
+c_x_x_a_construct
+g_e_sub_mount
+noop
+puzzlebox
+r_2_2_warrior_exile
+r_4_4_error_menace
+r_e_sub_boost
+rg_e_sub_save
+root_node
+rw_e_sub_overflow
+u_2_2_e_bird_flying
+u_e_sub_read
+w_1_1_citizen
+w_8_9_error
+w_e_stratagem
+w_e_sub_alarm

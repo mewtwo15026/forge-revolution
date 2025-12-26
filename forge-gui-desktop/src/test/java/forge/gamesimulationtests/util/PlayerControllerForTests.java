@@ -779,6 +779,12 @@ public class PlayerControllerForTests extends PlayerController {
         return Lists.newArrayList();
     }
 
+    //REV
+    @Override
+    public List<Card> chooseCardsForChant(SpellAbility sa, List<Card> cards) {
+        return Lists.newArrayList();
+    }
+
     @Override
     public List<OptionalCostValue> chooseOptionalCosts(SpellAbility choosen,
             List<OptionalCostValue> optionalCostValues) {

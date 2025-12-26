@@ -1,0 +1,99 @@
+[metadata]
+Code=REV
+Date=2021-04-04
+Name=Revolution Renegades
+Type=Promo
+ScryfallCode=REV
+
+[cards]
+1 M Wilderkin Behemoth @Thatohora
+2 M Evaldi, Genesis of Hope @Anthony Francisco
+3 M Ameret, Hope of Night @Benjamin Ee
+4 M Lunar Vigil @Oinni
+5 M Auroric Span @Matthew Dobric
+6 M Threzak, the Heinous @Lordigan
+7 M Amos, Rune-Mage @NecroTechno
+8 M Serene Mediator @SbJaca
+9 M Dawnglade Wildbear @Worasak Suwannarach
+10 M Coax Soul @SpyxedDemon
+11 M Codename: Viridian @Drazenka Kimpel
+12 M Eavesdrop @SillyJellie
+13 M Diabolical Minion @AndreiZT
+14 M Myrkalt, Shade-Bound @Federica Costantini
+15 M Chromatic Dragon @elbardo
+16 M Ferocious Flame @Yuliya Zabelina
+17 M Paleontologist @Philippe Saner
+18 M Anigul, the Setting Sun @Jason Scheier
+19 M Thin the Veil @Florian Herold
+20 M Queen Andarli, the Fierce @Manuel Castanon
+21 M Ardent Ascetic @Joelin Tan
+22 M Sprite Dragon @Julien Ruest
+23 M Emgaran Duelist @Dylan Deng
+24 M Smirk, Darkhand's Favored @Skullcat Studios
+25 M Merciless Shieldbreaker @Llyncis
+26 M Rivha, Heiress of Pinions @Sam Kanios
+27 M Justiciar Overseer @Bachzim
+28 M Tactical Skis @Tomasz
+29 M Ella, Rose Court Queen @Mika Koskensalmi
+30 M Skarn, the Bloodless @Aaron Nakahara
+31 M Vibrant Vengeance @Tom Sharp
+32 M Primordial of Emila Glade @Katinka Thorondor
+33 M Wildkin Imposter @Tamas Patkos
+34 M Necrotic Savant @Sebastian Barth
+35 M Symbol of the Revolution @Johannes Voss
+36 M Unburnt Maiden @Seung Chan Hong
+37 M Alehana the Persuader @Doe
+38 M Keening Belltower @Motion Twin Studio
+39 M Sphinx of the Soundveins @Javier Carmona
+40 M Tenacious Snapvines @Pat Mendoza
+41 M Irrlicht @Hector Ortiz
+42 M Music Master @Mukhlis Nur
+43 M Grand Consonance @Muzuki Uruu
+44 M Wildcourt Seeker @Ron Tseany
+45 M Drift Off @6U
+46 M Moresso, Infuser of Light @Magdalena Bay
+47 M Spinmaster @TinyTRUC
+48 M Ephara, Hero-Maker @Caio Santos
+49 M Agent of Deception @Madjid Medane
+50 M Start Anew @gam3sd3an
+51 M Elemental of Surprise @Inkfy
+52 M Oracle of Zakros @Leia Yu
+53 M Nikon, Skophos Protector @Phill Simmer
+54 M Buried Oathbreaker @Dorje Bellbrook
+55 M Omen of Slaughter @Christopher Jin Baron
+56 M Tyrant's Remnants @Esuthio
+57 M Rano's Slopeguard @YongXue Hayden
+58 M Unity @AsterClarke
+59 M Igneous Visions @Chrysope
+60 M Avatar of the Festival @platypeople
+61 M Bind in Silence @biplane747
+62 M Get Your Wish @Wild Blue Studios
+63 M Cogwork Harvester @Gian Marco Zappardo
+64 M Star-Studded Sagittaur @Zangy
+65 M Resign to Progress @John Sampson
+66 M Forgotten Cultivator @Jason Chan
+67 M The Connaistone @Ryan Etter
+68 M Jens Slopeskidder @kanitamago
+69 M Phenax, Brazen Thief @AsterClarke
+70 M Sustainable Investments @Justin Gerard
+71 M Rooftop Slink @Akira Kanbe
+72 M Ignited Soul @Acidify Art
+73 M Sanaito, Voidsinger @Cajun
+74 M Ghostwarden's Claim @into-the-bear
+75 M Yaeji, Resplendent Idol @Pauline Voss
+76 M Avert Disaster @Waking Of Sky Tree
+77 M Redeveloped Cityscape @Christopher Balaskas
+78 M Root Fossil @Ayumi Odashima
+79 M The Weftheart @Yuumei
+80 M Emperor Tzuhan @Feimo
+81 M Savvy Smith @Joonathan Vahar
+82 M Warden of Tremors @DrChillbrain
+83 M Severin, Sparkmind @Tomasz Chistowski
+84 M Fabricated Anomaly @Daria Unicorn Princess
+85 M Offset Daemon @summersgoodatar
+86 M Foreign Encounter @minahamu
+87 M Primal Fissure @Shane-D-Solomon
+88 M Temple of Origins @Leon Tukker
+89 M Casus Belli @Giacoma Bussaglia
+90 M Transgressive Trendsetter @eoryuu_
+91 M Shigane Manor Burns @Liiga Smilshkalne

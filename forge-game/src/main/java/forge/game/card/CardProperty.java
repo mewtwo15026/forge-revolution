@@ -2109,7 +2109,16 @@ public class CardProperty {
                 }
             }
             return new CheckCanPayManaCost().check();
-        } else if (!card.getCurrentState().hasProperty(property, sourceController, source, spellAbility)) {
+        }
+        //REVOLUTION
+        //properties related to new abilities
+        else if (property.equals("hasReprieved")) {
+            if (card.getReprievedCards().isEmpty()) {
+                return false;
+            }
+        }
+        //end REVOLUTION tracking
+        else if (!card.getCurrentState().hasProperty(property, sourceController, source, spellAbility)) {
             return false;
         }
         return true;

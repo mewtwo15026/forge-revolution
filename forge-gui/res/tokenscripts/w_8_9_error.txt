@@ -1,0 +1,6 @@
+Name:Error Token
+ManaCost:no cost
+Colors:white
+Types:Creature Error
+PT:8/9
+Oracle:

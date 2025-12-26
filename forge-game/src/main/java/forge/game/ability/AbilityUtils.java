@@ -2192,6 +2192,16 @@ public class AbilityUtils {
             return doXMath(cl.size(), expr, c, ctb);
         }
 
+        /**
+         * REVOLUTION
+         * check reprieved cards
+         */
+        if (sq[0].startsWith("Reprieved")) {
+            final String validReprieved = sq[0].split(" ")[1];
+            CardCollection cl = CardLists.getValidCards(c.getReprievedCards(), validReprieved, player, c, ctb);
+            return doXMath(cl.size(), expr, c, ctb);
+        }
+
         if (sq[0].contains("ChosenNumber")) {
             Integer i = c.getChosenNumber();
             return doXMath(i == null ? 0 : i, expr, c, ctb);
@@ -3191,6 +3201,92 @@ public class AbilityUtils {
         sa.setPayCosts(spliceCost.add(sa.getPayCosts()));
         sa.setDescription(sa.getDescription() + " (Splicing " + c + " onto it)");
         sa.addSplicedCards(c);
+    }
+
+    /**
+     * REVOLUTION
+     * adds chant effects to a spell
+     * @param sa the base spell
+     * @return the modified spell
+     */
+    public static SpellAbility addChantEffects(final SpellAbility sa) {
+        final Card source = sa.getHostCard();
+        final Player player = sa.getActivatingPlayer();
+
+        if (!sa.isSpell() || source.isCopiedSpell()) {
+            return sa;
+        }
+
+        final CardCollectionView hand = player.getCardsIn(ZoneType.Hand);
+
+        if (hand.isEmpty()) {
+            return sa;
+        }
+
+        final CardCollection chants = CardLists.filter(hand, input -> {
+            for (final KeywordInterface inst : input.getKeywords(Keyword.TWI_CHANT)) {
+                String k = inst.getOriginal();
+                final String[] n = k.split(":");
+                if (source.isValid(n[1].split(","), player, input, sa)) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        chants.remove(source);
+
+        if (chants.isEmpty()) {
+            return sa;
+        }
+
+        final List<Card> choosen = player.getController().chooseCardsForChant(sa, chants);
+
+        if (choosen.isEmpty()) {
+            return sa;
+        }
+
+        final SpellAbility newSA = sa.copy();
+        for (final Card c : choosen) {
+            addChantEffect(newSA, c);
+        }
+        return newSA;
+    }
+
+    /**
+     * REVOLUTION
+     * adds one chant effect to a spell
+     * @param sa the base spell
+     * @param c the card with the chant ability
+     */
+    public static void addChantEffect(final SpellAbility sa, final Card c) {
+        Cost chantCost = null;
+        // This Function assumes that Chant exists only once on the card
+        for (final KeywordInterface inst : c.getKeywords(Keyword.TWI_CHANT)) {
+            final String k = inst.getOriginal();
+            final String[] n = k.split(":");
+            chantCost = new Cost(n[2] + " ExileFromHand<1/Card.named" + c.getName() + ">", false);
+        }
+
+        if (chantCost == null)
+            return;
+
+        SpellAbility firstSpell = c.getFirstSpellAbility();
+        Map<String, String> params = Maps.newHashMap(firstSpell.getMapParams());
+        ApiType api = AbilityRecordType.getRecordType(params).getApiTypeOf(params);
+        AbilitySub subAbility = (AbilitySub) AbilityFactory.getAbility(AbilityRecordType.SubAbility, api, params, null, c.getCurrentState(), c.getCurrentState());
+
+        subAbility.setActivatingPlayer(sa.getActivatingPlayer());
+        subAbility.setHostCard(sa.getHostCard());
+
+        //add the chanted ability to the end of the chain
+        sa.appendSubAbility(subAbility);
+
+        // update master SpellAbility
+        sa.setBasicSpell(false);
+        sa.setPayCosts(chantCost.add(sa.getPayCosts()));
+        sa.setDescription(sa.getDescription() + " (Chanting " + c + " onto it)");
+        sa.addChantedCards(c);
     }
 
     public static int doXMath(final int num, final String operators, final Card c, CardTraitBase ctb) {

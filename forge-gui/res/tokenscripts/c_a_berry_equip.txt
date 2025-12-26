@@ -1,0 +1,6 @@
+Name:Berry Token
+ManaCost:no cost
+Types:Artifact Berry Equipment
+A:AB$ Pump | Cost$ Sac<1/CARDNAME/this artifact> | Defined$ Equipped | NumAtt$ +1 | NumDef$ +1 | IsPresent$ Card.Self+AttachedTo Creature | SpellDescription$ Equipped creature gets +1/+1 until end of turn. Activate only if this artifact is attached to a creature.
+K:Equip:1
+Oracle:Sacrifice this artifact: Equipped creature gets +1/+1 until end of turn.\nEquip {1}

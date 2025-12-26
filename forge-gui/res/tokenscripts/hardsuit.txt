@@ -1,0 +1,7 @@
+Name:Hardsuit
+ManaCost:no cost
+Colors:colorless
+Types:Artifact Vehicle
+PT:4/4
+K:Crew:3
+Oracle:Crew 3 (Tap any number of creatures you control with total power 3 or more: This Vehicle becomes an artifact creature until end of turn.)

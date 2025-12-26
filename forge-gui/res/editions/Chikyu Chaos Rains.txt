@@ -1,0 +1,444 @@
+[metadata]
+Code=CCR
+Date=2025-01-01
+Name=Chikyu: Chaos Rains
+Code2=CCR
+MciCode=ccr
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
+Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+FatPack=8
+FatPackExtraSlots=40 BasicLands CCR
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=CHIKYU;CUSTOM;REV_T1;REV_T2
+# Set designed by Cajun
+# Brighteyed Trainer: look into ChromaSource and OriginalHost
+
+#Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
+#SHINY RATE FORMULA:
+#1.25 / (% of cards at rarity with shinies)
+[Common]
+Base=Common:fromSheet("CCR cards")
+Replace=.006F Common:fromSheet("CCR alternate art")
+
+[Uncommon]
+Base=Uncommon:fromSheet("CCR cards")
+Replace=.012F Uncommon:fromSheet("CCR alternate art")
+
+[RareMythic]
+Base=RareMythic:fromSheet("CCR cards")
+Replace=.036F RareMythic:fromSheet("CCR alternate art")
+
+[AnyLand]
+Base=fromSheet("CCR duals")
+Replace=.166F BasicLand:fromSheet("CCR cards")
+
+[Wildcard]
+Base=Common:fromSheet("CCR cards")
+Replace=.006F Common:fromSheet("CCR alternate art")
+# I don't know about these numbers, so i'm just copying them from MH3
+Replace=.417F Uncommon:fromSheet("CCR cards")
+Replace=.005F Uncommon:fromSheet("CCR alternate art")
+Replace=.012F RareMythic:fromSheet("CCR cards")
+Replace=.020F fromSheet("CCR buy a box")
+
+[cards]
+1 R Weather Elemental @normal
+2 C Armored Raptor @normal
+3 C Brief Stop @normal
+4 C Capricious Cat @normal
+5 R Catch Your Breath @normal
+6 U Center of Attention @normal
+7 C Chiming Soul @normal
+8 R Cirriform Dragon @normal
+9 C Cloud Nine @normal
+10 U Contest Coordinator @normal
+11 U Contest Judge @normal
+12 C Contest Spectators @normal
+13 R Dark Horse Victory @normal
+14 R Diamond Dust @normal
+15 R Ema, the Returned @normal
+16 U Fight as One @normal
+17 U Generous Farmer @normal
+18 C Gone Pickin' @normal
+19 U Hail @normal
+20 C Heavy Snowfall @normal
+21 C Hungry Songbird @normal
+22 C Outlands Prowler @normal
+23 R Pest Problem @normal
+24 U Pick Up @normal
+25 R Plush Collection @normal
+26 U Practicing Guru @normal
+27 C Restless Sloth @normal
+28 C The Ruins Awaken @normal
+29 U Shiver Elemental @normal
+30 R Smart Shopper @normal
+31 U Soothing Singer @normal
+32 U Spore Collector @normal
+33 U Static Scamp @normal
+34 U Stratus Fledgling @normal
+35 C Swooping Hunter @normal
+36 C To the Last Breath @normal
+37 C Tough It Out @normal
+38 U Twinned Beak @normal
+39 C Whispering Runt @normal
+40 R Aqua Crew Flagship @normal
+41 C Aqua Jet @normal
+42 C Avert Disaster @normal
+43 U Brewing Storm (CCR) @normal
+44 U Calming Celestial @normal
+45 C Collector's Item @normal
+46 U Contest Star @normal
+47 U Delivery Gull @normal
+48 U Dustwing Butterfly @normal
+49 U Explore Wreckage @normal
+50 U Feeble Fish @normal
+51 C Floating Familiar @normal
+52 C Floe Master @normal
+53 R Fortune Bearer @normal
+54 U Harbor Mail @normal
+55 C Herald of Drizzles @normal
+56 C Illuminate (CCR) @normal
+57 U Kappa Colony @normal
+58 C King of Currents @normal
+59 C Lustrous Starfish @normal
+60 C Nimbus Dragon @normal
+61 U Out of Sight @normal
+62 C Placated Mind @normal
+63 R Primordial Seas @normal
+64 U Rain Dance @normal
+65 C Riverbed Snapper @normal
+66 U Scuttling Cicada @normal
+67 C Sea Breeze @normal
+68 C Seafloor Treasures @normal
+69 R Splashing Mudskipper @normal
+70 U Teeter Dance @normal
+71 R Tenki, Storm Chaser @normal
+72 U Unnerving Moth @normal
+73 R Unspeaking Titan @normal
+74 R Warden of Soul @normal
+75 C Whipping Winds @normal
+76 R Wrecking Whale @normal
+77 C Zipping Lightningbug @normal
+78 U Beloved Poppet @normal
+79 U Chum Chaser @normal
+80 C Crunch @normal
+81 R Depths Ancient @normal
+82 C Eager Scavenger @normal
+83 C Empty Shell @normal
+84 C Falling Ashes @normal
+85 U Feasting Sloth @normal
+86 R Gloomy Meteorologist @normal
+87 C Hoard @normal
+88 C Homesick @normal
+89 R Hostage Situation @normal
+90 C Imminent Disaster @normal
+91 C Iron Defense @normal
+92 C Lady of the Mists @normal
+93 U Maw Impostor @normal
+94 C Moonlight Adventurer @normal
+95 U Muddy Water @normal
+96 U Past Unresolved @normal
+97 C Pathetic Cocoon @normal
+98 R Pressuring Ghoul @normal
+99 C Reaper of the Deep @normal
+100 C Relentless Bats @normal
+101 U Sandstorm (CCR) @normal
+102 C Sandstorm Dancer @normal
+103 R Serrated Fossil @normal
+104 R Shadow Sky @normal
+105 U Sifting Through Soot @normal
+106 R Singularity @normal
+107 U Smiling Sludge @normal
+108 U Soul's Sunset @normal
+109 C Starved Piranha @normal
+110 U Territory Dispute @normal
+111 R Unyielding Titan @normal
+112 U Urban Explorer @normal
+113 U Walk Among the Dead @normal
+114 U Waterway Distraction @normal
+115 U Archaeovolcanologist @normal
+116 U Boiling Storm @normal
+117 C Brick Breaker @normal
+118 C Bubbling Firesnail @normal
+119 C Burn Up @normal
+120 U Burning Celestial @normal
+121 U Calamity Cat @normal
+122 C Charge Beam @normal
+123 U Crumbling Tower @normal
+124 R Desolate Lands @normal
+125 C Dragon Dance @normal
+126 U Dustwing Moth @normal
+127 R Earthbreaker Dragon @normal
+128 C Eerie Sculpture @normal
+129 R End of Mutations @normal
+130 U Exotic Transformer @normal
+131 C Fluttering Firefly @normal
+132 R Generator Alpha @normal
+133 C Hone Claws @normal
+134 C Kicking Fowl @normal
+135 U Lavaborn Slug @normal
+136 U Leaping Hatchling @normal
+137 C Magma Flow @normal
+138 U Magma Grunt @normal
+139 R Mimicry Elemental @normal
+140 C Plucky Trainer @normal
+141 C Poised Flame @normal
+142 U Psych Up @normal
+143 C Psychohopper @normal
+144 R Rumbling Volcamel @normal
+145 C Sandstorm Devil @normal
+146 U Searing Grace @normal
+147 C Solid Smog @normal
+148 C Streaking Sunrise @normal
+149 U Sunny Day @normal
+150 R Temperamental Chick @normal
+151 U Under the Collar @normal
+152 R Warden of Heart @normal
+153 C Ace Tamer @normal
+154 C Amateur Tamer @normal
+155 U Aroma Spinner @normal
+156 R Berry Fermenter @normal
+157 C Blind Pursuit @normal
+158 U Bloom Brute @normal
+159 U Blustering Storm @normal
+160 U Bottom Feeder @normal
+161 U Bumbling Pollinator @normal
+162 C Buried Geode @normal
+163 C Canopy Creeper @normal
+164 C Cheer On @normal
+165 U Clear Skies @normal
+166 U Constrict @normal
+167 R Entangled Fossil @normal
+168 C Foraging Grub @normal
+169 R Frenzy Plant @normal
+170 R Growing Gecko @normal
+171 U Harvest Time @normal
+172 R Heavy Winds @normal
+173 U Hungry Blob @normal
+174 C A Journey Begins @normal
+175 U Magical Leaves @normal
+176 C Meteor Lobber @normal
+177 R Mystery Egg @normal
+178 C Padpole @normal
+179 R Parental Pair @normal
+180 C Pollen Warning @normal
+181 U Rejuvenating Kappa @normal
+182 U Rollephant @normal
+183 C Scruffy Rascal @normal
+184 C Stockpile @normal
+185 U Sunsoaker @normal
+186 C Temperamental Growth @normal
+187 C Thornfist Bruiser @normal
+188 U Tough Nut @normal
+189 R Unflinching Titan @normal
+190 R Amber, Nimble Companion @normal
+191 R The Aqua Crew @normal
+192 U Aqua Gang Diver @normal
+193 U Berry Harvester @normal
+194 R The Berry Master @normal
+195 U Blooming Sauropod @normal
+196 R Carefree Kappa @normal
+197 R Charged Party @normal
+198 U Charismatic Chameleon @normal
+199 U Dazzling Performer @normal
+200 U Dormant Camel @normal
+201 U Echocrafter @normal
+202 U Elegant Hunter @normal
+203 U Feasting Predator @normal
+204 R Fragile Soul @normal
+205 R Heartbreak @normal
+206 R Higana, Dragonscribe @normal
+207 R Hoenn Champion @normal
+208 R Idolized Coordinator @normal
+209 R Ironback Tyke @normal
+210 R Iviana, Dragon Tamer @normal
+211 R Iviana's Spellmaw @normal
+212 R Jack, Monster Mentor @normal
+213 R Karina, Budding Diplomat @normal
+214 U King of Gluttons @normal
+215 R The Magma Council @normal
+216 R Nocturne, Monstrous Krasis @normal
+217 U Omenhorn @normal
+218 U Pitfall Pincher @normal
+219 U Plated Tunneler @normal
+220 R Poisoned Rose @normal
+221 U Prolific Fisher @normal
+222 U Puddle Crasher @normal
+223 U Rooting Raccoon @normal
+224 R Sanaito, Voidsinger @normal
+225 R Snoring Stone @normal
+226 R Scattering Swine @normal
+227 U Seafloor Scavenger @normal
+228 U Seal Shoals @normal
+229 U Shining Angler @normal
+230 R Simul, Genetic Artisan @normal
+231 R Spikey, Jack's Gravetiller @normal
+232 R Stitches, Adopted @normal
+233 R Suncaller Tortoise @normal
+234 U Talon Triplets @normal
+235 R Teetering Panda @normal
+236 R Turf Warfare @normal
+237 R Warden of Depths @normal
+238 R Warden of Skies @normal
+239 R Warden of Tremors @normal
+240 R Warden of Wishes @normal
+241 R Weaver of Fates @normal
+242 C Claw Fossil @normal
+243 C Creature Catalog @normal
+244 U Enspirited Ore @normal
+245 C Figy Berry @normal
+246 U Glassblower's Forge @normal
+247 C Gold Berry @normal
+248 U Hard Stone @normal
+249 U Karina's Substitute @normal
+250 U King's Rock @normal
+251 C Life Orb @normal
+252 C Living Compass @normal
+253 U Lum Berry @normal
+254 C Magnetic Mystery @normal
+255 U Magnetic Snuffler @normal
+256 R Magnetling @normal
+257 U Meteorite @normal
+258 C Root Fossil @normal
+259 U Snazzy Scarf @normal
+260 C Calmed Battleground @normal
+261 C Cryptic Reef @normal
+262 C Deeplife Cavern @normal
+263 C Evolving Wilds @normal
+264 L Forest @normal
+265 C Fortress Arena @normal
+266 C Frigid Highlands @normal
+267 C Gleaming Hot Springs @normal
+268 L Island @normal
+269 R Mirage Island @normal
+270 L Mountain @normal
+271 C Ominous Quag @normal
+272 L Plains @normal
+273 U Prickly Dunes @normal
+274 U Primal Fissure @normal
+275 U Rumbling Door @normal
+276 C Serpentine Woods @normal
+277 R Sky Pillar @normal
+278 C Stunning Cascade @normal
+279 C Sunlit Ruins @normal
+280 L Swamp @normal
+281 U Temple of Origins @normal
+282 U Weather Research Station @normal
+
+[buy a box]
+283 S Dustwing Butterfly @special
+284 S Carefree Kappa @special
+285 S Heartbreak @special
+286 S Calamity Cat @special
+287 S Basilo, Lion of Valor @special
+
+[alternate art]
+1002 C Armored Raptor @shiny
+1005 R Catch Your Breath @shiny
+1008 R Cirriform Dragon @shiny
+1014 R Diamond Dust @shiny
+1018 C Gone Pickin' @shiny
+1022 C Outlands Prowler @shiny
+1025 R Plush Collection @shiny
+1026 U Practicing Guru @shiny
+1032 U Spore Collector @shiny
+1034 U Stratus Fledgling @shiny
+1042 C Avert Disaster @shiny
+1063 R Primordial Seas @shiny
+1069 R Splashing Mudskipper @shiny
+1073 R Unspeaking Titan @shiny
+1074 R Warden of Soul @shiny
+1076 R Wrecking Whale @shiny
+1079 U Chum Chaser @shiny
+1087 C Hoard @shiny
+1098 R Pressuring Ghoul @shiny
+1100 C Relentless Bats @shiny
+1103 R Serrated Fossil @shiny
+1104 R Shadow Sky @shiny
+1107 U Smiling Sludge @shiny
+1111 R Unyielding Titan @shiny
+1114 U Waterway Distraction @shiny
+1121 U Calamity Cat @shiny
+1122 C Charge Beam @shiny
+1124 R Desolate Lands @shiny
+1127 R Earthbreaker Dragon @shiny
+1129 R End of Mutations @shiny
+1132 R Generator Alpha @shiny
+1135 U Lavaborn Slug @shiny
+1136 U Leaping Hatchling @shiny
+1139 R Mimicry Elemental @shiny
+1142 U Psych Up @shiny
+1147 C Solid Smog @shiny
+1150 R Temperamental Chick @shiny
+1152 R Warden of Heart @shiny
+1155 U Aroma Spinner @shiny
+1156 R Berry Fermenter @shiny
+1158 U Bloom Brute @shiny
+1167 R Entangled Fossil @shiny
+1170 R Growing Gecko @shiny
+1172 R Heavy Winds @shiny
+1173 U Hungry Blob @shiny
+1174 C A Journey Begins @shiny
+1181 U Rejuvenating Kappa @shiny
+1185 U Sunsoaker @shiny
+1189 R Unflinching Titan @shiny
+1190 R Amber, Nimble Companion @shiny
+1196 R Carefree Kappa @shiny
+1203 U Feasting Predator @shiny
+1205 R Heartbreak @shiny
+1207 R Hoenn Champion @shiny
+1209 R Ironback Tyke @shiny
+1216 R Nocturne, Monstrous Krasis @shiny
+1218 U Pitfall Pincher @shiny
+1220 R Poisoned Rose @shiny
+1221 U Prolific Fisher @shiny
+1224 R Sanaito, Voidsinger @shiny
+1226 R Scattering Swine @shiny
+1228 U Seal Shoals @shiny
+1231 R Spikey, Jack's Gravetiller @shiny
+1232 R Stitches, Adopted @shiny
+1233 R Suncaller Tortoise @shiny
+1234 U Talon Triplets @shiny
+1235 R Teetering Panda @shiny
+1237 R Warden of Depths @shiny
+1238 R Warden of Skies @shiny
+1239 R Warden of Tremors @shiny
+1240 R Warden of Wishes @shiny
+1241 R Iviana's Spellmaw @shiny
+1244 U Enspirited Ore @shiny
+1256 R Magnetling @shiny
+
+[duals]
+1 Calmed Battleground|CCR
+1 Cryptic Reef|CCR
+1 Deeplife Cavern|CCR
+1 Fortress Arena|CCR
+1 Frigid Highlands|CCR
+1 Gleaming Hot Springs|CCR
+1 Ominous Quag|CCR
+1 Serpentine Woods|CCR
+1 Stunning Cascade|CCR
+1 Sunlit Ruins|CCR
+
+[tokens]
+c_a_berry_equip
+c_a_treasure_sac
+c_2_2_a_toy_defender
+g_1_1_plant
+gur_3_3_dragon
+gur_3_3_dragon_flying
+gur_3_3_dragon_flying_ds_vig
+gur_3_3_dragon_flying_vig
+looks_like_rain
+r_2_4_bird_warrior_ds_vig_haste
+shigana
+u_1_1_fish_haste
+u_2_1_human_pirate
+u_aura_epermanent_draw
+w_1_1_golem
+w_2_2_mouse
+wb_3_3_bird_flying_vig_haste
+wu_2_2_seal_orb

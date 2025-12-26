@@ -1,0 +1,25 @@
+Name:Tidepool Turtle
+ManaCost:U U
+Types:Creature Turtle
+PT:2/2
+K:mon_Experience
+T:Mode$ Always | IsPresent$ Card.Self+counters_GE3_P1P1 | TriggerZones$ Battlefield | Execute$ TrigRemove | TriggerDescription$ When CARDNAME has three or more +1/+1 counters on it, remove them all and transform it.
+SVar:TrigRemove:DB$ RemoveCounter | CounterType$ P1P1 | CounterNum$ All | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhen Tidepool Turtle has three or more +1/+1 counters on it, remove them all and transform it.
+
+ALTERNATE
+
+Name:Tsunami Titan
+ManaCost:no cost
+Colors:blue
+Types:Creature Turtle
+PT:5/8
+K:Hexproof
+T:Mode$ Transformed | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBounce | TriggerDescription$ Whenever this creature transforms into CARDNAME or attacks, you may return target creature to its owner's hand.
+T:Mode$ Attacks | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBounce | Secondary$ True | TriggerDescription$ Whenever this creature transforms into CARDNAME or attacks, you may return target creature to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | ValidTgts$ Creature | TgtPrompt$ Select target creature | Origin$ Battlefield | Destination$ Hand
+Oracle:Hexproof\nWhenever this creature transforms into Tsunami Titan or attacks, you may return target creature to its owner's hand.

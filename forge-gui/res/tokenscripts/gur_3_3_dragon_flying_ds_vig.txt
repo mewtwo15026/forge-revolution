@@ -1,0 +1,9 @@
+Name:Dragon Token
+ManaCost:no cost
+Colors:green,blue,red
+Types:Creature Dragon
+PT:3/3
+K:Flying
+K:Double Strike
+K:Vigilance
+Oracle:Flying,double strike,vigilance

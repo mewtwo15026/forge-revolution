@@ -106,6 +106,8 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
     private Map<Long, CardCollection> mustBlockCards = Maps.newHashMap();
     private List<Card> blockedThisTurn = Lists.newArrayList();
     private List<Card> blockedByThisTurn = Lists.newArrayList();
+    // REVOLUTION
+    private CardCollection integratedCards, cachedCards, reprievedCards;
 
     private CardCollection untilLeavesBattlefield = new CardCollection();
 
@@ -1166,6 +1168,20 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
             devouredCards = new CardCollection();
         }
         devouredCards.add(c);
+    }
+
+    /**
+     * REVOLUTION
+     * handle tracking of cards bounced with Reprieve
+     */
+    public final CardCollectionView getReprievedCards() {
+        return CardCollection.getView(reprievedCards);
+    }
+    public final void addReprieved(final Card c) {
+        if (reprievedCards == null) {
+            reprievedCards = new CardCollection();
+        }
+        reprievedCards.add(c);
     }
 
     public final CardCollectionView getExploited() {

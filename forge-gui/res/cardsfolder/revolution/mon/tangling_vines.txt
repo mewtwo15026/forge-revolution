@@ -1,0 +1,10 @@
+Name:Tangling Vines
+ManaCost:2 G
+Types:Creature Plant
+PT:2/2
+K:Flash
+K:Reach
+K:mon_Experience
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Flash\nReach\nExperience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)

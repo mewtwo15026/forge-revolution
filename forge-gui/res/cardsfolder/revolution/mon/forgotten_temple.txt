@@ -1,0 +1,11 @@
+Name:Forgotten Temple
+ManaCost:no cost
+Types:Legendary Land
+A:AB$ Mana | Cost$ T | Produced$ C | SubAbility$ DBExile | SpellDescription$ Add {C}. Exile a card from your graveyard.
+SVar:DBExile:DB$ ChangeZone | Hidden$ True | Mandatory$ True | ChangeType$ Card | ChangeNum$ 1 | DefinedPlayer$ You | Origin$ Graveyard | Destination$ Exile
+A:AB$ Animate | Cost$ 3 | Defined$ Self | Power$ X | Toughness$ X | Types$ Creature | SpellDescription$ Until end of turn, CARDNAME becomes an X/X creature, where X is the number of cards exiled by it. It's still a land.
+SVar:X:Count$ValidExile Card.ExiledWithSource
+S:Mode$ Continuous | EffectZone$ Battlefield | Affected$ Card.Self | SharedKeywordsZone$ Exile | SharedRestrictions$ Card.Creature+ExiledWithSource | AddKeyword$ Flying & First Strike & Double Strike & Deathtouch & mon_Experience & Haste & Hexproof & Indestructible & Lifelink & Menace & Reach & Trample & Vigilance | Description$ CARDNAME has flying as long as a creature card exiled with it has flying. The same is true for first strike, double strike, deathtouch, experience, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.
+DeckHas:Ability$Graveyard
+DeckHints:Ability$Mill
+Oracle:{T}: Add {C}. Exile a card from your graveyard.\n{3}: Until end of turn, Forgotten Temple becomes an X/X creature, where X is the number of cards exiled by it. It's still a land.\nForgotten Temple has flying as long as a creature card exiled with it has flying. The same is true for first strike, double strike, deathtouch, experience, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.

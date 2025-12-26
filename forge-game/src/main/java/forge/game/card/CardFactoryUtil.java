@@ -2092,6 +2092,56 @@ public class CardFactoryUtil {
             trigger.setOverridingAbility(saDelay);
             inst.addTrigger(trigger);
         }
+        // REVOLUTION
+        else if (keyword.equals("mon_Experience")) {
+            String strTrig = "Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE2_P1P1 | "
+                    + "TriggerDescription$ Experience (" + inst.getReminderText() + ")";
+            final String effect = "DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1";
+
+            final Trigger trigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
+
+            inst.addTrigger(trigger);
+        } else if (keyword.equals("cyb_Solidarity")) {
+            String strTrig = "Mode$ AttackersDeclared | AttackingPlayer$ You | "
+                    + "CheckSVar$ Count$Valid Creature.attacking+YouCtrl$CreatureType | SVarCompare$ GE6 | "
+                    + "TriggerZones$ Battlefield | TriggerDescription$ Solidarity (" + inst.getReminderText() + ")";
+            final String effect = "DB$ Token | TokenAmount$ 1 | TokenScript$ c_e_solidarity | "
+                    + "ConditionCheckSVar$ Count$ThisTurnEntered_Battlefield_Enchantment.YouCtrl+token+Colorless+namedSolidarity (CYB) | ConditionSVarCompare$ LE1";
+
+            final Trigger trigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
+
+            inst.addTrigger(trigger);
+        } else if (keyword.equals("twi_Decoy")) {
+            String strTrig = "Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | "
+                    + "TriggerDescription$ Decoy (" + inst.getReminderText() + ")";
+            final String effect = "DB$ CopyPermanent | Defined$ TriggeredAttackerLKICopy | SetPower$ 1 | SetToughness$ 1 | "
+                    + "SetCreatureTypes$ Illusion | TokenTapped$ True | TokenAttacking$ True | AtEOT$ Exile";
+
+            final Trigger trigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
+
+            inst.addTrigger(trigger);
+        } else if (keyword.equals("twi_Rapture")) {
+            String strTrig = "Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | "
+                    + "TriggerDescription$ Rapture (" + inst.getReminderText() + ")";
+            String dbReturn = "DB$ ChangeZone | Defined$ TriggeredNewCardLKICopy | Origin$ Graveyard | Destination$ Battlefield | "
+                    + "WithCountersType$ HAZE | RememberChanged$ True";
+            String dbAnimate = "DB$ Animate | Defined$ Remembered | RemoveAllAbilities$ True | Keywords$ HIDDEN CARDNAME can't block. | Duration$ Permanent";
+
+            SpellAbility sa = AbilityFactory.getAbility(dbReturn, card);
+            AbilitySub saAnimate = (AbilitySub)AbilityFactory.getAbility(dbAnimate, card);
+            sa.setSubAbility(saAnimate);
+
+            sa.setIntrinsic(intrinsic);
+
+            final Trigger parsedTrigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            parsedTrigger.setOverridingAbility(sa);
+
+            inst.addTrigger(parsedTrigger);
+        }
+        // end REVOLUTION triggered keywords
     }
 
     public static void addReplacementEffect(final KeywordInterface inst, final CardState card, final boolean intrinsic) {
@@ -2627,6 +2677,21 @@ public class CardFactoryUtil {
             sb.append(" (").append(inst.getReminderText()).append(")");
 
             final ReplacementEffect re = makeEtbCounter(sb.toString(), card, intrinsic);
+
+            inst.addReplacement(re);
+        }
+        // REVOLUTION
+        // handle replacement effects from new keywords
+        else if (keyword.equals("twi_Reprieve")) {
+            String bounceStr = "DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ChangeType$ Creature.YouCtrl+withouttwi_Reprieve | "
+                    + "ChangeNum$ 1 | Hidden$ True | RememberChanged$ True";
+            AbilitySub bounceSA = (AbilitySub) AbilityFactory.getAbility(bounceStr, card);
+
+            String repeffstr = "Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | Description$ Reprieve ("+ inst.getReminderText() + ")";
+
+            ReplacementEffect re = ReplacementHandler.parseReplacement(repeffstr, host, intrinsic, card);
+
+            re.setOverridingAbility(bounceSA);
 
             inst.addReplacement(re);
         }

@@ -1,0 +1,5 @@
+Name:Puzzlebox
+ManaCost:no cost
+Types:Artifact
+A:AB$ Draw | Cost$ T Discard<1/Card> | NumCards$ 1 | SpellDescription$ Draw a card.
+Oracle:{T}, Discard a card: Draw a card.

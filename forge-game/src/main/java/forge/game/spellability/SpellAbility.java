@@ -106,6 +106,8 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     private StaticAbility grantorStatic;
 
     private CardCollection splicedCards = null;
+    //REV: chant
+    private CardCollection chantedCards = null;
 
     private boolean basicSpell = true;
     private Trigger triggerObj;
@@ -1656,6 +1658,20 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             splicedCards = new CardCollection();
         }
         splicedCards.add(splicedCard);
+    }
+
+    /**
+     * REVOLUTION
+     * stuff for Chant
+     * @return
+     */
+    public CardCollection getChantedCards() { return chantedCards; }
+    public void setChantedCards (CardCollection chantedCards0) { chantedCards = chantedCards0; }
+    public void addChantedCards (Card chantedCard) {
+        if (chantedCards == null) {
+            chantedCards = new CardCollection();
+        }
+        chantedCards.add(chantedCard);
     }
 
     public CardCollection knownDetermineDefined(final String defined) {

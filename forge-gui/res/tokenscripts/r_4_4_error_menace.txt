@@ -1,0 +1,7 @@
+Name:Error Token
+ManaCost:no cost
+Colors:red
+Types:Creature Error
+PT:4/4
+K:Menace
+Oracle:Menace

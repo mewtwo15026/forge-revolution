@@ -3325,6 +3325,30 @@ public class PlayerControllerHuman extends PlayerController implements IGameCont
         return chosenCards;
     }
 
+    /**
+     * REVOLUTION
+     * @param sa
+     * @param cards
+     * @return
+     */
+    @Override
+    public List<Card> chooseCardsForChant(SpellAbility sa, List<Card> cards) {
+        GameEntityViewMap<Card, CardView> gameCacheChant = GameEntityView.getMap(cards);
+
+        List<CardView> chosen = getGui().many(
+                localizer.getMessage("lblChooseCardstoChantonto"),
+                localizer.getMessage("lblChosenCards"),
+                0,
+                gameCacheChant.size(),
+                gameCacheChant.getTrackableKeys(),
+                sa.getHostCard().getView()
+        );
+
+        List<Card> chosenCards = new CardCollection();
+        gameCacheChant.addToList(chosen, chosenCards);
+        return chosenCards;
+    }
+
     /*
      * (non-Javadoc)
      *

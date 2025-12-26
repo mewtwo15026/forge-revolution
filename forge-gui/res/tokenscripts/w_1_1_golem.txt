@@ -1,0 +1,6 @@
+Name:Golem Token
+ManaCost:no cost
+Colors:white
+Types:Creature Golem
+PT:1/1
+Oracle:

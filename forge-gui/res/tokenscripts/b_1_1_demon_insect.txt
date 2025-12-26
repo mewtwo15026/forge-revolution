@@ -1,0 +1,6 @@
+Name:Demon Insect Token
+ManaCost:no cost
+Colors:black
+Types:Creature Demon Insect
+PT:1/1
+Oracle:

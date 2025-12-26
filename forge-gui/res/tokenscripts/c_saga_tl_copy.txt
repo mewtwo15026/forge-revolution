@@ -1,0 +1,12 @@
+Name:Saga Token
+ManaCost:no cost
+Types:Enchantment Saga
+R:Event$ Moved | ValidCard$ Permanent.nonLand+!token | Origin$ Battlefield | Destination$ Command | ReplaceWith$ WriteMemory | IsPresent$ Card.Self+withoutRetrace | Description$ (Exile target nonland, nontoken permanent.)
+SVar:WriteMemory:DB$ ChangeZone | Defined$ ReplacedCard | Hidden$ True | Origin$ Battlefield | Destination$ Exile | WithCountersType$ CACHE | RememberChanged$ True | SubAbility$ DBNote
+SVar:DBNote:DB$ Animate | Duration$ Permanent | Keywords$ Retrace
+R:Event$ Moved | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self+counters_GE3_LORE | ReplaceWith$ TimeLoop | Description$ Time loop (Remove all lore counters after III without sacrificing this Saga.)
+SVar:TimeLoop:DB$ RemoveCounter | CounterType$ LORE | CounterNum$ All
+K:Chapter:3:DBBlank,DBBlank,DBCopy
+SVar:DBBlank:DB$ Pump | Static$ True
+SVar:DBCopy:DB$ Play | Valid$ Card.ExiledWithSource | ValidZone$ Exile | Amount$ All | WithoutManaCost$ True | ValidSA$ Spell | Optional$ True | CopyCard$ True | SubAbility$ TimeLoop | SpellDescription$ You may cast a copy of the exiled card without paying its mana cost.
+Oracle:Time loop (As this Saga enters and after your draw step, add a lore counter. Remove them all after III.)\nIII — You may cast a copy of the exiled card without paying its mana cost.

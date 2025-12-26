@@ -205,6 +205,11 @@ public abstract class PlayerController {
     public abstract Map<Card, ManaCostShard> chooseCardsForConvokeOrImprovise(SpellAbility sa, ManaCost manaCost, CardCollectionView untappedCards, boolean artifacts, boolean creatures, Integer maxReduction);
     public abstract List<Card> chooseCardsForSplice(SpellAbility sa, List<Card> cards);
 
+    /**
+     * REVOLUTION
+     */
+    public abstract List<Card> chooseCardsForChant(SpellAbility sa, List<Card> cards);
+
     public abstract CardCollectionView chooseCardsToRevealFromHand(int min, int max, CardCollectionView valid);
     public abstract List<SpellAbility> chooseSaToActivateFromOpeningHand(List<SpellAbility> usableFromOpeningHand);
     public abstract Player chooseStartingPlayer(boolean isFirstGame);

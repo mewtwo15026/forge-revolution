@@ -466,6 +466,9 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
         final Game game = activator.getGame();
         final CardCollection commandCards = new CardCollection();
 
+        //REVOLUTION
+        final boolean reprieve = sa.isKeyword(Keyword.TWI_REPRIEVE);
+
         ZoneType destination = ZoneType.smartValueOf(sa.getParam("Destination"));
         final List<ZoneType> origin = Lists.newArrayList();
         if (sa.hasParam("Origin")) {
@@ -832,6 +835,16 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                             hostCard.addImprintedCard(lastCard);
                         }
                     }
+                }
+
+                //REVOLUTION
+                if (reprieve && ZoneType.Hand.equals(destination)) {
+
+                    hostCard.addReprieved(movedCard);
+                    // implement these if a later set makes them necessary
+                    //final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                    //runParams.put(AbilityKey.Reprieved, hostCard);
+                    //game.getTriggerHandler().runTrigger(TriggerType.Reprieved, runParams, false);
                 }
             }
         }

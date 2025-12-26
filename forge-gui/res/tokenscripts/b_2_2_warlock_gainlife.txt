@@ -1,0 +1,8 @@
+Name:Warlock Token
+ManaCost:no cost
+Colors:black
+Types:Creature Warlock
+PT:2/2
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ At the beginning of your upkeep, you gain 2 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 2
+Oracle:At the beginning of your upkeep, you gain 2 life.

@@ -1,0 +1,6 @@
+Name:Toy Token
+ManaCost:no cost
+Types:Artifact Creature Toy
+PT:2/2
+K:Defender
+Oracle:Defender

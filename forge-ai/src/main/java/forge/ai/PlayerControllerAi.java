@@ -1586,6 +1586,27 @@ public class PlayerControllerAi extends PlayerController {
     }
 
     @Override
+    public List<Card> chooseCardsForChant(SpellAbility sa, List<Card> cards) {
+        //sort from best to worst
+        CardLists.sortByCmcDesc(cards);
+
+        List<Card> result = Lists.newArrayList();
+
+        SpellAbility oldSA = sa;
+        // TODO maybe add some more Logic into it
+        for (final Card c : cards) {
+            SpellAbility newSA = oldSA.copy();
+            AbilityUtils.addChantEffect(newSA, c);
+            // check if AI still wants or can play the card with chanted effect
+            if (AiPlayDecision.WillPlay == getAi().canPlayFromEffectAI((Spell) newSA, false, false)) {
+                oldSA = newSA;
+                result.add(c);
+            }
+        }
+        return result;
+    }
+
+    @Override
     public List<OptionalCostValue> chooseOptionalCosts(SpellAbility chosen, List<OptionalCostValue> optionalCostValues) {
         return SpellApiToAi.Converter.get(chosen).chooseOptionalCosts(player, chosen, optionalCostValues);
     }

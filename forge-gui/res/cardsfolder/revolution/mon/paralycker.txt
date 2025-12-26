@@ -1,0 +1,11 @@
+Name:Paralycker
+ManaCost:3 W
+Types:Creature Beast
+PT:2/2
+K:mon_Experience
+T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigTap | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, tap target creature you don't control.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever a +1/+1 counter is put on a creature you control, tap target creature you don't control.

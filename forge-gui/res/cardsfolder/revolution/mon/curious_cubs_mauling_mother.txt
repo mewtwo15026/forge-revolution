@@ -1,0 +1,27 @@
+Name:Curious Cubs
+ManaCost:1 W
+Types:Creature Bear
+PT:1/1
+K:mon_Experience
+S:Mode$ Continuous | Affected$ Card.Self+attacking | AddKeyword$ First Strike | Description$ CARDNAME has first strike as long as it's attacking.
+T:Mode$ Always | IsPresent$ Card.Self+counters_GE3_P1P1 | TriggerZones$ Battlefield | Execute$ TrigRemove | TriggerDescription$ When CARDNAME has three or more +1/+1 counters on it, remove them all and transform it.
+SVar:TrigRemove:DB$ RemoveCounter | CounterType$ P1P1 | CounterNum$ All | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nCurious Cubs has first strike as long as it's attacking.\nWhen Curious Cubs has three or more +1/+1 counters on it, remove them all and transform it.
+
+ALTERNATE
+
+Name:Mauling Mother
+ManaCost:no cost
+Colors:white
+Types:Creature Bear
+PT:5/5
+K:First Strike
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each other creature you control.
+SVar:X:Count$Valid Creature.Other+YouCtrl
+SVar:BuffedBy:Creature
+Oracle:First strike\nMauling Mother gets +1/+1 for each other creature you control.
+

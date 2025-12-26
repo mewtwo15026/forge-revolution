@@ -1,0 +1,7 @@
+Name:Warlock Token
+ManaCost:no cost
+Colors:blue
+Types:Creature Warlock
+PT:1/1
+K:Prowess
+Oracle:Prowess

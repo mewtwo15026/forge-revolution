@@ -1,0 +1,8 @@
+Name:Warlock Token
+ManaCost:no cost
+Colors:black
+Types:Creature Warlock
+PT:2/2
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigShrink | TriggerDescription$ At the beginning of your upkeep, target creature an opponent controls gets -1/-1 until end of turn.
+SVar:TrigShrink:DB$ Pump | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Choose target creature an opponent controls | NumAtt$ -1 | NumDef$ -1 | IsCurse$ True
+Oracle:At the beginning of your upkeep, target creature an opponent controls gets -1/-1 until end of turn.

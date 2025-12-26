@@ -1,0 +1,401 @@
+[metadata]
+Code=KDT
+Date=2025-05-01
+Name=Kitsuo: Dusk of Time
+Code2=KDT
+MciCode=kdt
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
+Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+FatPack=8
+FatPackExtraSlots=40 BasicLands KDT
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+# Set designed by Provocative
+
+#Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
+[Common]
+Base=Common:fromSheet("KDT cards"):!BasicLand
+
+[Uncommon]
+Base=Uncommon:fromSheet("KDT cards")
+
+[RareMythic]
+Base=RareMythic:fromSheet("KDT cards")
+
+[AnyLand]
+Base=BasicLand:fromSheet("KDT cards")
+Replace=.166F fromSheet("KDT duals")
+
+[Wildcard]
+Base=Uncommon:fromSheet("KDT cards")
+Replace=.125F Common:fromSheet("KDT cards"):!BasicLand
+Replace=.201F Rare:fromSheet("KDT cards")
+Replace=.033F Mythic:fromSheet("KDT cards")
+Replace=.016F fromSheet("KDT buy a box")
+
+[cards]
+1 R Auspicious Return @lee-337
+2 U Ayeshi's Agent @rodmendez
+3 C Bladecross Student @Aliya Chen
+4 U Blur Strike @Yerbol Bulentayev
+5 M Danuja, Emperor's Pet @Sean Ziethen
+6 U Dragon of Recollection @Jax Sherigan
+7 M The Dutiful Wanderer @Andy Timm
+8 R Elder Tattooist @Polar Engine
+9 M Emperor Tzuhan @KOOka
+10 C Friendly Dragonling @AmaterasuAmi
+11 C Gongwielder Abbot @Clint Clearley
+12 U Illusory Savior @taxtar
+13 R Imperial Honor Guard @Sam Kanios
+14 U Imperial Tour @Lejia Chan
+15 R Iri Sentinel @Nero Gen
+16 C Kimja Jailer @Liew Yu Liang John
+17 C Kitsune Duelist @katrimav
+18 C Kitsune Matriarch @ki-tsune
+19 U Master of the Peaks @Asep Ariyanto
+20 U Ofuda Mistress @Andrew Chou
+21 R Perils of Eternity @You Zheng
+22 R Revolt at the Palace @Ziyao Xu Yao
+23 R Sculptor's Replica @Brandon Jeung
+24 C Sealing Strike @Huhsoo
+25 C Storm Jelly @Margot Zussy
+26 C Stormfist Monk @Steven Shan
+27 U Swift Reproach @Arit Wijaya
+28 C Uiki Initiate @Billy Christian
+29 C Uplifting Melody @Huyy Nguyen
+30 R Welkin Eviction @Samson Blaya aka Kabouto
+31 C Whirlwind Kick @Le Vuong
+32 U Yokinzan General @XT-Art
+33 U Ascended Salamander @devin platts
+34 R Avatar's Whim @Alexis Susani
+35 C Butterfly Dragonling @Kate Becker
+36 R Confronting Time's Jailer @Ruiwen-art
+37 C Daring Shinobi @Connor Sheehan
+38 C Deft Deflection @Silvia Meiliani
+39 U Dragon's Court @fang xinyu
+40 C Dragon's Repose @Pinguinolog
+41 C Elope @Lightwing Academy
+42 C Expert Bladework @Rio Sabda
+43 R The God-Tree Chimes @qing ying
+44 R Grasp of the Elements @yuogle
+45 U King of Shallow Shores @Mark Louie Superales
+46 C Leyline Attuner @Anna Rusan
+47 C Living Wave @gerezon
+48 M Luraana, Loop's End @Oma-i
+49 R Maiden of the Waters @XT-Art
+50 C Moonblade Ninja @Nikulina Helena
+51 R Natori Skyblade @Diana Martinez
+52 C Nerve-Strike Disciple @Iyla Popov
+53 U Ominous Seas @EGOR_URSUS
+54 U Pass Judgment @IrenBee
+55 U River Guardian @Jax Sherigan
+56 M Sakura Dance @han yijie
+57 R Simian Pupil @Eilene Cherie
+58 U Suppressing-Fist Pupil @Polar Engine
+59 R Threadweaver Shinobi @Nolan Lu
+60 U Twilight Agent @MatiscsakART
+61 C Uiki Cloudchaser @Rio Sabda
+62 C Veiled Branchstalker @Rinotuna
+63 U Yokinzan Pathfinder @zihan
+64 U Blighted Mistress @Henrique Lindner
+65 M Conqueror's Glee @onmyoji
+66 R Damn to Hell @Hou China
+67 C Drag into the Dark @poibuts
+68 C Duress @Dark Dock
+69 U Fallen Heartseeker @Nolan Lu
+70 U General of the Damned @Seraphinus Calvin
+71 R The Inferno Gate Opens @NUARE
+72 U Inklight Dancer @denn18art
+73 M Kage, Cursed Conqueror @Nathaniel Himawan
+74 R Kage's Mercenary @sXeven
+75 R Kimja Deadeye @Lorenzo Mastroianni
+76 C Lesser Dragon @arvalis
+77 U Merciless Ruiner @Hou China
+78 C Midnight Duo @Xiao Guang Sun
+79 R Moonlight Adversary @Borja Pindado
+80 R Omen Skulker @Korua
+81 C Ravenous Slaughterlord @Isuardi Therianto
+82 C Resolute Natori @crutz
+83 U Ruiner's Execution @Adolfo Navarro
+84 U Ruiner's Hijacking @Hou China
+85 R Sludge Drudge @Aleksa Drageljevic
+86 U Stained Strokes @Tony0588
+87 C Sundering the Fleet @LU LIN
+88 C Sunset Warrior @Yuka Han
+89 C Thousand Depths Cutthroat @Jason Engle
+90 R Vengeful Artificer @Isuardi Therianto
+91 U Wicked Manifestation @Hugo Talon
+92 C Willing Acolyte @Hai Hoang
+93 C Wretched Bargain @Borja Pindado
+94 C Yokinzan Hermit @Joel Chin
+95 C Blazing Kitsune @Margot Zussy
+96 U Bleeding Out @BIGGIE
+97 C Blood-Cursed Ape @XT-Art
+98 C Blossoming Ocelot @Maria Pechenkina
+99 R Born From Fire @TVM Team
+100 U Chomei's Brawler @tosh13go
+101 R Demon of Dire Storms @Trung Tin Shingi
+102 C Face of Animosity @T D
+103 C Fall Upon Your Blade @daftpunk069
+104 U Frilled Seishin @feig-art
+105 M Gereishin, the Stormlord @T SWCK
+106 M Hakodate Regent @zhang gan
+107 C Hell's Boon @Mario Wibisono
+108 U Imperial Dragon @Ognjen Sporin
+109 U Imperial Production @Nikolay Moskvin
+110 R Impulsive Underling @Lightwing Academy
+111 R Infernal Kitsune @Tatii Lange
+112 U Kage's Slayer @Noah Thatcher
+113 U Kirin of Boons @chiou
+114 C Knight of Kage @XiaoBotong
+115 U Koi-Tail Mer @Elin Tan
+116 C Newborn Oni @Haco1
+117 C Noble Kitsune @Jax Sherigan
+118 C Realm-Delver Whelp @Kalfy
+119 U Saboteur's Immolation @Borja Pindado
+120 R Scouring the Riverbed @Kevin Glint
+121 C Seishin of Sun's Radiance @Margot Zussy
+122 R Shigane Manor Burns @Dao Trong Le
+123 R Spirit Realm Phoenix @Yishu
+124 M Spiteful Banditry @TJ Foo
+125 C Vicious Backstab @Hai Hoang
+126 R Wisping Kirin @sakimichan
+127 M Ageless Seishin @Kate Becker
+128 U Ancestor's Guidance @Conor Burke
+129 R Aonuma's Students @DanMaynard
+130 R Arushi, Shigane Heirloom @Chloe Nguyen
+131 C Balance of the Realms @Nora Zhang
+132 C Basking Kitsune @Asfodelo
+133 R Breath of the Spirit Realm @rodmendez
+134 R Brutal Throatcrusher @Le Vuong
+135 U Cartographer's Skill @yuogle
+136 C Deadly Combatant @Narendra B Adi
+137 U Distinguished Weaverkin @Liew Yu Liang John
+138 U Ethereal Blossom @Renata Herrero Mier
+139 C Gifts of the Kitsune @fionahsieh
+140 C Mapper's Wanderings @Joseph Oiu
+141 C Master of Stances @Michael Adams
+142 C Mirageform Shinobi @Rayven Studios
+143 C Momentous Strike @Sam Yang
+144 R Orochi Soulfang @Edward Chee
+145 U Overflow @Shikano
+146 R Portal to the Spirit Realm @Lightwing Academy
+147 M Realm Violator @JarekMadyda
+148 C Realmweft Implosion @dongbiao lu
+149 U Realmweft Kitsune @Yishu
+150 U Ribbon Dancer @SIXMOREVODKA
+151 U Settler's Caravan @Alex Shiga
+152 C Shigane Cyclone @Heather Zhang
+153 U Shigane Elder @Draw Souls
+154 R Stonework Titan @Nurikabenuri
+155 R Uncoiling Realmspawn @Riccardo Gualdi
+156 C Verdant Winder @RobertCrescenzio
+157 C Wandering Thrumhorn @Simone Torcasio
+158 C Abandon the Code @ENMOIRE
+159 U Absolution Flock @Kiuyan Ran Krusier
+160 U Adorned Kitsune @rajewel
+161 M Aether Dancer @Sam Kanios
+162 M Akai and Toyotomi @Hou China
+163 U Akihiko, Wayfinder @XiaoBotong
+164 M Akuryo, the Sweet Fang @Xsit
+165 R Amagaseto, Mother Spirit @Yishu
+166 M The Ancestral Legion @Andrew Sonea
+167 M The Ancient Master @Agri Karuniawan
+168 R Aonuma, Princely Traveler @Martina Jahodova
+169 R Assaulted by Shadows @Fajareka Setiawan
+170 R Attuned Acolyte @Yan Kyohara
+171 R Ayeshi Breaks the Loop @tsubonari
+172 M Ayeshi, Time's Jailer @Tumeji
+173 U Banish into Nothingness @Scott Shi
+174 R Banisher Rifle @Joseph Oiu
+175 C Chittering Ascetic @Malcolm Wope
+176 U Chomei, the Hostmother @Irina Norosol Kuzmina
+177 M Commander Tachibana @poibuts
+178 C Conqueror's Favored @Lightwing Academy
+179 U Creation's Combustion @venomxal
+180 U Deathdealer Oni @Nastya Lehn
+181 R Deepborn Calamity @Wietse Treurniet
+182 U Deflecting Kitsune @NikuSenpai
+183 C Demonic Reposession @nhaduy
+184 R Devouring Seishin @Cindy Avelino
+185 U Disguised Hermit @Danny Huynh
+186 U Dynasty's Benediction @Hai Hoang
+187 U Eager Eelpup @Kuroi-kisin
+188 U Ensorcell @Moky lin
+189 R Fablewoven Kitsune @Shiranui
+190 C Fatal Flourish @Leaf Art
+191 U Foreign Encounter @Vlashryk
+192 U Frolicking Tatsuko @Nube
+193 R Gereishin's Entrance @Madalyn McLeod
+194 M Giyama, Scion of Kage @Zeen Chin
+195 M Godslaughter Titan @noodleli
+196 U Haughty Bulwark @Claudia-SG
+197 U Hellfire Crafting @Tomasz Kwiatkowski
+198 C High Seas Samurai @J.R. Barker
+199 R Hyomon, Cloud Conductor @Tulio Brito
+200 R Impenetrable Ronin @Carlos Kamyu Siaz Asenio
+201 C Iron-Calm Acolyte @Florian Bossonney
+202 M Iwai and Oda @Felipe Castro
+203 R Jun, Twinblade Master @K-Tea
+204 U Kei, Exiled Survivor @Dao Trong Le
+205 C Kimja Steelshaper @Hai Hoang
+206 M Kinscale Reckoner @Filip Bazarewski
+207 R Koraja, the Broken Blade @onmyoji
+208 U Koraja's Centipede @Aleksa Drageljevic
+209 U Lantern Festival @Jax Sherigan
+210 C Meditation @crutz
+211 U Menreiki, the Resplendent @Nube
+212 C Mist-Draped Delver @Joel Chin
+213 U Monastery Teacher @Muhamad Faizal Fikri
+214 U Nimble Mentor @SIXMOREVODKA
+215 M Nimomae, Who Flows @Polar Engine
+216 M Noble Shrineguard @Jax Sherigan
+217 C Nocturnal Glintblade @Clement Dumonceaux
+218 U Painted Officer @crutz
+219 R Path's End @Sui Sui
+220 C Portal Guardian @Hai Hoang
+221 R Precognitive Combatant @Kudos Productions
+222 R Prideful Reaper @Scebio
+223 U Ruiner's Procession @IFrAgMenTIx
+224 R Ruinous Portents @Chenhao Zhuang
+225 C Sabotage the Supply Lines @Jeff Hill
+226 R Shigane Clan Head @XT-Art
+227 U Shigane Troupe Leader @SIXMOREVODKA
+228 M Shiori, the Trickster @Hangleing
+229 C Spiteful Liberation @Isuardi Therianto
+230 R Staff of Balance @Alexis Susani
+231 R Stratostorm @Aleksa Drageljevic
+232 M Teshima, Living Balance @Lea Faske
+233 C Titanic Behemoth @Simone Torcasio
+234 M Tsubasa Shigane @Sarah Beth Moore
+235 U Ukina, Aethersong Basker @Sam Kanios
+236 U Aoushun's Presence @Joshua Raphael
+237 C Banished Dragon @deerland
+238 R Butchery @Borja Pindado
+239 C Crane Dancer @Lucas Torouato
+240 R Equanimity @Sam Yang
+241 U Gereishin's Presence @Camilo Palma
+242 U Ikurimoko's Presence @ShadyPotatoDragon
+243 C Inner Fortitude @avisnocturna
+244 C Instantaneous End @Polar Engine
+245 C Judgment of the Seishin @Simon Dominic Brewer
+246 U Keuya's Presence @Tatii Lange
+247 R Majesty @Athena Productions
+248 C Make an Escape @SB humiarts
+249 C Mask Thief @Evi-gilatio
+250 R Mastery @Uriah Voth
+251 C Oni of Tongues @Ognjen Sporin
+252 C Sacrificial Mentor @Borja Pindado
+253 C Scions of War @Hai Hoang
+254 C Scorching Gecko @Toni Muntean
+255 R Secrecy @Polina Kirillova
+256 C Sky's Flourishing @windfalcon
+257 C Slayer of Numachi @Dominik Mayer
+258 C Spiralhorn Kirin @Yishu
+259 C Torpid Colossus @Kim Jaehyun
+260 U Yingjun's Presence @Thanh Tuan
+261 C Dynasty Pendant @Anna Ysvir
+262 U Enchanted Pauldron @Jack Wang
+263 U Faces of the Faceless @classmate jew
+264 C Giant Hewn Toad @Vimart
+265 R Heartfire Lantern @Yuumei
+266 C Hwacha @cristian huerta
+267 R Koi Float @Yuumei
+268 C Moonlit Gateway @Zuza Bulczynska
+269 C Mortal Blade @Fajareka Setiawan
+270 R Primordial Gateway @Jasper Zhao
+271 C Prophetic Prism @Joseph Oiu
+272 R Protean Golem @Caffe Tylo
+273 M Revolutionary's Monument @wacalac
+274 U Ruiner Battlesuit @Peter Mohrbacher
+275 R Sanctuary of Fragile Unity @Yannick Dubeau
+276 C Soaring Kites @Frostwindz
+277 U Spirit Realm Medallion @Mateusz Wisniewski
+278 M Takashi, City on the Wind @LU LIN
+279 M Tzuhan's Lotus @apocalyss
+280 R Volatile Prosthetic @Iain Matthiae
+281 R Desolate Path @LU LIN
+282 R Distant Path @tsonline
+283 R Erosive Path @LU LIN
+284 R Forlorn Path @LU LIN
+285 M Gate to Fujinobe @Chris Ostrowski
+286 C Jubilant Docks @Lightwing Academy
+287 R Meandering Path @LU LIN
+288 R Murky Path @LU LIN
+289 U Opulent Vantage @AnDary
+290 R Protean Boughs @Lightwing Academy
+291 R Rousing Path @LU LIN
+292 C Royal Balcony @Lightwing Academy
+293 R Sodden Path @LU LIN
+294 R Thicketed Path @Richard Lay
+295 R Torrid Path @Huh Soo
+296 L Plains @Chris Ostrowski
+297 L Island @Chris Ostrowski
+298 L Swamp @Nele Diel
+299 L Mountain @Claire Yue
+300 L Forest @Andreas Rocha
+
+[buy a box]
+301 S The Dutiful Wanderer @Fahmi Fauzi
+302 S Perils of Eternity @Theos Zhang
+303 S Threadweaver Shinobi @Draw Souls
+304 S Kage, Cursed Conqueror @Antilous Chao
+305 S Gereishin, the Stormlord @Nyx Aurelia
+306 S Spirit Realm Phoenix @Andy Hepworth
+307 S Ageless Seishin @oing ying
+308 S The Ancestral Legion @Aleksa Drageljevic
+309 S Aonuma, Princely Traveler @Yinan Zhu
+310 S Ayeshi, Time's Jailer @pogogu
+311 S Giyama, Scion of Kage @Teresa Kiene
+312 S Koraja, the Broken Blade @Ouyen Pham
+313 S Shiori, the Trickster @hi-na1
+314 S Stratostorm @KazmaBlack
+315 S Tsubasa Shigane @Tatta_
+316 S Butchery @Christian Villacis
+317 S Equanimity @Vojtech Sklenar
+318 S Majesty @nurikabenuri
+319 S Mastery @Sebastian Horoszko
+320 S Secrecy @nurikabenuri
+321 S Elder Tattooist @Elliot Birt
+322 S Sakura Dance @Wenqing Yan
+323 S Born From Fire @Liiga Smilshkalne
+324 S Attuned Acolyte @Johannes Helgeson
+325 S Precognitive Combatant @Le Vuong
+326 S Kitsune Matriarch @Ognjen Sporin
+
+[duals]
+1 Desolate Path|KDT
+1 Distant Path|KDT
+1 Erosive Path|KDT
+1 Forlorn Path|KDT
+1 Meandering Path|KDT
+1 Murky Path|KDT
+1 Rousing Path|KDT
+1 Sodden Path|KDT
+1 Thicketed Path|KDT
+1 Torrid Path|KDT
+
+[tokens]
+b_1_1_demon_insect
+b_x_x_demon
+c_0_0_a_golem_total_artifacts
+c_1_1_fox_shapeshifter_changeling
+c_a_treasure_sac
+c_saga_tl_copy
+g_1_1_spirit
+g_6_6_serpent_trample
+hardsuit
+rg_4_3_spirit_beast
+time_bubble
+u_1_1_bird_flying
+u_1_1_ninja_notskulk
+u_8_8_kraken
+w_1_1_monk_vigilance
+w_1_1_monkey
+w_2_2_samurai_exalted
+
+[other]
+emblem_giyama_scion_of_kage
