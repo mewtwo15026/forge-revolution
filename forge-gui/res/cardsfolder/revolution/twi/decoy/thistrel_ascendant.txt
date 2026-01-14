@@ -1,0 +1,10 @@
+Name:Thistrel Ascendant
+ManaCost:4 R
+Types:Creature Faerie Warrior
+PT:3/5
+K:twi_Decoy
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature gets +2/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +2
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nWhen Thistrel Ascendant enters, target creature gets +2/+0 until end of turn.

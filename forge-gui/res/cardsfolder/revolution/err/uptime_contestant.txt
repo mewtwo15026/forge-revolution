@@ -1,0 +1,7 @@
+Name:Uptime Contestant
+ManaCost:2 B
+Types:Creature Cat Rogue
+PT:3/2
+A:AB$ LoseLife | Cost$ 2 B T | LifeAmount$ 2 | ValidTgts$ Opponent | SpellDescription$ Target opponent loses 2 life.
+A:AB$ LoseLife | Cost$ 6 B B T | LifeAmount$ 5 | ValidTgts$ Opponent | SpellDescription$ Target opponent loses 5 life.
+Oracle:{2}{B}, {T}: Target opponent loses 2 life.\n{6}{B}{B}, {T}: Target opponent loses 5 life.

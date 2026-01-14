@@ -1,0 +1,10 @@
+Name:Fluttering Sun
+ManaCost:2 U U
+Types:Legendary Creature Faerie Scout
+PT:4/4
+K:Flying
+R:Event$ CreateToken | ActiveZones$ Battlefield | ValidToken$ Illusion.YouCtrl | ReplaceWith$ DoubleToken | Description$ If one or more Illusion tokens would be created under your control, twice that many of those tokens are created instead.
+SVar:DoubleToken:DB$ ReplaceToken | Type$ Amount
+A:AB$ Pump | Cost$ Sac<1/Illusion> | ValidTgts$ Faerie.YouCtrl | TgtPrompt$ Select target Faerie you control | KW$ Hexproof | SpellDescription$ Target Faerie you control gains hexproof until end of turn.
+DeckHints:Keyword$Decoy
+Oracle:Flying\nIf one or more Illusion tokens would be created under your control, twice that many of those tokens are created instead.\nSacrifice an Illusion: Target Faerie you control gains hexproof until end of turn.

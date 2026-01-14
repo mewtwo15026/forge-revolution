@@ -1,0 +1,11 @@
+Name:Sanctum of Repression
+ManaCost:1 W
+Types:Enchantment
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target nonland permanent you don't control until CARDNAME leaves the battlefield if it reprieved a creature or that permanent's mana value is 3 or less.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+YouDontCtrl | AITgts$ Permanent.nonLand+YouDontCtrl+cmcLEX | TgtPrompt$ Select target nonland permanent you don't control | Duration$ UntilHostLeavesPlay | ConditionDefined$ Targeted | ConditionPresent$ Permanent.nonLand+YouDontCtrl+cmcLEX | ConditionCompare$ EQ1
+SVar:X:Count$Compare Y GE1.31.3
+SVar:Y:Count$Valid Card.Self+HasReprieved
+SVar:PlayMain1:TRUE
+SVar:NeedsToPlay:Permanent.nonLand+YouDontCtrl+cmcLE3
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Sanctum of Repression enters, you may destroy target artifact or enchantment if it has mana value 1 or less or if Sanctum of Repression reprieved a creature.

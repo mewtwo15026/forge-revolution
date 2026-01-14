@@ -1,0 +1,9 @@
+Name:Rejuvenation Session
+ManaCost:1 G
+Types:Sorcery
+A:SP$ GainLife | LifeAmount$ X | SubAbility$ DBDig | SpellDescription$ You gain X life, where X is the greatest mana value among permanents you control. Then look at the top X cards of your library. Reveal up to two creature, enchantment, and/or land cards from among them and put them into your hand. Put the rest on the bottom in a random order.
+SVar:DBDig:DB$ Dig | DigNum$ X | ChangeNum$ 2 | Optional$ True | ChangeValid$ Creature,Enchantment,Land
+SVar:NeedsToPlayVar:X GE2
+SVar:X:Count$Valid Permanent.YouCtrl$GreatestCMC
+DeckHas:Ability$LifeGain
+Oracle:You gain X life, where X is the greatest mana value among permanents you control. Then look at the top X cards of your library. Reveal up to two creature, enchantment, and/or land cards from among them and put them into your hand. Put the rest on the bottom in a random order.

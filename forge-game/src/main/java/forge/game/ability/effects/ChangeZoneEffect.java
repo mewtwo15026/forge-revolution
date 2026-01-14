@@ -466,9 +466,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
         final Game game = activator.getGame();
         final CardCollection commandCards = new CardCollection();
 
-        //REVOLUTION
-        final boolean reprieve = sa.isKeyword(Keyword.TWI_REPRIEVE);
-
         ZoneType destination = ZoneType.smartValueOf(sa.getParam("Destination"));
         final List<ZoneType> origin = Lists.newArrayList();
         if (sa.hasParam("Origin")) {
@@ -836,16 +833,6 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         }
                     }
                 }
-
-                //REVOLUTION
-                if (reprieve && ZoneType.Hand.equals(destination)) {
-
-                    hostCard.addReprieved(movedCard);
-                    // implement these if a later set makes them necessary
-                    //final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
-                    //runParams.put(AbilityKey.Reprieved, hostCard);
-                    //game.getTriggerHandler().runTrigger(TriggerType.Reprieved, runParams, false);
-                }
             }
         }
 
@@ -924,6 +911,10 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
         final String changeType = sa.getParamOrDefault("ChangeType", "");
         boolean mandatory = sa.hasParam("Mandatory");
         Map<Player, HiddenOriginChoices> HiddenOriginChoicesMap = Maps.newHashMap();
+
+        //REVOLUTION
+        final boolean reprieve = sa.isKeyword(Keyword.TWI_REPRIEVE);
+        //if(reprieve) { System.out.println("Reprieve effect!"); }
 
         for (Player player : fetchers) {
             Player decider = chooser;
@@ -1306,6 +1297,7 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                 moveParams.put(AbilityKey.FoundSearchingLibrary, searchedLibrary);
                 AbilityKey.addCardZoneTableParams(moveParams, triggerList);
 
+                //if(reprieve && destination != null) {System.out.println("Moving reprieved card to " + destination.toString()); }
                 if (destination == null) {
                     movedCard = c;
                 }
@@ -1435,7 +1427,21 @@ public class ChangeZoneEffect extends SpellAbilityEffect {
                         movedCard.addMayLookFaceDownExile(sa.getActivatingPlayer());
                     }
                 }
-                else {
+                else if (destination.equals(ZoneType.Hand)) {
+                    movedCard = game.getAction().moveToHand(c, sa, moveParams);
+
+                    //REVOLUTION
+                    if (reprieve) {
+                        final Card hostCard = sa.getHostCard();
+                        hostCard.addReprieved(movedCard);
+                        //System.out.println("Reprieved card " + movedCard.getName());
+                        // implement these if a later set makes them necessary
+                        //final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
+                        //runParams.put(AbilityKey.Reprieved, hostCard);
+                        //game.getTriggerHandler().runTrigger(TriggerType.Reprieved, runParams, false);
+                    }
+                    //else if(reprieve) { System.out.println("Card not reprieved"); }
+                } else {
                     movedCard = game.getAction().moveTo(destination, c, 0, sa, moveParams);
                 }
 

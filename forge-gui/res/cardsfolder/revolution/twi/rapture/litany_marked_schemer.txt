@@ -1,0 +1,9 @@
+Name:Litany-Marked Schemer
+ManaCost:2 R
+Types:Creature Elf Cleric
+PT:2/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, target creature an opponent controls can't block this turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | KW$ HIDDEN CARDNAME can't block. | IsCurse$ True
+K:twi_Rapture
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever Litany-Marked Schemer attacks, target creature an opponent controls can't block this turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

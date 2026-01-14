@@ -1,0 +1,12 @@
+Name:Dreadchant Warcaller
+ManaCost:2 G
+Types:Creature Human Shaman
+PT:3/2
+K:Ward:1
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Vigor — At the beginning of your end step, create a 2/2 black Zombie creature token with "This creature can't block" if you gained or lost life this turn.
+SVar:TrigToken:DB$ Token | TokenScript$ b_2_2_zombie_cantblock | ConditionCheckSVar$ Vigor | ConditionSVarCompare$ GE1
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHas:Ability$Token & Type$Zombie
+DeckHints:Ability$LifeGain
+Oracle:Ward {1}\nVigor — At the beginning of your end step, create a 2/2 black Zombie creature token with “This creature can't block” if you've gained or lost life this turn.

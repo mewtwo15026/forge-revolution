@@ -1,0 +1,11 @@
+Name:Brewing Storm (CCR)
+ManaCost:X U
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ Y | Choices$ DBCounter,DBBounce | AdditionalDescription$ If you control a Weather as you cast this spell, you may choose both.
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ X | SpellDescription$ Counter target spell unless its controller pays {X}.
+SVar:DBBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Permanent.nonLand+cmcLEX | TgtPrompt$ Target a nonland permanent | ChangeNum$ 1 | SpellDescription$ Return target nonland permanent with mana value X or less to its owner's hand.
+SVar:X:Count$xPaid
+SVar:Y:Count$Compare Z GE1.2.1
+SVar:Z:Count$Valid Weather.YouCtrl
+DeckHints:Type$Weather
+Oracle:Choose one. If you control a Weather as you cast this spell, you may choose both instead.\n• Counter target spell unless its controller pays {X}.\n• Return target nonland permanent with mana value X or less to its owner's hand.

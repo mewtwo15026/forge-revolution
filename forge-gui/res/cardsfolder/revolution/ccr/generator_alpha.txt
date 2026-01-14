@@ -1,0 +1,13 @@
+Name:Generator Alpha
+ManaCost:3 R
+Types:Creature Elemental Dog
+PT:4/4
+K:Trample
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigCanNotBlock | TriggerZones$ Battlefield | TriggerDescription$ Landfall – Whenever a land you control enters, target creature can't block this turn.
+SVar:TrigCanNotBlock:DB$ Pump | ValidTgts$ Creature | KW$ HIDDEN CARDNAME can't block. | TgtPrompt$ Select target creature. | IsCurse$ True | SpellDescription$ Target creature can't block this turn.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ At the beginning of your end step, return CARDNAME or a land you control to its owner's hand.
+SVar:TrigReturn:DB$ ChangeZone | ChangeType$ Card.Self,Land.YouCtrl | AILogic$ NeverBounceItself | Origin$ Battlefield | Destination$ Hand | Hidden$ True | Mandatory$ True 
+SVar:PlayMain1:ALWAYS
+AI:RemoveDeck:Random
+Oracle:Trample, haste\nLandfall — When a land you control enters, target creature can't block this turn.\nAt the beginning of your end step, return Generator Alpha or a land you control to its owner's hand.

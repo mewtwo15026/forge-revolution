@@ -1,0 +1,9 @@
+Name:Teeter Dance
+ManaCost:1 U
+Types:Enchantment Aura
+K:Enchant:Creature
+T:Mode$ Taps | ValidCard$ Card.AttachedBy | Execute$ TrigChoice | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever enchanted creature becomes tapped, you may untap it or put a stun counter on it. Do this only once each turn.
+SVar:TrigChoice:DB$ GenericChoice | Choices$ DBUntap,DBStun | Defined$ You
+SVar:DBUntap:DB$ Untap | Defined$ Enchanted
+SVar:DBStun:DB$ PutCounter | Defined$ Enchanted | CounterType$ Stun | CounterNum$ 1
+Oracle:Enchant creature\nOnce each turn, when enchanted creature becomes tapped, you may untap it or put a stun counter on it.

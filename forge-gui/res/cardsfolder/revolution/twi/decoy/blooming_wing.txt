@@ -1,0 +1,12 @@
+Name:Blooming Wing
+ManaCost:3 U R
+Types:Legendary Creature Faerie Bard
+PT:3/5
+K:Flying
+S:Mode$ Continuous | Affected$ Creature.!token+Other+YouCtrl | AddKeyword$ twi_Decoy | Description$ Other nontoken creatures you control have decoy.
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each other attacking creature you control.
+SVar:X:Count$Valid Creature.attacking+YouCtrl
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Creature.withoutDefender
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Flying\nOther nontoken creatures you control have decoy. (Whenever that creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nBlooming Wing gets +1/+0 for each other attacking creature you control.

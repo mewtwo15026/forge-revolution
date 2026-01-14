@@ -1,0 +1,10 @@
+Name:Buffer Reconservatory
+ManaCost:no cost
+Types:Land Forest
+K:Level up:G G G
+SVar:maxLevel:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 3 | SetToughness$ 2 | AddKeyword$ Ward:2 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 7 | SetToughness$ 6 | AddKeyword$ Ward:2 | IsPresent$ Card.Self+counters_GE3_LEVEL
+Oracle:({T}: Add {G}.)\nThis land enters tapped.\nLevel up {G}{G}{G} ({G}{G}{G}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n3/2\nWard {2}\nThis land is also a creature.\nLEVEL 3+\n7/6\nWard {2}\nThis land is also a creature.

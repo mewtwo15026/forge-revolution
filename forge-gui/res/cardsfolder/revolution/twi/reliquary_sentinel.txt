@@ -1,0 +1,11 @@
+Name:Reliquary Sentinel
+ManaCost:2 B
+Types:Creature Beast Spirit
+PT:5/3
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ Vigor — At the beginning of your end step, sacrifice CARDNAME unless it entered this turn or you gained or lost life this turn.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Card.Self+!ThisTurnEntered | ConditionCheckSVar$ Vigor | ConditionSVarCompare$ EQ0
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHas:Ability$Sacrifice
+DeckNeeds:Ability$LifeGain
+Oracle:Vigor — At the beginning of your end step, sacrifice Reliquary Sentinel unless it entered this turn or you gained or lost life this turn.

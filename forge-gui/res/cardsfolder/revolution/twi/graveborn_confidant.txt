@@ -1,0 +1,12 @@
+Name:Graveborn Confidant
+ManaCost:2 B B
+Types:Creature Zombie Warrior
+PT:4/3
+S:Mode$ Continuous | MayPlay$ True | EffectZone$ Battlefield | Affected$ Card.ExiledWithSource+cmcLTX,Card.ExiledWithSource+cmcLTY | AffectedZone$ Exile | Description$ You may play cards exiled by CARDNAME as long as that card's mana value is less than the amount of life you've gained this turn or the amount of life you've lost this turn.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Vigor | SVarCompare$ GE1 | Execute$ TrigExile | TriggerDescription$ Vigor — At the beginning of your end step, if you gained or lost life this turn, exile the top card of your library.
+SVar:TrigExile:DB$ Dig | DigNum$ 1 | Defined$ You | DestinationZone$ Exile
+SVar:Vigor:SVar$X/Plus.Y
+SVar:X:Count$LifeYouGainedThisTurn
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+Oracle:You may play cards exiled by Graveborn Confidant as long as that card's mana value is less than the amount of life you've gained this turn or the amount of life you've lost this turn.\nVigor — At the beginning of your end step, if you gained or lost life this turn, exile the top card of your library.

@@ -1,0 +1,10 @@
+Name:Archive Telemetrary
+ManaCost:no cost
+Types:Land Island
+K:Level up:U U U
+SVar:maxLevel:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 1 | SetToughness$ 6 | AddKeyword$ Vigilance | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 4 | SetToughness$ 9 | AddKeyword$ Vigilance | IsPresent$ Card.Self+counters_GE3_LEVEL
+Oracle:({T}: Add {U}.)\nThis land enters tapped.\nLevel up {U}{U}{U} ({U}{U}{U}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n1/6\nVigilance\nThis land is also a creature.\nLEVEL 3+\n4/9\nVigilance\nThis land is also a creature.

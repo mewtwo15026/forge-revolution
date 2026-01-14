@@ -1,0 +1,9 @@
+Name:Scattering Swine
+ManaCost:B R
+Types:Creature Boar Wizard
+PT:3/2
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigBounce | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may return a permanent you control to its owner's hand. If you do, defending player loses 3 life unless they discard a card that shares a card type with the returned permanent.
+SVar:TrigBounce:DB$ ChangeZone | Optional$ True | ChangeType$ Permanent.YouCtrl | ChangeNum$ 1 | Origin$ Battlefield | Destination$ Hand | RememberChanged$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ TriggeredTarget | LifeAmount$ 3 | UnlessCost$ Discard<1/Card.sharesCardTypeWith RememberedCard/card that shares a card type with the returned permanent> | UnlessPayer$ TriggeredTarget | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Whenever Scattering Swine deals combat damage to a player, you may return a permanent you control to its owner's hand. If you do, defending player loses 3 life unless they discard a card that shares a card type with the returned permanent.

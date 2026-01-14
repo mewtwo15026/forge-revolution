@@ -1,0 +1,7 @@
+Name:Die as Thou Wilt
+ManaCost:1 B
+Types:Instant
+A:SP$ Charm | Choices$ DBPump,DBSac | CharmNum$ 1
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ +1 | NumDef$ +1 | KW$ Indestructible | SpellDescription$ Target creature gets +1/+1 and gains indestructible until end of turn.
+SVar:DBSac:DB$ Sacrifice | ValidTgts$ Player | SacValid$ Creature | SpellDescription$ Target player sacrifices a creature.
+Oracle:Choose one —\n• Target creature gets +1/+1 and gains indestructible until end of turn.\n• Target player sacrifices a creature.

@@ -1,0 +1,15 @@
+Name:Three Become One
+ManaCost:3 U U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 3 | EffectZone$ All | CheckSVar$ Components | SVarCompare$ EQ4 | Description$ If you control an artifact, a creature with flying, a creature with 3 power, and a Warlock, this spell costs {3} less to cast.
+SVar:W:Count$Valid Artifact.YouCtrl/LimitMax.1
+SVar:X:Count$Valid Creature.YouCtrl+withFlying/LimitMax.1
+SVar:Y:Count$Valid Creature.YouCtrl+powerEQ3/LimitMax.1
+SVar:Z:Count$Valid Warlock.YouCtrl/LimitMax.1
+SVar:SumA:SVar$W/Plus.X
+SVar:SumB:SVar$Y/Plus.Z
+SVar:Components:SVar$SumA/Plus.SumB
+A:SP$ Draw | NumCards$ 3 | SubAbility$ DBPlay | SpellDescription$ Draw three cards. You may cast a spell with mana value 3 or less from your hand without paying its mana cost.
+SVar:DBPlay:DB$ Play | Valid$ Card.nonLand+YouOwn | ValidSA$ Spell.cmcLE3 | ValidZone$ Hand | WithoutManaCost$ True | Amount$ 1 | Controller$ You | Optional$ True
+DeckHints:Type$Artifact|Warlock & Keyword$Flying
+Oracle:If you control an artifact, a creature with flying, a creature with 3 power, and a Warlock, this spell costs {3} less to cast.\nDraw three cards. You may cast a spell with mana value 3 or less from your hand without paying its mana cost.

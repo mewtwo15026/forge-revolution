@@ -1,0 +1,14 @@
+Name:Signal_Inversion
+ManaCost:3 U U U
+Types:Legendary Creature Error
+PT:-8/6
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | Description$ Creatures your opponents control get -1/-0.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME attacks, defending player mills a number of cards equal to 0 minus its power.
+SVar:TrigMill:DB$ Mill | Defined$ TriggeredDefendingPlayer | NumCards$ X
+SVar:X:Count$CardPower/NMinus.0
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigGainCtrl | TriggerDescription$ At the beginning of your end step, gain control of target creature with power 0 or less.
+SVar:TrigGainCtrl:DB$ GainControl | ValidTgts$ Creature.powerLE0 | TgtPrompt$ Select target creature with power 0 or less | SpellDescription$ Gain control of target creature with power 0 or less.
+SVar:HasAttackEffect:TRUE
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Mill
+Oracle:Creatures your opponents control get -1/-0.\nWhenever this creature attacks, defending player mills a number of cards equal to 0 minus its power.\nAt the beginning of your end step, gain control of target creature with power 0 or less.

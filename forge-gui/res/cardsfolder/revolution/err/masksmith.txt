@@ -1,0 +1,9 @@
+Name:Masksmith
+ManaCost:1 G
+Types:Creature
+PT:3/2
+A:AB$ Charm | Cost$ 1 Sac<1/CARDNAME> | Choices$ DBDestroyArtifact,DBDestroyEnchantment,DBExile
+SVar:DBDestroyArtifact:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
+SVar:DBDestroyEnchantment:DB$ Destroy | ValidTgts$ Enchantment | TgtPrompt$ Select target enchantment | SpellDescription$ Destroy target enchantment.
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | TgtPrompt$ Select target card from a graveyard. | SpellDescription$ Exile target card fom a graveyard.
+Oracle:{1}, Sacrifice this creature: Choose one —\n• Destroy target artifact.\n• Destroy target enchantment.\n• Exile target card from a graveyard.

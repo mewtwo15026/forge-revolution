@@ -1,0 +1,11 @@
+Name:Aspen's Oathguard
+ManaCost:4 R
+Types:Creature Faerie Knight
+PT:1/5
+K:twi_Decoy
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each other Creature you control.
+SVar:X:Count$Valid Creature.YouCtrl+Other
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nAspen's Oathguard gets +1/+0 for each other creature you control.

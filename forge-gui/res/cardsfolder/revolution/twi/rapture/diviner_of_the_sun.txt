@@ -1,0 +1,10 @@
+Name:Diviner of the Sun
+ManaCost:2 W W
+Types:Creature Azra Advisor Cleric
+PT:3/3
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other+!token+YouCtrl | Execute$ TrigToken | TriggerDescription$ Whenever another nontoken creature you control dies, create a 2/2 white Knight creature token with vigilance.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_2_2_knight_vigilance | TokenOwner$ You
+K:twi_Rapture
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Knight
+Oracle:Whenever another nontoken creature you control dies, create a 2/2 white Knight creature token with vigilance.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

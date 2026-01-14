@@ -1,0 +1,11 @@
+Name:Catch Your Breath
+ManaCost:W
+Types:Instant
+A:SP$ Draw | Defined$ You | NumCards$ 1 | ConditionCheckSVar$ X | SubAbility$ DBGainLife | SpellDescription$ Draw a card if you've discarded a card this turn.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | ConditionCheckSVar$ Y | SubAbility$ DBToken | SpellDescription$ You gain 3 life if you've lost life this turn.
+SVar:DBToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_golem | TokenOwner$ You | ConditionCheckSVar$ Z | SpellDescription$ Create a 1/1 white Golem creature token if a creature you controlled left the battlefield this turn.
+SVar:X:PlayerCountPropertyYou$CardsDiscardedThisTurn
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+SVar:Z:Count$LeftBattlefieldThisTurn Creature.YouCtrl
+DeckHints:Ability$Discard
+Oracle:Draw a card if you discarded a card this turn.\nYou gain 3 life if you've lost life this turn.\nCreate a 1/1 white Golem creature token if a creature you controlled left the battlefield this turn.

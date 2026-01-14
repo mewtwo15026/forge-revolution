@@ -1,0 +1,13 @@
+Name:Xeia, Record Chaser
+ManaCost:1 R G
+Types:Legendary Creature Human Warrior
+PT:3/3
+K:Vigilance
+K:Haste
+T:Mode$ SpellCast | ValidCard$ Card.cmcGTX | ValidActivatingPlayer$ You | Execute$ DBPutCounters | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell, if its mana value is greater than NICKNAME's power, put a number of +1/+1 counters on NICKNAME equal to the difference and create a Treasure token.
+SVar:DBPutCounters:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ Y | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac
+SVar:Y:TriggeredSpellAbility$CardManaCostLKI/Minus.X
+SVar:X:Count$CardPower
+DeckHas:Ability$Token|Counters & Type$Treasure
+Oracle:Vigilance, haste\nWhenever you cast a spell, if its mana value is greater than Xeia's power, put a number of +1/+1 counters on Xeia equal to the difference and create a Treasure token.

@@ -1,0 +1,12 @@
+Name:Make the Last Night Count
+ManaCost:2 R W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create two 1/1 white Citizen creature tokens.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_citizen | TokenAmount$ 2
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever you attack, target attacking creature gets +X/+0 until end of turn, where X is the number of creatures you control that aren't attacking.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | NumAtt$ +X
+SVar:X:Count$Valid Creature.YouCtrl+notattacking
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Creature.powerLE1,Creature.withDefender
+DeckHas:Ability$Token
+Oracle:When this enchantment enters, create two 1/1 white Citizen creature tokens.\nWhenever you attack, target attacking creature gets +X/+0 until end of turn, where X is the number of creatures you control that aren't attacking.

@@ -1,0 +1,11 @@
+Name:Crumbling Tower
+ManaCost:2 R
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ Landfall — Whenever a land you control enters, exile the top card of your library. You may play that card until the end of your next turn.
+SVar:TrigDig:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play that card until the end of your next turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ DealDamage | Cost$ 1 R Sac<1/CARDNAME> | ValidTgts$ Player | NumDmg$ X | SpellDescription$ CARDNAME deals damage to target player equal to the number of cards exiled with it.
+SVar:X:Count$ValidExile Card.ExiledWithSource
+Oracle:Landfall — Whenever a land you control enters, exile the top card of your library. You may play that card until the end of your next turn.\n{1}{R}, Sacrifice Crumbling Tower: It deals damage equal to the number of cards exiled with it to target player.

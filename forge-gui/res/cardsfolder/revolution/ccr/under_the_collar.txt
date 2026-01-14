@@ -1,0 +1,8 @@
+Name:Under the Collar
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Untap | ValidTgts$ Creature | SubAbility$ DBChange | SpellDescription$ Untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.
+SVar:DBChange:DB$ GainControl | Defined$ Targeted | AddKWs$ Haste | LoseControl$ EOT | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | staticAbilities$ ActiAnyType
+SVar:ActiAnyType:Mode$ ManaConvert | ValidPlayer$ You | ValidCard$ Card.Self | ValidSA$ Activated | ManaConversion$ AnyType->AnyType | Description$ Mana of any type can be spent to activate CARDNAME's abilities.
+Oracle:Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. You may spend mana of any type to activate its abilities this turn.

@@ -1,0 +1,10 @@
+Name:Dolcairn Charm
+ManaCost:B G
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBReturn,DBExile,DBDrain
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target creature or land card in your graveyard. | ValidTgts$ Creature.YouCtrl,Land.YouCtrl | SpellDescription$ Return target creature or land card from your graveyard to your hand.
+SVar:DBExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.cmcLE2,Planeswalker.cmcLE2 | TgtPrompt$ Select target creature or planeswalker with mana value 2 or less | SpellDescription$ Exile target creature or planeswalker with mana value 2 or less.
+SVar:DBDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 3 | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses 3 life and you gain 3 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+DeckHas:Ability$Graveyard|LifeGain
+Oracle:Choose one —\n• Return target creature or land card from your graveyard to your hand.\n• Exile target creature or planeswalker with mana value 2 or less.\n• Each opponent loses 3 life and you gain 3 life.

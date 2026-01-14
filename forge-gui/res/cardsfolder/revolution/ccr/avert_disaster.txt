@@ -1,0 +1,7 @@
+Name:Avert Disaster
+ManaCost:1 U U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 1 | EffectZone$ All | IsPresent$ Card.YouOwn+namedAvert Disaster,Card.YouOwn+namedImminent Disaster | PresentZone$ Graveyard | PresentCompare$ GE1 | Description$ CARDNAME costs {1} less to cast if there is a card named Avert Disaster or Imminent Disaster in your graveyard.
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Card | SpellDescription$ Counter target spell.
+DeckHints:Name$Avert Disaster|Imminent Disaster
+Oracle:This spell costs {1} less to cast if there is a card named Avert Disaster or Imminent Disaster in your graveyard.\nCounter target spell.

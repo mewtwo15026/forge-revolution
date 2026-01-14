@@ -1,0 +1,9 @@
+Name:Rain of Blight
+ManaCost:2 B B
+Types:Sorcery
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -X | NumDef$ -X | IsCurse$ True | SpellDescription$ All creatures get -3/-3 until end of turn. Vigor — If you've gained or lost life this turn, instead all creatures get -5/-5 until end of turn.
+SVar:X:Count$Compare Vigor GE1.5.3
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+Oracle:All creatures get -3/-3 until end of turn.\nVigor — If you've gained or lost life this turn, instead all creatures get -5/-5 until end of turn.

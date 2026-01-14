@@ -1,0 +1,9 @@
+Name:Rowhammer
+ManaCost:7 R
+Types:Creature Error
+PT:5/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {X} less to cast, where X is the greatest mana value among permanents you control.
+SVar:X:Count$Valid Permanent.YouCtrl$GreatestCMC
+K:Trample
+K:Haste
+Oracle:This spell costs {X} less to cast, where X is the greatest mana value among permanents you control.\nTrample, haste

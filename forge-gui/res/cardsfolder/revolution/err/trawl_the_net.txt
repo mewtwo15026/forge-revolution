@@ -1,0 +1,7 @@
+Name:Trawl the Net
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Mill | NumCards$ 3 | Defined$ You | SubAbility$ DBChangeZone | SpellDescription$ Mill three cards, then return a creature, enchantment, or land card from your graveyard to your hand.
+SVar:DBChangeZone:DB$ ChangeZone | Hidden$ True | Mandatory$ True | ChangeType$ Creature.YouOwn,Enchantment.YouOwn,Land.YouOwn | ChangeNum$ 1 | Origin$ Graveyard | Destination$ Hand
+DeckHas:Ability$Graveyard
+Oracle:Mill three cards, then return a creature, enchantment, or land card from your graveyard to your hand.

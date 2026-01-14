@@ -1,0 +1,12 @@
+Name:Hoenn Champion
+ManaCost:4 R G
+Types:Legendary Creature Human Ranger
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSwellow | TriggerDescription$ When CARDNAME enters, create a 3/3 white and black Bird creature token with flying, vigilance, and haste. Create a 2/4 red Bird Warrior creature token with double strike, vigilance, and haste.
+SVar:TrigSwellow:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ wb_3_3_bird_flying_vig_haste | SubAbility$ DBBlaziken
+SVar:TrigBlaziken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ r_2_4_bird_warrior_ds_vig_haste
+S:Mode$ AttackRestrict | MaxAttackers$ 2 | Description$ No more than two creatures can attack each combat.
+S:Mode$ BlockRestrict | MaxBlockers$ 2 | Description$ No more than two creatures can block each combat.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token
+Oracle:When Hoenn Champion enters, for each of the following, create a creature token with those characteristics.\n• 3/3 white and black Bird with flying, vigilance, and haste.\n• 2/4 red Bird Warrior with double strike, vigilance, and haste.\nNo more than two creatures can attack each combat. No more than two creatures can block each combat.

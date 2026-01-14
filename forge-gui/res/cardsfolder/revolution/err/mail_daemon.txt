@@ -1,0 +1,11 @@
+Name:Mail Daemon
+ManaCost:1 W
+Types:Enchantment Creature Insect
+PT:1/1
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When this creature leaves the battlefield, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ TriggeredCardController | NumCards$ 1
+SVar:SacMe:1
+DeckHas:Ability$LifeGain
+Oracle:Flying, lifelink\nWhen this creature leaves the battlefield, draw a card.

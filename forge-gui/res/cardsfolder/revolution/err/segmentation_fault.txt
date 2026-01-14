@@ -1,0 +1,8 @@
+Name:Segmentation_Fault
+ManaCost:4 R R
+Types:Creature Error
+PT:7/5
+K:Haste
+K:TypeCycling:Mountain:2
+DeckHas:Ability$Discard
+Oracle:Haste\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

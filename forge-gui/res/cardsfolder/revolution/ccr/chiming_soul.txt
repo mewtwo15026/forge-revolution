@@ -1,0 +1,8 @@
+Name:Chiming Soul
+ManaCost:2 W
+Types:Creature Spirit
+PT:1/4
+K:Lifelink
+A:AB$ PutCounter | Cost$ 1 W | ActivationLimit$ 1 | ValidTgts$ Creature.attackedThisTurn | TgtPrompt$ Select target creature that attacked this turn | AITgts$ Creature.attackedThisTurn+tapped | IsCurse$ True | CounterType$ Stun | CounterNum$ 1 | SpellDescription$ Put a stun counter on target creature that attacked this turn. Activate only once each turn.
+DeckHas:Ability$LifeGain
+Oracle:Lifelink\n{1}{W}: Put a stun counter on target creature that attacked this turn. Activate only once each turn.

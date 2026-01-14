@@ -1,0 +1,12 @@
+Name:Paragon of Sacred Bellows
+ManaCost:3 G G
+Types:Creature Elephant Soldier
+PT:5/5
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCounterAll | TriggerDescription$ When CARDNAME enters, put a +1/+1 counter on each other creature you control. If CARDNAME reprieved a creature, creatures you control gain trample and haste until end of turn.
+SVar:TrigCounterAll:DB$ PutCounterAll | ValidCards$ Creature.StrictlyOther+YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPumpAll
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Trample & Haste | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+SVar:X:Count$Reprieved Card
+DeckHas:Ability$Counters
+SVar:PlayMain1:TRUE
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Paragon of Sacred Bellows enters, put a +1/+1 counter on each other creature you control. If Paragon of Sacred Bellows reprieved a creature, creatures you control gain trample and haste until end of turn.

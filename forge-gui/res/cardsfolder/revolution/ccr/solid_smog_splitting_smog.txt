@@ -1,0 +1,24 @@
+Name:Solid Smog
+ManaCost:1 R
+Types:Creature Elemental
+PT:2/1
+K:Haste
+T:Mode$ AttackersDeclared | Execute$ TrigTransform | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, you may pay {R}. If you do, transform CARDNAME.
+SVar:TrigTransform:DB$ SetState | Cost$ R | Defined$ Self | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Creature
+AlternateMode:DoubleFaced
+Oracle:Haste\nAmity — Whenever you attack with Solid Smog and exactly one other creature, you may pay {R}. If you do, transform Solid Smog.
+
+ALTERNATE
+
+Name:Splitting Smog
+ManaCost:no cost
+Colors:red
+Types:Creature Elemental
+PT:3/3
+K:Menace
+T:Mode$ AttackersDeclared | Execute$ TrigPumpAll | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, you may pay {1}{R}. If you do, attacking creatures you control get +2/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | Cost$ 1 R | ValidCards$ Creature.attacking+YouCtrl | NumAtt$ +2
+SVar:HasAttackEffect:TRUE
+Oracle:Menace\nAmity — Whenever you attack with Splitting Smog and exactly one other creature, you may pay {1}{R}. If you do, attacking creatures you control get +2/+0 until end of turn.

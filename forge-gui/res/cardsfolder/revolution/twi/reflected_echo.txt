@@ -1,0 +1,8 @@
+Name:Reflected Echo
+ManaCost:2 U
+Types:Instant
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SetPower$ 1 | SetToughness$ 1 | AddTypes$ Illusion | RememberTokens$ True | SubAbility$ DBPump | SpellDescription$ Create a token that's a copy of target creature you control, except it's a 1/1 Illusion in addition to its other types. It can't block this turn.
+SVar:DBPump:DB$ Pump | Defined$ Remembered | KW$ HIDDEN CARDNAME can't block. | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Flashback:2 U U
+Oracle:Create a token that's a copy of target creature you control, except it's a 1/1 Illusion in addition to its other types. It can't block this turn.\nFlashback {2}{U}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

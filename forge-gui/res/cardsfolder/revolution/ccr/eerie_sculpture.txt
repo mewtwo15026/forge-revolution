@@ -1,0 +1,8 @@
+Name:Eerie Sculpture
+ManaCost:3 R
+Types:Creature Golem
+PT:4/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigBurn | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME deals 1 damage to target player or planeswalker.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Player,Planeswalker | TgtPrompt$ Select target player or planeswalker | NumDmg$ 1
+SVar:BuffedBy:Land
+Oracle:Landfall — Whenever a land you control enters, Eerie Sculpture deals 1 damage to target player or planeswalker.

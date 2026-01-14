@@ -1,0 +1,9 @@
+Name:Autonomous Apiarist
+ManaCost:3
+Types:Artifact Creature Construct
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDigUntil | TriggerDescription$ When this creature enters, reveal cards from the top of your library until you reveal a land card. Put that card into your hand and the rest into your graveyard.
+SVar:TrigDigUntil:DB$ DigUntil | Valid$ Land | ValidDescription$ land | FoundDestination$ Hand | RevealedDestination$ Graveyard | AILogic$ DontMillSelf
+DeckHints:Ability$Graveyard
+DeckHas:Ability$Mill
+Oracle:When this creature enters, reveal cards from the top of your library until you reveal a land card. Put that card into your hand and the rest into your graveyard.

@@ -1,0 +1,8 @@
+Name:Hone Claws
+ManaCost:R
+Types:Sorcery
+A:SP$ Effect | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select up to one target creature you control | TargetMin$ 0 | TargetMax$ 1 | RememberObjects$ Targeted | ForgetOnMoved$ Battlefield | Triggers$ TrigClaws | SubAbility$ DBDraw | SpellDescription$ Choose up to one target creature you control. You may discard a card. If you do, whenever that creature deals combat damage to a player this turn, draw a card. Draw a card.
+SVar:TrigClaws:Mode$ DamageDone | ValidSource$ Card.ChosenCardStrict | ValidTarget$ Player | Execute$ DBDraw | CombatDamage$ True | TriggerDescription$ Whenever that creature deals combat damage to a player this turn, draw a card.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:PlayMain1:ALWAYS
+Oracle:Choose up to one target creature you control. You may discard a card. If you do, whenever that creature deals combat damage to a player this turn, draw a card.\nDraw a card.

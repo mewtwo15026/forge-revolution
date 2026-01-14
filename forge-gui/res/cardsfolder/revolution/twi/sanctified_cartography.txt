@@ -1,0 +1,8 @@
+Name:Sanctified Cartography
+ManaCost:1 G W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a tapped Everywhere token. (It's a land that is every basic land type.)
+SVar:TrigToken:DB$ Token | TokenScript$ everywhere | TokenTapped$ True
+T:Mode$ ChangesZoneAll | ValidCards$ Creature.YouCtrl | Origin$ Battlefield | Destination$ Ante,Command,Exile,Hand,Library,Stack | TriggerZones$ Battlefield | Execute$ TrigBounce | TriggerDescription$ Whenever one or more creatures you control leave the battlefield without dying, return CARDNAME to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand
+Oracle:When Sanctified Cartography enters, create a tapped Everywhere token. (It's a land that is every basic land type.)\nWhenever one or more creatures you control leave the battlefield without dying, return Sanctified Cartography to its owner's hand.

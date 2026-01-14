@@ -1,0 +1,10 @@
+Name:Cidraeth Charm
+ManaCost:U B
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBScry,DBCounter,DBTap
+SVar:DBScry:DB$ Scry | NumCards$ 2 | SubAbility$ DBDraw | SpellDescription$ Scry 2, then draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Instant,Sorcery | SpellDescription$ Counter target instant or sorcery spell.
+SVar:DBTap:DB$ Tap | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SubAbility$ DBStun | SpellDescription$ Tap target nonland permanent and put a stun counter on it.
+SVar:DBStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1
+Oracle:Choose one —\n• Scry 2, then draw a card.\n• Counter target instant or sorcery spell.\n• Tap target nonland permanent and put a stun counter on it.

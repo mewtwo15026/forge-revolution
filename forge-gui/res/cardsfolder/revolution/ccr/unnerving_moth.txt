@@ -1,0 +1,8 @@
+Name:Unnerving Moth
+ManaCost:2 U
+Types:Creature Insect
+PT:2/3
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Battlefield | Execute$ TrigShrink | ResolvedLimit$ 1 | OptionalDecider$ You | AILogic$ Always | TriggerDescription$ Whenever you activate a nonmana ability, you may have creatures your opponents control get -1/-0 until end of turn. Do this only once each turn.
+SVar:TrigShrink:DB$ PumpAll | ValidCards$ Creature.OppCtrl | NumAtt$ -1 | IsCurse$ True
+A:AB$ Pump | Cost$ 2 | Defined$ Self | KW$ Flying | SpellDescription$ CARDNAME gains flying until end of turn.
+Oracle:Whenever you activate a nonmana ability, you may have creatures your opponents control get -1/-0 until end of turn. Do this only once each turn.\n{2}: Unnerving Moth gains flying until end of turn.

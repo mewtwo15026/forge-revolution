@@ -1,0 +1,7 @@
+Name:Dark Horse Victory
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | RememberChanged$ True | Destination$ Battlefield | TgtPrompt$ Choose target permanent card in your graveyard that has an activated ability | ValidTgts$ Permanent.YouOwn+hasManaAbility,Permanent.YouOwn+hasNonManaActivatedAbility | SubAbility$ DBEffect | SpellDescription$ Return target permanent card with an activated ability from your graveyard to the battlefield. You may activate its abilities this turn as though it had haste.
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | Duration$ UntilEndOfTurn | StaticAbilities$ STActivate
+SVar:STActivate:Mode$ ActivateAbilityAsIfHaste | ValidCard$ Card.IsRemembered+inZoneBattlefield | Description$ You may activate that permanent's abilities this turn as though it had haste.
+Oracle:Return target permanent card with an activated ability from your graveyard to the battlefield. You may activate its abilities this turn as though it had haste.

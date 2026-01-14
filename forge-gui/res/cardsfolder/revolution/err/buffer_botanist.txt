@@ -1,0 +1,9 @@
+Name:Buffer Botanist
+ManaCost:2 G
+Types:Creature Human Druid
+PT:3/3
+K:Level up:4 G G
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 6 | AddKeyword$ Trample | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL | Description$ LEVEL 1-2 6/6 Trample
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 9 | SetToughness$ 9 | AddKeyword$ Trample | IsPresent$ Card.Self+counters_GE3_LEVEL | Description$ LEVEL 3+ 9/9 Trample
+Oracle:Level up {4}{G}{G} ({4}{G}{G}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n6/6\nTrample\nLEVEL 3+\n9/9\nTrample

@@ -1,0 +1,11 @@
+Name:Boorish Celebrant
+ManaCost:2 R R
+Types:Creature Human Rogue
+PT:4/2
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your upkeep, create a Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Artifact,Enchantment | TriggerZones$ Battlefield | Execute$ TrigPing | TriggerDescription$ Whenever you sacrifice an artifact or enchantment, this creature deals 1 damage to each opponent.
+SVar:TrigPing:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+DeckHints:Type$Artifact|Enchantment|Memory|Treasure & Ability$Sacrifice
+DeckHas:Type$Treasure & Ability$Token|Sacrifice
+Oracle:At the beginning of your upkeep, create a Treasure token.\nWhenever you sacrifice an artifact or enchantment, this creature deals 1 damage to each opponent.

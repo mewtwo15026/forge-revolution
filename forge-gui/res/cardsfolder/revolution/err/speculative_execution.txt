@@ -1,0 +1,9 @@
+Name:Speculative_Execution
+ManaCost:6 G
+Types:Creature Error
+PT:8/8
+K:Vigilance
+K:Ward:2
+S:Mode$ Continuous | Affected$ Memory.YouCtrl | AddType$ Creature | SetPower$ 4 | SetToughness$ 4 | AddKeyword$ Vigilance & Ward:2 | Description$ Memories you control are 4/4 creatures with vigilance and ward {2} in addition to their other types.
+DeckHints:Type$Memory
+Oracle:Vigilance, ward {2}\nMemories you control are 4/4 creatures with vigilance and ward {2} in addition to their other types.

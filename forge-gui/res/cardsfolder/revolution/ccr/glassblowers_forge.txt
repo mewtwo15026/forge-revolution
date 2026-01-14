@@ -1,0 +1,8 @@
+Name:Glassblower's Forge
+ManaCost:2
+Types:Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+A:AB$ Draw | Cost$ 1 T Sac<1/CARDNAME> Sac<1/Artifact.Other,Enchantment.Other/another artifact or enchantment> | Defined$ You | SpellDescription$ Draw a card.
+AI:RemoveDeck:Random
+Oracle:When Glassblower's Forge enters, draw a card.\n{1}, {T}, Sacrifice Glassblower's Forge and another artifact or enchantment: Draw a card.

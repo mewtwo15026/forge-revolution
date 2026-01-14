@@ -487,6 +487,10 @@ public enum CounterEnumType implements CounterType {
 
     TICKET("TICKET"),
 
+    //REVOLUTION
+
+    HAZE ("HAZE", 252, 211, 178)
+
     ;
 
     private String name, counterOnCardDisplayName;

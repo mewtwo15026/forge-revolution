@@ -1,0 +1,15 @@
+Name:Honesty
+ManaCost:G GW W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigBranch | TriggerDescription$ Whenever a creature you control enters, put a +1/+1 counter on it. If this is the second time this ability has resolved this turn, put a +1/+1 counter on each other creature you control.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ ResCt | BranchConditionSVarCompare$ EQ2 | FalseSubAbility$ DBPutCounter | TrueSubAbility$ DBPutCounterAll
+SVar:DBPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ P1P1
+SVar:DBPutCounterAll:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+SVar:ResCt:Count$ResolvedThisTurn
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigTap | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, tap up to one target creature. If you attacked with total power 8 or more, instead tap up to three target creatures.
+SVar:TrigTap:DB$ Tap | TargetMin$ 0 | TargetMax$ X | ValidTgts$ Creature | TgtPrompt$ Select up to one target creature. If you attacked with total power 8 or more, instead select up to three target creatures.
+SVar:X:Count$Compare AtkPwr GE8.3.1
+SVar:AtkPwr:Count$Valid Creature.attacking+YouCtrl$CardPower
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Whenever a creature you control enters, put a +1/+1 counter on it. If this is the second time this ability has resolved this turn, put a +1/+1 counter on each other creature you control.\nWhenever you attack, tap up to one target creature. If you attacked with total power 8 or more, instead tap up to three target creatures.

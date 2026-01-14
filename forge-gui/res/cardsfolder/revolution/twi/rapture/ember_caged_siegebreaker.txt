@@ -1,0 +1,7 @@
+Name:Ember-Caged Siegebreaker
+ManaCost:2 W
+Types:Creature Azra Berserker
+PT:3/4
+K:Defender
+K:twi_Rapture
+Oracle:Defender\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

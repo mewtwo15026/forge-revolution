@@ -1,0 +1,10 @@
+Name:Voice of a Fallen Covenant
+ManaCost:2 U
+Types:Creature Horror Warlock
+PT:2/3
+K:Flying
+S:Mode$ ReduceCost | ValidCard$ Instant,Sorcery | Type$ Spell | Activator$ You | Amount$ X | Description$ Instant and sorcery spells you cast cost {1} less to cast for each other Warlock you control.
+SVar:X:Count$Valid Warlock.Other+YouCtrl
+T:Mode$ Attacks | ValidCard$ Horror.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever another Horror you control attacks, you may exile an instant or sorcery card from your graveyard. You may cast a copy of that card. (You still pay its costs.)
+DeckNeeds:Type$Warlock|Horror|Instant|Sorcery
+Oracle:Flying\nInstant and sorcery spells you cast cost {1} less to cast for each other Warlock you control.\nWhenever another Horror you control attacks, you may exile an instant or sorcery card from your graveyard. You may cast a copy of that card. (You still pay its costs.)

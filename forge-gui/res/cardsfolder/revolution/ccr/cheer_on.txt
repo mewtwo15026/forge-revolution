@@ -1,0 +1,9 @@
+Name:Cheer On
+ManaCost:1 G
+Types:Instant
+T:Mode$ SpellCast | CheckSVar$ Amity | SVarCompare$ EQ2 | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ Amity — When you cast this spell, copy it if you attacked with exactly two creatures this turn. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | Amount$ 1 | MayChooseTarget$ True
+SVar:Amity:Count$AttackersDeclared
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | NumDef$ +2 | SubAbility$ DBUntap | SpellDescription$ Target creature you control gets +2/+2 until end of turn. Untap that creature.
+SVar:DBUntap:DB$ Untap | Defined$ Targeted
+Oracle:Amity — When you cast this spell, copy it if you attacked with exactly two creatures this turn. You may choose new targets for the copy.\nTarget creature you control gets +2/+2 until end of turn. Untap it.

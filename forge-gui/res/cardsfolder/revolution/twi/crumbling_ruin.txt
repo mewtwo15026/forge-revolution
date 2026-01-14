@@ -1,0 +1,8 @@
+Name:Crumbling Ruin
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Pump | Cost$ 2 T | ValidTgts$ Land.nonBasic+YouCtrl | SubAbility$ DBAnimate | SpellDescription$ Target nonbasic land you don't control and CARDNAME each lose all abilities and gain "{T}: Add one mana of any color."
+SVar:DBAnimate:DB$ Animate | Defined$ TargetedAndSelf | Duration$ Permanent | RemoveAllAbilities$ True | Abilities$ ABMana
+SVar:ABMana:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+Oracle:{T}: Add {C}.\n{2}, {T}: Target nonbasic land you control and Crumbling Ruin each lose all abilities and gain "{T}: Add one mana of any color."

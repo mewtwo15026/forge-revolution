@@ -1,0 +1,7 @@
+Name:Revivified Wrath
+ManaCost:B G
+Types:Sorcery
+K:AlternateAdditionalCost:PayLife<3>:2
+A:SP$ Destroy | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SpellDescription$ Destroy target nonland permanent.
+DeckHints:Ability$LifeGain
+Oracle:As an additional cost to cast this spell, pay 3 life or pay {2}.\nDestroy target nonland permanent.

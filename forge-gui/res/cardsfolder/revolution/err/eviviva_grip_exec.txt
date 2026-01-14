@@ -1,0 +1,11 @@
+Name:Eviviva, Grip Exec
+ManaCost:1 R R R R
+Types:Legendary Creature Human Soldier
+PT:5/5
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever NICKNAME enters or attacks, create a 2/2 red Warrior creature token with “Whenever this creature deals combat damage to a player, exile the top card of your library. You may play that card this turn.”
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Whenever NICKNAME enters or attacks, create a 2/2 red Warrior creature token with “Whenever this creature deals combat damage to a player, exile the top card of your library. You may play that card this turn.”
+SVar:TrigToken:DB$ Token | TokenScript$ r_2_2_warrior_exile
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token
+Oracle:This spell can't be countered.\nWhenever Eviviva enters or attacks, create a 2/2 red Warrior creature token with “Whenever this creature deals combat damage to a player, exile the top card of your library. You may play that card this turn.”

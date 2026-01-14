@@ -1,0 +1,14 @@
+Name:Surge of Bitter Breath
+ManaCost:4 B
+Types:Sorcery
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBRemove,DBDestroy
+SVar:DBRemove:DB$ RemoveCounter | ValidTgts$ Permanent | TargetMin$ 0 | TargetMax$ MaxTgts | Defined$ Targeted | CounterType$ All | CounterNum$ All | RememberAmount$ True | TgtPrompt$ Select any number of target permanents | SubAbility$ DBGainRemoved | SpellDescription$ Remove all counters from any number of target permanents. You gain life equal to the number of counters removed this way. (This defeats battles.)
+SVar:DBGainRemoved:DB$ GainLife | LifeAmount$ X | SubAbility$ DBCleanup
+SVar:MaxTgts:Count$Valid Permanent
+SVar:X:Count$RememberedNumber
+SVar:DBDestroy:DB$ DestroyAll | ValidCards$ Permanent.token | RememberDestroyed$ True | SubAbility$ DBGainDestroyed | SpellDescription$ Destroy all tokens. You gain life equal to the number of tokens destroyed this way.
+SVar:DBGainDestroyed:DB$ GainLife | LifeAmount$ Y | SubAbility$ DBCleanup
+SVar:Y:Remembered$Amount
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+AI:RemoveDeck:Random
+Oracle:Choose one — \n• Remove all counters from any number of target permanents. You gain life equal to the number of counters removed this way. (This defeats battles.)\n• Destroy all tokens. You gain life equal to the number of tokens destroyed this way.

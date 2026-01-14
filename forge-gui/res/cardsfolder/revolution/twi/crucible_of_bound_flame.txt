@@ -1,0 +1,11 @@
+Name:Crucible of Bound Flame
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Plains.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Plains.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ R | SpellDescription$ Add {R}.
+A:AB$ Animate | Cost$ 1 W W | Defined$ Self | Power$ 2 | Toughness$ 2 | Types$ Creature,Cleric | Colors$ Red,White | OverwriteColors$ True | SpellDescription$ Until end of turn, CARDNAME becomes a 2/2 red and white Cleric creature. It's still a land.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ Whenever CARDNAME attacks, other creatures you control get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.StrictlyOther+YouCtrl | NumAtt$ +1
+DeckNeeds:Type$Plains
+Oracle:Crucible of Bound Flame enters the battlefield tapped unless you control a Plains.\n{T}: Add {R}.\n{1}{W}{W}: Until end of turn, Crucible of Bound Flame becomes a 2/2 red and white Cleric creature until end of turn. It's still a land.\nWhenever Crucible of Bound Flame attacks, other creatures you control get +1/+0 until end of turn.

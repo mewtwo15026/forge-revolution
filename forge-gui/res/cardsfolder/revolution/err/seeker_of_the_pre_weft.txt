@@ -1,0 +1,12 @@
+Name:Seeker of the Pre-Weft
+ManaCost:2 B
+Types:Creature Dragon Warlock
+PT:4/4
+A:SP$ PermanentCreature | Cost$ 2 B ExileFromGrave<3/Creature.WithDifferentNames/creature cards with different names> ExileFromGrave<X/Creature.WithDifferentNames/creature cards with different names>
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigChoice | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks, defending player chooses a card exiled with it. Put that card onto the battlefield under your control.
+SVar:TrigChoice:DB$ ChooseCard | Defined$ TriggeredDefendingPlayer | Amount$ 1 | Choices$ Permanent.ExiledWithSource | ChoiceZone$ Exile | RememberChosen$ True | Mandatory$ True | SubAbility$ ReturnChoice
+SVar:ReturnChoice:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+SVar:HasAttackEffect:TRUE
+DeckNeeds:Ability$Mill|Discard|Surveil
+Oracle:As an additional cost to cast this spell, exile three or more creature cards with different names from your graveyard.\nWhenever this creature attacks, defending player chooses a card exiled with it. Put that card onto the battlefield under your control.

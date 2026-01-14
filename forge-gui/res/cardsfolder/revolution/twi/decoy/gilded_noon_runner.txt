@@ -1,0 +1,9 @@
+Name:Gilded Noon Runner
+ManaCost:1 R
+Types:Creature Faerie Scout
+PT:1/3
+K:Menace
+K:twi_Decoy
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Menace\nDecoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)

@@ -1,0 +1,9 @@
+Name:Nimbus Dragon
+ManaCost:3 U
+Types:Creature Dragon
+PT:3/3
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigTap | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with Nimbus Dragon and exactly one other creature, tap target creature defending player controls.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target creature defending player controls
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nAmity — Whenever you attack with Nimbus Dragon and exactly one other creature, tap target creature defending player controls.

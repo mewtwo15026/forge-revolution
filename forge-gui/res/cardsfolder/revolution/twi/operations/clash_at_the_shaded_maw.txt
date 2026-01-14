@@ -1,0 +1,12 @@
+Name:Clash at the Shaded Maw
+ManaCost:1 B
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZoneAll | TriggerDescription$ When CARDNAME enters, exile each player's graveyard.
+SVar:TrigChangeZoneAll:DB$ ChangeZoneAll | ChangeType$ Card | Origin$ Graveyard | Destination$ Exile
+R:Event$ Moved | IsPresent$ Card.Self+counters_LE2_DEFENSE | ActiveZones$ Battlefield | Destination$ Graveyard | ValidCard$ Card | ReplaceWith$ Exile | Description$ 2 Defense — If a card or token would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+T:Mode$ Exiled | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Origin$ Battlefield | ValidCard$ Permanent.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigLoseLife | Description$ Defeated — Whenever a permanent an opponent controls is exiled, that player loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ TriggeredCardController | LifeAmount$ 1
+AI:RemoveDeck:Random
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Clash at the Shaded Maw enters, exile each player's graveyard.\n2 Defense — If a card or token would be put into a graveyard from anywhere, exile it instead.\nDefeated — Whenever a permanent an opponent controls is exiled, that player loses 1 life.

@@ -137,6 +137,12 @@ public class SpellAbilityCondition extends SpellAbilityVariables {
             this.setOpponentTurn(true);
         }
 
+        //REVOLUTION
+        if (params.containsKey("ConditionExtraTurn")) {
+            System.out.println("ConditionExtraTurn noted");
+            this.setExtraTurn(true);
+        }
+
         if (params.containsKey("ConditionPhases")) {
             this.setPhases(PhaseType.parseRange(params.get("ConditionPhases")));
         }
@@ -326,6 +332,17 @@ public class SpellAbilityCondition extends SpellAbilityVariables {
 
         if (this.isOpponentTurn() && !phase.getPlayerTurn().isOpponentOf(activator)) {
             return false;
+        }
+
+        //REVOLUTION
+        if (this.isExtraTurn()) {
+            boolean b = !sa.getParam("ConditionExtraTurn").equals("False");
+            System.out.println("Is extra turn? " + phase.getPlayerTurn().isExtraTurn() + " | Does it need to be? " + b);
+            if (!b && phase.getPlayerTurn().isExtraTurn()) {
+                return false;
+            } else if (b && !phase.getPlayerTurn().isExtraTurn()){
+                return false;
+            }
         }
 
         if (this.getFirstCombatOnly() && !phase.isFirstCombat()) {

@@ -1,0 +1,9 @@
+Name:Fall Forever
+ManaCost:B
+Types:Instant
+K:AlternateAdditionalCost:SubCounter<1/LEVEL/Creature.YouCtrl/a creature you control>:3
+A:SP$ ChangeZone | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBSurveil | SpellDescription$ Exile target creature or planeswalker. Surveil 2.
+SVar:DBSurveil:DB$ Surveil | NumCards$ 2
+DeckHints:Keyword$Level up
+DeckHas:Ability$Surveil
+Oracle:As an additional cost to cast this spell, remove a level counter from a creature you control or pay {3}.\nExile target creature or planeswalker. Surveil 2.

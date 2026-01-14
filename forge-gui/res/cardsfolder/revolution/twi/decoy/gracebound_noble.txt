@@ -1,0 +1,10 @@
+Name:Gracebound Noble
+ManaCost:2 U R
+Types:Creature Centaur Faerie Wizard
+PT:3/4
+K:twi_Decoy
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature gets +1/+0 and gains first strike until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +1 | KW$ First Strike
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nWhen Gracebound Noble enters, target creature gets +1/+0 and gains first strike until end of turn.

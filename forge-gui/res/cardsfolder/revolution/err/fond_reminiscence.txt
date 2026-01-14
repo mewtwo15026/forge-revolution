@@ -1,0 +1,8 @@
+Name:Fond Reminiscence
+ManaCost:2 G
+Types:Instant
+A:SP$ Charm | Choices$ DBDestroyArtifact,DBDestroyEnchantment,DBRegrow
+SVar:DBDestroyArtifact:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
+SVar:DBDestroyEnchantment:DB$ Destroy | ValidTgts$ Enchantment | TgtPrompt$ Select target enchantment | SpellDescription$ Destroy target enchantment.
+SVar:DBRegrow:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target permanent card in your graveyard | ValidTgts$ Permanent.YouOwn | StackDescription$ SpellDescription | SpellDescription$ Return target permanent card from your graveyard to your hand.
+Oracle:Choose one — \n• Destroy target artifact.\n• Destroy target enchantment.\n• Return target permanent card from your graveyard to your hand.

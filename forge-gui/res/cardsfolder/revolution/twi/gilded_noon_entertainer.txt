@@ -1,0 +1,12 @@
+Name:Gilded Noon Entertainer
+ManaCost:1 R
+Types:Creature Faerie Bard
+PT:3/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDiscard | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, you may discard a card. If you do, draw a card. If a nonland card was discarded this way, CARDNAME gains first strike until end of turn.
+SVar:TrigDiscard:DB$ Discard | NumCards$ 1 | Optional$ True | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Self | KW$ First Strike | ConditionDefined$ Remembered | ConditionPresent$ Card.nonLand | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Discard
+Oracle:Whenever Gilded Noon Entertainer attacks, you may discard a card. If you do, draw a card. If a nonland card was discarded this way, Gilded Noon Entertainer gains first strike until end of turn.

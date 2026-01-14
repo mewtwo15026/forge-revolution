@@ -1,0 +1,13 @@
+Name:Choir Ascendant
+ManaCost:4 G W
+Types:Creature Angel Cleric
+PT:4/4
+K:Flying
+K:twi_Reprieve
+K:twi_Reprieve
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, for each creature it reprieved, create a 4/4 white Angel creature token with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ w_4_4_angel_flying | TokenAmount$ X
+SVar:X:Count$Reprieved Card
+DeckHas:Ability$Token
+Oracle:Flying\nReprieve, reprieve, reprieve (As this creature enters, you may return up to three creatures you control without reprieve to their owner's hands.)\nWhen Choir Ascendant enters, for each creature it reprieved, create a 4/4 white Angel creature token with flying.

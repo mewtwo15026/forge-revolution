@@ -1,0 +1,9 @@
+Name:Earthbreaker Dragon
+ManaCost:2 R R
+Types:Creature Dragon
+PT:4/4
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigDamage | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME deals 1 damage to each of up to two target creatures without flying.
+SVar:TrigDamage:DB$ DealDamage | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature.withoutFlying | TgtPrompt$ Select target creature | NumDmg$ 1
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nAmity — Whenever you attack with Earthbreaker Dragon and exactly one other creature, Earthbreaker Dragon deals 1 damage to each of up to two target creatures without flying.

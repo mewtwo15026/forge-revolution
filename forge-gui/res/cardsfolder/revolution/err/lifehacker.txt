@@ -1,0 +1,17 @@
+Name:Lifehacker
+ManaCost:2 B B
+Types:Creature Human Wizard
+PT:4/4
+K:Lifelink
+K:Level up:1 PayLife<4>
+SVar:maxLevel:5
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ LifeGainedA | SetPower$ 5 | SetToughness$ 5 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE4_LEVEL
+SVar:LifeGainedA:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDrawOnce | TriggerDescription$ Whenever you gain life, draw a card.
+SVar:TrigDrawOnce:DB$ Draw | Defined$ You | NumCards$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ LifeGainedB | SetPower$ 6 | SetToughness$ 6 | IsPresent$ Card.Self+counters_GE5_LEVEL
+SVar:LifeGainedB:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDrawMany | TriggerDescription$ Whenever you gain life, draw that many cards.
+SVar:TrigDrawMany:DB$ Draw | Defined$ You | NumCards$ X
+SVar:X:TriggerCount$LifeAmount
+DeckHints:Ability$LifeGain
+DeckHas:Ability$LifeGain
+Oracle:Lifelink\nLevel up—{1}, Pay 4 life. ({1}, Pay 4 life: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-4\n5/5\nLifelink\nWhenever you gain life, draw a card.\nLEVEL 6+\n6/6\nLifelink\nWhenever you gain life, draw that many cards.

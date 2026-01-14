@@ -1,0 +1,8 @@
+Name:Doctrine of Cleansing Flames
+ManaCost:1 R
+Types:Sorcery
+A:SP$ Charm | Choices$ DBToken,DBExile | CharmNum$ 1
+SVar:DBToken:DB$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_berserker | SpellDescription$ Create two 1/1 red Berserker creature tokens.
+SVar:DBExile:DB$ ChangeZone | ValidTgts$ Artifact | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target artifact.
+DeckHas:Ability$Token & Type$Berserker
+Oracle:Choose one —\n• Create two 1/1 red Berserker creature tokens.\n• Exile target artifact.

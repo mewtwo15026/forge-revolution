@@ -1,0 +1,13 @@
+Name:Magnetling
+ManaCost:4
+Types:Artifact Creature Construct
+PT:4/4
+A:AB$ Untap | Cost$ 1 | SpellDescription$ Untap CARDNAME.
+A:AB$ Effect | Cost$ 1 | RememberObjects$ Self | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | SpellDescription$ CARDNAME can't be blocked by creatures with power 2 or less this turn.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | ValidBlocker$ Creature.powerLE2 | Description$ EFFECTSOURCE can't be blocked by creatures with power 2 or less this turn.
+A:AB$ ChooseType | Cost$ 1 | Defined$ You | Type$ Card | SubAbility$ DBLoseType | AILogic$ Never | SpellDescription$ Choose a card type. CARDNAME loses that type until end of turn.
+SVar:DBLoseType:DB$ Animate | Defined$ Self | RemoveTypes$ ChosenType
+A:AB$ GenericChoice | Cost$ 1 | Choices$ PumpAtt,PumpDef | SpellDescription$ CARDNAME gets +1/-1 or -1/+1 until end of turn.
+SVar:PumpAtt:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ -1 | SpellDescription$ CARDNAME gets +1/-1 until end of turn.
+SVar:PumpDef:DB$ Pump | Defined$ Self | NumAtt$ -1 | NumDef$ +1 | SpellDescription$ CARDNAME gets -1/+1 until end of turn.
+Oracle:{1}: Untap Magnetling.\n{1}: Magnetling can't be blocked by creatures with power 2 or less this turn.\n{1}: Choose a card type. Magnetling loses that type until end of turn.\n{1}: Magnetling gets +1/-1 or -1/+1 until end of turn.

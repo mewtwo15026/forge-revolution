@@ -1,0 +1,14 @@
+Name:Simul, Genetic Artisan
+ManaCost:3 G U
+Types:Legendary Planeswalker Simul
+Loyalty:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Permanent.token+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a token you control enters, put a +1/+1, flying, haste, trample, vigilance, or loyalty counter on a permanent you control other than NICKNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Choices$ Permanent.Other+YouCtrl | CounterType$ Flying,Haste,Trample,Vigilance,P1P1,LOYALTY | CounterNum$ 1
+A:AB$ Token | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | TokenAmount$ 1 | TokenScript$ g_1_1_plant | TokenOwner$ You | SpellDescription$ Create a 1/1 green Plant creature token.
+A:AB$ Token | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | TokenAmount$ 1 | TokenScript$ e_aura_epermanent_draw | TokenOwner$ You | SpellDescription$ Create a blue Aura enchantment token with enchant permanent and “When enchanted permanent is put into a graveyard from the battlefield, you draw two cards.”
+A:AB$ Token | Cost$ SubCounter<5/LOYALTY> | Planeswalker$ True | Ultimate$ True | TokenScript$ gur_3_3_dragon_flying | TokenOwner$ You | RememberTokens$ True | SubAbility$ DBPutCounters | SpellDescription$ Create a 3/3 green, blue, and red Dragon creature token with flying. For each kind of counter on permanents you control, you may put a counter of that kind on it.
+SVar:DBPutCounters:DB$ PutCounter | Defined$ Remembered | CounterTypes$ EachType_Permanent.YouCtrl | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Ability$Token|Counters
+DeckHas:Ability$Token|Counters & Type$Plant
+Oracle:Whenever a token you control enters, put a +1/+1, flying, haste, trample, vigilance, or loyalty counter on a permanent you control other than Simul.\n[+1]: Create a 1/1 green Plant creature token.\n[-2]: Create a blue Aura enchantment token with enchant permanent and “When enchanted permanent dies, you draw two cards.”\n[-5]: Create a 3/3 green, blue, and red Dragon creature token with flying. For each kind of counter on permanents you control, you may put a counter of that kind on it.

@@ -1,0 +1,13 @@
+Name:High Rollers
+ManaCost:2 R
+Types:Creature Human Citizen
+PT:3/3
+K:Level up:2 W
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ AttacksII | SetPower$ 4 | SetToughness$ 4 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+SVar:AttacksII:Mode$ Attacks | AttackingPlayer$ You | Execute$ TrigPumpII | TriggerDescription$ Whenever you attack, target creature gets +2/+0 until end of turn.
+SVar:TrigPumpII:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +2
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ AttacksV | SetPower$ 5 | SetToughness$ 5 | IsPresent$ Card.Self+counters_GE3_LEVEL
+SVar:AttacksV:Mode$ Attacks | AttackingPlayer$ You | Execute$ TrigPumpV | TriggerDescription$ Whenever you attack, target creature gets +5/+0 until end of turn.
+SVar:TrigPumpV:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +5
+Oracle:Level up {2}{W} ({2}{W}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n4/4\nWhenever you attack, target creature gets +2/+0 until end of turn.\nLEVEL 3+\n5/5\nWhenever you attack, target creature gets +5/+0 until end of turn.

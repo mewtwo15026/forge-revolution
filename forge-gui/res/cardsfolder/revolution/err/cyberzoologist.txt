@@ -1,0 +1,14 @@
+Name:Cyberzoologist
+ManaCost:1 G
+Types:Creature Human Druid
+PT:3/1
+K:Level up:1 G
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ SpellCastDraw | SetPower$ 4 | SetToughness$ 2 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+SVar:SpellCastDraw:Mode$ SpellCast | ValidCard$ Creature.powerGE3 | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever you cast a creature spell with power 3 or greater, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ SpellCastCopy | SetPower$ 5 | SetToughness$ 3 | IsPresent$ Card.Self+counters_GE3_LEVEL
+SVar:SpellCastCopy:Mode$ SpellCast | ValidCard$ Creature.powerGE3 | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever you cast a creature spell with power 3 or greater, copy that spell.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility
+DeckHas:Ability$Token
+Oracle:Level up {1}{G} ({1}{G}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n4/2\nWhenever you cast a creature spell with power 3 or greater, draw a card.\nLEVEL 3+\n5/3\nWhenever you cast a creature spell with power 3 or greater, copy that spell.

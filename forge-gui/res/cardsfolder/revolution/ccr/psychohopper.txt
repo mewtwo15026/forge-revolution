@@ -1,0 +1,7 @@
+Name:Psychohopper
+ManaCost:1 R
+Types:Creature Bird
+PT:1/2
+A:AB$ Pump | Cost$ U | Defined$ Self | KW$ Flying | SpellDescription$ CARDNAME gains flying until end of turn.
+A:AB$ Pump | Cost$ 2 G | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | ActivationLimit$ 1 | SpellDescription$ CARDNAME gets +2/+2 until end of turn. Activate only once each turn.
+Oracle:{U}: Psychohopper gains flying until end of turn.\n{2}{G}: Psychohopper gets +2/+2 until end of turn. Activate only once each turn.

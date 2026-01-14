@@ -1,0 +1,11 @@
+Name:Mev, Corruption Runner
+ManaCost:W U
+Types:Legendary Creature Human Scout
+PT:2/1
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerGTX | Description$ NICKNAME can't be blocked by creatures with greater power.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigYouDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever NICKNAME attacks, draw a card.
+SVar:TrigYouDraw:DB$ Draw | Defined$ You | NumCards$ 1
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigTheyDraw | TriggerDescription$ Whenever NICKNAME deals damage to a player, that player draws a card.
+SVar:TrigTheyDraw:DB$ Draw | Defined$ TriggeredTarget | NumCards$ 1
+SVar:X:Count$CardPower
+Oracle:Mev can't be blocked by creatures with greater power.\nWhenever Mev attacks, draw a card.\nWhenever Mev deals damage to a player, that player draws a card.

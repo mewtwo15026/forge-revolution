@@ -1,0 +1,12 @@
+Name:Widow's Knight
+ManaCost:G
+Types:Creature Zombie Soldier
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Zombie.Other+YouCtrl,Spirit.Other+YouCtrl | OptionalDecider$ You | Execute$ TrigGainLife | TriggerDescription$ Whenever CARDNAME or another Zombie or Spirit you control enters, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+S:Mode$ Continuous | EffectZone$ Battlefield | Affected$ Card.Self | CheckSVar$ Vigor | SVarCompare$ GE1 | AddPower$ 1 | AddToughness$ 1 | Description$ Vigor — CARDNAME gets +1/+1 as long as you've gained or lost life this turn.
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHas:Ability$LifeGain
+DeckHints:Ability$LifeGain & Type$Zombie|Spirit
+Oracle:Whenever Widow's Knight or another Zombie or Spirit you control enters, you gain 1 life.\nVigor — Widow's Knight gets +1/+1 as long as you've gained or lost life this turn.

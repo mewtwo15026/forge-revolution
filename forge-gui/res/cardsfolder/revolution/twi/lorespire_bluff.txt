@@ -1,0 +1,8 @@
+Name:Lorespire Bluff
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control an Island.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Island.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ R | SpellDescription$ Add {R}.
+A:AB$ Draw | Cost$ 3 U U T Sac<1/CARDNAME> | NumCards$ 2 | SpellDescription$ Draw two cards.
+Oracle:Lorespire Bluff enters tapped unless you control an Island.\n{T}: Add {R}.\n{3}{U}{U}, {T}, Sacrifice Lorespire Bluff: Draw two cards.

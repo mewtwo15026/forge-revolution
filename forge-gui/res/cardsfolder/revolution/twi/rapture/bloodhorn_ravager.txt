@@ -1,0 +1,12 @@
+Name:Bloodhorn Ravager
+ManaCost:R R W
+Types:Creature Minotaur Berserker
+PT:4/1
+K:Trample
+K:Lifelink
+K:Haste
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of your end step, sacrifice CARDNAME.
+SVar:TrigSac:DB$ Sacrifice | SacValid$ Self
+K:twi_Rapture
+SVar:PlayMain1:TRUE
+Oracle:Trample, lifelink, haste\nAt the beginning of your end step, sacrifice Bloodhorn Ravager.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

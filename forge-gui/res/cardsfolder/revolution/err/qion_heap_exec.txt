@@ -1,0 +1,17 @@
+Name:Qion, Heap Exec
+ManaCost:1 B B B B
+Types:Legendary Creature Human Warrior
+PT:5/5
+K:Deathtouch
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigReveal | TriggerDescription$ Whenever NICKNAME enters or attacks, you may reveal the top two cards of your library. If you do, you gain life equal to their total mana value, put them into your hand, then lose 7 life.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigReveal | TriggerZones$ Battlefield | OptionalDecider$ You | Secondary$ True | TriggerDescription$ Whenever NICKNAME enters or attacks, you may reveal the top two cards of your library. If you do, you gain life equal to their total mana value, put them into your hand, then lose 7 life.
+SVar:TrigReveal:DB$ PeekAndReveal | PeekAmount$ 2 | RevealOptional$ True | RememberRevealed$ True | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X | SubAbility$ DBBranch
+SVar:DBBranch:DB$ Branch | BranchConditionSVar$ Remembered$Valid Card | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBDig | FalseSubAbility$ DBCleanup
+SVar:DBDig:DB$ Dig | DigNum$ 2 | Reveal$ False | ChangeNum$ All | ChangeValid$ Card | LibraryPosition2$ 0 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 7 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$CardManaCost
+DeckHas:Ability$LifeGain
+DeckHints:Ability$LifeGain|Scry|Surveil
+Oracle:Deathtouch\nWhenever Qion enters or attacks, you may reveal the top two cards of your library. If you do, you gain life equal to their total mana value, put them into your hand, then lose 7 life.

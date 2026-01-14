@@ -1,0 +1,17 @@
+Name:Mystery Egg
+ManaCost:G
+Types:Creature Egg
+PT:0/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTutor | TriggerDescription$ When CARDNAME enters, search your library for a card and exile it face down, then shuffle. You may look at that card as long as it remains exiled.
+SVar:TrigTutor:DB$ ChangeZone | Origin$ Library | Destination$ Exile | ExileFaceDown$ True | RememberChanged$ True | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True | SubAbility$ DBLookEffect
+SVar:DBLookEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STLook | Duration$ Permanent | ForgetOnMoved$ Exile
+SVar:STLook:Mode$ Continuous | MayLookAt$ You | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may look at it for as long as it remains exiled.
+T:Mode$ ChangesZone | Origin$ Exile | Destination$ Any | Static$ True | ValidCard$ Card.IsRemembered+ExiledWithSource | Execute$ DBForget
+SVar:DBForget:DB$ Pump | ForgetObjects$ TriggeredCard
+A:AB$ SetState | Cost$ 1 T Sac<1/CARDNAME> | Defined$ ExiledWith | Mode$ TurnFaceUp | SubAbility$ DBPlayEffect
+SVar:DBPlayEffect:DB$ Effect | Duration$ EndOfTurn | RememberObjects$ Remembered | StaticAbilities$ STCast,STFlash | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STCast:Mode$ Continuous | MayPlay$ True | Affected$ Creature.nonLand+IsRemembered | AffectedZone$ Exile | Description$ You may cast that card this turn if it's a creature spell.
+SVar:STFlash:Mode$ CastWithFlash | ValidCard$ Creature.IsRemembered | ValidSA$ Spell | Caster$ You | AffectedZone$ Exile | Description$ You may cast that spell as though it had flash.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+AI:RemoveDeck:All
+Oracle:When Mystery Egg enters, search your library for a card and exile it face down, then shuffle. You may look at that card as long as it remains exiled.\n{G}, {T}, Sacrifice Mystery Egg: Turn the exiled card face up. You may cast that card this turn if it's a creature spell, and you may cast that spell as though it had flash.

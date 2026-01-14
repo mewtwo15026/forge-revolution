@@ -1,0 +1,9 @@
+Name:Zipping Lightningbug
+ManaCost:1 U
+Types:Creature Insect
+PT:2/1
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigPump | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, target creature you don't control gets -2/-0 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | IsCurse$ True | NumAtt$ -2
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nAmity — Whenever you attack with Zipping Lightningbug and exactly one other creature, target creature you don't control gets -2/-0 until end of turn.

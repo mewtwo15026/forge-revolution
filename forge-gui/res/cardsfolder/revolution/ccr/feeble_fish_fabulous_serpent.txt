@@ -1,0 +1,24 @@
+Name:Feeble Fish
+ManaCost:1 U
+Types:Creature Fish
+PT:0/1
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Command | Execute$ TrigCounter | ResolvedLimit$ 1 | OptionalDecider$ You | TriggerDescription$ Whenever you activate a nonmana ability, you may put a +1/+1 counter on CARDNAME. Then if there are three or more +1/+1 counters on it, remove them all and transform it. Do this only once each turn.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1 | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | ConditionDefined$ Self | ConditionPresent$ Card.counters_GE3_P1P1
+DeckHas:Ability$Counters
+AlternateMode:DoubleFaced
+Oracle:Whenever you activate a nonmana ability, you may put a +1/+1 counter on Feeble Fish. Then if there are three or more +1/+1 counters on it, remove them all and transform it. Do this only once each turn.
+
+ALTERNATE
+
+Name:Fabulous Serpent
+ManaCost:no cost
+Colors:blue
+Types:Creature Serpent
+PT:5/6
+K:Ward:2
+S:Mode$ ReduceCost | ValidTarget$ Card.Self | Activator$ You | Type$ Spell | Amount$ 2 | Description$ Spells you cast that target CARDNAME cost {2} less to cast.
+S:Mode$ ReduceCost | ValidTarget$ Card.Self | ValidSpell$ Activated | Activator$ You | Amount$ 2 | Description$ Abilities you activate that target CARDNAME cost {2} less to activate.
+A:AB$ PumpAll | Cost$ 2 U | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +2 | SpellDescription$ Creatures you control get +1/+1 until end of turn.
+SVar:BuffedBy:Creature
+Oracle:Ward {2}\nSpells and abilities you control that target Fabulous Serpent cost {2} less.\n{2}{U}: Creatures you control get +1/+1 until end of turn.

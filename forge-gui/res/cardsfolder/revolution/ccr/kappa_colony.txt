@@ -1,0 +1,9 @@
+Name:Kappa Colony
+ManaCost:3 U
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create three 1/1 green Plant creature tokens.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 3 | TokenScript$ g_1_1_plant
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigPutCounterAll | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell from your graveyard, put a +1/+1 counter on each Plant you control.
+SVar:TrigPutCounterAll:DB$ PutCounterAll | ValidCards$ Creature.Plant+YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Token & Type$Plant
+Oracle:When Kappa Colony enters, create three 1/1 green Plant creature tokens.\nWhenever you cast a spell from your graveyard, put a +1/+1 counter on each Plant you control.

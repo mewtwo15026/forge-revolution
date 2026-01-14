@@ -1,0 +1,10 @@
+Name:Token_Limit
+ManaCost:5 R R
+Types:Creature Error
+PT:6/6
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDamage | TriggerDescription$ Whenever this creature enters, it deals X damage to any target, where X is the number of tokens you control.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X
+SVar:X:Count$Valid Permanent.YouCtrl+token
+DeckHints:Ability$Token
+Oracle:Menace\nWhen this creature enters, it deals X damage to any target, where X is the number of tokens you control.

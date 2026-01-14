@@ -1,0 +1,12 @@
+Name:Advance of Rune and Whisper
+ManaCost:U
+Types:Battle Operation
+Defense:3
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | TriggerDescription$ When CARDNAME enters, return target creature to its owner's hand.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Execute$ TrigScry | TriggerDescription$ Defeated — At the beginning of your upkeep, scry 1.
+SVar:TrigScry:DB$ Scry | ScryNum$ 1
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\n
+Flash\n
+When Advance of Rune and Whisper enters, return target creature to its owner's hand.\n
+Defeated — At the beginning of your upkeep, scry 1.

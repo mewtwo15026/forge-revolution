@@ -1,0 +1,11 @@
+Name:Sunsoaker
+ManaCost:1 G
+Types:Creature Plant Lizard
+PT:1/2
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+T:Mode$ AttackersDeclared | Execute$ TrigCounter | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, put a +1/+1 counter on Sunsoaker and add one mana of any color. Until end of turn, you don't lose that mana as steps and phases end.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBMana
+SVar:DBMana:DB$ Mana | Produced$ Any | PersistentMana$ True
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Counters
+Oracle:{T}: Add one mana of any color.\nAmity — Whenever you attack with Sunsoaker and exactly one other creature, put a +1/+1 counter on Sunsoaker and add one mana of any color. Until end of turn, you don't lose that mana as steps and phases end.

@@ -1,0 +1,10 @@
+Name:Charismatic Chameleon
+ManaCost:U R W
+Types:Creature Lizard
+PT:3/3
+A:AB$ Pump | Cost$ W | KW$ Lifelink | Defined$ Self | SpellDescription$ CARDNAME gains lifelink until end of turn.
+A:AB$ Pump | Cost$ 1 R | NumAtt$ +1 | NumDef$ +1 | Defined$ Self | SpellDescription$ CARDNAME gets +1/+1 until end of turn.
+A:AB$ Effect | Cost$ 2 U | RememberObjects$ Self | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | SpellDescription$ CARDNAME can't be blocked this turn.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ EFFECTSOURCE can't be blocked this turn.
+DeckHas:Ability$LifeGain
+Oracle:{W}: Charismatic Chameleon gains lifelink until end of turn.\n{1}{R}: Charismatic Chameleon gets +1/+1 until end of turn.\n{2}{U}: Charismatic Chameleon can't be blocked this turn.

@@ -1,4 +1,0 @@
-Name:Root Node
-ManaCost:no cost
-Types:Land Forest Plains
-Oracle:({T}: Add {G} or {W}.)

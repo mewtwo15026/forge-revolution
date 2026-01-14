@@ -1,0 +1,10 @@
+Name:Frenzied Dawnseeker
+ManaCost:1 R W
+Types:Creature Azra Berserker
+PT:2/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, creatures you control get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1
+K:twi_Rapture
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Creature
+Oracle:Whenever Frenzied Dawnseeker attacks, creatures you control get  +1/+0 until end of turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

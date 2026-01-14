@@ -1,0 +1,11 @@
+Name:Faithline Marshal
+ManaCost:2 G
+Types:Creature Human Cleric
+PT:2/3
+K:Flash
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSoldier | ActivatorThisTurnCast$ EQ1 | TriggerDescription$ Whenever you cast your first spell each turn, create a 1/1 white Soldier creature token.
+SVar:TrigSoldier:DB$ Token | TokenScript$ w_1_1_soldier
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigEverywhere | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, create a tapped Everywhere token. (It's a land that is every basic land type.)
+SVar:TrigEverywhere:DB$ Token | TokenScript$ everywhere | TokenTapped$ True
+DeckHas:Ability$Token & Type$Soldier
+Oracle:Flash\nWhenever you cast your first spell each turn, create a 1/1 white Soldier creature token.\nWhenever you cast your second spell each turn, create a tapped Everywhere token. (It's a land that is every basic land type.)

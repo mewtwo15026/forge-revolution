@@ -1,0 +1,13 @@
+Name:Undefined_Behavior
+ManaCost:7 U U
+Types:Creature Error Sphinx
+PT:10/11
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigCopyArtifact | TriggerDescription$ When this creature enters, for each permanent type, create a token that's a copy of up to one target non-Error permanent you control of that type.
+SVar:TrigCopyArtifact:DB$ CopyPermanent | ValidTgts$ Artifact.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error artifact you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1 | SubAbility$ DBCopyBattle
+SVar:DBCopyBattle:DB$ CopyPermanent | ValidTgts$ Battle.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error battle you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1 | SubAbility$ DBCopyCreature
+SVar:DBCopyCreature:DB$ CopyPermanent | ValidTgts$ Creature.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error creature you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1 | SubAbility$ DBCopyEnch
+SVar:DBCopyEnch:DB$ CopyPermanent | ValidTgts$ Enchantment.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error enchantment you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1 | SubAbility$ DBCopyLand
+SVar:DBCopyLand:DB$ CopyPermanent | ValidTgts$ Land.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error land you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1 | SubAbility$ DBCopyPwalker
+SVar:DBCopyPwalker:DB$ CopyPermanent | ValidTgts$ Planeswalker.nonError+YouCtrl | TgtPrompt$ Select up to one target non-Error planeswalker you control | TargetMin$ 0 | TargetMax$ 1 | NumCopies$ 1
+Oracle:Flying\nWhen this creature enters, for each permanent type, create a token that's a copy of up to one target non-Error permanent you control of that type.

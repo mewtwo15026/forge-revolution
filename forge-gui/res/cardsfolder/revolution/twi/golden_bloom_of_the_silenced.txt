@@ -1,0 +1,8 @@
+Name:Golden Bloom of the Silenced
+ManaCost:2
+Types:Legendary Artifact
+K:ETBReplacement:Other:DBNameCard
+SVar:DBNameCard:DB$ NameCard | Defined$ You | ValidCards$ Card.nonLand+!namedGolden Bloom of the Silenced | ValidDescription$ another nonland | AILogic$ PithingNeedle | SpellDescription$ As CARDNAME enters, choose a nonland card name other than Golden Bloom of the Silenced.
+S:Mode$ Continuous | Affected$ Permanent.Other+NamedCard | RemoveAllAbilities$ True | Description$ Other permanents with the chosen name lose all abilities.
+AI:RemoveDeck:Random
+Oracle:As Golden Bloom of the Silenced enters, choose a nonland card name other than Golden Bloom of the Silenced.\nOther permanents with the chosen name lose all abilities.

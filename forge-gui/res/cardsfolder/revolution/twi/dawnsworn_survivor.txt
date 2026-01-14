@@ -1,0 +1,8 @@
+Name:Dawnsworn Survivor
+ManaCost:3 G
+Types:Creature Elf Soldier Survivor
+PT:4/3
+K:Trample
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | Execute$ TrigReturn | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, you may return CARDNAME from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand
+Oracle:Trample\nWhenever you cast your second spell each turn, you may return Dawnsworn Survivor from your graveyard to your hand.

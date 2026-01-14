@@ -1,0 +1,27 @@
+Name:Temperamental Chick
+ManaCost:R R
+Types:Creature Bird
+PT:2/2
+T:Mode$ AttackersDeclared | Execute$ TrigEmber | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME deals 1 damage to up to one target creature. When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:TrigEmber:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select up to one target creature | TargetMin$ 0 | TargetMax$ 1 | NumDmg$ 1 | SubAbility$ DBDamageMonitor
+SVar:DBDamageMonitor:DB$ Effect | RememberObjects$ Self | Triggers$ DamageDone | Duration$ UntilEndOfCombat | ExileOnMoved$ Battlefield | Description$ When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:DamageDone:Mode$ DamageDone | ValidSource$ Card.IsRemembered | ValidTarget$ Player | CombatDamage$ True | OptionalDecider$ You | Execute$ TrigTransform | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may transform it.
+SVar:TrigTransform:DB$ SetState | Defined$ Remembered | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+AlternateMode:DoubleFaced
+Oracle:Amity — Whenever you attack with Temperamental Chick and exactly one other creature, Temperamental Chick deals 1 damage to up to one target creature. When Temperamental Chick deals combat damage to a player this combat, you may transform it.
+
+ALTERNATE
+
+Name:Tempered Fowl
+ManaCost:no cost
+Colors:red
+Types:Creature Bird
+PT:5/4
+K:First Strike
+T:Mode$ AttackersDeclared | Execute$ TrigBlazeKick | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever CARDNAME attacks, it deals 1 damage to up to one target creature. That creature can't block this turn. If exactly one other creature attacked with CARDNAME, this ability triggers three times instead.
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+SVar:TrigBlazeKick:DB$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select up to one target creature | TargetMin$ 0 | TargetMax$ 1 | NumDmg$ 1 | SubAbility$ DBPumpCurse
+SVar:DBPumpCurse:DB$ Pump | Defined$ Targeted | IsCurse$ True | KW$ HIDDEN CARDNAME can't block.
+Oracle:First strike\nAmity — Whenever Tempered Fowl attacks, it deals 1 damage to up to one target creature. That creature can't block this turn. If exactly one other creature attacked with Tempered Fowl, this ability triggers three times instead.

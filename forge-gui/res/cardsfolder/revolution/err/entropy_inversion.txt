@@ -1,0 +1,16 @@
+Name:Entropy_Inversion
+ManaCost:3 B B B
+Types:Legendary Creature Error
+PT:7/8
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigChangeZoneAll | TriggerDescription$ When CARDNAME enters or leaves the battlefield, exchange your graveyard and library, then shuffle.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigChangeZoneAll | Secondary$ True | TriggerDescription$ When CARDNAME enters or leaves the battlefield, exchange your graveyard and library, then shuffle.
+SVar:TrigChangeZoneAll:DB$ ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Library | Destination$ Graveyard | RememberChanged$ True | SubAbility$ DBExchangeZoneAll
+SVar:DBExchangeZoneAll:DB$ ChangeZoneAll | ChangeType$ Card.YouCtrl+IsNotRemembered | Origin$ Graveyard | Destination$ Library | SubAbility$ DBShuffle
+SVar:DBShuffle:DB$ ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Graveyard | Destination$ Library | Shuffle$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | ValidCard$ Creature | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature dies, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:NeedsToPlayVar:X GE7
+SVar:X:Count$ValidGraveyard Card.YouOwn
+DeckHints:Ability$Graveyard|Surface|Mill|Sacrifice
+Oracle:When this creature enters or leaves the battlefield, exchange your graveyard and library, then shuffle.\nWhenever a creature dies, draw a card.

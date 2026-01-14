@@ -1,0 +1,10 @@
+Name:Advance of the Empty Throne
+ManaCost:1 G
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, return target nonbattle permanent card from your graveyard to your hand.\n
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Permanent.nonBattle+YouOwn | TgtPrompt$ Select target nonbattle permanent card in your graveyard
+T:Mode$ ChangesZone | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Defeated — Whenever a land you control enters, create a 1/1 white Soldier creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_soldier | TokenOwner$ You
+DeckHas:Ability$Graveyard|Token & Type$Soldier
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of the Empty Throne enters, return target nonbattle permanent card from your graveyard to your hand.\nDefeated — Whenever a land you control enters, create a 1/1 white Soldier creature token.

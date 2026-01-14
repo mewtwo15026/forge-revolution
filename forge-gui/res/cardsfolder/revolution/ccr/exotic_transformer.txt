@@ -1,0 +1,11 @@
+Name:Exotic Transformer
+ManaCost:4 R
+Types:Artifact Creature Construct
+PT:4/4
+A:AB$ Dig | Cost$ 3 R | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top card of your library. You may play that card until the end of your next turn.
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play that card until the end of your next turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ DealDamage | Cost$ 7 R | ValidTgts$ Any | NumDmg$ X | SpellDescription$ CARDNAME deals damage equal to its power to any target.
+SVar:X:Count$CardPower
+Oracle:{3}{R}: Exile the top card of your library. You may play that card until the end of your next turn.\n{7}{R}: Exotic Transformer deals damage equal to its power to any target.

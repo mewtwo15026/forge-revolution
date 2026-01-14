@@ -1,0 +1,8 @@
+Name:The Ruins Awaken
+ManaCost:1 W
+Types:Sorcery
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ w_1_1_golem | TokenOwner$ You | SpellDescription$ Create two 1/1 white Golem creature tokens.
+A:AB$ Token | Cost$ W ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | CheckSVar$ X | SVarCompare$ GE1 | TokenAmount$ 1 | TokenScript$ w_1_1_golem | TokenOwner$ You | SpellDescription$ Create a 1/1 white Golem creature token. Activate only as a sorcery and only if a land entered the battlefield under your control this turn.
+SVar:X:Count$ThisTurnEntered_Battlefield_Land.YouCtrl
+DeckHas:Ability$Graveyard|Token & Type$Golem
+Oracle:Create two 1/1 white Golem creature tokens.\nLandfall — {W}, Exile The Ruins Awaken from your graveyard: Create a 1/1 white Golem creature token. Activate only as a sorcery and only if a land entered the battlefield under your control this turn.

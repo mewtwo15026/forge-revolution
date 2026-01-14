@@ -1,0 +1,9 @@
+Name:Helen's Failsafe
+ManaCost:9
+Types:Artifact Creature Construct
+PT:12/10
+K:Ward:2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDestroy | Secondary$ True | TriggerDescription$ Whenever this creature attacks, destroy up to one target nonland permanent.
+SVar:TrigDestroy:DB$ Destroy | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Permanent.nonland | TgtPrompt$ Select up to one target nonland permanent
+SVar:HasAttackEffect:TRUE
+Oracle:Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nWhenever this creature attacks, destroy up to one target nonland permanent.

@@ -1,0 +1,6 @@
+Name:Mimicry Elemental
+ManaCost:1 R
+Types:Creature Elemental
+PT:1/3
+A:AB$ CopySpellAbility | Cost$ R T | TgtPrompt$ Select target activated ability you control | TargetType$ Activated.YouCtrl | ValidTgts$ Card,Emblem | MayChooseTarget$ True | StackDescription$ SpellDescription | SpellDescription$ Copy target activated ability you control. You may choose new targets for the copy.
+Oracle:{R}, {T}: Copy target activated ability you control. You may choose new targets for the copy.

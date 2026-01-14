@@ -1,0 +1,11 @@
+Name:Pressuring Ghoul
+ManaCost:1 B
+Types:Creature Spirit
+PT:1/1
+K:Flying
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigPressure | TriggerDescription$ Landfall — Whenever a land you control enters, put a +1/+1 counter on CARDNAME unless any opponent discards a card.
+SVar:TrigPressure:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | UnlessCost$ Discard<1/Card> | UnlessPayer$ Opponent | StackDescription$ Put a +1/+1 counter on CARDNAME
+SVar:BuffedBy:Land
+DeckHas:Ability$Counters
+Oracle:Flying, haste\nLandfall — Whenever a land you control enters, put a +1/+1 counter on Pressuring Ghoul unless any opponent discards a card.

@@ -1,0 +1,9 @@
+Name:Buoyant Datagrazer
+ManaCost:3 U
+Types:Enchantment Creature Whale
+PT:3/3
+K:Flying
+T:Mode$ Sacrificed | ValidCard$ Memory.YouCtrl | Execute$ TrigDrawCard | TriggerZones$ Battlefield | TriggerDescription$ Whenever you sacrifice a Memory, draw a card.
+SVar:TrigDrawCard:DB$ Draw | Defined$ You | NumCards$ 1
+DeckHints:Type$Memory
+Oracle:Flying/nWhenever you sacrifice a Memory, draw a card.

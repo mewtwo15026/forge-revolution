@@ -1,0 +1,8 @@
+Name:Pest Problem
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ Token | TokenOwner$ Player.controlsEnchantment,controlsArtifact | TokenScript$ w_2_2_mouse | SubAbility$ DBDestroy | SpellDescription$ Each player who controls an artifact or enchantment creates a 2/2 white Mouse creature token. Then destroy all artifacts and enchantments.
+SVar:DBDestroy:DB$ DestroyAll | ValidCards$ Artifact,Enchantment
+AI:RemoveDeck:Random
+DeckHas:Ability$Token & Type$Bear
+Oracle:Each player who controls an artifact or enchantment creates a 2/2 white Mouse creature token. Then destroy all artifacts and enchantments.

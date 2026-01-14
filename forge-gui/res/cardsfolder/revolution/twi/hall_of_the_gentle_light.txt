@@ -1,0 +1,9 @@
+Name:Hall of the Gentle Light
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Plains.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Plains.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ PutCounter | Cost$ 1 W W T Sac<1/CARDNAME> | TgtPrompt$ Select target creature you control | ValidTgts$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 2 | SubAbility$ DBPump | SpellDescription$ Put two +1/+1 counters on target creature you control. It gains vigilance and trample until end of turn. Activate only as a sorcery.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Vigilance & Trample
+Oracle:Hall of the Gentle Light enters tapped unless you control a Plains.\n{T}: Add {G}.\n{1}{W}{W}, {T}, Sacrifice Hall of the Gentle Light: Put two +1/+1 counters on target creature you control. It gains vigilance and trample until end of turn. Activate only as a sorcery.

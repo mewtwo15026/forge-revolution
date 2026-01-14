@@ -1,0 +1,9 @@
+Name:Bleed for the Cause
+ManaCost:B
+Types:Sorcery
+A:SP$ Token | TokenScript$ b_2_2_zombie_cantblock | SubAbility$ DBLoseLife | SpellDescription$ Create a 2/2 black Zombie creature token with “This creature can't block.” You lose 1 life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Graveyard | Execute$ TrigReturn | CheckSVar$ X | SVarCompare$ GE3 | TriggerDescription$ At the beginning of your end step, if you've lost 3 or more life this turn, return CARDNAME from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand
+DeckHas:Ability$Token|Graveyard & Type$Zombie
+Oracle:Create a 2/2 black Zombie creature token with “This creature can't block.” You lose 1 life.\nAt the beginning of your end step, if you've lost 3 or more life this turn, return Bleed for the Cause from your graveyard to your hand.

@@ -1,0 +1,15 @@
+Name:Weather Elemental
+ManaCost:4
+Types:Creature Elemental
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ AccliChange | TriggerDescription$ Whenever CARDNAME enters or attacks, it acclimates.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ AccliChange | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, it acclimates.
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Panharmonicon | ValidCard$ Weather.YouCtrl | Description$ If a triggered ability of a Weather you control triggers, it triggers an additional time.
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Weather
+DeckHas:Ability$Counters
+Oracle:Flying\nWhenever Weather Elemental enters or attacks, it acclimates. (You may put a Weather card you own from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)\nIf a triggered ability of a Weather you control triggers, it triggers an additional time.

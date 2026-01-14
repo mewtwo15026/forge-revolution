@@ -1,0 +1,10 @@
+Name:Oathbreaker's Challenge
+ManaCost:1 G
+Types:Instant
+A:SP$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | ConditionCheckSVar$ Vigor | ConditionSVarCompare$ GE1 | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBFight | SpellDescription$ Target creature you control fights target creature you don't control. Vigor — Put a +1/+1 counter on the creature you control before it fights if you've gained or lost life this turn.
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+DeckHas:Ability$Counters
+Oracle:Target creature you control fights target creature you don't control.\nVigor — Put a +1/+1 counter on the creature you control before it fights if you've gained or lost life this turn.

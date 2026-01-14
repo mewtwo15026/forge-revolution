@@ -1,0 +1,6 @@
+Name:Too Late for Grace
+ManaCost:1 W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl | WithCountersType$ P1P1 | SpellDescription$ Return target creature card with mana value 3 or less from your graveyard to the battlefield with a +1/+1 counter on it.
+DeckHas:Ability$Graveyard|Counters
+Oracle:Return target creature card with mana value 3 or less from your graveyard to the battlefield with a +1/+1 counter on it.

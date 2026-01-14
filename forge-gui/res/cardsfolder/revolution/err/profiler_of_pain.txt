@@ -1,0 +1,9 @@
+Name:Profiler of Pain
+ManaCost:1 R
+Types:Creature Human Warlock
+PT:1/3
+K:Menace
+S:Mode$ ReduceCost | ValidCard$ Error | Type$ Spell | Activator$ You | Amount$ X | Description$ Error spells you cast cost {X} less to cast, where X is the total amount of life your opponents have lost this turn.
+SVar:X:Count$LifeOppsLostThisTurn
+DeckNeeds:Type$Error
+Oracle:Menace\nError spells you cast cost {X} less to cast, where X is the total amount of life your opponents have lost this turn.

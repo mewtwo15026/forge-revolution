@@ -1,0 +1,12 @@
+Name:Soulhoarder
+ManaCost:1 B G
+Types:Creature Spirit
+PT:3/2
+K:Trample
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Vigor | SVarCompare$ GE1 | Execute$ TrigPutCounter | TriggerDescription$ Vigor — At the beginning of your end step, if you've gained or lost life this turn, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+DeckHas:Ability$Counters
+Oracle:Trample\nVigor — At the beginning of your end step, if you've gained or lost life this turn, put a +1/+1 counter on Soulhoarder.

@@ -1,0 +1,21 @@
+Name:Karina, Budding Diplomat
+ManaCost:1 R W
+Types:Legendary Planeswalker Karina
+Loyalty:3
+T:Mode$ LifeGained | ValidPlayer$ Opponent | TriggerZones$ Battlefield | PlayerTurn$ True | Execute$ TrigGainLife | TriggerDescription$ Whenever an opponent gains life during your turn, you gain that much life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:TriggerCount$LifeAmount
+T:Mode$ Drawn | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | PlayerTurn$ True | Execute$ TrigDraw | TriggerDescription$ Whenever an opponent draws a card during your turn, you draw a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ 1 | Defined$ Player | OptionalDecider$ True | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ You may discard a card. If you do, each player may draw a card.
+A:AB$ Pump | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | TgtPrompt$ For each player, select up to one target creature they control | TargetMin$ 0 | TargetMax$ OneEach | TargetsForEachPlayer$ True | KW$ Lifelink & Vigilance | SpellDescription$ For each player, up to one target creature they control gains vigilance and lifelink until end of turn.
+SVar:OneEach:PlayerCountPlayers$Amount
+A:AB$ ChooseType | Cost$ SubCounter<7/LOYALTY> | Planeswalker$ True | Ultimate$ True | Defined$ You | Type$ Card | InvalidTypes$ Instant,Sorcery,Kindred | AILogic$ MostProminentOppControls | SubAbility$ DBRepeat | SpellDescription$ Choose a card type. Each opponent who controls more permanents of that type than you sacrifices a number equal to the difference.
+SVar:DBRepeat:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBSacrifice | SubAbility$ DBCleanup
+SVar:DBSacrifice:DB$ Sacrifice | SacValid$ Card.ChosenType | Amount$ X | Defined$ Player.IsRemembered
+SVar:X:SVar$Difference/LimitMin.0
+SVar:Difference:PlayerCountRemembered$Valid Card.ChosenType+RememberedPlayerCtrl/Minus.Yours
+SVar:Yours:Count$Valid Card.ChosenType+YouCtrl
+SVar:DBCleanup:DB$ Cleanup | ClearChosenType$ True
+DeckHas:Ability$LifeGain|Discard
+Oracle:Whenever an opponent gains life or draws a card during your turn, you do the same.\n[+1]: You may discard a card. If you do, each player may draw a card.\n[+1]: For each player, up to one target creature they control gains vigilance and lifelink until end of turn.\n[-7]: Choose a card type. Each opponent who controls more permanents of that type than you sacrifices a number equal to the difference.

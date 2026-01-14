@@ -1,0 +1,12 @@
+Name:Advance of the Umbral Bargain
+ManaCost:1 B
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemove | TriggerDescription$ When CARDNAME enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card. If they do, you lose 1 life.
+SVar:TrigRemove:DB$ Discard | ValidTgts$ Opponent | NumCards$ 1 | Mode$ RevealYouChoose | DiscardValid$ Card.nonLand | RememberDiscarded$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ Opponent | IsPresent$ Card.Self+counters_EQ0_DEFENSE | TriggerZones$ Battlefield | CheckSVar$ CardsInHand | SVarCompare$ LE1 | Execute$ TrigLoseLife | TriggerDescription$ Defeated — At the beginning of each opponent's upkeep, if that player has one or fewer cards in hand, they lose 2 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ TriggeredPlayer | LifeAmount$ 2
+SVar:CardsInHand:Count$ValidHand Card.ActivePlayerCtrl
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of the Umbral Bargain enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card. If they do, you lose 1 life.\nDefeated — At the beginning of each opponent's upkeep, if that player has one or fewer cards in hand, they lose 2 life.

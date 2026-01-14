@@ -1,0 +1,15 @@
+Name:Trauma Spike
+ManaCost:1 U B
+Types:Sorcery
+A:SP$ NameCard | Defined$ You | ValidCards$ Card.nonLand | ValidDescription$ nonland card | SubAbility$ ExileYard | StackDescription$ SpellDescription | SpellDescription$ Choose a nonland card name. Search target player's graveyard, hand, and/or library for any number of cards with that name and exile them. That player shuffles. Discard a card for each card exiled from that player's hand this way.
+SVar:ExileYard:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Player.Opponent | ChangeType$ Card.NamedCard | Chooser$ You | ChangeNum$ NumInYard | Hidden$ True | SubAbility$ ExileHand | StackDescription$ None
+SVar:ExileHand:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | DefinedPlayer$ Targeted | ChangeType$ Card.NamedCard | ChangeNum$ NumInHand | Chooser$ You | RememberChanged$ True | SubAbility$ ExileLib | StackDescription$ None
+SVar:ExileLib:DB$ ChangeZone | Origin$ Library | Destination$ Exile | DefinedPlayer$ Targeted | ChangeType$ Card.NamedCard | ChangeNum$ NumInLib | Chooser$ You | Shuffle$ True | SubAbility$ DBDiscard | StackDescription$ None
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ X | Mode$ TgtChoose | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:NumInLib:TargetedPlayer$CardsInLibrary
+SVar:NumInHand:TargetedPlayer$CardsInHand
+SVar:NumInYard:TargetedPlayer$CardsInGraveyard
+SVar:X:Remembered$Amount
+AI:RemoveDeck:All
+Oracle:Choose a nonland card name. Search target player's graveyard, hand, and/or library for any number of cards with that name and exile them. That player shuffles. Discard a card for each card exiled from that player's hand this way.

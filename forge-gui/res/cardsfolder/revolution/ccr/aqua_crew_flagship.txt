@@ -1,0 +1,12 @@
+Name:Aqua Crew Flagship
+ManaCost:2 U
+Types:Artifact Vehicle
+PT:4/4
+A:AB$ Draw | Cost$ T | NumCards$ 1 | SpellDescription$ Draw a card, then discard a card. | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ 1
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigToken | TriggerZones$ Battlefield | ResolvedLimit$ 1 | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell from your graveyard, you may create a 2/1 blue Human Pirate creature token.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ u_2_1_human_pirate
+K:Crew:2
+DeckHints:Ability$Surface
+DeckHas:Ability$Discard
+Oracle:{T}: Draw a card, then discard a card.\nOnce each turn, when you cast a spell from your graveyard, you may create a 2/1 blue Human Pirate creature token.\nCrew 2

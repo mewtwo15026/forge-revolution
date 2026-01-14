@@ -1,0 +1,7 @@
+Name:Soulspace Access
+ManaCost:1 U U
+Types:Enchantment Aura
+K:Enchant:Creature.powerLE2:creature with power 2 or less
+SVar:AttachAILogic:GainControl
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | GainControl$ You | Description$ You control enchanted creature.
+Oracle:Enchant creature with power 2 or less\nYou control enchanted creature.

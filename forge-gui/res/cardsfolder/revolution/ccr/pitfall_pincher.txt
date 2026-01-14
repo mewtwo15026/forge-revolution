@@ -1,0 +1,10 @@
+Name:Pitfall Pincher
+ManaCost:1 B R
+Types:Creature Insect
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDmg | TriggerDescription$ Landfall — Whenever a land you control enters, this creature deals 1 damage to any target.
+SVar:TrigDmg:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 1 | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ MustBlock | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | ConditionDefined$ Targeted | ConditionPresent$ Creature
+SVar:MustBlock:Mode$ MustBlock | ValidCreature$ Card.IsRemembered | Description$ This creature blocks this turn if able.
+SVar:BuffedBy:Land,Creature.powerGE3+toughnessGE4
+Oracle:Landfall — Whenever a land you control enters, Pitfall Pincher deals 1 damage to any target. If that target is a creature, it blocks this turn if able.

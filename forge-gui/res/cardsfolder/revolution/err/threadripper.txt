@@ -1,0 +1,8 @@
+Name:Threadripper
+ManaCost:3 R R
+Types:Creature Jackal Warlock
+PT:4/4
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ During your turn, this creature has first strike.
+A:AB$ DealDamage | Cost$ 1 R Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Creature | NumDmg$ 3 | ReplaceDyingDefined$ Targeted | SpellDescription$ CARDNAME deals 3 damage to target creature. If that creature would die this turn, exile it instead.
+DeckHas:Ability$Discard
+Oracle:During your turn, this creature has first strike.\n{1}{R}, Discard this card: It deals 3 damage to target creature. If that creature would die this turn, exile it instead.

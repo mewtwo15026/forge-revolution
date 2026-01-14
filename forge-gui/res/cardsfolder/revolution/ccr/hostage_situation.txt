@@ -1,0 +1,13 @@
+Name:Hostage Situation
+ManaCost:1 B
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, target opponent reveals their hand. Exile a nonland card from it and up to one creature card from your graveyard. When CARDNAME is no longer on the battlefield, return each exiled card to its owner's hand.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | ValidTgts$ Opponent | DefinedPlayer$ Targeted | Chooser$ You | TgtPrompt$ Select target opponent | ChangeType$ Card.nonLand | ChangeNum$ 1 | IsCurse$ True | RememberChanged$ True | SubAbility$ DBRansom
+SVar:DBRansom:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeNum$ 1 | ChangeType$ Creature.YouOwn | SelectPrompt$ Select up to one creature card in your graveyard | Hidden$ True | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | Triggers$ NoMoreSource | Duration$ Permanent | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:NoMoreSource:Mode$ Always | IsPresent$ Card.EffectSource | PresentZone$ Battlefield | PresentCompare$ EQ0 | Execute$ TrigReturn | TriggerDescription$ When EFFECTSOURCE is no longer on the battlefield, return the exiled cards to their owner's hands.
+SVar:TrigReturnAll:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Hand | SubAbility$ DBEffectCleanup
+SVar:DBEffectCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ EndEffect
+SVar:EndEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+Oracle:When Hostage Situation enters, target opponent reveals their hand. Exile a nonland card from it and up to one creature card from your graveyard. When Hostage Situation is no longer on the battlefield, return the exiled cards to their owner's hands.

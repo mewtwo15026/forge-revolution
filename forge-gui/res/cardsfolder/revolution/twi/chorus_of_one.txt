@@ -1,0 +1,9 @@
+Name:Chorus of One
+ManaCost:U
+Types:Creature Angel Warlock
+PT:1/1
+K:Flash
+K:Flying
+A:AB$ Token | Cost$ 2 U ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | TokenAmount$ 1 | TokenScript$ u_1_1_warlock_prowess | TokenOwner$ You | PumpKeywords$ HIDDEN CARDNAME can't block. | PumpDuration$ EOT | SpellDescription$ Create a 1/1 blue Warlock creature token with prowess. It can't block this turn.
+DeckHas:Ability$Token
+Oracle:Flash\nFlying\n{2}{U}, Exile Chorus of One from your graveyard: Create a 1/1 blue Warlock creature token with prowess. It can't block this turn.

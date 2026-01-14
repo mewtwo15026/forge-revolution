@@ -1,0 +1,13 @@
+Name:Eclipse of the Divine
+ManaCost:1 R R
+Types:Battle Operation
+Defense:3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, exile the top three cards of your library.
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE3_DEFENSE | Execute$ TrigEffect | GameActivationLimit$ 1 | TriggerDescription$ 3 Defense — When CARDNAME first reaches this stage, you may play cards exiled with it until the end of your next turn.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STPlay | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | Affected$ Card.ExiledWithEffectSource | AffectedZone$ Exile | MayPlay$ True | Description$ You may play cards exiled with EFFECTSOURCE until the end of your next turn.
+S:Mode$ Continuous | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Affected$ Creature.attacking+YouCtrl | SetPower$ 4 | SetToughness$ 4 | AddType$ Angel | RemoveCreatureTypes$ True | RemoveAllAbilities$ True | AddKeyword$ Flying | Description$ Attacking creatures you control are 4/4 Angels with flying.
+# TODO: confirm above ability is supposed to work this way
+DeckHints:Ability$Token
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen this battle enters, exile the top three cards of your library.\n3 Defense — When this battle first reaches this stage, you may play cards exiled with it until the end of your next turn.\nDefeated — Attacking creatures you control are 4/4 Angels with flying.

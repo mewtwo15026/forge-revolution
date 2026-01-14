@@ -1,0 +1,9 @@
+Name:Empty Shell
+ManaCost:1 B
+Types:Instant
+S:Mode$ OptionalCost | EffectZone$ All | ValidCard$ Card.Self | ValidSA$ Spell | Cost$ Sac<1/Artifact> | Description$ As an additional cost to cast this spell, you may sacrifice an artifact.
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ -X | NumDef$ -X | IsCurse$ True | SpellDescription$ Target creature gets -3/-3 until end of turn. If you've sacrificed a permanent this turn, that creature gets -5/-5 until end of turn instead.
+SVar:X:PlayerCountPropertyYou$SacrificedThisTurn Permanent.5.3
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcLE2+inZoneBattlefield
+DeckHints:Ability$Token & Type$Artifact|Berry|Blood|Map|Treasure|Junk
+Oracle:As an additional cost to cast this spell, you may sacrifice an artifact.\nTarget creature gets -3/-3 until end of turn. If you've sacrificed a permanent this turn, that creature gets -5/-5 until end of turn instead.

@@ -1,0 +1,13 @@
+Name:Prototype Warform
+ManaCost:6
+Types:Artifact Creature Construct
+PT:6/5
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ 3 | Description$ You may pay {3} rather than this spell's mana cost. If you do, it enters tapped with three stun counters on it.
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ DBEffect | CheckSVar$ AltCostPaid
+SVar:DBEffect:DB$ Effect | ExileOnMoved$ Stack | ReplacementEffects$ ETBCreat | ExileOnMoved$ Stack
+SVar:ETBCreat:Event$ Moved | ValidCard$ Card.EffectSource | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ That creature enters tapped with three stun counters on it.
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ ReplacedCard | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ ReplacedCard | CounterType$ Stun | ETB$ True | CounterNum$ 3 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:AltCostPaid:Count$AltCost.1.0
+Oracle:You may pay {3} rather than this spell's mana cost. If you do, it enters tapped with three stun counters on it.

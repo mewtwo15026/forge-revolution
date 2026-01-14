@@ -1,0 +1,10 @@
+Name:Lunate Sentinel
+ManaCost:2 G
+Types:Creature Elf Soldier
+PT:3/2
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature gets +2/+2 until end of turn. If CARDNAME reprieved a creature, that creature gets +4/+4 until end of turn instead.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | AITgts$ Creature.YouCtrl | TgtPrompt$ Select target creature | NumAtt$ +X | NumDef$ +X
+SVar:X:Count$Compare Y GE1.4.2
+SVar:Y:Count$Reprieved Card
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Lunate Sentinel enters, target creature gets +2/+2 until end of turn. If Lunate Sentinel reprieved a creature, that creature gets +4/+4 until end of turn instead.

@@ -1,0 +1,31 @@
+Name:Stitches, Adopted
+ManaCost:2 G U R
+Types:Legendary Creature Toy Spirit
+PT:3/3
+K:Haste
+T:Mode$ AttackersDeclared | Execute$ TrigToken | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with NICKNAME and exactly one other creature, create a 2/2 Toy artifact creature token with defender, then tap all Toy creatures you control. They're attacking.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_2_2_a_toy_defender | TokenOwner$ You | SubAbility$ DBTapAll
+SVar:DBTapAll:DB$ TapAll | ValidCards$ Creature.Toy+YouCtrl | SubAbility$ DBToysAttack
+SVar:DBToysAttack:DB$ ChangeCombatants | Defined$ Valid Creature.Toy+YouCtrl | Attacking$ True
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ ToysMade | SVarCompare$ EQ0 | Execute$ TrigTransform | TriggerDescription$ At the beginning of your end step, if you didn't create a Toy token this turn, transform NICKNAME.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:ToysMade:Count$ThisTurnEntered_Battlefield_Toy.tokenCreated+YouCtrl
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token
+AlternateMode:DoubleFaced
+Oracle:Haste\nAmity — Whenever you attack with Stitches and exactly one other creature, create a 2/2 Toy artifact creature token with defender, then tap all Toy creatures you control. They're attacking.\nAt the beginning of your end step, if you didn't create a Toy token this turn, transform Stitches.
+
+ALTERNATE
+
+Name:Stitches, Orphaned
+ManaCost:no cost
+Colors:green,red,blue
+Types:Legendary Creature Toy Spirit
+PT:6/6
+K:Trample
+T:Mode$ AttackersDeclared | Execute$ DelTrigTransform | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with NICKNAME and exactly one other creature, transform NICKNAME at the beginning of the next turn's upkeep.
+SVar:DelTrigTransform:DB$ DelayedTrigger | NextTurn$ True | Mode$ Phase | Phase$ Upkeep | ValidPlayer$ Player | Execute$ TrigTransformBack | TriggerDescription$ Transform NICKNAME.
+SVar:TrigTransformBack:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+Oracle:Trample\n
+Amity — Whenever you attack with Stitches, Orphaned and exactly one other creature, transform Stitches at the beginning of the next turn's upkeep.

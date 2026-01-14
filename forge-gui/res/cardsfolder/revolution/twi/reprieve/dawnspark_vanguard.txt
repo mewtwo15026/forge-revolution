@@ -1,0 +1,10 @@
+Name:Dawnspark Vanguard
+ManaCost:1 G
+Types:Creature Human Scout
+PT:1/1
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters, you may search your library for a basic land card. If it reprieved a creature, you may instead search your library for a land card. Reveal that card, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ0 | SubAbility$ DBSearchReprieved
+SVar:DBSearchReprieved:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+SVar:X:Count$Reprieved Card
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Dawnspark Vanguard enters, you may search your library for a basic land card. If it reprieved a creature, you may instead search your library for a land card. Reveal that card, put it into your hand, then shuffle. 

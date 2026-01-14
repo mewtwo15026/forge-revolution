@@ -1,0 +1,7 @@
+Name:Archival Storage
+ManaCost:1
+Types:Artifact
+S:Mode$ Continuous | Affected$ Card | AffectedZone$ Graveyard | RemoveAllAbilities$ True | Description$ Cards in graveyards lose all abilities.
+A:AB$ ChangeZone | Cost$ 1 | ValidTgts$ Card | TgtPrompt$ Select target card | Origin$ Graveyard | Destination$ Library | LibraryPosition$ -1 | SorcerySpeed$ True | SpellDescription$ Put target card from a graveyard on the bottom of its owner's library. Activate only as a sorcery.
+K:Cycling:2
+Oracle:Cards in graveyards lose all abilities.\n{1}: Put target card from a graveyard on the bottom of its owner's library. Activate only as a sorcery.\nCycling {2} ({2}, Discard this card: Draw a card.)

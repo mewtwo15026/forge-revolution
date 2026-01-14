@@ -1,0 +1,10 @@
+Name:Tyrant of Burning Judgment
+ManaCost:3 R R
+Types:Creature Dragon Cleric
+PT:5/3
+K:Flying
+K:twi_Rapture
+S:Mode$ Continuous | Affected$ Berserker.Other+attacking+YouCtrl,Cleric.Other+attacking+YouCtrl | AddKeyword$ twi_Rapture | Description$ Other attacking Berserkers and Clerics you control have rapture.
+SVar:PlayMain1:TRUE
+DeckHints:Type$Berserker|Cleric
+Oracle:Flying\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)\nOther attacking Berserkers and Clerics you control have rapture.

@@ -1,0 +1,9 @@
+Name:Leaping Hatchling
+ManaCost:1 R
+Types:Creature Dragon
+PT:2/2
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME gains flying and trample until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ Flying & Trample
+SVar:BuffedBy:Land
+Oracle:Haste\nLandfall — Whenever a land you control enters, Leaping Hatchling gains flying and trample until end of turn.

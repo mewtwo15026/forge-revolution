@@ -1,0 +1,8 @@
+Name:Tough Nut
+ManaCost:G
+Types:Creature Plant
+PT:0/2
+A:AB$ Mana | Cost$ 1 T | Produced$ Any | SpellDescription$ Add one mana of any color.
+A:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 2 | RestrictValid$ CantCastSpellFromHand | SpellDescription$ Add two mana of any one color. You can't spend this mana to cast spells from your hand.
+DeckHints:Ability$Surface
+Oracle:{1}, {T}: Add one mana of any color.\n{T}: Add one mana of any color. You can't spend this mana to cast spells from your hand.

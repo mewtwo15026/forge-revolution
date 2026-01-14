@@ -1,0 +1,8 @@
+Name:Crownfall Archive
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Forest.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Forest.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ B | SpellDescription$ Add {B}.
+A:AB$ ChangeZone | Cost$ 2 G G T Sac<1/CARDNAME> | TgtPrompt$ Select target card in your graveyard | ValidTgts$ Card.YouOwn | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return target card from your graveyard to your hand.
+Oracle:Crownfall Archive enters tapped unless you control a Forest.\n{T}: Add {B}.\n{2}{G}{G}, {T}, Sacrifice Crownfall Archive: Return target card from your graveyard to your hand.

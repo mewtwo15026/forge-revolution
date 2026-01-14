@@ -1,0 +1,9 @@
+Name:King of Gluttons
+ManaCost:2 B G
+Types:Creature Ooze
+PT:3/3
+K:Trample
+A:AB$ PutCounter | Cost$ 1 Sac<1/Artifact,Creature/artifact or creature> | Defined$ Self | CounterType$ P1P1 | AILogic$ AristocratCounters | SpellDescription$ Put a +1/+1 counter on CARDNAME.
+SVar:AIPreference:SacCost$Permanent.Other
+DeckHas:Ability$Sacrifice|Counters
+Oracle:Trample\n{1}, Sacrifice an artifact or creature: Put a +1/+1 counter on King of Gluttons.

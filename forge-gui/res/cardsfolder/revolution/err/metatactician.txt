@@ -1,0 +1,7 @@
+Name:Metatactician
+ManaCost:1 W
+Types:Creature Human Advisor
+A:AB$ Tap | Cost$ W T | SorcerySpeed$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature. Activate only as a sorcery.
+A:AB$ TapAll | Cost$ 6 W W T | SorcerySpeed$ True | ValidCards$ Creature.YouDontCtrl | SpellDescription$ Tap all creatures you don't control. Activate only as a sorcery.
+PT:2/2
+Oracle:{W}, {T}: Tap target creature. Activate only as a sorcery.\n{6}{W}{W}, {T}: Tap all creatures you don't control. Activate only as a sorcery.

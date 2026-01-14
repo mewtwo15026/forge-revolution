@@ -1,0 +1,13 @@
+Name:0xdeadbeef
+ManaCost:4 B B
+Types:Creature Error
+PT:4/4
+A:SP$ PermanentCreature | Cost$ 4 B B Sac<1/Creature,Enchantment/creature or enchantment>
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters, each opponent sacrifices a creature of their choice, then each opponent sacrifices an enchantment of their choice.
+SVar:TrigSac:DB$ Sacrifice | Defined$ Opponent | SacValid$ Creature | SubAbility$ DBSac
+SVar:DBSac:DB$ Sacrifice | Defined$ Opponent | SacValid$ Enchantment
+SVar:AIPreference:SacCost$Creature.token,Creature.cmcGE1+cmcLE3,Enchantment.token,Enchantment.cmcGE1+cmcLE3
+DeckHints:Type$Enchantment
+DeckHas:Ability$Sacrifice
+Oracle:As an additional cost to cast this spell, sacrifice a creature or enchantment.\nFlying\nWhen this creature enters, each opponent sacrifices a creature of their choice, then sacrifices an enchantment of their choice.

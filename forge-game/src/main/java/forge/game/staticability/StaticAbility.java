@@ -398,6 +398,12 @@ public class StaticAbility extends CardTraitBase implements IIdentifiable, Clone
                     return false;
                 }
             }
+            // REVOLUTION
+            else if (condition.equals("NotExtraTurn")) {
+                if (game.getPhaseHandler().getPlayerTurn().isExtraTurn()) {
+                    return false;
+                }
+            }
         }
 
         if (hasParam("Phases")) {

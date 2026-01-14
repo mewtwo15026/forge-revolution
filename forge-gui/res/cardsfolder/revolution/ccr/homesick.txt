@@ -1,0 +1,7 @@
+Name:Homesick
+ManaCost:2 B
+Types:Sorcery
+A:SP$ Discard | ValidTgts$ Player | NumCards$ 2 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBLoseLife | SpellDescription$ Target player discards two cards. They lose 2 life if they discarded a land card this way.
+SVar:DBLoseLife:DB$ LoseLife | Defined$ Targeted | LifeAmount$ 2 | ConditionDefined$ Remembered | ConditionPresent$ Land | ConditionCompare$ GE1
+DeckHas:Ability$Discard
+Oracle:Target player discards two cards. They lose 2 life if they discarded a land card this way.

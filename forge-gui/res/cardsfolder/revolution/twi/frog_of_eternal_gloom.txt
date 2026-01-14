@@ -1,0 +1,8 @@
+Name:Frog of Eternal Gloom
+ManaCost:1 U U
+Types:Creature Frog Horror
+PT:3/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, return target creature you don't control to its owner's hand.
+SVar:TrigChangeZone:DB$ ChangeZone | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | Origin$ Battlefield | Destination$ Hand
+Oracle:Flash\nWhen Frog of Eternal Gloom enters, return target creature you don't control to its owner's hand.

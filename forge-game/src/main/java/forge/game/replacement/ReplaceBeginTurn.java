@@ -22,6 +22,13 @@ public class ReplaceBeginTurn extends ReplacementEffect {
                 return false;
             }
         }
+        //REVOLUTION
+        //I seriously hope this isn't necessary
+        else if (hasParam("NotExtraTurn")) {
+            if((boolean) runParams.get(AbilityKey.ExtraTurn)) {
+                return false;
+            }
+        }
         return true;
     }
 

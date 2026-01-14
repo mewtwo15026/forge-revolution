@@ -1,0 +1,8 @@
+Name:Blessed Linewarden
+ManaCost:1 W
+Types:Creature Human Soldier
+PT:2/3
+S:Mode$ Continuous | Affected$ Soldier.Other+YouCtrl | AddPower$ 1 | Description$ Other Soldiers you control get +1/+0.
+S:Mode$ Continuous | Affected$ Angel.YouCtrl | AddKeyword$ Ward:1 | Description$ Angels you control have ward {1}.
+DeckHints:Type$Soldier|Angel
+Oracle:Other Soldiers you control get +1/+0.\nAngels you control have ward {1}. (Whenever an Angel you control becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)

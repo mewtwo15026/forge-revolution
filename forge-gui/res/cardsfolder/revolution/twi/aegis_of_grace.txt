@@ -1,0 +1,10 @@
+Name:Aegis of Grace
+ManaCost:2 W W
+Types:Creature Angel Knight
+PT:4/4
+K:Flying
+K:Lifelink
+R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | ValidTarget$ Battle.ProtectedBy You | Description$ Prevent all damage that would be dealt to battles you protect.
+S:Mode$ Continuous | Affected$ You,Battle.YouCtrl,Creature.Other+YouCtrl | AddKeyword$ Hexproof | Description$ You, battles you control, and other creatures you control have hexproof.
+DeckHas:Ability$LifeGain
+Oracle:Flying, lifelink\nPrevent all damage that would be dealt to battles you protect.\nYou, battles you control, and other creatures you control have hexproof.

@@ -1,0 +1,7 @@
+Name:Huskforger Acolyte
+ManaCost:G
+Types:Creature Human Artificer
+PT:1/1
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Animate | Cost$ 4 G G | Duration$ Permanent | Power$ 5 | Toughness$ 5 | Types$ Creature,Zombie,Knight | RemoveCardTypes$ True | RemoveCreatureTypes$ True | RemoveAllAbilities$ True | Keywords$ Trample | SpellDescription$ CARDNAME becomes a 5/5 Zombie Knight with trample and loses all other types and abilities. (This effect lasts indefinitely.)
+Oracle:{T}: Add {C}.\n{4}{G}{G}: Huskforger Acolyte becomes a 5/5 Zombie Knight with trample and loses all other types and abilities. (This effect lasts indefinitely.)

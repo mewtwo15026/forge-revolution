@@ -1,0 +1,7 @@
+Name:Sanctified Attendant
+ManaCost:1 W
+Types:Creature Elf Knight
+PT:2/1
+A:AB$ Pump | Cost$ 1 Sac<1/CARDNAME> | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select target creature you control | KW$ Indestructible | SpellDescription$ Another target creature you control gains indestructible until end of turn.
+K:twi_Rapture
+Oracle:{1}, Sacrifice Sanctified Attendant: Another target creature you control gains indestructible until end of turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

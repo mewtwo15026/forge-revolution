@@ -1,0 +1,7 @@
+Name:Lunate Prowlwarden
+ManaCost:G W
+Types:Creature Cat Soldier
+PT:2/2
+K:Flash
+K:twi_Reprieve
+Oracle:Flash\nReprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)

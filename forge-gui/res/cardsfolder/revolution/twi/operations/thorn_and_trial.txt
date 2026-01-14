@@ -1,0 +1,11 @@
+Name:Thorn and Trial
+ManaCost:1 W
+Types:Battle Operation
+Defense:5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, return target creature or planeswalker card with mana value 3 or less from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature or planeswalker card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl,Planeswalker.cmcLE3+YouCtrl
+S:Mode$ RaiseCost | ValidCard$ Card | Activator$ Opponent | ValidSpell$ Spell | Amount$ 2 | Condition$ PlayerTurn | IsPresent$ Card.Self+counters_LE3_DEFENSE | Description$ 3 Defense — Spells your opponents cast during your turn cost {2} more to cast.
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Execute$ TrigToken | GameActivationLimit$ 1 | TriggerDescription$ Defeated — When CARDNAME is first defeated, create a 4/4 white Angel creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_4_4_angel_flying | TokenOwner$ You
+DeckHas:Ability$Token & Type$Angel
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Thorn and Trial enters, return target creature or planeswalker card with mana value 3 or less from your graveyard to the battlefield.\n3 Defense — Spells your opponents cast during your turn cost {2} more to cast.\nDefeated — When Thorn and Trial is first defeated, create a 4/4 white Angel creature token with flying.

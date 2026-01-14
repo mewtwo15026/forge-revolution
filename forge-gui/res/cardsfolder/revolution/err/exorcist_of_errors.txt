@@ -1,0 +1,12 @@
+Name:Exorcist of Errors
+ManaCost:1 B
+Types:Creature Human Warlock
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBChoosePlayer | TriggerDescription$ When this creature enters, target player separates their hand into a face-up pile and a face-down pile. Choose one of those piles, reveal it, and choose a nonland card from it. Exile that card until this creature leaves the battlefield.
+SVar:DBChoosePlayer:DB$ Pump | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBSeparate
+SVar:DBSeparate:DB$ TwoPiles | Defined$ You | Separator$ Targeted | Chooser$ You | DefinedCards$ ValidHand Card.OwnedBy Targeted | ChosenPile$ DBChooseCard | Zone$ Hand | FaceDown$ One | StackDescription$ None
+SVar:DBChooseCard:DB$ ChooseCard | Defined$ You | Choices$ Card.nonLand+IsRemembered | ChoiceZone$ Hand | Mandatory$ True | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Hand | Destination$ Exile | IsCurse$ True | Duration$ UntilHostLeavesPlay | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:PlayMain1:TRUE
+Oracle:When this creature enters, target player separates their hand into a face-up pile and a face-down pile. Choose one of those piles, reveal it, and choose a nonland card from it. Exile that card until this creature leaves the battlefield.

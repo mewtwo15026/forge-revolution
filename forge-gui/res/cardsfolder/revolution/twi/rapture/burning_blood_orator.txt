@@ -1,0 +1,11 @@
+Name:Burning Blood Orator
+ManaCost:2 R R
+Types:Creature Lizard Cleric
+PT:4/2
+K:Haste
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigAnimate | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, another target creature you control has base power and toughness 4/2 until end of turn.
+SVar:TrigAnimate:DB$ Animate | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | AITgts$ Creature.Other+YouCtrl+powerLE4+toughnessLE2 | Power$ 4 | Toughness$ 2
+K:twi_Rapture
+SVar:HasAttackEffect:TRUE
+DeckHints:Ability$Token
+Oracle:Haste\nWhenever Burning Blood Orator attacks, another target creature you control has base power and toughness 4/2 until end of turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

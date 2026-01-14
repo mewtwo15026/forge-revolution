@@ -1,0 +1,8 @@
+Name:Weather Research Station
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ T | Produced$ Any | IsPresent$ Weather.YouCtrl | SpellDescription$ Add one mana of any color. Activate only if you control a Weather.
+A:AB$ Mana | Cost$ T | Produced$ Any | RestrictValid$ Spell.Weather | SpellDescription$ Add one mana of any color. Spend this mana only to cast a Weather spell.
+DeckNeeds:Type$Weather
+Oracle:{T}: Add {C}.\n{T}: Add one mana of any color. Activate only if you control a Weather.\n{T}: Add one mana of any color. Spend this mana only to cast a Weather spell.

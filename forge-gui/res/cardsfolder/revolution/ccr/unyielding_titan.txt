@@ -1,0 +1,14 @@
+Name:Unyielding Titan
+ManaCost:3 B
+Types:Creature Golem
+PT:6/3
+S:Mode$ Continuous | Affected$ Golem.YouCtrl | AddKeyword$ Menace | Description$ Golems you control have menace.
+S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | IsPresent$ Golem.YouCtrl | PresentCompare$ LT3 | Description$ CARDNAME can't attack or block unless you control three or more Golems.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReveal | TriggerDescription$ Whenever CARDNAME enters or attacks, target opponent reveals their hand. Exile a nonland card from their hand or graveyard.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigReveal | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, target opponent reveals their hand. Exile a nonland card from their hand or graveyard.
+SVar:TrigReveal:DB$ RevealHand | ValidTgts$ Opponent | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Hand,Graveyard | Destination$ Exile | DefinedPlayer$ Targeted | Chooser$ You | ChangeType$ Card.nonLand | Mandatory$ True
+A:AB$ Token | Cost$ 3 T | TokenAmount$ 1 | TokenScript$ w_1_1_golem | TokenOwner$ You | SpellDescription$ Create a 1/1 white Golem creature token.
+DeckHints:Type$Golem
+DeckHas:Ability$Discard|Token & Type$Golem
+Oracle:Golems you control have menace.\nUnyielding Titan can't attack or block unless you control three or more Golems.\nWhenever Unyielding Titan enters or attacks, target opponent reveals their hand. Exile a nonland card from their hand or graveyard.\n{3}, {T}: Create a 1/1 white Golem creature token.

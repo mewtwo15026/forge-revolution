@@ -1,0 +1,8 @@
+Name:Placated Mind
+ManaCost:U
+Types:Instant
+T:Mode$ SpellCast | CheckSVar$ Amity | SVarCompare$ EQ2 | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ Amity — When you cast this spell, copy it if you attacked with exactly two creatures this turn. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | Amount$ 1 | MayChooseTarget$ True
+SVar:Amity:Count$AttackersDeclared
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDef$ +2 | KW$ Hexproof | SpellDescription$ Target creature gets +0/+2 and gains hexproof until end of turn.
+Oracle:Amity — When you cast this spell, copy it if you attacked with exactly two creatures this turn. You may choose new targets for the copy.\nTarget creature gets +0/+2 and gains hexproof until end of turn.

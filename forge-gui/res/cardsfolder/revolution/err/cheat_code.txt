@@ -1,0 +1,13 @@
+Name:Cheat Code
+ManaCost:2 B
+Types:Sorcery
+A:SP$ Charm | Choices$ DBDiscard,DBShrinkAll,DBDrain | MinCharmNum$ 0 | CharmNum$ X
+SVar:X:SVar$Leveled/Plus.1
+SVar:Leveled:Count$Valid Creature.YouCtrl+counters_GE1_LEVEL/LimitMax.2
+SVar:DBDiscard:DB$ Discard | Defined$ Player.Opponent | NumCards$ 2 | Mode$ TgtChoose | SpellDescription$ Each opponent discards two cards.
+SVar:DBShrinkAll:DB$ PumpAll | ValidCards$ Creature.OppCtrl | NumAtt$ -1 | NumDef$ -1 | SpellDescription$ Creatures your opponents control get -1/-1 until end of turn.
+SVar:DBDrain:DB$ LoseLife | LifeAmount$ 3 | Defined$ Opponent | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses 3 life and you gain 3 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+DeckHints:Keyword$Level up
+DeckHas:Ability$LifeGain|Discard
+Oracle:Choose up to X, where X is one plus the number of creatures you control with level counters on them.\nEach opponent discards two cards.\nCreatures your opponents control get -1/-1 until end of turn.\nEach opponent loses 3 life and you gain 3 life.

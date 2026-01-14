@@ -1,0 +1,14 @@
+Name:Clash at Scorchroot Bluff
+ManaCost:1 R R
+Types:Battle Operation
+Defense:4
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, create a 1/1 red Faerie creature token with haste. Sacrifice it at the beginning of the next end step.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ r_1_1_faerie_haste | AtEOT$ Sacrifice
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE2_DEFENSE | Execute$ TrigDiscard | GameActivationLimit$ 1 | TriggerDescription$ 2 Defense — When CARDNAME first reaches this stage, you may discard up to two cards. If you do, draw that many cards.
+SVar:TrigDiscard:DB$ Discard | Mode$ TgtChoose | NumCards$ 2 | Optional$ True | RememberDiscarded$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$Amount
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AffectedZone$ Battlefield | AddPower$ 1 | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Description$ Defeated — Creatures you control get +1/+0.
+DeckHas:Ability$Token|Discard & Type$Faerie
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nAt the beginning of combat on your turn, create a 1/1 red Faerie creature token with haste. Sacrifice it at the beginning of the next end step.\n2 Defense — When this battle first reaches this stage, you may discard up to two cards. If you do, draw that many cards.\nDefeated — Creatures you control get +1/+0.

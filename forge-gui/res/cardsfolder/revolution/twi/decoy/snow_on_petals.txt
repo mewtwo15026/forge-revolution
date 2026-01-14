@@ -1,0 +1,12 @@
+Name:Snow on Petals
+ManaCost:U U R R
+Types:Legendary Creature Demigod Faerie
+PT:4/4
+K:twi_Decoy
+S:Mode$ IgnoreLegendRule | ValidCard$ Creature.token+YouCtrl | Description$ The "legend rule" doesn't apply to creature tokens you control.
+S:Mode$ CantSacrifice | ValidCard$ Creature.YouCtrl+token | ValidCause$ Triggered.YouCtrl | ForCost$ False | Description$ Triggered abilities you control can't cause you to sacrifice or exile creature tokens you control.
+S:Mode$ CantExile | ValidCard$ Creature.YouCtrl+token | ValidCause$ Triggered.YouCtrl | ForCost$ False | Secondary$ True | Description$ Triggered abilities you control can't cause you to sacrifice or exile creature tokens you control.
+SVar:HasAttackEffect:TRUE
+DeckHints:Ability$Token & Keyword$Decoy
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nThe “legend rule” doesn't apply to creature tokens you control.\nTriggered abilities you control can't cause you to sacrifice or exile creature tokens you control.

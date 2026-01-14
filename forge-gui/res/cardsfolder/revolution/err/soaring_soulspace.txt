@@ -1,0 +1,9 @@
+Name:Soaring Soulspace
+ManaCost:no cost
+Types:Land Plains Island
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Surveil | Cost$ 2 W U T | Amount$ 1 | SpellDescription$ Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+DeckHas:Ability$Surveil
+DeckHints:Ability$Graveyard|Surface
+Oracle:({T}: Add {W} or {U}.)\nThis land enters tapped.\n{2}{W}{U}, {T}: Surveil 1.

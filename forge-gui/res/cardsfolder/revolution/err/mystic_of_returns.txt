@@ -1,0 +1,11 @@
+Name:Mystic of Returns
+ManaCost:1 G
+Types:Creature Human Shaman
+PT:2/3
+K:Level up:WB
+SVar:maxLevel:7
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 3 | SetToughness$ 4 | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE6_LEVEL | Description$ LEVEL 2-6 3/4
+S:Mode$ Continuous | Affected$ Land.YouOwn | Condition$ PlayerTurn | MayPlay$ True | MayPlayLimit$ 1 | MayPlayText$ Land | EffectZone$ Battlefield | AffectedZone$ Graveyard | IsPresent$ Card.Self+counters_GE2_LEVEL | Description$ During each of your turns, you may play a land card from your graveyard.
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 5 | IsPresent$ Card.Self+counters_GE7_LEVEL | Description$ LEVEL 7+ 4/5
+S:Mode$ Continuous | Affected$ Permanent.YouOwn+nonLand | Condition$ PlayerTurn | MayPlay$ True | MayPlayLimit$ 1 | MayPlayText$ Permanent | EffectZone$ Battlefield | AffectedZone$ Graveyard | IsPresent$ Card.Self+counters_GE7_LEVEL | Description$ During each of your turns, you may cast a permanent spell from your graveyard.
+Oracle:Level up {WB} ({WB}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-6\n3/4\nDuring each of your turns, you may play a land card from your graveyard.\nLEVEL 7+\n4/5\nDuring each of your turns, you may play a land and cast a permanent spell from your graveyard.

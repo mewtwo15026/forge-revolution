@@ -1,0 +1,7 @@
+Name:Swap to Storage
+ManaCost:3 U
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | LibraryPosition$ X | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | StackDescription$ {p:TargetedOwner} puts {c:Targeted} into their library on the bottom or just beneath the top X cards of their library, where X is the number of Memories you control. | SpellDescription$ Target nonland permanent's owner puts it into their library or just beneath the top X cards of their library, where X is the number of Memories you control.
+SVar:X:Count$Valid Memory.YouCtrl
+DeckHints:Type$Memory
+Oracle:Target nonland permanent's owner puts it on the bottom of their library or just beneath the top X cards of their library, where X is the number of Memories you control.

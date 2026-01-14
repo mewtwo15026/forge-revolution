@@ -1,0 +1,8 @@
+Name:Draconic Dungeoneer
+ManaCost:4 B
+Types:Creature Dragon Artificer Bard
+PT:3/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 2 | EffectZone$ All | IsPresent$ Creature.YouCtrl+counters_GE1_LEVEL | Description$ This spell costs {2} less to cast if you control a creature with a level counter on it.
+K:Flying
+DeckHints:Keyword$Level up
+Oracle:This spell costs {2} less to cast if you control a creature with a level counter on it.\nFlying

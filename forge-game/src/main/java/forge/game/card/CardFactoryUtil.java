@@ -2684,7 +2684,7 @@ public class CardFactoryUtil {
         // handle replacement effects from new keywords
         else if (keyword.equals("twi_Reprieve")) {
             String bounceStr = "DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ChangeType$ Creature.YouCtrl+withouttwi_Reprieve | "
-                    + "ChangeNum$ 1 | Hidden$ True | RememberChanged$ True";
+                    + "ChangeNum$ 1 | Hidden$ True";
             AbilitySub bounceSA = (AbilitySub) AbilityFactory.getAbility(bounceStr, card);
 
             String repeffstr = "Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | Description$ Reprieve ("+ inst.getReminderText() + ")";
@@ -4337,6 +4337,22 @@ public class CardFactoryUtil {
         exileAbility.setSubAbility(castAbility);
         defeatedTrigger.setOverridingAbility(exileAbility);
         card.addTrigger(defeatedTrigger);
+    }
+
+    /**
+     * REVOLUTION
+     * sets up the protector of an Operation
+     * @param card
+     */
+    public static void setupOperationAbilities(Card card) {
+        StringBuilder chooseSB = new StringBuilder();
+        chooseSB.append("Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | BattleProtector$ True");
+        chooseSB.append(" | Description$ (As an Operation enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)");
+        String chooseProtector = "DB$ ChoosePlayer | Defined$ You | Choices$ Opponent | Protect$ True | ChoiceTitle$ Choose an opponent to protect this battle";
+
+        ReplacementEffect re = ReplacementHandler.parseReplacement(chooseSB.toString(), card, true);
+        re.setOverridingAbility(AbilityFactory.getAbility(chooseProtector, card));
+        card.addReplacementEffect(re);
     }
 
     public static ReplacementEffect setupAdventureAbility(CardState card) {

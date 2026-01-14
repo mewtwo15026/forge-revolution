@@ -1,0 +1,11 @@
+Name:Remotist Axiom
+ManaCost:5
+Types:Artifact Creature Construct
+PT:3/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks or blocks, it gets +X/+X until end of turn, where X is the greatest mana value among other permanents you control.
+T:Mode$ Blocks | ValidCard$ Card.Self | Execute$ TrigPump | Secondary$ True | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks or blocks, it gets +X/+X until end of turn, where X is the greatest mana value among other permanents you control.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +X | NumDef$ +X
+SVar:X:Count$Valid Permanent.Other+YouCtrl$GreatestCMC
+SVar:HasAttackEffect:TRUE
+SVar:HasBlockEffect:TRUE
+Oracle:Whenever this creature attacks or blocks, it gets +X/+X until end of turn, where X is the greatest mana value among other permanents you control.

@@ -1651,14 +1651,18 @@ public class GameAction {
          attacking that battle, that battle’s controller chooses an appropriate player to be its protector based on its
          battle type. If no player can be chosen this way, the battle is put into its owner’s graveyard.
 
-         704.5x If a Siege’s controller is also its designated protector, that player chooses an opponent to become its
+         704.5x If a Siege’s or Operation's controller is also its designated protector, that player chooses an opponent to become its
          protector. If no player can be chosen this way, the battle is put into its owner’s graveyard.
+
+         REVOLUTION:
+         this applies to Operations too
          */
         if (((battleProtector == null || !battleProtector.isInGame()) &&
                 (game.getCombat() == null || game.getCombat().getAttackersOf(c).isEmpty())) ||
+                (c.getType().hasStringType("Operation") && battleController.equals(battleProtector)) ||
                 (c.getType().hasStringType("Siege") && battleController.equals(battleProtector))) {
             Player newProtector;
-            if (c.getType().getBattleTypes().contains("Siege"))
+            if (c.getType().getBattleTypes().contains("Siege") || c.getType().getBattleTypes().contains("Operation"))
                 newProtector = battleController.getController().chooseSingleEntityForEffect(battleController.getOpponents(), new SpellAbility.EmptySa(ApiType.ChoosePlayer, c), "Choose an opponent to protect this battle", null);
             else {
                 // Fall back to the controller. Technically should fall back to null per the above rules, but no official
@@ -1678,7 +1682,9 @@ public class GameAction {
         }
         // 704.5v If a battle has defense 0 and it isn't the source of an ability that has triggered but not yet left the stack,
         // it’s put into its owner’s graveyard.
-        if (!game.getStack().hasSourceOnStack(c, SpellAbility::isTrigger)) {
+        // REVOLUTION
+        // 310.12b An Operation is not put into its owner's graveyard as a result of having 0 defense.
+        if (!game.getStack().hasSourceOnStack(c, SpellAbility::isTrigger) && !c.getType().hasStringType("Operation")) {
             removeList.add(c);
             checkAgain = true;
         }

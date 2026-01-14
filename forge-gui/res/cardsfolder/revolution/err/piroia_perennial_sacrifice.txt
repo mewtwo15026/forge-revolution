@@ -1,0 +1,10 @@
+Name:Piroia, Perennial Sacrifice
+ManaCost:1 B G
+Types:Legendary Creature Human Shaman
+PT:4/2
+K:Deathtouch
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Permanent.!token+nonLand | TriggerZones$ Battlefield | PlayerTurn$ True | ResolvedLimit$ 1 | OptionalDecider$ You | Execute$ TrigCopy | TriggerDescription$ Whenever you sacrifice a nontoken, nonland permanent during your turn, you may create a tapped token that's a copy of it. Do this only once each turn.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | TokenTapped$ True
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Token
+Oracle:Deathtouch\nWhenever you sacrifice a nontoken, nonland permanent during your turn, you may create a tapped token that's a copy of it. Do this only once each turn.

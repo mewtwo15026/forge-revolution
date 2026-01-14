@@ -1,0 +1,7 @@
+Name:Dragon Dance
+ManaCost:1 R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | NumAtt$ +2 | KW$ First Strike | SubAbility$ DBPutCounter | AITgts$ Creature.Dragon+YouCtrl | SpellDescription$ Target creature gets +2/+0 and gains first strike until end of turn. If it's a Dragon, put a +1/+1 counter on it.
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ ParentTarget | ConditionPresent$ Dragon
+DeckHints:Type$Dragon
+Oracle:Target creature gets +2/+0 and gains first strike until end of turn. If it's a Dragon, put a +1/+1 counter on it.

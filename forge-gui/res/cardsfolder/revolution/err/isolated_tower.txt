@@ -1,0 +1,10 @@
+Name:Isolated Tower
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Plains or Swamp card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Plains+Basic,Land.Swamp+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Counter | Cost$ 2 W W B B Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target nonland permanent.
+DeckHas:Ability$Sacrifice|Discard
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Plains or Swamp card, put it onto the battlefield tapped, then shuffle.\n{2}{W}{W}{B}{B}, Discard this card: Exile target nonland permanent.

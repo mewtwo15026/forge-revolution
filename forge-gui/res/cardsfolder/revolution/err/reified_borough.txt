@@ -1,0 +1,10 @@
+Name:Reified Borough
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Forest or Plains card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Forest+Basic,Land.Plains+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Token | Cost$ 1 G G W W Discard<1/CARDNAME> | ActivationZone$ Hand | TokenAmount$ 3 | TokenScript$ w_1_1_citizen | TokenTapped$ True | SpellDescription$ Create three tapped 1/1 white Citizen creature tokens.
+DeckHas:Ability$Sacrifice|Discard|Token & Type$Citizen
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Forest or Plains card, put it onto the battlefield tapped, then shuffle.\n{1}{G}{G}{W}{W}, Discard this card: Create three tapped 1/1 white Citizen creature tokens.

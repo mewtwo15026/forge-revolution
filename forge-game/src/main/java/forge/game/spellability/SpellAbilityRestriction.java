@@ -120,6 +120,11 @@ public class SpellAbilityRestriction extends SpellAbilityVariables {
             this.setOpponentTurn(true);
         }
 
+        //REVOLUTION
+        if (params.containsKey("ExtraTurn")) {
+            this.setExtraTurn(true);
+        }
+
         if (params.containsKey("Activator")) {
             this.setActivator(params.get("Activator"));
         }
@@ -312,6 +317,11 @@ public class SpellAbilityRestriction extends SpellAbilityVariables {
         }
 
         if (this.isOpponentTurn() && !game.getPhaseHandler().getPlayerTurn().isOpponentOf(activator)) {
+            return false;
+        }
+
+        //REVOLUTION
+        if (this.isExtraTurn() && !game.getPhaseHandler().getPlayerTurn().isExtraTurn()) {
             return false;
         }
 

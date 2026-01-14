@@ -1,0 +1,5 @@
+Name:Denotation Failure
+ManaCost:U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Creature.toughnessLE2 | TgtPrompt$ Select target creature spell with toughness 2 or less | SpellDescription$ Counter target creature spell with toughness 2 or less.
+Oracle:Counter target creature spell with toughness 2 or less.

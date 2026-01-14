@@ -1,0 +1,9 @@
+Name:Lonesome Afterimage
+ManaCost:2 BG
+Types:Creature Elf Shaman
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill two cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | Defined$ You
+A:AB$ ChangeZone | Cost$ 2 BG BG ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl,Enchantment.YouCtrl | TgtPrompt$ Select target creature or enchantment card in your graveyard
+DeckHas:Ability$Mill|Graveyard
+Oracle:When this creature enters, mill two cards.\n{2}{BG}{BG}, Exile this card from your graveyard: Return target creature or enchantment card from your graveyard to your hand.

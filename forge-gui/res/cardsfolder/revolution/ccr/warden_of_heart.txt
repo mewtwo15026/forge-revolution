@@ -1,0 +1,11 @@
+Name:Warden of Heart
+ManaCost:3 R R
+Types:Legendary Creature Dragon Avatar
+PT:4/3
+K:Flying
+K:Haste
+T:Mode$ AttackersDeclared | Execute$ TrigSneak | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, you may put a legendary or Dragon permanent card from your hand onto the battlefield tapped and attacking.
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Permanent.Legendary+YouCtrl,Dragon.YouCtrl | Tapped$ True | Attacking$ True
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Dragon|Legendary
+Oracle:Flying, haste\nAmity — Whenever you attack with Warden of Heart and exactly one other creature, you may put a legendary or Dragon permanent card from your hand onto the battlefield tapped and attacking.

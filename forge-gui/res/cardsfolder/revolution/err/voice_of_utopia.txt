@@ -1,0 +1,12 @@
+Name:Voice of Utopia
+ManaCost:W
+Types:Creature Human Bard
+PT:1/2
+K:Vigilance
+K:Level up:1 tapXType<1/Creature>
+SVar:maxLevel:6
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE5_LEVEL | Description$ CARDNAME gets +1/+1 for each level counter on it.
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ X | AddToughness$ X | IsPresent$ Card.Self+counters_GE6_LEVEL | Description$ Creatures you control get +1/+1 for each level counter on CARDNAME.
+SVar:X:Count$CardCounters.LEVEL
+SVar:BuffedBy:Creature
+Oracle:Vigilance\nLevel up—{1}, Tap an untapped creature you control. ({1}, Tap an untapped creature you control: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-5\n1/2\nVigilance\nThis creature gets +1/+1 for each level counter on it.\nLEVEL 6+\n1/2\nVigilance\nCreatures you control get +1/+1 for each level counter on this creature.

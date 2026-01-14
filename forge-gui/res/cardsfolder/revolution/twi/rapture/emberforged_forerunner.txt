@@ -1,0 +1,7 @@
+Name:Emberforged Forerunner
+ManaCost:R
+Types:Creature Human Berserker
+PT:1/1
+K:Haste
+K:twi_Rapture
+Oracle:Haste\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

@@ -1,0 +1,10 @@
+Name:Enspirited Ore
+ManaCost:4
+Types:Artifact Creature Construct
+PT:2/2
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each other artifact you control.
+A:AB$ Pump | Cost$ tapXType<3/Artifact> | Defined$ Self | KW$ Indestructible | SpellDescription$ CARDNAME gains indestructible until end of turn.
+SVar:X:Count$Valid Artifact.Other+YouCtrl
+SVar:BuffedBy:Artifact
+DeckNeeds:Type$Artifact
+Oracle:Enspirited Ore gets +1/+1 for each other artifact you control.\nTap three untapped artifacts you control: Enspirited Ore gains indestructible until end of turn.

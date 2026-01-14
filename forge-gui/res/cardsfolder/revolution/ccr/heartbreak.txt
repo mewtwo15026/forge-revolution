@@ -1,0 +1,11 @@
+Name:Heartbreak
+ManaCost:1 W B G
+Types:Sorcery
+A:SP$ ChooseCard | Defined$ Player | Choices$ Permanent.nonToken+nonLand | ControlledByPlayer$ Chooser | Mandatory$ False | Reveal$ True | RememberChosen$ True | SubAbility$ DBRepeat | SpellDescription$ Each player chooses up to one nontoken, nonland permanent they control and loses life equal to that permanent's mana value. Destroy the rest.
+SVar:DBRepeat:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBLoseLife | SubAbility$ DBDestroyAll
+SVar:DBLoseLife:DB$ LoseLife | Defined$ Player.IsRemembered | LifeAmount$ X
+SVar:X:Count$ValidAll Card.IsRemembered+RememberedPlayerCtrl$CardManaCost
+SVar:DBDestroyAll:DB$ DestroyAll | ValidCards$ Permanent.nonToken+nonLand+nonChosenCard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+AI:RemoveDeck:Random
+Oracle:Each player chooses up to one nontoken, nonland permanent they control and loses life equal to that permanent's mana value. Destroy the rest.

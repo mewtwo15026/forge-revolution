@@ -1,0 +1,12 @@
+Name:Rekindled Seraph
+ManaCost:1 R R
+Types:Creature Angel Cleric
+PT:2/2
+K:Flying
+K:Haste
+K:twi_Rapture
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigReturn | TriggerZones$ Graveyard | IsPresent$ Creature.YouCtrl | PresentCompare$ EQ0 | TriggerDescription$ At the beginning of combat on your turn, if you control no creatures, you may pay {2}{R}{R} and discard a card. If you do, return CARDNAME from your graveyard to the battlefield.
+SVar:TrigReturn:AB$ ChangeZone | Cost$ 2 R R Discard<1/Card> | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard|Discard
+Oracle:Flying, haste\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)\nAt the beginning of combat on your turn, if you control no creatures, you may pay {2}{R}{R} and discard a card. If you do, return Rekindled Seraph from your graveyard to the battlefield.

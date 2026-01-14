@@ -1,0 +1,16 @@
+Name:Privilege_Escalation
+ManaCost:8 B B
+Types:Creature Error
+PT:11/13
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When this creature enters, for each nonland permanent your opponents control, its controller sacrifices it unless they pay life equal to 2 plus its mana value.
+SVar:TrigRepeat:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBChooseKeep | SubAbility$ DBRepeatPay
+SVar:DBChooseKeep:DB$ ChooseCard | Defined$ Remembered | Choices$ Permanent.nonLand+RememberedPlayerCtrl | MinAmount$ 0 | Amount$ Count$Valid Creature.RememberedPlayerCtrl | RememberChosen$ True
+SVar:DBRepeatPay:DB$ RepeatEach | RepeatPlayers$ Opponent | LoseLifeMap$ True | RepeatSubAbility$ DBPay | SubAbility$ DBSacAll
+SVar:DBPay:DB$ Pump | ForgetObjects$ Valid Permanent.nonLand+RememberedPlayerCtrl | UnlessCost$ PayLife<Z> | UnlessPayer$ Remembered
+SVar:DBSacAll:DB$ SacrificeAll | ValidCards$ Permanent.nonLand+OppCtrl+IsNotRemembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$Valid Permanent.nonLand+RememberedPlayerCtrl+IsRemembered$SumCMC
+SVar:Y:Count$Valid Permanent.nonLand+RememberedPlayerCtrl+IsRemembered/Times.2
+SVar:Z:SVar$X/Plus.Y
+Oracle:Menace\nWhen this creature enters, for each nonland permanent your opponents control, its controller sacrifices it unless they pay life equal to 2 plus its mana value.

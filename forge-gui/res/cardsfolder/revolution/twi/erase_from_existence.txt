@@ -1,0 +1,10 @@
+Name:Erase from Existence
+ManaCost:1 U
+Types:Instant
+A:SP$ Pump | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | IsCurse$ True | SubAbility$ DBDefaultAction | StackDescription$ SpellDescription | SpellDescription$ Return target nonland permanent to its owner's hand. If there are four or more instant and/or sorcery cards in your graveyard, instead you may have that permanent's owner put it on their choice of the top or bottom of their library.
+SVar:DBDefaultAction:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Hand | ConditionPresent$ Instant.YouOwn,Sorcery.YouOwn | ConditionZone$ Graveyard | ConditionCompare$ LT4 | SubAbility$ DBChoose
+SVar:DBChoose:DB$ GenericChoice | Choices$ DBHandChoice,DBLibraryChoice | Defined$ You | ConditionPresent$ Instant.YouOwn,Sorcery.YouOwn | ConditionZone$ Graveyard | ConditionCompare$ GE4
+SVar:DBHandChoice:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Hand
+SVar:DBLibraryChoice:DB$ ChangeZone | Defined$ Targeted | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1
+DeckHints:Type$Instant|Sorcery
+Oracle:Return target nonland permanent to its owner's hand. If there are four or more instant and/or sorcery cards in your graveyard, instead you may have that permanent's owner put it on their choice of the top or bottom of their library.

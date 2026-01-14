@@ -1,0 +1,8 @@
+Name:Fault_Injection
+ManaCost:4 G G
+Types:Creature Error
+PT:7/6
+K:Trample
+K:TypeCycling:Forest:2
+DeckHas:Ability$Discard
+Oracle:Trample\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)

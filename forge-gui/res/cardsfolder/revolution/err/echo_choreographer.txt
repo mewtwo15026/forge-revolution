@@ -1,0 +1,13 @@
+Name:Echo Choreographer
+ManaCost:U
+Types:Creature Human Bard Wizard
+PT:1/2
+K:Level up:BG
+SVar:maxLevel:4
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 2 | SetToughness$ 3 | AddAbility$ ReturnOne | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE3_LEVEL | Description$ LEVEL 1-3 2/3
+SVar:ReturnOne:AB$ ChangeZone | Cost$ T | ValidTgts$ Card.YouOwn+ThisTurnEnteredFrom_Library | TgtZone$ Graveyard | TgtPrompt$ Select target card in your graveyard that was put there from your library this turn | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return to your hand target card in your graveyard that was put there from your library this turn.
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 3 | SetToughness$ 4 | AddAbility$ ReturnAll | IsPresent$ Card.Self+counters_GE4_LEVEL | Description$ LEVEL 4+ 3/4
+SVar:ReturnAll:AB$ ChangeZoneAll | Cost$ T | ChangeType$ Card.YouOwn+ThisTurnEnteredFrom_Library | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return to your hand all cards in your graveyard that were put there from your library this turn.
+DeckNeeds:Ability$Mill|Surveil
+DeckHas:Ability$Graveyard
+Oracle:Level up {BG} ({BG}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-3\n2/3\n{T}: Return to your hand target card in your graveyard that was put there from your library this turn.\nLEVEL 4+\n3/4\n{T}: Return to your hand all cards in your graveyard that were put there from your library this turn.

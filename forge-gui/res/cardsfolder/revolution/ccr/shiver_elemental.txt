@@ -1,0 +1,7 @@
+Name:Shiver Elemental
+ManaCost:2 W
+Types:Creature Elemental
+PT:2/3
+T:Mode$ AbilityCast | ValidCard$ Card,Emblem | ValidActivatingPlayer$ You | ValidSA$ Ability | TargetsValid$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigCopyAll | OptionalDecider$ You | TriggerDescription$ Whenever you activate an ability that targets CARDNAME, you may copy that ability. You may choose new targets for the copy.
+SVar:TrigCopyAll:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:Whenever you activate an ability that targets Shiver Elemental, you may copy that ability. You may choose new targets for the copy.

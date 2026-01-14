@@ -1,0 +1,13 @@
+Name:Containment Seraph
+ManaCost:2 W
+Types:Artifact Creature Angel
+PT:2/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target nontoken creature you don't control.
+SVar:TrigExile:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Creature.YouDontCtrl+!token | TgtPrompt$ Select target nontoken creature you don't control | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME leaves the battlefield, the exiled card's owner draws X cards and gains X life, where X is half that card's mana value, rounded up.
+SVar:TrigDraw:DB$ Token | NumCards$ X | Defined$ RememberedOwner | ConditionDefined$ Remembered | ConditionPresent$ Card.ExiledWithSource | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ RememberedOwner | LifeAmount$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$CardManaCost/HalfUp
+Oracle:Flying\nWhen this creature enters, exile up to one target nontoken creature you don't control.\nWhen this creature leaves the battlefield, the exiled card's owner draws X cards and gains X life, where X is half that card's mana value, rounded up.

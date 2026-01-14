@@ -1,0 +1,10 @@
+Name:Warden of Soul
+ManaCost:2 U U
+Types:Legendary Creature Dragon Avatar
+PT:4/3
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigTutor | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, search your library for a legendary or Dragon card, reveal it, put it into your hand, then shuffle.
+SVar:TrigTutor:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.Legendary,Dragon | ChangeNum$ 1
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Dragon|Legendary
+Oracle:Flying\nAmity — Whenever you attack with Warden of Soul and exactly one other creature, search your library for a legendary or Dragon card, reveal it, put it into your hand, then shuffle.

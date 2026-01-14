@@ -1,0 +1,9 @@
+Name:Contest Star
+ManaCost:3 U
+Types:Creature Human Performer
+PT:2/2
+A:AB$ TapOrUntap | Cost$ T tapXType<1/Creature.Other> | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | SpellDescription$ You may tap or untap another target creature.
+T:Mode$ Untaps | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME becomes untapped, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+AI:RemoveDeck:All
+Oracle:{T}, Tap another untapped creature you control: You may tap or untap another target creature.\nWhenever Contest Star becomes untapped, draw a card.

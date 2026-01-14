@@ -1,0 +1,8 @@
+Name:Vardo's Scalpel
+ManaCost:B
+Types:Creature Zombie Assassin
+PT:2/2
+K:Menace
+T:Mode$ Attacks | ValidCard$ Creature.Self | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ Whenever CARDNAME attacks, it deals 2 damage to you.
+SVar:TrigDamage:DB$ DealDamage | Defined$ You | NumDmg$ 2
+Oracle:Menace\nWhenever Vardo's Scalpel attacks, it deals 2 damage to you.

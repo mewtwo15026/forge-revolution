@@ -1,0 +1,12 @@
+Name:Sandstorm Dancer
+ManaCost:2 B
+Types:Creature Plant
+PT:2/1
+K:Deathtouch
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ AccliChange | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME acclimates.
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Weather
+DeckHas:Ability$Counters
+Oracle:Deathtouch\nLandfall — Whenever a land you control enters, Sandstorm Dancer acclimates. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)

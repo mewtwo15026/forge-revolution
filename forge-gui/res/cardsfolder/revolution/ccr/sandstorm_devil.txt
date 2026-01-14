@@ -1,0 +1,14 @@
+Name:Sandstorm Devil
+ManaCost:2 R
+Types:Creature Insect Dragon
+PT:2/2
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ AccliChange | TriggerDescription$ When CARDNAME enters, it acclimates.
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Menace | IsPresent$ Weather.YouCtrl,Dragon.Other+YouCtrl | Description$ As long as you control a Weather or another Dragon, CARDNAME has menace.
+SVar:BuffedBy:Weather,Dragon
+DeckHints:Type$Weather|Dragon
+DeckHas:Ability$Dragon
+Oracle:Reach\nWhen Sandstorm Devil enters, it acclimates. (You may put a Weather card you own from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)\nAs long as you control a Weather or another Dragon, Sandstorm Devil has menace.

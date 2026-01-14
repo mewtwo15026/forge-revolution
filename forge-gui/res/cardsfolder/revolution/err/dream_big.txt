@@ -1,0 +1,9 @@
+Name:Dream Big
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | AILogic$ PowerDmg | NumAtt$ X | NumDef$ X | SubAbility$ DBDamage | SpellDescription$ Fabric — Target creature you control gets +X/+X until end of turn, where X is the number of enchantments you control. It deals damage equal to its power to up to one target creature you don't control.
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl | TargetMin$ 0 | TargetMax$ 1 | AILogic$ PowerDmg | TgtPrompt$ Select up to one target creature you don't control | NumDmg$ Y | DamageSource$ ParentTarget
+SVar:X:Count$Valid Enchantment.YouCtrl
+SVar:Y:ParentTarget$CardPower
+DeckNeeds:Type$Enchantment
+Oracle:Fabric — Target creature you control gets +X/+X until end of turn, where X is the number of enchantments you control. It deals damage equal to its power to up to one target creature you don't control.

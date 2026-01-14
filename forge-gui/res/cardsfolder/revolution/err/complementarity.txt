@@ -1,0 +1,8 @@
+Name:Complementarity
+ManaCost:X 3 W
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ Y | EffectZone$ All | Description$ This spell costs {1} less to cast for each creature you control.
+SVar:Y:Count$Valid Creature.YouCtrl
+A:SP$ Token | TokenAmount$ X | TokenScript$ w_1_1_citizen | TokenOwner$ You | SpellDescription$ Create X 1/1 white Citizen creature tokens.
+SVar:X:Count$xPaid
+Oracle:This spell costs {1} less to cast for each creature you control.\nCreate X 1/1 white Citizen creature tokens.

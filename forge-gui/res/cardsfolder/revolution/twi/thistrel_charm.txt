@@ -1,0 +1,10 @@
+Name:Thistrel Charm
+ManaCost:U R
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBDamage,DBCounter,DBCopy
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Creature,Battle | TgtPrompt$ Select target creature or battle | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to target creature or battle.
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Permanent.nonCreature | TgtPrompt$ Select target noncreature permanent spell | SpellDescription$ Counter target noncreature permanent spell.
+SVar:DBCopy:DB$ CopyPermanent | ValidTgts$ Permanent.token+YouCtrl | TgtPrompt$ Select target token you control | NumCopies$ 1 | SpellDescription$ Create a token that's a copy of target token you control.
+DeckHints:Ability$Token & Type$Battle
+DeckHas:Ability$Token
+Oracle:Choose one —\n• Thistrel Charm deals 3 damage to target creature or battle.\n• Counter target noncreature permanent spell.\n• Create a token that's a copy of target token you control.

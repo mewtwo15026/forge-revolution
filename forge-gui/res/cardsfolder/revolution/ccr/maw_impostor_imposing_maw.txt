@@ -1,0 +1,21 @@
+Name:Maw Impostor
+ManaCost:2 B
+Types:Creature Ouphe
+PT:2/3
+K:Menace
+A:AB$ SetState | Cost$ 4 B B | Defined$ Self | Mode$ Transform | AILogic$ Always | SpellDescription$ Transform CARDNAME.
+AlternateMode:DoubleFaced
+Oracle:Menace\n{4}{B}{B}: Transform Maw Impostor.
+
+ALTERNATE
+
+Name:Imposing Maw
+ManaCost:no cost
+Colors:black
+Types:Creature Ouphe Horror
+PT:4/6
+K:Menace
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigLoseLife | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, that player loses 3 life unless they discard a card.
+SVar:TrigLoseLife:DB$ GainLife | Defined$ TriggeredTarget | LifeAmount$ 3 | UnlessCost$ Discard<1/Card> | UnlessPayer$ TriggeredTarget
+SVar:HasCombatEffect:TRUE
+Oracle:Menace\nWhenever Imposing Maw deals combat damage to a player, that player loses 3 life unless they discard a card.

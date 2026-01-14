@@ -1,0 +1,10 @@
+Name:Underflow_Error
+ManaCost:6 U U
+Types:Creature Error Skeleton
+PT:9/8
+T:Mode$ Phase | Phase$ Upkeep | TriggerZones$ Battlefield | ValidPlayer$ Opponent | Execute$ TapCreature | TriggerDescription$ At the beginning of each opponent's upkeep, tap target creature that player controls.
+SVar:TapCreature:DB$ Tap | ValidTgts$ Creature.ActivePlayerCtrl | TgtPrompt$ Choose target creature the active player controls.
+A:AB$ Tap | Cost$ 1 R Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Creature | SubAbility$ DBDraw | SpellDescription$ Tap target creature. Draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$Discard
+Oracle:At the beginning of each opponent's upkeep, tap target creature that player controls.\n{1}{U}, Discard this card: Tap target creature. Draw a card.

@@ -1,0 +1,12 @@
+Name:Gallowsprout Timber
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Swamp.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Swamp.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ Animate | Cost$ 1 B B | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Dryad,Spirit | Colors$ Black,Green | OverwriteColors$ True | SpellDescription$ Until end of turn, CARDNAME becomes a 3/3 black and green Dryad Spirit creature. It's still a land.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever CARDNAME attacks, exile target card from a graveyard. You gain 2 life.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Card | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target card in a graveyard | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
+DeckHas:Ability$LifeGain
+Oracle:Gallowsprout Timber enters tapped unless you control a Swamp.\n{T}: Add {G}.\n{1}{B}{B}: Until end of turn, Gallowsprout Timber becomes a 3/3 black and green Dryad Spirit creature. It's still a land.\nWhenever Gallowsprout Timber attacks, exile target card from a graveyard. You gain 2 life.

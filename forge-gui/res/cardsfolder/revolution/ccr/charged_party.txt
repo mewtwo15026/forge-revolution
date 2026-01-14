@@ -1,0 +1,9 @@
+Name:Charged Party
+ManaCost:1 U R
+Types:Creature Elemental Mouse
+PT:1/4
+T:Mode$ AttackersDeclared | Execute$ TrigToken | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Whenever you attack with CARDNAME and exactly one other creature, create a token that's a copy of CARDNAME that's tapped and attacking, except its power and toughness are switched. Sacrifice the token at the beginning of the next end step.
+SVar:TrigToken:DB$ CopyPermanent | Defined$ Self | NumCopies$ 1 | TokenOwner$ You | AddKeywords$ HIDDEN CARDNAME's power and toughness are switched | TokenTapped$ True | TokenAttacking$ True | AtEOT$ Sacrifice
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token
+Oracle:Amity — Whenever you attack with Charged Party and exactly one other creature, create a token that's a copy of Charged Party that's tapped and attacking, except its power and toughness are switched. Sacrifice the token at the beginning of the next end step.

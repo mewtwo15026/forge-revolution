@@ -77,6 +77,10 @@ public class SpellAbilityVariables implements Cloneable {
     /** The b player turn. */
     private boolean playerTurn = false;
 
+    /** REVOLUTION
+     * The b extra turn.*/
+    private boolean extraTurn = false;
+
     /** The limitToCheck to check. */
     private String limitToCheck = null;
 
@@ -280,6 +284,31 @@ public class SpellAbilityVariables implements Cloneable {
      */
     public final boolean getOpponentTurn() {
         return this.isOpponentTurn();
+    }
+
+    /**
+     * REVOLUTION
+     * <p>
+     * setExtraTurn.
+     * </p>
+     *
+     * @param bTurn
+     *            a boolean.
+     */
+    public final void setExtraTurn(final boolean bTurn) {
+        this.extraTurn = bTurn;
+    }
+
+    /**
+     * REVOLUTION
+     * <p>
+     * getExtraTurn.
+     * </p>
+     *
+     * @return a boolean.
+     */
+    public final boolean getExtraTurn() {
+        return this.isExtraTurn();
     }
 
     /**
@@ -766,6 +795,16 @@ public class SpellAbilityVariables implements Cloneable {
      */
     public final boolean isOpponentTurn() {
         return this.opponentTurn;
+    }
+
+    /**
+     * REVOLUTION
+     * Checks if is an extra turn.
+     *
+     * @return the extraTurn
+     */
+    public final boolean isExtraTurn() {
+        return this.extraTurn;
     }
 
     /**

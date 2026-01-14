@@ -1,0 +1,10 @@
+Name:Record_Desync
+ManaCost:7 G G
+Types:Creature Error
+PT:13/9
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPiles | TriggerDescription$ When this creature enters, separate your graveyard into two piles. An opponent chooses one of those piles. Put that pile into your hand and shuffle the other into your library.
+SVar:TrigPiles:DB$ TwoPiles | Defined$ You | Separator$ You | Chooser$ Opponent | ChosenPile$ DBHand | UnchosenPile$ DBLibrary | ValidCards$ Card | Zone$ Graveyard | AILogic$ Worst
+SVar:DBHand:DB$ ChangeZone | Defined$ Remembered | Origin$ Graveyard | Destination$ Hand
+SVar:DBLibrary:DB$ ChangeZone | Defined$ Remembered | Origin$ Graveyard | Destination$ Library | Shuffle$ True
+Oracle:Trample\nWhen this creature enters, separate your graveyard into two piles. An opponent chooses one of those piles. Put that pile into your hand and shuffle the other into your library.

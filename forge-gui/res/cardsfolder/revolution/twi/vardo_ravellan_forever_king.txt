@@ -1,0 +1,12 @@
+Name:Vardo Ravellan, Forever King
+ManaCost:1 B G
+Types:Legendary Creature Demigod Zombie
+PT:3/3
+K:Trample
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 2 | AddToughness$ 2 | CheckSVar$ X | SVarCompare$ LE10 | Description$ As long as you have 10 or less life, CARDNAME gets +2/+2.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Indestructible | CheckSVar$ X | SVarCompare$ LE5 | Description$ As long as you have 5 or less life, CARDNAME has indestructible.
+SVar:X:Count$YourLifeTotal
+T:Mode$ DamageDone | ValidSource$ Card.Self | Execute$ TrigDraw | CombatDamage$ True | ValidTarget$ Player | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you draw a card and you lose 1 life.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ 1
+Oracle:Trample\nAs long as you have 10 or less life, Vardo gets +2/+2.\nAs long as you have 5 or less life, Vardo has indestructible.\nWhenever Vardo deals combat damage to a player, you draw a card and you lose 1 life.

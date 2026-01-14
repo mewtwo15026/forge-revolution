@@ -1,0 +1,13 @@
+Name:Student of Immortality
+ManaCost:2 W
+Types:Creature Human Citizen
+PT:4/2
+K:Level up:1 B
+SVar:maxLevel:4
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 5 | SetToughness$ 3 | AddTrigger$ SelfDies | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE3_LEVEL | Description$ LEVEL 1-3 5/3
+SVar:SelfDies:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigReturnSelf | TriggerDescription$ When this creature dies, return it to its owner's hand.
+SVar:TrigReturnSelf:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | Defined$ TriggeredNewCardLKICopy
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 4 | AddTrigger$ AnyDies | IsPresent$ Card.Self+counters_GE4_LEVEL | Description$ LEVEL 4+ 6/4
+SVar:AnyDies:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | Execute$ TrigReturnAny | TriggerDescription$ Whenever a creature you control dies, return it to its owner's hand.
+SVar:TrigReturnAny:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | Defined$ TriggeredNewCardLKICopy
+Oracle:Level up {1}{B} ({1}{B}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-3\n5/3\nWhen this creature dies, return it to its owner's hand.\nLEVEL 4+\n6/4\nWhenever a creature you control dies, return it to its owner's hand.

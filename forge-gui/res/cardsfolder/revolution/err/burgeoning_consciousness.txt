@@ -1,0 +1,9 @@
+Name:Burgeoning Consciousness
+ManaCost:4
+Types:Artifact Creature Construct
+PT:4/4
+K:Level up:3
+SVar:maxLevel:6
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 6 | AddKeyword$ Vigilance | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE5_LEVEL | Description$ LEVEL 2-5 6/6 Vigilance
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 8 | SetToughness$ 8 | AddKeyword$ Vigilance & Indestructible | IsPresent$ Card.Self+counters_GE6_LEVEL | Description$ LEVEL 6+ 8/8 Vigilance, indestructible
+Oracle:Level up {3} ({3}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-5\n6/6\nVigilance\nLEVEL 6+\n8/8\nVigilance, indestructible

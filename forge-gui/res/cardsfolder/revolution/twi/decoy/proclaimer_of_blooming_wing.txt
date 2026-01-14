@@ -1,0 +1,8 @@
+Name:Proclaimer of Blooming Wing
+ManaCost:R
+Types:Creature Faerie Scout
+PT:1/1
+K:twi_Decoy
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)

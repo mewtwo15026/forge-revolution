@@ -1,0 +1,10 @@
+Name:Lavaborn Slug
+ManaCost:1 R
+Types:Creature Elemental Slug
+PT:1/2
+A:AB$ DealDamage | Cost$ T | ValidTgts$ Any | NumDmg$ 1 | SpellDescription$ CARDNAME deals 1 damage to any target.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigUntap | TriggerZones$ Battlefield | TriggerDescription$ Landfall — Whenever a land you control enters, untap CARDNAME.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+SVar:NonCombatPriority:1
+SVar:BuffedBy:Land
+Oracle:{T}: Lavaborn Slug deals 1 damage to target player.\nLandfall — Whenever a land you control enters, untap Lavaborn Slug.

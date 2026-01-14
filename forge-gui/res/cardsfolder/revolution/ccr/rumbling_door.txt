@@ -1,0 +1,7 @@
+Name:Rumbling Door
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Animate | Cost$ 4 | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Golem | Keywords$ Vigilance | Duration$ Permanent | SpellDescription$ CARDNAME becomes a 3/3 Golem creature with vigilance. It's still a land. (This effect lasts indefinitely.)
+DeckHas:Type$Golem
+Oracle:{T}: Add {C}.\n{4}: Rumbling Door becomes a 3/3 Golem creature with vigilance. It's still a land. (This effect lasts indefinitely.)

@@ -1,0 +1,12 @@
+Name:Imperious Admin
+ManaCost:2 W W
+Types:Creature Human Noble
+PT:3/3
+K:Flying
+K:Vigilance
+A:AB$ ChangeZone | Cost$ 5 | PrecostDesc$ Fabric — | ReduceCost$ X | TargetMin$ 1 | ValidTgts$ Creature.Other+YouCtrl,Subroutine.Other+YouCtrl | TgtPrompt$ Select another target creature or Subroutine you control | RememberTargets$ True | ForgetOtherTargets$ True | Origin$ Battlefield | Destination$ Exile | SorcerySpeed$ True | ActivationLimit$ 1 | SubAbility$ DBReturn | SpellDescription$ Exile another target creature or Subroutine you control, then return it to the battlefield tapped under its owner's control. This ability costs {1} less to activate for each enchantment you control. Activate only as a sorcery and only once each turn.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Tapped$ True | Destination$ Battlefield
+SVar:X:Count$Valid Enchantment.YouCtrl
+SVar:BuffedBy:Enchantment
+DeckHints:Type$Enchantment|Subroutine
+Oracle:Flying, vigilance\nFabric — {5}: Exile another target creature or Subroutine you control, then return that card to the battlefield under its owner's control. This ability costs {1} less to activate for each enchantment you control. Activate only as a sorcery and only once each turn.

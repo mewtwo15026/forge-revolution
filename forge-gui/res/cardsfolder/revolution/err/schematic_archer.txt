@@ -1,0 +1,10 @@
+Name:Schematic Archer
+ManaCost:2 G G
+Types:Creature Cat Archer
+PT:4/4
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFight | TriggerDescription$ When this creature enters, if you played a card from exile this turn, it fights up to one target creature.
+SVar:TrigFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature | TgtPrompt$ Choose target creature | TargetMin$ 0 | TargetMax$ 1
+SVar:X:Count$ThisTurnCast_Card.YouCtrl+wasCastFromExile/Plus.LandsPlayedFromExile
+SVar:LandsPlayedFromExile:Number$0
+Oracle:Reach\nWhen this creature enters, if you played a card from exile this turn, it fights up to one target creature.

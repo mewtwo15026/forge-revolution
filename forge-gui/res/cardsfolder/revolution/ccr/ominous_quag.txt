@@ -1,0 +1,9 @@
+Name:Ominous Quag
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T | Produced$ Combo W B | SpellDescription$ Add {W} or {B}.
+A:AB$ Draw | Cost$ 2 W B T Sac<1/CARDNAME> | SpellDescription$ Draw a card.
+DeckHas:Ability$Sacrifice
+Oracle:Ominous Quag enters tapped.\n{T}: Add {W} or {B}.\n{2}{W}{B}, {T}, Sacrifice Ominous Quag: Draw a card.

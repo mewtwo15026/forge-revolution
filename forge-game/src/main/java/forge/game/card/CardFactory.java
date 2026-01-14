@@ -278,6 +278,10 @@ public class CardFactory {
         if (card.getType().hasSubtype("Siege")) {
             CardFactoryUtil.setupSiegeAbilities(card);
         }
+        //REVOLUTION
+        else if (card.getType().hasSubtype("Operation")) {
+            CardFactoryUtil.setupOperationAbilities(card);
+        }
         else if (card.getType().getBattleTypes().isEmpty()) {
             //Probably a custom card? Check if it already has an RE for designating a protector.
             if(card.getReplacementEffects().stream().anyMatch((re) -> re.hasParam("BattleProtector")))

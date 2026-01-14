@@ -1,0 +1,8 @@
+Name:Casus Belli
+ManaCost:1 W W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target creature or planeswalker until CARDNAME leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker | IsCurse$ True | Duration$ UntilHostLeavesPlay
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ 1 | Description$ Creatures you control get +1/+0.
+SVar:PlayMain1:TRUE
+Oracle:When Casus Belli enters, exile up to one target creature or planeswalker until Casus Belli leaves the battlefield.\nCreatures you control get +1/+0.

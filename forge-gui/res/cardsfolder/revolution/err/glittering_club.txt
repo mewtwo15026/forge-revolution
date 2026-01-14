@@ -1,0 +1,10 @@
+Name:Glittering Club
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Mountain or Plains card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Mountain+Basic,Land.Plains+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ PumpAll | Cost$ 1 R R W W Discard<1/CARDNAME> | ActivationZone$ Hand | ValidCards$ Creature.YouCtrl | NumAtt$ +2 | NumDef$ +1 | SpellDescription$ Creatures you control get +2/+1 until end of turn.
+DeckHas:Ability$Sacrifice|Discard
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Mountain or Plains card, put it onto the battlefield tapped, then shuffle.\n{1}{R}{R}{W}{W}, Discard this card: Creatures you control get +2/+1 until end of turn.

@@ -1,0 +1,15 @@
+Name:Pact Beyond Death
+ManaCost:1 B
+Types:Battle Operation
+Defense:6
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, mill three cards, then return a card milled this way to your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | RememberMilled$ True | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | Hidden$ True | ChangeType$ Card.IsRemembered | Mandatory$ True | ChangeNum$ 1 | SelectPrompt$ Return a card milled this way to your hand | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Drawn | IsPresent$ Card.Self+counters_LE4_DEFENSE | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ 4 Defense — Whenever you draw a card, you gain 2 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Execute$ TrigTutor | GameActivationLimit$ 1 | TriggerDescription$ Defeated — When this battle is first defeated, search your library for a card, put it into your hand, then shuffle.
+SVar:TrigTutor:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card | ChangeNum$ 1 | ShuffleNonMandatory$ True
+DeckHas:Ability$LifeGain|Mill
+DeckHints:Ability$Graveyard
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen this battle enters, mill three cards, then return a card milled this way to your hand.\n4 Defense — Whenever you draw a card, you gain 2 life.\nDefeated — When this battle is first defeated, search your library for a card, put it into your hand, then shuffle.

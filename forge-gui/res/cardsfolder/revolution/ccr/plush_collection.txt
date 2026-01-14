@@ -1,0 +1,11 @@
+Name:Plush Collection
+ManaCost:2 W
+Types:Enchantment
+S:Mode$ Continuous | Affected$ Creature | AddTrigger$ TrigActivated | IsPresent$ Effect.YouCtrl+namedPlush Collected | PresentZone$ Command | PresentCompare$ LTX
+SVar:TrigActivated:Mode$ AbilityCast | ValidCard$ Card.Self | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Effect.YouCtrl+namedPlush Collected | PresentZone$ Command | PresentCompare$ LTX | Execute$ TrigClone | OptionalDecider$ You | TriggerDescription$ (Whenever you activate an ability of a creature, you may create a token that's a copy of that creature, except it's a 1/1 Toy in addition to its other types and it isn't legendary. Do this only once each turn.)
+SVar:TrigClone:DB$ CopyPermanent | Defined$ Self | NonLegendary$ True | SetPower$ 1 | SetToughness$ 1 | AddTypes$ Toy | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | Name$ Plush Collected
+SVar:X:Count$Valid Permanent.YouCtrl+sameName
+SVar:BuffedBy:Creature.hasAbility Activated
+DeckHas:Ability$Token
+Oracle:Whenever you activate an ability of a creature, you may create a token that's a copy of that creature, except it's a 1/1 Toy in addition to its other types and it isn't legendary. Do this only once each turn.

@@ -1,0 +1,14 @@
+Name:Unfettered Spirit
+ManaCost:1 R
+Types:Creature Spirit Citizen
+PT:2/2
+K:Level up:3 R
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 4 | AddAbility$ SacP1 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL | Description$ LEVEL 1-2 4/4
+SVar:SacP1:AB$ Pump | Cost$ Sac<1/Artifact;Enchantment/artifact or enchantment> | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ This creature gets +1/+1 until end of turn.
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 6 | AddAbility$ SacP2 | IsPresent$ Card.Self+counters_GE3_LEVEL | Description$ LEVEL 3+ 6/6
+SVar:SacP2:AB$ Pump | Cost$ Sac<1/Artifact;Enchantment/artifact or enchantment> | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | SpellDescription$ This creature gets +2/+2 until end of turn.
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+notnamedBlack Lotus,Artifact.cmcGE1+cmcLE3,Enchantment.token,Enchantment.cmcGE1+cmcLE3
+DeckHas:Ability$Sacrifice
+DeckNeeds:Type$Artifact|Enchantment|Memory|Map|Blood|Shard|Food|Treasure|Clue|Junk
+Oracle:Level up {3}{R} ({3}{R}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n4/4\nSacrifice an artifact or enchantment: This creature gets +1/+1 until end of turn.\nLEVEL 3+\n6/6\nSacrifice an artifact or enchantment: This creature gets +2/+2 until end of turn.

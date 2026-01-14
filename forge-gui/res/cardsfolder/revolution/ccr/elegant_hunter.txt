@@ -1,0 +1,11 @@
+Name:Elegant Hunter
+ManaCost:G U R
+Types:Creature Fish
+PT:2/2
+T:Mode$ AttackersDeclared | Execute$ TrigCharm | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | NoResolvingCheck$ True | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBPumpAll,DBUnblock
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl+attacking | NumAtt$ +2 | TriggerDescription$ Attacking creatures you control get +2/+0 until end of turn.
+SVar:DBUnblock:DB$ Effect | StaticAbilities$ Unblockable | TriggerDescription$ Attacking creatures you control can't be blocked this turn.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Creature.YouCtrl+attacking | Description$ Attacking creatures you control can't be blocked this turn.
+SVar:HasAttackEffect:TRUE
+Oracle:Amity — Whenever you attack with Elegant Hunter and exactly one other creature, choose one —\n• Attacking creatures you control get +2/+0 until end of turn.\n• Attacking creatures you control can't be blocked this turn.

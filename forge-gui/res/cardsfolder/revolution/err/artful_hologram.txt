@@ -1,0 +1,13 @@
+Name:Artful Hologram
+ManaCost:R
+Types:Creature Spirit Bard
+PT:2/1
+K:Level up:GU
+SVar:maxLevel:6
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 3 | AddTrigger$ DDSelf | IsPresent$ Card.Self+counters_GE3_LEVEL+counters_LE5_LEVEL | Description$ LEVEL 3-5 4/3
+SVar:DDSelf:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigDrawSelf | TriggerDescription$ Whenever this creature deals damage to a player, draw a card.
+SVar:TrigDrawSelf:DB$ Draw | Defined$ You | NumCards$ 1
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 5 | AddTrigger$ DDAny | IsPresent$ Card.Self+counters_GE6_LEVEL | Description$ LEVEL 6+ 6/5
+SVar:DDAny:Mode$ DamageDone | ValidSource$ Creature.YouCtrl | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigDrawAny | TriggerDescription$ Whenever a creature you control deals damage to a player, draw a card.
+SVar:TrigDrawAny:DB$ Draw | NumCards$ 1
+Oracle:Level up {GU} ({GU}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 3-5\n4/3\nWhenever this creature deals damage to a player, draw a card.\nLEVEL 6+\n6/5\nWhenever a creature you control deals damage to a player, draw a card.

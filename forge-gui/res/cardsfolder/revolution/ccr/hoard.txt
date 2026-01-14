@@ -1,0 +1,8 @@
+Name:Hoard
+ManaCost:2 B
+Types:Sorcery
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBLoseLife | SpellDescription$ You draw two cards and lose 2 life. 
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2 | SubAbility$ DBDrain
+SVar:DBDrain:DB$ LoseLife | LifeAmount$ 2 | Defined$ Opponent | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SpellDescription$ Landfall — If a land entered the battlefield under your control this turn, each opponent loses 2 life.
+SVar:X:Count$ThisTurnEntered_Battlefield_Land.YouCtrl
+Oracle:You draw two cards and you lose 2 life.\nLandfall — If a land entered the battlefield under your control this turn, each opponent loses 2 life.

@@ -1,0 +1,8 @@
+Name:Magma Grunt
+ManaCost:R
+Types:Creature Human Ranger
+PT:1/2
+T:Mode$ AttackersDeclared | Execute$ TrigDamage | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME deals 1 damage to each opponent.
+SVar:TrigDamage:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+SVar:HasAttackEffect:TRUE
+Oracle:Amity — Whenever you attack with Magma Grunt and exactly one other creature, Magma Grunt deals 1 damage to each opponent.

@@ -352,13 +352,28 @@ Replace=.016F fromSheet("TWI buy a box")
 313 L Forest @Marc Magiliari
 
 [buy a box]
+314 S Angler of the Crushing Sea @Ognjen Sporen
 315 S Discern @Ognjen Sporen
+316 S Dreamswept Duelist @Ognjen Sporen
+317 S Evangel of Severed Doubt @Art of Li
+318 S Commander of the Vow @Art of Li
 319 S Reaper of Blossoms @Ognjen Sporen
+320 S Cidraeth Charm @Ognjen Sporen
 321 S Choir Ascendant @Art of Li
 322 S Lunate Charm @Art of Li
+323 S Thistrel Charm @Art of Li
+324 S Cruxborn Tyrant @Art of Li
 325 S Dolcairn Charm @Art of Li
+326 S Sunvrath Charm @Ognjen Sporen
+327 S Vow to Conquer @Ognjen Sporen
+328 S Witchery @Ognjen Sporen
 329 S Honesty @Art of Li
+330 S Trickery @Ognjen Sporen
+331 S Anthropomancy @Art of Li
 332 S Divinity @Art of Li
+336 S Sanctum of Repression @twarda8
+337 S Discern @yami-no-kuni
+340 S Trauma Spike @kerem-beyit
 
 [duals]
 1 Blossoming Sands|TWI

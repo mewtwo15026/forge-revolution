@@ -1,0 +1,8 @@
+Name:Living Compass
+ManaCost:2
+Types:Artifact Creature Construct
+PT:1/1
+A:AB$ Mana | Cost$ 1 T | Produced$ Any | SpellDescription$ Add one mana of any color.
+A:AB$ Draw | Cost$ 2 Sac<1/CARDNAME> | NumCards$ 1 | SpellDescription$ Draw a card.
+AI:RemoveDeck:All
+Oracle:{1}, {T}: Add one mana of any color.\n{2}, Sacrifice Living Compass: Draw a card.

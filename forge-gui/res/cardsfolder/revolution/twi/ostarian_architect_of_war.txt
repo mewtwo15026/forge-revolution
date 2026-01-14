@@ -1,0 +1,10 @@
+Name:Ostarian, Architect of War
+ManaCost:3 R W
+Types:Legendary Creature Demon Cleric
+PT:5/5
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | ValidPlayer$ You | Execute$ TrigToken | TriggerDescription$ At the beginning of combat on your turn, create three 1/1 red Berserker creature tokens. They gain lifelink and haste until end of turn. Sacrifice them at the beginning of the next end step.
+SVar:TrigToken:DB$ Token | TokenAmount$ 3 | TokenScript$ r_1_1_berserker | PumpKeywords$ Lifelink & Haste | PumpDuration$ EOT | AtEOT$ Sacrifice
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token|LifeGain & Type$Berserker
+Oracle:This spell can't be countered.\nAt the beginning of combat on your turn, create three 1/1 red Berserker creature tokens. They gain lifelink and haste until end of turn. Sacrifice them at the beginning of the next end step.

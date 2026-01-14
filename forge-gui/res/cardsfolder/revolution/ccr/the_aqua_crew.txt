@@ -1,0 +1,16 @@
+Name:The Aqua Crew
+ManaCost:2 B G U
+Types:Legendary Creature Human Pirate
+PT:4/4
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill six cards, then you gain 1 life for each card type among cards in your graveyard.
+SVar:TrigMill:DB$ Mill | NumCards$ 6 | Defined$ You | SubAbility$ TrigGainLife
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ Tarmo
+SVar:Tarmo:Count$ValidGraveyard Card.YouOwn$CardTypes
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigAnimSelf | TriggerZones$ Battlefield | GameActivationLimit$ 1 | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell from your graveyard, you may have target nonland permanent become an Island land. This ability triggers only once unless you control a creature named Warden of Depths.
+SVar:TrigAnimSelf:DB$ Animate | Defined$ Self | Triggers$ BlueOrb | Duration$ Permanent | SubAbility$ TrigAnimate
+SVar:BlueOrb:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigAnimate | TriggerZones$ Battlefield | IsPresent$ Creature.YouCtrl+namedWarden of Depths | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell from your graveyard, you may have target nonland permanent become an Island land. This ability triggers only once unless you control a creature named Warden of Depths.
+SVar:TrigAnimate:DB$ Animate | ValidTgts$ Permanent.nonLand | IsCurse$ True | TgtPrompt$ Select target nonland permanent | Types$ Land,Island | RemoveCardTypes$ True | RemoveLandTypes$ True | RemoveAllAbilities$ True | Duration$ Permanent
+DeckHas:Ability$Mill
+DeckHints:Ability$Surface & Name$Warden of Depths
+Oracle:Flash\nWhen The Aqua Crew enters, mill six cards, then you gain 1 life for each card type among cards in your graveyard.\nWhenever you cast a spell from your graveyard, you may have target nonland permanent become an Island land. This ability triggers only once unless you control a creature named Warden of Depths. (It loses other types and abilities indefinitely.)

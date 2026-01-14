@@ -1,0 +1,25 @@
+Name:Ironback Tyke
+ManaCost:1 R W
+Types:Creature Dinosaur
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChange | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for a basic Mountain or Plains card, reveal it, put it into your hand, then shuffle.
+SVar:TrigChange:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Mountain.Basic,Plains.Basic | ChangeNum$ 1 | ShuffleNonMandatory$ True
+A:AB$ Animate | Cost$ 2 R W | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ AronTgts | TgtPrompt$ Target any number of creatures you control | Power$ 3 | Toughness$ 3 | SorcerySpeed$ True | SubAbility$ DBTransform | SpellDescription$ Any number of target creatures you control have base power and toughness 3/3 until end of turn. If you control seven or more permanents with activated abilities, transform CARDNAME. Activate only as a sorcery.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | IsPresent$ Permanent.YouCtrl+hasAbility Activated | PresentCompare$ GE7
+SVar:AronTgts:Count$Valid Creature.YouCtrl
+SVar:BuffedBy:Permanent.Other+hasAbility Activated
+AlternateMode:DoubleFaced
+Oracle:When Ironback Tyke enters, you may search your library for a basic Mountain or Plains card, reveal it, put it into your hand, then shuffle.\n{2}{R}{W}: Any number of target creatures you control have base power and toughness 3/3 until end of turn. If you control seven or more permanents with activated abilities, transform Ironback Tyke. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Ironback Sovereign
+ManaCost:no cost
+Colors:red,white
+Types:Creature Dinosaur
+PT:7/7
+K:Vigilance
+K:Trample
+A:AB$ Animate | Cost$ 2 R W | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ AggronTgts | TgtPrompt$ Target any number of creatures you control | Power$ 6 | Toughness$ 6 | SpellDescription$ Any number of target creatures you control have base power and toughness 6/6 until end of turn.
+SVar:AggronTgts:Count$Valid Creature.YouCtrl
+Oracle:Vigilance, trample\n{2}{R}{W}: Any number of target creatures you control have base power and toughness 6/6 until end of turn.

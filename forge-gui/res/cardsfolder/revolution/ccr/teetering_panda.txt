@@ -1,0 +1,12 @@
+Name:Teetering Panda
+ManaCost:U R W
+Types:Creature Panda
+PT:3/3
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ Player.Opponent | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ At the beginning of each opponent's upkeep, CARDNAME deals 2 damage to them if they control a tapped permanent. If they control three or more, you gain 2 life and draw a card.
+SVar:TrigDamage:DB$ DealDamage | Defined$ TriggeredPlayer | NumDmg$ 2 | ConditionCheckSVar$ TappedCtrl | ConditionSVarCompare$ GE1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2 | ConditionCheckSVar$ TappedCtrl | ConditionSVarCompare$ GE3 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ TappedCtrl | ConditionSVarCompare$ GE3
+SVar:TappedCtrl:TriggeredPlayer$Valid Permanent.tapped+YouCtrl
+A:AB$ TapOrUntap | Cost$ 2 T | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature to tap or untap | AITgts$ Creature.untapped+OppCtrl | SpellDescription$ You may tap or untap another target creature.
+A:AB$ PutCounter | Cost$ 2 Q | ValidTgts$ Creature | TgtPrompt$ Select target creature to stun | AITgts$ Creature.tapped+OppCtrl | CounterType$ Stun | CounterNum$ 1 | SpellDescription$ Put a stun counter on target creature.
+Oracle:At the beginning of each opponent's upkeep, Teetering Panda deals 2 damage to them if they control a tapped permanent. If they control three or more, you gain 2 life and draw a card.\n{2}, {T}: You may tap or untap another target creature.\n{2}, {Q}: Put a stun counter on target creature. ({Q} is the untap symbol.)

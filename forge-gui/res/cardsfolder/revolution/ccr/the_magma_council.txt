@@ -1,0 +1,11 @@
+Name:The Magma Council
+ManaCost:2 R W B
+Types:Legendary Creature Human Advisor
+PT:4/4
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDamage | TriggerDescription$ When CARDNAME enters, it deals damage equal to the number of card types among permanents you control to target opponent.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | NumDmg$ Tarmo
+SVar:Tarmo:Count$Valid Card.YouCtrl$CardTypes
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigAnimate | OptionalDecider$ You | ActivationLimit$ 1 | TriggerZones$ Battlefield | TriggerDescription$ Landfall – Whenever a land you control enters, you may have target nonland permanent become a Mountain land. This ability triggers only once each turn.
+SVar:TrigAnimate:DB$ Animate | ValidTgts$ Permanent.nonLand | IsCurse$ True | TgtPrompt$ Select target nonland permanent | Types$ Land,Mountain | RemoveCardTypes$ True | RemoveLandTypes$ True | RemoveAllAbilities$ True | Duration$ Permanent
+Oracle:Vigilance\nWhen The Magma Council enters, it deals damage equal to the number of cards types among permanents you control to target opponent.\nLandfall — Whenever a land you control enters, you may have target nonland permanent become a Mountain land. This ability triggers only once each turn. (That permanent loses other types and abilities indefinitely.)

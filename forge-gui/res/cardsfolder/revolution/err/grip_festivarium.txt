@@ -1,0 +1,10 @@
+Name:Grip Festivarium
+ManaCost:no cost
+Types:Land Mountain
+K:Level up:R R R
+SVar:maxLevel:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 3 | SetToughness$ 1 | AddKeyword$ Menace | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 6 | SetToughness$ 4 | AddKeyword$ Menace | IsPresent$ Card.Self+counters_GE3_LEVEL
+Oracle:({T}: Add {R}.)\nThis land enters tapped.\nLevel up {R}{R}{R} ({R}{R}{R}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n3/1\nMenace\nThis land is also a creature.\nLEVEL 3+\n6/4\nMenace\nThis land is also a creature.

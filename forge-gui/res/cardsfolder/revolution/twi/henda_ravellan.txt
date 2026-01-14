@@ -1,0 +1,9 @@
+Name:Henda Ravellan
+ManaCost:1 W
+Types:Legendary Creature Human Soldier
+PT:3/2
+K:Vigilance
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigAnimate | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, CARDNAME becomes a 4/4 Angel creature with flying in addition to its other types until end of turn. Prevent all damage that would be dealt to it this turn.
+SVar:TrigAnimate:DB$ Animate | Defined$ Self | Power$ 4 | Toughness$ 4 | Types$ Creature,Angel | Keywords$ Flying
+DeckHints:Type$Instant & Keyword$Flash
+Oracle:Vigilance\nWhenever you cast your second spell each turn, Henda Ravellan becomes a 4/4 Angel creature with flying in addition to her other types until end of turn. Prevent all damage that would be dealt to her this turn.

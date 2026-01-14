@@ -1,0 +1,14 @@
+Name:Moonlight Adventurer
+ManaCost:3 B
+Types:Creature Human Ranger
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Landfall — Whenever a land you control enters, you gain 2 life. Then if you control a Mountain and a Plains, each opponent loses 2 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2 | Defined$ Opponent | ConditionCheckSVar$ Lands | ConditionSVarCompare$ EQ2
+SVar:Lands:SVar$Mountains/Plus.Plains
+SVar:Mountains:Count$Valid Mountain.YouCtrl/LimitMax.1
+SVar:Plains:Count$Valid Plains.YouCtrl/LimitMax.1
+SVar:BuffedBy:Plains,Mountain
+DeckHints:Type$Plains|Mountain
+DeckHas:Ability$LifeGain
+Oracle:Landfall — Whenever a land you control enters, you gain 2 life. Then if you control a Mountain and a Plains, each opponent loses 2 life.

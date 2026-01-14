@@ -1,0 +1,10 @@
+Name:Dormant Camel
+ManaCost:R W
+Types:Creature Elemental Camel
+PT:2/2
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Landfall — Whenever a land you control enters, you may discard a card. If you do, draw a card.
+SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
+A:AB$ Effect | Cost$ R W | StaticAbilities$ STPlay | AINoRecursiveCheck$ True | SpellDescription$ You may play lands from your graveyard this turn.
+SVar:STPlay:Mode$ Continuous | Affected$ Land.YouCtrl | AffectedZone$ Graveyard | MayPlay$ True | Description$ You may play lands from your graveyard.
+Oracle:Vigilance\nLandfall — Whenever a land you control enters, you may discard a card. If you do, draw a card.\n{R}{W}: You may play land cards from your graveyard this turn.

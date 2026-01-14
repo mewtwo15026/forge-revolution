@@ -1,0 +1,8 @@
+Name:Checkpoint Daemon
+ManaCost:2 W
+Types:Enchantment Creature Orb
+PT:2/3
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may return another creature or Subroutine you control to its owner's hand.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | Hidden$ True | Mandatory$ True | ChangeType$ Creature.Other+YouCtrl,Subroutine.Other+YouCtrl | SelectPrompt$ Select another creature or Subroutine you control
+Oracle:Flying\nWhen this creature enters, you may return another creature or Subroutine you control to its owner's hand.

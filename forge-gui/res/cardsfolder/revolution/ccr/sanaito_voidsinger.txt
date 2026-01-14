@@ -1,0 +1,16 @@
+Name:Sanaito, Voidsinger
+ManaCost:2 W B
+Types:Legendary Planeswalker Sanaito
+Loyalty:3
+A:AB$ Animate | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select up to one target nonland permanent | TargetMin$ 0 | TargetMax$ 1 | RemoveAllAbilities$ True | Duration$ UntilYourNextTurn | IsCurse$ True | SubAbility$ DBShrink | SpellDescription$ Up to one target nonland permanent gets -1/-1 and loses all abilities until your next turn.
+SVar:DBShrink:DB$ Pump | Defined$ Targeted | NumAtt$ -1 | NumDef$ -1 | Duration$ UntilYourNextTurn | ConditionDefined$ Targeted | ConditionPresent$ Creature | ConditionCompare$ EQ1
+A:AB$ Pump | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | NumDef$ +2 | KW$ Lifelink | Duration$ UntilYourNextTurn | SpellDescription$ Target creature you control gets +2/+2 and gains lifelink until your next turn.
+A:AB$ Discard | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | Defined$ Player | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ DBDraw | SpellDescription$ Each player discards a card. Then you may pay 2 life. If you do, draw a card.
+SVar:DBDraw:DB$ Draw | UnlessCost$ PayLife<2> | UnlessPayer$ You | UnlessSwitched$ True | NumCards$ 1
+A:AB$ SetLife | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | ValidTgts$ Opponent | LifeAmount$ Split | AiTgts$ Opponent.hasMoreLife | SubAbility$ DBSetYourLife | SpellDescription$ Your and target opponent's life totals each become equal to half your combined life totals, rounded down.
+SVar:DBSetYourLife:DB$ SetLife | Defined$ You | LifeAmount$ Theirs
+SVar:Split:SVar$Pain/HalfDown
+SVar:Pain:Count$YourLifeTotal/Plus.Theirs
+SVar:Theirs:TargetedPlayer$LifeTotal
+DeckHas:Ability$LifeGain|Discard
+Oracle:[+1]: Up to one target nonland permanent gets -1/-1 and loses all abilities until your next turn.\n[0]: Target creature you control gets +2/+2 and gains lifelink until your next turn.\n[-1]: Each player discards a card. Then you may pay 2 life. If you do, draw a card.\n[-3]: You and target opponent's life totals each become equal to half your combined life totals, rounded down.

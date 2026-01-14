@@ -1,0 +1,8 @@
+Name:Fragile Soul
+ManaCost:1 W B
+Types:Creature Insect Spirit
+PT:3/1
+K:Flying
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Card.Self | DamageAmount$ GE2 | PreventionEffect$ True | ReplaceWith$ WonderGuard | Description$ If a source would deal 2 or more damage to CARDNAME, prevent that damage.
+SVar:WonderGuard:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flying\nIf a source would deal 2 or more damage to Fragile Soul, prevent that damage.

@@ -1,0 +1,10 @@
+Name:Centennial Maestro
+ManaCost:4 W
+Types:Creature Human Advisor
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Fabric — When this creature enters, create a 1/1 white Citizen creature token for each enchantment you control.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_citizen | TokenAmount$ Fabric
+SVar:Fabric:Count$Valid Enchantment.YouCtrl
+DeckNeeds:Type$Enchantment
+DeckHas:Ability$Token
+Oracle:Fabric — When this creature enters, create a 1/1 white Citizen creature token for each enchantment you control.

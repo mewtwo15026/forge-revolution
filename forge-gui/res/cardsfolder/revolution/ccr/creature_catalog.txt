@@ -1,0 +1,9 @@
+Name:Creature Catalog
+ManaCost:3
+Types:Artifact
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+A:AB$ Draw | Cost$ T | NumCards$ 1 | CheckSVar$ CastTest | SVarCompare$ GE1 | SubAbility$ DBDiscard | SpellDescription$ Draw a card, then discard a card. Activate only if you've cast a non-Human creature spell this turn.
+SVar:DBDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ 1
+SVar:CastTest:Count$ThisTurnCast_Creature.YouCtrl+nonHuman
+SVar:BuffedBy:Creature.nonHuman
+Oracle:{T}: Add one mana of any color.\n{T}: Draw a card, then discard a card. Activate only if you've cast a non-Human creature spell this turn.

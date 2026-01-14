@@ -1,0 +1,9 @@
+Name:Calamity Cat
+ManaCost:R
+Types:Creature Cat
+PT:2/1
+A:AB$ PutCounter | Cost$ T Discard<1/Card> | SorcerySpeed$ True | ValidTgts$ Creature.YouCtrl+Other | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBUntap | SpellDescription$ Put a +1/+1 counter on another target creature you control and untap it. It gains haste until end of turn. Activate only as a sorcery.
+SVar:DBUntap:DB$ Untap | Defined$ Targeted | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ TargetedCard | KW$ Haste
+DeckHas:Ability$Discard|Counters
+Oracle:{T}, Discard a card: Put a +1/+1 counter on another target creature you control and untap it. It gains haste until end of turn. Activate only as a sorcery.

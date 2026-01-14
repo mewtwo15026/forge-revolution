@@ -1,0 +1,9 @@
+Name:Archaeovolcanologist
+ManaCost:2 R
+Types:Creature Human Advisor
+PT:3/2
+A:AB$ ChooseCard | Cost$ Sac<1/CARDNAME> | ChoiceZone$ Graveyard | Choices$ Instant.YouOwn,Sorcery.YouOwn,Land.YouOwn | Amount$ 1 | ChoiceTitle$ Choose an instant, sorcery, or land card in your graveyard | SubAbility$ DBEffect | SpellDescription$ Choose an instant, sorcery, or land card in your graveyard. You may play that card this turn.
+SVar:DBEffect:DB$ Effect | Duration$ EndOfTurn | StaticAbilities$ STPlay | RememberObjects$ ChosenCard | ForgetOnMoved$ Graveyard | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Graveyard | Description$ You may play that card this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+Oracle:Sacrifice Archaeovolcanologist: Choose an instant, sorcery, or land card in your graveyard. You may play that card this turn.

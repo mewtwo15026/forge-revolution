@@ -1,0 +1,11 @@
+Name:Silken Tactician
+ManaCost:2 R R
+Types:Creature Faerie Advisor Wizard
+PT:2/3
+K:twi_Decoy
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Faerie.YouCtrl,Illusion.YouCtrl | ValidTarget$ Permanent,Player | ReplaceWith$ DmgPlusOne | Description$ If a Faerie or Illusion source you control would deal damage to a permanent or player, it deals that much damage plus 1 to that permanent or player instead.
+SVar:DmgPlusOne:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ ReplaceCount$DamageAmount/Plus.1
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Illusion|Faerie
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nIf a Faerie or Illusion source you control would deal damage to a permanent or player, it deals that much damage plus 1 to that permanent or player instead.

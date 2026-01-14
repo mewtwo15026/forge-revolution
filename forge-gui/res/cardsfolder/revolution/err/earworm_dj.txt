@@ -1,0 +1,14 @@
+Name:Earworm DJ
+ManaCost:3 B
+Types:Creature Spirit Bard
+PT:2/5
+K:Level up:1 G
+SVar:maxLevel:4
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 7 | AddTrigger$ EndMillTwo | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE3_LEVEL | Description$ LEVEL 1-3 4/7
+SVar:EndMillTwo:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigMillTwo | TriggerDescription$ At the beginning of your end step, target player mills two cards.
+SVar:TrigMillTwo:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 2
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 9 | AddKeyword$ EndMillFive | IsPresent$ Card.Self+counters_GE4_LEVEL | Description$ LEVEL 4+ 6/9
+SVar:EndMillFive:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigMillFive | TriggerDescription$ At the beginning of your end step, target player mills five cards.
+SVar:TrigMillFive:DB$ Mill | ValidTgts$ Player | TgtPrompt$ Select target player | NumCards$ 5
+DeckHas:Ability$Mill
+Oracle:Level up {1}{G} ({1}{G}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-3\n4/7\nAt the beginning of your end step, target player mills two cards.\nLEVEL 4+\n6/9\nAt the beginning of your end step, target player mills five cards.

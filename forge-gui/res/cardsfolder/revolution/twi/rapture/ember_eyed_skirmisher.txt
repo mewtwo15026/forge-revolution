@@ -1,0 +1,8 @@
+Name:Ember-Eyed Skirmisher
+ManaCost:2 R
+Types:Creature Human Archer
+PT:2/2
+K:Reach
+A:AB$ Pump | Cost$ 1 R | NumAtt$ +1 | SpellDescription$ CARDNAME gets +1/+0 until end of turn.
+K:twi_Rapture
+Oracle:Reach\n{1}{R}: Ember-Eyed Skirmisher gets +1/+0 until end of turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

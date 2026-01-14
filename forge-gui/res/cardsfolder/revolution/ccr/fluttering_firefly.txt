@@ -1,0 +1,9 @@
+Name:Fluttering Firefly
+ManaCost:2 R
+Types:Creature Insect
+PT:2/2
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigPump | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, target creature you control gets +2/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nAmity — Whenever you attack with Fluttering Firefly and exactly one other creature, target creature you control gets +2/+0 until end of turn.

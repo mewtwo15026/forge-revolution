@@ -1,0 +1,12 @@
+Name:Capricious Cat
+ManaCost:3 W
+Types:Creature Cat
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When CARDNAME enters, it acclimates twice.
+SVar:TrigRepeat:DB$ Repeat | MaxRepeat$ 2 | RepeatSubAbility$ AccliChange
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Weather
+DeckHas:Ability$Counters
+Oracle:When Capricious Cat enters, it acclimates twice. (To have this acclimate, you may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)

@@ -1,0 +1,14 @@
+Name:Lavis, Root Exec
+ManaCost:2 G W
+Types:Legendary Creature Human Ranger
+PT:4/4
+K:Vigilance
+K:Ward:1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSac | TriggerZones$ Battlefield | TriggerDescription$ Whenever NICKNAME attacks, sacrifice any number of artifacts and/or enchantments. Create that many colorless Forest Plains land tokens named Root Node.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | Amount$ SacX | SacValid$ Artifact,Enchantment | RememberSacrificed$ True | Optional$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ root_node | TokenAmount$ TokenX | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Permanent.YouCtrl+Other
+SVar:TokenX:Remembered$Amount
+AI:RemoveDeck:All
+Oracle:Vigilance, ward {1}\nWhenever Lavis attacks, sacrifice any number of artifacts and/or enchantments. Create that many colorless Forest Plains land tokens named Root Node.

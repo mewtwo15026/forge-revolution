@@ -1,0 +1,13 @@
+Name:Advance of the Blazing Court
+ManaCost:1 R
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two Blood tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ c_a_blood_draw
+T:Mode$ Sacrificed | IsPresent$ Card.Self+counters_EQ0_DEFENSE | ValidCard$ Permanent.YouCtrl | Execute$ TrigChooseCard | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Defeated — Whenever you sacrifice a permanent, CARDNAME deals 1 damage to any other noncreature permanent.
+SVar:TrigChooseCard:DB$ ChooseCard | Choices$ Permanent.Other+nonCreature | Amount$ 1 | Mandatory$ True | SubAbility$ DBPing
+SVar:DBPing:DB$ DealDamage | Defined$ ChosenCard | NumDmg$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+DeckHints:Ability$Sacrifice & Type$Battle
+DeckHas:Ability$Token|Discard|Sacrifice & Type$Artifact|Blood
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of the Blazing Court enters, create two Blood tokens. (They're artifacts with "{1}, {T}, Sacrifice this artifact: Draw a card.)\nDefeated — Whenever you sacrifice a permanent, Advance of the Blazing Court deals 1 damage to any other noncreature permanent.

@@ -1,0 +1,10 @@
+Name:Killscore Vanguard
+ManaCost:4 B
+Types:Creature Minotaur Soldier
+PT:5/6
+K:Menace
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigLevelAll | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks, put a level counter on each creature you control with level up.
+SVar:TrigLevelAll:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+withLevel up | CounterType$ LEVEL | CounterNum$ 1
+SVar:HasAttackEffect:TRUE
+DeckHints:Keyword$Level up
+Oracle:Menace\nWhenever this creature attacks, put a level counter on each creature you control with level up.

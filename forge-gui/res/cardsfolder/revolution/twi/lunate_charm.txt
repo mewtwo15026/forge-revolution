@@ -1,0 +1,8 @@
+Name:Lunate Charm
+ManaCost:G W
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBPumpAll,DBExile,DBTuck
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Permanent.YouCtrl | KW$ Hexproof | SpellDescription$ Permanents you control gain hexproof until end of turn.
+SVar:DBExile:DB$ ChangeZone | ValidTgts$ Creature.powerGE4 | TgtPrompt$ Select target creature with power 4 or greater | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target creature with power 4 or greater.
+SVar:DBTuck:DB$ ChangeZoneAll | ValidTgts$ Player | TgtPrompt$ Select target player | ChangeType$ Card | Origin$ Graveyard | Destination$ Library | LibraryPosition$ -1 | Reveal$ False | RandomOrder$ True | SpellDescription$ Target player puts their graveyard on the bottom of their library in a random order.
+Oracle:Choose one —\n• Permanents you control gain hexproof until end of turn.\n• Exile target creature with power 4 or greater.\n• Target player puts their graveyard on the bottom of their library in a random order.

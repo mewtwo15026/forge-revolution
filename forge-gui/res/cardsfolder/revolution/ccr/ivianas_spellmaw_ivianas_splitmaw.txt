@@ -1,0 +1,32 @@
+Name:Iviana's Spellmaw
+ManaCost:2 U R
+Types:Creature Dragon
+PT:4/3
+K:Flying
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Dragon.YouCtrl+inZoneBattlefield | ValidTarget$ Opponent | ReplaceWith$ DmgPlusOne | Description$ If a Dragon you control would deal damage to an opponent, it deals that much damage plus 1 to that player instead.
+SVar:DmgPlusOne:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ X
+SVar:X:ReplaceCount$DamageAmount/Plus.1
+A:AB$ SetState | Cost$ 2 U R | Defined$ Self | Mode$ Transform | AILogic$ Always | SpellDescription$ Transform CARDNAME.
+SVar:PlayMain1:TRUE
+DeckHints:Type$Dragon|Iviana
+AlternateMode:DoubleFaced
+Oracle:Flying\nIf a Dragon you control would deal damage to an opponent, it deals that much damage plus 1 instead.\n{2}{U}{R}: Transform Iviana's Spellmaw.
+
+ALTERNATE
+
+Name:Iviana's Splitmaw
+ManaCost:no cost
+Colors:blue,red
+Types:Creature Dragon
+PT:4/5
+K:Flying
+K:Trample
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.nonDragon+nonIviana+YouCtrl,Emblem.YouCtrl | ValidTarget$ Permanent.OppCtrl,Opponent | ReplaceWith$ DmgPlusTwo | Description$ If a source you control would deal damage to an opponent or a permanent an opponent controls, you may have it deal twice that much damage instead if it's a Dragon or Iviana planeswalker. Otherwise, it deals that much damage plus 2 instead.
+# NOTE: don't know how to apply only one replacement effect
+R:Event$ DamageDone | ActiveZones$ Battlefield | DamageAmount$ LT2 | ValidSource$ Dragon.YouCtrl,Planeswalker.Iviana+YouCtrl | ValidTarget$ Permanent.OppCtrl,Opponent | ReplaceWith$ DmgPlusTwo
+R:Event$ DamageDone | ActiveZones$ Battlefield | DamageAmount$ GE2 | ValidSource$ Dragon.YouCtrl,Planeswalker.Iviana+YouCtrl | ValidTarget$ Permanent.OppCtrl,Opponent | ReplaceWith$ DmgTwice
+SVar:DmgTwice:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ Y | SpellDescription$ It deals twice that much damage instead.
+SVar:Y:ReplaceCount$DamageAmount/Twice
+SVar:DmgPlusTwo:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ Z | SpellDescription$ It deals that much damage plus 2 instead.
+SVar:Z:ReplaceCount$DamageAmount/Plus.2
+Oracle:Flying, trample\nIf a source you control would deal damage to an opponent or a permanent an opponent controls, you may have it deal twice that much damage instead if it's a Dragon or Iviana planeswalker. Otherwise, it deals that much damage plus 2 instead.

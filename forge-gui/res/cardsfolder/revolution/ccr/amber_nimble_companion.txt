@@ -1,0 +1,8 @@
+Name:Amber, Nimble Companion
+ManaCost:R W
+Types:Legendary Creature Weasel
+PT:2/2
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Battlefield | ResolvedLimit$ 1 | Execute$ TrigPutCounter | TriggerDescription$ Whenever you activate an ability that isn't a mana ability, you may put a counter on Amber that it doesn't already have from among +1/+1, first strike, haste, lifelink, menace, and vigilance. Do this only once each turn.
+SVar:TrigPutCounter:DB$ PutCounter | UniqueType$ True | Optional$ True | CounterType$ P1P1,First Strike,Haste,Lifelink,Menace,Vigilance
+A:AB$ Draw | Cost$ R T | Defined$ You | NumCards$ 1 | UnlessCost$ Discard<1/Card> | UnlessSwitched$ True | UnlessPayer$ You | SpellDescription$ You may discard a card. If you do, draw a card.
+Oracle:Whenever you activate an ability that isn't a mana ability, you may put a counter on Amber that it doesn't already have from among +1/+1, first strike, haste, lifelink, menace, and vigilance. Do this only once each turn.\n{R}, {T}: You may discard a card. If you do, draw a card.

@@ -1,0 +1,8 @@
+Name:Mirage Island
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Surveil | Cost$ T | Amount$ 1 | SubAbility$ DBBounce | SpellDescription$ Surveil 1. Return CARDNAME to its owner's hand.
+SVar:DBBounce:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand
+AI:RemoveDeck:All
+Oracle:{T}: Add {C}.\n{T}: Surveil 1. Return Mirage Island to its owner's hand.

@@ -789,8 +789,14 @@ public class AiAttackController {
 
         // 3. Get the preferred battle (prefer own battles, then ally battles)
         final CardCollection defBattles = c.getDefendingBattles();
-        List<Card> ownBattleDefending = CardLists.filter(defBattles, CardPredicates.isController(ai));
-        List<Card> allyBattleDefending = CardLists.filter(defBattles, CardPredicates.isControlledByAnyOf(ai.getAllies()));
+        //REVOLUTION
+        //don't attack defeated Operations
+        List<Card> ownBattleDefending = CardLists.filter(
+                CardLists.filter(defBattles, CardPredicates.isController(ai)),
+                CardPredicates.hasCounter(CounterEnumType.DEFENSE));
+        List<Card> allyBattleDefending = CardLists.filter(
+                CardLists.filter(defBattles, CardPredicates.isControlledByAnyOf(ai.getAllies())),
+                CardPredicates.hasCounter(CounterEnumType.DEFENSE));
         List<Card> prefBattleList = ownBattleDefending.isEmpty() ? allyBattleDefending : ownBattleDefending;
         if (!prefBattleList.isEmpty()) {
             // TODO try to be less predictable here, should really check if something would make the back uncastable

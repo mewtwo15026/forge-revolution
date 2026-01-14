@@ -1,0 +1,10 @@
+Name:Dustwing Butterfly
+ManaCost:2 U
+Types:Creature Insect
+PT:2/2
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigToken | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, create a tapped and attacking token that's a copy of target creature you control, except it's 1/1 and isn't legendary. Sacrifice that token at the beginning of the next end step.
+SVar:TrigToken:DB$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumCopies$ 1 | TokenOwner$ You | TokenTapped$ True | TokenAttacking$ True | SetPower$ 1 | SetToughness$ 1 | NonLegendary$ True | AtEOT$ Sacrifice
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token
+Oracle:Flying\nAmity — Whenever you attack with Dustwing Butterfly and exactly one other creature, create a tapped and attacking token that's a copy of target creature you control, except it's 1/1 and isn't legendary. Sacrifice that token at the beginning of the next end step.

@@ -1,0 +1,10 @@
+Name:Heap Ludicon
+ManaCost:no cost
+Types:Land Swamp
+K:Level up:B B B
+SVar:maxLevel:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 2 | SetToughness$ 4 | AddKeyword$ Deathtouch | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 6 | SetToughness$ 8 | AddKeyword$ Deathtouch | IsPresent$ Card.Self+counters_GE3_LEVEL
+Oracle:({T}: Add {B}.)\nThis land enters tapped.\nLevel up {B}{B}{B} ({B}{B}{B}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n2/4\nDeathtouch\nThis land is also a creature.\nLEVEL 3+\n6/8\nDeathtouch\nThis land is also a creature.

@@ -1,0 +1,6 @@
+Name:Recursive Cogitator
+ManaCost:2
+Types:Artifact Creature Construct
+PT:2/1
+A:AB$ ChangeZone | Cost$ 1 T | SorcerySpeed$ True | ValidTgts$ Permanent.YouCtrl | TgtPrompt$ Select target permanent you control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target permanent you control to its owner's hand. Activate only as a sorcery.
+Oracle:{1}, {T}: Return target permanent you control to its owner's hand. Activate only as a sorcery.

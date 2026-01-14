@@ -1,0 +1,9 @@
+Name:Bottom Feeder
+ManaCost:3 G
+Types:Creature Fish
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Graveyard | ValidCard$ Creature.YouOwn | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever a creature card or creature token is put into your graveyard from anywhere, put a +1/+1 counter on CARDNAME.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHints:Ability$Mill|Surveil
+DeckHas:Ability$Counters
+Oracle:Whenever a creature card or creature token is put into your graveyard from anywhere, put a +1/+1 counter on Bottom Feeder.

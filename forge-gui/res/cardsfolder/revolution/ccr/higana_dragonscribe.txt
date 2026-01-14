@@ -1,0 +1,19 @@
+Name:Higana, Dragonscribe
+ManaCost:1 G U R
+Types:Legendary Creature Human Ranger
+PT:3/3
+T:Mode$ AttackersDeclared | Execute$ TrigBranch | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with NICKNAME and exactly one other creature, create a 3/3 green, blue, and red Dragon creature token. If the other attacking creature was a Dragon, the token has flying. If it also had flying, the token has vigilance. If it also had vigilance, the token has double strike.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ WithNoivern | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBSalamence | FalseSubAbility$ TrigBranch2
+SVar:TrigBranch2:DB$ Branch | BranchConditionSVar$ WithAltaria | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBNoivern | FalseSubAbility$ TrigBranch3
+SVar:TrigBranch3:DB$ Branch | BranchConditionSVar$ WithDragon | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBAltaria | FalseSubAbility$ DBGoodra
+SVar:DBSalamence:DB$ Token | TokenAmount$ 1 | TokenScript$ gur_3_3_dragon_flying_ds_vig | TokenOwner$ You
+SVar:DBNoivern:DB$ Token | TokenAmount$ 1 | TokenScript$ gur_3_3_dragon_flying_vig | TokenOwner$ You
+SVar:DBAltaria:DB$ Token | TokenAmount$ 1 | TokenScript$ gur_3_3_dragon_flying | TokenOwner$ You
+SVar:DBGoodra:DB$ Token | TokenAmount$ 1 | TokenScript$ gur_3_3_dragon | TokenOwner$ You
+SVar:WithNoivern:Count$Valid Dragon.Other+YouCtrl+attacking+withFlying+withVigilance
+SVar:WithAltaria:Count$Valid Dragon.Other+YouCtrl+attacking+withFlying
+SVar:WithDragon:Count$Valid Dragon.Other+YouCtrl+attacking
+A:AB$ Token | Cost$ 1 W | TokenAmount$ 1 | TokenScript$ shigana | TokenOwner$ You | SpellDescription$ Create Shigana, a legendary 2/2 white Beast creature token with haste.
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Type$Dragon
+Oracle:Amity — Whenever you attack with Higana and exactly one other creature, create a 3/3 green, blue, and red Dragon creature token. If the other attacking creature was a Dragon, the token has flying. If it also had flying, the token has vigilance. If it also had vigilance, the token has double strike.\n{1}{W}: Create Shigana, a legendary 2/2 white Beast creature token with haste.

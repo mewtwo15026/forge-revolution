@@ -1,0 +1,15 @@
+Name:Sylvia, the Rewoven Oath
+ManaCost:4 G W
+Types:Legendary Planeswalker Sylvia
+Loyalty:5
+K:Flash
+S:Mode$ CastWithFlash | ValidCard$ Card.Self+ThisTurnEntered | ValidSA$ Activated.Loyalty | Caster$ You | Description$ As long as CARDNAME entered this turn, you may activate her loyalty abilities any time you could cast an instant.
+A:AB$ Untap | Cost$ AddCounter<2/LOYALTY> | TargetMin$ 0 | TargetMax$ 3 | SubAbility$ DBGainLife | SpellDescription$ Untap up to three target permanents. You gain 3 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+A:AB$ Token | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | TokenAmount$ 1 | TokenScript$ w_4_4_angel_flying | TokenOwner$ You | SpellDescription$ Create a 4/4 white Angel creature token with flying.
+A:AB$ RepeatEach | Cost$ SubCounter<4/LOYALTY> | Planeswalker$ True | RepeatPlayers$ Player | RepeatSubAbility$ DBChooseCard | SubAbility$ DBDestroy | SpellDescription$ Each player chooses a creature with the greatest power among creatures they control. Destroy all other creatures.
+SVar:DBChooseCard:DB$ ChooseCard | Defined$ Player.IsRemembered | Choices$ Creature.greatestPowerControlledByRemembered | ChoiceTitle$ Choose a creature you control with the greatest power | Mandatory$ True | Reveal$ True
+SVar:DestroyAll:DB$ DestroyAll | ValidCards$ Creature.!Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True | ClearRemembered$ True
+DeckHas:Ability$LifeGain|Token & Type$Angel
+Oracle:Flash\nAs long as Sylvia entered this turn, you may activate her loyalty abilities any time you could cast an instant.\n[+2]: Untap up to three target permanents. You gain 3 life.\n[-2]: Create a 4/4 white Angel creature token with flying.\n[-4]: Each player chooses a creature with the greatest power among creatures they control. Destroy all other creatures.

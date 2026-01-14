@@ -1,0 +1,7 @@
+Name:Ace Tamer
+ManaCost:4 G
+Types:Creature Human Ranger
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When CARDNAME enters, look at the top six cards of your library. You may reveal a non-Human creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ 6 | ChangeNum$ 1 | Optional$ True | ForceRevealToController$ True | ChangeValid$ Creature.nonHuman | RestRandomOrder$ True
+Oracle:When Ace Tamer enters, look at the top six cards of your library. You may reveal a non-Human creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.

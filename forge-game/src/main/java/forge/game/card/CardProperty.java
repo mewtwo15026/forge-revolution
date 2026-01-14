@@ -2112,10 +2112,8 @@ public class CardProperty {
         }
         //REVOLUTION
         //properties related to new abilities
-        else if (property.equals("hasReprieved")) {
-            if (card.getReprievedCards().isEmpty()) {
-                return false;
-            }
+        else if (property.equals("HasReprieved")) {
+            return !card.getReprievedCards().isEmpty();
         }
         //end REVOLUTION tracking
         else if (!card.getCurrentState().hasProperty(property, sourceController, source, spellAbility)) {

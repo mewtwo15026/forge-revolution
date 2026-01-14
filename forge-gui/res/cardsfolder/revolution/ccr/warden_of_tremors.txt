@@ -1,0 +1,13 @@
+Name:Warden of Tremors
+ManaCost:3 R R G
+Types:Legendary Creature Dinosaur Avatar
+PT:7/6
+S:Mode$ ReduceCost | OnlyFirstSpell$ True | PlayerTurn$ You | Type$ Spell | ValidSpell$ Spell | Activator$ You | Amount$ 1 | Color$ R G | Description$ The first spell you cast during each of your turns cost {R}{G} less to cast.
+S:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 2 | Description$ You may play two additional lands on each of your turns.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Landfall — Whenever a land you control enters, you may exile the top three cards of your library. You may play those cards from exile for as long as you control CARDNAME.
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ MayPlay | Duration$ AsLongAsControl | ForgetOnMoved$ Exile | RememberObjects$ Remembered | SubAbility$ DBCleanup
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card for as long as you control EFFECTSOURCE.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:BuffedBy:Land
+Oracle:The first spell you cast during each of your turns costs {R}{G} less to cast.\nYou may play two additional lands on each of your turns.\nLandfall — Whenever a land you control enters, you may exile the top three cards of your library. You may play those cards from exile for as long as you control Warden of Tremors.

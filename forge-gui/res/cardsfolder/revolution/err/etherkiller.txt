@@ -1,0 +1,9 @@
+Name:Etherkiller
+ManaCost:5 RG RG
+Types:Creature Error
+PT:6/6
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ 3 RG RG Sac<1/Artifact;Enchantment/artifact or enchantment> | Description$ You may pay {3}{RG}{RG} and sacrifice an artifact or enchantment rather than pay this spell's mana cost.
+K:Trample
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+notnamedBlack Lotus,Artifact.cmcGE1+cmcLE3,Enchantment.token,Enchantment.cmcGE1+cmcLE3
+DeckNeeds:Type$Artifact|Enchantment|Memory|Map|Blood|Shard|Food|Treasure|Clue|Junk
+Oracle:You may pay {3}{RG}{RG} and sacrifice an artifact or enchantment rather than pay this spell's mana cost.\nTrample

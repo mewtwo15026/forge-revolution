@@ -1,0 +1,10 @@
+Name:Annan, Thief of the Sun
+ManaCost:1 R W
+Types:Creature Demigod Cleric
+PT:3/2
+K:Ward:Sac<1/Permanent.nonLand/nonland permanent>
+K:twi_Rapture
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, other attacking creatures you control without haze counters on them gain rapture until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.Other+attacking+YouCtrl+counters_EQ0_HAZE | KW$ twi_Rapture
+SVar:BuffedBy:Creature.withoutDefender
+Oracle:Ward—Sacrifice a nonland permanent.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)\nWhenever Annan, Thief of the Sun attacks, other attacking creatures you control without haze counters on them gain rapture until end of turn.

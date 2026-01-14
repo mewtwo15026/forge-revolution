@@ -1,0 +1,18 @@
+Name:Sky Pillar
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Token | Cost$ B G U T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ G W U T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ G U R T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ U B R T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ U R W T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ R G W T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ R W B T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ W U B T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ W B G T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ Token | Cost$ B R G T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_golem | SpellDescription$ Create a 1/1 white Golem creature token.
+A:AB$ PutCounter | Cost$ T | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ P1P1 | CounterNum$ 1 | SorcerySpeed$ True | IsPresent$ Permanent.YouCtrl | PresentCompare$ GE10 | SubAbility$ DBPump | SpellDescription$ Put a +1/+1 counter on target creature. It gains flying until end of turn. Activate only as a sorcery and only if you control ten or more permanents.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Flying
+DeckHas:Ability$Mana.Colorless|Token|Counters & Type$Golem
+Oracle:{T}: Add {C}.\n{3}, {T}: Create a 1/1 white Golem creature token. Spend mana of three different colors to activate this ability.\n{T}: Put a +1/+1 counter on target creature. It gains flying until end of turn. Activate only as a sorcery and only if you control ten or more permanents.

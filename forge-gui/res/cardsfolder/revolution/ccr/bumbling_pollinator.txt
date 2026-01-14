@@ -1,0 +1,9 @@
+Name:Bumbling Pollinator
+ManaCost:3 G
+Types:Creature Plant
+PT:3/4
+T:Mode$ AttackersDeclared | Execute$ TrigToken | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, create a 1/1 green Plant creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ g_1_1_plant | TokenOwner$ You
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token
+Oracle:Amity — Whenever you attack with Bumbling Pollinator and exactly one other creature, create a 1/1 green Plant creature token.

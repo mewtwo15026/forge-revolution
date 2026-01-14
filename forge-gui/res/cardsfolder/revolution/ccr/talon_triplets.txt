@@ -1,0 +1,11 @@
+Name:Talon Triplets
+ManaCost:1 R G
+Types:Creature Bird
+PT:3/3
+K:Haste
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ CARDNAME can't be blocked by creatures with power 2 or less.
+T:Mode$ AttackersDeclared | Execute$ TrigEffect | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | NoResolvingCheck$ True | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, that creature can't be blocked by creatures with power 2 or less this turn.
+SVar:TrigEffect:DB$ Effect | RememberObjects$ Valid Creature.YouCtrl+attacking+Other | StaticAbilities$ Unblockable | Duration$ UntilEOT | Description$ That creature can't be blocked by creatures with power 2 or less this turn.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Creature.IsRemembered | Description$ That creature can't be blocked by creatures with power 2 or less this turn.
+SVar:HasAttackEffect:TRUE
+Oracle:Haste\nTalon Triplets can't be blocked by creatures with power 2 or less.\nAmity — Whenever you attack with Talon Triplets and exactly one other creature, that creature can't be blocked by creatures with power 2 or less this turn.

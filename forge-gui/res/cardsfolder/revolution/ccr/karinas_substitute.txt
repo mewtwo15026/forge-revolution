@@ -1,0 +1,7 @@
+Name:Karina's Substitute
+ManaCost:3
+Types:Artifact Creature Toy
+PT:1/4
+K:ETBReplacement:Copy:DBCopy:Optional
+SVar:DBCopy:DB$ Clone | Choices$ Creature | SetPower$ 1 | SetToughness$ 4 | AddTypes$ Toy | SpellDescription$ You may have CARDNAME enter as a copy of a creature you control, except it's 1/4 and a Toy in addition to its other types.
+Oracle:You may have Karina's Substitute enter as a copy of a creature you control, except it's 1/4 and a Toy in addition to its other types.

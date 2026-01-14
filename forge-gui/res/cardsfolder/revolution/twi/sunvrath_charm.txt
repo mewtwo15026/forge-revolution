@@ -1,0 +1,10 @@
+Name:Sunvrath Charm
+ManaCost:R W
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBDraw,DBReturn,DBHelix
+SVar:DBDraw:DB$ Draw | NumCards$ 2 | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ You may discard a card. If you do, draw two cards.
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouOwn+cmcLE2 | TgtPrompt$ Select target creature card with mana value 2 or less | SpellDescription$ Return target creature card with mana value 2 or less from your graveyard to the battlefield.
+SVar:DBHelix:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 2 damage to any target. You gain 2 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
+DeckHas:Ability$Discard|Graveyard|LifeGain
+Oracle:Choose one —\n• You may discard a card. If you do, draw two cards.\n• Return target creature card with mana value 2 or less from your graveyard to the battlefield.\n• Sunvrath Charm deals 2 damage to any target. You gain 2 life.

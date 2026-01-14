@@ -1,0 +1,10 @@
+Name:Risen Butcher
+ManaCost:G
+Types:Creature Zombie Orc Warrior
+PT:1/1
+K:Deathtouch
+K:etbCounter:P1P1:1:CheckSVar$ Vigor:Vigor — CARDNAME enters with a +1/+1 counter on it if you've gained or lost life this turn.
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+Oracle:Deathtouch\nVigor — Risen Butcher enters with a +1/+1 counter on it if you've gained or lost life this turn.

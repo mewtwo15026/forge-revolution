@@ -1,0 +1,12 @@
+Name:Trickery
+ManaCost:U UR R
+Types:Enchantment
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigCopy | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, create a tapped and attacking token that's a copy of target attacking creature, except it's 1/1 and it has "At the beginning of your end step, exile this token."
+SVar:TrigCopy:DB$ CopyPermanent | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | NumCopies$ 1 | SetPower$ 1 | SetToughness$ 1 | TokenTapped$ True | TokenAttacking$ True | AddSVars$ TrickeryTrigExile | AddTriggers$ TrigPhase
+SVar:TrigPhase:Mode$ Phase | Phase$ End of Turn | Execute$ TrickeryTrigExile | TriggerDescription$ At the beginning of your end step, exile this token.
+SVar:TrickeryTrigExile:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Exile
+S:Mode$ CantSacrifice | ValidCard$ Creature.YouCtrl+token | ValidCause$ Triggered.YouCtrl | ForCost$ False | Description$ Triggered abilities you control can't cause you to sacrifice or exile creature tokens you control.
+S:Mode$ CantExile | ValidCard$ Creature.YouCtrl+token | ValidCause$ Triggered.YouCtrl | ForCost$ False | Secondary$ True | Description$ Triggered abilities you control can't cause you to sacrifice or exile creature tokens you control.
+DeckHas:Ability$Token
+DeckHints:Keyword$Decoy
+Oracle:Whenever you attack, create a tapped and attacking token that's a copy of target attacking creature, except it's 1/1 and it has "At the beginning of your end step, exile this token."\nTriggered abilities you control can't cause you to sacrifice or exile creature tokens you control.

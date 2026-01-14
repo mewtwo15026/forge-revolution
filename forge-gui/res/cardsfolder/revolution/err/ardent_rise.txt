@@ -1,0 +1,11 @@
+Name:Ardent Rise
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Mountain or Forest card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Mountain+Basic,Land.Forest+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Pump | Cost$ 1 R R G G Discard<1/CARDNAME> | ActivationZone$ Hand | AILogic$ Fight | NumAtt$ +2 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ DBFight | SpellDescription$ Target creature you control gets +2/+0 until end of turn. It deals damage equal to its power to up to one target creature you don't control.
+SVar:DBFight:DB$ DealDamage | AILogic$ PowerDmg | NumDmg$ ParentTargeted$CardPower | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select up to one target creature you don't control | TargetMin$ 0 | TargetMax$ 1 | DamageSource$ ParentTarget
+DeckHas:Ability$Sacrifice|Discard
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Mountain or Forest card, put it onto the battlefield tapped, then shuffle.\n{1}{R}{R}{G}{G}, Discard this card: Target creature you control gets +2/+0 until end of turn. It deals damage equal to its power to up to one target creature you don't control.

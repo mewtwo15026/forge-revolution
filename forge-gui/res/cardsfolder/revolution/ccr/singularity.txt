@@ -1,0 +1,9 @@
+Name:Singularity
+ManaCost:B
+Types:Instant
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ Tracker
+SVar:Tracker:DB$ Effect | Name$ Singularity Tracker | Duration$ Permanent
+# NOTE: check how AI handles this - might need AITgts to see X+1
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature,Enchantment | TgtPrompt$ Select target creature or enchantment | AITgts$ Creature.cmcLEX,Enchantment.cmcLEX | ConditionDefined$ Targeted | ConditionPresent$ Creature.cmcLEX,Enchantment.cmcLEX | ConditionCompare$ EQ1 | SpellDescription$ Exile target creature or enchantment if its mana value is less than or equal to the number of spells named Singularity you've cast this game (including this one).
+SVar:X:Count$ValidCommand Effect.YouCtrl+namedSingularity Tracker
+Oracle:Exile target creature or enchantment if its mana value is less than or equal to the number of spells named Singularity you've cast this game (including this one).

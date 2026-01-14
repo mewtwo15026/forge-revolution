@@ -1,0 +1,16 @@
+Name:Carefree Kappa
+ManaCost:2 G U
+Types:Creature Plant
+PT:3/3
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | OptionalDecider$ You | CheckSVar$ X | SVarCompare$ LT1 | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters or becomes the target of a spell or ability, you may create a Weather enchantment token named Looks Like Rain. It's all colors and has "Whenever you attack, you gain 1 life." Do this only once each turn.
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility | TriggerZones$ Battlefield | OptionalDecider$ You | CheckSVar$ X | SVarCompare$ LT1 | Execute$ TrigToken | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or becomes the target of a spell or ability, you may create a Weather enchantment token named Looks Like Rain. It's all colors and has "Whenever you attack, you gain 1 life." Do this only once each turn.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ looks_like_rain | TokenOwner$ You | SubAbility$ DBLog
+SVar:DBLog:DB$ StoreSVar | SVar$ X | Type$ Number | Expression$ 1
+SVar:X:Number$0
+T:Mode$ Phase | Phase$ Cleanup | TriggerZones$ Battlefield | Execute$ DBCleanup | Static$ True
+SVar:DBCleanup:DB$ StoreSVar | SVar$ X | Type$ Number | Expression$ 0
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ W | AddToughness$ W | Description$ CARDNAME gets +1/+1 for each Weather you control.
+SVar:W:Count$Valid Weather.YouCtrl
+DeckHints:Type$Weather
+DeckHas:Ability$Token
+Oracle:Whenever Carefree Kappa enters or becomes the target of a spell or ability, you may create a Weather enchantment token named Looks Like Rain. It's all colors and has "Whenever you attack, you gain 1 life." Do this only once each turn.\nCarefree Kappa gets +1/+1 for each Weather you control.

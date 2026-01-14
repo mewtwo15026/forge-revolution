@@ -1,0 +1,10 @@
+Name:Nocturne, Monstrous Krasis
+ManaCost:2 G U
+Types:Legendary Creature Fox Werewolf
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When NICKNAME enters and at the beginning of your upkeep, put X +1/+1 counters on NICKNAME, where X is the number of different kinds of counters on permanents you control.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | Secondary$ True | TriggerDescription$ When NICKNAME enters and at the beginning of your upkeep, put X +1/+1 counters on NICKNAME, where X is the number of different kinds of counters on permanents you control.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1 | CounterNum$ X
+SVar:X:Count$DifferentCounterKinds_Permanent.YouCtrl
+DeckNeeds:Ability$Counters
+Oracle:When Nocturne, Monstrous Krasis enters and at the beginning of your upkeep, put X +1/+1 counters on Nocturne, where X is the number of different kinds of counters on permanents you control.

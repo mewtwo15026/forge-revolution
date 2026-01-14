@@ -1,0 +1,10 @@
+Name:Shaper of Luminous Will
+ManaCost:3 W
+Types:Creature Human Soldier
+PT:3/3
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may create a 2/2 white Knight creature token with vigilance if it reprieved a creature.
+SVar:TrigToken:DB$ Token | TokenScript$ w_2_2_knight_vigilance | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+SVar:X:Count$Reprieved Card
+DeckHas:Ability$Token & Type$Knight
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Shaper of Luminous Will enters, you may create a 2/2 white Knight creature token with vigilance if it reprieved a creature.

@@ -1,0 +1,10 @@
+Name:Purifier of Dawnbloom Grove
+ManaCost:1 G
+Types:Creature Elf Druid
+PT:2/2
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may destroy target artifact or enchantment if it has mana value 1 or less or if CARDNAME reprieved a creature.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | AITgts$ Artifact.cmcLEX,Enchantment.cmcLEX | ConditionDefined$ Targeted | ConditionPresent$ Artifact.cmcLEX,Enchantment.cmcLEX | ConditionCompare$ EQ1
+SVar:X:Count$Compare Y GE1.31.1
+SVar:Y:Count$Valid Card.Self+HasReprieved
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Purifier of Dawnbloom Grove enters, you may destroy target artifact or enchantment if it has mana value 1 or less or if Purifier of Dawnbloom Grove reprieved a creature.

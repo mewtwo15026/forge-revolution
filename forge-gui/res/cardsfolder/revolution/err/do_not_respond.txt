@@ -1,0 +1,9 @@
+Name:Do_Not_Respond
+ManaCost:4 B
+Types:Creature Error
+PT:5/5
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ 1 B | Description$ You may pay {1}{B} rather than pay this spell's mana cost.
+T:Mode$ SpellCast | ValidCard$ Card.Self | CheckSVar$ AltCostPaid | SVarCompare$ EQ1 | Execute$ TrigToken | TriggerDescription$ When you cast this spell, if the {1}{B} cost was paid, target opponent creates two 1/1 white Citizen creature tokens.
+SVar:TrigToken:DB$ Token | ValidTgts$ Opponent | TokenAmount$ 2 | TokenScript$ w_1_1_citizen | TokenOwner$ Targeted
+SVar:AltCostPaid:Count$AltCost.1.0
+Oracle:You may pay {1}{B} rather than pay this spell's mana cost.\nWhen you cast this spell, if the {1}{B} cost was paid, target opponent creates two 1/1 white Citizen creature tokens.

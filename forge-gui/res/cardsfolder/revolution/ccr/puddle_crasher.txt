@@ -1,0 +1,10 @@
+Name:Puddle Crasher
+ManaCost:2 G U
+Types:Creature Elemental Rabbit
+PT:4/4
+K:Trample
+T:Mode$ AttackersDeclared | Execute$ TrigDig | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
+SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeNum$ 1 | DestinationZone2$ Graveyard
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Graveyard
+Oracle:Trample\nAmity — Whenever you attack with Puddle Crasher and exactly one other creature, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.

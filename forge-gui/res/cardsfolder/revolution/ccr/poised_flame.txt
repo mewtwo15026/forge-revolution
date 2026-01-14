@@ -1,0 +1,7 @@
+Name:Poised Flame
+ManaCost:1 R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | SubAbility$ DBMana | SpellDescription$ CARDNAME deals 2 damage to any target. 
+SVar:DBMana:DB$ Mana | Produced$ R | Amount$ 2 | RestrictValid$ nonSpell | SpellDescription$ Add {R}{R}. You can't spend this mana to cast spells.
+SVar:BuffedBy:Permanent.hasNonManaActivatedAbility
+Oracle:Poised Flame deals 2 damage to any target.\nAdd {R}{R}. You can't spend this mana to cast spells.

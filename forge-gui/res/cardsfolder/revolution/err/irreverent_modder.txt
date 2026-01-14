@@ -1,0 +1,12 @@
+Name:Irreverent Modder
+ManaCost:2 G
+Types:Creature Dragon Artificer
+PT:3/3
+A:AB$ Mill | Cost$ 2 G T | Defined$ You | NumCards$ 2 | SubAbility$ DBCitizen | SpellDescription$ Mill two cards, then create a tapped 1/1 white Citizen creature token.
+SVar:DBCitizen:DB$ Token | TokenScript$ w_1_1_citizen | TokenTapped$ True
+A:AB$ Mill | Cost$ 6 G G T | Defined$ You | NumCards$ 2 | SubAbility$ DBConstruct | SpellDescription$ Mill two cards, then create a tapped X/X colorless Construct artifact creature token, where X is the number of creature and/or enchantment cards in your graveyard.
+SVar:DBConstruct:DB$ Token | TokenScript$ c_x_x_a_construct | TokenTapped$ True | TokenPower$ X | TokenToughness$ X
+SVar:X:Count$ValidGraveyard Creature.YouOwn,Enchantment.YouOwn+nonCreature
+DeckHints:Type$Enchantment
+DeckHas:Ability$Mill|Token
+Oracle:{2}{G}, {T}: Mill two cards, then create a tapped 1/1 white Citizen creature token.\n{6}{G}{G}, {T}: Mill two cards, then create a tapped X/X colorless Construct artifact creature token, where X is the number of creature and/or enchantment cards in your graveyard.

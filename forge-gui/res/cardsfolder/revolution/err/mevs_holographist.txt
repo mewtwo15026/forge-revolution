@@ -1,0 +1,11 @@
+Name:Mev's Holographist
+ManaCost:2 U
+Types:Creature Elf Artificer
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill four cards. You may put a noncreature, nonland card from among the cards milled this way into your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 4 | Defined$ You | Imprint$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Card.YouOwn+nonCreature+nonLand+IsImprinted | Hidden$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
+A:AB$ Pump | Cost$ 1 W | Defined$ Self | NumAtt$ +1 | KW$ First Strike | SpellDescription$ This creature gets +1/+0 and gains first strike until end of turn.
+DeckHas:Ability$Mill
+Oracle:When this creature enters, mill four cards. You may put a noncreature, nonland card milled this way into your hand.\n\n{1}{W}: This creature gets +1/+0 and gains first strike until end of turn.

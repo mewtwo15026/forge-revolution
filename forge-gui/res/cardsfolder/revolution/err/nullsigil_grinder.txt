@@ -1,0 +1,9 @@
+Name:Nullsigil Grinder
+ManaCost:W B
+Types:Creature Human Rogue
+PT:3/2
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidSource$ You | ValidCard$ Permanent+inZoneBattlefield | ValidCounterType$ LEVEL | ReplaceWith$ AddOneMoreCounters | Description$ If you would put one or more level counters on a permanent, put that many plus one level counters on it instead.
+SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ LEVEL | ChooseCounter$ True | Amount$ Y
+SVar:Y:ReplaceCount$CounterNum/Plus.1
+DeckNeeds:Keyword$Level up
+Oracle:If you would put one or more level counters on a permanent, put that many plus one level counters on it instead.

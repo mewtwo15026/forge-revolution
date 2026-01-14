@@ -1,0 +1,12 @@
+Name:Weaver of Fates
+ManaCost:1 W U
+Types:Creature Bird
+PT:2/2
+K:Flying
+A:AB$ ChangeZone | Cost$ 2 | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STMayLookAt | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBCleanup
+SVar:STMayLookAt:Mode$ Continuous | Affected$ Card.IsRemembered | MayLookAt$ You | AffectedZone$ Exile | Description$ You may look at that card for as long as it remains exiled.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Continuous | Affected$ Card.nonLand+ExiledWithSource | PlayerTurn$ Opponent | MayPlay$ True | MayPlayLimit$ 1 | AffectedZone$ Exile | During each of your opponents' turns, you may cast a card exiled with Weaver of Fates as though it had flash.
+S:Mode$ CastWithFlash | ValidCard$ Card.nonLand+ExiledWithSource | ValidSA$ Spell | Caster$ You | PlayerTurn$ Opponent | AffectedZone$ Exile
+Oracle:Flying\n{2}: Exile the top card of your library face down. You may look at it as long as it remains exiled.\nDuring each of your opponents' turns, you may cast a card exiled with Weaver of Fates as though it had flash.

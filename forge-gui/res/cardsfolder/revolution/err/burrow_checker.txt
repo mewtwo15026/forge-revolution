@@ -1,0 +1,9 @@
+Name:Burrow Checker
+ManaCost:G W
+Types:Enchantment Creature Ferret
+PT:0/0
+K:Vigilance
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ Fabric — This creature gets +1/+1 for each enchantment you control.
+SVar:X:Count$Valid Enchantment.YouCtrl
+SVar:BuffedBy:Enchantment
+Oracle:Vigilance\nFabric — This creature gets +1/+1 for each enchantment you control.

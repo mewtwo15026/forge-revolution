@@ -1,0 +1,10 @@
+Name:Parental Pair
+ManaCost:3 G G
+Types:Creature Beast
+PT:4/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+!token | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, if it isn't a token, create a token that's a copy of it, except the token is 2/2.
+SVar:TrigToken:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | SetPower$ 2 | SetToughness$ 2
+T:Mode$ AttackersDeclared | Execute$ TrigFight | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | OptionalDecider$ You | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, you may have CARDNAME fight target creature.
+SVar:TrigFight:DB$ Fight | Defined$ TriggeredCardLKICopy | ValidTgts$ Creature | TgtPrompt$ Choose target creature
+DeckHas:Ability$Token
+Oracle:When Parental Pair enters, create a token that's a copy of it, except it's 2/2 and doesn't have this ability.\nAmity — Whenever you attack with Parental Pair and exactly one other creature, you may have Parental Pair fight target creature.

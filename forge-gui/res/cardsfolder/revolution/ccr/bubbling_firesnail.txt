@@ -1,0 +1,8 @@
+Name:Bubbling Firesnail
+ManaCost:3 R
+Types:Creature Elemental Snail
+PT:0/5
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Battlefield | Execute$ TrigDamage | ResolvedLimit$ 1 | OptionalDecider$ You | AILogic$ Always | TriggerDescription$ Whenever you activate a nonmana ability, you may have CARDNAME deal 1 damage to each opponent. Do this only once each turn.
+SVar:TrigDamage:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+A:AB$ Pump | Cost$ 1 R | Defined$ Self | NumAtt$ +2 | NumDef$ -2 | SpellDescription$ CARDNAME gets +2/-2 until end of turn.
+Oracle:Whenever you activate a nonmana ability, you may have CARDNAME deal 1 damage to each opponent. Do this only once each turn.\n{1}{R}: Bubbling Firesnail gets +2/-2 until end of turn.

@@ -1,0 +1,13 @@
+Name:Virtualized Onomastic
+ManaCost:1 W
+Types:Creature Spirit Advisor
+PT:2/2
+K:ETBReplacement:Other:DBNameCard
+SVar:DBNameCard:DB$ NameCard | Defined$ You | ValidCards$ Card.nonLand | ValidDescription$ nonland | SpellDescription$ As CARDNAME enters, choose a nonland card name.
+T:Mode$ SpellCast | ValidCard$ Card.NamedCard | ValidActivatingPlayer$ Player | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a player casts a spell with the chosen name, counter it. When you do, that player creates an X/X colorless Construct artifact creature token, where X is that spell's mana value.
+SVar:TrigCounter:DB$ Counter | Defined$ TriggeredSpellAbility | RememberCountered$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_x_x_construct | TokenPower$ X | TokenToughness$ X | TokenOwner$ TriggeredSpellAbilityController | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneStack | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TriggeredSpellAbility$CardManaCostLKI
+AI:RemoveDeck:All
+Oracle:As this creature enters, choose a nonland card name.\nWhenever a player casts a spell with the chosen name, counter it. When you do, that player creates an X/X colorless Construct artifact creature token, where X is that spell's mana value.

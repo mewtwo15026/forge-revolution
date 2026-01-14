@@ -1,0 +1,10 @@
+Name:Stack Strike Leader
+ManaCost:1 W
+Types:Creature Human Soldier
+PT:2/2
+K:Level up:1 W
+SVar:maxLevel:4
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 4 | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE3_LEVEL | Description$ LEVEL 2-3 4/4
+S:Mode$ Continuous | Affected$ Permanent.Self+counters_GE2_LEVEL | Condition$ PlayerTurn | AddKeyword$ First Strike | Description$ LEVEL 2+ This creature has first strike as long as it's your turn.
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 6 | SetToughness$ 6 | IsPresent$ Card.Self+counters_GE4_LEVEL | Description$ LEVEL 4+ 6/6
+Oracle:Level up {1}{W} ({1}{W}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-3\n4/4\nThis creature has first strike as long as it's your turn.\nLEVEL 4+\n6/6\nThis creature has first strike as long as it's your turn.

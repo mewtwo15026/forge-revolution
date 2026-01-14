@@ -1,0 +1,7 @@
+Name:Plated Tunneler
+ManaCost:1 R W B
+Types:Creature Dinosaur
+PT:4/5
+A:AB$ Pump | Cost$ Return<1/Land> | NumAtt$ +1 | KW$ Menace | SpellDescription$ CARDNAME gets +1/+0 and gains menace until end of turn.
+AI:RemoveDeck:All
+Oracle:Return a land you control to its owner's hand: Plated Tunneler gets +1/+0 and gains menace until end of turn.

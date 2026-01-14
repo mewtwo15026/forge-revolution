@@ -1,0 +1,10 @@
+Name:End of Mutations
+ManaCost:3 R R R
+Types:Legendary Creature Alien Mutant
+PT:5/3
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:First Strike
+K:Haste
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Opponent | TriggerZones$ Battlefield | PlayerTurn$ True | Execute$ TrigDamage | TriggerDescription$ Whenever an opponent casts a spell during your turn, CARDNAME deals 5 damage to them.
+SVar:TrigDamage:DB$ DealDamage | Defined$ TriggeredActivator | NumDmg$ 5 
+Oracle:This spell can't be countered.\nFirst strike, haste\nWhenever an opponent casts a spell during your turn, End of Mutations deals 5 damage to them.

@@ -1,0 +1,8 @@
+Name:Reboot
+ManaCost:3 B B
+Types:Sorcery
+A:SP$ Surveil | Amount$ 2 | SubAbility$ DBTrigger | SpellDescription$ Surveil 2. When you do, return up to one target creature card from your graveyard to the battlefield.
+SVar:DBTrigger:DB$ ImmediateTrigger | Execute$ TrigReanimate | TriggerDescription$ When you do, return up to one target creature card from your graveyard to the battlefield.
+SVar:TrigReanimate:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Select up to one target creature card in your graveyard | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1
+DeckHas:Ability$Surveil
+Oracle:Surveil 2. When you do, return up to one target creature card from your graveyard to the battlefield.

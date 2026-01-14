@@ -1,0 +1,10 @@
+Name:Regrowing Outlands
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Forest or Island card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Forest+Basic,Land.Island+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ CopyPermanent | Cost$ 1 G G U U Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Land | TgtPrompt$ Select target land | NumCopies$ 2 | TokenTapped$ True | SpellDescription$ Create two tapped tokens that are copies of target land.
+DeckHas:Ability$Sacrifice|Discard|Token
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Forest or Island card, put it onto the battlefield tapped, then shuffle.\n{1}{G}{G}{U}{U}, Discard this card: Create two tapped tokens that are copies of target land.

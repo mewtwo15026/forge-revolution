@@ -1,0 +1,26 @@
+Name:Omenhorn
+ManaCost:R W B
+Types:Creature Elk
+PT:3/2
+K:First Strike
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ Landfall — Whenever a land you control enters, other creatures you control get +1/+1 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.StrictlyOther+YouCtrl | NumAtt$ +1 | NumDef$ +1
+A:AB$ SetState | Cost$ 2 R W B | Defined$ Self | Mode$ Transform | AILogic$ Always | SpellDescription$ Transform CARDNAME.
+SVar:BuffedBy:Creature,Land
+AlternateMode:DoubleFaced
+Oracle:First strike\nLandfall — Whenever a land you control enters, other creatures you control get +1/+1 until end of turn.\n{2}{R}{W}{B}: Transform Omenhorn.
+
+ALTERNATE
+
+Name:Omenhalo
+ManaCost:no cost
+Colors:red,white,black
+Types:Creature Elk Angel
+PT:4/3
+K:Flying
+K:First Strike
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ Landfall — Whenever a land you control enters, other creatures you control get +2/+2 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.StrictlyOther+YouCtrl | NumAtt$ +2 | NumDef$ +2
+SVar:BuffedBy:Creature,Land
+Oracle:Flying, first strike, lifelink\nLandfall — Whenever a land you control enters, other creatures you control get +2/+2 until end of turn.

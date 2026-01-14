@@ -1,0 +1,15 @@
+Name:Competitive Hedonist
+ManaCost:2 R
+Types:Creature Human Warrior
+PT:3/3
+K:Haste
+K:Level up:2 R
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ AttacksII | SetPower$ 4 | SetToughness$ 4 | AddSVar$ AE | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+SVar:AttacksII:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDealDamageII | TriggerDescription$ Whenever CARDNAME attacks, it deals 2 damage to any target.
+SVar:TrigDealDamageII:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ AttacksV | SetPower$ 5 | SetToughness$ 5 | AddSVar$ AE | IsPresent$ Card.Self+counters_GE3_LEVEL
+SVar:AttacksV:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDealDamageV | TriggerDescription$ Whenever CARDNAME attacks, it deals 5 damage to any target.
+SVar:TrigDealDamageV:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 5
+SVar:AE:HasAttackEffect:TRUE
+Oracle:Haste\nLevel up {2}{R} ({2}{R}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n4/4\nHaste\nWhenever this creature attacks, it deals 2 damage to any target.\nLEVEL 3+\n5/5\nHaste\nWhenever this creature attacks, it deals 5 damage to any target.

@@ -1,0 +1,11 @@
+Name:Fickle Gourmand
+ManaCost:3 G G
+Types:Creature Dragon Citizen
+PT:5/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigMana | TriggerDescription$ Fabric — When this creature enters, add X mana in any combination of colors, where X is the number of enchantments you control.
+SVar:TrigMana:DB$ Mana | Produced$ Combo Any | Amount$ Fabric
+SVar:Fabric:Count$Valid Enchantment.YouCtrl
+A:AB$ Draw | Cost$ 1 R Discard<1/Card> | NumCards$ 1 | Defined$ You | SpellDescription$ Draw a card.
+DeckHints:Type$Enchantment
+DeckHas:Ability$Discard
+Oracle:Fabric — When this creature enters, add X mana in any combination of colors, where X is the number of enchantments you control.\n{1}{R}, Discard a card: Draw a card.

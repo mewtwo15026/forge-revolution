@@ -1,0 +1,10 @@
+Name:Catch Constable
+ManaCost:RW
+Types:Creature Human Soldier
+PT:1/1
+A:AB$ Pump | Cost$ 2 RW | Defined$ Self | NumAtt$ +2 | SpellDescription$ This creature gets +2/+0 until end of turn.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create a 1/1 white Citizen creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_citizen | TokenOwner$ You
+SVar:SacMe:2
+DeckHas:Ability$Token
+Oracle:{2}{RW}: This creature gets +2/+0 until end of turn.\nWhen this creature dies, create a 1/1 white Citizen creature token.

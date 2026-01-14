@@ -1,0 +1,27 @@
+Name:Growing Gecko
+ManaCost:G G
+Types:Creature Plant Lizard
+PT:2/2
+T:Mode$ AttackersDeclared | Execute$ TrigPumpAll | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, they both get +1/+1 until end of turn. When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl+attacking | NumAtt$ +1 | NumDef$ +1 | SubAbility$ DBDamageMonitor
+SVar:DBDamageMonitor:DB$ Effect | RememberObjects$ Self | Triggers$ DamageDone | Duration$ UntilEndOfCombat | ExileOnMoved$ Battlefield | Description$ When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:DamageDone:Mode$ DamageDone | ValidSource$ Card.IsRemembered | ValidTarget$ Player | CombatDamage$ True | OptionalDecider$ You | Execute$ TrigTransform | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may transform it.
+SVar:TrigTransform:DB$ SetState | Defined$ Remembered | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Counters
+AlternateMode:DoubleFaced
+Oracle:Amity — Whenever you attack with Growing Gecko and exactly one other creature, they both get +1/+1 until end of turn. When Growing Gecko deals combat damage to a player this combat, you may transform it.
+
+ALTERNATE
+
+Name:Old-Growth Gecko
+ManaCost:no cost
+Colors:green
+Types:Creature Plant Lizard
+PT:6/5
+K:Trample
+T:Mode$ AttackersDeclared | Execute$ TrigCounter | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever CARDNAME attacks, put a +1/+1 counter on another creature you control. If exactly one other creature attacked with CARDNAME, this ability triggers three times instead.
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+SVar:TrigCounter:DB$ PutCounter | Choices$ Creature.Other+YouCtrl | ChoicePrompt$ Choose another target creature you control | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Trample\nAmity — Whenever Old-Growth Gecko attacks, put a +1/+1 counter on another creature you control. If exactly one other creature attacked with it, this ability triggers three times instead.

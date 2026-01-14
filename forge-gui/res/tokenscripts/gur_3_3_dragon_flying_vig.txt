@@ -1,8 +1,0 @@
-Name:Dragon Token
-ManaCost:no cost
-Colors:green,blue,red
-Types:Creature Dragon
-PT:3/3
-K:Flying
-K:Vigilance
-Oracle:Flying,vigilance

@@ -1,0 +1,14 @@
+Name:Blustering Storm
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ Y | Choices$ DBCounters,DBBite | AdditionalDescription$ If you control a Weather as you cast this spell, you may choose both.
+SVar:DBCounters:DB$ PutCounter | CounterType$ P1P1 | ValidTgts$ Creature | TgtPrompt$ Select target creature to get counters | CounterNum$ X | SpellDescription$ Put a +1/+1 counter on target creature for each basic land type among lands you control.
+SVar:DBBite:DB$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control to deal damage | SubAbility$ SoulsDamage | StackDescription$ None | SpellDescription$ Target creature you control deals damage equal to its power to target creature you don't control.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you don't control to be damaged | NumDmg$ W | DamageSource$ ParentTarget
+SVar:W:ParentTargeted$CardPower
+SVar:X:Count$Domain
+SVar:Y:Count$Compare Z GE1.2.1
+SVar:Z:Count$Valid Weather.YouCtrl
+DeckHints:Type$Weather
+DeckHas:Ability$Counters
+Oracle:Choose one. If you control a Weather as you cast this spell, you may choose both instead.\n• Put a +1/+1 counter on target creature for each basic land type among lands you control.\n• Target creature you control deals damage equal to its power to target creature you don't control.

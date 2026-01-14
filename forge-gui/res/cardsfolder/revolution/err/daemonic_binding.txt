@@ -1,0 +1,7 @@
+Name:Daemonic Binding
+ManaCost:2 W
+Types:Sorcery
+K:AlternateAdditionalCost:tapXType<1/Creature.counters_GE1_LEVEL/creature you control with a level counter on it>:3
+A:SP$ ChangeZone | ValidTgts$ Creature,Enchantment | TgtPrompt$ Select target creature or enchantment | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target creature or enchantment.
+DeckNeeds:Keyword$Level up
+Oracle:As an additional cost to cast this spell, tap an untapped creature you control with a level counter on it or pay {3}.\nExile target creature or enchantment.

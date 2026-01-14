@@ -1,0 +1,9 @@
+Name:Dustwing Moth
+ManaCost:3 R
+Types:Creature Insect
+PT:2/2
+K:Flying
+T:Mode$ AttackersDeclared | Execute$ TrigDamage | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME deals 2 damage to any target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nAmity — Whenever you attack with Dustwing Moth and exactly one other creature, Dustwing Moth deals 2 damage to any target.

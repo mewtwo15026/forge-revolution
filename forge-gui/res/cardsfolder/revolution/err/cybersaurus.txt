@@ -1,0 +1,8 @@
+Name:Cybersaurus
+ManaCost:5 U U
+Types:Enchantment Creature Dinosaur
+PT:7/9
+K:Ward:3
+A:AB$ Counter | Cost$ 2 U Discard<1/CARDNAME> | ActivationZone$ Hand | TargetType$ Spell | ValidTgts$ Card.cmcLE4 | TgtPrompt$ Select target spell with mana value 4 or less | SpellDescription$ Counter target spell with mana value 4 or less.
+DeckHas:Ability$Discard
+Oracle:Ward {3} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {3}.)\n{2}{U}, Discard this card: Counter target spell with mana value 4 or less.

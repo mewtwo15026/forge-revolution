@@ -1,0 +1,9 @@
+Name:Thronehall of Reckoning
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Mountain.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Mountain.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ W | SpellDescription$ Add {W}.
+A:AB$ Token | Cost$ 2 R R T Sac<1/CARDNAME> | TokenAmount$ 2 | TokenScript$ r_1_1_berserker | TokenOwner$ You | SpellDescription$ Create two 1/1 red Berserker creature tokens.
+DeckHas:Ability$Token
+Oracle:Thronehall of Reckoning enters tapped unless you control a Mountain.\n{T}: Add {W}.\n{2}{R}{R}, {T}, Sacrifice Thronehall of Reckoning: Create two 1/1 red Berserker creature tokens.

@@ -1,0 +1,9 @@
+Name:Showstopping Couture
+ManaCost:2 G
+Types:Artifact Equipment
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.EquippedBy | ValidBlocker$ Creature.powerLE2 | Description$ Equipped creature can't be blocked by creatures with power 2 or less.
+T:Mode$ Attacks | ValidCard$ Creature.EquippedBy | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ 
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ +X | NumDef$ +X
+SVar:X:TriggeredAttacker$CardPower
+K:Equip:3
+Oracle:Equipped creature can't be blocked by creatures with power 2 or less.\nWhenever equipped creature attacks, it gets +X/+X until end of turn, where X is its power.\nEquip {3}

@@ -1,0 +1,9 @@
+Name:Post-Weft Psionic
+ManaCost:2 U
+Types:Creature Human Wizard
+PT:2/4
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ Player | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of each player's upkeep, that player mills X cards, where X is the number of tapped permanents their opponents control.
+SVar:TrigMill:DB$ Mill | Defined$ TriggeredPlayer | NumCards$ X
+SVar:X:Count$Valid Permanent.tapped+ControlledBy Player.OpponentOf TriggeredPlayer
+AI:RemoveDeck:Random
+Oracle:At the beginning of each player's upkeep, that player mills X cards, where X is the number of tapped permanents their opponents control.

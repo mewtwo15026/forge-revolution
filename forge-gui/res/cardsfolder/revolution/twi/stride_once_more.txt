@@ -1,0 +1,10 @@
+Name:Stride Once More
+ManaCost:3 B
+Types:Sorcery
+A:SP$ Token | TokenScript$ b_2_2_zombie_cantblock | TokenAmount$ 2 | SpellDescription$ Create two 2/2 black Zombie creature tokens with “This creature can't block.”
+S:Mode$ Continuous | EffectZone$ Graveyard | Affected$ Card.Self | AffectedZone$ Graveyard | CheckSVar$ Vigor | SVarCompare$ GE1 | AddKeyword$ Flashback:3 B | Description$ Vigor — As long as you've gained or lost life this turn and CARDNAME is in your graveyard, it has flashback {3}{B}.
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHas:Ability$Graveyard|Token & Type$Zombie
+DeckHints:Ability$LifeGain
+Oracle:Create two 2/2 black Zombie creature tokens with “This creature can't block.”\nVigor — As long as you've gained or lost life this turn and Stride Once More is in your graveyard, it has flashback {3}{B}. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

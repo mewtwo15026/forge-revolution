@@ -1,0 +1,7 @@
+Name:Imminent Disaster
+ManaCost:3 B
+Types:Sorcery
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 1 | EffectZone$ All | IsPresent$ Card.YouOwn+namedAvert Disaster,Card.YouOwn+namedImminent Disaster | PresentZone$ Graveyard | PresentCompare$ GE1 | Description$ CARDNAME costs {1} less to cast if there is a card named Avert Disaster or Imminent Disaster in your graveyard.
+A:SP$ ChangeZone | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target creature or planeswalker.
+DeckHints:Name$Avert Disaster|Imminent Disaster
+Oracle:This spell costs {1} less to cast if there is a card named Avert Disaster or Imminent Disaster in your graveyard.\nExile target creature or planeswalker.

@@ -1,0 +1,12 @@
+Name:Catch Vanguard
+ManaCost:2 W
+Types:Creature Human Soldier
+PT:2/4
+K:Level up:1 W
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 3 | SetToughness$ 5 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL | Description$ LEVEL 1-2 3/5
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+withLevel up | AddKeyword$ Vigilance & Ward:2 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL | Description$ Creatures you control with level up have vigilance and ward {2}.
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 6 | IsPresent$ Card.Self+counters_GE3_LEVEL | Description$ LEVEL 3+ 4/6
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+withLevel up | AddKeyword$ Vigilance & Ward:4 | IsPresent$ Card.Self+counters_GE3_LEVEL | Description$ Creatures you control with level up have vigilance and ward {4}.
+DeckHints:Keyword$Level up
+Oracle:Level up {1}{W} ({1}{W}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n3/5\nCreatures you control with level up have vigilance and ward {2}.\nLEVEL 3+\n4/6\nCreatures you control with level up have vigilance and ward {4}.

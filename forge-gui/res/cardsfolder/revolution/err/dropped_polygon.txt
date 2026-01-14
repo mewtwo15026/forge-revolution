@@ -1,0 +1,8 @@
+Name:Dropped_Polygon
+ManaCost:4 B B
+Types:Creature Error
+PT:6/7
+K:Menace
+K:TypeCycling:Swamp:2
+DeckHas:Ability$Discard
+Oracle:Menace\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)

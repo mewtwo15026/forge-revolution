@@ -1,0 +1,10 @@
+Name:Spore Collector
+ManaCost:1 W
+Types:Creature Fungus
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Landfall — Whenever a land you control enters, put a +1/+1 counter on CARDNAME. It gains your choice of vigilance, first strike, or lifelink until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Self | KWChoice$ Vigilance,First Strike,Lifelink
+SVar:BuffedBy:Land
+DeckHas:Ability$Counters|LifeGain
+Oracle:Landfall — Whenever a land you control enters, put a +1/+1 counter on Spore Collector. It gains your choice of vigilance, first strike, or lifelink until end of turn.

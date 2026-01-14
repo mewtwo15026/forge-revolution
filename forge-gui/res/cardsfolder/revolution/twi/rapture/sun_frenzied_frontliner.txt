@@ -1,0 +1,9 @@
+Name:Sun-Frenzied Frontliner
+ManaCost:1 W
+Types:Creature Human Berserker
+PT:1/1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, it gets +2/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2
+K:twi_Rapture
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever Sun-Frenzied Frontliner attacks, it gets +2/+0 until end of turn.\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

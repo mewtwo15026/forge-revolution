@@ -1,0 +1,10 @@
+Name:Archon of the Final March
+ManaCost:2 W
+Types:Creature Archon Cleric
+PT:2/2
+K:Ward:2
+S:Mode$ Continuous | Affected$ Berserker.YouCtrl | AddKeyword$ Lifelink | AddTrigger$ DiesTrigger | Description$ Berserker creatures you control have lifelink and “When this creature dies, put a +1/+1 counter on target Cleric you control.”
+SVar:DiesTrigger:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigPutCounter | TriggerDescription$ When this creature dies, put a +1/+1 counter on target Cleric you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Cleric.YouCtrl | TgtPrompt$ Select target Cleric you control | CounterType$ P1P1 | CounterNum$ 1
+DeckHints:Type$Berserker
+Oracle:Ward {2}\nBerserker creatures you control have lifelink and “When this creature dies, put a +1/+1 counter on target Cleric you control.”

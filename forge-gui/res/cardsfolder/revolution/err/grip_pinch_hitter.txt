@@ -1,0 +1,9 @@
+Name:Grip Pinch-Hitter
+ManaCost:1 R
+Types:Creature Wolf Warrior
+PT:2/1
+K:Level up:1 R
+SVar:maxLevel:6
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 5 | SetToughness$ 4 | AddKeyword$ Reach | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE5_LEVEL | Description$ LEVEL 2-5 5/4 Reach
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 7 | SetToughness$ 6 | AddKeyword$ Reach & Trample | IsPresent$ Card.Self+counters_GE6_LEVEL | Description$ LEVEL 6+ 7/6 Reach, trample
+Oracle:Level up {1}{R} ({1}{R}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-5\n5/4\nReach\nLEVEL 6+\n7/6\nReach, trample

@@ -1,0 +1,9 @@
+Name:Magnetic Mystery
+ManaCost:3
+Types:Artifact Creature Construct
+PT:2/1
+A:AB$ Pump | Cost$ 2 | SorcerySpeed$ True | NumAtt$ +1 | SpellDescription$ CARDNAME gets +1/+0 until end of turn. Activate only as a sorcery.
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying | IsPresent$ Artifact.Other+YouCtrl | Description$ CARDNAME has flying as long as you control another artifact.
+SVar:BuffedBy:Artifact
+DeckHints:Type$Artifact
+Oracle:{2}: Magnetic Mystery gets +1/+0 until end of turn. Activate only as a sorcery.\nAs long as you control another artifact, Magnetic Mystery has flying.

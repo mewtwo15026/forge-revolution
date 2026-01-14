@@ -2299,6 +2299,10 @@ public class AbilityUtils {
         if (sq[0].equals("ExtraTurn")) {
             return doXMath(calculateAmount(c, sq[game.getPhaseHandler().getPlayerTurn().isExtraTurn() ? 1 : 2], ctb), expr, c, ctb);
         }
+        // REVOLUTION
+        if (sq[0].equals("NotExtraTurn")) {
+            return doXMath(calculateAmount(c, sq[game.getPhaseHandler().getPlayerTurn().isExtraTurn() ? 2 : 1], ctb), expr, c, ctb);
+        }
         if (sq[0].equals("YourStartingLife")) {
             return doXMath(player.getStartingLife(), expr, c, ctb);
         }

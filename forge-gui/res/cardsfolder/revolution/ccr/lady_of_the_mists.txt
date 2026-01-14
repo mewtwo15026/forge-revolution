@@ -1,0 +1,12 @@
+Name:Lady of the Mists
+ManaCost:4 B
+Types:Creature Elemental Spirit
+PT:4/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ AccliChange | TriggerDescription$ When CARDNAME enters, you may pay 2 life. If you do, it acclimates.
+SVar:AccliChange:DB$ ChangeZone | UnlessCost$ PayLife<2> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddToughness$ 2 | IsPresent$ Weather.YouCtrl | Description$ CARDNAME gets +0/+2 as long as you control a Weather.
+SVar:BuffedBy:Weather
+DeckNeeds:Type$Weather
+Oracle:When Lady of the Mists enters, you may pay 2 life. If you do, it acclimates. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)\nAs long as you control a Weather, Lady of the Mists gets +0/+2.

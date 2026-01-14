@@ -1,0 +1,10 @@
+Name:Seal Shoals
+ManaCost:W U
+Types:Enchantment
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | CheckSVar$ NumAct | SVarCompare$ GE2 | Execute$ TrigToken | TriggerDescription$ At the beginning of each end step, create a 2/2 white and blue Seal Orb creature token if you activated two or more nonmana abilities this turn.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ wu_2_2_seal_orb
+SVar:NumAct:Count$ThisTurnActivated_Activated.YouCtrl+nonManaAbility
+A:AB$ Scry | Cost$ W U | ScryNum$ 1 | SubAbility$ DBGainLife | SpellDescription$ Scry 1. You gain 1 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckHas:Ability$LifeGain
+Oracle:At the beginning of each end step, create a 2/2 white and blue Seal Orb creature token if you activated two or more nonmana abilities this turn.\n{W}{U}: Scry 1. You gain 1 life.

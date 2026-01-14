@@ -1,0 +1,9 @@
+Name:Thornfist Bruiser
+ManaCost:3 G
+Types:Creature Plant
+PT:3/3
+K:Reach
+T:Mode$ AttackersDeclared | Execute$ TrigPump | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME must be blocked this combat if able.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ CARDNAME must be blocked if able. | Duration$ UntilEndOfCombat
+SVar:HasAttackEffect:TRUE
+Oracle:Reach\nAmity — Whenever you attack with Thornfist Bruiser and exactly one other creature, Thornfist Bruiser must be blocked this combat if able.

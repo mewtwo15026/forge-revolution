@@ -1,0 +1,11 @@
+Name:Bootstrap Daemon
+ManaCost:3 R
+Types:Enchantment Creature Phoenix
+PT:3/3
+K:Flying
+K:Haste
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigReturn | TriggerZones$ Graveyard | TriggerDescription$ Whenever you attack, you may pay {R} and sacrifice two artifacts and/or enchantments. If you do, return this card from your graveyard to the battlefield tapped and attacking.
+SVar:TrigReturn:DB$ ChangeZone | Cost$ R Sac<2/Artifact;Enchantment/artifacts and/or enchantments> | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | Attacking$ True
+DeckHas:Ability$Sacrifice
+DeckHints:Ability$Graveyard|Mill|Surveil|Discard
+Oracle:Flying, haste\nWhenever you attack, you may pay {R} and sacrifice two artifacts and/or enchantments. If you do, return this card from your graveyard to the battlefield tapped and attacking.

@@ -1,0 +1,14 @@
+Name:Bogspawn Witness
+ManaCost:3 B G
+Types:Creature Frog Spirit
+PT:4/4
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Vigor | SVarCompare$ GE1 | Execute$ TrigCharm | TriggerDescription$ Vigor — At the beginning of your end step, if you've gained or lost life this turn, ABILITY
+SVar:TrigCharm:DB$ Charm | CharmNum$ Vigor | Choices$ DBRepeat,DBReturn | AdditionalDescription$ . If you gained and lost life this turn, choose both.
+SVar:DBRepeat:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBSac | SpellDescription$ Each opponent sacrifices a creature or planeswalker unless they discard a card.
+SVar:DBSac:DB$ Sacrifice | Defined$ Remembered | SacValid$ Creature,Planeswalker | UnlessCost$ Discard<1/Card> | UnlessPayer$ Player.IsRemembered
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Creature.YouOwn,Planeswalker.YouOwn | SelectPrompt$ Choose a creature or planeswalker card from your graveyard | Hidden$ True | SpellDescription$ Return a creature or planeswalker card from your graveyard to your hand.
+SVar:Vigor:SVar$X/Plus.Y
+SVar:X:Count$LifeYouGainedThisTurn/LimitMax.1
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn/LimitMax.1
+DeckHints:Ability$LifeGain|Mill
+Oracle:Vigor — At the beginning of your end step, if you've gained or lost life this turn, choose one. If you've gained and lost life this turn, choose both instead.\n• Each opponent sacrifices a creature or planeswalker unless they discard a card.\n• Return a creature or planeswalker card from your graveyard to your hand.

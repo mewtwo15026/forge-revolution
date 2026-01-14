@@ -1,0 +1,11 @@
+Name:Sigil of the Last Light
+ManaCost:W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.YouCtrl | OptionalDecider$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature you control enters, put a +1/+1 counter on CARDNAME. Then if this is the second time this ability has resolved this turn, put your choice of a flying, first strike, lifelink, or vigilance counter on CARDNAME. 
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ Flying,First Strike,Lifelink,Vigilance | CounterNum$ 1 | ConditionCheckSVar$ ResolvedAmount | ConditionSVarCompare$ EQ2
+SVar:ResolvedAmount:Count$ResolvedThisTurn
+A:AB$ Animate | Cost$ 1 W | Defined$ Self | Power$ 0 | Toughness$ 0 | Types$ Enchantment,Creature,Angel | RemoveCardTypes$ True | RemoveCreatureTypes$ True | SpellDescription$ CARDNAME becomes a 0/0 Angel enchantment creature until end of turn.
+DeckHints:Ability$Token & Type$Creature
+DeckHas:Ability$Counters
+Oracle:Whenever a creature you control enters, put a +1/+1 counter on Sigil of the Last Light. Then if this is the second time this ability has resolved this turn, put your choice of a flying, first strike, lifelink, or vigilance counter on it. \n{1}{W}: Sigil of the Last Light becomes a 0/0 Angel enchantment creature until end of turn.

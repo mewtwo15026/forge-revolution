@@ -1,0 +1,13 @@
+Name:Turf Warfare
+ManaCost:2 B G U
+Types:Sorcery
+A:SP$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBChooseCard | SubAbility$ DBDiscard | SpellDescription$ Each player chooses up to seven cards from their graveyard, then discards their hand and returns the chosen cards to their hand. Exile CARDNAME.
+SVar:DBChooseCard:DB$ ChooseCard | Defined$ Player.IsRemembered | Choices$ Card.OwnedBy Remembered | ChoiceZone$ Graveyard | Amount$ 7 | ChoiceTitle$ Choose up to seven cards in your graveyard | RememberChosen$ True
+SVar:DBDiscard:DB$ Discard | Defined$ Player | Mode$ Hand | SubAbility$ DBRegrow
+SVar:DBRegrow:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Graveyard | Destination$ Hand | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+SVar:NeedsToPlayVar:Turf GE4
+SVar:Turf:SVar$CasterYard/Minus.CasterHand
+SVar:CasterYard:Count$ValidGraveyard Card.nonLand+YouOwn
+SVar:CasterHand:Count$ValidHand Card.YouOwn
+Oracle:Each player chooses up to seven cards from their graveyard, then discards their hand and returns the chosen cards to their hand.\nExile Turf Warfare.

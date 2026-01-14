@@ -1,0 +1,12 @@
+Name:Aurore, Buffer Exec
+ManaCost:1 G G G G
+Types:Legendary Creature Human Druid
+PT:5/5
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever NICKNAME enters or attacks, surveil 3, then return all land cards from your graveyard to the battlefield tapped.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Whenever NICKNAME enters or attacks, surveil 3, then return all land cards from your graveyard to the battlefield tapped.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 3 | SubAbility$ DBReturnAll
+SVar:DBReturnAll:DB$ ChangeZoneAll | ChangeType$ Land.YouCtrl | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True
+DeckHas:Ability$Surveil|Graveyard
+DeckHints:Ability$Mill|Surveil|Graveyard
+Oracle:Trample\nWhenever Aurore enters or attacks, surveil 3, then return all land cards from your graveyard to the battlefield tapped.

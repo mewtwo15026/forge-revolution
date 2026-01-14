@@ -1,0 +1,5 @@
+Name:Refusal of the Hollow Gift
+ManaCost:G
+Types:Instant
+A:SP$ Pump | ValidTgts$ Player,Creature.YouCtrl | TgtPrompt$ Select target creature you control or player | KW$ Hexproof | SpellDescription$ Target permanent you control or player gains hexproof until end of turn.
+Oracle:Target permanent you control or player gains hexproof until end of turn.

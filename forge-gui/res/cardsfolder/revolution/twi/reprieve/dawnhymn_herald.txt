@@ -1,0 +1,16 @@
+Name:Dawnhymn Herald
+ManaCost:3 W W
+Types:Creature Angel Bard
+PT:4/4
+K:Flying
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:TrigCharm:DB$ Charm | MinCharmNum$ X | CharmNum$ Y | Choices$ DBToken,DBExile,DBGainLife | AdditionalDescription$ . If it reprieved a creature, choose up to two.
+SVar:DBToken:DB$ Token | TokenAmount$ 2 | TokenScript$ w_1_1_soldier | TokenOwner$ You | SpellDescription$ Create two 1/1 white Soldier creature tokens.
+SVar:DBExile:DB$ ChangeZone | ValidTgts$ Creature.powerGE4 | TgtPrompt$ Select target creature with power 4 or greater | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target creature with power 4 or greater.
+SVar:DBGainLife:DB$ GainLife | ValidTgts$ Player | TgtPrompt$ Select target player | LifeAmount$ 5 | SpellDescription$ Target player gains 5 life.
+SVar:X:Count$Compare Z GE1.0.1
+SVar:Y:Count$Compare Z GE1.2.1
+SVar:Z:Count$Valid Card.Self+HasReprieved
+DeckHas:Ability$LifeGain|Token & Type$Soldier
+Oracle:Flying\nReprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Dawnhymn Herald enters, choose one. If it reprieved a creature, choose up to two instead.\n• Create two 1/1 white Soldier creature tokens.\n• Exile target creature with power 4 or greater.\n• Target player gains 5 life.

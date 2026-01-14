@@ -1,0 +1,7 @@
+Name:Magma Flow
+ManaCost:R
+Types:Enchantment
+A:AB$ DealDamage | Cost$ R Sac<1/CARDNAME> | ValidTgts$ Any | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to any target. Activate only as a sorcery.
+A:AB$ Draw | Cost$ 1 R Discard<1/Card> Sac<1/CARDNAME> | Defined$ You | NumCards$ 2 | SpellDescription$ Draw two cards.
+DeckHas:Ability$Sacrifice
+Oracle:{R}, Sacrifice Magma Flow: It deals 3 damage to any target. Activate only as a sorcery.\n{1}{R}, Discard a card, Sacrifice Magma Flow: Draw two cards.

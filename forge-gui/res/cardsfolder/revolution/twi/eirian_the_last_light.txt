@@ -1,0 +1,11 @@
+Name:Eirian, the Last Light
+ManaCost:G G W W
+Types:Legendary Creature Demigod Angel
+PT:3/4
+K:Flash
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZoneAll | ValidCards$ Creature.Other+YouCtrl | Origin$ Battlefield | Destination$ Ante,Command,Exile,Hand,Library,Stack | TriggerZones$ Battlefield | Execute$ TrigUntap | ActivationLimit$ 1 | TriggerDescription$ Whenever one or more other creatures you control leave the battlefield without dying, untap up to three lands you control. This ability triggers only once each turn.
+SVar:DBUntap:DB$ Untap | UntapUpTo$ True | UntapType$ Land.YouCtrl | Amount$ 3
+DeckHas:Ability$LifeGain
+Oracle:Flash\nFlying, lifelink\nWhenever one or more other creatures you control leave the battlefield without dying, untap up to three lands you control. This ability triggers only once each turn.

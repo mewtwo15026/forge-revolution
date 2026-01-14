@@ -1,0 +1,9 @@
+Name:Burnout Champion
+ManaCost:5 B B
+Types:Creature Cat Warrior
+PT:5/4
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each creature and/or enchantment card in your graveyard.
+SVar:X:Count$ValidGraveyard Creature.YouOwn,Enchantment.YouOwn
+K:Ward:Discard<1/Card>
+DeckHints:Type$Enchantment
+Oracle:This spell costs {1} less to cast for each creature and/or enchantment card in your graveyard.\nWard—Discard a card.

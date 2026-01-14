@@ -1,0 +1,9 @@
+Name:Digital Reliquary
+ManaCost:2 G
+Types:Artifact
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddAbility$ ABMana & ABSurveil | Description$ Creatures you control have “{T}: Add one mana of any color” and “{T}: Surveil 1.”
+SVar:ABMana:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 1 | SpellDescription$ Add one mana of any color.
+SVar:ABSurveil:AB$ Surveil | Cost$ T | Amount$ 1 | SpellDescription$ Surveil 1.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Surveil
+Oracle:Creatures you control have “{T}: Add one mana of any color” and “{T}: Surveil 1.”

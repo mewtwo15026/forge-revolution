@@ -1,0 +1,11 @@
+Name:Fort Ravellan
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Forest.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Forest.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ W | SpellDescription$ Add {W}.
+A:AB$ Animate | Cost$ 1 G G | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Soldier | Colors$ Green,White | OverwriteColors$ True | SpellDescription$ Until end of turn, CARDNAME becomes a 3/3 green and white Soldier creature. It's still a land.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME attacks, create a 1/1 white Soldier creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_soldier | TokenOwner$ You
+DeckHas:Ability$Token
+Oracle:Fort Ravellan enters tapped unless you control a Forest.\n{T}: Add {W}.\n{1}{G}{G}: Until end of turn, Fort Ravellan becomes a 4/4 blue and black Horror creature with vigilance. It's still a land.

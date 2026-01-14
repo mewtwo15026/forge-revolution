@@ -1,0 +1,11 @@
+Name:Advance of the Hollow Wake
+ManaCost:1 B B
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 2/2 black Zombie creature tokens with “This creature can't block.”
+SVar:TrigToken:DB$ Token | TokenScript$ b_2_2_zombie_cantblock | TokenAmount$ 2
+T:Mode$ ChangesZone | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Defeated — Whenever a creature you control dies, each opponent loses 1 life and you gain 1 life.
+SVar:TrigDrain:DB$ LoseLife | LifeAmount$ 1 | Defined$ Opponent | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
+DeckHas:Ability$Token & Type$Zombie
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of the Hollow Wake enters, create two 2/2 black Zombie creature tokens with “This creature can't block.”\nDefeated — Whenever a creature you control dies, each opponent loses 1 life and you gain 1 life.

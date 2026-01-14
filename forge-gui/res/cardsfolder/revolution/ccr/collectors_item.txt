@@ -1,0 +1,11 @@
+Name:Collector's Item
+ManaCost:1 U
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When CARDNAME enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on the top of your library in any order.)
+SVar:TrigSurveil:DB$ Surveil | Defined$ You | Amount$ 2
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | SetPower$ 0 | SetToughness$ 2 | SetColor$ Colorless | RemoveAllAbilities$ True | AddType$ Creature & Sculpture | RemoveCardTypes$ True | RemoveCreatureTypes$ True | Description$ Enchanted creature loses all abilities and is a colorless Sculpture creature with base power and toughness 0/2.
+SVar:NonStackingAttachEffect:True
+DeckHas:Ability$Surveil
+Oracle:Enchant creature\nWhen Collector's Item enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\nEnchanted creature loses all abilities and is a colorless Sculpture creature with base power and toughness 0/2.

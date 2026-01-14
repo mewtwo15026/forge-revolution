@@ -1,0 +1,8 @@
+Name:Not_A_Teletype
+ManaCost:3 W W
+Types:Creature Error
+PT:5/5
+K:Vigilance
+K:TypeCycling:Plains:2
+DeckHas:Ability$Discard
+Oracle:Menace\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)

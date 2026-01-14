@@ -1,0 +1,13 @@
+Name:Boundlight Seraph
+ManaCost:1 W W
+Types:Creature Angel Cleric
+PT:3/3
+K:Flying
+K:Lifelink
+K:twi_Reprieve
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | TriggerDescription$ When CARDNAME enters, return it to its owner's hand unless it reprieved a creature.
+SVar:TrigBounce:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand | ConditionPresent$ Card.Self+HasReprieved | ConditionCompare$ EQ0
+SVar:NeedsToPlay:Creature.YouCtrl+cmcLE2
+DeckHas:Ability$LifeGain
+AI:RemoveDeck:Random
+Oracle:Flying, lifelink\nReprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Boundlight Seraph enters, return it to its owner's hand unless it reprieved a creature.

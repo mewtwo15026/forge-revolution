@@ -1,0 +1,7 @@
+Name:Hungry Blob
+ManaCost:2 G
+Types:Creature Ooze
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters, destroy up to three target artifacts and/or enchantments with total mana value 3 or less.
+SVar:TrigDestroy:DB$ Destroy | TargetMin$ 0 | TargetMax$ 3 | MaxTotalTargetCMC$ 3 | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select any number of target artifacts and/or enchantments with total mana value 3 or less
+Oracle:When Hungry Blob enters, destroy up to three target artifacts and/or enchantments with total mana value 3 or less.

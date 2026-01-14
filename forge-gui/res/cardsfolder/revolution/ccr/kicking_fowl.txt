@@ -1,0 +1,8 @@
+Name:Kicking Fowl
+ManaCost:4 R
+Types:Creature Bird
+PT:3/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMana | TriggerDescription$ Whenever CARDNAME attacks, add {R}{R}{R}{R}. You can't spend this mana to cast spells.
+SVar:TrigMana:DB$ Mana | Produced$ R | Amount$ 4 | RestrictValid$ nonSpell
+A:AB$ Pump | Cost$ 1 R | NumAtt$ +1 | SpellDescription$ CARDNAME gets +1/+0 until end of turn.
+Oracle:Whenever Kicking Fowl attacks, add {R}{R}{R}{R}. You can't spend this mana to cast spells.\n{1}{R}: Kicking Fowl gets +1/+0 until end of turn.

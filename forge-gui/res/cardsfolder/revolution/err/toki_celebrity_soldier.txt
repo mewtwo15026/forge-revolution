@@ -1,0 +1,19 @@
+Name:Toki, Celebrity Soldier
+ManaCost:R W
+Types:Legendary Creature Human Soldier
+PT:3/2
+A:AB$ Pump | Cost$ tapXType<1/Creature.Other/other creature> | SorcerySpeed$ True | Defined$ Self | NumAtt$ 1 | NumDef$ 1 | SubAbility$ DBFlying | SpellDescription$ NICKNAME gets +1/+1 until end of turn. If the tapped creature had flying, NICKNAME gains flying until end of turn. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance. Activate only as a sorcery.
+SVar:DBFlying:DB$ Pump | Defined$ Self | KW$ Flying | ConditionDefined$ Tapped | ConditionPresent$ Creature.withFlying | SubAbility$ DBFirstStrike
+SVar:DBFirstStrike:DB$ Pump | Defined$ Self | KW$ First Strike | ConditionDefined$ Tapped | ConditionPresent$ Creature.withFirst Strike | SubAbility$ DBDoubleStrike
+SVar:DBDoubleStrike:DB$ Pump | Defined$ Self | KW$ Double Strike | ConditionDefined$ Tapped | ConditionPresent$ Creature.withDouble Strike | SubAbility$ DBDeathtouch
+SVar:DBDeathtouch:DB$ Pump | Defined$ Self | KW$ Deathtouch | ConditionDefined$ Tapped | ConditionPresent$ Creature.withDeathtouch | SubAbility$ DBHaste
+SVar:DBHaste:DB$ Pump | Defined$ Self | KW$ Haste | ConditionDefined$ Tapped | ConditionPresent$ Creature.withHaste | SubAbility$ DBHexproof
+SVar:DBHexproof:DB$ Pump | Defined$ Self | KW$ Hexproof | ConditionDefined$ Tapped | ConditionPresent$ Creature.withHexproof | SubAbility$ DBIndestructible
+SVar:DBIndestructible:DB$ Pump | Defined$ Self | KW$ Indestructible | ConditionDefined$ Tapped | ConditionPresent$ Creature.withIndestructible | SubAbility$ DBLifelink
+SVar:DBLifelink:DB$ Pump | Defined$ Self | KW$ Lifelink | ConditionDefined$ Tapped | ConditionPresent$ Creature.withLifelink | SubAbility$ DBMenace
+SVar:DBMenace:DB$ Pump | Defined$ Self | KW$ Menace | ConditionDefined$ Tapped | ConditionPresent$ Creature.withMenace | SubAbility$ DBReach
+SVar:DBReach:DB$ Pump | Defined$ Self | KW$ Reach | ConditionDefined$ Tapped | ConditionPresent$ Creature.withReach | SubAbility$ DBTrample
+SVar:DBTrample:DB$ Pump | Defined$ Self | KW$ Trample | ConditionDefined$ Tapped | ConditionPresent$ Creature.withTrample | SubAbility$ DBVigilance
+SVar:DBVigilance:DB$ Pump | Defined$ Self | KW$ Vigilance | ConditionDefined$ Tapped | ConditionPresent$ Creature.withVigilance
+DeckHints:Keyword$Flying|First Strike|Double Strike|Deathtouch|Haste|Hexproof|Indestructible|Lifelink|Menace|Reach|Trample|Vigilance
+Oracle:Tap another untapped creature you control: Toki gets +1/+1 until end of turn. If that creature had flying, Toki gains flying until end of turn. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance. Activate only as a sorcery.

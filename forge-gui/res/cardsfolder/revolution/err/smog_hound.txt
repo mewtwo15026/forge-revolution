@@ -1,0 +1,9 @@
+Name:Smog Hound
+ManaCost:3 B
+Types:Creature Wolf Pilot
+PT:3/4
+K:Level up:2 B
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 5 | SetToughness$ 6 | AddKeyword$ Deathtouch | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL | Description$ LEVEL 1-2 5/6 Deathtouch
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 7 | SetToughness$ 8 | AddKeyword$ Deathtouch | IsPresent$ Card.Self+counters_GE3_LEVEL | Description$ LEVEL 3+ 7/8 Deathtouch
+Oracle:Level up {2}{B} ({2}{B}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n5/6\nDeathtouch\nLEVEL 3+\n7/8\nDeathtouch

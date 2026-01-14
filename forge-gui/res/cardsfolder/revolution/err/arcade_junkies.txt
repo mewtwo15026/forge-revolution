@@ -1,0 +1,11 @@
+Name:Arcade Junkies
+ManaCost:1 R G
+Types:Creature Human Warrior
+PT:2/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_treasure_sac | TokenOwner$ You
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Artifact,Enchantment | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever you sacrifice an artifact or enchantment, this creature gets +2/+0 and gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | KW$ Trample
+DeckHints:Type$Artifact|Enchantment|Memory|Treasure & Ability$Sacrifice
+DeckHas:Type$Treasure
+Oracle:When this creature enters, create a Treasure token.\nWhenever you sacrifice an artifact or enchantment, this creature gets +2/+0 and gains trample until end of turn.

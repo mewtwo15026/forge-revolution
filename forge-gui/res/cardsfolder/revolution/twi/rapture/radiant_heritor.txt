@@ -1,0 +1,7 @@
+Name:Radiant Heritor
+ManaCost:3 W
+Types:Creature Azra Soldier
+PT:3/2
+K:Flying
+K:twi_Rapture
+Oracle:Flying\nRapture (When this creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

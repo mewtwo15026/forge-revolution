@@ -1,0 +1,11 @@
+Name:Clash at Dawnbloom Grove
+ManaCost:2 G
+Types:Battle Operation
+Defense:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may destroy target noncreature, nonland permanent.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonCreature+nonLand | TgtPrompt$ Select target noncreature, nonland permanent
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE2_DEFENSE | Execute$ TrigToken | GameActivationLimit$ 1 | TriggerDescription$ 2 Defense — When CARDNAME first reaches this stage, create two 2/2 black Zombie creature tokens with "This creature can't block."
+SVar:TrigToken:DB$ Token | TokenScript$ b_2_2_zombie_cantblock | TokenAmount$ 2
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AffectedZone$ Battlefield | AddKeyword$ Trample | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Description$ Defeated — Creatures you control have trample.
+DeckHas:Ability$Token & Type$Zombie
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen this battle enters, you may destroy target noncreature, nonland permanent.\n2 Defense — When this battle first reaches this stage, create two 2/2 black Zombie creature tokens with "This creature can't block."\nDefeated — Creatures you control have trample.

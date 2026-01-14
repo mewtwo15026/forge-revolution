@@ -1,0 +1,9 @@
+Name:Crucible Takedown
+ManaCost:2 R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumDmg$ X | SubAbility$ DBSurveil | SpellDescription$ CARDNAME deals damage to target creature equal to the greatest mana value among permanents you control. Surveil 2.
+SVar:DBSurveil:DB$ Surveil | Amount$ 2
+SVar:NeedsToPlayVar:X GE1
+SVar:X:Count$Valid Permanent.YouCtrl$GreatestCMC
+DeckHas:Ability$Surveil
+Oracle:Crucible Takedown deals damage to target creature equal to the greatest mana value among permanents you control. Surveil 2.

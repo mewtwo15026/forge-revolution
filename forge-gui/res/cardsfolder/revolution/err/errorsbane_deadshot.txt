@@ -1,0 +1,12 @@
+Name:Errorsbane Deadshot
+ManaCost:2 G G
+Types:Creature Human Archer Ranger
+PT:4/4
+K:Reach
+K:Trample
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Fabric — At the beginning of combat on your turn, target creature gets +X/+X and gains trample until end of turn, where X is the number of enchantments you control.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ +Fabric | NumDef$ +Fabric | KW$ Trample
+SVar:Fabric:Count$Valid Enchantment.YouCtrl
+SVar:BuffedBy:Enchantment
+DeckHints:Type$Enchantment
+Oracle:Reach, trample\nFabric — At the beginning of combat on your turn, target creature gets +X/+X and gains trample until end of turn, where X is the number of enchantments you control.

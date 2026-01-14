@@ -1,0 +1,7 @@
+Name:Prickly Dunes
+ManaCost:no cost
+Types:Land Desert
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Token | Cost$ 3 T Sac<1/CARDNAME> | SorcerySpeed$ True | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ g_1_1_plant | SpellDescription$ Create two 1/1 green Plant creature tokens. Activate only as a sorcery.
+DeckHas:Ability$Mana.Colorless|Token & Type$Plant|Desert
+Oracle:{T}: Add {C}.\n{3}, {T}, Sacrifice Prickly Dunes: Create two 1/1 green Plant creature tokens. Activate only as a sorcery.

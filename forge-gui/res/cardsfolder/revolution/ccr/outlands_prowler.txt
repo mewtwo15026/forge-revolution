@@ -1,0 +1,9 @@
+Name:Outlands Prowler
+ManaCost:2 W
+Types:Creature Mongoose
+PT:2/2
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ CARDNAME has first strike as long as it's your turn.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME gets +2/+2 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ +2
+SVar:BuffedBy:Land
+Oracle:Outlands Prowler has first strike as long as it's your turn.\nLandfall — Whenever a land you control enters, Outlands Prowler gets +2/+2 until end of turn.

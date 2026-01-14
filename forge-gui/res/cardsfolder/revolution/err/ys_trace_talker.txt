@@ -1,0 +1,13 @@
+Name:Ys, Trace Talker
+ManaCost:U B
+Types:Legendary Creature Elf Warlock
+PT:2/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever this creature attacks, exile up to one target creature card with mana value equal to 1 plus this creature's mana value from your graveyard. This creature becomes a copy of that card, except it has this ability.
+SVar:TrigExile:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 1 | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Creature.YouCtrl+cmcEQY | TgtPrompt$ Select up to one target creature card in your graveyard with mana value equal to the triggered creature's mana value plus 1 | RememberChanged$ True | SubAbility$ DBClone
+SVar:DBClone:DB$ Clone | Defined$ Remembered | GainThisAbility$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Y:SVar$X/Plus.1
+SVar:X:Count$CardManaCost
+DeckHints:Ability$Mill|Surveil|Discard
+DeckHas:Ability$Graveyard
+Oracle:Whenever this creature attacks, exile up to one target creature card with mana value equal to 1 plus this creature's mana value from your graveyard. This creature becomes a copy of that card, except it has this ability.

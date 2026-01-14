@@ -1,0 +1,8 @@
+Name:Waterway Distraction
+ManaCost:B
+Types:Creature Fish
+PT:0/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigLoseLife | TriggerDescription$ Landfall — Whenever a land you control enters, each opponent loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
+SVar:BuffedBy:Land
+Oracle:Landfall — Whenever a land you control enters, each opponent loses 1 life.

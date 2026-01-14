@@ -1,0 +1,10 @@
+Name:Elma's Regular
+ManaCost:2 G
+Types:Creature Human Citizen
+PT:2/4
+K:Vigilance
+A:AB$ Mana | Cost$ T Sac<1/Artifact;Enchantment/artifact or enchantment> | Produced$ R G | SpellDescription$ Add {R}{G}.
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+notnamedBlack Lotus,Artifact.cmcGE1+cmcLE3,Enchantment.token,Enchantment.cmcGE1+cmcLE3
+DeckHints:Type$Artifact|Enchantment|Memory|Map|Blood|Shard|Food|Treasure|Clue|Junk
+DeckHas:Ability$Sacrifice
+Oracle:Vigilance\n{T}, Sacrifice an artifact or enchantment: Add {R}{G}.

@@ -1,0 +1,5 @@
+Name:Doctrine of Sacrifice
+ManaCost:R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | KW$ Trample & twi_Rapture | SpellDescription$ Target creature you control gets +2/+0 and gains trample and rapture until end of turn. (When that creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)
+Oracle:Target creature you control gets +2/+0 and gains trample and rapture until end of turn. (When that creature dies, return it to the battlefield with a haze counter on it. It loses all abilities and can't block.)

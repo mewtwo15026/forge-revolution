@@ -1,0 +1,9 @@
+Name:Macabre Soulspace
+ManaCost:no cost
+Types:Land Swamp Forest
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Surveil | Cost$ 2 B G T | Amount$ 1 | SpellDescription$ Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+DeckHas:Ability$Surveil
+DeckHints:Ability$Graveyard|Surface
+Oracle:({T}: Add {B} or {G}.)\nThis land enters tapped.\n{2}{B}{G}, {T}: Surveil 1.

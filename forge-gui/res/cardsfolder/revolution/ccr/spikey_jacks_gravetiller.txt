@@ -1,0 +1,11 @@
+Name:Spikey, Jack's Gravetiller
+ManaCost:1 B G
+Types:Legendary Creature Plant Horror
+PT:4/3
+A:SP$ PermanentCreature | Cost$ 1 B G ExileFromGrave<2/Permanent>
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ Whenever NICKNAME deals combat damage to a player, return a card exiled with it to its owner's hand.
+SVar:TrigReturn:DB$ ChangeZone | Hidden$ True | Mandatory$ True | ChangeType$ Card.ExiledWithSource | Origin$ Exile | Destination$ Hand
+S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast NICKNAME from your graveyard.
+DeckHints:Ability$Mill|Surveil|Sacrifice
+DeckHas:Ability$Graveyard
+Oracle:As an additional cost to cast this spell, exile two permanent cards from your graveyard.\nWhenever Spikey, Jack's Gravetiller deals combat damage to a player, return a card exiled with it to its owner's hand.\nYou may cast Spikey from your graveyard.

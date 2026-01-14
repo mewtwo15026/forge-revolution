@@ -1,0 +1,8 @@
+Name:Glimmerveil Lake
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Mountain.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Mountain.YouCtrl | ConditionCompare$ EQ0
+A:AB$ Mana | Cost$ T | Produced$ U | SpellDescription$ Add {U}.
+A:AB$ Clone | Cost$ 1 R R | TgtZone$ Battlefield | TgtPrompt$ Select target creature you control | ValidTgts$ Creature.YouCtrl | Duration$ UntilEndOfTurn | AddTypes$ Land,Illusion | SpellDescription$ Until end of turn, CARDNAME becomes a copy of target creature you control, except it's an Illusion land in addition to its other types.
+Oracle:Glimmerveil Lake enters tapped unless you control a Mountain.\n{T}: Add {U}.\n{1}{R}{R}: Until end of turn, Glimmerveil Lake becomes a copy of target creature you control, except it's an Illusion land in addition to its other types.

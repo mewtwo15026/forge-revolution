@@ -1,0 +1,11 @@
+Name:Urban Explorer
+ManaCost:2 B
+Types:Creature Human Ranger
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, return a permanent card with mana value 1 or less from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Permanent.YouCtrl+cmcLE1 | TgtPrompt$ Select target permanent with mana value 1 or less from your graveyard
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME gets +2/+1 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ +1
+SVar:BuffedBy:Land
+DeckHas:Ability$Graveyard
+Oracle:When Urban Explorer enters, return a permanent card with mana value 1 or less from your graveyard to your hand.\nLandfall — Whenever a land you control enters, Urban Explorer gets +2/+1 until end of turn.

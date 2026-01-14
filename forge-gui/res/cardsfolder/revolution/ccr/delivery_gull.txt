@@ -1,0 +1,11 @@
+Name:Delivery Gull
+ManaCost:1 U
+Types:Creature Bird
+PT:1/2
+K:Flying
+A:AB$ Draw | Cost$ 1 T | NumCards$ 1 | SpellDescription$ Draw a card, then discard a card. | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose
+T:Mode$ DamageDoneOnce | CombatDamage$ True | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | ValidTarget$ Player | Execute$ TrigUntap | TriggerDescription$ Whenever one or more creatures you control deal combat damage to a player, untap Delivery Gull.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+DeckHas:Ability$Discard
+Oracle:Flying\n{1}, {T}: Draw a card, then discard a card.\nWhenever one or more creatures you control deal combat damage to a player, untap Delivery Gull.

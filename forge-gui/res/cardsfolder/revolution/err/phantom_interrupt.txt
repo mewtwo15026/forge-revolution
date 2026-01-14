@@ -1,0 +1,9 @@
+Name:Phantom_Interrupt
+ManaCost:5 UB UB
+Types:Creature Error
+PT:7/7
+K:Flash
+A:AB$ Surveil | Cost$ 1 UB | Amount$ 1 | SubAbility$ DBDraw | SpellDescription$ Surveil 1, then draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$Discard|Surveil
+Oracle:Flash\n{1}{UB}, Discard this card: Surveil 1, then draw a card.

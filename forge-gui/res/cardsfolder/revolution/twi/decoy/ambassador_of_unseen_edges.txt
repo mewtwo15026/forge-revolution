@@ -1,0 +1,11 @@
+Name:Ambassador of Unseen Edges
+ManaCost:1 U R
+Types:Creature Faerie Soldier
+PT:1/4
+K:twi_Decoy
+T:Mode$ AttackerBlocked | ValidCard$ Creature.YouCtrl | Execute$ TrigPing | TriggerDescription$ Whenever a creature you control becomes blocked, it deals 1 damage to the player or permanent it's attacking. Scry 1.
+SVar:TrigPing:DB$ DealDamage | Defined$ TriggeredDefender.Opponent & Valid Permanent.TriggeredDefender | DamageSource$ TriggeredAttackerLKICopy | NumDmg$ 1 | SubAbility$ DBScry
+SVar:DBScry:DB$ Scry | ScryNum$ 1
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Decoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nWhenever a creature you control becomes blocked, it deals 1 damage to the player or permanent it's attacking. Scry 1.

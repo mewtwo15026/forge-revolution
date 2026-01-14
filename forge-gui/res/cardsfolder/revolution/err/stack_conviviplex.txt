@@ -1,0 +1,11 @@
+Name:Stack Conviviplex
+ManaCost:no cost
+Types:Land Plains
+K:Level up:W W W
+SVar:maxLevel:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 2 | SetToughness$ 3 | AddKeyword$ Lifelink | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature | SetPower$ 5 | SetToughness$ 6 | AddKeyword$ Lifelink | IsPresent$ Card.Self+counters_GE3_LEVEL
+DeckHas:Ability$LifeGain
+Oracle:({T}: Add {W}.)\nThis land enters tapped.\nLevel up {W}{W}{W} ({W}{W}{W}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n2/3\nLifelink\nThis land is also a creature.\nLEVEL 3+\n5/6\nLifelink\nThis land is also a creature.

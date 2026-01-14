@@ -1,0 +1,33 @@
+Name:Splashing Mudskipper
+ManaCost:U U
+Types:Creature Salamander
+PT:2/2
+T:Mode$ AttackersDeclared | Execute$ TrigSurveil | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, surveil 1. When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ DBDamageMonitor
+SVar:DBDamageMonitor:DB$ Effect | RememberObjects$ Self | Triggers$ DamageDone | Duration$ UntilEndOfCombat | ExileOnMoved$ Battlefield | Description$ When CARDNAME deals combat damage to a player this combat, you may transform it.
+SVar:DamageDone:Mode$ DamageDone | ValidSource$ Card.IsRemembered | ValidTarget$ Player | CombatDamage$ True | OptionalDecider$ You | Execute$ TrigTransform | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may transform it.
+SVar:TrigTransform:DB$ SetState | Defined$ Remembered | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Surveil|Graveyard
+AlternateMode:DoubleFaced
+Oracle:Amity — Whenever you attack with Splashing Mudskipper and exactly one other creature, surveil 1. When Splashing Mudskipper deals combat damage to a player this combat, you may transform it.
+
+ALTERNATE
+
+Name:Surging Mudskipper
+ManaCost:no cost
+Colors:blue
+Types:Creature Salamander
+PT:4/6
+K:Ward:2
+T:Mode$ AttackersDeclared | Execute$ TrigEffect | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Amity — Whenever CARDNAME attacks, surveil 1. If you surveil a card into your graveyard this way, you may play it this turn. If exactly one other creature attacked with CARDNAME, this ability triggers three times instead.
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+S:Mode$ Panharmonicon | ValidCard$ Card.Self | ValidMode$ AttackersDeclared | ValidCause$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | Static$ True
+SVar:TrigEffect:DB$ Effect | Name$ Surging Mudskipper Surveil Listener | Triggers$ OnSurveilPitch | SubAbility$ DBSurveil | Duration$ UntilEndOfCombat
+SVar:OnSurveilPitch:Mode$ ChangesZone | Origin$ Library | Destination$ Graveyard | ValidCard$ Card.YouOwn | Execute$ TrigMayPlay | Static$ True
+SVar:TrigMayPlay:DB$ Effect | Name$ Surging Mudskipper MayPlay | RememberObjects$ TriggeredCard | StaticAbilities$ STMayPlay | Duration$ UntilEOT | ForgetOnMoved$ Graveyard | SubAbility$ RemoveEffect
+SVar:STMayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Graveyard | MayPlay$ True | Description$ You may play the surveiled card this turn.
+SVar:DBSurveil:DB$ Surveil | Amount$ 1
+SVar:RemoveEffect:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedSurging Mudskipper Surveil Listener | Origin$ Command | Destination$ Exile
+SVar:HasAttackEffect:TRUE
+Oracle:Ward {2}\nAmity — Whenever Surging Mudskipper attacks, surveil 1. If you surveil a card into your graveyard this way, you may play it this turn. If exactly one other creature attacked with Surging Mudskipper, this ability triggers three times instead.

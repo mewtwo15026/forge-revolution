@@ -1,0 +1,8 @@
+Name:Bastion of Aureth
+ManaCost:2 W
+Types:Creature Human Soldier
+PT:2/3
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, create a 1/1 white Soldier creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_soldier
+DeckHas:Ability$Token
+Oracle:Whenever you cast your second spell each turn, create a 1/1 white Soldier creature token.

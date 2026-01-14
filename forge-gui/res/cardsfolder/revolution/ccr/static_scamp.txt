@@ -1,0 +1,9 @@
+Name:Static Scamp
+ManaCost:2 W
+Types:Creature Elemental Dog
+PT:2/2
+K:First Strike
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ Landfall — Whenever a land you control enters, 
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature
+SVar:BuffedBy:Land
+Oracle:First strike\nLandfall — Whenever a land you control enters, you may tap target creature.
