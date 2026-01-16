@@ -489,9 +489,6 @@ public class SpellAbilityRestriction extends SpellAbilityVariables {
             if (this.getLifeTotal().equals("You")) {
                 life = activator.getLife();
             }
-            if (this.getLifeTotal().equals("OpponentSmallest")) {
-                life = activator.getOpponentsSmallestLifeTotal();
-            }
 
             int right = AbilityUtils.calculateAmount(sa.getHostCard(), this.getLifeAmount().substring(2), sa);
 
@@ -513,10 +510,8 @@ public class SpellAbilityRestriction extends SpellAbilityVariables {
             }
         }
 
-        // 702.37e
-        // If the permanent wouldn't have a morph cost if it were face up, it can't be turned face up this way.
-        // 702.168b
-        // If the permanent wouldn't have a disguise cost if it were face up, it can't be turned face up this way.
+        // CR 702.37e / 702.168b
+        // If the permanent wouldn't have a morph / disguise cost if it were face up, it can't be turned face up this way.
         if ((sa.isMorphUp() || sa.isDisguiseUp()) && c.isInPlay()) {
             Card cp = c;
             if (!c.isLKI()) {
