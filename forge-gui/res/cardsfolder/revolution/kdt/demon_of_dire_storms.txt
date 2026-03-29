@@ -1,0 +1,12 @@
+Name:Demon of Dire Storms
+ManaCost:2 R
+Types:Creature Demon Warrior
+PT:1/3
+T:Mode$ Sacrificed | ValidCard$ Permanent.YouCtrl | Execute$ TrigPump | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Whenever you sacrifice a permanent, double this creature's power until end of turn.
+SVar:TrigPump:DB$ Pump | NumAtt$ Double
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create an X/X black Demon creature token, where X is this creature's power.
+SVar:TrigToken:DB$ Token | TokenScript$ b_x_x_demon | TokenPower$ X | TokenToughness$ X
+SVar:X:TriggeredCard$CardPower
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Token
+Oracle:Whenever you sacrifice a permanent, double this creature's power until end of turn.\nWhen this creature dies, create an X/X black Demon creature token, where X is this creature's power.

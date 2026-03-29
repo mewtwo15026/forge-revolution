@@ -1,0 +1,19 @@
+Name:Eltanaan, the Silent Star
+ManaCost:7 W W W
+Types:Legendary Creature Dragon Spirit
+PT:10/10
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigEffect | TriggerDescription$ When you cast this spell, your opponents can't cast spells until your next turn.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STCantBeCast | Duration$ UntilYourNextTurn | SpellDescription$ Your opponents can't cast spells until your next turn.
+SVar:STCantBeCast:Mode$ CantBeCast | ValidCard$ Card | Caster$ Opponent | Description$ Your opponents can't cast spells.
+AlternateMode:Adventure
+Oracle:Flying\nWhen you cast this spell, your opponents can't cast spells until your next turn.
+
+ALTERNATE
+
+Name:Path of Stillness
+ManaCost:X W W
+Types:Sorcery Adventure
+A:SP$ ChangeZoneAll | ChangeType$ Permanent.nonLand+cmcLEX | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile all nonland permanents with mana value X or less. (Then exile this card. You may cast the creature later from exile.)
+SVar:X:Count$xPaid
+Oracle:Exile all nonland permanents with mana value X or less. (Then exile this card. You may cast the creature later from exile.)

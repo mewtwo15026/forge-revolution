@@ -1,0 +1,6 @@
+Name:Radiant Pilgrim
+ManaCost:W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/26_Radiant Pilgrim.jpg
+Oracle:Whenever Radiant Pilgrim attacks, create a 1/1 red Spirit creature token with wither that's tapped and attacking if you've created another token this turn. Sacrifice the token at the beginning of the next end step. (It deals damage to creatures in the form of -1/-1 counters.)

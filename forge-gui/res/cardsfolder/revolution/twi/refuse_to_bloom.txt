@@ -1,0 +1,7 @@
+Name:Refuse to Bloom
+ManaCost:2 U U
+Types:Instant
+A:SP$ Charm | Choices$ DBTuck,DBCounter | CharmNum$ 1
+SVar:DBTuck:DB$ ValidTgts$ Creature | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | SpellDescription$ Target creature's owner puts it on the top or bottom of their library.
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Card | SpellDescription$ Counter target spell.
+Oracle:Choose one —\n• The owner of target creature puts it on their choice of the top or bottom of their library.\n• Counter target spell.

@@ -1,0 +1,11 @@
+Name:Gorion Ley-Spire
+ManaCost:2 G G
+Types:Creature Wall
+PT:3/5
+K:Defender
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ When CARDNAME enters, destroy all artifacts and enchantments with mana value 3 or less.
+SVar:TrigDestroy:DB$ DestroyAll | ValidCards$ Artifact.cmcLE3,Enchantment.cmcLE3
+SVar:NeedsToPlayVar:X GE1
+SVar:X:Count$Valid Artifact.OppCtrl+cmcLE3,Enchantment.OppCtrl+cmcLE3
+Oracle:Defender, reach\nWhen Gorion Ley-Spire enters, destroy all artifacts and enchantments with mana value 3 or less.

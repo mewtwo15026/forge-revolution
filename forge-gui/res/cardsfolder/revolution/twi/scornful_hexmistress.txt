@@ -1,0 +1,7 @@
+Name:Scornful Hexmistress
+ManaCost:U B
+Types:Creature Human Warlock
+PT:2/1
+K:Menace
+K:Prowess
+Oracle:Menace, prowess

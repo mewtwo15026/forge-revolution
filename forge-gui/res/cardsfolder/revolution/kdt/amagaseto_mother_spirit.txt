@@ -1,0 +1,11 @@
+Name:Amagaseto, Mother Spirit
+ManaCost:2 R G
+Types:Legendary Creature Whale Spirit
+PT:2/3
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a +1/+1 counter on another target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ P1P1 | CounterNum$ 1
+S:Mode$ Continuous | Condition$ PlayerTurn | MayPlayLimit$ 1 | Affected$ Creature.YouOwn | AffectedZone$ Graveyard | MayPlay$ True | EffectZone$ Battlefield | RaiseCost$ RemoveAnyCounter<ConvertedManaCost/Any/Creature.YouCtrl/among creatures you control> | Description$ Once during each of your turns, you may cast a creature spell from your graveyard by removing a number of counters from among creatures you control equal to that spell's mana value in addition to paying its other costs.
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Counters
+DeckHas:Ability$Counters
+Oracle:At the beginning of combat on your turn, put a +1/+1 counter on another target creature you control.\nOnce during each of your turns, you may cast a creature spell from your graveyard by removing a number of counters from among creatures you control equal to that spell's mana value in addition to paying its other costs.

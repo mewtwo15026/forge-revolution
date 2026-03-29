@@ -40,7 +40,8 @@ public record CounterKeywordType(String keyword) implements CounterType {
             return "Hexproof from " + k[2];
         }
         if (keyword.startsWith("Trample:")) {
-            return "Trample over Planeswalkers";
+            final String[] k = keyword.split(":");
+            return "Trample over " + k[2];
         }
         return keyword;
     }

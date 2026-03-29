@@ -1,0 +1,10 @@
+Name:Oni of Tongues
+ManaCost:1 BR
+Types:Creature Demon
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | CheckSVar$ Damned | SVarCompare$ GE1 | Execute$ TrigToken | TriggerDescription$ Damned — When this creature enters, if you've sacrificed a permanent this turn, create a Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Sacrifice & Type$Treasure
+Oracle:Damned — When this creature enters, if you've sacrificed a permanent this turn, create a Treasure token.

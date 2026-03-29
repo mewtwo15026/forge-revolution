@@ -1,0 +1,9 @@
+Name:Sunvrath Exemplar
+ManaCost:4 W
+Types:Creature Human Knight
+PT:3/3
+K:Double Strike
+A:AB$ Pump | Cost$ 1 Sac<1/Creature.Other/another creature> | Defined$ Self | KW$ Indestructible | AILogic$ Aristocrat | SubAbility$ DBTap | SpellDescription$ CARDNAME gains indestructible until end of turn. Tap it unless a nontoken creature was sacrificed this way.
+SVar:DBTap:DB$ Tap | Defined$ Self | ConditionDefined$ Sacrificed | ConditionPresent$ Creature.!token | ConditionCompare$ EQ0
+SVar:AIPreference:SacCost$Creature.!token,Creature.Other
+Oracle:Double strike\n{1}, Sacrifice another creature: Sunvrath Exemplar gains indestructible until end of turn. Tap it unless a nontoken creature was sacrificed this way.

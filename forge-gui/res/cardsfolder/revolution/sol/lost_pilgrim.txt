@@ -1,0 +1,6 @@
+Name:Lost Pilgrim
+ManaCost:G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/176_Lost Pilgrim.jpg
+Oracle:When Lost Pilgrim enters, you may mill two cards.\n{2}{G}, Exile Lost Pilgrim from your graveyard: Return another target permanent card from your graveyard to your hand. Activate only as a sorcery.

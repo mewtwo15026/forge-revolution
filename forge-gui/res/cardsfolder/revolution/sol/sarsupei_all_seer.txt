@@ -1,0 +1,6 @@
+Name:Sarsupei All-Seer
+ManaCost:1 B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/109_Sarsupei All-Seer.jpg
+Oracle:Lifelink\n{2}{B}, Exile Sarsupei All-Seer from your graveyard: You draw a card and you lose 1 life.

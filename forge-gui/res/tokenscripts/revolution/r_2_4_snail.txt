@@ -1,0 +1,6 @@
+Name:Snail Token
+ManaCost:no cost
+Colors:red
+Types:Creature Snail
+PT:2/4
+Oracle:

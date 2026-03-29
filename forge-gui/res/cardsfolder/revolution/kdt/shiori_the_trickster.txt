@@ -1,0 +1,11 @@
+Name:Shiori, the Trickster
+ManaCost:R G
+Types:Legendary Creature Fox Shapeshifter
+PT:2/2
+# NOTE: Enduring Scalelord, Quicksilver Dragon
+K:Flash
+T:Mode$ CounterAddedOnce | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | OptionalDecider$ You | Execute$ TrigPutCounter | TriggerDescription$ Whenever one or more counters are put on another creature you control, you may put a +1/+1 counter on NICKNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ ChangeTargets | AILogic$ Never | Cost$ 2 | TargetType$ Spell | ValidTgts$ Card | TargetRestriction$ Creature.YouCtrl+HasCounters,Enchantment.YouCtrl+HasCounters | SpellDescription$ Change a target of target spell to a creature or enchantment you control with one or more counters on it.
+DeckHints:Ability$Counters
+Oracle:Flash\nWhenever one or more counters are put on another creature you control, you may put a +1/+1 counter on Shiori.\n{2}: Change a target of target spell to a creature or enchantment you control with one or more counters on it.

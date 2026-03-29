@@ -1,0 +1,12 @@
+Name:Chomei's Brawler
+ManaCost:3 R
+Types:Creature Demon Warrior
+PT:4/3
+R:Event$ CreateToken | ActiveZones$ Battlefield | ValidPlayer$ You | ValidToken$ Artifact | ReplaceWith$ DBReplace | Description$ If you would create one or more artifact tokens, instead create those tokens plus an additional Treasure token.
+SVar:DBReplace:DB$ ReplaceToken | Type$ AddToken | Amount$ 1 | TokenScript$ c_a_treasure_sac
+A:AB$ Pump | Cost$ 2 R Sac<X/Artifact> | Defined$ Self | NumAtt$ X | SpellDescription$ This creature gets +X/+0 until end of turn.
+SVar:X:Count$xPaid
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+notnamedBlack Lotus,Artifact.cmcEQ1,Artifact.cmcEQ2,Artifact.cmcEQ3
+DeckHas:Ability$Sacrifice|Token & Type$Artifact|Treasure
+DeckHints:Type$Artifact & Ability$Token
+Oracle:If you would create one or more artifact tokens, instead create those tokens plus an additional Treasure token.\n{2}{R}, Sacrifice X artifacts: This creature gets +X/+0 until end of turn.

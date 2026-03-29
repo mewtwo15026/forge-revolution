@@ -1,0 +1,11 @@
+Name:Esdran, the Unburned
+ManaCost:R R W W
+Types:Legendary Creature Human Berserker
+PT:4/3
+K:Haste
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may return target creature card with mana value X or less from your graveyard to the battlefield tapped and attacking with a finality counter on it, where X is the number of attacking creatures. (Rapture won't save that creature from its final death.)
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouOwn+cmcLEX | WithCountersType$ FINALITY | TgtPrompt$ Select target creature card in your graveyard with mana value X or less
+SVar:X:Count$Valid Creature.attacking
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Graveyard
+Oracle:Haste\nWhenever Esdran attacks, you may return target creature card with mana value X or less from your graveyard to the battlefield tapped and attacking with a finality counter on it, where X is the number of attacking creatures. (Rapture won't save that creature from its final death.)

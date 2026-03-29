@@ -1,0 +1,8 @@
+Name:Niliscant Ley-Spire
+ManaCost:3 R R
+Types:Creature Wall
+PT:3/5
+K:Defender
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCastByYou | Destination$ Battlefield | Execute$ TrigDamageAll | TriggerDescription$ When CARDNAME enters, if you cast it, it deals 5 damage to each creature that doesn't have defender and each planeswalker.
+SVar:DBDamageAll:DB$ DamageAll | NumDmg$ 5 | ValidCards$ Creature.withoutDefender,Planeswalker
+Oracle:Defender\nWhen Niliscant Ley-Spire enters, if you cast it, it deals 5 damage to each creature that doesn't have defender and each planeswalker.

@@ -1,0 +1,12 @@
+Name:River Guardian
+ManaCost:2 U
+Types:Creature Dragon
+PT:2/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, you may pay {3}{U}. If you do, create two 1/1 blue Bird creature tokens with flying.
+SVar:TrigToken:AB$ Token | Cost$ 3 U | TokenAmount$ 2 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You
+S:Mode$ Continuous | Affected$ Creature.Other+withFlying+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other creatures you control with flying get +1/+1.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token & Type$Bird
+DeckHints:Keyword$Flying
+Oracle:Flying\nWhen this creature enters, you may pay {3}{U}. If you do, create two 1/1 blue Bird creature tokens with flying.\nOther creatures you control with flying get +1/+1.

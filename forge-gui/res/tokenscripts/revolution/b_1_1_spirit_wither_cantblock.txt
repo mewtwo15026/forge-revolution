@@ -1,0 +1,8 @@
+Name:Spirit Token
+ManaCost:no cost
+Types:Creature Spirit
+Colors:black
+PT:1/1
+K:Wither
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+Oracle:Wither (This deals damage to creatures in the form of -1/-1 counters.)\nThis creature can't block.

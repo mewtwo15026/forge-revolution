@@ -1,0 +1,11 @@
+Name:Guardian of Ashen Oaths
+ManaCost:1 B B
+Types:Creature Spirit
+PT:3/2
+K:Lifelink
+S:Mode$ Continuous | Affected$ Zombie.YouCtrl,Spirit.Other+YouCtrl | AddKeyword$ Lifelink | Description$ Zombies and other Spirits you control have lifelink.
+A:AB$ Token | Cost$ T PayLife<5> | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_zombie_cantblock | SpellDescription$ Create a 2/2 black Zombie creature token with "This creature can't block."
+SVar:BuffedBy:Zombie,Spirit
+DeckHas:Ability$LifeGain|Token
+DeckHints:Type$Zombie|Spirit
+Oracle:Lifelink\nZombies and other Spirits you control have lifelink.\n{T}, Pay 5 life: Create a 2/2 black Zombie creature token with "This creature can't block."

@@ -1,0 +1,5 @@
+Name:Psionic Backlash
+ManaCost:B R
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/232_Psionic Backlash.jpg
+Oracle:Discard two cards, then draw two cards. All creatures get -1/-1 until end of turn for each nonland card discarded this way.

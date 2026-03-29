@@ -183,6 +183,9 @@ public class GameSnapshot {
         newPlayer.setCrankCounter(origPlayer.getCrankCounter());
         // TODO creatureAttackedThisTurn
 
+        //REVOLUTION
+        newPlayer.setSpellExpentThisTurn(origPlayer.getSpellExpentThisTurn());
+
         // Copy mana pool
         copyManaPool(origPlayer, newPlayer);
     }

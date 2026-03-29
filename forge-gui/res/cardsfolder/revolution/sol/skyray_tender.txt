@@ -1,0 +1,6 @@
+Name:Skyray Tender
+ManaCost:W W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/30_Skyray Tender.jpg
+Oracle:When Skyray Tender enters, create a 2/1 blue Fish creature token with flying.

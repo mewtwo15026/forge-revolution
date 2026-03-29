@@ -1,0 +1,6 @@
+Name:Oblivion Dispatcher
+ManaCost:2 W U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/230_Oblivion Dispatcher.jpg
+Oracle:Flying\nWhen Oblivion Dispatcher enters, return up to one target creature an opponent controls to its owner's hand. That player can't cast spells with the same name as that creature until your next turn.

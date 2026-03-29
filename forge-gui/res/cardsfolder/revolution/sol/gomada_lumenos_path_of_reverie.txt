@@ -1,0 +1,17 @@
+Name:Gomada Lumenos
+ManaCost:5 U R
+Types:Creature Jellyfish Spirit
+PT:5/7
+S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | CheckSVar$ X | Description$ CARDNAME can't be blocked if you've cast a noncreature spell this turn.
+SVar:X:Count$ThisTurnCast_Card.nonCreature+YouCtrl
+DeckHints:Type$Instant|Sorcery|Artifact|Enchantment|Battle
+AlternateMode:Adventure
+Oracle:Gomada Lumenos can't be blocked if you've cast a noncreature spell this turn.
+
+ALTERNATE
+
+Name:Path of Reverie
+ManaCost:2 UR
+Types:Instant Adventure
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Card.nonCreature+nonLand+YouCtrl+cmcLE3 | TgtPrompt$ Select target noncreature, nonland card in your graveyard with mana value 3 or less | SpellDescription$ Return target noncreature, nonland card with mana value 3 or less from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Return target noncreature, nonland card with mana value 3 or less from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)

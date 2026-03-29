@@ -1,0 +1,5 @@
+Name:Wrought in Hunger
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ Double | NumDef$ Double | SpellDescription$ Double target creature's power and toughness until end of turn.
+Oracle:Double target creature's power and toughness until end of turn.

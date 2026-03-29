@@ -1,0 +1,11 @@
+Name:Recital of the First Echo
+ManaCost:2 U
+Types:Creature Elf Warlock
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, if you cast it, return target instant or sorcery card from your graveyard to your hand.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard
+# TODO: implement Chant
+#K:twi_Chant:2 U
+#A:SP$ Chant | Mode$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard | SpellDescription$ Return target instant or sorcery card from your graveyard to your hand.
+Oracle:When Recital of the First Echo enters, if you cast it, [return target instant or sorcery card from your graveyard to your hand.]\n
+Chant {2}{U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

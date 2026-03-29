@@ -1,0 +1,9 @@
+Name:Distant Path
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped unless you control one or fewer other lands.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.YouCtrl | ConditionCompare$ GT1
+A:AB$ Mana | Cost$ T | Produced$ Combo W U | SpellDescription$ Add {W} or {U}.
+K:Cycling:2
+DeckHas:Ability$Discard
+Oracle:This land enters the battlefield tapped unless you control one or fewer other lands.\n{T}: Add {W} or {U}.\nCycling {2} ({2}, Discard this card: Draw a card.)

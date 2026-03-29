@@ -1,0 +1,14 @@
+Name:Kirin of Boons
+ManaCost:1 R
+Types:Creature Kirin Spirit
+PT:2/2
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevAttacks | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevAttacks:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, target creature defending player controls can't block this turn if its power is less than this creature's power.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, target creature defending player controls can't block this turn if its power is less than this creature's power.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target creature defending player controls | KW$ HIDDEN CARDNAME can't block. | IsCurse$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ1
+SVar:X:Targeted$Valid Creature.powerLEY
+SVar:Y:TriggeredAttacker$CardPower
+SVar:PlayMain1:TRUE
+SVar:HasAttackEffect:TRUE
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nWhenever this creature attacks, target creature defending player controls can't block this turn if its power is less than this creature's power.

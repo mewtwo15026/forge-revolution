@@ -1,0 +1,11 @@
+Name:Conqueror's Glee
+ManaCost:2 B B
+Types:Enchantment
+T:Mode$ LifeLost | ValidPlayer$ Opponent | TriggerZones$ Battlefield | FirstTime$ True | Execute$ TrigLoseLife | TriggerDescription$ Whenever an opponent loses life for the first time each turn, they lose 3 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ TriggeredPlayer | LifeAmount$ 3
+T:Mode$ Discarded | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | FirstTime$ True | Execute$ TrigDiscard | TriggerDescription$ Whenever an opponent discards a card for the first time each turn, they discard a card.
+SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredCardController | NumCards$ 1 | Mode$ TgtChoose
+T:Mode$ Sacrificed | ValidCard$ Permanent.OppCtrl | TriggerZones$ Battlefield | FirstTime$ True | Execute$ TrigSac | TriggerDescription$ Whenever an opponent sacrifices a permanent for the first time each turn, they sacrifice a nonland permanent.
+SVar:TrigSac:DB$ Sacrifice | Defined$ TriggeredCardController | Amount$ 1 | SacValid$ Permanent.nonLand | SacMessage$ nonland permanent
+DeckHints:Ability$Discard|Sacrifice
+Oracle:Whenever an opponent loses life for the first time each turn, they lose 3 life.\nWhenever an opponent discards a card for the first time each turn, they discard a card.\nWhenever an opponent sacrifices a permanent for the first time each turn, they sacrifice a nonland permanent.

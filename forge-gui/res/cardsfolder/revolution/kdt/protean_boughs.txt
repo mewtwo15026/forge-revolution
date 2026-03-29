@@ -1,0 +1,8 @@
+Name:Protean Boughs
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ T | Produced$ Any | IsPresent$ Card.Self+ThisTurnEntered | SpellDescription$ Add one mana of any color. Activate only if this land entered this turn.
+A:AB$ Token | Cost$ 4 T | TokenAmount$ 1 | TokenScript$ c_1_1_fox_shapeshifter_changeling | TokenOwner$ You | SpellDescription$ Create a tapped 1/1 colorless Fox Shapeshifter creature token with changeling. (It has every creature type.)
+DeckHas:Ability$Token|Mana.Colorless & Type$Shapeshifter
+Oracle:{T}: Add {C}. If this land entered this turn, you may add one mana of any color instead.\n{4}, {T}: Create a tapped 1/1 colorless Fox Shapeshifter creature token with changeling. (It is every creature type.)

@@ -1,0 +1,11 @@
+Name:Seize the Golden Bloom
+ManaCost:1 U U
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Opponent | Origin$ Library | Destination$ Library | ChangeType$ Card.nonLand+cmcLEX | RememberChanged$ True | Reveal$ True | Shuffle$ False | DefinedPlayer$ Targeted | Chooser$ You | SubAbility$ DBEffect | StackDescription$ Search {p:Targeted}'s library for a nonland card with mana value X or less | SpellDescription$ Search target player's library for a nonland card with mana value X or less and exile it, where X is the number of creatures that have dealt damage to them this turn. Then that player shuffles. Until end of turn, you may play that card without paying its mana cost.
+SVar:X:Count$NumDamageThisTurn Creature TargetedPlayer
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | ExileOnMoved$ Exile | RememberObjects$ Remembered | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | Affected$ Card.IsRemembered | MayPlay$ True | AffectedZone$ Exile | Description$ Until end of turn, you may play that card.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:PlayMain1:FALSE
+SVar:NeedsToPlayVar:X GE1
+Oracle:Search target player's library for a nonland card with mana value X or less and exile it, where X is the number of creatures that have dealt damage to them this turn. Then that player shuffles. Until end of turn, you may play that card without paying its mana cost.

@@ -1,0 +1,10 @@
+Name:Colossal Pathrazer
+ManaCost:3 G
+Types:Creature Beast
+PT:5/5
+K:Vigilance
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ Destroy | Cost$ G SubCounter<1/M1M1> | SorcerySpeed$ True | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | SpellDescription$ Destroy target artifact or enchantment. Activate only as a sorcery.
+Oracle:Vigilance, reach\nWhen Colossal Pathrazer enters, put a -1/-1 counter on target creature you control.\n{G}, Remove a -1/-1 counter from Colossal Pathrazer: Destroy target artifact or enchantment. Activate only as a sorcery.

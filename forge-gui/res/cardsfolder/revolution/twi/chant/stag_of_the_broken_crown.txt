@@ -1,0 +1,14 @@
+Name:Stag of the Broken Crown
+ManaCost:4 U B
+Types:Creature Elk Horror
+PT:6/6
+K:Flash
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Ward:3
+R:Event$ Moved | ValidCard$ Card.Self+wasCastFromExile | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped if it was cast from exile.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+# TODO: implement Chant
+#K:twi_FlashChant:U B
+#A:SP$ Chant | Mode$ ReplacementEffect | Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+Oracle:[Flash]\n[This spell can't be countered.]\nWard {3}\nStag of the Broken Crown enters tapped if it was cast from exile.\n
+Chant {U}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)

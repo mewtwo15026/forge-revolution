@@ -1,0 +1,6 @@
+Name:Hwacha
+ManaCost:1
+Types:Artifact
+A:AB$ DealDamage | Cost$ 4 T Sac<1/CARDNAME> | SorcerySpeed$ True | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | NumDmg$ 100 | SpellDescription$ CARDNAME deals 100 damage to target creature an opponent controls. Activate only as a sorcery.
+DeckHas:Ability$Sacrifice
+Oracle:{4}, {T}, Sacrifice this artifact: It deals 100 damage to target creature an opponent controls. Activate only as a sorcery.

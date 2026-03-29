@@ -1,0 +1,9 @@
+Name:Sarsupei Houndmaster
+ManaCost:2 W
+Types:Creature Moonfolk Cleric
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ Token | Cost$ 1 W SubCounter<1/M1M1> | SorcerySpeed$ True | TokenScript$ b_2_2_dog | SpellDescription$ Create a 2/2 black Dog creature token. Activate only as a sorcery.
+DeckHas:Ability$Token
+Oracle:When Sarsupei Houndmaster enters, put a -1/-1 counter on target creature you control.\n{1}{W}, Remove a -1/-1 counter from Sarsupei Houndmaster: Create a 2/2 black Dog creature token. Activate only as a sorcery.

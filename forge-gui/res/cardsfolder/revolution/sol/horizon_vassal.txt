@@ -1,0 +1,6 @@
+Name:Horizon Vassal
+ManaCost:2 G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/173_Horizon Vassal.jpg
+Oracle:Flash\nWhen Horizon Vassal enters, you may mill three cards.\n{2}{G}, Exile Horizon Vassal and two other cards named Horizon Vassal from your graveyard: Create a 9/6 green Wolf Spirit creature token with trample. Activate only as a sorcery.

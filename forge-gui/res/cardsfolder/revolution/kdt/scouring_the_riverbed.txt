@@ -1,0 +1,12 @@
+Name:Scouring the Riverbed
+ManaCost:2 R R
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create a tapped Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ At the beginning of your upkeep, exile the top three cards of your library. Until end of turn, you may cast each of those cards by sacrificing a permanent in addition to paying their other costs.
+SVar:TrigDig:DB$ Dig | DestinationZone$ Exile | DigNum$ 3 | ChangeNum$ All | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ EffSModeContinuous | SubAbility$ DBCleanup | ForgetOnMoved$ Exile
+SVar:EffSModeContinuous:Mode$ Continuous | MayPlay$ True | Affected$ Card.nonLand+IsRemembered | AffectedZone$ Exile | RaiseCost$ Sac<1/Permanent> | Description$ You may cast nonland cards exiled this way by sacrificing a permanent in addition to paying their other costs.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ DBMana
+AI:RemoveDeck:All
+Oracle:When this enchantment enters, create a tapped Treasure token.\nAt the beginning of your upkeep, exile the top three cards of your library. Until end of turn, you may cast each of those cards by sacrificing a permanent in addition to paying their other costs.

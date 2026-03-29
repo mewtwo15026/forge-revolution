@@ -1,0 +1,12 @@
+Name:Avatar's Whim
+ManaCost:2 U
+Types:Sorcery
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SetPower$ X | SetToughness$ X | SpellDescription$ Create a token that's a copy of target creature you control, except it has base power and toughness X/X, where X is the number of Islands you control plus the number of cards with a cycling ability in your graveyard.
+SVar:X:Count$Valid Island.YouCtrl/Plus.Y
+SVar:Y:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+K:TypeCycling:Island:2
+SVar:NeedsToPlayVar:X GE1
+SVar:BuffedBy:Island
+DeckHints:Keyword$Cycling
+DeckHas:Ability$Discard
+Oracle:Create a token that's a copy of target creature you control, except it has base power and toughness X/X, where X is the number of Islands you control plus the number of cards with a cycling ability in your graveyard.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)

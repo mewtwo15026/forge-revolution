@@ -1,0 +1,5 @@
+Name:Stellar Subjugation
+ManaCost:4 B G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/237_Stellar Subjugation.jpg
+Oracle:Return up to two target creature cards with total mana value 6 or less from your graveyard to the battlefield. When you do, those creatures each deal damage equal to their power to up to one target creature or planeswalker.

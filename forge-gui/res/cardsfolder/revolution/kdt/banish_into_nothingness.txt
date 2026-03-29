@@ -1,0 +1,8 @@
+Name:Banish into Nothingness
+ManaCost:4 W U
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | IsCurse$ True | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Library | LibraryPosition$ -1 | SubAbility$ DBGainLife | SpellDescription$ Put target nonland permanent on the bottom of its owner's library. You gain 3 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+K:Cycling:WU
+DeckHas:Ability$Discard
+Oracle:Put target nonland permanent on the bottom of its owner's library. You gain 3 life.\nCycling {WU} ({WU}, Discard this card: Draw a card.)

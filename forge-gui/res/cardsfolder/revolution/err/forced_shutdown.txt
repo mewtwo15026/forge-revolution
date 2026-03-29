@@ -1,4 +1,4 @@
-Name:Feed the Swarm
+Name:Forced Shutdown
 ManaCost:1 B
 Types:Sorcery
 A:SP$ Destroy | ValidTgts$ Creature,Enchantment,Battle | TgtPrompt$ Select target creature, enchantment, or battle | SubAbility$ DBLoseLife | SpellDescription$ Destroy target creature, enchantment, or battle. You lose life equal to that permanent's mana value.

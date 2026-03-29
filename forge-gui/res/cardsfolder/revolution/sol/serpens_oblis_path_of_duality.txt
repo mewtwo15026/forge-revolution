@@ -1,0 +1,15 @@
+Name:Serpens Oblis
+ManaCost:5 W W
+Types:Creature Serpent Spirit
+PT:7/7
+K:Protection:Card.cmcLE2:mana value 2 or less
+AlternateMode:Adventure
+Oracle:Protection from mana value 2 or less
+
+ALTERNATE
+
+Name:Path of Duality
+ManaCost:1 W
+Types:Sorcery Adventure
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand+cmcLE2 | TgtPrompt$ Select target nonland permanent with mana value 2 or less | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target nonland permanent with mana value 2 or less. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Exile target nonland permanent with mana value 2 or less. (Then exile this card. You may cast the creature later from exile.)

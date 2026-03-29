@@ -1,0 +1,9 @@
+Name:Kitsune Matriarch
+ManaCost:W
+Types:Creature Fox Noble
+PT:1/1
+T:Mode$ TokenCreatedOnce | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever you create one or more tokens, put a +1/+1 counter on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Counters
+DeckNeeds:Ability$Token
+Oracle:Whenever you create one or more tokens, put a +1/+1 counter on this creature.

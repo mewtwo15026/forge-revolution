@@ -1,0 +1,11 @@
+Name:Koi-Tail Mer
+ManaCost:R
+Types:Creature Merfolk Noble
+PT:1/1
+K:Menace
+K:Haste
+T:Mode$ DiscardedAll | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigReturn | ActivationLimit$ 1 | TriggerDescription$ Whenever you discard one or more cards, 
+SVar:TrigReturn:DB$ ChangeZone | Cost$ Sac<1/CARDNAME> | Origin$ Graveyard | Destination$ Hand | ChangeType$ Card.TriggeredCards | ChangeNum$ 1
+DeckHints:Ability$Discard & Keyword$Cycling
+DeckHas:Ability$Sacrifice
+Oracle:Menace, haste\nWhenever you discard one or more cards, you may sacrifice this creature. If you do, return one of the discarded cards from your graveyard to your hand.

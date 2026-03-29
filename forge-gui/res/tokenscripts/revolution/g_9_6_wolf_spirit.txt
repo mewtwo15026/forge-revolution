@@ -1,0 +1,7 @@
+Name:Wolf Spirit Token
+ManaCost:no cost
+Types:Creature Wolf Spirit
+Colors:green
+PT:9/6
+K:Trample
+Oracle:Trample

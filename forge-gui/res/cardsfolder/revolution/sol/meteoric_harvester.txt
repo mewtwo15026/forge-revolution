@@ -1,0 +1,5 @@
+Name:Meteoric Harvester
+ManaCost:3
+Types:Artifact
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/286_Meteoric Harvester.jpg
+Oracle:When Meteoric Harvester dies, if it had no -1/-1 counters on it, return it to the battlefield with a -1/-1 counter on it.

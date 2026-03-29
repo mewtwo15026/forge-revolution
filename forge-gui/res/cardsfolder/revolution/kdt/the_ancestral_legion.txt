@@ -1,0 +1,9 @@
+Name:The Ancestral Legion
+ManaCost:2 W B
+Types:Legendary Enchantment
+K:Exalted
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigReturn | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, return target creature card from your graveyard to the battlefield tapped and attacking with a finality counter on it if it has mana value X or less, where X is the greatest power among attacking creatures you control.
+SVar:TrigReturn:DB$ ChangeZone | ValidTgts$ Creature.YouCtrl | AITgts$ Creature.YouCtrl+cmcLEX | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | Attacking$ True | WithCountersType$ FINALITY | ConditionDefined$ Targeted | ConditionPresent$ Card.cmcLEX | ConditionCompare$ GE1
+SVar:X:Count$Valid Creature.attacking+YouCtrl$GreatestPower
+SVar:PlayMain1:TRUE
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhenever you attack, return target creature card from your graveyard to the battlefield tapped and attacking with a finality counter on it if it has mana value X or less, where X is the greatest power among attacking creatures you control.

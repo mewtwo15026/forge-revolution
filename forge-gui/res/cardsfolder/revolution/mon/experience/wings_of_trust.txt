@@ -1,0 +1,10 @@
+Name:Wings of Trust
+ManaCost:1 W
+Types:Creature Bird
+PT:1/1
+K:Flying
+K:mon_Experience
+S:Mode$ Continuous | Affected$ Card.Self+counters_GE3_P1P1 | AddKeyword$ Lifelink & Vigilance | Description$ As long as CARDNAME has three or more +1/+1 counters on it, it has lifelink and vigilance.
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Flying\nExperience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)

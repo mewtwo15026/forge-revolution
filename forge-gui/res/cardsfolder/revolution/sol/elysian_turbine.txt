@@ -1,0 +1,5 @@
+Name:Elysian Turbine
+ManaCost:2
+Types:Artifact
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/281_Elysian Turbine.jpg
+Oracle:Whenever you cast a noncreature spell, you gain 1 life.\n{2}, {T}, Exile two noncreature, nonland cards from your graveyard: Draw a card.

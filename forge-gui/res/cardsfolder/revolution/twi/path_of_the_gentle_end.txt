@@ -1,0 +1,7 @@
+Name:Path of the Gentle End
+ManaCost:1 B G
+Types:Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ At the beginning of your end step, look at the top X cards of your library, where X is the amount of life you've lost this turn. Put one of those cards into your hand and the rest on the bottom of your library in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ X | ChangeNum$ 1 | NoReveal$ True | RestRandomOrder$ True
+SVar:X:Count$LifeYouLostThisTurn
+Oracle:At the beginning of your end step, look at the top X cards of your library, where X is the amount of life you've lost this turn. Put one of those cards into your hand and the rest on the bottom of your library in a random order.

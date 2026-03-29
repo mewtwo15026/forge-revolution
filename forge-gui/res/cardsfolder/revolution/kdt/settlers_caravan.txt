@@ -1,0 +1,10 @@
+Name:Settler's Caravan
+ManaCost:2 G
+Types:Creature Turtle
+PT:3/4
+T:Mode$ SpellCast | ValidCard$ Card.MultiColor | ValidActivatingPlayer$ You | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a multicolored spell, create a Treasure token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenOwner$ You | TokenScript$ c_a_treasure_sac
+SVar:BuffedBy:Card.MultiColor
+DeckHints:Color$White|Blue|Black|Red
+DeckHas:Ability$Token|Sacrifice & Type$Treasure
+Oracle:Whenever you cast a multicolored spell, create a Treasure token.

@@ -1,0 +1,5 @@
+Name:Grasp of Oblivion
+ManaCost:U
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/56_Grasp of Oblivion.jpg
+Oracle:Flash\nEnchant creature\nEnchanted creature gets -3/-0 and its activated abilities can't be activated.

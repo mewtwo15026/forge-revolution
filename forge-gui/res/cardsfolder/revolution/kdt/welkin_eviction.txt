@@ -1,0 +1,15 @@
+Name:Welkin Eviction
+ManaCost:6 W
+Types:Enchantment
+K:Flash
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {X} less to cast, where X is the number of Plains you control plus the number of cards with a cycling ability in your graveyard.
+SVar:X:Count$Valid Plains.YouCtrl/Plus.Y
+SVar:Y:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls | Duration$ UntilHostLeavesPlay
+K:TypeCycling:Plains:2
+SVar:OblivionRing:TRUE
+SVar:BuffedBy:Plains
+DeckHints:Keyword$Cycling
+DeckHas:Ability$Discard
+Oracle:Flash\nThis spell costs {X} less to cast, where X is the number of Plains you control plus the number of cards with a cycling ability in your graveyard.\nWhen this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)

@@ -1,0 +1,11 @@
+Name:Butchery
+ManaCost:B BR R
+Types:Enchantment
+T:Mode$ DamageDone | ValidSource$ Card.YouCtrl,Emblem.YouCtrl | ValidTarget$ Opponent | CombatDamage$ False | TriggerZones$ Battlefield | Execute$ TrigDraw | ActivationLimit$ 1 | TriggerDescription$ Whenever a source you control deals noncombat damage to an opponent, you draw a card and you lose 1 life. This ability triggers only once each turn.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | ValidPlayer$ You | CheckSVar$ ButcherCheck | SVarCompare$ GE3 | Execute$ TrigBurn | TriggerDescription$ At the beginning of your end step, if you sacrificed three or more permanents this turn, this enchantment deals 3 damage to any target.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 3
+SVar:ButcherCheck:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+Oracle:Whenever a source you control deals noncombat damage to an opponent, you draw a card and you lose 1 life. This ability triggers only once each turn.\nAt the beginning of your end step, if you sacrificed three or more permanents this turn, this enchantment deals 3 damage to any target.

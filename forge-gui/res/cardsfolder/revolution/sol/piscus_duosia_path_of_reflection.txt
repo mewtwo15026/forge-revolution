@@ -1,0 +1,17 @@
+Name:Piscus Duosia
+ManaCost:7 U U
+Types:Creature Fish Spirit
+PT:6/6
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 6/6 blue Spirit Fish creature token.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ u_6_6_fish_spirit
+DeckHas:Ability$Token
+AlternateMode:Adventure
+Oracle:When Piscus Duosia enters, create a 6/6 blue Spirit Fish creature token.
+
+ALTERNATE
+
+Name:Path of Reflection
+ManaCost:2 U
+Types:Sorcery Adventure
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SpellDescription$ Create a token that's a copy of target creature you control. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Create a token that's a copy of target creature you control. (Then exile this card. You may cast the creature later from exile.)

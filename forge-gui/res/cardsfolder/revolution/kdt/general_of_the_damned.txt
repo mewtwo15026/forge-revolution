@@ -1,0 +1,12 @@
+Name:General of the Damned
+ManaCost:4 B B
+Types:Creature Demon Warrior
+PT:6/5
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | CheckSVar$ Damned | SVarCompare$ GE1 | Execute$ TrigDrain | TriggerDescription$ Damned — Whenever this creature enters or attacks, if you've sacrificed a permanent this turn, this creature deals 3 damage to any target and you gain 3 life.
+T:Mode$ Attacks | ValidCard$ Card.Self | CheckSVar$ Damned | SVarCompare$ GE1 | Execute$ TrigDrain | Secondary$ True | TriggerDescription$ Damned — Whenever this creature enters or attacks, if you've sacrificed a permanent this turn, this creature deals 3 damage to any target and you gain 3 life.
+SVar:TrigDrain:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 3 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+Oracle:Trample\nDamned — Whenever this creature enters or attacks, if you've sacrificed a permanent this turn, this creature deals 3 damage to any target and you gain 3 life.

@@ -1,0 +1,9 @@
+Name:Blur Strike
+ManaCost:1 W W
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddKeyword$ Double Strike | Description$ Enchanted creature has double strike.
+K:Cycling:2
+DeckHas:Ability$Discard
+Oracle:Enchant creature\nEnchanted creature has double strike.\nCycling {2} ({2}, Discard this card: Draw a card.)

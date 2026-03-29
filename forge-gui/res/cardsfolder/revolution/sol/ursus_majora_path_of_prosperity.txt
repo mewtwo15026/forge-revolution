@@ -1,0 +1,18 @@
+Name:Ursus Majora
+ManaCost:5 G G
+Types:Creature Bear Spirit
+PT:7/7
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME gets +2/+2 and gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | KW$ Trample
+SVar:BuffedBy:Land
+AlternateMode:Adventure
+Oracle:Landfall — Whenever a land you control enters, Ursus Majora gets +2/+2 and gains trample until end of turn.
+
+ALTERNATE
+
+Name:Path of Prosperity
+ManaCost:1 G
+Types:Sorcery Adventure
+A:SP$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBChangeZone | SpellDescription$ Draw a card.
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | Optional$ You | ChangeType$ Land.Basic | ChangeNum$ 1 | SpellDescription$ You may put a basic land card from your hand onto the battlefield.
+Oracle:Draw a card. You may put a basic land card from your hand onto the battlefield. (Then exile this card. You may cast the creature later from exile.)

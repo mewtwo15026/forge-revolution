@@ -1,0 +1,11 @@
+Name:Scorching Gecko
+ManaCost:RG
+Types:Creature Salamander Spirit
+PT:0/0
+K:Haste
+K:etbCounter:P1P1:1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ When this creature dies, you may put its counters on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ EachFromSource | EachFromSource$ TriggeredCardLKICopy
+SVar:SacMe:2
+DeckHas:Ability$Counters
+Oracle:Haste\nThis creature enters with a +1/+1 counter on it.\nWhen this creature dies, you may put its counters on target creature you control.

@@ -1,0 +1,10 @@
+Name:Ley-Tower Convergence
+ManaCost:4
+Types:Artifact Creature Wall
+K:Defender
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a colorless 0/4 Wall artifact creature token with defender.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_0_4_wall_defender
+S:Mode$ Continuous | Affected$ Creature.withDefender+Other+YouCtrl | AddPower$ 1 | Description$ Other creatures you control with defender get +1/+0.
+DeckHas:Ability$Token
+DeckHints:Keyword$Defender
+Oracle:Defender\nWhen Ley-Tower Convergence enters, create a colorless 0/4 Wall artifact creature token with defender.\nOther creatures you control with defender get +1/+0.

@@ -1,0 +1,8 @@
+Name:Atomic Core
+ManaCost:3
+Types:Artifact
+A:AB$ PutCounter | Cost$ T | CounterType$ CHARGE | CounterNum$ 1 | AILogic$ ChargeToBestOppControlledCMC | SpellDescription$ Put a charge counter on CARDNAME.
+A:AB$ Mana | Cost$ T | Produced$ Combo Any | Amount$ X | SpellDescription$ Add one mana of any color for each charge counter on CARDNAME.
+A:AB$ DestroyAll | Cost$ T Sac<1/CARDNAME> | ValidCards$ Permanent.nonLand+cmcEQX | SpellDescription$ Destroy each nonland permanent with mana value equal to the number of charge counters on CARDNAME.
+SVar:X:Count$CardCounters.CHARGE
+Oracle:{T}: Put a charge counter on Atomic Core.\n{T}: Add one mana of any color for each charge counter on Atomic Core.\n{T}, Sacrifice Atomic Core: Destroy each nonland permanent with mana value equal to the number of charge counters on Atomic Core.

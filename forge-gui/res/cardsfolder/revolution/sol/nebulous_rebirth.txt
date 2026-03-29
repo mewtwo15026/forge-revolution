@@ -1,0 +1,5 @@
+Name:Nebulous Rebirth
+ManaCost:3 G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/178_Nebulous Rebirth.jpg
+Oracle:You gain 2 life and you may mill two cards. Then you may return a creature card and/or a land card from your graveyard to your hand.

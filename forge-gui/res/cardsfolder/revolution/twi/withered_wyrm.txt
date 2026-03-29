@@ -1,0 +1,12 @@
+Name:Withered Wyrm
+ManaCost:6 B G
+Types:Creature Dragon Zombie
+PT:4/4
+K:Flying
+K:Vigilance
+K:Menace
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ Vigor | EffectZone$ All | Description$ This spell costs {1} less to cast for each 1 life you've gained this turn and each 1 life you've lost this turn.
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$GainLife
+Oracle:Flying, vigilance, menace\nThis spell costs {1} less to cast for each 1 life you've gained this turn and each 1 life you've lost this turn.

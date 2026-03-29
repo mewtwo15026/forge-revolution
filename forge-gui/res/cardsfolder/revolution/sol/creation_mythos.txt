@@ -1,0 +1,10 @@
+Name:Creation Mythos
+ManaCost:2 W W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When CARDNAME enters, search your library for an artifact card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Artifact.YouOwn
+S:Mode$ ReduceCost | EffectZone$ Battlefield | ValidCard$ Card.Artifact,Card.Enchantment | Activator$ You | Type$ Spell | OnlyFirstSpell$ True | PlayerTurn$ You | Amount$ X | Description$ The first artifact or enchantment spell you cast during each of your turns costs {1} less to cast for each enchantment you control.
+SVar:X:Count$Valid Enchantment.YouCtrl
+SVar:BuffedBy:Enchantment
+DeckHints:Type$Artifact & Type$Enchantment
+Oracle:When Creation Mythos enters, search your library for an artifact card, reveal it, put it into your hand, then shuffle.\nThe first artifact or enchantment spell you cast during each of your turns costs {1} less to cast for each enchantment you control.

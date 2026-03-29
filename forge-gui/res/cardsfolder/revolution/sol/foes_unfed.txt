@@ -1,0 +1,5 @@
+Name:Foes Unfed
+ManaCost:3 G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/169_Foes Unfed.jpg
+Oracle:Search your library for up to four creature cards with mana value 3 or less that each have different names and reveal them. Target opponent chooses two of those cards. Shuffle the chosen cards into your library, and put the rest onto the battlefield.

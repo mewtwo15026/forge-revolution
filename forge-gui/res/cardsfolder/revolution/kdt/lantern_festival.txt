@@ -1,0 +1,12 @@
+Name:Lantern Festival
+ManaCost:W U B R G
+Types:Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCascade | TriggerDescription$ At the beginning of your end step, exile cards from the top of your library until you exile a nonland card. You may cast that card without paying its mana cost if its mana value is less than or equal to the number of cards with cycling abilities in your graveyard. If you don't cast it, put it into your hand. Put the rest on the bottom of your library in a random order.
+SVar:TrigCascade:DB$ DigUntil | ValidPlayer$ You | Valid$ Card.nonLand | ValidDescription$ nonland permanent | FoundDestination$ Exile | RevealedDestination$ Exile | ImprintFound$ True | RememberRevealed$ True | SubAbility$ DBMayCast
+SVar:DBMayCast:DB$ Play | Defined$ Imprinted | WithoutManaCost$ True | ValidSA$ Spell.cmcLEX | Optional$ True | SubAbility$ DBChangeNotCast
+SVar:DBChangeNotCast:DB$ ChangeZone | Defined$ Imprinted | Origin$ Exile | Destination$ Hand | SubAbility$ DBChangeZoneAll
+SVar:DBChangeZoneAll:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Exile | Destination$ Library | RandomOrder$ True | LibraryPosition$ -1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True
+SVar:X:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+DeckNeeds:Keyword$Cycling
+Oracle:At the beginning of your end step, exile cards from the top of your library until you exile a nonland card. You may cast that card without paying its mana cost if its mana value is less than or equal to the number of cards with cycling abilities in your graveyard. If you don't cast it, put it into your hand. Put the rest on the bottom of your library in a random order.

@@ -1,0 +1,15 @@
+Name:Weaver of Brooding Threads
+ManaCost:1 B
+Types:Creature Elf Warlock
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastFromYourGraveyardByYou,Card.Self+YouOwn+ThisTurnEnteredFrom_Graveyard | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, if it entered from your graveyard or you cast it from your graveyard, exile it. If you do, create a 4/4 black Horror creature token.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | Defined$ Self | RememberChanged$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_4_4_horror | ConditionDefined$ Remembered | ConditionPresent$ Self | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+# TODO: implement Chant
+#K:twi_Chant:3 B
+#A:SP$ Chant | Mode$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_4_4_horror | TriggerDescription$ Create a 4/4 black Horror creature token.
+DeckHints:Ability$Graveyard
+DeckHas:Type$Horror
+Oracle:When Weaver of Brooding Threads enters, if it entered from your graveyard or you cast it from your graveyard, exile it. If you do, [create a 4/4 black Horror creature token.]\n
+Chant {3}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

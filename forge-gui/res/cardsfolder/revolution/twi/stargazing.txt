@@ -1,0 +1,11 @@
+Name:Stargazing
+ManaCost:U
+Types:Sorcery
+A:SP$ Scry | NumCards$ 1 | SubAbility$ DBDraw | SpellDescription$ Scry 1, then draw a card. Then you may discard a card. If you do, return CARDNAME to its owner's hand. You can't cast any more spells named Stargazing this turn.
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Hand | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STCantBeCast
+SVar:STCantBeCast:DB$ CantBeCast | ValidCard$ Card.namedStargazing | Caster$ You | Description$ You can't cast spells named Stargazing this turn.
+DeckHas:Ability$Discard
+DeckNeeds:Keyword$Madness|Flashback|Unearth|twi_Chant
+Oracle:Scry 1, then draw a card. Then you may discard a card. If you do, return Stargazing to its owner's hand.\nYou can't cast any more spells named Stargazing this turn.

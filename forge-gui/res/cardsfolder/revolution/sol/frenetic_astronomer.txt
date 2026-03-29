@@ -1,0 +1,6 @@
+Name:Frenetic Astronomer
+ManaCost:2 R
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/134_Frenetic Astronomer.jpg
+Oracle:When Frenetic Astronomer enters, add {R}{R} and create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)

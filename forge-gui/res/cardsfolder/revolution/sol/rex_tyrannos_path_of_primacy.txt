@@ -1,0 +1,18 @@
+Name:Rex Tyrannos
+ManaCost:5 G G
+Types:Creature Dinosaur Spirit
+PT:7/5
+K:Trample
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSneak | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, you may put a creature card from your hand onto the battlefield tapped and attacking.
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Creature.YouCtrl | Tapped$ True | Attacking$ True
+SVar:HasAttackEffect:TRUE
+AlternateMode:Adventure
+Oracle:Trample\nWhenever Rex Tyrannos attacks, you may put a creature card from your hand onto the battlefield tapped and attacking.
+
+ALTERNATE
+
+Name:Path of Primacy
+ManaCost:G
+Types:Sorcery Adventure
+A:SP$ Dig | DigNum$ 3 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Creature,Land | ForceRevealToController$ True | SpellDescription$ Look at the top three cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
+Oracle:Look at the top three cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order. (Then exile this card. You may cast the creature later from exile.)

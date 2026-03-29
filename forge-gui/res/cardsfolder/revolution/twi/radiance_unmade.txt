@@ -1,0 +1,9 @@
+Name:Radiance Unmade
+ManaCost:2 W
+Types:Instant
+A:SP$ Charm | Choices$ DBExile,DBBlink
+SVar:DBExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | SpellDescription$ Exile target tapped creature.
+SVar:DBBlink:DB$ ChangeZone | ValidTgts$ Creature | Origin$ Battlefield | Destination$ Exile | RememberTargets$ True | SubAbility$ DBReturn | SpellDescription$ Exile target creature, then return it to the battlefield tapped under its owner's control.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | Tapped$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Choose one —\n• Exile target tapped creature.\n• Exile target creature, then return it to the battlefield tapped under its owner's control.

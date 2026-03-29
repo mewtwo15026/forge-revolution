@@ -1,0 +1,8 @@
+Name:The Forever Heart
+ManaCost:3
+Types:Legendary Artifact
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.!token+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ Whenever a nontoken creature you control dies, you may discard a card with equal or greater mana value. If you do, return that creature card from your graveyard to the battlefield with a finality counter on it.
+SVar:TrigReturn:DB$ ChangeZone | Cost$ Discard<1/Card.cmcGEX/card with greater or equal mana value> | Origin$ Graveyard | Destination$ Battlefield | Defined$ TriggeredNewCardLKICopy | WithCountersType$ FINALITY | WithCountersAmount$ 1
+SVar:X:TriggeredCard$CardManaCost
+Oracle:{T}: Add one mana of any color.\nWhenever a nontoken creature you control dies, you may discard a card with equal or greater mana value. If you do, return that creature card from your graveyard to the battlefield with a finality counter on it.

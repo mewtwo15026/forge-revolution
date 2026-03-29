@@ -1,0 +1,9 @@
+Name:Mandate of Conquest
+ManaCost:2 W
+Types:Enchantment
+T:Mode$ AttackersDeclared | Execute$ TrigDraw | ValidAttackers$ Creature | ValidAttackersAmount$ GE3 | TriggerZones$ Battlefield | AttackingPlayer$ You | TriggerDescription$ Whenever you attack with three or more creatures, draw a card.
+SVar:TrigDraw:DB$ Draw
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | OptionalDecider$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, you may sacrifice a nontoken creature. If you do, two 1/1 red Berserker creature tokens.
+SVar:TrigToken:AB$ Token | Cost$ Sac<1/Creature.!token/nontoken creature> | TokenAmount$ 2 | TokenScript$ r_1_1_berserker | TokenOwner$ You
+AI:RemoveDeck:All
+Oracle:Whenever you attack with three or more creatures, draw a card.\nAt the beginning of your end step, you may sacrifice a nontoken creature. If you do, create two 1/1 red Berserker creature tokens.

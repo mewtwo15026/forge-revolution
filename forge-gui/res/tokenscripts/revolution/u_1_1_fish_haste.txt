@@ -1,0 +1,7 @@
+Name:Fish Token
+ManaCost:no cost
+Colors:blue
+Types:Creature Fish
+PT:1/1
+K:Haste
+Oracle:Haste

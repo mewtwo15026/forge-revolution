@@ -1,0 +1,9 @@
+Name:Nascent Star
+ManaCost:2
+Types:Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may put a -1/-1 counter on target creature.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ M1M1 | IsCurse$ True | CounterNum$ 1
+A:AB$ PutCounter | Cost$ 2 T Sac<1/CARDNAME> | SorcerySpeed$ True | ValidTgts$ Creature | TgtPrompt$ Select target creature | CounterType$ M1M1 | IsCurse$ True | CounterNum$ 1 | SpellDescription$ Put a -1/-1 counter on target creature. Activate only as a sorcery.
+A:AB$ Destroy | Cost$ 7 T Sac<1/CARDNAME> | SorcerySpeed$ True | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SpellDescription$ Destroy target nonland permanent. Activate only as a sorcery.
+DeckHas:Ability$Sacrifice
+Oracle:When Nascent Star enters, you may put a -1/-1 counter on target creature.\n{2}, {T}, Sacrifice Nascent Star: Put a -1/-1 counter on target creature. Activate only as a sorcery.\n{7}, {T}, Sacrifice Nascent Star: Destroy target nonland permanent. Activate only as a sorcery.

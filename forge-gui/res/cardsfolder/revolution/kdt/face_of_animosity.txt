@@ -1,0 +1,7 @@
+Name:Face of Animosity
+ManaCost:R
+Types:Instant
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump | SpellDescription$ Put a +1/+1 counter on target creature. It gets +2/+0 and gains trample until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | NumAtt$ +2 | KW$ Trample
+DeckHas:Ability$Counters
+Oracle:Put a +1/+1 counter on target creature. It gets +2/+0 and gains trample until end of turn.

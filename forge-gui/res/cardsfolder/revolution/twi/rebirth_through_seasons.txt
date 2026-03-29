@@ -1,0 +1,6 @@
+Name:Rebirth through Seasons
+ManaCost:R
+Types:Enchantment
+A:AB$ PutCounter | Cost$ 2 Sac<1/Creature> | ActivationZone$ Battlefield | ActivationPhases$ Upkeep->Main1,Main2->Cleanup | CounterNum$ 1 | CounterType$ P1P1 | ValidTgts$ Creature | AITgts$ Creature.YouCtrl | TgtPrompt$ Select target creature | SpellDescription$ Put a +1/+1 counter on target creature. Activate only outside of combat.
+DeckHas:Ability$Sacrifice|Counters
+Oracle:{2}, Sacrifice a creature: Put a +1/+1 counter on target creature. Activate only outside of combat.

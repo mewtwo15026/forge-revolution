@@ -1,0 +1,18 @@
+Name:Saureus Duplixi
+ManaCost:6 G U
+Types:Creature Dinosaur Spirit
+PT:8/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigClone | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, up to one target land you control becomes a copy of CARDNAME.
+SVar:TrigClone:DB$ Clone | Defined$ Self | CloneZone$ Battlefield | CloneTarget$ ThisTargetedCard | ValidTgts$ Land.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target land you control | AiTgts$ Land.untapped+YouCtrl
+SVar:HasAttackEffect:TRUE
+AlternateMode:Adventure
+Oracle:Whenever Saureus Duplixi attacks, up to one target land you control becomes a copy of Saureus Duplixi.
+
+ALTERNATE
+
+Name:Path of Fortune
+ManaCost:2 G U
+Types:Instant Adventure
+A:SP$ Draw | Defined$ You | NumCards$ 2 | SubAbility$ DBChangeZone | SpellDescription$ Draw two cards.
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | Optional$ You | ChangeType$ Land | ChangeNum$ 1 | SpellDescription$ You may put a land card from your hand onto the battlefield.
+Oracle:Draw two cards. You may put a land card from your hand onto the battlefield. (Then exile this card. You may cast the creature later from exile.)

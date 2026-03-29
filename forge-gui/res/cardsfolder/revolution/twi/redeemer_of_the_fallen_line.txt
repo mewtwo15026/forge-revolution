@@ -1,0 +1,9 @@
+Name:Redeemer of the Fallen Line
+ManaCost:5 W
+Types:Creature Angel Soldier
+PT:4/3
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, return target creature card with mana value 3 or less from your graveyard to your hand.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl+cmcLE3
+DeckHas:Ability$Graveyard
+Oracle:Flying\nWhen Redeemer of the Fallen Line enters, return target creature card with mana value 3 or less from your graveyard to your hand.

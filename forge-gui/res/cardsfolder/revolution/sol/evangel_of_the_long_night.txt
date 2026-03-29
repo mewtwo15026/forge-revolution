@@ -1,0 +1,6 @@
+Name:Evangel of the Long Night
+ManaCost:1 W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/8_Evangel of the Long Night.jpg
+Oracle:When Evangel of the Long Night enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nIf you would create one or more tokens while you control seven or more lands, create that many 4/4 black Dragon creature tokens with flying instead.

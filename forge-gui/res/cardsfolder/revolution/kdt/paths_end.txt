@@ -1,0 +1,6 @@
+Name:Path's End
+ManaCost:2 W W U
+Types:Sorcery
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+A:SP$ DestroyAll | ValidCards$ Permanent.!hasAbility Activated | SpellDescription$ Destroy all permanents without activated abilities.
+Oracle:This spell can't be countered.\nDestroy all permanents without activated abilities.

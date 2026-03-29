@@ -1,0 +1,11 @@
+Name:Gravetithe Witch
+ManaCost:2 U B
+Types:Creature Human Warlock
+PT:3/3
+K:Menace
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | Execute$ TrigReturn | TriggerDescription$ At the beginning of each end step, return target creature card with mana value 3 or less from your graveyard to the battlefield if you've spent four or more mana to cast instant and/or sorcery spells this turn.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouOwn+cmcLE3 | TgtPrompt$ Select target creature card in your graveyard with mana value 3 or less | ConditionCheckSVar$ X | ConditionSVarCompare$ GE4
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Graveyard
+Oracle:Menace\nAt the beginning of each end step, return target creature card with mana value 3 or less from your graveyard to the battlefield if you've spent four or more mana to cast instant and/or sorcery spells this turn.

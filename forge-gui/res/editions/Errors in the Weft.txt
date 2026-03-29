@@ -124,7 +124,7 @@ Replace=.020F fromSheet("ERR buy a box")
 82 U BEHOLD() @Scott Uminga
 83 R BORROW() @Max Hay & Laurel
 84 C Burnout Champion @Sergio Brizeno
-85 C Carefree Moralist @Fuzzwolf
+85 C Carefree Mortalist @Fuzzwolf
 86 U Catabolist @Till Freitag
 87 U Cheat Code @SzrnArts
 88 U Death's Believers @Bart Tchorzewski
@@ -330,15 +330,27 @@ Replace=.020F fromSheet("ERR buy a box")
 288 M Offset Daemon @Jumpei
 
 [buy a box]
+289 S EXIT() @A Dan
 290 S Futurist Ideal @Joao Oueiroz
 291 S Preemption Daemon @Donglu Yu
+292 S Lifehacker @Ross Tran
+293 S A Tear in the Weft @Leon Tukker
 294 S Cache Thrasher @Su Ke
 295 S Cyberzoologist @Olga Adriyenko
+296 S RECURSE() @Julian Faylona
+297 S Weft Dancer @Chris SRM
+298 S Avatar Exchange @Jajang Sopandi
 299 S Complementarity @Dao Trong Le
 300 S Architect of the Intangible @Areakst Kingglost
 301 S Exorcist of Errors @Katrina Chiu
 302 S Red-Hot Rider @Qing Wen
 303 S Masksmith @Gaudi Buendia
+304 S Plasma Strike @Art of Li
+305 S Weave Dispatcher @Ognjen Sporin
+306 S Cybersaurus @Ognjen Sporin
+307 S Task Triage @Ognjen Sporin
+309 S Hang @Gavin Manners
+310 S Fabricated Anomaly @Balancesheet
 
 [soulspaces]
 1 Chimeric Soulspace|ERR

@@ -1,0 +1,6 @@
+Name:Kinox Naturalist
+ManaCost:1 G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/175_Kinox Naturalist.jpg
+Oracle:{T}: Add {G}.\n{1}{G}, {T}, Sacrifice another creature: Draw a card.

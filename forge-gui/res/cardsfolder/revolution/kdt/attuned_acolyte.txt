@@ -1,0 +1,10 @@
+Name:Attuned Acolyte
+ManaCost:W B
+Types:Creature Human Samurai
+PT:1/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 4/4 colorless Vehicle artifact token named Hardsuit with crew 3.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ hardsuit | TokenOwner$ You
+S:Mode$ Continuous | Affected$ Artifact.token+YouCtrl,Enchantment.token+YouCtrl | AddKeyword$ Exalted | Description$ Artifact tokens and enchantment tokens you control have exalted.
+SVar:BuffedBy:Artifact.token,Enchantment.token
+DeckHints:Ability$Token & Type$Treasure|Map|Food
+Oracle:When this creature enters, create a 4/4 colorless Vehicle artifact token named Hardsuit with crew 3.\nArtifact tokens and enchantment tokens you control have exalted. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

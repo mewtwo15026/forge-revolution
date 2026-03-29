@@ -846,7 +846,10 @@ public class Combat {
 
             assignedDamage = true;
             // If the Attacker is unblocked, or it's a trampler and has 0 blockers, deal damage to defender
-            if (defender instanceof Card && !((Card) defender).isBattle() && attacker.hasKeyword("Trample:Planeswalker")) {
+            // REVOLUTION: handle trample over planeswalkers
+            if (defender instanceof Card && !(((Card) defender).isBattle() && attacker.hasKeyword("Trample:Planeswalker"))
+                    && !(((Card) defender).isPlaneswalker() && attacker.hasKeyword("Trample:Battle")))
+            {
                 if (orderedBlockers == null || orderedBlockers.isEmpty()) {
                     orderedBlockers = new CardCollection((Card) defender);
                 } else {

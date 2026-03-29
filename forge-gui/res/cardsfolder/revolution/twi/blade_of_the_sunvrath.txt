@@ -1,0 +1,8 @@
+Name:Blade of the Sunvrath
+ManaCost:4 W
+Types:Creature Human Knight
+PT:3/4
+K:Vigilance
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ Whenever CARDNAME attacks, creatures you control get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1
+Oracle:Vigilance\nWhenever Blade of the Sunvrath attacks, creatures you control get +1/+0 until end of turn.

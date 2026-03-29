@@ -1,0 +1,11 @@
+Name:Ageless Seishin
+ManaCost:2 G G G
+Types:Creature Spirit Dragon
+PT:5/5
+K:Ward:2
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidSource$ You | ValidObject$ Permanent.inZoneBattlefield,Player | ReplaceWith$ DoubleCounters | Description$ If you would put one or more counters on a permanent or player, put three times as many of each of those kinds of counters on that permanent or player instead.
+SVar:DoubleCounters:DB$ ReplaceCounter | ValidSource$ You | Amount$ X
+SVar:X:ReplaceCount$CounterNum/Thrice
+DeckHints:Ability$Counters & Type$Planeswalker
+Oracle:Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\n
+If you would put one or more counters on a permanent or player, put three times as many of each of those kinds of counters on that permanent or player instead.

@@ -1,0 +1,11 @@
+Name:Fellhorn Enforcer
+ManaCost:3 G
+Types:Creature Minotaur Zombie
+PT:3/4
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, you may put a +1/+1 counter on another target creature. That creature gains vigilance until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Vigilance
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Trample\nWhen Fellhorn Enforcer enters, you may put a +1/+1 counter on another target creature. That creature gains vigilance until end of turn.

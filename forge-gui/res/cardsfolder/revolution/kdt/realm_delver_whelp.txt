@@ -1,0 +1,9 @@
+Name:Realm-Delver Whelp
+ManaCost:3 R
+Types:Creature Dragon
+PT:2/2
+K:Flying
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ During your turn, this creature has first strike.
+K:TypeCycling:Mountain:2
+DeckHas:Ability$Discard
+Oracle:Flying\nAs long as it's your turn, this creature has first strike.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

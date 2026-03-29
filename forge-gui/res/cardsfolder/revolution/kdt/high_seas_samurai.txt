@@ -1,0 +1,14 @@
+Name:High Seas Samurai
+ManaCost:1 W B
+Types:Creature Human Pirate Samurai
+PT:3/2
+K:Menace
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Alone$ True | Execute$ TrigNote | Static$ True
+SVar:TrigNote:DB$ Effect | Name$ Attacked Alone | Triggers$ ClearNote
+SVar:ClearNote:Mode$ Phase | Phase$ Cleanup | Execute$ TrigClear
+SVar:TrigClear:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | CheckSVar$ AA | SVarCompare$ GE1 | Execute$ TrigDraw | TriggerDescription$ When this creature enters, if a creature you controlled attacked alone this turn, you draw a card and you lose 1 life.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+SVar:AA:Count$ValidCommand Effect.YouCtrl+namedAttacked Alone
+Oracle:Menace\nWhen this creature enters, if a creature you controlled attacked alone this turn, you draw a card and you lose 1 life.

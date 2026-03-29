@@ -1,0 +1,6 @@
+Name:Medari Darkseer
+ManaCost:1 U B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/225_Medari Darkseer.jpg
+Oracle:Vigilance, menace\nMedari Darkseer gets +1/+0 for each card you've drawn this turn.

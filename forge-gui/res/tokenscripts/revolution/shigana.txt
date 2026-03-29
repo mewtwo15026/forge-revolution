@@ -1,0 +1,7 @@
+Name:Shigana
+ManaCost:no cost
+Colors:white
+Types:Legendary Creature Beast
+PT:2/2
+K:Haste
+Oracle:Haste

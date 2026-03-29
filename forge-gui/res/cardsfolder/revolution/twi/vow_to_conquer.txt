@@ -1,0 +1,7 @@
+Name:Vow to Conquer
+ManaCost:1 R W
+Types:Instant
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 3 | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 3 damage to any target and you gain 3 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+Oracle:This spell can't be countered.\nVow to Conquer deals 3 damage to any target and you gain 3 life.

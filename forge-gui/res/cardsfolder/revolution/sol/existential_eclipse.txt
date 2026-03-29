@@ -1,0 +1,5 @@
+Name:Existential Eclipse
+ManaCost:2 W
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/9_Existential Eclipse.jpg
+Oracle:Enchant nonland permanent\nAt the beginning of your first main phase, sacrifice Existential Eclipse. If you do, exile enchanted permanent.

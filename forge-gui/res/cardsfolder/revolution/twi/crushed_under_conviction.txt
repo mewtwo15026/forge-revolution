@@ -1,0 +1,9 @@
+Name:Crushed Under Conviction
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Charm | Choices$ DBBite,DBDig | CharmNum$ 1
+SVar:DBBite:DB$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage | StackDescription$ None | SpellDescription$ Target creature you control deals damage equal to its power to target creature.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature | AILogic$ PowerDmg | TgtPrompt$ Select target creature to receive damage | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower
+SVar:DBDig:DB$ Dig | DigNum$ 4 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Creature,Land | ForceRevealToController$ True | SpellDescription$ Look at the top four cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order.
+Oracle:Choose one —\n• Target creature you control deals damage equal to its power to target creature.\n• Look at the top four cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in any order.

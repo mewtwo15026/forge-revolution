@@ -1,0 +1,9 @@
+Name:Majesty
+ManaCost:R RG G
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card.cmcGE4 | ValidActivatingPlayer$ You | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell with mana value 4 or greater, create a 4/3 red and green Spirit Beast creature token.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ rg_4_3_spirit_beast | TokenAmount$ 1
+T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidSource$ Creature.YouCtrl | ValidTarget$ Player | DamageAmount$ GE4 | Execute$ TrigDraw | ActivationLimit$ 1 | TriggerDescription$ Whenever a creature you control deals 4 or more damage to a player, draw a card. This ability triggers only once each turn.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$Token
+Oracle:Whenever you cast a spell with mana value 4 or greater, create a 4/3 red and green Spirit Beast creature token.\nWhenever a creature you control deals 4 or more damage to a player, draw a card. This ability triggers only once each turn.

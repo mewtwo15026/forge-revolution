@@ -1,0 +1,11 @@
+Name:Realmweft Kitsune
+ManaCost:3 G
+Types:Creature Fox Shapeshifter
+PT:4/3
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevDamage | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevDamage:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever this creature deals combat damage to a player, draw a card.
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever this creature deals combat damage to a player, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:PlayMain1:TRUE
+DeckNeeds:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nWhenever this creature deals combat damage to a player, draw a card.

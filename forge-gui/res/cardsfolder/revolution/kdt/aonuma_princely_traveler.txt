@@ -1,0 +1,10 @@
+Name:Aonuma, Princely Traveler
+ManaCost:G U
+Types:Legendary Creature Avatar Ninja
+PT:2/2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Hand | ValidCard$ Permanent.Other+!token+YouCtrl | ResolvedLimit$ 1 | OptionalDecider$ You | Execute$ TrigCopy | TriggerDescription$ Whenever another nontoken permanent you control is returned to hand, you may create a token that's a copy of it. Do this only once each turn.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy
+S:Mode$ Continuous | Affected$ Creature.YouOwn+cmcLE3 | AffectedZone$ Hand | AddKeyword$ Ninjutsu:G U | Description$ Each creature card with mana value 3 or less in your hand has ninjutsu {G}{U}.
+DeckHints:Keyword$Ninjutsu
+DeckHas:Keyword$Ninjutsu
+Oracle:Whenever another nontoken permanent you control is returned to hand, you may create a token that's a copy of it. Do this only once each turn.\nEach creature card with mana value 3 or less in your hand has ninjutsu {G}{U}. ({G}{U}, Return an unblocked attacker you control to hand: Put that card onto the battlefield from your hand tapped and attacking.)

@@ -1,0 +1,8 @@
+Name:Sweeten the Deal
+ManaCost:U R
+Types:Sorcery
+A:SP$ Draw | NumCards$ 2 | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ You may discard a card. If you do, draw two cards.
+S:Mode$ Continuous | EffectZone$ Graveyard | Affected$ Card.Self | AddKeyword$ Flashback:U R | CheckSVar$ X | SVarCompare$ GE1 | Description$ As long as an opponent has lost life this turn and CARDNAME is in your graveyard, it has flashback {U}{R}.
+SVar:X:Count$LifeOppsLostThisTurn
+DeckHas:Ability$Discard
+Oracle:You may discard a card. If you do, draw two cards.\nAs long as an opponent has lost life this turn and Sweeten the Deal is in your graveyard, it has flashback {U}{R}. (You may cast it from your graveyard for its flashback cost. Then exile it.)

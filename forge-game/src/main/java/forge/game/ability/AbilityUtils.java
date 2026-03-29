@@ -2299,6 +2299,10 @@ public class AbilityUtils {
         if (sq[0].equals("NotExtraTurn")) {
             return doXMath(calculateAmount(c, sq[game.getPhaseHandler().getPlayerTurn().isExtraTurn() ? 2 : 1], ctb), expr, c, ctb);
         }
+        if (sq[0].equals("YourSpellManaExpent")) {
+            return doXMath(player.getSpellExpentThisTurn(), expr, c, ctb);
+        }
+
         if (sq[0].equals("YourStartingLife")) {
             return doXMath(player.getStartingLife(), expr, c, ctb);
         }
@@ -3247,6 +3251,7 @@ public class AbilityUtils {
         for (final KeywordInterface inst : c.getKeywords(Keyword.TWI_CHANT)) {
             final String k = inst.getOriginal();
             final String[] n = k.split(":");
+            // TODO: omit the exile cost if CanChantFromBattlefield is true
             chantCost = new Cost(n[2] + " ExileFromHand<1/Card.named" + c.getName() + ">", false);
         }
 

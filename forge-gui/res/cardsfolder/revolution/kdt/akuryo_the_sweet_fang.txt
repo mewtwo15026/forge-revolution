@@ -1,0 +1,11 @@
+Name:Akuryo, the Sweet Fang
+ManaCost:W U B R
+Types:Legendary Creature Demon Monk
+PT:4/5
+K:Menace
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+tapped | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever a tapped creature you control dies, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:PlayMain1:TRUE
+DeckHas:Ability$LifeGain
+Oracle:Menace, lifelink\nWhenever a tapped creature you control dies, draw a card.

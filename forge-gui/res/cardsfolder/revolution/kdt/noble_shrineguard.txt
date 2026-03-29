@@ -1,0 +1,10 @@
+Name:Noble Shrineguard
+ManaCost:3 R G
+Types:Creature Spirit
+PT:1/1
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDouble | TriggerDescription$ When this creature enters, double the number of +1/+1 counters on another target creature you control. Then for each counter on that creature, you may put a counter of that kind on this creature.
+SVar:TrigDouble:DB$ MultiplyCounter | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | AITgts$ Card.HasCounters | CounterType$ P1P1 | SubAbility$ DBCounters
+SVar:DBCounters:DB$ PutCounter | Defined$ Self | CounterType$ EachFromSource | EachFromSource$ Targeted
+DeckNeeds:Ability$Counters
+Oracle:Trample \nWhen this creature enters, double the number of +1/+1 counters on another target creature you control. Then for each counter on that creature, you may put a counter of that kind on this creature.

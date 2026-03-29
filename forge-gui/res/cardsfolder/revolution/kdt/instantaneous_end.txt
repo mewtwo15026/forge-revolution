@@ -1,0 +1,8 @@
+Name:Instantaneous End
+ManaCost:3 WB WB
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker to exile | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBPump | SpellDescription$ Exile target creature or planeswalker. Up to one target creature you control gets +1/+0 and gains lifelink until end of turn.
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you control to pump | NumAtt$ +1 | KW$ Lifelink
+K:Cycling:WB
+DeckHas:Ability$Discard
+Oracle:Exile target creature or planeswalker. Up to one target creature you control gets +1/+0 and gains lifelink until end of turn.\nCycling {WB} ({WB}, Discard this card: Draw a card.)

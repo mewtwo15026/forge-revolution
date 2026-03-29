@@ -1,0 +1,12 @@
+Name:Unstoppable Weed
+ManaCost:1 G G
+Types:Creature Plant
+PT:2/2
+K:mon_Experience
+S:Mode$ Continuous | Affected$ Creature.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each +1/+1 counter on other creatures you control.
+SVar:X:Count$Valid Creature.YouCtrl+Other$CardCounters.P1P1
+SVar:BuffedBy:Creature
+DeckHas:Ability$Counters
+DeckNeeds:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nUnstoppable Weed gets +1/+1 for each +1/+1 counter on other creatures you control.

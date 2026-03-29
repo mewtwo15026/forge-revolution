@@ -1,0 +1,11 @@
+Name:Shigane Clan Head
+ManaCost:1 G U
+Types:Creature Human Ninja
+PT:2/2
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, create a 1/1 blue Ninja creature token with “This creature can't be blocked by creatures with greater power.”
+SVar:TrigToken:DB$ Token | TokenScript$ u_1_1_ninja_notskulk
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ Activated.Ninjutsu | TriggerZones$ Battlefield | ActivatorThisTurnCast$ EQ1 | Execute$ TrigUntap | TriggerDescription$ Whenever you activate a ninjutsu ability for the first time each turn, untap up to two target lands you control.
+SVar:TrigUntap:DB$ Untap | ValidTgts$ Land.YouCtrl | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target lands you control
+DeckHints:Ability$Ninjutsu
+DeckHas:Ability$Token
+Oracle:At the beginning of your end step, create a 1/1 blue Ninja creature token with “This creature can't be blocked by creatures with greater power.”\nWhenever you activate a ninjutsu ability for the first time each turn, untap up to two target lands you control.

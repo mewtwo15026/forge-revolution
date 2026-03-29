@@ -1,0 +1,6 @@
+Name:Invasive Progenitor
+ManaCost:RG RG RG RG
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/260_Invasive Progenitor.jpg
+Oracle:When Invasive Progenitor enters, sacrifice any number of other creatures, then create that many 3/3 red Beast creature tokens.

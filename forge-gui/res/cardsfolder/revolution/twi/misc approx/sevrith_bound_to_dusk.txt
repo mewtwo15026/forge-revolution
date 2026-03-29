@@ -1,0 +1,19 @@
+Name:Sevrith, Bound to Dusk
+ManaCost:B B G G
+Types:Legendary Creature Spirit Warrior
+PT:5/5
+K:Ward:PayLife<3>
+R:Event$ GainLife | ActiveZones$ Battlefield | ValidPlayer$ You | ReplaceWith$ GainLife | AILogic$ DoubleLife | Description$ If you would gain life, you gain that much life plus 1 instead.
+SVar:GainLife:DB$ ReplaceEffect | VarName$ LifeGained | VarValue$ X
+SVar:X:ReplaceCount$LifeGained/Plus.2
+# TODO: make this static trigger unnecessary
+T:Mode$ PayLife | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigLoseLife | Static$ True
+SVar:TrigLoseLife:DB$ LoseLife | LifeAmount$ Updated
+SVar:Updated:Count$Compare W EQ1.3.4
+SVar:W:TriggerCount$LifeAmount
+R:Event$ LifeReduced | ActiveZones$ Battlefield | ValidPlayer$ You | ReplaceWith$ ReduceLoss | Description$ If you would lose life except by paying a cost, you lose that much life minus 2 instead.
+SVar:ReduceLoss:DB$ ReplaceEffect | VarName$ Amount | VarValue$ Y
+SVar:Y:SVar$Z/LimitMin.0
+SVar:Z:ReplaceCount$Amount/Minus.2
+SVar:PlayMain1:True
+Oracle:Ward—Pay 3 life.\nIf you would gain life, you gain that much life plus 2 instead.\nIf you would lose life except by paying a cost, you lose that much life minus 2 instead. (You can't gain life this way.)

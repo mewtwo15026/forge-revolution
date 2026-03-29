@@ -1,0 +1,8 @@
+Name:Meditation
+ManaCost:2 W U
+Types:Instant
+A:SP$ GainLife | LifeAmount$ 2 | SubAbility$ DBDraw | SpellDescription$ You gain 2 life and draw two cards.
+SVar:DBDraw:DB$ Draw | NumCards$ 2
+K:Cycling:2
+DeckHas:Ability$Discard|LifeGain
+Oracle:You gain 2 life and draw two cards.\nCycling {2} ({2}, Discard this card: Draw a card.)

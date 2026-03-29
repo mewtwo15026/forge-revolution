@@ -1,0 +1,5 @@
+Name:Dwindling Light
+ManaCost:2 B
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/84_Dwindling Light.jpg
+Oracle:When Dwindling Light enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nOnce each turn, when an artifact you control enters, you may have each opponent lose life equal to the number of enchantments you control.

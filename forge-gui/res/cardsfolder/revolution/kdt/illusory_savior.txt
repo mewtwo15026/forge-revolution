@@ -1,0 +1,11 @@
+Name:Illusory Savior
+ManaCost:1 W
+Types:Creature Illusion Samurai
+PT:2/2
+K:Exalted
+A:AB$ ChooseCard | Cost$ Sac<1/CARDNAME> | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Choose another target creature you control | SubAbility$ DBDelayedTrigger | StackDescription$ When {c:Targeted} dies this turn, return that card to the battlefield tapped under its owner's control with a finality counter on it. | SpellDescription$ Choose another target creature you control.
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Targeted | ValidCard$ Card.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ TrigReturn | StackDescription$ None | SpellDescription$ When that creature dies this turn, return it to the battlefield tapped under its owner's control with a finality counter on it.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | Defined$ TriggeredCard | Tapped$ True | WithCountersType$ FINALITY
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Graveyard
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nSacrifice this creature: Choose another target creature you control. When that creature dies this turn, return it to the battlefield tapped under its owner's control with a finality counter on it.

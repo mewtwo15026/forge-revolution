@@ -1,0 +1,18 @@
+Name:King of Shallow Shores
+ManaCost:3 U U
+Types:Creature Dragon
+PT:4/4
+K:Flying
+T:Mode$ TapAll | ValidCards$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Whenever one or more creatures you control become tapped, tap up to one target creature an opponent controls.
+SVar:TrigTap:DB$ Tap | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls
+AlternateMode:Adventure
+Oracle:Flying\nWhenever one or more creatures you control become tapped, tap up to one target creature an opponent controls.
+
+ALTERNATE
+
+Name:Royal Dominion
+ManaCost:1 U
+Types:Instant Adventure
+A:SP$ Tap | ValidTgts$ Creature | SubAbility$ DBCounter | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creatures | SpellDescription$ Tap up to two target creatures. Put a stun counter on one of them.
+SVar:DBCounter:DB$ PutCounter | Choices$ Creature.targetedBy | CounterType$ Stun | CounterNum$ 1
+Oracle:Tap up to two target creatures. Put a stun counter on one of them. (Then exile this card. You may cast the creature later from exile.)

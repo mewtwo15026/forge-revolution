@@ -1,0 +1,13 @@
+Name:Ossin, the Crown's Shadow
+ManaCost:15 G
+Types:Legendary Creature Beast Spirit
+PT:9/9
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | CheckSVar$ Y | SVarCompare$ LTZ | Amount$ X | EffectZone$ All | Description$ If your life total is less than your starting life total, this spell costs {X} less to cast, where X is the difference.
+SVar:X:SVar$Z/Minus.Y
+SVar:Y:Count$YourLifeTotal
+SVar:Z:Count$YourStartingLife
+K:Vigilance
+K:Reach
+K:Hexproof
+S:Mode$ Continuous | Affected$ You | AddKeyword$ Hexproof | Description$ You have hexproof.
+Oracle:If your life total is less than your starting life total, this spell costs {X} less to cast, where X is the difference.\nVigilance, reach, hexproof\nYou have hexproof.

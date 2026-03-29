@@ -1,0 +1,13 @@
+Name:Ruinous Portents
+ManaCost:1 B B R R
+Types:Sorcery
+A:SP$ Sacrifice | Amount$ SacX | SacValid$ Permanent | Defined$ You | RememberSacrificed$ True | Optional$ True | SubAbility$ DBDamageAll | SpellDescription$ Sacrifice any number of permanents. CARDNAME deals X damage to each creature your opponents control and you draw X cards, where X is the number of permanents sacrificed this way.
+SVar:DBDamageAll:DB$ DamageAll | ValidCards$ Creature.OppCtrl | NumDmg$ RuinX | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ RuinX | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Permanent.YouCtrl
+SVar:RuinX:Remembered$Amount
+DeckHas:Ability$Sacrifice
+DeckHints:Ability$Token
+AI:RemoveDeck:All
+Oracle:Sacrifice any number of permanents. Ruinous Portents deals X damage to each creature your opponents control and you draw X cards, where X is the number of permanents sacrificed this way.

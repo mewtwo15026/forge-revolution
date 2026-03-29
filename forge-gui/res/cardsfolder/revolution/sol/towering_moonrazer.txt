@@ -1,0 +1,10 @@
+Name:Towering Moonrazer
+ManaCost:1 R
+Types:Creature Beast
+PT:3/4
+K:Wither
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put three -1/-1 counters on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 3
+A:AB$ DealDamage | Cost$ R T SubCounter<1/M1M1> | ValidTgts$ Player,Planeswalker | TgtPrompt$ Select target player or planeswalker | NumDmg$ X | SpellDescription$ CARDNAME deals damage equal to its power to target player or planeswalker.
+SVar:X:Count$CardPower
+Oracle:Wither\nWhen Towering Moonrazer enters, put three -1/-1 counters on target creature you control.\n{R}, {T}, Remove a -1/-1 counter from Towering Moonrazer: It deals damage equal to its power to target player or planeswalker.

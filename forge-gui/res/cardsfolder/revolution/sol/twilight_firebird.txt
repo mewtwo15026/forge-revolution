@@ -1,0 +1,6 @@
+Name:Twilight Firebird
+ManaCost:RW RW RW RW
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/271_Twilight Firebird.jpg
+Oracle:Flying\nWhen Twilight Firebird enters, exile the top four cards of your library.\nWhenever Twilight Firebird attacks or dies, until the end of your next turn, you may play a permanent card exiled with it.

@@ -1,0 +1,5 @@
+Name:Unbound Horizons
+ManaCost:3 G
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/189_Unbound Horizons.jpg
+Oracle:Search your library for up to two basic land cards, reveal them, put one onto the battlefield tapped and the other into your hand, then shuffle. You gain 4 life.

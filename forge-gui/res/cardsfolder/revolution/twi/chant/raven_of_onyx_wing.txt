@@ -1,0 +1,12 @@
+Name:Raven of Onyx Wing
+ManaCost:4 U
+Types:Creature Bird Horror Warlock
+PT:3/3
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, return target nonland permanent you don't control to its owner's hand.
+SVar:TrigChangeZone:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+YouDontCtrl | TgtPrompt$ Select target nonland permanent you don't control | Origin$ Battlefield | Destination$ Hand
+# TODO: implement Chant
+#K:twi_Chant:1 U
+#A:SP$ Chant | Mode$ ChangeZone | ValidTgts$ Permanent.nonLand+YouDontCtrl | TgtPrompt$ Select target nonland permanent you don't control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target nonland permanent you don't control to its owner's hand.
+Oracle:Flying\nWhen Raven of Onyx Wing enters, [return target nonland permanent you don't control to its owner's hand.]\n
+Chant {1}{U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

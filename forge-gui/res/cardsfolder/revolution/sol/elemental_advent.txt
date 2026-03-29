@@ -1,0 +1,5 @@
+Name:Elemental Advent
+ManaCost:UR UR
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/257_Elemental Advent.jpg
+Oracle:Create two 1/1 red Elemental creature tokens.

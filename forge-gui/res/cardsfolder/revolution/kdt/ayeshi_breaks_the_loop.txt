@@ -1,0 +1,9 @@
+Name:Ayeshi Breaks the Loop
+ManaCost:X G W U
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ 3 | Choices$ ExileA,ExileC,ExileE
+SVar:ExileA:DB$ ChangeZoneAll | ChangeType$ Artifact.cmcLEX | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile each artifact with mana value X or less.
+SVar:ExileC:DB$ ChangeZoneAll | ChangeType$ Creature.cmcLEX | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile each creature with mana value X or less.
+SVar:ExileE:DB$ ChangeZoneAll | ChangeType$ Enchantment.cmcLEX | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile each enchantment with mana value X or less.
+SVar:X:Count$xPaid
+Oracle:Choose one or more —\n• Exile each artifact with mana value X or less.\n• Exile each creature with mana value X or less.\n• Exile each enchantment with mana value X or less.

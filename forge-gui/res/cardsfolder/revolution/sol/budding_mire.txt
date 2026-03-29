@@ -1,0 +1,8 @@
+Name:Budding Mire
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Destroy | Cost$ 3 T Sac<1/CARDNAME> | ValidTgts$ Land.nonBasic+OppCtrl | AITgts$ Land.nonBasic+OppCtrl+withoutIndestructible | TgtPrompt$ Select target nonbasic land an opponent controls | SubAbility$ DBToken | SpellDescription$ Destroy target nonbasic land an opponent controls. You and that land's controller each create two colorless land tokens named Lotus Spring with "{T}: Add one mana of any color."
+SVar:DBToken:DB$ Token | TokenScript$ lotus_spring | TokenAmount$ 2 | TokenOwner$ TargetedController,You
+AI:RemoveDeck:Random
+Oracle:{T}: Add {C}.\n{3}, {T}, Sacrifice Budding Mire: Destroy target nonbasic land an opponent controls. You and that land's controller each create two colorless land tokens named Lotus Spring with "{T}: Add one mana of any color."

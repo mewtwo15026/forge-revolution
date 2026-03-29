@@ -1,0 +1,10 @@
+Name:Bloodied Zealot
+ManaCost:R W
+Types:Creature Azra Berserker
+PT:2/2
+Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Whenever CARDNAME attacks, you may sacrifice a creature. If you do, CARDNAME deals 2 damage to each opponent and you gain 2 life.
+SVar:TrigBurn:AB$ DealDamage | Cost$ Sac<1/Creature> | Defined$ Player.Opponent | NumDmg$ 2 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
+SVar:AIPreference:SacCost$Creaure.Other+token,Creature.Other+cmcLE1,Creature.Other+withtwi_Rapture+!attacking+cmcLE3
+DeckHas:Ability$Sacrifice|LifeGain
+Oracle:Whenever Bloodied Zealot attacks, you may sacrifice a creature. If you do, Bloodied Zealot deals 2 damage to each opponent and you gain 2 life.

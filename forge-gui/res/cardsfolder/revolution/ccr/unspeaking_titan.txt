@@ -3,7 +3,8 @@ ManaCost:1 U
 Types:Creature Golem
 PT:3/3
 S:Mode$ Continuous | Affected$ Golem.YouCtrl+withoutWard | AddKeyword$ Ward:1 | Description$ Golems you control without ward have ward {1}.
-S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | IsPresent$ Golem.YouCtrl | PresentCompare$ LT3 | Description$ CARDNAME can't attack or block unless you control three or more Golems.
+S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | CheckSVar$ X | SVarCompare$ LT3 | Description$ CARDNAME can't attack or block unless you control three or more differently named Golems.
+SVar:X:Count$Valid Golem.YouCtrl$DifferentCardNames
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ Whenever CARDNAME enters or attacks, tap up to one target creature and put a stun counter on it.
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTap | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, tap up to one target creature and put a stun counter on it.
 SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select target creature | SubAbility$ DBPutCounter
@@ -11,4 +12,4 @@ SVar:DBPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ Stun | Count
 A:AB$ Token | Cost$ 3 T | TokenAmount$ 1 | TokenScript$ w_1_1_golem | TokenOwner$ You | SpellDescription$ Create a 1/1 white Golem creature token.
 DeckHints:Type$Golem
 DeckHas:Ability$Counters|Token & Type$Golem
-Oracle:Golems you control without ward have ward {1}.\nUnspeaking Titan can't attack or block unless you control three or more Golems.\nWhenever Unspeaking Titan enters or attacks, tap up to one target creature and put a stun counter on it.\n{3}, {T}: Create a 1/1 white Golem creature token.
+Oracle:Golems you control without ward have ward {1}.\nUnspeaking Titan can't attack or block unless you control three or more differently named Golems.\nWhenever Unspeaking Titan enters or attacks, tap up to one target creature and put a stun counter on it.\n{3}, {T}: Create a 1/1 white Golem creature token.

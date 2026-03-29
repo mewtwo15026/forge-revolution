@@ -1,0 +1,6 @@
+Name:Noop
+ManaCost:no cost
+Types:Legendary Artifact Creature Robot
+PT:3/3
+K:Defender
+Oracle:Defender

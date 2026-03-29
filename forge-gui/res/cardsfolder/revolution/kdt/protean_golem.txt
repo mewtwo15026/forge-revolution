@@ -1,0 +1,9 @@
+Name:Protean Golem
+ManaCost:2
+Types:Artifact Creature Golem Shapeshifter
+PT:2/2
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Type$ Creature | AILogic$ MostProminentInComputerDeck | SpellDescription$ As this creature enters, choose a creature type.
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ ChosenType | Description$ This creature is the chosen creature type in addition to its other types.
+A:AB$ Clone | Cost$ 2 | ValidTgts$ Creature.Other+ChosenType+YouCtrl | Duration$ UntilEndOfTurn | SpellDescription$ Until end of turn, this creature becomes a copy of another target creature you control of the chosen type.
+Oracle:As this creature enters, choose a creature type.\nThis creature is the chosen creature type in addition to its other types.\n{2}: This creature becomes a copy of another target creature you control of the chosen type until end of turn.

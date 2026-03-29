@@ -1,0 +1,7 @@
+Name:Fish Token
+ManaCost:no cost
+Types:Creature Fish
+Colors:blue
+PT:2/1
+K:Flying
+Oracle:Flying

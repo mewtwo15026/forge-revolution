@@ -1,0 +1,8 @@
+Name:Banisher Rifle
+ManaCost:2 W B
+Types:Artifact
+K:Exalted
+K:Exalted
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCast | Execute$ TrigExile | TriggerDescription$ When this artifact enters, if it was cast, exile target nonland permanent an opponent controls.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls
+Oracle:Exalted, exalted (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)\nWhen this artifact enters, if it was cast, exile target nonland permanent an opponent controls.

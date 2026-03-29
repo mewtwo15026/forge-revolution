@@ -1,0 +1,8 @@
+Name:Master of Stances
+ManaCost:2 G
+Types:Creature Human Ninja
+PT:3/3
+K:Ninjutsu:2 G
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ When this creature enters, creatures you control gain trample until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Trample
+Oracle:Ninjutsu {2}{G} ({2}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, creatures you control gain trample until end of turn.

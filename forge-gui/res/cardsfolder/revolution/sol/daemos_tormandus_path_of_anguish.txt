@@ -1,0 +1,15 @@
+Name:Daemos Tormandus
+ManaCost:6 B R
+Types:Creature Demon Spirit
+PT:8/7
+K:Menace
+AlternateMode:Adventure
+Oracle:Menace
+
+ALTERNATE
+
+Name:Path of Anguish
+ManaCost:1 BR
+Types:Sorcery Adventure
+A:SP$ Discard | ValidTgts$ Player | NumCards$ 1 | Mode$ TgtChoose | UnlessCost$ Sac<1/Permanent/permanent> | UnlessPayer$ Targeted | SpellDescription$ Target player discards a card unless they sacrifice a permanent. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Target player discards a card unless they sacrifice a permanent. (Then exile this card. You may cast the creature later from exile.)

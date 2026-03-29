@@ -1,0 +1,7 @@
+Name:Zombie Token
+ManaCost:no cost
+Colors:black
+Types:Creature Zombie
+PT:2/2
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+Oracle:This creature can't block.

@@ -1,0 +1,9 @@
+Name:Nimble Mentor
+ManaCost:G G U U
+Types:Creature Human Ninja
+PT:4/4
+K:Ninjutsu:2 G U
+S:Mode$ AlternativeCost | ValidSA$ Activated.Ninjutsu | ValidPlayer$ You | Cost$ Return<1/Creature.unblocked/unblocked attacker> | CostDesc$ 0 | CheckSVar$ X | SVarCompare$ LT1 | Description$ You may pay {0} rather than pay the ninjutsu cost of the first ninjutsu ability you activate each turn.
+SVar:X:Count$ThisTurnActivated_Activated.Ninjutsu+YouCtrl
+DeckNeeds:Keyword$Ninjutsu
+Oracle:Ninjutsu {2}{G}{U} ({2}{G}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nYou may pay {0} rather than pay the ninjutsu cost of the first ninjutsu ability you activate each turn.

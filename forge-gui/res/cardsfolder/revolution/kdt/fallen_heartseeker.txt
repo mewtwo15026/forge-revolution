@@ -1,0 +1,10 @@
+Name:Fallen Heartseeker
+ManaCost:1 B
+Types:Creature Human Samurai
+PT:3/1
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Alone$ True | TriggerZones$ Graveyard | Execute$ TrigReturn | TriggerDescription$ Whenever a creature you control attacks alone, you may pay {1}{B}. If you do, return this card from your graveyard to the battlefield tapped and attacking.
+SVar:TrigReturn:DB$ ChangeZone | Cost$ 1 B | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | Attacking$ True
+SVar:SacMe:1
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard
+Oracle:Whenever a creature you control attacks alone, you may pay {1}{B}. If you do, return this card from your graveyard to the battlefield tapped and attacking.

@@ -1,0 +1,7 @@
+Name:Mortal Blade
+ManaCost:3
+Types:Artifact Equipment
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 2 | AddToughness$ 1 | Description$ Equipped creature gets +2/+1.
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ During your turn, equipped creature has first strike.
+K:Equip:2
+Oracle:Equipped creature gets +2/+1.\nEquipped creature has first strike during your turn.\nEquip {2}

@@ -1,0 +1,10 @@
+Name:Star-Touched Oracle
+ManaCost:1 R
+Types:Creature Human Wizard
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put two -1/-1 counters on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 2
+A:AB$ Discard | Cost$ T SubCounter<1/M1M1> | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw | SpellDescription$ Discard a card. If you do, draw a card.
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When Star-Touched Oracle enters, put two -1/-1 counters on target creature you control.\n{T}, Remove a -1/-1 counter from Star-Touched Oracle: Discard a card. If you do, draw a card.

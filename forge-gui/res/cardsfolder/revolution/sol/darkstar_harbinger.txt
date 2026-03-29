@@ -1,0 +1,11 @@
+Name:Darkstar Harbinger
+ManaCost:2 B
+Types:Creature Human Warlock
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+A:AB$ Draw | Cost$ T Sac<2/Artifact.Other;Creature.Other/other artifacts and/or creatures> | ValidTgts$ Player | NumCards$ 2 | SubAbility$ DBMana | SpellDescription$ Target player draws two cards and adds {B}{B}.
+SVar:DBMana:DB$ Mana | Defined$ Targeted | Produced$ B | Amount$ 2
+SVar:AIPreference:SacCost$Creature.token,Artifact.token,Creature.cmcLE2,Artifact.cmcGE1_cmcLE2
+DeckHas:Ability$Token|Sacrifice & Type$Chart
+Oracle:When Darkstar Harbinger enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\n{T}, Sacrifice two artifacts and/or other creatures: Target player draws two cards and adds {B}{B}.

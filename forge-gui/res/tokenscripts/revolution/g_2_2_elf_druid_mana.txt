@@ -1,0 +1,7 @@
+Name:Elf Druid Token
+ManaCost:no cost
+Types:Creature Elf Druid
+Colors:green
+PT:2/2
+A:AB$ Mana | Cost$ T | Produced$ G | Amount$ 2 | SpellDescription$ Add {G}{G}.
+Oracle:{T}: Add {G}{G}.

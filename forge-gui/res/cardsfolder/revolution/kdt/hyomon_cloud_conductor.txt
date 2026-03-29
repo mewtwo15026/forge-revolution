@@ -1,0 +1,10 @@
+Name:Hyomon, Cloud Conductor
+ManaCost:W U
+Types:Legendary Creature Human Monk
+PT:2/1
+K:Flying
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Opponent | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever NICKNAME deals combat damage to a player, you may create a token that's a copy of target token you control that entered this turn.
+SVar:TrigCopy:DB$ CopyPermanent | ValidTgts$ Permanent.token+YouCtrl+ThisTurnEntered | TgtPrompt$ Select target token you control that entered this turn
+DeckHints:Ability$Token
+DeckHas:Ability$Token
+Oracle:Flying\nWhenever Hyomon deals combat damage to a player, you may create a token that's a copy of target token you control that entered this turn.

@@ -1,0 +1,8 @@
+Name:Stand in Unison
+ManaCost:3 G
+Types:Enchantment
+S:Mode$ Panharmonicon | ValidMode$ ChangesZone,ChangesZoneAll | ValidCard$ Permanent.YouCtrl | ValidCause$ Creature | Destination$ Battlefield | Description$ If a creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigBounce | TriggerDescription$ At the beginning of your end step, you may return a creature you control to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ChangeType$ Creature.YouCtrl | ChangeNum$ 1
+DeckHints:Keyword$twi_Reprieve
+Oracle:If a creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\nAt the beginning of your end step, you may return a creature you control to its owner's hand.

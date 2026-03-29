@@ -1,0 +1,9 @@
+Name:Andir Ley-Tower
+ManaCost:2 G
+Types:Creature Wall
+PT:1/4
+K:Defender
+A:AB$ Animate | Cost$ T | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land you control | Power$ X | Toughness$ X | Types$ Land,Creature,Spirit | Keywords$ Haste | SpellDescription$ Target land you control becomes an X/X green Spirit land creature with haste until end of turn, where X is the number of creatures you control with defender.
+SVar:X:Count$Valid Creature.YouCtrl+withDefender
+DeckHints:Keyword$Defender
+Oracle:Defender\n{T}: Target land you control becomes an X/X green Spirit land creature with haste until end of turn, where X is the number of creatures you control with defender.

@@ -1,0 +1,8 @@
+Name:Bladecross Student
+ManaCost:1 W
+Types:Creature Human Samurai
+PT:1/1
+K:Exalted
+A:AB$ Tap | Cost$ 1 W T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
+SVar:NonCombatPriority:1
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{1}{W}, {T}: Tap target creature.

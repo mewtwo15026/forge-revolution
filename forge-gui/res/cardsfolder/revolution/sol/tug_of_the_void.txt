@@ -1,0 +1,5 @@
+Name:Tug of the Void
+ManaCost:2 B B
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/113_Tug of the Void.jpg
+Oracle:Enchant creature or planeswalker\nAt the beginning of your first main phase, enchanted permanent's controller sacrifices two creatures and/or planeswalkers.

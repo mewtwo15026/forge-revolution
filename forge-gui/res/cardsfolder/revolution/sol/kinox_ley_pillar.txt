@@ -1,0 +1,11 @@
+Name:Kinox Ley-Pillar
+ManaCost:1 G
+Types:Creature Wall
+PT:0/3
+K:Defender
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may mill two cards. You may put a permanent card milled this way into your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | Defined$ You | Imprint$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Permanent.YouOwn | Hidden$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
+DeckHas:Ability$Mill
+Oracle:Defender\nWhen Kinox Ley-Pillar enters, you may mill two cards. You may return a permanent card milled this way to your hand.

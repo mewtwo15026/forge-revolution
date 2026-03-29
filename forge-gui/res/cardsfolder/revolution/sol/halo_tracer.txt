@@ -1,0 +1,6 @@
+Name:Halo Tracer
+ManaCost:G W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/213_Halo Tracer.jpg
+Oracle:Once each turn, when you gain life, you may choose one -\n• Draw a card if you have more life than an opponent. \n• You gain 2 life.

@@ -1,0 +1,5 @@
+Name:Chart Token
+ManaCost:no cost
+Types:Artifact Chart
+A:AB$ DigUntil | Cost$ 2 Sac<1/CARDNAME> | Valid$ Card.Land | ValidDescription$ land | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True | FoundDestination$ Hand | SpellDescription$ Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.
+Oracle:{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.

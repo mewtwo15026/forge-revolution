@@ -1,0 +1,10 @@
+Name:Sarsupei Ley-Tower
+ManaCost:1 B
+Types:Creature Wall
+PT:3/3
+K:Defender
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Creature.Other+YouCtrl+withDefender | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME or another creature you control with defender enters, target player mills two cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | ValidTgts$ Player
+DeckHints:Keyword$Defender
+DeckHas:Ability$Mill
+Oracle:Defender\nWhenever Sarsupei Ley-Tower or another creature you control with defender enters, target player mills two cards.

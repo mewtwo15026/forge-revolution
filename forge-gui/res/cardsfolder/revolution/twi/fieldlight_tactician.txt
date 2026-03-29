@@ -1,0 +1,10 @@
+Name:Fieldlight Tactician
+ManaCost:3 W
+Types:Creature Elf Cleric Soldier
+PT:3/3
+K:First Strike
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigReturn | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ2 | OptionalDecider$ You | TriggerDescription$ Whenever you cast your second spell each turn, you may return target permanent card with mana value 2 or less from your graveyard to the battlefield with a finality counter on it.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Permanent.YouOwn+cmcLE2 | TgtPrompt$ Select target permanent card with mana value 2 or less in your graveyard | WithCountersType$ FINALITY
+DeckHas:Ability$Graveyard|Counters
+DeckHints:Ability$Mill|Graveyard
+Oracle:First strike\nWhenever you cast your second spell each turn, you may return target permanent card with mana value 2 or less from your graveyard to the battlefield with a finality counter on it.

@@ -1,0 +1,15 @@
+Name:Devouring Seishin
+ManaCost:1 R G
+Types:Creature Spirit Snake
+PT:3/3
+K:Trample
+A:AB$ PutCounter | Cost$ RG Sac<1/Creature.Other/another creature> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | AILogic$ AristocratCounters | SubAbility$ DBExile | SpellDescription$ Put a +1/+1 counter on this creature. If the sacrificed creature had one or more counters on it, exile the top card of your library. You may play that card until your next end step.
+SVar:DBExile:DB$ Dig | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Remembered | Duration$ UntilYourNextEndStep | SubAbility$ DBCleanup | ForgetOnMoved$ Exile
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until your next end step, you may play that card.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:SacCost$Creature.token+HasCounters,Creature.cmcLE2+HasCounters,Creature.token,Creature.cmcLE2
+SVar:X:Sacrificed$Valid Creature.HasCounters
+DeckHints:Ability$Counters
+DeckHas:Ability$Sacrifice
+Oracle:Trample\n{RG}, Sacrifice another creature: Put a +1/+1 counter on this creature. If the sacrificed creature had one or more counters on it, exile the top card of your library. You may play that card until your next end step.

@@ -1,0 +1,8 @@
+Name:Caersol Observatory
+ManaCost:no cost
+Types:Land Mountain
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped if you control a non-Mountain land.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.nonMountain+YouCtrl | ConditionCompare$ GE1
+A:AB$ Draw | Cost$ 1 R T | Defined$ You | NumCards$ 1 | UnlessCost$ Discard<1/Card> | UnlessSwitched$ True | UnlessPayer$ You | SpellDescription$ You may discard a card. If you do, draw a card.
+DeckHas:Ability$Discard
+Oracle:({T}: Add {R}.)\nCaersol Observatory enters tapped if you control a non-Mountain land.\n{1}{R}, {T}: You may discard a card. If you do, draw a card.

@@ -1,0 +1,9 @@
+Name:The Throne of House Ravellan
+ManaCost:3
+Types:Legendary Artifact
+S:Mode$ Continuous | IsPresent$ Creature.Legendary+YouCtrl | Affected$ Creature.YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ As long as you control a legendary creature, creatures you control get +1/+1.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | IsPresent$ Creature.Legendary+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ At the beginning of your end step, if you control a legendary creature, draw a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+A:AB$ ChangeZone | Cost$ 3 Sac<1/CARDNAME> | ActivationZone$ Battlefield | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Card.Legendary+YouOwn | TgtPrompt$ Select target legendary card in your graveyard | SpellDescription$ Return target legendary card from your graveyard to your hand.
+DeckNeeds:Type$Legendary
+Oracle:As long as you control a legendary creature, creatures you control get +1/+1.\nAt the beginning of your end step, if you control a legendary creature, draw a card.\n{3}, Sacrifice The Throne of House Ravellan: Return target legendary card from your graveyard to your hand.

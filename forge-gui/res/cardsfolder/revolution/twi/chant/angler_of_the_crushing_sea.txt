@@ -1,0 +1,14 @@
+Name:Angler of the Crushing Sea
+ManaCost:6 U
+Types:Creature Leviathan Horror
+PT:5/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ CARDNAME costs {1} less to cast for each instant and sorcery card in your graveyard.
+SVar:X:Count$ValidGraveyard Instant.YouOwn,Sorcery.YouOwn
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, target player mills three cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | ValidTgts$ Player | TgtPrompt$ Select target player
+#TODO: implement Chant
+#K:twi_Chant:U
+#A:SP$ Chant | Mode$ Mill | NumCards$ 3 | ValidTgts$ Player | SpellDescription$ Target player mills three cards.
+DeckHints:Ability$Graveyard & Type$Instant|Sorcery
+Oracle:This spell costs {1} less to cast for each instant and sorcery card in your graveyard.\nWhen Angler of the Crushing Sea enters, [target player mills three cards.]\n
+Chant {U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)

@@ -1,0 +1,9 @@
+Name:Heart's Betrayal
+ManaCost:1 B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SubAbility$ DBLoseLifeWalker | SpellDescription$ Destroy target creature or planeswalker. You lose life equal to its mana value or power, whichever is greater.
+SVar:DBLoseLifeWalker:DB$ LoseLife | LifeAmount$ X
+SVar:X:SVar$Y/LimitMin.Z
+SVar:Y:Targeted$CardManaCost
+SVar:Z:Targeted$CardPower
+Oracle:Destroy target creature or planeswalker. You lose life equal to its mana value or power, whichever is greater.

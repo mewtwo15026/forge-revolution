@@ -1,0 +1,16 @@
+Name:Leonis Concitare
+ManaCost:6 G W
+Types:Creature Cat Spirit
+PT:8/7
+K:Trample
+DeckHas:Ability$LifeGain
+AlternateMode:Adventure
+Oracle:Trample
+
+ALTERNATE
+
+Name:Path of Sanctity
+ManaCost:1 GW
+Types:Instant Adventure
+A:SP$ GainLife | LifeAmount$ 4 | SpellDescription$ You gain 4 life. (Then exile this card. You may cast the creature later from exile.)
+Oracle:You gain 4 life. (Then exile this card. You may cast the creature later from exile.)

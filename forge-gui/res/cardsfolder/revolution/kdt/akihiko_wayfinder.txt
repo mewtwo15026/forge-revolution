@@ -1,0 +1,10 @@
+Name:Akihiko, Wayfinder
+ManaCost:1 G U
+Types:Legendary Creature Human Ninja
+PT:3/2
+K:Ward:2
+T:Mode$ ChangesZoneAll | ValidCards$ Creature.YouCtrl+!token | Origin$ Battlefield | Destination$ Ante,Command,Exile,Hand,Library,Stack | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever one or more nontoken creatures you control leave the battlefield without dying, create a 1/1 blue Ninja creature token with “This creature can't be blocked by creatures with greater power.”
+SVar:TrigToken:DB$ Token | TokenScript$ u_1_1_ninja_notskulk
+DeckHints:Keyword$Ninjutsu|Warp
+DeckHas:Ability$Token
+Oracle:Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nWhenever one or more nontoken creatures you control leave the battlefield without dying, create a 1/1 blue Ninja creature token with “This creature can't be blocked by creatures with greater power.”

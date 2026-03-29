@@ -1,0 +1,8 @@
+Name:Dynasty Pendant
+ManaCost:3
+Types:Artifact
+T:Mode$ SpellCast | ValidCard$ Card.MultiColor | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever you cast a multicolored spell, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+SVar:BuffedBy:Card.MultiColor
+Oracle:Whenever you cast a multicolored spell, you gain 1 life.\n{T}: Add one mana of any color.

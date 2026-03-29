@@ -1,0 +1,24 @@
+Name:Ignavis Immatus
+ManaCost:5 B R
+Types:Creature Phoenix Spirit
+PT:5/5
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | TriggerController$ TriggeredCardController | Execute$ TrigEffect | TriggerDescription$ When CARDNAME dies or you discard it, you may cast it from your graveyard as an Adventure until the end of your next turn.
+T:Mode$ Discarded | ValidCard$ Card.Self | TriggerController$ TriggeredCardController | Execute$ TrigEffect | Secondary$ True | TriggerDescription$ When CARDNAME dies or you discard it, you may cast it from your graveyard as an Adventure until the end of your next turn.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STPlay | ForgetOnMoved$ Graveyard | RememberObjects$ Self | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered+Adventure | AffectedZone$ Graveyard | Description$ You may cast EFFECTSOURCE from your graveyard as an Adventure until the end of your next turn.
+SVar:DiscardMe:1
+DeckHas:Ability$Discard|Graveyard
+AlternateMode:Adventure
+Oracle:Flying\nWhen Ignavis Immatus dies or you discard it, you may cast it from your graveyard as an Adventure until the end of your next turn.
+
+ALTERNATE
+
+Name:Path of Absolution
+ManaCost:B R
+Types:Sorcery Adventure
+A:SP$ Discard | Defined$ Player | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw | SpellDescription$ Each player discards a card. If you discarded a card this way, draw a card. (Then exile this card. You may cast the creature later from exile.)
+SVar:DBDraw:DB$ Draw | Defined$ You | ConditionDefined$ Remembered | ConditionPresent$ Card.YouOwn | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:DiscardCost$Card.cmcLE1
+Oracle:Each player discards a card. If you discarded a card this way, draw a card. (Then exile this card. You may cast the creature later from exile.)

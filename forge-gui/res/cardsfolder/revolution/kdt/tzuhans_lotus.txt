@@ -1,0 +1,7 @@
+Name:Tzuhan's Lotus
+ManaCost:5
+Types:Artifact
+A:AB$ ManaReflected | Cost$ T Sac<1/Permanent.Other+nonLand/another nonland permanent> | Produced$ Combo | Valid$ Defined.Sacrificed | ColorOrType$ Color | ReflectProperty$ Is | Amount$ X | ConditionDefined$ Sacrificed | ConditionPresent$ Card.nonColorless | ConditionCompare$ GE1 | SpellDescription$ Add X mana in any combination of the sacrificed permanent's colors, where X is 1 plus that permanent's mana value.
+SVar:X:Sacrificed$CardManaCost/Plus.1
+AI:RemoveDeck:All
+Oracle:{T}, Sacrifice another nonland permanent: Add X mana in any combination of the sacrificed permanent's colors, where X is 1 plus that permanent's mana value.

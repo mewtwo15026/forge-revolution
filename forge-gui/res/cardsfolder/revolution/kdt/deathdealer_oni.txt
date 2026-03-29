@@ -1,0 +1,11 @@
+Name:Deathdealer Oni
+ManaCost:B B R R
+Types:Creature Demon Warrior
+PT:5/4
+K:Trample
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl | AddKeyword$ Trample | Description$ Other creatures you control have trample.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigChoice | TriggerDescription$ When this creature dies, it deals 5 damage to target opponent unless they have you draw two cards.
+SVar:TrigChoice:DB$ GenericChoice | ValidTgts$ Opponent | Choices$ DBBurn,DBDraw
+SVar:DBBurn:DB$ DealDamage | Defined$ ParentTarget | NumDmg$ 5 | SpellDescription$ CARDNAME deals 5 damage to you.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 2 | SpellDescription$ CARDNAME's controller draws two cards.
+Oracle:Trample\nOther creatures you control have trample.\nWhen this creature dies, it deals 5 damage to target opponent unless they have you draw two cards.

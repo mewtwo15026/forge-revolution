@@ -1,0 +1,9 @@
+Name:Gereishin's Presence
+ManaCost:1 RG RG
+Types:Legendary Enchantment
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, you may put a +1/+1 counter on another target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Animate | Cost$ R G | Defined$ Self | Power$ 3 | Toughness$ 2 | Types$ Creature,Dragon | Keywords$ Flying | SpellDescription$ CARDNAME becomes a 3/2 Dragon creature with flying in addition to its other types.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters & Type$Dragon
+Oracle:At the beginning of combat on your turn, you may put a +1/+1 counter on another target creature you control.\n{R}{G}: Gereishin's Presence becomes a 3/2 Dragon creature with flying in addition to its other types.

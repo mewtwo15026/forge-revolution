@@ -1,0 +1,10 @@
+Name:Gift of Stillness
+ManaCost:1 U
+Types:Enchantment Aura
+S:Mode$ CastWithFlash | ValidCard$ Card.Self | ValidSA$ Spell | IsPresent$ Warlock.YouCtrl | EffectZone$ All | Caster$ You | Description$ You may cast this spell as though it had flash if you control a Warlock.
+K:Enchant:Creature
+SVar:AttachAILogic:Curse
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | SetPower$ 1 | SetToughness$ 1 | AddType$ Creature & Construct | RemoveCreatureTypes$ True | RemoveAllAbilities$ True | Description$ Enchanted creature loses all abilities and is a Construct with base power and toughness 1/1 and loses all other creature types.
+SVar:NonStackingAttachEffect:True
+DeckHints:Type$Warlock
+Oracle:You may cast this spell as though it had flash if you control a Warlock.\nEnchant creature\nEnchanted creature loses all abilities and is a Construct with base power and toughness 1/1 and loses all other creature types.

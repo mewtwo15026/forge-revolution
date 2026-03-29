@@ -1,0 +1,11 @@
+Name:Foreign Encounter
+ManaCost:1 R G
+Types:Sorcery
+A:SP$ Effect | Name$ Foreign +1/+1 Counter | ReplacementEffects$ ETBCreat | SubAbility$ DBDig | SpellDescription$ Look at the top six cards of your library. You may put a creature card with mana value 3 or less from among them onto the battlefield. It enters with an additional +1/+1 counter on it. Put the rest on the bottom of your library in a random order.
+SVar:ETBCreat:Event$ Moved | ValidCard$ Creature.YouOwn | Destination$ Battlefield | ReplaceWith$ DBPutP1P1 | ReplacementResult$ Updated
+SVar:DBPutP1P1:DB$ PutCounter | Defined$ ReplacedCard | CounterType$ P1P1 | ETB$ True | CounterNum$ 1
+SVar:DBDig:DB$ Dig | DigNum$ 6 | ChangeNum$ 1 | Optional$ True | Reveal$ True | ChangeValid$ Creature.cmcLE3 | DestinationZone$ Battlefield | RestRandomOrder$ True | SubAbility$ DBClearEffect
+SVar:DBClearEffect:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedForeign +1/+1 Counter | Origin$ Command | Destination$ Exile
+K:Cycling:RG
+DeckHas:Ability$Discard|Counters
+Oracle:Look at the top six cards of your library. You may put a creature card with mana value 3 or less from among them onto the battlefield. It enters with an additional +1/+1 counter on it. Put the rest on the bottom of your library in a random order.\nCycling {RG} ({RG}, Discard this card: Draw a card.)

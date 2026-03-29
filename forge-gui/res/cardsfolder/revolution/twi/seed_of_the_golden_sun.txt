@@ -1,0 +1,11 @@
+Name:Seed of the Golden Sun
+ManaCost:1 R
+Types:Legendary Enchantment
+T:Mode$ Exiled | Origin$ Battlefield | ValidCard$ Illusion.YouCtrl | TriggerZones$ Battlefield | ResolvedLimit$ 1 | OptionalDecider$ You | Execute$ TrigCloneExiled | TriggerDescription$ Whenever an Illusion you control is exiled, you may create a token that's a copy of it. Do this only once each turn.
+SVar:TrigCloneExiled:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy
+A:AB$ CopyPermanent | Cost$ 1 R Discard<1/CARDNAME> | ActivationZone$ Hand | SorcerySpeed$ True | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SetCreatureTypes$ Illusion | AddKeywords$ Haste | AddSVars$ TrigExile | AddTriggers$ PhaseTrig | SpellDescription$ Create a token that's a copy of target creature you control, except it's an Illusion with haste and "At the beginning of your end step, exile this creature." Activate only as a sorcery.
+SVar:PhaseTrig:Mode$ Phase | Phase$ End of Turn | Execute$ TrigExile | TriggerDescription$ At the beginning of your end step, exile this token.
+SVar:TrigExile:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Exile
+DeckHas:Ability$Token & Type$Illusion
+DeckHints:Type$Illusion & Keyword$twi_Decoy
+Oracle:Whenever an Illusion you control is exiled, you may create a token that's a copy of it. Do this only once each turn.\n{1}{R}, Discard Seed of the Golden Sun: Create a token that's a copy of target creature you control, except it's an Illusion with haste and "At the beginning of your end step, exile this creature." Activate only as a sorcery.

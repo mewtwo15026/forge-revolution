@@ -1,0 +1,11 @@
+Name:Astraling
+ManaCost:GU GU GU GU
+Types:Creature Shapeshifter
+PT:4/4
+K:Flash
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+A:AB$ GenericChoice | Cost$ GU | Choices$ PumpAtt,PumpDef | SpellDescription$ CARDNAME gets +1/-1 or -1/+1 until end of turn.
+SVar:PumpAtt:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ -1 | SpellDescription$ CARDNAME gets +1/-1 until end of turn.
+SVar:PumpDef:DB$ Pump | Defined$ Self | NumAtt$ -1 | NumDef$ +1 | SpellDescription$ CARDNAME gets -1/+1 until end of turn.
+A:AB$ Phases | Cost$ GU | Defined$ Self | SpellDescription$ CARDNAME phases out.
+Oracle:Flash\nThis spell can't be countered.\n{GU}: Astraling gets +1/-1 or -1/+1 until end of turn.\n{GU}: Astraling phases out. (Treat it and anything attached to it as though they don't exist until its controller's next turn.)

@@ -1,0 +1,14 @@
+Name:Aureleth the Sun Shard
+ManaCost:G W
+Types:Legendary Creature Angel Spirit
+PT:1/3
+K:Flying
+K:Lifelink
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Gained | Execute$ TrigStore | TriggerDescription$ At the beginning of your end step, you may pay {X}, where X is less than or equal to the amount of life you gained this turn. If you do, create X 1/1 white Bird creature tokens with flying and "This creature can't block."
+SVar:TrigStore:DB$ ChooseNumber | Defined$ You | Min$ 0 | Max$ Gained | ListTitle$ amount of mana to pay | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ w_1_1_bird_flying_cantblock | TokenAmount$ X | UnlessCost$ X | UnlessPayer$ You | UnlessSwitched$ True
+SVar:Gained:Count$LifeYouGainedThisTurn
+SVar:X:Count$ChosenNumber
+DeckHints:Ability$LifeGain
+DeckHas:Ability$Token & Type$Bird
+Oracle:Flying, lifelink\nAt the beginning of your end step, you may pay {X}, where X is less than or equal to the amount of life you gained this turn. If you do, create X 1/1 white Bird creature tokens with flying and "This creature can't block."

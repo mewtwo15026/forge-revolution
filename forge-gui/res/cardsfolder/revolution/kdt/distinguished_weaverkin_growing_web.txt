@@ -1,0 +1,16 @@
+Name:Distinguished Weaverkin
+ManaCost:1 G
+Types:Creature Human Spider
+PT:1/3
+K:Reach
+A:AB$ ChangeZone | Cost$ T | Origin$ Hand | Destination$ Battlefield | Optional$ You | ChangeType$ Land | ChangeNum$ 1 | Tapped$ True | SpellDescription$ You may put a land card from your hand onto the battlefield tapped.
+AlternateMode:Adventure
+Oracle:Reach\n{T}: You may put a land card from your hand onto the battlefield tapped.
+
+ALTERNATE
+
+Name:Growing Web
+ManaCost:2 G
+Types:Sorcery Adventure
+A:SP$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Forest | ChangeNum$ 2 | SpellDescription$ Search your library for up to two Forest cards, reveal them, put them into your hand, then shuffle.
+Oracle:Search your library for up to two Forest cards, reveal them, put them into your hand, then shuffle. (Then exile this card. You may cast the creature later from exile.)

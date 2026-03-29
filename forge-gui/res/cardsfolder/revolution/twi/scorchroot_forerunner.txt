@@ -1,0 +1,9 @@
+Name:Scorchroot Forerunner
+ManaCost:2 R
+Types:Creature Faerie Warrior
+PT:3/2
+K:Trample
+T:Mode$ DamageDone | CombatDamage$ True | ValidSource$ Card.Self | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may discard a card. If you do, draw a card.
+SVar:TrigDiscard:AB$ Draw | NumCards$ 1 | Cost$ Discard<1/Card>
+DeckHas:Ability$Discard
+Oracle:Trample\nWhenever Scorchroot Forerunner deals combat damage to a player, you may discard a card. If you do, draw a card.

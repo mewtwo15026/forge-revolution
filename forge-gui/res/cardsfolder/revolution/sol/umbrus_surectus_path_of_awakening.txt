@@ -1,0 +1,17 @@
+Name:Umbrus Surectus
+ManaCost:7 W B
+Types:Creature Specter Spirit
+PT:9/9
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may return target creature card from your graveyard to the battlefield tapped and attacking.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Creature.YouCtrl | Tapped$ True | Attacking$ True
+DeckHas:Ability$Graveyard
+AlternateMode:Adventure
+Oracle:Whenever Umbrus Surectus attacks, you may return target creature card from your graveyard to the battlefield tapped and attacking.
+
+ALTERNATE
+
+Name:Path of Awakening
+ManaCost:3 W B
+Types:Sorcery Adventure
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Creature.YouCtrl | SpellDescription$ Return target creature card from your graveyard to the battlefield. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Return target creature card from your graveyard to the battlefield. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,16 @@
+Name:Draconos Tyrannos
+ManaCost:6 R R
+Types:Creature Dragon Spirit
+PT:4/8
+K:Flying
+A:AB$ Pump | Cost$ R | NumAtt$ +1 | SpellDescription$ CARDNAME gets +1/+0 until end of turn.
+AlternateMode:Adventure
+Oracle:Flying\n{R}: Draconos Tyrannos gets +1/+0 until end of turn.
+
+ALTERNATE
+
+Name:Path of Destruction
+ManaCost:2 R
+Types:Sorcery Adventure
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 4 | SpellDescription$ CARDNAME deals 4 damage to any target. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Path of Destruction deals 4 damage to any target. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,12 @@
+Name:Lacufae Ley-Tower
+ManaCost:1 W
+Types:Creature Wall
+PT:0/4
+K:Defender
+A:AB$ Pump | Cost$ 2 | ValidTgts$ Creature.YouCtrl | AITgts$ Creature.YouCtrl+withDefender | KW$ Vigilance | SorcerySpeed$ True | TgtPrompt$ Select target creature you control | SubAbility$ DBEffect | StackDescription$ SpellDescription | SubAbility$ DBEffect | SpellDescription$ Until end of turn, target creature you control gains vigilance, can attack as though it didn't have defender, and assigns combat damage equal to its toughness rather than its power. Activate only as a sorcery.
+SVar:DBEffect:DB$ Effect | RememberObjects$ Targeted | StaticAbilities$ CanAttack,CombatDamageToughness | ForgetOnMoved$ Battlefield
+SVar:CanAttack:Mode$ CanAttackDefender | ValidCard$ Card.IsRemembered | Description$ This creature can attack as though it didn't have defender.
+SVar:CombatDamageToughness:Mode$ CombatDamageToughness | ValidCard$ Card.IsRemembered | Secondary$ True | Description$ This creature assigns combat damage equal to its toughness rather than its power.
+DeckHas:Keyword$Vigilance
+DeckHints:Keyword$Defender
+Oracle:Defender\n{2}: Until end of turn, target creature you control gains vigilance, can attack as though it didn't have defender, and assigns combat damage equal to its toughness instead of its power. Activate only as a sorcery.

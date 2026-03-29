@@ -1,0 +1,6 @@
+Name:Break the Tide
+ManaCost:1 W
+Types:Instant
+A:SP$ Animate | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | RemoveAllAbilities$ True | IsCurse$ True | SubAbility$ DBBurn | SpellDescription$ Target tapped creature loses all abilities until end of turn. Then CARDNAME deals 4 damage to it.
+SVar:DBBurn:DB$ DealDamage | Defined$ Targeted | NumDmg$ 4
+Oracle:Target tapped creature loses all abilities until end of turn. Then Break the Tide deals 4 damage to it.

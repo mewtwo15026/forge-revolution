@@ -1,0 +1,8 @@
+Name:Banners Unbroken
+ManaCost:5 G G
+Types:Sorcery
+K:Affinity:Angel
+A:SP$ PutCounterAll | ValidCards$ Soldier.YouCtrl | CounterType$ P1P1 | CounterNum$ 2 | SpellDescription$ Put two +1/+1 counters on each Soldier you control.
+DeckHints:Type$Angel
+DeckNeeds:Type$Soldier
+Oracle:Affinity for Angels (This spell costs {1} less for each Angel you control.)\nPut two +1/+1 counters on each Soldier you control.

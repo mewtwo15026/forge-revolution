@@ -1,0 +1,23 @@
+Name:Infernal Kitsune
+ManaCost:5 R
+Types:Creature Fox Shapeshifter
+PT:5/5
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevAttacks | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevAttacks:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ Whenever this creature attacks, creatures you control get +1/+0 until end of turn.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ Whenever this creature attacks, creatures you control get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1
+SVar:PlayMain1:TRUE
+SVar:HasAttackEffect:TRUE
+DeckHints:Ability$Counters
+DeckHas:Ability$Counters
+AlternateMode:Adventure
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nWhenever this creature attacks, creatures you control get +1/+0 until end of turn.
+
+ALTERNATE
+
+Name:Run Riot
+ManaCost:2 G
+Types:Instant Adventure
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBMultiplyCounter | SpellDescription$ Put a +1/+1 counter on target creature you control, then double the number of +1/+1 counters on it.
+SVar:DBMultiplyCounter:DB$ MultiplyCounter | Defined$ Targeted | CounterType$ P1P1
+Oracle:Put a +1/+1 counter on target creature you control, then double the number of +1/+1 counters on it. (Then exile this card. You may cast the creature later from exile.)

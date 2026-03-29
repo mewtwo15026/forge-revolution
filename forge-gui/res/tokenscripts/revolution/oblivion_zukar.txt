@@ -1,0 +1,7 @@
+Name:Oblivion 
+ManaCost:no cost
+Types:Enchantment
+Colors:black
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ At the beginning of your end step, discard a card.
+SVar:TrigDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose
+Oracle:At the beginning of your end step, discard a card.

@@ -1,0 +1,8 @@
+Name:Gorion Observatory
+ManaCost:no cost
+Types:Land Forest
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped if you control a non-Forest land.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.nonForest+YouCtrl | ConditionCompare$ GE1
+A:AB$ Token | Cost$ 1 G T | TokenScript$ c_a_chart_sac | SpellDescription$ Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:({T}: Add {G}.)\nGorion Observatory enters tapped if you control a non-Forest land.\n{1}{G}, {T}: Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

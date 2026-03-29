@@ -1,0 +1,8 @@
+Name:Righteous Evangel
+ManaCost:3 R
+Types:Creature Elf Cleric
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 1/1 red Berserker creature tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_berserker | TokenOwner$ You
+DeckHas:Ability$Token & Type$Berserker
+Oracle:When Righteous Evangel enters, create two 1/1 red Berserker creature tokens.

@@ -1,0 +1,9 @@
+Name:Blinding Ambush
+ManaCost:3 G
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 2 | ValidTarget$ Creature.YouCtrl+withFlash | EffectZone$ All | Description$ This spell costs {2} less to cast if it targets a creature you control with flash.
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | KW$ Indestructible | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage | StackDescription$ None | SpellDescription$ Target creature you control gains indestructible until end of turn. It deals damage equal to its power to up to one other target creature or planeswalker.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TargetUnique$ True | AILogic$ PowerDmg | TgtPrompt$ Select up to one other target creature or planeswalker | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower
+DeckHints:Keyword$Flash
+Oracle:This spell costs {2} less to cast if it targets a creature you control with flash.\nTarget creature you control gains indestructible until end of turn. It deals damage equal to its power to up to one other target creature or planeswalker.

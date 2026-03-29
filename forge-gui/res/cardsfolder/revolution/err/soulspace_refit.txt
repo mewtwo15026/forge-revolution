@@ -1,11 +1,7 @@
 Name:Soulspace Refit
 ManaCost:1 U
 Types:Instant
-A:SP$ ChangeZone | ValidTgts$ Creature,Subroutine | AITgts$ Creature.YouCtrl,Subroutine.YouCtrl | Origin$ Battlefield | Destination$ Exile | RememberTargets$ True | SubAbility$ DBReturn | SpellDescription$ Exile target creature or Subroutine, then return it to the battlefield under its owner's control. Cache the top card of your library face down.
+A:SP$ ChangeZone | ValidTgts$ Creature,Subroutine | AITgts$ Creature.YouCtrl+YouOwn,Subroutine.YouCtrl+YouOwn | Origin$ Battlefield | Destination$ Exile | RememberTargets$ True | SubAbility$ DBReturn | SpellDescription$ Exile target creature or Subroutine, then return it to the battlefield under its owner's control.
 SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
-SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ DBToken
-SVar:DBToken:DB$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek
-SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
-SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
-DeckHas:Type$Artifact|Memory
-Oracle:Exile target creature or Subroutine, then return that card to the battlefield under its owner's control.\nCache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Exile target creature or Subroutine, then return that card to the battlefield under its owner's control.

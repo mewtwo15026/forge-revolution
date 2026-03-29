@@ -101,6 +101,7 @@ Druid:Druids
 Dryad:Dryads
 Dwarf:Dwarves
 Echidna:Echidnas
+Eel:Eels
 Efreet:Efreets
 Egg:Eggs
 Elder:Elders
@@ -376,6 +377,7 @@ Attraction
 Berry:Berries
 Blood
 Bobblehead:Bobbleheads
+Chart:Charts
 Clue:Clues
 Contraption:Contraptions
 Equipment
@@ -396,12 +398,14 @@ Spacecraft:Spacecraft
 Stone:Stones
 Treasure:Treasures
 Vehicle:Vehicles
+Weapon:Weapons
 [WalkerTypes]
 Ajani
 Aldegar
 Ameret
 Aminatou
 Angrath
+Anhamei
 Arlinn
 Ashiok
 Ayeshi
@@ -411,6 +415,7 @@ Basri
 Bessie
 Bolas
 Calix
+Caphella
 Cassia
 Celise
 Chandra
@@ -468,6 +473,7 @@ Narset
 Niko
 Nissa
 Nixilis
+Oberys
 Oko
 Quintorius
 Ral
@@ -508,6 +514,7 @@ Xiv
 Yanggu
 Yanling
 Zariel
+Zukar
 [DungeonTypes]
 Undercity
 [BattleTypes]
@@ -592,6 +599,7 @@ Shadowmoor
 Shandalar
 Shenmeng
 Skaro
+Solastere
 Spacecraft
 Svergard
 Tarkir

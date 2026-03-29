@@ -1,0 +1,8 @@
+Name:Unyielding Conviction
+ManaCost:W
+Types:Instant
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.YouCtrl | AITgts$ Creature.YouCtrl+YouOwn | TgtPrompt$ Select target creature you control | SubAbility$ DBReturnAtk | RememberTargets$ True | SpellDescription$ Exile target creature you control, then return it to the battlefield under its owner's control. If that creature was attacking, you may have it enter tapped and attacking.
+SVar:DBReturnAtk:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | Tapped$ True | Attacking$ True | ConditionDefined$ Targeted | ConditionPresent$ Card.attacking | Optional$ True | PromptToSkipOptionalAbility$ True | OptionalAbilityPrompt$ Would you like to return the creature tapped and attacking? | SubAbility$ DBReturnElse
+SVar:DBReturnElse:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | ConditionPresent$ Card | ConditionZone$ Exile | ConditionDefined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Exile target creature you control, then return it to the battlefield under its owner's control. If that creature was attacking, you may have it enter tapped and attacking. (It won't attack if it isn't its new controller's turn.)

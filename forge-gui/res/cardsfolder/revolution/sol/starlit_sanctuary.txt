@@ -1,0 +1,5 @@
+Name:Starlit Sanctuary
+ManaCost:W
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/34_Starlit Sanctuary.jpg
+Oracle:When Starlit Sanctuary enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nWhenever a land you control enters, you gain 1 life.

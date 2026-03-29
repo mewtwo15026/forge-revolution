@@ -1,0 +1,26 @@
+Name:Thubaran, the Fervent Star
+ManaCost:7 R R R
+Types:Legendary Creature Dragon Spirit
+PT:10/10
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigMana | TriggerDescription$ When you cast this spell, add ten {R}.
+SVar:TrigMana:DB$ Mana | Produced$ R | Amount$ 10
+S:Mode$ UnspentMana | ValidPlayer$ You | Description$ You don't lose unspent mana as steps and phases end.
+AlternateMode:Adventure
+Oracle:Flying\nWhen you cast this spell, add ten {R}.\nYou don't lose unspent mana as steps and phases end.
+
+ALTERNATE
+
+Name:Path of Radiance
+ManaCost:2 R
+Types:Sorcery Adventure
+A:SP$ Mana | Produced$ R | Amount$ 4 | SubAbility$ DBEffect | SpellDescription$ Add {R}{R}{R}{R}. You can cast only one more spell this turn.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STCantBeCast | Triggers$ StaticRem
+SVar:STCantBeCast:Mode$ CantBeCast | Caster$ You | CheckSVar$ NumCount | Description$ You can cast only one more spell this turn.
+SVar:NumCount:Remembered$Amount
+SVar:StaticRem:Mode$ SpellCast | ValidActivatingPlayer$ You | Static$ True | Secondary$ True | Execute$ TrigRem
+SVar:TrigRem:DB$ Pump | RememberObjects$ TriggeredCard
+SVar:NeedsToPlayVar:X GE1
+SVar:X:Count$ValidHand Card.Red+YouCtrl+cmcEQY
+SVar:Y:Count$Valid Land.untapped+YouCtrl/Plus.1
+Oracle:Add {R}{R}{R}{R}. You can cast only one more spell this turn. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,10 @@
+Name:Coven of Brine
+ManaCost:1 U
+Types:Creature Merfolk Warlock
+PT:1/4
+S:Mode$ Continuous | Affected$ Horror.YouCtrl | AddKeyword$ Ward:X:where X is the number of Warlocks you control | Description$ Horrors you control have ward {X}, where X is the number of Warlocks you control.
+SVar:X:Count$Valid Warlock.YouCtrl
+T:Mode$ DamageDone | ValidSource$ Horror.YouCtrl | CombatDamage$ True | ValidTarget$ Player,Planeswalker,Battle | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever a Horror you control deals combat damage to a player, planeswalker, or battle, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:BuffedBy:Horror
+Oracle:Horrors you control have ward {X}, where X is the number of Warlocks you control.\nWhenever a Horror you control deals combat damage to a player, planeswalker, or battle, draw a card.

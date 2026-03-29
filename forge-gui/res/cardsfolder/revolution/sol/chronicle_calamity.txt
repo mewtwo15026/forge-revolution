@@ -1,0 +1,7 @@
+Name:Chronicle Calamity
+ManaCost:1 R
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, you may discard a card. If you do, draw two cards.
+SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 1
+A:AB$ DealDamage | Cost$ 2 R ExileFromGrave<2/Card> | ValidTgts$ Player,Planeswalker | TgtPrompt$ Select target player or planeswalker | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to target player or planeswalker.
+Oracle:When Chronicle Calamity enters, you may discard a card. If you do, draw two cards.\n{2}{R}, Exile two cards from your graveyard: Chronicle Calamity deals 2 damage to target player or planeswalker.

@@ -1,0 +1,14 @@
+Name:Trainee Karina Oblay
+ManaCost:1 U R
+Types:Planeswalker Karina
+Loyalty:3
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | Execute$ TrigProliferate | TriggerDescription$ At the beginning of your end step, proliferate.
+SVar:TrigProliferate:DB$ Proliferate
+A:AB$ Scry | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ScryNum$ 1 | SubAbility$ DBMana | SpellDescription$ Scry 1. Add {U} or {R}.
+SVar:DBMana:DB$ Mana | Produced$ Combo U R
+A:AB$ Dig | Cost$ SubCounter<X/LOYALTY> | Planeswalker$ True | Defined$ You | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | SubAbility$ DBEffect | SpellDescription$ Exile the top X cards of your library. Until end of turn, you may play two cards exiled with CARDNAME.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ PlayExile | RememberObjects$ ValidExile Card.ExiledWithSource | ForgetOnMoved$ Exile | SpellDescription$ Until end of turn, you may play two cards exiled with CARDNAME.
+SVar:PlayExile:Mode$ Continuous | MayPlay$ True | Affected$ Card.ExiledWithEffectSource | AffectedZone$ Exile | MayPlayLimit$ 2 | Description$ Until end of turn, you may play two cards exiled with CARDNAME.
+SVar:X:Count$xPaid
+AI:RemoveDeck:Random
+Oracle:At the beginning of your end step, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\n[+1]: Scry 1. Add {U} or {R}.\n[–X]: Exile the top X cards of your library. Until end of turn, you may play two cards exiled with Trainee Karina Oblay.

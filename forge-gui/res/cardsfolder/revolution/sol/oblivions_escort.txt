@@ -1,0 +1,6 @@
+Name:Oblivion's Escort
+ManaCost:W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/23_Oblivion's Escort.jpg
+Oracle:When Oblivion's Escort dies, create a tapped 1/1 white Spirit creature token.\n{1}, Sacrifice Oblivion's Escort: Another target creature you control gains indestructible until end of turn.

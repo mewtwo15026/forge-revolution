@@ -1,0 +1,10 @@
+Name:Dragon of Recollection
+ManaCost:2 W W
+Types:Creature Dragon
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCast | Execute$ TrigReturn | TriggerDescription$ When this creature enters, if it was cast, return up to three target creature cards with total mana value 3 or less from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TargetMin$ 0 | TargetMax$ 3 | MaxTotalTargetCMC$ 3 | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select up to three target creature cards with total mana value 3 or less
+DeckHas:Ability$Graveyard
+DeckHints:Ability$Discard|Sacrifice|Mill|Surveil
+Oracle:Flying\nWhen this creature enters, if it was cast, return up to three target creature cards with total mana value 3 or less from your graveyard to the battlefield.

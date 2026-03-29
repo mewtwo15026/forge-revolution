@@ -1,0 +1,6 @@
+Name:Ursus Minora
+ManaCost:G G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/191_Ursus Minora.jpg
+Oracle:Whenever a land you control enters, Ursus Minora gets +1/+1 and gains trample until end of turn.

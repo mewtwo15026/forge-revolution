@@ -1,0 +1,6 @@
+Name:Voidborn Flayer
+ManaCost:1 BR BR
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/272_Voidborn Flayer.jpg
+Oracle:Menace\nWhen Voidborn Flayer enters, you may discard a card. If you do, draw a card.

@@ -1,0 +1,13 @@
+Name:Willing Acolyte
+ManaCost:B
+Types:Creature Human Warlock
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerDescription$ When this creature dies, it deals 2 damage to each opponent and you gain 2 life.
+SVar:TrigDealDamage:DB$ DamageAll | ValidPlayers$ Player.Opponent | NumDmg$ 2 | SubAbility$ DBGainLife
+SVar:DBGainLifeA:DB$ GainLife | Defined$ You | LifeAmount$ 2
+A:AB$ DealDamage | Cost$ 6 B ExileFromGrave<1/CARDNAME> | ActivationZone$ Defined$ Player.Opponent | NumDmg$ 3 | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 3 damage to each opponent and you gain 3 life.
+SVar:DBGainLifeB:DB$ GainLife | Defined$ You | LifeAmount$ 3
+SVar:SacMe:2
+SVar:DiscardMe:1
+DeckHas:Ability$LifeGain
+Oracle:When this creature dies, it deals 2 damage to each opponent and you gain 2 life.\n{6}{B}, Exile this card from your graveyard: It deals 3 damage to each opponent and you gain 3 life.

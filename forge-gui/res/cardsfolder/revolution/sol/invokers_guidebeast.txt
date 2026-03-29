@@ -1,0 +1,9 @@
+Name:Invoker's Guidebeast
+ManaCost:1 U
+Types:Creature Beast
+PT:3/2
+K:Flash
+K:etbCounter:M1M1:1
+A:AB$ ChangeZone | Cost$ SubCounter<1/M1M1> | SorcerySpeed$ True | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return another target creature you control to its owner's hand. Activate only as a sorcery unless this creature entered this turn.
+A:AB$ ChangeZone | Cost$ SubCounter<1/M1M1> | Secondary$ True | IsPresent$ Card.Self+ThisTurnEntered | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return another target creature you control to its owner's hand. Activate only as a sorcery unless this creature entered this turn.
+Oracle:Flash\nInvoker's Guidebeast enters with a -1/-1 counter on it.\nRemove a -1/-1 counter from Invoker's Guidebeast: Return another target creature you control to its owner's hand. Activate only as a sorcery unless this creature entered this turn.

@@ -1,0 +1,13 @@
+Name:Cerridwyn, Matron
+ManaCost:U U B B
+Types:Legendary Creature Angel Warlock
+PT:4/4
+K:Flying
+K:Prowess
+T:Mode$ SpellCast | ValidCard$ Instant.wasCastFromYourHandByYou,Sorcery.wasCastFromYourHandByYou | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | Execute$ TrigExile | TriggerDescription$ Whenever you cast an instant or sorcery spell from your hand, you may exile an instant or sorcery card with lesser mana value from your graveyard. Copy that card. You may cast the copy without paying its mana cost.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Instant.cmcLEX | ChangeNum1 | RememberChanged$ True | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Valid$ Card.IsRemembered | ValidZone$ Exile | Controller$ You | CopyCard$ True | WithoutManaCost$ True | ValidSA$ Spell | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TriggeredCard$CardManaCost
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying, prowess\nWhenever you cast an instant or sorcery spell from your hand, you may exile an instant or sorcery card with lesser mana value from your graveyard. Copy that card. You may cast the copy without paying its mana cost.

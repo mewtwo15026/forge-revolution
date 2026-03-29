@@ -1,0 +1,9 @@
+Name:Awakened Aberration
+ManaCost:1 RG RG
+Types:Creature Horror Beast
+PT:3/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever CARDNAME attacks, you may sacrifice another creature. If you do, CARDNAME gets +1/+1 and gains indestructible until end of turn.
+SVar:TrigPump:AB$ Pump | Cost$ Sac<1/Creature.Other/another creature> | Defined$ Self | NumAtt$ 1 | NumDef$ 1 | KW$ Indestructible
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Sacrifice
+Oracle:Whenever Awakened Aberration attacks, you may sacrifice another creature. If you do, Awakened Aberration gets +1/+1 and gains indestructible until end of turn.

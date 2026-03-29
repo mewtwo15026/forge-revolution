@@ -1,0 +1,12 @@
+Name:Sacrament Tactician
+ManaCost:2 R W
+Types:Creature Centaur Cleric
+PT:4/3
+K:Lifelink
+A:AB$ Dig | Cost$ 1 Sac<1/Creature.Other/another creature> | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | Defined$ You | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top card of your library. You may play it this turn.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ EffSModeContinuous | ExileOnMoved$ Exile | RememberObjects$ Remembered | SubAbility$ DBCleanup
+SVar:EffSModeContinuous:Mode$ Continuous | Affected$ Card.IsRemembered | MayPlay$ True | AffectedZone$ Exile | Description$ You may play that card this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:SacCost$Creature.token,Creature.cmcLE1
+DeckHas:Ability$LifeGain|Sacrifice
+Oracle:Lifelink\n{1}, Sacrifice another creature: Exile the top card of your library. You may play it this turn.

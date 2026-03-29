@@ -1,0 +1,13 @@
+Name:Anthropomancy
+ManaCost:B BG G
+Types:Enchantment
+T:Mode$ Phase | Phase$ Draw | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPeek | TriggerDescription$ At the beginning of your draw step, look at the top two cards of your library. For each card, you may pay 4 life. If you do, put it into your hand. Otherwise, put it into your graveyard.
+SVar:TrigPeek:DB$ PeekAndReveal | Defined$ You | PeekAmount$ 2 | NoReveal$ True | RememberPeeked$ True | SubAbility$ DBKeepOrYeet
+SVar:DBKeepOrYeet:DB$ RepeatEach | UseImprinted$ True | RepeatCards$ Card.IsRemembered | Zone$ Library | RepeatSubAbility$ DBYeet | ChooseOrder$ True | SubAbility$ DBKeep
+SVar:DBYeet:DB$ ChangeZone | Origin$ Library | Destination$ Graveyard | Defined$ Imprinted | UnlessCost$ PayLife<4> | UnlessPayer$ TriggeredPlayer | NoReveal$ True | ForgetChanged$ True
+SVar:DBKeep:DB$ ChangeZoneAll | Origin$ Library | Destination$ Hand | ChangeType$ Card.IsRemembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigGain | TriggerDescription$ Whenever a creature you control dies, you gain 1 life.
+SVar:TrigGain:DB$ GainLife | Defined$ You | LifeAmount$ 1
+AI:RemoveDeck:All
+Oracle:At the beginning of your draw step, look at the top two cards of your library. For each card, you may pay 4 life. If you do, put it into your hand. Otherwise, put it into your graveyard.\nWhenever a creature you control dies, you gain 1 life.

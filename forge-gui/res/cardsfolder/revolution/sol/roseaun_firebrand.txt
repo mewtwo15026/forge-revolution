@@ -1,0 +1,6 @@
+Name:Roseaun Firebrand
+ManaCost:1 R
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/146_Roseaun Firebrand.jpg
+Oracle:Wither, haste\nAt the beginning of your end step, put a -1/-1 counter on Roseaun Firebrand.\nWhen Roseaun Firebrand dies, create an X/X red Spirit creature token, where X is the number of counters on it.

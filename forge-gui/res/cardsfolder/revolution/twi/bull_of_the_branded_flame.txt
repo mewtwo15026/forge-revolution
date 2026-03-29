@@ -1,0 +1,10 @@
+Name:Bull of the Branded Flame
+ManaCost:6 B B
+Types:Creature Ox Horror
+PT:5/5
+K:Affinity:Warlock
+K:Menace
+A:AB$ ChangeZone | Cost$ tapXType<3/Warlock> | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.Horror+YouOwn | TgtPrompt$ Select target Horror creature card in your graveyard | ActivationZone$ Battlefield | SpellDescription$ Return target Horror creature card from your graveyard to your hand.
+DeckNeeds:Type$Warlock|Horror
+DeckHas:Ability$Graveyard
+Oracle:Affinity for Warlocks (This spell costs {1} less to cast for each Warlock you control.)\nMenace\nTap three untapped Warlocks you control: Return target Horror creature card from your graveyard to your hand.

@@ -1,0 +1,6 @@
+Name:Make an Escape
+ManaCost:GU
+Types:Instant
+A:SP$ Pump | ValidTgts$ Permanent | KW$ Hexproof | SubAbility$ DBPumpCreature | SpellDescription$ Target permanent gains hexproof until end of turn. If it's a creature, it also gets +1/+1 until end of turn.
+SVar:DBPumpCreature:DB$ Pump | Defined$ Targeted | NumAtt$ +1 | NumDef$ +1 | ConditionDefined$ Targeted | ConditionPresent$ Creature | ConditionCompare$ EQ1
+Oracle:Target permanent gains hexproof until end of turn. If it's a creature, it also gets +1/+1 until end of turn.

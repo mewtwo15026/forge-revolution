@@ -1,0 +1,11 @@
+Name:Elixir of Divine Hunger
+ManaCost:1 R
+Types:Artifact
+T:Mode$ Sacrificed | ValidCard$ Permanent | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you sacrifice a permanent, put a charge counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ CHARGE | CounterNum$ 1
+A:AB$ Animate | Cost$ 1 R | Defined$ Self | Power$ X | Toughness$ X | Keywords$ Trample | Types$ Artifact,Creature | SpellDescription$ Until end of turn, CARDNAME becomes an X/X Spirit artifact creature with trample, where X is the number of charge counters on it.
+SVar:X:Count$CardCounters.CHARGE
+DeckNeeds:Ability$Sacrifice
+DeckHas:Ability$Counters
+Oracle:Whenever you sacrifice a permanent, put a charge counter on Elixir of Divine Hunger.\n
+{1}{R}: Until end of turn, Elixir of Divine Hunger becomes an X/X Spirit artifact creature with trample, where X is the number of charge counters on it.

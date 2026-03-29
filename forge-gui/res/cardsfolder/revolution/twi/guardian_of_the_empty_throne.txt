@@ -1,0 +1,7 @@
+Name:Guardian of the Empty Throne
+ManaCost:3
+Types:Artifact Creature Construct Soldier
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChange | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+SVar:TrigChange:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ShuffleNonMandatory$ True
+Oracle:When Guardian of the Empty Throne enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.

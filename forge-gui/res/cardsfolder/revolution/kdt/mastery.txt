@@ -1,0 +1,9 @@
+Name:Mastery
+ManaCost:W WB B
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever you cast a noncreature spell, put an exalted counter on this enchantment.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ Exalted
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature you control attacks, draw X cards if its power is greater than 7, where X is the difference.
+SVar:TrigDraw:DB$ Draw | NumCards$ X | ConditionDefined$ TriggeredAttackerLKICopy | ConditionPresent$ Creature.powerGT7
+SVar:X:TriggeredAttacker$CardPower/Minus.7
+Oracle:Whenever you cast a noncreature spell, put an exalted counter on this enchantment. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)\nWhenever a creature you control attacks, draw X cards if its power is greater than 7, where X is the difference.

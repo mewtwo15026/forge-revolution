@@ -1,0 +1,6 @@
+Name:Phemeros Redeemer
+ManaCost:3 B B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/104_Phemeros Redeemer.jpg
+Oracle:When Phemeros Redeemer enters, if you cast it from your hand, return target creature or planeswalker card from your graveyard to your hand.\nOnce during each of your turns, when a creature or planeswalker card leaves your graveyard, you may cast a copy of it by paying life equal to its mana value instead of paying its mana cost.

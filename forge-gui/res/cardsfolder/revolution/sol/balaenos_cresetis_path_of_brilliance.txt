@@ -1,0 +1,16 @@
+Name:Balaenos Cresetis
+ManaCost:6 U U
+Types:Creature Whale Spirit
+PT:8/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBounce | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, return up to one target creature defending player controls to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Creature.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select up to one target creature defending player controls | Origin$ Battlefield | Destination$ Hand
+AlternateMode:Adventure
+Oracle:Whenever Balaenos Cresetis attacks, return up to one target creature defending player controls to its owner's hand.
+
+ALTERNATE
+
+Name:Path of Brilliance
+ManaCost:U
+Types:Instant Adventure
+A:SP$ ChangeZone | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target creature you don't control to its owner's hand. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Return target creature you don't control to its owner's hand. (Then exile this card. You may cast the creature later from exile.)

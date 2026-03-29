@@ -1,0 +1,15 @@
+Name:Caphella, Endlight Catalyst
+ManaCost:3 R R
+Types:Legendary Planeswalker Caphella
+Loyalty:4
+K:Wither
+S:Mode$ Continuous | Affected$ Instant.YouCtrl,Sorcery.YouCtrl | AffectedZone$ Stack | AddKeyword$ Wither | Description$ Instant and sorcery spells you control have wither.
+A:AB$ DealDamage | Cost$ AddCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Any | NumDmg$ 2 | SpellDescription$ NICKNAME deals 2 damage to any target.
+A:AB$ Token | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | TokenScript$ r_1_1_spirit_wither | TokenAmount$ 2 | SpellDescription$ Create two 1/1 red Spirit creature tokens with wither.
+A:AB$ ChangeZone | Cost$ SubCounter<X/Loyalty> | Planeswalker$ True | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouOwn+cmcEQX,Sorcery.YouOwn+cmcEQX | TgtPrompt$ Select target instant or sorcery card in your graveyard with mana value X | RememberChanged$ True | SubAbility$ DBPlay | SpellDescription$ Exile target instant or sorcery card with mana value X from your graveyard. You may cast a copy of it without paying its mana cost.
+SVar:DBPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell | Optional$ True | CopyCard$ True | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Token & Type$Spirit
+Oracle:Wither (This deals damage to creatures in the form of -1/-1 counters.)\nInstant and sorcery spells you control have wither.\n[+2]: Caphella deals 2 damage to any target.\n[0]: Create two 1/1 red Spirit creature tokens with wither.\n[-X]: Exile target instant or sorcery card with mana value X from your graveyard. You may cast a copy of it without paying its mana cost.

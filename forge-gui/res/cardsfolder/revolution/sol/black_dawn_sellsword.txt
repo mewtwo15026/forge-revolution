@@ -1,0 +1,8 @@
+Name:Black Dawn Sellsword
+ManaCost:R R
+Types:Creature Elf Warrior
+PT:2/2
+K:Double Strike
+K:etbCounter:M1M1:1
+A:AB$ Pump | Cost$ 1 R SubCounter<1/M1M1> | Defined$ Self | KW$ Trample | SpellDescription$ CARDNAME gains trample until end of turn.
+Oracle:Double strike\nBlack Dawn Sellsword enters with a -1/-1 counter on it.\n{1}{R}, Remove a -1/-1 counter from Black Dawn Sellsword: It gains trample until end of turn.

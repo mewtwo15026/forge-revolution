@@ -1,0 +1,12 @@
+Name:Undarah of Fervor and Flame
+ManaCost:1 R
+Types:Legendary Creature Azra Archer
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.YouCtrl+!wasCastByYou | TriggerZones$ Battlefield | Execute$ TrigCharm | TriggerDescription$ Whenever a creature you control enters, if you didn't cast it, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBPutCounter,DBPump,DBScry | ChoiceRestriction$ ThisTurn | CharmNum$ 1
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on CARDNAME.
+SVar:DBPump:DB$ Pump | Defined$ Self | KW$ Menace | SpellDescription$ CARDNAME gains menace until end of turn.
+SVar:DBScry:DB$ Scry | ScryNum$ 2 | SpellDescription$ Scry 2.
+DeckHas:Ability$Counter
+DeckHints:Ability$Token & Keyword$twi_Rapture
+Oracle:Whenever a creature you control enters, if you didn't cast it, choose one that hasn't been chosen this turn —\n• Put a +1/+1 counter on Undarah.\n• Undarah gains menace until end of turn.\n• Scry 2.

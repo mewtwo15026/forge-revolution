@@ -1,0 +1,8 @@
+Name:Roseaun Ley-Pillar
+ManaCost:2 R
+Types:Creature Wall
+PT:0/3
+K:Defender
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigBurn | TriggerDescription$ When CARDNAME enters, it deals 3 damage to any target.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 3
+Oracle:Defender\nWhen Roseaun Ley-Pillar enters, it deals 3 damage to any target.

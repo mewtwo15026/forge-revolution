@@ -1,0 +1,11 @@
+Name:Maternal Monster
+ManaCost:2 W
+Types:Creature Beast
+PT:1/1
+K:mon_Experience
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.YouCtrl+inZoneBattlefield+EnchantedByValid Enchantment.namedGrinding,Creature.YouCtrl+inZoneBattlefield+namedForgotten Temple,Creature.YouCtrl+inZoneBattlefield+namedBudding Companion,Creature.YouCtrl+inZoneBattlefield+namedCheerful Generator,Creature.YouCtrl+inZoneBattlefield+namedCrusher Beetle,Creature.YouCtrl+inZoneBattlefield+namedCurious Cubs,Creature.YouCtrl+inZoneBattlefield+namedDetermined Koi,Creature.YouCtrl+inZoneBattlefield+namedEager Hatchling,Creature.YouCtrl+inZoneBattlefield+namedFlame-Tailed Lizard,Creature.YouCtrl+inZoneBattlefield+namedGalloping Blaze,Creature.YouCtrl+inZoneBattlefield+namedLoyal Firestarter,Creature.YouCtrl+inZoneBattlefield+namedMaternal Monster,Creature.YouCtrl+inZoneBattlefield+namedParalycker,Creature.YouCtrl+inZoneBattlefield+namedSprout Tender,Creature.YouCtrl+inZoneBattlefield+namedTangling Vines,Creature.YouCtrl+inZoneBattlefield+namedTidepool Turtle,Creature.YouCtrl+inZoneBattlefield+namedUnstoppable Weed,Creature.YouCtrl+inZoneBattlefield+namedWinding Snake,Creature.YouCtrl+inZoneBattlefield+namedWings of Trust,Creature.YouCtrl+inZoneBattlefield+namedWorried Vulpine | ValidCounterType$ P1P1 | ReplaceWith$ AddOneMoreCounters | Description$ If one or more +1/+1 counters would be put on a creature you control with experience, that many plus one +1/+1 counters are put on it instead.
+SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ P1P1 | ChooseCounter$ True | Amount$ X
+SVar:X:ReplaceCount$CounterNum/Plus.1
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nIf one or more +1/+1 counters would be put on a creature you control with experience, that many plus one +1/+1 counters are put on it instead.

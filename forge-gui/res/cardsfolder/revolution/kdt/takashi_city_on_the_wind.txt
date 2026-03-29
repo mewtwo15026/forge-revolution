@@ -1,0 +1,11 @@
+Name:Takashi, City on the Wind
+ManaCost:4
+Types:Legendary Artifact Vehicle
+PT:4/4
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever NICKNAME attacks, draw a card for each creature that crewed it this turn. Then you may put any number of land cards from your hand onto the battlefield tapped.
+SVar:TrigDraw:DB$ Draw | NumCards$ Count$CrewSize | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Land | ChangeNum$ X | Tapped$ True
+SVar:X:Count$ValidHand Land.YouCtrl
+K:Crew:2
+Oracle:Flying\nWhenever Takashi attacks, draw a card for each creature that crewed it this turn. Then you may put any number of land cards from your hand onto the battlefield tapped.\nCrew 2

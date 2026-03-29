@@ -1,0 +1,17 @@
+Name:Coria Portenus
+ManaCost:7 U B
+Types:Creature Scorpion Spirit
+PT:9/9
+T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Whenever a creature blocks CARDNAME, that creature's controller loses 3 life.
+SVar:DBDrain:DB$ LoseLife | Defined$ TriggeredBlockerController | LifeAmount$ 3
+AlternateMode:Adventure
+Oracle:Whenever a creature blocks Coria Portenus, that creature's controller loses 3 life.
+
+ALTERNATE
+
+Name:Path of Secrecy
+ManaCost:1 UB
+Types:Instant Adventure
+A:SP$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife | SpellDescription$ You draw a card and you lose 1 life. (Then exile this card. You may cast the creature later from exile.)
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+Oracle:You draw a card and you lose 1 life. (Then exile this card. You may cast the creature later from exile.)

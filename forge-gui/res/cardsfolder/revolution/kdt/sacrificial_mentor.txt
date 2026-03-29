@@ -1,0 +1,7 @@
+Name:Sacrificial Mentor
+ManaCost:WB
+Types:Creature Human Samurai
+PT:1/1
+A:AB$ Token | Cost$ 2 Sac<1/CARDNAME> | SorcerySpeed$ True | TokenScript$ w_2_2_samurai_exalted | SpellDescription$ Create a 2/2 white Samurai creature token with exalted. Activate only as a sorcery.
+DeckHas:Ability$Token|Sacrifice
+Oracle:{2}, Sacrifice this creature: Create a 2/2 white Samurai creature token with exalted. Activate only as a sorcery. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

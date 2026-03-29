@@ -1,0 +1,10 @@
+Name:Moonlit Gateway
+ManaCost:1
+Types:Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When this artifact enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Library | LibraryPosition$ 0 | ChangeType$ Land.Basic | ChangeNum$ 1 | ShuffleNonMandatory$ True
+A:AB$ Draw | Cost$ 1 Sac<1/CARDNAME> | ActivationZone$ Battlefield | NumCards$ 1 | SpellDescription$ Draw a card.
+A:AB$ ChangeZoneAll | Cost$ 3 Sac<1/CARDNAME> | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.OppOwn | AILogic$ Curse | SubAbility$ DBDraw | SpellDescription$ Exile each opponent's graveyard. Draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$Sacrifice
+Oracle:When this artifact enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.\n{1}, Sacrifice this artifact: Draw a card.\n{3}, Sacrifice this artifact: Exile each opponent's graveyard. Draw a card.

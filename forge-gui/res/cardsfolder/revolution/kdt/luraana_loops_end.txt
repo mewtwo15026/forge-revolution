@@ -1,0 +1,12 @@
+Name:Luraana, Loop's End
+ManaCost:3 U U
+Types:Legendary Creature Avatar
+PT:12/12
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped with twelve stun counters on it.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | SubAbility$ DBAddCounter
+SVar:DBAddCounter:DB$ PutCounter | Defined$ Self | ETB$ True | CounterType$ STUN | CounterNum$ 12
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigEffect | TriggerDescription$ When NICKNAME enters, until your next turn, you may cast spells as though they have flash.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ QuickSpell | Duration$ UntilYourNextTurn
+SVar:QuickSpell:Mode$ CastWithFlash | ValidCard$ Card | ValidSA$ Spell | Caster$ You | Description$ Until your next turn, you may cast spells as though they have flash.
+S:Mode$ Continuous | Affected$ Permanent.YouCtrl | AddHiddenKeyword$ CARDNAME untaps during each other player's untap step. | Description$ Untap all permanents you control during each other player's untap step.
+Oracle:Luraana enters tapped with twelve stun counters on it.\nWhen Luraana enters, until your next turn, you may cast spells as though they have flash.\nUntap all permanents you control during each other player's untap step.

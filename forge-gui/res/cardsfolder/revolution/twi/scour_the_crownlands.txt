@@ -1,0 +1,7 @@
+Name:Scour the Crownlands
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ everywhere | TokenTapped$ True | SubAbility$ DBZombie | SpellDescription$ Create a tapped Everywhere token and a 2/2 black Zombie creature token with "This creature can't block."
+SVar:DBZombie:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_zombie_cantblock
+DeckHas:Ability$Token & Type$Zombie
+Oracle:Create a tapped Everywhere token. (It's a land that is every basic land type.)\nCreate a 2/2 black Zombie creature token with "This creature can't block."

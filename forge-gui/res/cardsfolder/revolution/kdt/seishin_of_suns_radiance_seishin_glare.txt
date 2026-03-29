@@ -1,0 +1,19 @@
+Name:Seishin of Sun's Radiance
+ManaCost:2 R
+Types:Creature Cat Spirit
+PT:2/2
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a noncreature spell, put a +1/+1 counter on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:BuffedBy:nonCreature
+DeckHints:Instant|Sorcery|Artifact|Enchantment|Battle
+DeckHas:Ability$Counters
+AlternateMode:Adventure
+Oracle:Whenever you cast a noncreature spell, put a +1/+1 counter on this creature.
+
+ALTERNATE
+
+Name:Seishin Glare
+ManaCost:R
+Types:Sorcery Adventure
+A:SP$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.
+Oracle:Destroy target artifact. (Then exile this card. You may cast the creature later from exile.)

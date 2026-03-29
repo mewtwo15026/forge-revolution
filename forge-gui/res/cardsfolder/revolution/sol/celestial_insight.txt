@@ -1,0 +1,7 @@
+Name:Celestial Insight
+ManaCost:3 U
+Types:Instant
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBToken | SpellDescription$ Draw two cards. Create a 1/1 white Spirit creature token.
+SVar:DBToken:DB$ Token | TokenScript$ w_1_1_spirit
+DeckHas:Ability$Token & Type$Spirit
+Oracle:Draw two cards. Create a 1/1 white Spirit creature token.

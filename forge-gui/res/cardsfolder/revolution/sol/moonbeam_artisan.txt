@@ -1,0 +1,6 @@
+Name:Moonbeam Artisan
+ManaCost:WB WB WB
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/262_Moonbeam Artisan.jpg
+Oracle:Lifelink\nWhen Moonbeam Artisan enters, you may search your library for an artifact or enchantment card with mana value 1 or less, reveal it, put it into your hand, then shuffle.

@@ -1,0 +1,9 @@
+Name:Hell's Boon
+ManaCost:1 R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker | NumDmg$ 3 | DamageMap$ True | SubAbility$ DBBurn | SpellDescription$ CARDNAME deals 3 damage to up to one target creature or planeswalker.
+SVar:DBBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 2 | ConditionCheckSVar$ Damned | ConditionSVarCompare$ GE1 | SubAbility$ DBDamageResolve | SpellDescription$ Damned — If you've sacrificed a permanent this turn, CARDNAME deals 2 damage to each opponent.
+SVar:DBDamageResolve:DB$ DamageResolve
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+Oracle:Hell's Boon deals 3 damage to up to one target creature or planeswalker.\nDamned — If you've sacrificed a permanent this turn, Hell's Boon deals 2 damage to each opponent.

@@ -1,0 +1,8 @@
+Name:Kage's Slayer
+ManaCost:1 R
+Types:Creature Demon Warrior
+PT:2/1
+K:Haste
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+attackedThisTurn | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Whenever a creature you control dies, if it attacked this turn, this creature deals 1 damage to each opponent.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+Oracle:Haste\nWhenever a creature you control dies, if it attacked this turn, this creature deals 1 damage to each opponent.

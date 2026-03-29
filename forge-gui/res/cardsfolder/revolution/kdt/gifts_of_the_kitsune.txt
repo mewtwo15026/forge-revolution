@@ -1,0 +1,12 @@
+Name:Gifts of the Kitsune
+ManaCost:G
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigDraw | TriggerDescription$ When this Aura enters, draw a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Creature.EnchantedBy | ValidCounterType$ P1P1 | ReplaceWith$ AddOneMoreCounters | Description$ If one or more +1/+1 counters would be put on enchanted creature, that many plus one +1/+1 counters are put on it instead.
+SVar:AddOneMoreCounters:DB$ ReplaceCounter | ValidCounterType$ P1P1 | ChooseCounter$ True | Amount$ X
+SVar:X:ReplaceCount$CounterNum/Plus.1
+DeckNeeds:Ability$Counters
+Oracle:Enchant creature\nWhen this Aura enters, draw a card.\nIf one or more +1/+1 counters would be put on enchanted creature, that many plus one +1/+1 counters are put on it instead.

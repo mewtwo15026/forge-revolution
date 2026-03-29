@@ -1,0 +1,8 @@
+Name:Moon-Scarred Mystic
+ManaCost:U
+Types:Creature Moonfolk Wizard
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ Draw | Cost$ 1 U T SubCounter<M1M1> | NumCards$ 1 | SpellDescription$ Draw a card.
+Oracle:When Moon-Scarred Mystic enters, put a -1/-1 counter on target creature you control.\n{1}{U}, {T}, Remove a -1/-1 counter from Moon-Scarred Mystic: Draw a card.

@@ -5,6 +5,10 @@ PT:2/3
 K:Flying
 S:Mode$ ReduceCost | ValidCard$ Instant,Sorcery | Type$ Spell | Activator$ You | Amount$ X | Description$ Instant and sorcery spells you cast cost {1} less to cast for each other Warlock you control.
 SVar:X:Count$Valid Warlock.Other+YouCtrl
-T:Mode$ Attacks | ValidCard$ Horror.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever another Horror you control attacks, you may exile an instant or sorcery card from your graveyard. You may cast a copy of that card. (You still pay its costs.)
+T:Mode$ Attacks | ValidCard$ Horror.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever another Horror you control attacks, you may exile an instant or sorcery card from your graveyard. You may cast a copy of that card. (You still pay its costs.)
+SVar:TrigExile:DB$ ChangeZone | Optional$ True | RememberChanged$ True | Origin$ Graveyard | Destination$ Exile | ChangeType$ Instant.YouOwn,Sorcery.YouOwn | ChangeNum$ 1 | SubAbility$ DBPlayCopy
+SVar:DBPlayCopy:DB$ Play | Valid$ Card.IsRemembered | ValidSA$ Spell | ValidZone$ Exile | Amount$ All | CopyCard$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Graveyard
 DeckNeeds:Type$Warlock|Horror|Instant|Sorcery
 Oracle:Flying\nInstant and sorcery spells you cast cost {1} less to cast for each other Warlock you control.\nWhenever another Horror you control attacks, you may exile an instant or sorcery card from your graveyard. You may cast a copy of that card. (You still pay its costs.)

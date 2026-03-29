@@ -1,0 +1,9 @@
+Name:Jun, Twinblade Master
+ManaCost:2 W B
+Types:Legendary Creature Avatar Samurai
+PT:2/3
+K:Double Strike
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Any | Destination$ Battlefield | ValidCard$ Enchantment.YouCtrl | Execute$ TrigCopy | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever an enchantment you control enters, you may create a token that's a copy of it, except the token isn't legendary and has exalted. Do this only once each turn.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | AddKeywords$ Exalted | NonLegendary$ True
+DeckHints:Type$Enchantment 
+Oracle:Double strike\nWhenever an enchantment you control enters, you may create a token that's a copy of it, except the token isn't legendary and has exalted. Do this only once each turn. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

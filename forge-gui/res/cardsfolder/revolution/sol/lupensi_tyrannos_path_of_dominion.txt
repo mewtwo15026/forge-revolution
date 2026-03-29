@@ -1,0 +1,18 @@
+Name:Lupensi Tyrannos
+ManaCost:6 B G
+Types:Creature Wolf Spirit
+PT:8/7
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.token | Description$ CARDNAME can't be blocked by tokens.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.DamagedBy | Execute$ TrigBounce | TriggerDescription$ Whenever a creature dealt damage by CARDNAME this turn dies, return that card to the battlefield under your control.
+SVar:TrigBounce:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | Defined$ TriggeredNewCardLKICopy
+DeckHas:Ability$Graveyard
+AlternateMode:Adventure
+Oracle:Lupensi Tyrannos can't be blocked by tokens.\nWhenever a creature dealt damage by Lupensi Tyrannos this turn dies, return that card to the battlefield under your control.
+
+ALTERNATE
+
+Name:Path of Dominion
+ManaCost:B G
+Types:Instant Adventure
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target permanent card in your graveyard | ValidTgts$ Permanent.YouOwn | StackDescription$ SpellDescription | SpellDescription$ Return target permanent card from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Return target permanent card from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)

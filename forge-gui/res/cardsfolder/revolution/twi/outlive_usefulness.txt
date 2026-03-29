@@ -1,0 +1,6 @@
+Name:Outlive Usefulness
+ManaCost:1 B B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SubAbility$ DBSac | SpellDescription$ Destroy target creature or planeswalker. Its controller sacrifices a token.
+SVar:DBSac:DB$ Sacrifice | Defined$ TargetedController | SacValid$ Permanent.token
+Oracle:Destroy target creature or planeswalker. Its controller sacrifices a token.

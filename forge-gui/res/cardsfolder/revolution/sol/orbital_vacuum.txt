@@ -1,0 +1,5 @@
+Name:Orbital Vacuum
+ManaCost:1 W W
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/24_Orbital Vacuum.jpg
+Oracle:When Orbital Vacuum enters, exile target nonland permanent an opponent controls until Orbital Vacuum leaves the battlefield.\nWhenever you cast a spell with mana value greater than the exiled card's, you may put that card into its owner's graveyard. If you do, sacrifice Orbital Vacuum and you gain 5 life.

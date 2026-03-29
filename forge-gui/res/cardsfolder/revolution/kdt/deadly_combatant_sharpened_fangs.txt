@@ -1,0 +1,16 @@
+Name:Deadly Combatant
+ManaCost:1 G
+Types:Creature Human Warrior
+PT:2/2
+DeckHas:Ability$Counters
+AlternateMode:Adventure
+Oracle:
+
+ALTERNATE
+
+Name:Sharpened Fangs
+ManaCost:G
+Types:Sorcery Adventure
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | SubAbility$ DBPump | SpellDescription$ Put a +1/+1 counter on target creature. It gains trample until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Trample
+Oracle:Put a +1/+1 counter on target creature. It gains trample until end of turn. (Then exile this card. You may cast the creature later from exile.)

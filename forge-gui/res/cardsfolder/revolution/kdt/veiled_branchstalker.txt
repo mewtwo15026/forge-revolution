@@ -1,0 +1,13 @@
+Name:Veiled Branchstalker
+ManaCost:U
+Types:Creature Human Ninja
+PT:1/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | Execute$ TrigDraw | TriggerDescription$ When this creature enters, if a nontoken creature you controlled left the battlefield without dying this turn, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:X:Count$LeftBattlefieldThisTurn Creature.!token+YouCtrl/Minus.Y
+SVar:Y:Count$ThisTurnEntered_Graveyard_from_Battlefield_Creature.!token+YouCtrl
+K:Cycling:2
+DeckHas:Ability$Discard
+DeckHints:Keyword$Ninjutsu
+Oracle:Flying\nWhen this creature enters, if a nontoken creature you controlled left the battlefield without dying this turn, draw a card.\nCycling {2} ({2}, Discard this card: Draw a card.)

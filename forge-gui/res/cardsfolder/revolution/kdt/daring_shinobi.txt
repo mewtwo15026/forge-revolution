@@ -1,0 +1,10 @@
+Name:Daring Shinobi
+ManaCost:1 U
+Types:Creature Fox Ninja
+PT:2/1
+K:Ninjutsu:U
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player,Planeswalker | CombatDamage$ True | Execute$ TrigLoot | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player or planeswalker, you may draw a card. If you do, discard a card unless this creature entered this turn.
+SVar:TrigLoot:AB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ X | Cost$ Draw<1/You>
+SVar:X:TriggeredSource$Valid Card.!ThisTurnEntered
+DeckHas:Ability$Discard
+Oracle:Ninjutsu {U} ({U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player or planeswalker, you may draw a card. If you do, discard a card unless this creature entered this turn.

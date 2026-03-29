@@ -1,0 +1,6 @@
+Name:Stained Strokes
+ManaCost:1 B
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl | WithCountersType$ Exalted | SpellDescription$ Return target creature card with mana value 3 or less from your graveyard to the battlefield with an exalted counter on it.
+DeckHas:Ability$Graveyard|Counters & Keyword$Exalted
+Oracle:Return target creature card with mana value 3 or less from your graveyard to the battlefield with an exalted counter on it. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

@@ -1,0 +1,7 @@
+Name:Absolution Flock
+ManaCost:2 W U
+Types:Sorcery
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ u_1_1_bird_flying | SubAbility$ DBCopy | SpellDescription$ Create two 1/1 blue Bird creature tokens with flying, then create a token that's a copy of a token you control.
+SVar:DBCopy:DB$ CopyPermanent | Choices$ Permanent.token+YouCtrl | NumCopies$ 1
+DeckHas:Ability$Token & Type$Bird
+Oracle:Create two 1/1 blue Bird creature tokens with flying, then create a token that's a copy of a token you control.

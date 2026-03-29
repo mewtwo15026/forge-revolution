@@ -1,0 +1,19 @@
+Name:Manticos Expurgis
+ManaCost:5 R R
+Types:Creature Manticore Spirit
+PT:9/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, it deals damage to any target equal to the number of nonbasic lands defending player controls.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X
+SVar:X:Count$Valid Land.nonBasic+DefenderCtrl
+SVar:HasAttackEffect:TRUE
+AlternateMode:Adventure
+Oracle:Whenever Manticos Expurgis attacks, it deals damage to any target equal to the number of nonbasic lands defending player controls.
+
+ALTERNATE
+
+Name:Path of Purity
+ManaCost:R
+Types:Sorcery Adventure
+A:SP$ Destroy | ValidTgts$ Artifact,Land.nonBasic | TgtPrompt$ Select target artifact or nonbasic land | SubAbility$ DBToken | SpellDescription$ Destroy target artifact or nonbasic land. Its controller creates a land token named Lotus Spring with "{T}: Add one mana of any color."
+SVar:DBToken:DB$ Token | TokenScript$ lotus_spring | TokenOwner$ TargetedController
+Oracle:Destroy target artifact or nonbasic land. Its controller creates a land token named Lotus Spring with "{T}: Add one mana of any color." (Then exile this card. You may cast the creature later from exile.)

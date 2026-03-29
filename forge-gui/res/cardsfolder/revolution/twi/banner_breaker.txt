@@ -1,0 +1,11 @@
+Name:Banner Breaker
+ManaCost:1 G
+Types:Creature Zombie Soldier
+PT:3/1
+K:Trample
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDamage | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, it deals that much damage to a battle that player protects.
+SVar:TrigDamage:DB$ DealDamage | NumDmg$ X | CardChoices$ Battle.ProtectedBy TriggeredTarget
+SVar:X:TriggerCount$DamageAmount
+SVar:MustBeBlocked:True
+DeckHints:Type$Battle
+Oracle:Trample\nWhenever Banner Breaker deals combat damage to a player, it deals that much damage to a battle that player protects.

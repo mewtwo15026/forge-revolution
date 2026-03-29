@@ -1,0 +1,9 @@
+Name:Star-Touched Stalwart
+ManaCost:4 W
+Types:Creature Moonfolk Soldier
+PT:5/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ ChangeZone | Cost$ W SubCounter<1/M1M1> | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Artifact.YouCtrl,Enchantment.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target artifact or enchantment card in your graveyard | SpellDescription$ Return up to one target artifact or enchantment card from your graveyard to your hand.
+DeckNeeds:Type$Artifact|Enchantment
+Oracle:When Star-Touched Stalwart enters, put a -1/-1 counter on target creature you control.\n{W}, Remove a -1/-1 counter from Star-Touched Stalwart: Return up to one target artifact or enchantment card from your graveyard to your hand.

@@ -365,6 +365,8 @@ Replace=.016F fromSheet("KDT buy a box")
 324 S Attuned Acolyte @Johannes Helgeson
 325 S Precognitive Combatant @Le Vuong
 326 S Kitsune Matriarch @Ognjen Sporin
+327 S Kage, Cursed Conqueror @Art of Li
+328 S Omen Skulker @Ognjen Sporin
 
 [duals]
 1 Desolate Path|KDT

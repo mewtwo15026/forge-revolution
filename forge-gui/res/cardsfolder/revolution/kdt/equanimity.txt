@@ -1,0 +1,14 @@
+Name:Equanimity
+ManaCost:W WU U
+Types:Enchantment
+T:Mode$ Phase | Phase$ Cleanup | Execute$ TrigForget | Static$ True
+SVar:TrigForget:DB$ StoreSVar | SVar$ HasReplaced | Type$ Number | Expression$ 0
+R:Event$ CreateToken | ActiveZones$ Battlefield | CheckSVar$ HasReplaced | SVarCompare$ EQ0 | ValidPlayer$ You | PlayerTurn$ True | Optional$ True | Layer$ Copy | ReplaceWith$ DBCopy | Description$ If you would create one or more tokens, you may instead create that many tokens that are copies of a token you control. Do this only once each turn.
+SVar:DBCopy:DB$ ReplaceToken | Type$ ReplaceToken | ValidChoices$ Permanent.token+YouCtrl | TokenScript$ Chosen | SubAbility$ DBTrack
+SVar:DBTrack:DB$ StoreSVar | SVar$ HasReplaced | Type$ Number | Expression$ 1
+SVar:HasReplaced:Number$0
+T:Mode$ AttackersDeclared | ValidAttackers$ Creature.YouCtrl | OptionalDecider$ You | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, you may create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ u_1_1_bird_flying
+DeckHas:Ability$Token & Type$Bird
+DeckHints:Ability$Token
+Oracle:If you would create one or more tokens, you may instead create that many tokens that are copies of a token you control. Do this only once each turn.\nWhenever you attack, you may create a 1/1 blue Bird creature token with flying.

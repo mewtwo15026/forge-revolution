@@ -1,0 +1,17 @@
+Name:Nuillae Exidus
+ManaCost:6 B B
+Types:Creature Eel Spirit
+PT:8/6
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSacAll | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, defending player sacrifices each creature and planeswalker they control with the lowest mana value among creatures and planeswalkers they control.
+SVar:TrigSacAll:DB$ SacrificeAll | ValidCards$ Creature.DefenderCtrl+cmcEQX,Planeswalker.DefenderCtrl+cmcEQX
+SVar:X:Count$Valid Creature.DefenderCtrl,Planeswalker.DefenderCtrl$LeastCardManaCost
+AlternateMode:Adventure
+Oracle:Whenever Nuillae Exidus attacks, defending player sacrifices each creature and planeswalker they control with the lowest mana value among creatures and planeswalkers they control.
+
+ALTERNATE
+
+Name:Path of Hunger
+ManaCost:1 B
+Types:Instant Adventure
+A:SP$ Sacrifice | ValidTgts$ Player | SacValid$ Creature,Planeswalker | SpellDescription$ Target player sacrifices a creature or planeswalker. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Target player sacrifices a creature or planeswalker. (Then exile this card. You may cast the creature later from exile.)

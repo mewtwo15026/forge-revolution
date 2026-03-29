@@ -1,0 +1,18 @@
+Name:Cepheos Delugo
+ManaCost:6 W U
+Types:Creature Kraken Spirit
+PT:8/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTwiddle | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may tap or untap another target nonland permanent.
+SVar:TrigTwiddle:DB$ TapOrUntap | ValidTgts$ Permanent.nonLand+Other | TgtPrompt$ Select another target nonland permanent
+AlternateMode:Adventure
+Oracle:Whenever Cepheos Delugo attacks, you may tap or untap another target nonland permanent.
+
+ALTERNATE
+
+Name:Path of Clarity
+ManaCost:2 WU
+Types:Instant Adventure
+A:SP$ ChangeZone | ValidTgts$ Permanent.YouOwn | TgtPrompt$ Select target permanent you own | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBReturn | SpellDescription$ Exile target permanent you own, then return it to the battlefield under your control.
+SVar:DBReturn:DB$ ChangeZone | Origin$ Exile | Destination$ Battlefield | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Exile target nonland permanent you own, then return it to the battlefield under your control. (Then exile this card. You may cast the creature later from exile.)

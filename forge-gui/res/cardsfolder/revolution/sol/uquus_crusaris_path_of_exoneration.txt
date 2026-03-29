@@ -1,0 +1,21 @@
+Name:Uquus Crusaris
+ManaCost:6 R W
+Types:Creature Unicorn Spirit
+PT:7/9
+T:Mode$ DamageDoneOnce | Execute$ TrigDamage | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, it deals that much damage to any other target and you gain that much life.
+SVar:TrigDamage:DB$ DealDamage | NumDmg$ X | ValidTgts$ Creature.Other,Player,Planeswalker.Other,Battle.Other | TgtPrompt$ Select any other target | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:TriggerCount$DamageAmount
+SVar:HasCombatEffect:TRUE
+DeckHas:Ability$LifeGain
+AlternateMode:Adventure
+Oracle:Whenever Uquus Crusaris is dealt damage, it deals that much damage to any other target and you gain that much life.
+
+ALTERNATE
+
+Name:Path of Exoneration
+ManaCost:R W
+Types:Instant Adventure
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker,Battle | NumDmg$ 3 | SubAbility$ DBGainLifeAdv | SpellDescription$ CARDNAME deals 3 damage to any target that isn't a player and you gain 3 life.
+SVar:DBGainLifeAdv:DB$ GainLife | LifeAmount$ 3
+Oracle:Path of Exoneration deals 3 damage to any nonplayer target and you gain 3 life. (Then exile this card. You may cast the creature later from exile.)

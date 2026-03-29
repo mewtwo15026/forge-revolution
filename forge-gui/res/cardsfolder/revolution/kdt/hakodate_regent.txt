@@ -1,0 +1,13 @@
+Name:Hakodate Regent
+ManaCost:4 R R
+Types:Creature Phoenix Spirit
+PT:3/6
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddKeyword$ Flying | AddReplacementEffect$ DoubleDamage | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+K:Flying
+SVar:DoubleDamage:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.Self | ValidTarget$ Permanent,Player | ReplaceWith$ DmgTwice | Description$ If this creature would deal damage to a permanent or player, it deals double that damage instead.
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.Self | ValidTarget$ Permanent,Player | ReplaceWith$ DmgTwice | Description$ If this creature would deal damage to a permanent or player, it deals double that damage instead.
+SVar:DmgTwice:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ X
+SVar:X:ReplaceCount$DamageAmount/Twice
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nFlying\nIf this creature would deal damage to a permanent or player, it deals double that damage instead.

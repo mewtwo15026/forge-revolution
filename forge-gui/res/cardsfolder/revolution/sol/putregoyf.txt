@@ -1,0 +1,6 @@
+Name:Putregoyf
+ManaCost:BG BG BG BG
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/265_Putregoyf.jpg
+Oracle:Trample\nPutregoyf gets +2/+2 for each card type among cards in your graveyard.\nWhen Putregoyf leaves your graveyard during your turn, mill four cards.

@@ -1,0 +1,17 @@
+Name:Aspus Venefir
+ManaCost:5 B B
+Types:Creature Snake Spirit
+PT:7/6
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigShrink | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, up to one target creature gets -2/-2 until end of turn.
+SVar:TrigDebuff:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True
+SVar:HasAttackEffect:TRUE
+AlternateMode:Adventure
+Oracle:Whenever Aspus Venefir attacks, up to one target creature gets -2/-2 until end of turn.
+
+ALTERNATE
+
+Name:Path of Virulence
+ManaCost:1 B B
+Types:Sorcery Adventure
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True | SpellDescription$ All creatures get -2/-2 until end of turn. (Then exile this card. You may cast the creature later from exile.)
+Oracle:All creatures get -2/-2 until end of turn. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,5 @@
+Name:Skycleave
+ManaCost:3 R
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/148_Skycleave.jpg
+Oracle:This spell costs {3} less to cast if it targets a creature you control.\nSkycleave deals 4 damage to target creature or planeswalker. Put a -1/-1 counter on up to one other target creature.

@@ -1,0 +1,8 @@
+Name:Ancestor's Guidance
+ManaCost:1 G
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.!token+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigSurveil | TriggerDescription$ Whenever a nontoken creature you control enters, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+A:AB$ ChangeZone | Cost$ G Exile<1/CARDNAME> | SorcerySpeed$ True | ActivationZone$ Battlefield | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target card in your graveyard | ValidTgts$ Card.YouCtrl | SpellDescription$ Return target card from your graveyard to your hand. Activate only as a sorcery.
+DeckHas:Ability$Surveil|Graveyard
+Oracle:Whenever a nontoken creature you control enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\n{G}, Exile this enchantment: Return target card from your graveyard to your hand. Activate only as a sorcery.

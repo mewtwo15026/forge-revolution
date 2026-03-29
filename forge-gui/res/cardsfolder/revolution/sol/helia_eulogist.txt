@@ -1,0 +1,6 @@
+Name:Helia Eulogist
+ManaCost:1 W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/12_Helia Eulogist.jpg
+Oracle:When Helia Eulogist enters, draw a card if you have more life than your starting life total. Otherwise, you gain 3 life.

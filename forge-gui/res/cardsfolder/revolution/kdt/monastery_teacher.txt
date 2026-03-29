@@ -1,0 +1,9 @@
+Name:Monastery Teacher
+ManaCost:W W U U
+Types:Creature Human Monk
+PT:2/2
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create three 1/1 white Monk creature tokens with vigilance.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_1_1_monk_vigilance
+DeckHas:Ability$Token
+Oracle:Vigilance\nWhen this creature enters, create three 1/1 white Monk creature tokens with vigilance.

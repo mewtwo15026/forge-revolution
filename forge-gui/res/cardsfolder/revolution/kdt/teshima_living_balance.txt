@@ -1,0 +1,11 @@
+Name:Teshima, Living Balance
+ManaCost:R G W U
+Types:Legendary Creature Spirit Monk
+PT:1/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When NICKNAME enters, create two 1/1 white Monk creature tokens with vigilance.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ w_1_1_monk_vigilance | TokenOwner$ You
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ Whenever NICKNAME attacks, put X +1/+1 counters on each other creature you control, where X is NICKNAME's power.
+SVar:TrigPutCounter:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+Other | CounterType$ P1P1 | CounterNum$ X
+SVar:X:Count$CardPower
+DeckHas:Ability$Counters|Token
+Oracle:When Teshima enters, create two 1/1 white Monk creature tokens with vigilance.\nWhenever Teshima attacks, put X +1/+1 counters on each other creature you control, where X is Teshima's power.

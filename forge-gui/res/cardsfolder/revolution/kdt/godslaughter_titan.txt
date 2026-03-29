@@ -1,0 +1,13 @@
+Name:Godslaughter Titan
+ManaCost:4 B R
+Types:Creature Demon
+PT:4/4
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Secondary$ True | Description$ Damned — This spell costs {1} less to cast for each permanent you've sacrificed this turn.
+SVar:X:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+T:Mode$ Sacrificed | ValidCard$ Permanent.YouCtrl | Execute$ TrigExile | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Whenever you sacrifice a permanent, this creature deals 2 damage to target opponent unless they exile a permanent they control. You may play cards exiled this way for as long as they remain exiled, and you may spend mana of any type to cast them.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | Origin$ Battlefield | Destination$ Exile | ChangeType$ Card | ChangeNum$ 1 | Chooser$ Targeted | Hidden$ True | IsCurse$ True | Mandatory$ True | UnlessCost$ DamageYou<2> | UnlessPayer$ Targeted | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STPlay | Duration$ Permanent | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | MayPlayIgnoreType$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play the exiled cards for as long as they remain exiled. Mana of any type can be spent to cast spells this way.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckNeeds:Ability$Sacrifice
+Oracle:Damned — This spell costs {1} less to cast for each permanent you've sacrificed this turn.\nWhenever you sacrifice a permanent, this creature deals 2 damage to target opponent unless they exile a permanent they control. You may play cards exiled this way for as long as they remain exiled, and you may spend mana of any type to cast them.

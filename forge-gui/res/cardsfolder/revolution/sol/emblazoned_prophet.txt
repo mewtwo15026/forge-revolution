@@ -1,0 +1,6 @@
+Name:Emblazoned Prophet
+ManaCost:R
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/130_Emblazoned Prophet.jpg
+Oracle:Menace\nWhenever Emblazoned Prophet attacks, it deals 1 damage to the player or permanent it's attacking for each spell you've cast this turn.

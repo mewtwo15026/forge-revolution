@@ -1,0 +1,6 @@
+Name:Shigane Cyclone
+ManaCost:5 G
+Types:Creature Human Ninja
+PT:6/6
+K:Ninjutsu:4 G
+Oracle:Ninjutsu {4}{G} ({4}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)

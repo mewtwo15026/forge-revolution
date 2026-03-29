@@ -1,0 +1,10 @@
+Name:Wicked Manifestation
+ManaCost:1 B
+Types:Creature Horror
+PT:1/1
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ This creature gets +1/+1 for each card with a cycling ability in your graveyard.
+SVar:X:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+K:Cycling:2
+DeckNeeds:Keyword$Cycling
+DeckHas:Ability$Discard
+Oracle:This creature gets +1/+1 for each card with a cycling ability in your graveyard.\nCycling {2} ({2}, Discard this card: Draw a card.)

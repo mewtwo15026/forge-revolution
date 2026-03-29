@@ -1,0 +1,15 @@
+Name:Koraja, the Broken Blade
+ManaCost:B R
+Types:Legendary Creature Demon Warrior
+PT:2/2
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Card.Self | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ When you sacrifice NICKNAME, exile it. Until the end of your next turn, you may cast it from exile.
+SVar:TrigExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Graveyard | Destination$ Exile | RememberChanged$ True | SubAbility$ DBMayCast
+SVar:DBMayCast:DB$ Animate | Defined$ Remembered | staticAbilities$ StPlay | Duration$ UntilTheEndOfYourNextTurn | SubAbility$ DBCleanup
+SVar:StPlay:Mode$ Continuous | MayPlay$ True | EffectZone$ Exile | Affected$ Card.Self+nonLand | AffectedZone$ Exile | Description$ You may cast NICKNAME from exile.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+!wasCastFromYourHand | Execute$ TrigDraw | TriggerDescription$ When NICKNAME enters, if it wasn't cast from your hand, you may discard your hand. If you do, draw two cards.
+SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Hand> | Defined$ You | NumCards$ 2
+SVar:SacMe:2
+DeckNeeds:Ability$Sacrifice|Graveyard
+DeckHas:Ability$Discard
+Oracle:Whenever you sacrifice Koraja, exile it. Until the end of your next turn, you may cast it from exile.\nWhen Koraja enters, if it wasn't cast from your hand, you may discard your hand. If you do, draw two cards.

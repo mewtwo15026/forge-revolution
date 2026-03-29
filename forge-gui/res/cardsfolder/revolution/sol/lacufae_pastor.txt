@@ -1,0 +1,6 @@
+Name:Lacufae Pastor
+ManaCost:1 GW GW
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/261_Lacufae Pastor.jpg
+Oracle:Whenever another creature you control enters, Lacufae Pastor gets +1/+1 until end of turn and you gain 1 life.

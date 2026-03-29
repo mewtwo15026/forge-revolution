@@ -1,0 +1,9 @@
+Name:Sentinel of Dawnbloom Grove
+ManaCost:5 G
+Types:Creature Human Soldier
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 2/2 white Knight creature tokens with vigilance.
+SVar:TrigToken:DB$ Token | TokenScript$ w_2_2_knight_vigilance | TokenAmount$ 2
+A:AB$ Token | Cost$ 1 G Discard<1/CARDNAME> | ActivationZone$ Hand | TokenScript$ w_2_2_knight_vigilance | SpellDescription$ Create a 2/2 white Knight creature token with vigilance.
+DeckHas:Ability$Token|Discard & Type$Knight
+Oracle:When Sentinel of Dawnbloom Grove enters, create two 2/2 white Knight creature tokens with vigilance.\n{1}{G}, Discard Sentinel of Dawnbloom Grove: Create a 2/2 white Knight creature token with vigilance.

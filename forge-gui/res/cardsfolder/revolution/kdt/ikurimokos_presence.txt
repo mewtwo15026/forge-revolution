@@ -1,0 +1,8 @@
+Name:Ikurimoko's Presence
+ManaCost:GU GU
+Types:Legendary Enchantment
+K:Flash
+S:Mode$ CastWithFlash | ValidCard$ Creature | ValidSA$ Spell | Caster$ You | Description$ You may cast creature spells as though they had flash.
+A:AB$ Animate | Cost$ G U | Defined$ Self | Power$ 3 | Toughness$ 2 | Types$ Creature,Dragon | Keywords$ Flying | SpellDescription$ CARDNAME becomes a 3/2 Dragon creature with flying in addition to its other types.
+DeckHas:Type$Dragon
+Oracle:Flash\nYou may cast creature spells as though they have flash.\n{G}{U}: Ikurimoko's Presence becomes a 3/2 Dragon creature with flying in addition to its other types.

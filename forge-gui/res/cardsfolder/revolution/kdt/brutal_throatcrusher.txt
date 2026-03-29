@@ -1,0 +1,9 @@
+Name:Brutal Throatcrusher
+ManaCost:1 G G
+Types:Creature Human Ninja
+PT:4/4
+K:Ninjutsu:2 G
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When this creature enters, another target creature you control gains indestructible until end of turn. Untap it.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | KW$ Indestructible | SubAbility$ DBUntap
+SVar:DBUntap:DB$ Untap | Defined$ Targeted
+Oracle:Ninjutsu {2}{G} ({2}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, another target creature you control gains indestructible until end of turn. Untap it.

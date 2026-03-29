@@ -446,14 +446,19 @@ public class VAssignCombatDamage {
                 final PlayerView p = (PlayerView)defender;
                 lethalDamage = attackerHasInfect ? matchUI.getGameView().getPoisonCountersToLose() - p.getCounters(CounterEnumType.POISON) : p.getLife();
             }
+            // REVOLUTION - trample over battles
             else if (defender instanceof CardView) { // planeswalker
                 final CardView pw = (CardView)defender;
-                lethalDamage = Integer.parseInt(pw.getCurrentState().getLoyalty());
+                if (pw.getCurrentState().isPlaneswalker()) {
+                    lethalDamage = Integer.parseInt(pw.getCurrentState().getLoyalty());
+                } else lethalDamage = Integer.parseInt(pw.getCurrentState().getDefense());
             }
         } else {
             lethalDamage = Math.max(0, card.getLethalDamage());
             if (card.getCurrentState().isPlaneswalker()) {
                 lethalDamage = Integer.parseInt(card.getCurrentState().getLoyalty());
+            } else if (card.getCurrentState().isBattle()) {
+                lethalDamage = Integer.parseInt(card.getCurrentState().getDefense());
             } else if (attackerHasDeathtouch) {
                 lethalDamage = Math.min(lethalDamage, 1);
             }

@@ -1,0 +1,6 @@
+Name:Dream Physician
+ManaCost:U U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/52_Dream Physician.jpg
+Oracle:Ward {1}\nWhen an opponent pays Dream Physician's ward cost, sacrifice Dream Physician.

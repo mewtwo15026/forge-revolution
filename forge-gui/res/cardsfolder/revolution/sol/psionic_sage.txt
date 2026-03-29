@@ -1,0 +1,6 @@
+Name:Psionic Sage
+ManaCost:UR UR UR UR
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/264_Psionic Sage.jpg
+Oracle:Whenever Psionic Sage enters or attacks, exile up to one target instant or sorcery card from your graveyard. You may cast a copy of it without paying its mana cost if its mana value is less than or equal to the number of cards exiled with Psionic Sage.

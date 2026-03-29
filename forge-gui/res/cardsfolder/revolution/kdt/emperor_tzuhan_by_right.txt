@@ -1,0 +1,21 @@
+Name:Emperor Tzuhan
+ManaCost:2 W
+Types:Legendary Creature Human Noble
+PT:3/3
+T:Mode$ Cycled | ValidCard$ Card.Other+YouOwn | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cycle a card, exile up to one other target creature you control. Return that card to the battlefield under its owner's control at the beginning of the next end step.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.Other+YouCtrl | TargetMin$ 0 | TargetMax$ 1 | RememberChanged$ True | TgtPrompt$ Select up to one other target creature you control | SubAbility$ DelTrig
+SVar:DelTrig:DB$ DelayedTrigger | Mode$ Phase | Phase$ End of Turn | Execute$ TrigReturn | RememberObjects$ RememberedLKI | TriggerDescription$ Return exiled card to the battlefield. | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:TrigReturn:DB$ ChangeZone | Defined$ DelayTriggerRememberedLKI | Origin$ Exile | Destination$ Battlefield
+DeckNeeds:Ability$Cycling
+AlternateMode:Adventure
+Oracle:Whenever you cycle a card, exile up to one other target creature you control. Return that card to the battlefield under its owner's control at the beginning of he next end step.
+
+ALTERNATE
+
+Name:By Right
+ManaCost:W U B R G
+Types:Sorcery Adventure
+A:SP$ Effect | StaticAbilities$ LifeCycle | SpellDescription$ You may pay 1 life rather than pay the cycling cost of cards you cycle this turn.
+SVar:LifeCycle:Mode$ Alternative Cost | ValidSA$ Activated.Cycling | ValidPlayer$ You | Cost$ PayLife<1> Discard<1/CARDNAME> | CostDesc$ Pay 1 life | Description$ You may pay 1 life rather than pay the cycling cost of cards you cycle this turn.
+Oracle:You may pay 1 life rather than pay the cycling cost of cards you cycle this turn. (Then exile this card. You may cast the creature later from exile.)

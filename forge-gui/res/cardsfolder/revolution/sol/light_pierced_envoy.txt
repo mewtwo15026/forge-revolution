@@ -1,0 +1,5 @@
+Name:Light-Pierced Envoy
+ManaCost:1
+Types:Artifact
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/284_Light-Pierced Envoy.jpg
+Oracle:When Light-Pierced Envoy dies, create a Weapon token. (It's an Equipment with equip {2} and \Equipped creature gets +1/+1.\)

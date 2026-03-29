@@ -1,0 +1,8 @@
+Name:Spear of the Pale Thorn
+ManaCost:4 U R
+Types:Creature Faerie Knight
+PT:4/3
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each creature that attacked this turn.
+SVar:X:PlayerCountPlayers$AttackersDeclared
+K:Flying
+Oracle:This spell costs {1} less to cast for each creature that attacked this turn.\nFlying

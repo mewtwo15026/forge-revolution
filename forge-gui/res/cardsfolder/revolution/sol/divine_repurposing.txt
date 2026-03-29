@@ -1,0 +1,9 @@
+Name:Divine Repurposing
+ManaCost:3 R
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature | AITgts$ Creature.YouCtrl+cmcLE2 | RememberLKI$ True | SubAbility$ DBDigUntil | SpellDescription$ Exile target creature. Its controller reveals cards from the top of their library until they reveal a creature card, puts that card onto the battlefield, then shuffles. That creature loses all abilities until end of turn.
+SVar:DBDigUntil:DB$ DigUntil | Defined$ RememberedController | Valid$ Creature | ImprintFound$ True | FoundDestination$ Battlefield | RevealedDestination$ Library | Shuffle$ True | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Imprinted | RemoveAllAbilities$ True
+K:Flashback:4 R R
+AI:RemoveDeck:Random
+Oracle:Exile target creature. Its controller reveals cards from the top of their library until they reveal a creature card, puts that card onto the battlefield, then shuffles. That creature loses all abilities until end of turn.\nFlashback {4}{R}{R}

@@ -1,0 +1,9 @@
+Name:Iron-Calm Acolyte
+ManaCost:W U
+Types:Creature Bird Monk
+PT:1/2
+K:Flying
+T:Mode$ Taps | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever this creature becomes tapped, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+DeckHas:Ability$Surveil
+Oracle:Flying\nWhenever this creature becomes tapped, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)

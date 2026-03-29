@@ -1,0 +1,13 @@
+Name:Unmaker of Thought
+ManaCost:1 B
+Types:Creature Human Warlock
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeatEach | TriggerDescription$ When CARDNAME enters, each opponent with two or more cards in hand discards a card.
+SVar:TrigRepeatEach:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ Player.IsRemembered | NumCards$ 1 | Mode$ TgtChoose | ConditionCheckSVar$ X | ConditionSVarCompare$ GE2
+SVar:X:PlayerCountRemembered$CardsInHand
+# TODO: implement Chant
+#K:twi_Chant:B
+#A:SP$ Chant | Mode$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDiscard
+Oracle:When Unmaker of Thought enters, [each opponent with two or more cards in hand discards a card.]\n
+Chant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

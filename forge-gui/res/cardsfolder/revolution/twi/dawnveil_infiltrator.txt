@@ -1,0 +1,9 @@
+Name:Dawnveil Infiltrator
+ManaCost:1 G
+Types:Creature Human Soldier Rogue
+PT:2/2
+K:Trample
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Counters
+Oracle:Trample\nWhenever you cast your second spell each turn, put a +1/+1 counter on Dawnveil Infiltrator.

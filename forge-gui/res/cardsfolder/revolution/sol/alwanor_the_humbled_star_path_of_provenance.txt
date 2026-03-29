@@ -1,0 +1,19 @@
+Name:Alwanor, the Humbled Star
+ManaCost:7 G G G
+Types:Legendary Creature Dragon Spirit
+PT:10/10
+K:Trample
+K:Reach
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When you cast this spell, create a 10/10 green Spirit creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ g_10_10_spirit | TokenOwner$ You
+DeckHas:Ability$Token & Type$Elf
+AlternateMode:Adventure
+Oracle:Trample, reach\nWhen you cast this spell, create a 10/10 green Spirit creature token.
+
+ALTERNATE
+
+Name:Path of Provenance
+ManaCost:G G
+Types:Sorcery Adventure
+A:SP$ Token | TokenOwner$ You | TokenScript$ g_1_3_elf_mana | SpellDescription$ Create a 1/3 green Elf creature token with "{T}: Add {G}." (Then exile this card. You may cast the creature later from exile.)
+Oracle:Create a 1/3 green Elf creature token with "{T}: Add {G}." (Then exile this card. You may cast the creature later from exile.)

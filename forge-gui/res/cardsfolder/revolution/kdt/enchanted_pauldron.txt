@@ -1,0 +1,12 @@
+Name:Enchanted Pauldron
+ManaCost:2
+Types:Artifact Equipment
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.EquippedBy | Execute$ TrigCounter | TriggerDescription$ Whenever equipped creature dies, put two soul counters on this Equipment and draw a card.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ SOUL | CounterNum$ 2 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ X | AddToughness$ X | Description$ Equipped creature gets +1/+1 for each soul counter on this Equipment.
+SVar:X:Count$CardCounters.SOUL
+K:Equip:2
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Counters
+Oracle:Whenever equipped creature dies, put two soul counters on this Equipment and draw a card.\nEquipped creature gets +1/+1 for each soul counter on this Equipment.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)

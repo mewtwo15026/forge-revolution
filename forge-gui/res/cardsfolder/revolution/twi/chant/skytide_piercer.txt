@@ -1,0 +1,11 @@
+Name:Skytide Piercer
+ManaCost:1 U
+Types:Creature Merfolk Warlock
+PT:2/1
+K:Flying
+A:AB$ Counter | Cost$ U Sac<1/CARDNAME> | TargetType$ Spell | ValidTgts$ Card.nonCreature | TgtPrompt$ Select target noncreature spell | UnlessCost$ 2 | SpellDescription$ Counter target noncreature spell unless its controller pays {2}.
+# TODO: implement Chant
+#K:twi_Chant:U
+#A:SP$ Chant | Mode$ Counter | TargetType$ Spell | ValidTgts$ Card.nonCreature | TgtPrompt$ Select target noncreature spell | UnlessCost$ 2 | SpellDescription$ Counter target noncreature spell unless its controller pays {2}.
+Oracle:Flying\n{U}, Sacrifice Skytide Piercer: [Counter target noncreature spell unless its controller pays {2}.]\n
+Chant {U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

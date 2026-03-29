@@ -1,0 +1,10 @@
+Name:Petalclaw Ambusher
+ManaCost:1 R
+Types:Creature Faerie Assassin
+PT:2/2
+K:Haste
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Illusion.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever an Illusion you control dies, put a +1/+1 counter on target Faerie.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Permanent.Faerie | AITgts$ Creature.Faerie+YouCtrl | TgtPrompt$ Select target Faerie | CounterType$ P1P1 | CounterNum$ 1
+DeckHints:Type$Illusion & Keyword$twi_Decoy
+DeckHas:Ability$Counters
+Oracle:Haste\nWhenever an Illusion you control dies, put a +1/+1 counter on target Faerie.

@@ -8,3 +8,9 @@
 30, MIRRODIN, Mirrodin (Plane)
 30, RAVNICA, Ravnica (Plane)
 40, GRAVEYARD_MATTERS, Graveyard matters
+
+# REVOLUTION
+200, CUSTOM, Custom sets
+201, REV_T2, Revolution Standard (custom format)
+202, REV_T1, Revolution Eternal (custom format)
+210, CHIKYU, Chikyu (Plane)

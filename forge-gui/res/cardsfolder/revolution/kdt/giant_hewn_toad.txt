@@ -1,0 +1,9 @@
+Name:Giant Hewn Toad
+ManaCost:7
+Types:Artifact Creature Frog
+PT:6/6
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each card with a cycling ability in your graveyard.
+SVar:X:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+K:Reach
+DeckHints:Keyword$Cycling
+Oracle:This spell costs {1} less to cast for each card with a cycling ability in your graveyard.\nReach

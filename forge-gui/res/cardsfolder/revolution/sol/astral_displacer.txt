@@ -1,0 +1,7 @@
+Name:Astral Displacer
+ManaCost:2
+Types:Artifact
+SVar:DBNameCard:DB$ NameCard | Defined$ You | ValidCards$ Card.nonLand | ValidDescription$ nonland | SpellDescription$ As CARDNAME enters, choose a nonland card name.
+S:Mode$ SetCost | ValidCard$ Card.NamedCard | Type$ Spell | Amount$ 7 | RaiseTo$ True | Description$ Each spell with the chosen name that would cost less than seven mana to cast costs seven mana to cast. (For example, a spell that would cost {1}{B} to cast costs {6}{B} instead.)
+AI:RemoveDeck:Random
+Oracle:As Astral Displacer enters, choose a nonland card name.\nEach spell with the chosen name that would cost less than seven mana to cast costs seven mana to cast. (For example, a spell that would cost {1}{B} to cast costs {6}{B} instead.)

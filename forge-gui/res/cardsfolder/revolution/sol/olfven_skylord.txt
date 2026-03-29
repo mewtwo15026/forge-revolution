@@ -1,0 +1,9 @@
+Name:Olfven Skylord
+ManaCost:2 U U U
+Types:Creature Sphinx
+PT:6/6
+K:etbCounter:M1M1:2
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ X | SVarCompare$ GE1 | AddKeyword$ Flying & Hexproof | Description$ CARDNAME has flying and hexproof as long as you've drawn a card this turn.
+SVar:X:Count$YouDrewThisTurn
+A:AB$ Draw | Cost$ U SubCounter<1/M1M1> | SpellDescription$ Draw a card.
+Oracle:Olfven Skylord enters with two -1/-1 counters on it.\nOlfven Skylord has flying and hexproof as long as you've drawn a card this turn.\n{U}, Remove a -1/-1 counter from Olfven Skylord: Draw a card.

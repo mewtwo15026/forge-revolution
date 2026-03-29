@@ -1,0 +1,5 @@
+Name:Stolen Singularity
+ManaCost:U
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/73_Stolen Singularity.jpg
+Oracle:Choose one -\n• Counter target spell with mana value 1.\n• Counter target activated or triggered ability of a nonland source.

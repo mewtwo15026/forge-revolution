@@ -1,0 +1,5 @@
+Name:Waypoint Armillary
+ManaCost:2
+Types:Artifact
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/291_Waypoint Armillary.jpg
+Oracle:When Waypoint Armillary enters or you sacrifice it, create a tapped 1/1 white Spirit creature token.\n{2}, Sacrifice Waypoint Armillary: Reveal cards from the top of your library until you reveal a land card. Put that card into your hand and the rest on the bottom in a random order.

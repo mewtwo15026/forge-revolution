@@ -3,7 +3,8 @@ ManaCost:2 G
 Types:Creature Golem
 PT:5/5
 S:Mode$ Continuous | Affected$ Golem.YouCtrl | AddKeyword$ Trample | Description$ Golems you control have trample.
-S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | IsPresent$ Golem.YouCtrl | PresentCompare$ LT3 | Description$ CARDNAME can't attack or block unless you control three or more Golems.
+S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | CheckSVar$ X | SVarCompare$ LT3 | Description$ CARDNAME can't attack or block unless you control three or more differently named Golems.
+SVar:X:Count$Valid Golem.YouCtrl$DifferentCardNames
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever CARDNAME enters or attacks, surveil 1. Then you may put a land card from your graveyard onto the battlefield tapped.
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, surveil 1. Then you may put a land card from your graveyard onto the battlefield tapped.
 SVar:TrigSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ DBReturn
@@ -11,4 +12,4 @@ SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | Ch
 A:AB$ Token | Cost$ 3 T | TokenAmount$ 1 | TokenScript$ w_1_1_golem | TokenOwner$ You | SpellDescription$ Create a 1/1 white Golem creature token.
 DeckHints:Type$Golem
 DeckHas:Ability$Surveil|Token & Type$Golem
-Oracle:Golems you control have trample.\nUnflinching Titan can't attack or block unless you control three or more Golems.\nWhenever Unflinching Titan enters or attacks, surveil 1. Then you may put a land card from your graveyard onto the battlefield tapped.\n{3}, {T}: Create a 1/1 white Golem creature token.
+Oracle:Golems you control have trample.\nUnflinching Titan can't attack or block unless you control three or more differently named Golems.\nWhenever Unflinching Titan enters or attacks, surveil 1. Then you may put a land card from your graveyard onto the battlefield tapped.\n{3}, {T}: Create a 1/1 white Golem creature token.

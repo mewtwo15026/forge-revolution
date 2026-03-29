@@ -1,0 +1,5 @@
+Name:Dream Snare
+ManaCost:U U
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/53_Dream Snare.jpg
+Oracle:Return target creature to its owner's hand. If that creature's mana value is 3 or less, draw a card.

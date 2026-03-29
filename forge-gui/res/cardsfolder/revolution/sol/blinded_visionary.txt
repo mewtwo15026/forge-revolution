@@ -1,0 +1,8 @@
+Name:Blinded Visionary
+ManaCost:GU GU GU
+Types:Creature Human Druid
+PT:3/2
+K:Flash
+T:Mode$ Phase | Phase$ End of Turn | Execute$ TrigUntap | ValidPlayer$ You | TriggerDescription$ At the beginning of your end step, untap up to two target permanents.
+SVar:TrigUntap:DB$ Untap | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target permanents to untap
+Oracle:Flash\nAt the beginning of your end step, untap up to two target permanents.

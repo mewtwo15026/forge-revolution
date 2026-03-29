@@ -1,0 +1,15 @@
+Name:Vista Painter
+ManaCost:1 G
+Types:Creature Moonfolk Druid
+PT:3/3
+K:Flash
+K:etbCounter:M1M1:2
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ CastX | SVarCompare$ EQ0 | Execute$ TrigRemoveCounter | TriggerDescription$ At the beginning of your end step, if you cast no spells this turn, remove a -1/-1 counter from Vista Painter. If you do, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigRemoveCounter:DB$ RemoveCounter | CounterType$ M1M1 | CounterNum$ 1 | RememberRemoved$ True | SubAbility$ DBToken
+SVar:DBToken:AB$ Token | Cost$ SubCounter<1/M1M1> | TokenScript$ c_a_chart_sac | ConditionCheckSVar$ CounterX | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:CastX:Count$ThisTurnCast_Card.YouCtrl
+SVar:CounterX:Count$RememberedSize
+DeckHints:Type$Instant & Keyword$Flash
+DeckHas:Ability$Token|Sacrifice & Type$Chart
+Oracle:Flash\nVista Painter enters with two -1/-1 counters on it.\nAt the beginning of your end step, if you cast no spells this turn, remove a -1/-1 counter from Vista Painter. If you do, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

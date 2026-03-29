@@ -1,0 +1,12 @@
+Name:Heart of the Shed Soul
+ManaCost:5
+Types:Legendary Artifact
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ At the beginning of your upkeep, you draw a card and you lose 1 life.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ 1
+R:Event$ GameLoss | ActiveZones$ Battlefield | ValidPlayer$ You | ReplaceWith$ ExileSetLife | Description$ If you would lose the game, instead exile CARDNAME, your hand, and each nonland permanent you control. If at least nine cards were exiled this way, your life total becomes 3.
+SVar:ExileSetLife:DB$ ChangeZoneAll | ChangeType$ Card.Self,Permanent.nonLand+YouCtrl | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ ExileHand
+SVar:ExileHand:DB$ ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Hand | Destination$ Exile | RememberChanged$ True | SubAbility$ SetLife
+SVar:SetLife:DB$ SetLife | Defined$ You | LifeAmount$ 3 | ConditionPresent$ Card.IsRemembered | ConditionZone$ Exile | ConditionPresentCompare$ GE9 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:At the beginning of your upkeep, you draw a card and you lose 1 life.\nIf you would lose the game, instead exile Heart of the Shed Soul, your hand, and each nonland permanent you control. If at least nine cards were exiled this way, your life total becomes 3.

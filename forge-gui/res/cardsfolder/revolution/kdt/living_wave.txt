@@ -1,0 +1,9 @@
+Name:Living Wave
+ManaCost:2 U
+Types:Creature Elemental
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When this creature enters or leaves the battlefield, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigSurveil | Secondary$ True | TriggerDescription$ When this creature enters or leaves the battlefield, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+DeckHas:Ability$Surveil
+Oracle:Whenever this creature enters or leaves the battlefield, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)

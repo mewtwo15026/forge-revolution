@@ -1,0 +1,10 @@
+Name:Imperial Honor Guard
+ManaCost:2 W
+Types:Creature Bird Samurai
+PT:2/2
+K:Flying
+K:Exalted
+R:Event$ Moved | ValidCard$ Permanent.nonBasic+nonSamurai | Destination$ Battlefield | ReplaceWith$ ETBTapped | ReplacementResult$ Updated | ActiveZones$ Battlefield | Description$ Nonbasic, non-Samurai permanents enter tapped.
+SVar:ETBTapped:DB$ Tap | ETB$ True | Defined$ ReplacedCard
+DeckNeeds:Type$Samurai
+Oracle:Flying, exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nNonbasic, non-Samurai permanents enter tapped.

@@ -1,0 +1,11 @@
+Name:Enduring Vowholder
+ManaCost:G W
+Types:Creature Human Soldier
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever another creature you control enters, put a +1/+1 counter on CARDNAME. If this is the third time this ability has resolved this turn, draw a card.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ3
+SVar:X:Count$ResolvedThisTurn
+SVar:BuffedBy:Creature
+DeckHas:Ability$Counters
+Oracle:Whenever another creature you control enters, put a +1/+1 counter on Enduring Vowholder. If this is the third time this ability has resolved this turn, draw a card.

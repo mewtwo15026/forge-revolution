@@ -1,0 +1,8 @@
+Name:Judgment of the Seishin
+ManaCost:2 RG
+Types:Sorcery
+A:SP$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBFight | SpellDescription$ Put a +1/+1 counter on target creature you control. It fights up to one target creature you don't control. (Each deals damage equal to its power to the other.)
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you don't control
+K:Cycling:RG
+DeckHas:Ability$Discard|Counters
+Oracle:Put a +1/+1 counter on target creature you control. It fights up to one target creature you don't control.\nCycling {RG} ({RG}, Discard this card: Draw a card.)

@@ -1,0 +1,13 @@
+Name:Sunweaver Lysele
+ManaCost:W U
+Types:Legendary Creature Moonfolk Wizard
+PT:2/2
+K:Vigilance
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCopy | OptionalDecider$ You | TriggerDescription$ Whenever CARDNAME attacks, you may create a tapped and attacking token that's a copy of another target creature you control with mana value X or less, where X is the number of attacking creatures. Sacrifice that token at the beginning of the end step.
+SVar:TrigCopy:DB$ CopyPermanent | ValidTgts$ Creature.Other+YouCtrl+cmcLEX | TgtPrompt$ Select another target creature you control with mana value X or less | TokenTapped$ True | TokenAttacking$ True | RememberTokens$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | Triggers$ EndTrigger | RememberObjects$ Remembered | ForgetOnMoved$ Battlefield | SubAbility$ DBCleanup
+SVar:EndTrigger:Mode$ Phase | Phase$ End of Turn | Execute$ TrigSac | TriggerDescription$ Sacrifice that token at the beginning of the end step.
+SVar:TrigSac:DB$ SacrificeAll | Defined$ Remembered
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$Valid Creature.attacking+YouCtrl
+Oracle:Vigilance\nWhenever Lysele attacks, you may create a tapped and attacking token that's a copy of another target creature you control with mana value X or less, where X is the number of attacking creatures. Sacrifice that token at the beginning of the end step.

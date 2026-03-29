@@ -1,0 +1,13 @@
+Name:Elorys the Pathfinder
+ManaCost:2 G
+Types:Legendary Creature Elf Cleric
+PT:2/2
+K:Flash
+T:Mode$ Taps | ValidCard$ Card.Self | Execute$ TrigElfToken | TriggerDescription$ Whenever NICKNAME becomes tapped, create a 1/1 white Elf creature token.
+SVar:TrigElfToken:DB$ Token | TokenScript$ w_1_1_elf
+R:Event$ Moved | Origin$ Battlefield | Destination$ Graveyard | ValidLKI$ Card.Self | ReplaceWith$ Exile | Description$ If NICKNAME would die, exile it instead. When you do, create a green Spirit creature token with "This creature's power and toughness are each equal to the number of creatures you control."
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard | SubAbility$ DBImmediateTrigger
+SVar:DBImmediateTrigger:DB$ ImmediateTrigger | Execute$ TrigToken | TriggerDescription$ If NICKNAME would die, exile it instead. When you do, create a green Spirit creature token with "This creature's power and toughness are each equal to the number of creatures you control."
+SVar:TrigToken:DB$ Token | TokenScript$ g_x_x_spirit_total_creatures | TokenOwner$ You
+DeckHas:Ability$Token & Type$Spirit
+Oracle:Flash\nWhenever Elorys becomes tapped, create a 1/1 white Elf creature token.\nIf Elorys would die, exile him instead. When you do, create a green Spirit creature token with "This creature's power and toughness are each equal to the number of creatures you control."

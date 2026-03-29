@@ -1,0 +1,6 @@
+Name:Qaraz Nullblade
+ManaCost:1 U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/68_Qaraz Nullblade.jpg
+Oracle:When Qaraz Nullblade enters, tap target creature you don't control. It doesn't untap during its controller's next untap step.

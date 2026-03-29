@@ -1,0 +1,11 @@
+Name:Aldegar of Path Unwoven
+ManaCost:1 U R
+Types:Legendary Planeswalker Aldegar
+Loyalty:3
+A:AB$ Discard | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ DBDraw | SpellDescription$ Discard a card, then draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+A:AB$ DealDamage | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Any | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to any target.
+A:AB$ Animate | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | Ultimate$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE6 | Defined$ Self | SetPower$ 5 | SetToughness$ 5 | Colors$ Blue,Red | OverwriteColors$ True | Types$ Creature,Dragon | RemoveCardTypes$ True | Keywords$ Indestructible & Flying | Duration$ Permanent | SpellDescription$ If CARDNAME has six or more loyalty counters on him, he becomes a 5/5 blue and red Dragon creature with indestructible and flying. (This effect lasts indefinitely. Damage no longer causes him to lose loyalty.)
+SVar:X:Count$CardCounters.LOYALTY
+DeckHas:Ability$Discard
+Oracle:[+1]: Discard a card, then draw a card.\n[-2]: Aldegar deals 3 damage to any target.\n[0]: If Aldegar has six or more loyalty counters on him, he becomes a 5/5 blue and red Dragon creature with indestructible and flying. (This effect lasts indefinitely. Damage no longer causes him to lose loyalty.)

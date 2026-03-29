@@ -1,0 +1,6 @@
+Name:Grave Prophet
+ManaCost:1 B G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/212_Grave Prophet.jpg
+Oracle:Once during each of your turns, when a card leaves your graveyard, you may draw a card and gain 1 life.\n{4}: Put target card from a graveyard on the bottom of its owner's library.

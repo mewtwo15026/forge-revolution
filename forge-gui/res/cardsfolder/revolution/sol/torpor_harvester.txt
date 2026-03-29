@@ -1,0 +1,6 @@
+Name:Torpor Harvester
+ManaCost:UB UB UB UB
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/268_Torpor Harvester.jpg
+Oracle:Torpor Harvester's power is equal to the number of cards in your hand.\nWhenever Torpor Harvester enters or attacks, you draw a card and you lose 1 life.

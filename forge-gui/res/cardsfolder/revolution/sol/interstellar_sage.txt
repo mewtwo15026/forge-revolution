@@ -1,0 +1,6 @@
+Name:Interstellar Sage
+ManaCost:G U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/216_Interstellar Sage.jpg
+Oracle:Flash\nWhen Interstellar Sage enters, if it isn't a token, you may exile target instant card or card with flash from your graveyard and cast a copy of it. (You still pay its costs.)

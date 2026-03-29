@@ -1,0 +1,12 @@
+Name:Tendervow Witch
+ManaCost:1 B
+Types:Creature Azra Warlock
+PT:1/2
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever you cast a noncreature spell, you gain 2 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
+# TODO: implement Chant
+#K:twi_Chant:B
+#A:SP$ Chant | Mode$ GainLife | LifeAmount$ 2 | SpellDescription$ You gain 2 life.
+DeckHas:Ability$LifeGain
+Oracle:Whenever you cast a noncreature spell, [you gain 2 life.]\n
+Chant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

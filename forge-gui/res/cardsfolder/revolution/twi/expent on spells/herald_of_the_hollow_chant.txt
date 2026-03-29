@@ -1,0 +1,9 @@
+Name:Herald of the Hollow Chant
+ManaCost:2 B
+Types:Creature Horror
+PT:1/4
+K:Flying
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 2 | CheckSVar$ X | SVarCompare$ GE4 | Description$ CARDNAME gets +2/+0 as long as you've spent four or more mana to cast instant and/or sorcery spells this turn.
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying\nHerald of the Hollow Chant gets +2/+0 as long as you've spent four or more mana to cast instant and/or sorcery spells this turn.

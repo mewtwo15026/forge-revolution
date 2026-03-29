@@ -1,0 +1,8 @@
+Name:Secrecy
+ManaCost:G GU U
+Types:Enchantment
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasNotCast,Permanent.nonLand+!token+YouCtrl+wasNotCast | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever this enchantment or another nonland, nontoken permanent you control enters, if it wasn't cast, draw a card. You may put a land card from your hand onto the battlefield tapped.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | Optional$ You | ChangeType$ Land | ChangeNum$ 1 | Tapped$ True
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.YouCtrl+powerLE1,Creature.YouCtrl+toughnessLE1 | Description$ Creatures you control with power or toughness 1 or less can't be blocked.
+Oracle:Whenever this enchantment or another nonland, nontoken permanent you control enters, if it wasn't cast, draw a card. You may put a land card from your hand onto the battlefield tapped.\nCreatures you control with power or toughness 1 or less can't be blocked.

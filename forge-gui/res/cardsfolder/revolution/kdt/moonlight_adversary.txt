@@ -1,0 +1,15 @@
+Name:Moonlight Adversary
+ManaCost:1 B
+Types:Creature Nightmare Noble
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigImmediate | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may pay X life. When you do, return X target cards you discarded this turn from your graveyard to your hand.
+# NOTE: not sure if XMaxLimit is intended behavior but it should stop Forge from freaking out
+SVar:TrigImmediate:AB$ ImmediateTrigger | Cost$ PayLife<X> | XMaxLimit$ TgtCount | Execute$ TrigReturn | TriggerDescription$ When you do, return X target cards you discarded this turn from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | ValidTgts$ Card.YouOwn+DiscardedThisTurn | TargetMin$ X | TargetMax$ X | TgtPrompt$ Select X target cards in your graveyard that you discarded this turn | Origin$ Graveyard | Destination$ Hand
+SVar:TgtCount:Count$ValidGraveyard Card.YouOwn+DiscardedThisTurn
+SVar:X:Count$xPaid
+T:Mode$ Discarded | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigLoseLife | TriggerDescription$ Whenever you discard a card, each opponent loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | LifeAmount$ 1 | Defined$ Opponent
+DeckHints:Ability$Discard
+DeckHas:Ability$Graveyard
+Oracle:When this creature enters, you may pay X life. When you do, return X target cards you discarded this turn from your graveyard to your hand.\nWhenever you discard a card, each opponent loses 1 life.

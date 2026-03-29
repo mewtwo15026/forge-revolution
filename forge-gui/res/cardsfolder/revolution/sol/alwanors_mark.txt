@@ -1,0 +1,8 @@
+Name:Alwanor's Mark
+ManaCost:G
+Types:Sorcery
+A:SP$ Charm | Choices$ DBPump,DBDamage
+SVar:DBPump:DB$ Pump | AILogic$ Fight | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ DBFight | SpellDescription$ Target creature you control fights target creature you don't control.
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Creature.withFlying | TgtPrompt$ Select target creature with flying | NumDmg$ 4 | SpellDescription$ CARDNAME deals 4 damage to target creature with flying.
+Oracle:Choose one -\n• Target creature you control fights target creature you don't control.\n• Alwanor's Mark deals 4 damage to target creature with flying.

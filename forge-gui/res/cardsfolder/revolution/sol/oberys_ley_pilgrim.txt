@@ -1,0 +1,13 @@
+Name:Oberys, Ley-Pilgrim
+ManaCost:1 W W
+Types:Legendary Planeswalker Oberys
+Loyalty:3
+K:ETBReplacement:Other:TrigToken
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_0_4_wall_defender | SpellDescription$ As CARDNAME enters, create a colorless 0/4 Wall artifact creature token with defender.
+A:AB$ GainLife | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | LifeAmount$ 2 | SpellDescription$ You gain 2 life.
+A:AB$ ChangeZone | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target artifact or enchantment.
+A:AB$ AnimateAll | Cost$ SubCounter<7/LOYALTY> | Planeswalker$ True | Ultimate$ True | ValidCards$ Artifact.YouCtrl,Creature.YouCtrl,Enchantment.YouCtrl | Power$ 4 | Toughness$ 4 | Types$ Creature | staticAbilities$ NoDefender | SpellDescription$ Until end of turn, artifacts, creatures, and enchantments you control become 4/4 creatures in addition to their other types, and can attack as though they didn't have defender.
+SVar:NoDefender:Mode$ CanAttackDefender | ValidCard$ Card.Self | Description$ This creature can attack as though it didn't have defender.
+DeckHas:Ability$Token|LifeGain
+DeckHints:Type$Artifact|Enchantment|Wall
+Oracle:As Oberys, Ley-Pilgrim enters, create a 0/4 colorless Wall artifact creature with defender.\n[+1]: You gain 2 life.\n[-2]: Exile target artifact or enchantment.\n[-7]: Until end of turn, artifacts, creatures, and enchantments you control become 4/4 creatures in addition to their other types, and can attack as though they didn't have defender.

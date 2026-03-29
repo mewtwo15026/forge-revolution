@@ -1,0 +1,17 @@
+Name:Asulio, the Watchful Star
+ManaCost:7 U U U
+Types:Legendary Creature Dragon Spirit
+PT:10/10
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigWish | TriggerDescription$ When you cast this spell, reveal up to two noncreature cards you own from outside the game and put them into your hand.
+SVar:TrigWish:DB$ ChangeZone | Reveal$ True | Origin$ Sideboard | Destination$ Hand | ChangeType$ Card.nonCreature+YouOwn | ChangeTypeDesc$ noncreature cards they own | ChangeNum$ 2
+AlternateMode:Adventure
+Oracle:Flying\nWhen you cast this spell, reveal up to two noncreature cards you own from outside the game and put them into your hand.
+
+ALTERNATE
+
+Name:Path of Humility
+ManaCost:U U
+Types:Instant Adventure
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target noncreature spell | ValidTgts$ Card.nonCreature | SpellDescription$ Counter target noncreature spell. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Counter target noncreature spell. (Then exile this card. You may cast the creature later from exile.)

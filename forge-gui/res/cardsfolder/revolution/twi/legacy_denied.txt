@@ -1,0 +1,8 @@
+Name:Legacy Denied
+ManaCost:2 G W
+Types:Sorcery
+S:Mode$ ReduceCost | ValidCard$ Card.Self | EffectZone$ All | Type$ Spell | Amount$ 2 | CheckSVar$ X | Description$ This spell costs {2} less to cast if you've cast another spell this turn.
+SVar:X:Count$ThisTurnCast_Card.YouCtrl
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ Fight | TgtPrompt$ Choose target creature you control | NumAtt$ +1 | NumDef$ +1 | KW$ Lifelink | StackDescription$ None | SubAbility$ DBFight | SpellDescription$ Target creature you control gets +1/+1 and gains lifelink until end of turn. It fights target creature you don't control.
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Choose target creature you don't control | AILogic$ FightSub
+Oracle:This spell costs {2} less to cast if you've cast another spell this turn.\nTarget creature you control gets +1/+1 and gains lifelink until end of turn. It fights target creature you don't control.

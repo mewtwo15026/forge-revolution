@@ -1,0 +1,9 @@
+Name:Silent Veteran
+ManaCost:1 B
+Types:Creature Spirit Cleric
+PT:2/1
+K:Flying
+K:Deathtouch
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBLoseLife | TriggerDescription$ When CARDNAME enters, you lose 2 life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2
+Oracle:Flying, deathtouch\nWhen Silent Veteran enters, you lose 2 life.

@@ -1,0 +1,8 @@
+Name:Abandon the Code
+ManaCost:1 W B
+Types:Sorcery
+A:SP$ Charm | CharmNum$ 1 | Choices$ Castigate,SacExile
+SVar:Castigate:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | DefinedPlayer$ Targeted | ValidTgts$ Opponent | Chooser$ You | ChangeType$ Card.nonLand | ChangeNum$ 1 | IsCurse$ True | Mandatory$ True | StackDescription$ SpellDescription | SpellDescription$ Target opponent reveals their hand. You choose a nonland card from it and exile that card.
+SVar:SacExile:DB$ ChooseCard | ValidTgts$ Opponent | TgtPrompt$ Select target opponent | Mandatory$ True | Choices$ Creature.TargetedPlayerCtrl,Enchantment.TargetedPlayerCtrl | SubAbility$ DBChangeZoneAll | SpellDescription$ Target opponent exiles a creature or enchantment they control.
+SVar:DBChangeZoneAll:DB$ ChangeZoneAll | Origin$ Battlefield | Destination$ Exile | DefinedPlayer$ Targeted | ChangeType$ Card.ChosenCard
+Oracle:Choose one —\n• Target opponent reveals their hand. You choose a nonland card from it and exile that card.\n• Target opponent exiles a creature or enchantment they control.

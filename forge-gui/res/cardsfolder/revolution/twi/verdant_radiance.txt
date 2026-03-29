@@ -1,0 +1,8 @@
+Name:Verdant Radiance
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Charm | CharmNum$ 1 | Choices$ DBUntap,DBDestroyAll
+SVar:DBUntap:DB$ Untap | ValidTgts$ Creature | SubAbility$ DBAddCombat | SpellDescription$ Untap target creature. After this main phase, there is an additional combat phase followed by an additional main phase.
+SVar:DBAddCombat:DB$ AddPhase | ExtraPhase$ Combat | FollowedBy$ Main2 | ConditionPhases$ Main1,Main2
+SVar:DBDestroyAll:DB$ DestroyAll | ValidCards$ Artifact.cmcLE3 | SpellDescription$ Destroy all artifacts with mana value 3 or less.
+Oracle:Choose one —\n• Untap target creature. After this main phase, there is an additional combat phase followed by an additional main phase.\n• Destroy all artifacts with mana value 3 or less.

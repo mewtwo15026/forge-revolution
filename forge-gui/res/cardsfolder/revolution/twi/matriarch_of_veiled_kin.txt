@@ -1,0 +1,10 @@
+Name:Matriarch of Veiled Kin
+ManaCost:2 B B
+Types:Creature Azra Warlock
+PT:2/2
+K:Menace
+S:Mode$ Continuous | Affected$ Horror.Other+YouCtrl,Warlock.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Horrors and Warlocks you control get +1/+1.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDigUntil | TriggerDescription$ When CARDNAME enters, reveal cards from the top of your library until you reveal a Horror or Warlock card with mana value 2 or less. Put that card onto the battlefield, then shuffle.
+SVar:TrigDigUntil:DB$ DigUntil | Valid$ Permanent.Horror+cmcLE2,Permanent.Warlock+cmcLE2 | ValidDescription$ Horror or Warlock card with mana value 2 or less | FoundDestination$ Battlefield | RevealedDestination$ Library | Shuffle$ True
+DeckHints:Type$Horror|Warlock
+Oracle:Menace\nOther Horrors and Warlocks you control get +1/+1.\nWhen CARDNAME enters, reveal cards from the top of your library until you reveal a Horror or Warlock card with mana value 2 or less. Put that card onto the battlefield, then shuffle.

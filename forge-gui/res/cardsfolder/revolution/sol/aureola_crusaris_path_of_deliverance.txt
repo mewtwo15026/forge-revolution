@@ -1,0 +1,19 @@
+Name:Aureola Crusaris
+ManaCost:6 W W
+Types:Creature Griffin Spirit
+PT:4/8
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, create four tapped and attacking 1/1 white Spirit creature tokens.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 4 | TokenScript$ w_1_1_spirit | TokenTapped$ True | TokenAttacking$ True
+AlternateMode:Adventure
+Oracle:Flying\nWhenever Aureola Crusaris attacks, create four 1/1 white Spirit creature tokens that are tapped and attacking.
+
+ALTERNATE
+
+Name:Path of Deliverance
+ManaCost:W
+Types:Instant Adventure
+A:SP$ Effect | ReplacementEffects$ RMoved | SpellDescription$ Until end of turn, if a nontoken, nonland permanent would enter under an opponent's control and it wasn't cast, exile it instead. (Then exile this card. You may cast the creature later from exile.)
+SVar:RMoved:Event$ Moved | Destination$ Battlefield | ValidCard$ Permanent.nonLand+!token+!wasCast+OppCtrl | ReplaceWith$ Exile | Description$ Until end of turn, if a nontoken, nonland permanent would enter under an opponent's control and it wasn't cast, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Until end of turn, if a nontoken, nonland permanent would enter under an opponent's control and it wasn't cast, exile it instead. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,12 @@
+Name:Conqueror's Favored
+ManaCost:2 B R
+Types:Creature Demon Soldier
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Damned — When this creature enters, mill three cards. If you've sacrificed a permanent this turn, you may return one of the milled cards to your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | RememberMilled$ True | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | Hidden$ True | ChangeType$ Card.IsRemembered | ChangeNum$ Count$Compare Damned GE1.1.0 | SelectPrompt$ You may choose a card milled this way | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice|Graveyard
+DeckHas:Ability$Mill
+Oracle:Damned — When this creature enters, mill three cards. If you've sacrificed a permanent this turn, you may return one of the milled cards to your hand.

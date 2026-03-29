@@ -1,0 +1,19 @@
+Name:Imperial Dragon
+ManaCost:5 R
+Types:Creature
+PT:4/3
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromExile | ValidActivatingPlayer$ You | Execute$ TrigDealDamage | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell from exile,  CARDNAME deals damage equal to that spell's mana value to any target.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X
+SVar:X:TriggeredSpellAbility$CardManaCostLKI
+DeckHints:Type$Adventure|Memory & Keyword$Cascade|Discover|Foretell|Madness|Plot|Rebound|Suspend
+AlternateMode:Adventure
+Oracle:Flying\nWhenever you cast a spell from exile, this creature deals damage equal to that spell's mana value to any target.
+
+ALTERNATE
+
+Name:Draconic Ire
+ManaCost:2 R
+Types:Sorcery Adventure
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to target creature or planeswalker.
+Oracle:Draconic Ire deals 3 damage to target creature or planeswalker. (Then exile this card. You may cast the creature later from exile.)

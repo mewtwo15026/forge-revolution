@@ -1,0 +1,9 @@
+Name:Ruiner's Procession
+ManaCost:1 W B
+Types:Instant
+A:SP$ ChangeZone | ChangeType$ Permanent.YouOwn+ThisTurnEnteredFrom_Battlefield | Hidden$ True | ChangeNum$ 1 | SelectPrompt$ Choose a permanent card you own that died this turn to return to the battlefield | Origin$ Graveyard | Destination$ Battlefield | SubAbility$ DBReturnToHand | SpellDescription$ Choose any number of permanent cards in your graveyard that were put there from the battlefield this turn. Return one of them to the battlefield and the rest to your hand.
+SVar:DBReturnToHand:DB$ ChangeZone | ChangeType$ Permanent.YouOwn+ThisTurnEnteredFrom_Battlefield | Hidden$ True | ChangeNum$ MaxTgts | SelectPrompt$ Choose any number of permanent cards you own that died this turn to return to your hand | Origin$ Graveyard | Destination$ Hand
+SVar:MaxTgts:Count$ValidGraveyard Permanent.YouOwn+ThisTurnEnteredFrom_Battlefield
+K:Cycling:WB
+DeckHas:Ability$Discard
+Oracle:Choose any number of permanent cards in your graveyard that were put there from the battlefield this turn. Return one of them to the battlefield and the rest to your hand.\nCycling {WB} ({WB}, Discard this card: Draw a card.)

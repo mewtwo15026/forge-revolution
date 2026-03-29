@@ -1,0 +1,9 @@
+Name:Omnipresence
+ManaCost:6 G G G
+Types:Enchantment
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | SetPower$ X | SetToughness$ X | Description$ Creatures you control have base power and toughness X/X, where X is your life total.
+SVar:X:Count$YourLifeTotal
+SVar:NeedToPlayVar:MyLife GE5
+SVar:NonStackingEffect:True
+AI:RemoveDeck:Random
+Oracle:Creatures you control have base power and toughness X/X, where X is your life total.

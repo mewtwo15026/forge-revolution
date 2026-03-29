@@ -1,0 +1,8 @@
+Name:Hollowbark Seer
+ManaCost:2 B
+Types:Creature Elf Warlock
+PT:3/2
+K:Menace
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigLoseLife | TriggerDescription$ Whenever you cast a noncreature spell, each opponent loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | LifeAmount$ 1 | Defined$ Opponent
+Oracle:Menace\nWhenever you cast a noncreature spell, each opponent loses 1 life.

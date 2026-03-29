@@ -1,0 +1,9 @@
+Name:Shigane Troupe Leader
+ManaCost:3 G U
+Types:Creature Human Ninja
+PT:5/5
+T:Mode$ ChangesZone | ValidCards$ Creature.YouCtrl | Origin$ Battlefield | Destination$ Ante,Command,Exile,Hand,Library,Stack | TriggerZones$ Battlefield | Execute$ TrigSneak | TriggerDescription$ Whenever a creature you control leaves the battlefield without dying, you may put a permanent card with lesser mana value from your hand onto the battlefield.
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Permanent.YouCtrl+cmcLTX | ChangeNum$ 1
+SVar:X:TriggeredCard$CardManaCost
+DeckHints:Keyword$Ninjutsu
+Oracle:Whenever a creature you control leaves the battlefield without dying, you may put a permanent card with lesser mana value from your hand onto the battlefield.

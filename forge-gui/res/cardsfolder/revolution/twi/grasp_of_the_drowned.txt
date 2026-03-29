@@ -1,0 +1,13 @@
+Name:Grasp of the Drowned
+ManaCost:2 B
+Types:Creature Spirit
+PT:3/2
+S:Mode$ Continuous | Affected$ Zombie.YouCtrl,Spirit.YouCtrl | AddKeyword$ Menace | CheckSVar$ X | Description$ Zombies and Spirits you control have menace as long as you've lost life this turn.
+SVar:X:PlayerCountPropertyYou$LifeLostThisTurn
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Y | SVarCompare$ GE1 | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, if you've gained life this turn, create a 1/1 black Spirit creature token.
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_1_1_spirit
+SVar:Y:Count$LifeYouGainedThisTurn
+SVar:PlayMain1:TRUE
+DeckHints:Ability$LifeGain & Type$Zombie|Spirit
+DeckHas:Ability$Token
+Oracle:Zombies and Spirits you control have menace as long as you've lost life this turn.\nAt the beginning of your end step, if you've gained life this turn, create a 1/1 black Spirit creature token.

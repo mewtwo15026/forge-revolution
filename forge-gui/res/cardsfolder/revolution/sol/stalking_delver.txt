@@ -1,0 +1,6 @@
+Name:Stalking Delver
+ManaCost:3 B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/112_Stalking Delver.jpg
+Oracle:Menace\nWhenever Stalking Delver attacks, for each card you've drawn this turn, create a 1/1 white Spirit creature token that's tapped and attacking.

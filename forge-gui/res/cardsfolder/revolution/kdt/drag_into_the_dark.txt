@@ -1,0 +1,8 @@
+Name:Drag into the Dark
+ManaCost:1 B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature | ConditionCheckSVar$ Damned | ConditionSVarCompare$ GE1 | SubAbility$ NotDamned | SpellDescription$ Damned — Destroy target creature if it has mana value 3 or less or if you've sacrificed a permanent this turn.
+SVar:NotDamned:DB$ Destroy | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Creature.cmcLE3 | ConditionCompare$ EQ1
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+Oracle:Damned — Destroy target creature if it has mana value 3 or less or if you've sacrificed a permanent this turn.

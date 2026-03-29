@@ -1,0 +1,5 @@
+Name:Invasion Campaign
+ManaCost:1 W B
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/217_Invasion Campaign.jpg
+Oracle:When Invasion Campaign enters, create a 3/2 black Elemental creature token.\nWhenever an artifact or enchantment not named Invasion Campaign you control enters, you may return Invasion Campaign to its owner's hand.

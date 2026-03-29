@@ -1,0 +1,8 @@
+Name:Peaceweaver Adept
+ManaCost:2 G
+Types:Creature Human Druid
+PT:1/4
+K:Vigilance
+K:Reach
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+Oracle:Vigilance, reach\n{T}: Add one mana of any color.

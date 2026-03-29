@@ -1,0 +1,12 @@
+Name:Revolutionary's Monument
+ManaCost:7
+Types:Artifact Creature Golem
+PT:7/7
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReveal | TriggerDescription$ When this creature enters, reveal the top ten cards of your library. For each nonland, non-Golem permanent card revealed this way, you may sacrifice a permanent that shares a card type with it. If you do, put that permanent card onto the battlefield under your control. Put the rest on the bottom of your library in a random order.
+SVar:TrigReveal:DB$ PeekAndReveal | PeekAmount$ 10 | NoPeek$ True | RememberRevealed$ True | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | RepeatSubAbility$ DBChangeZone | RepeatCards$ Card.IsRemembered+Permanent+nonLand+nonGolem | ChooseOrder$ True | Zone$ Library | UseImprinted$ True | SubAbility$ DBBottomTheRest
+SVar:DBChangeZone:DB$ ChangeZone | Defined$ Imprinted | Origin$ Library | Destination$ Battlefield | UnlessCost$ Sac<1/Card.sharesCardTypeWith Imprinted/permanent that shares a card type with it> | UnlessPayer$ You | UnlessSwitched$ True | ForgetChanged$ True | StackDescription$ Put [{c:Imprinted}] onto the battlefield
+SVar:DBBottomTheRest:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Library | Destination$ Library | LibraryPosition$ -1 | Reveal$ False | RandomOrder$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Sacrifice
+Oracle:When this creature enters, reveal the top ten cards of your library. For each nonland, non-Golem permanent card revealed this way, you may sacrifice a permanent that shares a card type with it. If you do, put that permanent card onto the battlefield under your control. Put the rest on the bottom of your library in a random order.

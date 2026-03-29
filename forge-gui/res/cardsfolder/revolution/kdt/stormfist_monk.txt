@@ -1,0 +1,8 @@
+Name:Stormfist Monk
+ManaCost:1 W
+Types:Creature Human Monk
+PT:3/1
+T:Mode$ Attacks | ValidCard$ Card.Self | IsPresent$ Creature.Other+YouCtrl+tapped | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks, if you control another tapped creature, this creature gains first strike until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First Strike
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever this creature attacks, if you control another tapped creature, this creature gains first strike until end of turn.

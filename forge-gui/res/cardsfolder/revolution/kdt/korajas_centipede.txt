@@ -1,0 +1,13 @@
+Name:Koraja's Centipede
+ManaCost:1 B R
+Types:Creature Demon Insect
+PT:2/2
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Damned — At the beginning of your end step, put a +1/+1 counter on this creature if you've sacrificed a permanent this turn.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | ConditionCheckSVar$ Damned | ConditionSVarCompare$ GE1
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create X 1/1 black Demon Insect creature tokens, where X is this creature's power.
+SVar:TrigToken:DB$ Token | TokenAmount$ X | TokenScript$ b_1_1_demon_insect | TokenOwner$ You
+SVar:X:TriggeredCard$CardPower
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Counters|Token
+Oracle:Damned — At the beginning of your end step, put a +1/+1 counter on this creature if you've sacrificed a permanent this turn.\nWhen this creature dies, create X 1/1 black Demon Insect creature tokens, where X is this creature's power.

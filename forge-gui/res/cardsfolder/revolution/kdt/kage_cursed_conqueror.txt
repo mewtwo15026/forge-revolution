@@ -1,0 +1,8 @@
+Name:Kage, Cursed Conqueror
+ManaCost:4 B B B
+Types:Legendary Creature Demon Warrior
+PT:7/7
+K:Lifelink
+T:Mode$ PayLife | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever you pay life, draw seven cards.
+SVar:TrigDraw:DB$ Draw | NumCards$ 7
+Oracle:Lifelink\nWhenever you pay life, draw seven cards.

@@ -1,0 +1,10 @@
+Name:Kei, Exiled Survivor
+ManaCost:1 W B
+Types:Legendary Creature Human Samurai
+PT:3/3
+K:Vigilance
+K:Lifelink
+T:Mode$ Attacks | ValidCard$ Card.Self | Alone$ True | Execute$ TrigPump | TriggerDescription$ Whenever NICKNAME attacks alone, it gains first strike until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | KW$ First Strike
+DeckHas:Ability$LifeGain
+Oracle:Vigilance, lifelink\nWhenever Kei attacks alone, it gains first strike until end of turn.

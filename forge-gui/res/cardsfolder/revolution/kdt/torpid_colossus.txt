@@ -1,0 +1,8 @@
+Name:Torpid Colossus
+ManaCost:5 GU GU
+Types:Creature Turtle
+PT:7/7
+K:Ward:2
+K:Cycling:GU
+DeckHas:Ability$Discard
+Oracle:Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nCycling {GU} ({GU}, Discard this card: Draw a card.)

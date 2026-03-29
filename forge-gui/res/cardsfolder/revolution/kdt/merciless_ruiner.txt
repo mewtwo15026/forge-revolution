@@ -1,0 +1,9 @@
+Name:Merciless Ruiner
+ManaCost:2 B
+Types:Creature Human Rogue Samurai
+PT:2/1
+K:Exalted
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When this creature enters, each player sacrifices a creature or planeswalker of their choice.
+SVar:TrigSac:DB$ Sacrifice | Defined$ Player | SacValid$ Creature,Planeswalker
+SVar:NeedsToPlay:Creature.OppCtrl,Planeswalker.OppCtrl
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhen this creature enters, each player sacrifices a creature or planeswalker of their choice.

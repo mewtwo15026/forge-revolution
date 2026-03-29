@@ -1,0 +1,11 @@
+Name:Prismatic Ley-Spire
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 1 | RestrictValid$ Spell.Creature+withDefender | SpellDescription$ Add one mana of any color. Spend this mana only to cast a creature spell with defender.
+A:AB$ Animate | Cost$ 3 | Defined$ Self | Power$ 0 | Toughness$ 7 | Types$ Creature,Wall | Keywords$ Defender | Triggers$ TrigUpkeep | Duration$ Permanent | SpellDescription$ CARDNAME becomes a 0/7 Wall creature with defender and "At the beginning of your upkeep, if you control seven or more differently named creatures with defender, you win the game." It's still a land. Activate only as a sorcery. (This effect lasts indefinitely.)
+SVar:TrigUpkeep:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | CheckSVar$ Defenders | SVarCompare$ GE7 | Execute$ TrigWinGame | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, if you control seven or more differently named creatures with defender, you win the game.
+SVar:TrigWinGame:DB$ WinsGame | Defined$ You
+SVar:Defenders:Count$Valid Creature.YouCtrl+withDefender$DifferentCardNames
+DeckNeeds:Keyword$Defender
+Oracle:{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell with defender.\n{3}: Prismatic Ley-Spire becomes a 0/7 Wall creature with defender and "At the beginning of your upkeep, if you control seven or more differently named creatures with defender, you win the game." It's still a land. Activate only as a sorcery. (This effect lasts indefinitely.)

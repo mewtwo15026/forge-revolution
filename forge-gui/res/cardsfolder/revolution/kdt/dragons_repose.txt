@@ -1,0 +1,7 @@
+Name:Dragon's Repose
+ManaCost:1 U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 1 | EffectZone$ All | IsPresent$ Creature.YouCtrl+withFlying | Description$ This spell costs {1} less to cast if you control a creature with flying.
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target nonland permanent to its owner's hand.
+DeckHints:Keyword$Flying
+Oracle:This spell costs {1} less to cast if you control a creature with flying.\nReturn target nonland permanent to its owner's hand.

@@ -1,0 +1,9 @@
+Name:Opulent Vantage
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When this land enters, you gain 2 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 2
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ T | Produced$ Any | RestrictValid$ Spell.withCycling,Spell.withTypeCycling,Activated.Cycling | SpellDescription$ Add one mana of any color. Spend only to activate cycling abilities or cast spells with cycling abilities.
+DeckHas:Ability$Mana.Colorless
+Oracle:When this land enters, you gain 2 life.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend only to activate cycling abilities or cast spells with cycling abilities.

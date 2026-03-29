@@ -1,0 +1,10 @@
+Name:Courtly Intrigue
+ManaCost:U
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+T:Mode$ DamageDone | ValidSource$ Card.AttachedBy,Creature.!AttachedBy+sharesNameWith Enchanted | CombatDamage$ True | ValidTarget$ Opponent,Permanent.nonCreature | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever enchanted creature or a creature with the same name as enchanted creature deals combat damage to a player or noncreature permanent, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Token
+Oracle:Enchant creature\nWhenever enchanted creature or a creature with the same name as enchanted creature deals combat damage to a player or noncreature permanent, draw a card.

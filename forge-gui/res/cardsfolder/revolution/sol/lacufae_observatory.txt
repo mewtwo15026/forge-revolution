@@ -1,0 +1,8 @@
+Name:Lacufae Observatory
+ManaCost:no cost
+Types:Land Plains
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped if you control a non-Plains land.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.nonPlains+YouCtrl | ConditionCompare$ GE1
+A:AB$ Token | Cost$ 1 W T ExileFromGrave<1/Creature> | CostDesc$ {1}{W}, {T}, Exile a creature card from your graveyard: | TokenScript$ w_1_1_spirit | TokenTapped$ True | SpellDescription$ Create a tapped 1/1 white Spirit creature token.
+DeckHas:Ability$Token
+Oracle:({T}: Add {W}.)\nLacufae Observatory enters tapped if you control a non-Plains land.\n{1}{W}, {T}, Exile a creature card from your graveyard: Create a tapped 1/1 white Spirit creature token.

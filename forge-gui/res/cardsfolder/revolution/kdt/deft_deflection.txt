@@ -1,0 +1,7 @@
+Name:Deft Deflection
+ManaCost:1 U
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ CounterSpell,CounterAbility
+SVar:CounterSpell:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ 2 | SpellDescription$ Counter target spell unless its controller pays {2}.
+SVar:CounterAbility:DB$ Counter | TgtPrompt$ Choose target ability from a nonland source | ValidTgts$ Card.nonLand,Emblem | TargetType$ Activated,Triggered | UnlessCost$ 2 | SpellDescription$ Counter target activated or triggered ability from a nonland source unless its controller pays {2}.
+Oracle:Choose one —\n• Counter target spell unless its controller pays {2}.\n• Counter target activated or triggered ability from a nonland source unless its controller pays {2}.

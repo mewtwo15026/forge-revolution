@@ -1,0 +1,7 @@
+Name:Soulflame Mystic
+ManaCost:1 R
+Types:Creature Faerie Shaman
+PT:2/1
+A:AB$ DealDamage | Cost$ T Sac<1/Creature> | ValidTgts$ Player,Battle | TgtPrompt$ Select target player or battle | NumDmg$ 1 | SpellDescription$ CARDNAME deals 1 damage to target player or battle.
+AI:RemoveDeck:All
+Oracle:{1}, Sacrifice a creature: Soulflame Mystic deals 1 damage to target player or battle.

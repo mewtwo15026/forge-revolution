@@ -1,0 +1,9 @@
+Name:Portal Guardian
+ManaCost:R G
+Types:Creature Spirit
+PT:2/1
+T:Mode$ SpellCast | ValidCard$ Card.cmcGE4 | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell with mana value 4 or greater, put two +1/+1 counters on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 2
+SVar:BuffedBy:Card.cmcGE4
+DeckHas:Ability$Counters
+Oracle:Whenever you cast a spell with mana value 4 or greater, put two +1/+1 counters on this creature.

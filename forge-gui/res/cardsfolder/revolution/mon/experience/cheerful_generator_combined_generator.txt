@@ -1,0 +1,21 @@
+Name:Cheerful Generator
+ManaCost:4
+Types:Artifact Creature Construct
+PT:2/2
+K:mon_Experience
+T:Mode$ Always | IsPresent$ Card.Self+counters_GE3_P1P1 | TriggerZones$ Battlefield | Execute$ TrigRemove | TriggerDescription$ When CARDNAME has three or more +1/+1 counters on it, remove them all and transform it.
+SVar:TrigRemove:DB$ RemoveCounter | CounterType$ P1P1 | CounterNum$ All | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhen Cheerful Generator has three or more +1/+1 counters on it, remove them all and transform it.
+
+ALTERNATE
+
+Name:Combined Generator
+ManaCost:no cost
+Types:Artifact Creature Construct
+PT:6/6
+S:Mode$ MinMaxBlocker | ValidCard$ Creature.Self | Min$ 3 | Description$ CARDNAME can't be blocked except by three or more creatures.
+Oracle:Combined Generator can't be blocked except by three or more creatures.

@@ -1,0 +1,9 @@
+Name:Dawnhoof Behemoth
+ManaCost:3 G G
+Types:Creature Ox
+PT:5/5
+S:Mode$ ReduceCost | ValidCard$ Card.Self | EffectZone$ All | Type$ Spell | Amount$ 2 | CheckSVar$ X | Description$ This spell costs {2} less to cast if you've cast another spell this turn.
+SVar:X:Count$ThisTurnCast_Card.YouCtrl
+K:Vigilance
+K:Reach
+Oracle:This spell costs {2} less to cast if you've cast another spell this turn.\nVigilance, reach

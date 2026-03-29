@@ -1,0 +1,10 @@
+Name:Shared in Shadow
+ManaCost:1 U B
+Types:Instant
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ u_1_1_warlock_prowess | RememberTokens$ True | SubAbility$ DBPump | SpellDescription$ Create two 1/1 blue Warlock creature tokens with prowess. If this spell was cast from a graveyard, those tokens can't block this turn.
+SVar:DBPump:DB$ PumpAll | ValidCards$ Creature.IsRemembered | KW$ HIDDEN CARDNAME can't block. | ConditionDefined$ Self | ConditionPresent$ Card.wasCastFromGraveyard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Flashback:3 U B
+DeckHas:Ability$Token & Type$Warlock
+Oracle:Create two 1/1 blue Warlock creature tokens with prowess. If this spell was cast from a graveyard, those tokens can't block this turn.\nFlashback {3}{U}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)
+

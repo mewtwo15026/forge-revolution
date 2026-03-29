@@ -1,0 +1,13 @@
+Name:Vestige of the King's Fall
+ManaCost:2 G G
+Types:Creature Beast Spirit
+PT:6/5
+K:Trample
+# TODO: implement trample over battles
+K:Trample:Battle
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Graveyard | Execute$ TrigReturn | TriggerDescription$ Vigor — At the beginning of your end step, you may exile Vestige of the King's Fall from your graveyard if you've gained or lost life this turn. If you do, return target Zombie card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | ConditionCheckSVar$ Vigor | ConditionSVarCompare$ GE1 | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Zombie.YouOwn | TgtPrompt$ Select target Zombie card in your graveyard | UnlessCost$ ExileFromGrave<1/CARDNAME> | UnlessPayer$ You | UnlessSwitched$ True
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Type$Zombie|Battle
+Oracle:Trample, trample over battles (This creature can deal excess combat damage to the player it's attacking or the defender of the battle it's attacking.)\nVigor — At the beginning of your end step, you may exile Vestige of the King's Fall from your graveyard if you've gained or lost life this turn. If you do, return target Zombie card from your graveyard to your hand.

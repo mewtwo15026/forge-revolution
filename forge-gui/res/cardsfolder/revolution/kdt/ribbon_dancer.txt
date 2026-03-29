@@ -1,0 +1,10 @@
+Name:Ribbon Dancer
+ManaCost:3 G
+Types:Creature Human Ninja
+PT:1/1
+K:Ninjutsu:2 G
+K:etbCounter:P1P1:3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | OptionalDecider$ You | Execute$ TrigMoveCounter | TriggerDescription$ Whenever a creature you control enters, you may move a +1/+1 counter from this creature onto that creature.
+SVar:TrigMoveCounter:DB$ MoveCounter | Source$ Self | Defined$ TriggeredCardLKICopy | CounterType$ P1P1
+DeckHas:Ability$Counters
+Oracle:Ninjutsu {2}{G} ({2}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nThis creature enters with three +1/+1 counters on it.\nWhenever another creature you control enters, you may move a +1/+1 counter from this creature onto that creature.

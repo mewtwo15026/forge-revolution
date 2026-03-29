@@ -1,0 +1,10 @@
+Name:Sunvrath Juggernaut
+ManaCost:3 W
+Types:Creature Minotaur Berserker
+PT:*/4
+K:Vigilance
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ CARDNAME's power is equal to the number of creatures you control.
+SVar:X:Count$Valid Creature.YouCtrl
+SVar:BuffedBy:Creature
+DeckHints:Ability$Token
+Oracle:Vigilance\nSunvrath Juggernaut's power is equal to the number of creatures you control.

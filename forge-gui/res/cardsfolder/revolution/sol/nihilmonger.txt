@@ -1,0 +1,6 @@
+Name:Nihilmonger
+ManaCost:1 B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/100_Nihilmonger.jpg
+Oracle:At the beginning of your upkeep, discard a card.\nAt the beginning of your end step, each opponent loses 1 life for each player that discarded a card this turn.

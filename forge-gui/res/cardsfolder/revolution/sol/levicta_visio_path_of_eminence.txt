@@ -1,0 +1,19 @@
+Name:Levicta Visio
+ManaCost:6 W U
+Types:Creature Leviathan Spirit
+PT:8/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDig | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, exile cards from the top of your library until you exile a nonland card. You may play those cards this turn without paying their mana costs.
+SVar:TrigDig:DB$ DigUntil | ValidPlayer$ You | Valid$ Card.nonLand | ValidDescription$ nonland card | FoundDestination$ Exile | RevealedDestination$ Exile | RememberFound$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ Play | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:Play:Mode$ Continuous | MayPlay$ True | MayPlayWithoutManaCost$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play those cards this turn without paying their mana cost.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+AlternateMode:Adventure
+Oracle:Whenever Levicta Visio attacks, exile cards from the top of your library until you exile a nonland card. You may play those cards this turn without paying their mana costs.
+
+ALTERNATE
+
+Name:Path of Eminence
+ManaCost:1 W U
+Types:Sorcery Adventure
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Library | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | LibraryPosition$ 1 | SpellDescription$ Put target nonland permanent into its owner's library second from the top. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Put target nonland permanent into its owner's library second from the top. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,13 @@
+Name:Deepborn Calamity
+ManaCost:3 B R
+Types:Creature Demon Serpent
+PT:5/5
+K:Trample
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When this creature dies, exile the top five cards of your library. Until the end of your next turn, you may cast a nonland card from among them by paying life equal to its mana value rather than paying its mana cost.
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 5 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | Triggers$ Play1 | RememberObjects$ Remembered | ForgetOnMoved$ Exile | Duration$ UntilYourNextEndStep | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | AffectedZone$ Exile | Affected$ Card.IsRemembered+nonLand | MayPlay$ True | MayPlayAltManaCost$ PayLife<ConvertedManaCost> | Description$ Until your next end step, you may cast one of those cards.
+SVar:Play1:Mode$ SpellCast | ValidCard$ Card.IsRemembered | ValidActivatingPlayer$ You | TriggerZones$ Command | Execute$ ExileSelf | Static$ True
+SVar:ExileSelf:DB$ ChangeZone | Origin$ Command | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Trample\nWhen this creature dies, exile the top five cards of your library. Until the end of your next turn, you may cast a nonland card from among them by paying life equal to its mana value rather than paying its mana cost.

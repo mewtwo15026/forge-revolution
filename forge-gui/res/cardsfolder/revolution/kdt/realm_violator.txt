@@ -1,0 +1,12 @@
+Name:Realm Violator
+ManaCost:5 G
+Types:Creature Serpent Insect
+PT:6/6
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may sacrifice two nonland, non-Serpent permanents. If you do, create a 6/6 green Serpent creature token with trample. Repeat this process any number of times.
+SVar:TrigRepeat:DB$ Repeat | RepeatSubAbility$ DBSac | RepeatOptional$ True
+SVar:DBSac:DB$ Sacrifice | Amount$ 2 | SacValid$ Permanent.nonLand+nonSerpent | SacMessage$ two nonland, non-Serpent permanents | Defined$ You | RememberSacrificed$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ g_6_6_serpent_trample | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE2 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Sacrifice|Token
+Oracle:Trample\nWhen this creature enters, you may sacrifice two nonland, non-Serpent permanents. If you do, create a 6/6 green Serpent creature token with trample. Repeat this process any number of times.

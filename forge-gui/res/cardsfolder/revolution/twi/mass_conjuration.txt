@@ -1,0 +1,6 @@
+Name:Mass Conjuration
+ManaCost:5 U R
+Types:Sorcery
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumCopies$ 2 | NonLegendary$ True | PumpKeywords$ Haste | SpellDescription$ Create two tokens that are copies of target creature you control, except the tokens aren't legendary. Those tokens gain haste until end of turn.
+SVar:PlayMain1:TRUE
+Oracle:Create two tokens that are copies of target creature you control, except the tokens aren't legendary. Those tokens gain haste until end of turn.

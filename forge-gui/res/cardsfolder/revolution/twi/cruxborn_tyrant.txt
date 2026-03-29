@@ -1,0 +1,13 @@
+Name:Cruxborn Tyrant
+ManaCost:B G
+Types:Creature Demon Cleric
+PT:2/2
+K:Flying
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigDrain | TriggerDescription$ At the beginning of your end step, each opponent loses 1 life if you've gained life this turn. If you've gained 3 or more life this turn, create a 1/1 black Spirit creature token. If you've gained 9 or more life this turn, return a card from your graveyard to your hand.
+SVar:TrigDrain:DB$ LoseLife | LifeAmount$ 1 | Defined$ Opponent | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ b_1_1_spirit | TokenOwner$ You | TokenAmount$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3 | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Hidden$ True | ChangeType$ Card.YouOwn | Mandatory$ True | ChangeNum$ 1 | Origin$ Graveyard | Destination$ Hand | ConditionCheckSVar$ X | ConditionSVarCompare$ GE9
+SVar:X:Count$LifeYouGainedThisTurn
+DeckHas:Ability$Token
+DeckHints:Ability$LifeGain
+Oracle:Flying\nAt the beginning of your end step, each opponent loses 1 life if you've gained life this turn. If you've gained 3 or more life this turn, create a 1/1 black Spirit creature token. If you've gained 9 or more life this turn, return a card from your graveyard to your hand.

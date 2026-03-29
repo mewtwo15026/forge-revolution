@@ -1,0 +1,12 @@
+Name:Witchery
+ManaCost:U UB B
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ Whenever you cast a noncreature spell, creatures you control get +1/+1 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | CheckSVar$ X | SVarCompare$ GE4 | Execute$ TrigToken | TriggerDescription$ At the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, create a 4/4 black Horror creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenOwner$ You | TokenScript$ b_4_4_horror
+SVar:X:Count$YourSpellManaExpent
+SVar:BuffedBy:Card.nonCreature+nonLand
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Token
+Oracle:Whenever you cast a noncreature spell, creatures you control get +1/+1 until end of turn.\nAt the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, create a 4/4 black Horror creature token.

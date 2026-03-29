@@ -1,0 +1,11 @@
+Name:Caersol Ley-Tower
+ManaCost:1 R
+Types:Creature Wall
+PT:1/3
+K:Defender
+K:Reach
+A:AB$ DealDamage | Cost$ T | NumDmg$ 1 | Defined$ Player.Opponent | SpellDescription$ CARDNAME deals 1 damage to each opponent.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other+YouCtrl+withDefender | TriggerZones$ Battlefield | Execute$ TrigUntap | TriggerDescription$ Whenever another creature you control with defender enters, untap CARDNAME.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+DeckHints:Keyword$Defender
+Oracle:Defender, reach\n{T}: Caersol Ley-Tower deals 1 damage to each opponent.\nWhenever another creature you control with defender enters, untap Caersol Ley-Tower.

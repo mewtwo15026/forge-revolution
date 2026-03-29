@@ -1,0 +1,9 @@
+Name:Crusher Beetle
+ManaCost:3 G
+Types:Creature Insect
+PT:3/2
+K:mon_Experience
+S:Mode$ MinMaxBlocker | ValidCard$ Card.Self | Max$ 1 | Description$ CARDNAME can't be blocked by more than one creature.
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nCrusher Beetle can't be blocked by more than one creature.

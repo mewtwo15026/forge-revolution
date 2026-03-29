@@ -1,0 +1,5 @@
+Name:Eternal Struggle
+ManaCost:G
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/168_Eternal Struggle.jpg
+Oracle:Choose one -\n• Target creature you control gets +1/+1 and gains hexproof until end of turn.\n• Exile target card from a graveyard. Draw a card.

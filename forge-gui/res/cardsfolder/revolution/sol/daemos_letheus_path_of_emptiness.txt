@@ -1,0 +1,17 @@
+Name:Daemos Letheus
+ManaCost:7 B B
+Types:Creature Demon Spirit
+PT:9/7
+K:Menace
+K:Ward:Discard<1/Card>
+DeckHas:Ability$Discard
+AlternateMode:Adventure
+Oracle:Menace\nWard-Discard a card.
+
+ALTERNATE
+
+Name:Path of Emptiness
+ManaCost:2 B
+Types:Sorcery Adventure
+A:SP$ Discard | ValidTgts$ Player | NumCards$ 2 | Mode$ TgtChoose | SpellDescription$ Target player discards two cards. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Target player discards two cards. (Then exile this card. You may cast the creature later from exile.)

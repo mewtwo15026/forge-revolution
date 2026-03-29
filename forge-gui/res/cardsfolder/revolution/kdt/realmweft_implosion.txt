@@ -1,0 +1,7 @@
+Name:Realmweft Implosion
+ManaCost:1 G
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Artifact,Battle,Enchantment | TgtPrompt$ Select target artifact, battle, or enchantment | SpellDescription$ Destroy target artifact, battle, or enchantment.
+K:Cycling:2
+DeckHas:Ability$Discard
+Oracle:Destroy target artifact, battle, or enchantment.\nCycling {2} ({2}, Discard this card: Draw a card.)

@@ -1,0 +1,5 @@
+Name:Corporeal Benediction
+ManaCost:W W
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creatures you control | NumAtt$ +2 | NumDef$ +1 | SpellDescription$ Up to two target creatures you control each get +2/+1 until end of turn.
+Oracle:Up to two target creatures you control each get +2/+1 until end of turn.

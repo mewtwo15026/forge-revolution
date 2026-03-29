@@ -1,0 +1,8 @@
+Name:Uplifting Melody
+ManaCost:4 W
+Types:Instant
+A:SP$ UntapAll | ValidCards$ Creature.YouCtrl | SubAbility$ DBPumpAll | SpellDescription$ Untap all creatures you control. They get +2/+1 until end of turn.
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | AILogic$ UntapCombatTrick
+K:Cycling:2
+DeckHas:Ability$Discard
+Oracle:Untap all creatures you control. They get +2/+1 until end of turn.\nCycling {2} ({2}, Discard this card: Draw a card.)

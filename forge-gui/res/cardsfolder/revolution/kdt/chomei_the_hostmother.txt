@@ -1,0 +1,12 @@
+Name:Chomei, the Hostmother
+ManaCost:2 B R
+Types:Legendary Creature Demon
+PT:3/3
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When NICKNAME enters, create a tapped Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+T:Mode$ Sacrificed | ValidCard$ Permanent.YouCtrl | Execute$ TrigDraw | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Whenever you sacrifice a permanent, you may pay {1}. If you do, draw a card.
+SVar:TrigDraw:AB$ Draw | Cost$ 1 | Defined$ You | NumCards$ 1
+DeckHas:Ability$Token|Sacrifice & Type$Treasure
+DeckHints:Type$Treasure|Food|Map|Lander|Blood
+Oracle:Menace\nWhen Chomei enters, create a tapped Treasure token.\nWhenever you sacrifice a permanent, you may pay {1}. If you do, draw a card.

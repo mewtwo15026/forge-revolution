@@ -1,0 +1,9 @@
+Name:Aurora Glider
+ManaCost:2 W
+Types:Creature Spirit
+PT:1/3
+K:Flying
+K:Vigilance
+K:Lifelink
+A:AB$ Tap | Cost$ W T tapXType<1/Creature> | ValidTgts$ Creature | SpellDescription$ Tap target creature.
+Oracle:Flying, vigilance, lifelink\n{W}, {T}, Tap another untapped creature you control: Tap target creature.

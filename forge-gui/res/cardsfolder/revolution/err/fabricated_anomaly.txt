@@ -2,11 +2,11 @@ Name:Fabricated Anomaly
 ManaCost:2 R
 Types:Enchantment Creature Elemental
 PT:2/3
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a colorless artifact token named Puzzlebox with “{T}, Discard a card: Draw a card.”
-SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ puzzlebox | TokenOwner$ You
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create The Puzzlebox, a legendary colorless artifact token with “{T}, Discard a card: Draw a card.”
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ the_puzzlebox | TokenOwner$ You
 T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ Whenever a creature you control attacks, you may exile a number of cards from your graveyard equal to its power. If you do, put a +1/+1 counter on it.
 SVar:TrigPut:DB$ PutCounter | UnlessCost$ ExileFromGrave<TApower/card> | UnlessPayer$ You | UnlessSwitched$ True | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 1
 SVar:TApower:TriggeredAttacker$CardPower
 DeckHints:Ability$Mill|Discard|Dredge & Type$Instant|Sorcery
 DeckHas:Ability$Token|Discard|Counters
-Oracle:When this creature enters, create a colorless artifact token named Puzzlebox with “{T}, Discard a card: Draw a card.”\nWhenever a creature you control attacks, you may exile a number of cards from your graveyard equal to its power. If you do, put a +1/+1 counter on it.
+Oracle:When this creature enters, create The Puzzlebox, a legendary colorless artifact token with “{T}, Discard a card: Draw a card.”\nWhenever a creature you control attacks, you may exile a number of cards from your graveyard equal to its power. If you do, put a +1/+1 counter on it.

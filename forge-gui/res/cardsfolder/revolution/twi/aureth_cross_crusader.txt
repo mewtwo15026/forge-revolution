@@ -1,0 +1,9 @@
+Name:Aureth Cross Crusader
+ManaCost:2 B G
+Types:Creature Spirit Knight
+PT:4/4
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME enters, you gain 4 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 4
+DeckHas:Ability$LifeGain
+Oracle:Trample\nWhen Aureth Cross Crusader enters, you gain 4 life.

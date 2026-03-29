@@ -1,0 +1,5 @@
+Name:Earthly Absolution
+ManaCost:X B R
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/206_Earthly Absolution.jpg
+Oracle:X can't be 0.\nEach opponent reveals their hand. For each number from 1 to X, each opponent discards a card or sacrifices a permanent with that mana value. Each time they can't, they lose 3 life.

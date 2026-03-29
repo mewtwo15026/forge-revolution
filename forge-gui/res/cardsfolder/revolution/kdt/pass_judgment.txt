@@ -1,0 +1,8 @@
+Name:Pass Judgment
+ManaCost:X U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each tapped creature you control.
+SVar:X:Count$Valid Creature.tapped+YouCtrl
+A:SP$ Counter | UnlessCost$ X | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | SpellDescription$ Counter target spell unless its controller pays {X}.
+SVar:X:Count$xPaid
+Oracle:This spell costs {1} less to cast for each tapped creature you control.\nCounter target spell unless its controller pays {X}.

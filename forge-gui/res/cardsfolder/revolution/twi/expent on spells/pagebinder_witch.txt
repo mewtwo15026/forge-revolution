@@ -1,0 +1,11 @@
+Name:Pagebinder Witch
+ManaCost:1 U
+Types:Creature Elf Warlock
+PT:1/1
+K:Prowess
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | CheckSVar$ X | SVarCompare$ GE4 | Execute$ TrigLoot | TriggerDescription$ At the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, you may draw a card. If you do, discard a card.
+SVar:TrigLoot:AB$ Discard | Defined$ You | Mode$ TgtChoose | Cost$ Draw<1/You>
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Discard
+Oracle:Prowess\nAt the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, you may draw a card. If you do, discard a card.

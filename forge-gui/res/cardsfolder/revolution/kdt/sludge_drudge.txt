@@ -1,0 +1,11 @@
+Name:Sludge Drudge
+ManaCost:B
+Types:Creature Ooze Samurai
+PT:1/1
+K:Lifelink
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Creature.Other+YouCtrl | Origin$ Graveyard | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ Whenever this creature or another creature you control enters, if it entered from a graveyard or was cast from a graveyard, put two exalted counters on it.
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCastFromGraveyard,Creature.Other+YouCtrl+wasCastFromGraveyard | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigPut | Secondary$ True | TriggerDescription$ Whenever this creature or another creature you control enters, if it entered from a graveyard or was cast from a graveyard, put two exalted counters on it.
+SVar:TrigPut:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ Exalted | CounterNum$ 2
+DeckHas:Ability$Lifegain & Keyword$Exalted
+DeckNeeds:Ability$Graveyard
+Oracle:Lifelink\nWhenever this creature or another creature you control enters, if it entered from a graveyard or was cast from a graveyard, put two exalted counters on it. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

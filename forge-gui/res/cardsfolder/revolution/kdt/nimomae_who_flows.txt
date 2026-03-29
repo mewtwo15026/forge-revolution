@@ -1,0 +1,14 @@
+Name:Nimomae, Who Flows
+ManaCost:3 W U
+Types:Legendary Creature Human Monk
+PT:4/4
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl | AddToughness$ 1 | Description$ Other creatures you control get +1/+1.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever NICKNAME attacks, create two 1/1 blue Bird creature tokens with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ u_1_1_bird_flying | TokenOwner$ You
+S:Mode$ ReduceCost | EffectZone$ Battlefield | ValidCard$ Card.nonCreature | Activator$ You | Type$ Spell | OnlyFirstSpell$ True | Amount$ X | Description$ The first noncreature spell you cast each turn costs {1} less to cast for each token you control.
+SVar:X:Count$Valid Permanent.token+YouCtrl
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Permanent.token
+DeckHas:Ability$Token & Type$Bird
+DeckHints:Ability$Token & Type$Instant|Sorcery|Artifact|Enchantment|Battle
+Oracle:Other creatures you control get +1/+1.\nWhenever Nimomae attacks, create two 1/1 blue Bird creature tokens with flying.\nThe first noncreature spell you cast each turn costs {1} less to cast for each token you control.

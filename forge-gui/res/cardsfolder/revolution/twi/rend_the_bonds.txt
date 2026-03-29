@@ -1,0 +1,10 @@
+Name:Rend the Bonds
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage | StackDescription$ None | SpellDescription$ Target creature you control deals damage equal to its power to target creature you don't control. When the creature you don't control dies this turn, you gain 4 life.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you don't control | NumDmg$ X | DamageSource$ ParentTarget | SubAbility$ DBDelayedTrigger
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Targeted.YouDontCtrl | ValidCard$ Card.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ TrigGainLife | TriggerDescription$ When the creature you don't control dies this turn, you gain 4 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 4
+SVar:X:ParentTargeted$CardPower
+DeckHas:Ability$LifeGain
+Oracle:Target creature you control deals damage equal to its power to target creature you don't control. When the creature you don't control dies this turn, you gain 4 life.

@@ -1,0 +1,7 @@
+Name:Medari Ley-Spire
+ManaCost:1 U
+Types:Creature Wall
+PT:1/4
+K:Defender
+A:AB$ ChangeTargets | Cost$ 1 | TargetType$ Spell,Activated,Triggered | ValidTgts$ Card,Emblem | DefinedMagnet$ Self | ChangeSingleTarget$ True | SpellDescription$ Change a target of target spell or ability to CARDNAME.
+Oracle:Defender\n{1}: Change a target of target spell or ability to Medari Ley-Spire.

@@ -1,0 +1,12 @@
+Name:Astral Prison
+ManaCost:1 W
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+S:Mode$ CantAttack,CantBlock | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature can't attack or block and has "{7}: Destroy CARDNAME."
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddAbility$ ABDestroy | Secondary$ True | Description$ Enchanted creature can't attack or block and has "{7}: Destroy CARDNAME."
+SVar:ABDestroy:AB$ Destroy | Cost$ 7 | Defined$ OriginalHost | StackDescription$ Destroy {c:OriginalHost}. | SpellDescription$ Destroy ORIGINALHOST.
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Enchant creature\nWhen Astral Prison enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nEnchanted creature can't attack or block and has "{7}: Destroy Astral Prison."

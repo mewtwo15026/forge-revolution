@@ -1,0 +1,6 @@
+Name:Moon-Scarred Champion
+ManaCost:1 R W
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/227_Moon-Scarred Champion.jpg
+Oracle:If damage would be dealt to Moon-Scarred Champion, prevent that damage and put a -1/-1 counter on it. (If multiple sources would damage it at once, only one counter is placed.)\n{2}{R}{W}: Remove a -1/-1 counter from Moon-Scarred Champion.

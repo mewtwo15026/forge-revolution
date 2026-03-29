@@ -1,0 +1,6 @@
+Name:Star-Touched Devout
+ManaCost:G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/185_Star-Touched Devout.jpg
+Oracle:When Star-Touched Devout dies, create a 1/1 red Spirit creature token with wither and you gain 2 life. (It deals damage to creatures in the form of -1/-1 counters.)

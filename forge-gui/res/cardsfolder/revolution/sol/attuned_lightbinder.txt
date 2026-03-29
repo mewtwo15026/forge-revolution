@@ -1,0 +1,8 @@
+Name:Attuned Lightbinder
+ManaCost:GU GU
+Types:Creature Elf Cleric
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature you control gets +0/+1 and gains hexproof until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumDef$ 1 | KW$ Hexproof
+Oracle:Flash\nWhen Attuned Lightbinder enters, target creature you control gets +0/+1 and gains hexproof until end of turn.

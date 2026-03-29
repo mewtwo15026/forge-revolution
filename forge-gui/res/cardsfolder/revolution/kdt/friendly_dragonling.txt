@@ -1,0 +1,9 @@
+Name:Friendly Dragonling
+ManaCost:3 W
+Types:Creature Dragon
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When this creature enters, target creature you control gets +2/+2 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ +2 | NumDef$ +2
+K:TypeCycling:Plains:2
+DeckHas:Ability$Discard
+Oracle:When this creature enters, target creature you control gets +2/+2 until end of turn.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)

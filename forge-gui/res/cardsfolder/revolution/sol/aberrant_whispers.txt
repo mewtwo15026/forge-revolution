@@ -1,0 +1,9 @@
+Name:Aberrant Whispers
+ManaCost:3 R
+Types:Sorcery
+A:SP$ Charm | Choices$ DBDamageAll,DBThreaten
+SVar:DBDamageAll:DB$ DamageAll | NumDmg$ 1 | ValidPlayers$ Player.Opponent | SubAbility$ DBDamagePerms | SpellDescription$ CARDNAME deals 1 damage to each opponent and each creature and planeswalker your opponents control.
+SVar:DBDamagePerms:DB$ DamageAll | NumDmg$ 1 | ValidCards$ Creature.OppCtrl,Planeswalker.OppCtrl
+SVar:DBThreaten:DB$ Untap | ValidTgts$ Creature | SubAbility$ DBChange | SpellDescription$ Untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.
+SVar:DBChange:DB$ GainControl | Defined$ Targeted | AddKWs$ Haste | LoseControl$ EOT
+Oracle:Choose one -\n• Aberrant Whispers deals 1 damage to each opponent and each creature and planeswalker your opponents control.\n• Untap target creature and gain control of it until end of turn. That creature gains haste until end of turn.

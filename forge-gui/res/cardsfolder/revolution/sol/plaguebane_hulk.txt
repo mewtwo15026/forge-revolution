@@ -1,0 +1,6 @@
+Name:Plaguebane Hulk
+ManaCost:3 G G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/180_Plaguebane Hulk.jpg
+Oracle:Trample\nWhenever Plaguebane Hulk enters or attacks, destroy up to one target noncreature permanent. Its controller creates a tapped land token named Lotus Spring with \{T}: Add one mana of any color.\

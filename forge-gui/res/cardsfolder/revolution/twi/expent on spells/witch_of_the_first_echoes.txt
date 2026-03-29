@@ -1,0 +1,14 @@
+Name:Witch of the First Echoes
+ManaCost:U U
+Types:Creature Elf Warlock
+PT:2/2
+K:Flash
+K:Prowess
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | CheckSVar$ X | SVarCompare$ GE4 | Execute$ TrigBranch | TriggerDescription$ At the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, create a 1/1 blue Warlock creature token with prowess. If you spent eight or more, instead create a 4/4 black Horror creature token.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ GE8 | TrueSubAbility$ DBHorror | FalseSubAbility$ DBWarlock
+SVar:DBHorror:DB$ Token | TokenAmount$ 1 | TokenOwner$ You | TokenScript$ b_4_4_horror
+SVar:DBWarlock:DB$ Token | TokenAmount$ 1 | TokenOwner$ You | TokenScript$ u_1_1_warlock_prowess
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Token
+Oracle:Flash\nProwess\nAt the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, create a 1/1 blue Warlock creature token with prowess. If you spent eight or more, instead create a 4/4 black Horror creature token.

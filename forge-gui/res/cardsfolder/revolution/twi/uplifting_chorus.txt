@@ -1,0 +1,10 @@
+Name:Uplifting Chorus
+ManaCost:1 U R
+Types:Instant
+A:SP$ Dig | UnlessCost$ Discard<1/Hand> | UnlessPayer$ You | UnlessSwitched$ True | Defined$ You | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBMayPlay | SpellDescription$ You may discard your hand. If you do, exile the top X cards of your library, where X is the number of creatures you control. Until the end of your next turn, you may play those cards.
+SVar:DBMayPlay:DB$ Effect | StaticAbilities$ STCommuned | Duration$ UntilTheEndOfYourNextTurn | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:STCommuned:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | Description$ Until the end of your next turn, you may play those cards.
+SVar:X:Count$Valid Creature.YouCtrl
+AI:RemoveDeck:All
+Oracle:You may discard your hand. If you do, exile the top X cards of your library, where X is the number of creatures you control. You may play those cards until the end of your next turn.

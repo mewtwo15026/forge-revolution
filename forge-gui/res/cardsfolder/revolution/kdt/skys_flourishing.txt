@@ -1,0 +1,10 @@
+Name:Sky's Flourishing
+ManaCost:1 WU
+Types:Sorcery
+T:Mode$ SpellCast | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ When you cast this spell, copy it if you control a creature with flying. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | Amount$ 1 | MayChooseTarget$ True | ConditionPresent$ Creature.withFlying+YouCtrl | ConditionCompare$ GE1
+A:SP$ Tap | ValidTgts$ Creature | TgtPrompt$ Select up to one target artifact or creature | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ DBToken | SpellDescription$ Tap up to one target artifact or creature. Create a 1/1 blue Bird creature token with flying.
+SVar:DBToken:DB$ Token | TokenScript$ u_1_1_bird_flying
+DeckHints:Keyword$Flying
+DeckHas:Keyword$Flying & Ability$Token & Type$Bird
+Oracle:When you cast this spell, copy it if you control a creature with flying. You may choose new targets for the copy.\nTap up to one target artifact or creature. Create a 1/1 blue Bird creature token with flying.

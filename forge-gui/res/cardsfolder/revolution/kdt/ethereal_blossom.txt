@@ -1,0 +1,9 @@
+Name:Ethereal Blossom
+ManaCost:1 G
+Types:Creature Plant Spirit
+PT:1/2
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddAbility$ RevMana | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevMana:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\n{T}: Add {G}.

@@ -1,0 +1,10 @@
+Name:Gwyneira of Frosted Grace
+ManaCost:1 U B
+Types:Legendary Creature Elf Warlock
+PT:2/3
+K:Flash
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ At the beginning of each end step, look at the top three cards of your library if you've spent four or more mana to cast instant and/or sorcery spells this turn. You may put a card from among them into your hand. Put the rest on the bottom of your library in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeNum$ 1 | NoReveal$ True | RestRandomOrder$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE4
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+Oracle:Flash\nAt the beginning of each end step, look at the top three cards of your library if you've spent four or more mana to cast instant and/or sorcery spells this turn. You may put a card from among them into your hand. Put the rest on the bottom of your library in a random order.

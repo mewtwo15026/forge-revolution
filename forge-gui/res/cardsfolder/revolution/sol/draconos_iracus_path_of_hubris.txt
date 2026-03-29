@@ -1,0 +1,17 @@
+Name:Draconos Iracus
+ManaCost:5 U R
+Types:Creature Dragon Spirit
+PT:4/7
+K:Flying
+K:Ward:2 PayLife<2>
+AlternateMode:Adventure
+Oracle:Flying\nWard-{2}, Pay 2 life.
+
+ALTERNATE
+
+Name:Path of Hubris
+ManaCost:U R
+Types:Instant Adventure
+A:SP$ ChangeZone | ValidTgts$ Card.YouDontControl+inZoneStack | TgtZone$ Stack | TgtPrompt$ Select target spell you don't control | Origin$ Stack | Destination$ Hand | SubAbility$ DBShock | SpellDescription$ Return target spell you don't control to its owner's hand. Path of Hubris deals 2 damage to that player.
+SVar:DBShock:DB$ DealDamage | Defined$ TargetedOwner | NumDmg$ 2
+Oracle:Return target spell you don't control to its owner's hand. Path of Hubris deals 2 damage to that player. (Then exile this card. You may cast the creature later from exile.)

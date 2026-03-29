@@ -1,0 +1,8 @@
+Name:Echoed Chant
+ManaCost:1 U
+Types:Sorcery
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ u_1_1_warlock_prowess | SubAbility$ DBLoot | SpellDescription$ Create a 1/1 blue Warlock creature token with prowess. You may draw a card. If you do, discard a card.
+SVar:DBLoot:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | UnlessCost$ Draw<1/You> | UnlessPayer$ You | UnlessSwitched$ True
+K:Flashback:2 U
+DeckHas:Ability$Token|Discard & Type$Warlock
+Oracle:Create a 1/1 blue Warlock creature token with prowess.\nYou may draw a card. If you do, discard a card.\nFlashback {2}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

@@ -1,0 +1,9 @@
+Name:Rhiannona, Pactborne
+ManaCost:1 B B
+Types:Legendary Creature Fox Warlock
+PT:3/3
+K:Menace
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Warlock.YouCtrl | PresentCompare$ GE3 | Execute$ TrigReturn | TriggerDescription$ At the beginning of your end step, if you control three or more Warlocks, return target Horror creature card from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | ValidTgts$ Horror.YouOwn$ | TgtPrompt$ Select target Horror creature card in your graveyard | Origin$ Graveyard | Destination$ Hand
+DeckHints:Type$Warlock|Horror
+Oracle:Menace\nAt the beginning of your end step, if you control three or more Warlocks, return target Horror creature card from your graveyard to the battlefield.

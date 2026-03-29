@@ -1,0 +1,10 @@
+Name:Helia Ley-Spire
+ManaCost:2 W
+Types:Creature Wall
+PT:1/5
+K:Defender
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile each opponent's graveyard.
+SVar:TrigExile:DB$ ChangeZoneAll | ChangeType$ Card.OppCtrl | Origin$ Graveyard | Destination$ Exile
+R:Event$ Moved | ActiveZones$ Battlefield | Destination$ Graveyard | ValidCard$ Card.!token+OppOwn | ReplaceWith$ Exile | Description$ If a card would be put into an opponent's graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Defender\nWhen Helia Ley-Spire enters, exile each opponent's graveyard.\nIf a card would be put into an opponent's graveyard from anywhere, exile it instead.

@@ -1,0 +1,12 @@
+Name:Fang of the Pale Thorn
+ManaCost:R
+Types:Creature Faerie Assassin
+PT:2/1
+K:CARDNAME can't block.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, exile the top card of your library.
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | ForgetOtherRemembered$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | OptionalDecider$ TriggeredCardController | Execute$ TrigEffect | TriggerDescription$ When CARDNAME dies, you may play the last card exiled by it until the end of your next turn.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STMayPlay | Duration$ UntilTheEndOfYourNextTurn | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:STMayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | Description$ You may play that card until the end of your next turn.
+Oracle:Fang of the Pale Thorn can't block.\nWhenever Fang of the Pale Thorn attacks, exile the top card of your library.\nWhen Fang of the Pale Thorn dies, you may play the last card exiled by it until the end of your next turn.

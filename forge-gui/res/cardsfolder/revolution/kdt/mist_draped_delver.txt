@@ -1,0 +1,8 @@
+Name:Mist-Draped Delver
+ManaCost:1 G U
+Types:Creature Horror Ninja
+PT:3/2
+K:Ninjutsu:1 G U
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigRamp | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.
+SVar:TrigRamp:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Basic | ChangeNum$ 1
+Oracle:Ninjutsu {1}{G}{U} ({1}{G}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.

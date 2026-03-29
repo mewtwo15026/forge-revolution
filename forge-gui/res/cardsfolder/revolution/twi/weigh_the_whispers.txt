@@ -1,0 +1,7 @@
+Name:Weigh the Whispers
+ManaCost:2 U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 2 | EffectZone$ All | CheckSVar$ X | SVarCompare$ GE1 | Description$ This spell costs {2} less to cast if an opponent was dealt combat damage this turn.
+SVar:X:PlayerCountRegisteredOpponents$HasPropertywasDealtCombatDamageThisTurn
+A:SP$ Dig | DigNum$ 4 | ChangeNum$ 1 | NoReveal$ True | RestRandomOrder$ True | SpellDescription$ Look at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in a random order.
+Oracle:This spell costs {2} less to cast if an opponent was dealt combat damage this turn.\nLook at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in a random order.

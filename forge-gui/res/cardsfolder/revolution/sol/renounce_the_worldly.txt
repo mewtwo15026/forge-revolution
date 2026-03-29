@@ -1,0 +1,5 @@
+Name:Renounce the Worldly
+ManaCost:1 W
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/27_Renounce the Worldly.jpg
+Oracle:Destroy up to one target artifact or enchantment. Create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)

@@ -1,0 +1,8 @@
+Name:Basking Kitsune
+ManaCost:2 G
+Types:Creature Fox Shapeshifter
+PT:3/3
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddKeyword$ Trample | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+K:Trample
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nTrample

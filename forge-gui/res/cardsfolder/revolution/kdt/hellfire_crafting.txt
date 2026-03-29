@@ -1,0 +1,16 @@
+Name:Hellfire Crafting
+ManaCost:B R
+Types:Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | CheckSVar$ Damned | SVarCompare$ GE1 | TriggerZones$ Battlefield | Execute$ TrigBranch | TriggerDescription$ Damned — At the beginning of your end step, exile the top card of your library if you've sacrificed a permanent this turn. You may play that card until you exile another card with CARDNAME.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ Damned | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ ExileSelf
+SVar:ExileSelf:DB$ ChangeZone | Defined$ Imprinted | Origin$ Command | Destination$ Exile | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True | SubAbility$ DBExile
+SVar:DBExile:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | AILogic$ ExileAndPlayUntilEOT
+# AILogic tag not quite right?
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ Play | Duration$ Permanent | ForgetOnMoved$ Exile | ImprintOnHost$ True
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ DBCleanup2
+SVar:DBCleanup2:DB$ Cleanup | ClearImprinted$ True
+SVar:Play:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card until you exile another card with CARDNAME.
+DeckNeeds:Ability$Sacrifice
+Oracle:Damned — At the beginning of your end step, exile the top card of your library if you've sacrificed a permanent this turn. You may play that card until you exile another card with this enchantment.

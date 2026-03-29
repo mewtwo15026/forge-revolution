@@ -1,0 +1,5 @@
+Name:Scintillating Vista
+ManaCost:2 G
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/183_Scintillating Vista.jpg
+Oracle:Enchant land\nWhen Scintillating Vista enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nEnchanted land has \{T}: Add two mana of any one color.\

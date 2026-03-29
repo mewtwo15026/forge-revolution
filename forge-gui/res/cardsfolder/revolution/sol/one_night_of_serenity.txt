@@ -1,0 +1,5 @@
+Name:One Night of Serenity
+ManaCost:3 G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/179_One Night of Serenity.jpg
+Oracle:Choose one -\n• Create three 1/1 white Elf creature tokens.\n• You gain 3 life. Then create X 1/1 white Elf creature tokens, where X is your life total minus your starting life total.

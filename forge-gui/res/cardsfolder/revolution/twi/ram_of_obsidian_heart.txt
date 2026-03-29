@@ -1,0 +1,11 @@
+Name:Ram of Obsidian Heart
+ManaCost:5 B
+Types:Creature Sheep Horror
+PT:6/6
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigLoseLife | TriggerDescription$ Whenever CARDNAME enters or attacks, target opponent loses 3 life and you gain 3 life.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigLoseLife | Secondary$ True | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME enters or attacks, target opponent loses 3 life and you gain 3 life.
+SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Opponent | LifeAmount$ 3 | SubAbility$ GainLife
+SVar:GainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+DeckHas:Ability$LifeGain
+Oracle:Menace\nWhenever Ram of Obsidian Heart enters or attacks, target opponent loses 3 life and you gain 3 life.

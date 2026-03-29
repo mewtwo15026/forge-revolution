@@ -1,0 +1,10 @@
+Name:Swift Reproach
+ManaCost:1 W
+Types:Instant
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Battle.OppCtrl,Creature.OppCtrl,Planeswalker.OppCtrl | TgtPrompt$ Select target battle, creature, or planeswalker an opponent controls | SubAbility$ DBBranch | SpellDescription$ Exile target creature, enchantment, or planeswalker. Its controller may draw a card unless they have more cards in hand than you. Otherwise, they may scry 2.
+SVar:DBBranch:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ LEY | TrueSubAbility$ DBDraw | FalseSubAbility$ DBScry
+SVar:DBDraw:DB$ Draw | Defined$ TargetedController | NumCards$ 1 | OptionalDecider$ TargetedController
+SVar:DBScry:DB$ Scry | Defined$ TargetedController | ScryNum$ 2 | OptionalDecider$ TargetedController
+SVar:X:TargetedController$CardsInHand
+SVar:Y:Count$ValidHand Card.YouCtrl
+Oracle:Exile target battle, creature, or planeswalker an opponent controls. Its controller may draw a card unless they have more cards in hand than you. Otherwise, they may scry 2.

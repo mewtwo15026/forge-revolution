@@ -1,0 +1,9 @@
+Name:Call of the Crown
+ManaCost:X X B B
+Types:Sorcery
+A:SP$ ChangeZoneAll | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Creature.YouOwn+cmcLEX | WithCountersType$ FINALITY | RememberChanged$ True | SubAbility$ DBPutCounter | SpellDescription$ Return each creature card with mana value X or less from your graveyard to the battlefield with a finality counter on it. 
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Remembered | CounterType$ Menace,Deathtouch,Lifelink | CounterNum$ 1 | CounterTypePerDefined$ True | SubAbility$ DBCleanup | SpellDescription$ For each creature returned this way, put your choice of a menace, deathtouch, or lifelink counter on it.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid
+DeckHas:Ability$Graveyard|Counters
+Oracle:Return each creature card with mana value X or less from your graveyard to the battlefield with a finality counter on it. For each creature returned this way, put your choice of a menace, deathtouch, or lifelink counter on it.

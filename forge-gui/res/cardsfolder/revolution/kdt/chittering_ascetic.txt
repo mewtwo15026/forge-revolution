@@ -1,0 +1,7 @@
+Name:Chittering Ascetic
+ManaCost:1 W U
+Types:Creature Monkey Monk
+PT:3/3
+T:Mode$ Phase | Phase$ BeginCombat | Execute$ TrigUntap | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ At the beginning of combat each turn, untap this creature.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+Oracle:At the beginning of combat each turn, untap this creature.

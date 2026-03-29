@@ -1,0 +1,6 @@
+Name:Eclipsed Stargazer
+ManaCost:UB UB UB
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/256_Eclipsed Stargazer.jpg
+Oracle:Eclipsed Stargazer can't block.\nWhen Eclipsed Stargazer dies, draw three cards.

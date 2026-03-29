@@ -1,0 +1,6 @@
+Name:Omenmare
+ManaCost:2 G U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/231_Omenmare.jpg
+Oracle:Flash\nWhen Omenmare enters, you may choose one -\n• Counter target noncreature spell.\n• Destroy target noncreature, nonland permanent.

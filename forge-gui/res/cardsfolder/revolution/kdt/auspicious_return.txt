@@ -1,0 +1,11 @@
+Name:Auspicious Return
+ManaCost:4 W W
+Types:Enchantment
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCast | Origin$ Any | Destination$ Battlefield | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, if it was cast, return target creature card from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouCtrl
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ ConjurerExile | TriggerDescription$ At the beginning of your upkeep, exile up to one target creature you control, then return that card to the battlefield under its owner's control.
+SVar:ConjurerExile:DB$ ChangeZone | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | AITgts$ Creature.!token+YouOwn | TgtPrompt$ Select up to one target creature you control to blink | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ ConjurerReturn
+SVar:ConjurerReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ All | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Graveyard
+Oracle:When this enchantment enters, if it was cast, return target creature card from your graveyard to the battlefield.\nAt the beginning of your upkeep, exile up to one target creature you control, then return that card to the battlefield under its owner's control.

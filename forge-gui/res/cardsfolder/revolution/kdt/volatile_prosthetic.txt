@@ -1,0 +1,10 @@
+Name:Volatile Prosthetic
+ManaCost:2
+Types:Artifact Equipment
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 1 | Description$ Equipped creature gets +1/+0.
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.YouCtrl,Emblem.YouCtrl | IsCombat$ False | ValidTarget$ Player | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ DmgChange | Optional$ True | Description$ If a source you control would deal noncombat damage to a player while this Equipment is attached to a creature, you may have it deal damage equal to equipped creature's power instead.
+SVar:DmgChange:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ X
+SVar:X:Equipped$CardPower
+K:Equip:2
+AI:RemoveDeck:Random
+Oracle:Equipped creature gets +1/+0.\nIf a source you control would deal noncombat damage to a player while this Equipment is attached to a creature, you may have it deal damage equal to equipped creature's power instead.\nEquip {2}

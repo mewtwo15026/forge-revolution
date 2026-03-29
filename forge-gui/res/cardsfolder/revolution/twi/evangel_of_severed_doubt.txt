@@ -1,0 +1,12 @@
+Name:Evangel of Severed Doubt
+ManaCost:1 R R
+Types:Creature Human Cleric
+PT:2/3
+S:Mode$ Continuous | Affected$ Cleric.Other+YouCtrl | AffectedZone$ Battlefield | AddType$ Berserker | Description$ Other Clerics you control are Berserkers in addition to their other types.
+S:Mode$ Continuous | Affected$ Berserker.YouCtrl | AffectedZone$ Battlefield | AddK$ Haste | Description$ Berserkers you control have haste.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Berserker.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDealDamage | TriggerDescription$ Whenever a Berserker you control dies, CARDNAME deals 1 damage to each opponent.
+SVar:TrigDealDamage:DB$ DamageAll | ValidPlayers$ Player.Opponent | NumDmg$ 1
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Cleric,Berserker
+DeckNeeds:Type$Cleric|Berserker
+Oracle:Other Clerics you control are Berserkers in addition to their other types.\nBerserkers you control have haste.\nWhenever a Berserker you control dies, Evangel of Severed Doubt deals 1 damage to each opponent.

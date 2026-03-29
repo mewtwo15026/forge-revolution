@@ -1,0 +1,16 @@
+Name:Matauros Tyrannos
+ManaCost:6 R G
+Types:Creature Minotaur Spirit
+PT:9/7
+K:Trample
+R:Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True | ValidTarget$ You,Card.Self | IsCombat$ False | Description$ Prevent all noncombat damage that would be dealt to you and CARDNAME.
+AlternateMode:Adventure
+Oracle:Trample\nPrevent all noncombat damage that would be dealt to you and Matauros Tyrannos.
+
+ALTERNATE
+
+Name:Path of Ruin
+ManaCost:6 R G
+Types:Sorcery Adventure
+A:SP$ Sacrifice | Defined$ Player.Opponent | SacValid$ Permanent.nonCreature+nonLand | SacMessage$ noncreature, nonland permanent | SpellDescription$ Each opponent sacrifices two noncreature, nonland permanents. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Each opponent sacrifices two noncreature, nonland permanents. (Then exile this card. You may cast the creature later from exile.)

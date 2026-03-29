@@ -1,0 +1,15 @@
+Name:Chasing Stars
+ManaCost:1 G
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | CheckSVar$ SacCount | SVarCompare$ GE3 | Execute$ TrigStoreSVar | Static$ True
+SVar:TrigStoreSVar:DB$ StoreSVar | SVar$ TrigThisTurn | Type$ Number | Expression$ 1
+SVar:TrigThisTurn:Number$0
+SVar:SacCount:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+T:Mode$ Phase | Phase$ Untap | CheckSVar$ TrigThisTurn | Static$ True | Execute$ TrigReset
+SVar:TrigReset:DB$ StoreSVar | SVar$ TrigThisTurn | Type$ Number | Expression$ 0
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Permanent | CheckSVar$ SacTrigCount | SVarCompare$ GE3 | TriggerZones$ Battlefield | Execute$ TrigBear | ActivationLimit$ 1 | TriggerDescription$ Whenever you sacrifice your third permanent each turn, create a 4/4 green Bear creature token.
+SVar:TrigBear:DB$ Token | TokenScript$ g_4_4_bear
+SVar:SacTrigCount:Count$Compare TrigThisTurn EQ1.0.SacCount
+Oracle:When Chasing Stars enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nWhenever you sacrifice your third permanent each turn, create a 4/4 green Bear creature token.

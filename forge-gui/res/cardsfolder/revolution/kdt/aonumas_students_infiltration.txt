@@ -1,0 +1,18 @@
+Name:Aonuma's Students
+ManaCost:1 G
+Types:Creature Human Ninja
+PT:2/2
+K:Deathtouch
+DeckHas:Ability$Discard
+AlternateMode:Adventure
+Oracle:Deathtouch
+
+ALTERNATE
+
+Name:Infiltration
+ManaCost:4 U
+Types:Instant Adventure
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBDiscard | SpellDescription$ Draw two cards, then discard a card. You may cast a spell with mana value 3 or less from your hand without paying its mana cost.
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Valid$ Card.nonLand+YouOwn | ValidSA$ Spell.cmcLE3 | ValidZone$ Hand | WithoutManaCost$ True | Amount$ 1 | Controller$ You | Optional$ True
+Oracle:Draw two cards, then discard a card. You may cast a spell with mana value 3 or less from your hand without paying its mana cost. (Then exile this card. You may cast the creature later from exile.)

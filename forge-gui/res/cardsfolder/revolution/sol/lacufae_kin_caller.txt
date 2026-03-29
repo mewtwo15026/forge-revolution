@@ -1,0 +1,9 @@
+Name:Lacufae Kin-Caller
+ManaCost:1 W
+Types:Creature Elf Cleric
+PT:3/3
+K:Wither
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ PumpAll | Cost$ W SubCounter<1/M1M1> | ValidCards$ Creature.Other+YouCtrl | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ Other creatures you control get +1/+1 until end of turn.
+Oracle:Wither (This deals damage to creatures in the form of -1/-1 counters.)\nWhen Lacufae Kin-Caller enters, put a -1/-1 counter on target creature you control.\n{W}, Remove a -1/-1 counter from Lacufae Kin-Caller: Other creatures you control get +1/+1 until end of turn.

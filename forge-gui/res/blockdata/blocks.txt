@@ -1,4 +1,10 @@
 # Name, Draft/Sealed/Lands, All sets and metas
+Chikyu: Chaos Rains, 3/6/CCR, CCR
+Errors in the Weft, 3/6/ERR, ERR
+Kitsuo: Dusk of Time, 3/6/KDT, KDT
+Exalts of Twiltrie, 3/6/TWI, TWI
+Solastere, 3/6/SOL, SOL
+# REVOLUTION
 Alpha, 3/6/LEA, LEA  
 Beta, 3/6/LEB, LEB  
 Unlimited, 3/6/2ED, 2ED  

@@ -1,0 +1,7 @@
+Name:Sanctuary of Fragile Unity
+ManaCost:3
+Types:Artifact
+A:AB$ Draw | Cost$ T | NumCards$ 1 | Defined$ Player | SpellDescription$ Each player draws a card.
+A:AB$ Draw | Cost$ 1 T | NumCards$ 2 | Defined$ Player | SpellDescription$ Each player draws two cards.
+A:AB$ Draw | Cost$ 2 T | NumCards$ 3 | Defined$ Player | SpellDescription$ Each player draws three cards.
+Oracle:{T}: Each player draws a card.\n{1}, {T}: Each player draws two cards.\n{2}, {T}: Each player draws three cards.

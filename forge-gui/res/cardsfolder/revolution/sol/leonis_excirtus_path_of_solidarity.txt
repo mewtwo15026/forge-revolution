@@ -1,0 +1,17 @@
+Name:Leonis Excirtus
+ManaCost:6 W W
+Types:Creature
+PT:8/8
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other creatures you control get +1/+1.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token & Type$Spirit
+AlternateMode:Adventure
+Oracle:Other creatures you control get +1/+1.
+
+ALTERNATE
+
+Name:Path of Solidarity
+ManaCost:3 W
+Types:Instant Adventure
+A:SP$ Token | TokenAmount$ 3 | TokenScript$ w_1_1_spirit | SpellDescription$ Create three 1/1 white Spirit creature tokens. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Create three 1/1 white Spirit creature tokens. (Then exile this card. You may cast the creature later from exile.)

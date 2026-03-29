@@ -1,0 +1,6 @@
+Name:Fish Spirit Token
+ManaCost:no cost
+Types:Token
+Colors:blue
+PT:6/6
+Oracle:

@@ -1,0 +1,9 @@
+Name:Mask Thief
+ManaCost:2 GU GU
+Types:Creature Human Rogue
+PT:4/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | OptionalDecider$ You | IsPresent$ Creature.Other+YouCtrl | TriggerDescription$ When this creature enters, you may return another creature you control to its owner's hand. If you do, draw a card.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | Hidden$ True | Mandatory$ True | ChangeType$ Creature.Other+YouCtrl | ChangeNum$ 1 | SelectPrompt$ Choose another creature you control to return to its owner's hand | RememberChanged$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When this creature enters, you may return another creature you control to its owner's hand. If you do, draw a card.

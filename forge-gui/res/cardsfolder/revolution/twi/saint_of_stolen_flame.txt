@@ -1,0 +1,7 @@
+Name:Saint of Stolen Flame
+ManaCost:2 W
+Types:Creature Angel Cleric
+PT:1/4
+K:Flying
+K:Vigilance
+Oracle:Flying, vigilance

@@ -1,0 +1,8 @@
+Name:Qaraz Observatory
+ManaCost:no cost
+Types:Land Swamp
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped if you control a non-Swamp land.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.nonSwamp+YouCtrl | ConditionCompare$ GE1
+A:AB$ ChangeZone | Cost$ B T | SorcerySpeed$ True | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card.OppOwn | TgtPrompt$ Select target card in an opponent's graveyard | SubAbility$ DBDrain | SpellDescription$ Exile target card from an opponent's graveyard. That player loses 1 life. Activate only as a sorcery.
+SVar:DBDrain:DB$ LoseLife | Defined$ TargetedOwner | LifeAmount$ 1
+Oracle:({T}: Add {B}.)\nQaraz Observatory enters tapped if you control a non-Swamp land.\n{B}, {T}: Exile target card from an opponent's graveyard. That player loses 1 life. Activate only as a sorcery.

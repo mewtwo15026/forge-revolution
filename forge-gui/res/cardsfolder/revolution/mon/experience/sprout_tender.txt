@@ -1,0 +1,11 @@
+Name:Sprout Tender
+ManaCost:1 G W
+Types:Creature Plant
+PT:2/2
+K:mon_Experience
+T:Mode$ CounterAdded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | CounterType$ P1P1 | Execute$ TrigPump | TriggerDescription$ Whenever a +1/+1 counter is put on a creature you control, target creature gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | KW$ Trample
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever a +1/+1 counter is put on a creature you control, target creature gains trample until end of turn.

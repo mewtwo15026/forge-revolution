@@ -1,0 +1,6 @@
+Name:Phase Seer
+ManaCost:4 U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/65_Phase Seer.jpg
+Oracle:When Phase Seer enters, target creature can't be blocked this turn.\nAt the beginning of your end step, you may draw a card. If you do, discard a card unless a creature dealt combat damage to a player this turn.

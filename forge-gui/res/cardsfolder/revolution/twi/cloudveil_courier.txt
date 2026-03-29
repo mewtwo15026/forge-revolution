@@ -1,0 +1,9 @@
+Name:Cloudveil Courier
+ManaCost:U R
+Types:Creature Faerie Knight
+PT:2/2
+K:Menace
+S:Mode$ Continuous | Affected$ Creature.token+YouCtrl | AddKeyword$ Menace | Description$ Creature tokens you control have menace.
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Token
+Oracle:Menace\nCreature tokens you control have menace.

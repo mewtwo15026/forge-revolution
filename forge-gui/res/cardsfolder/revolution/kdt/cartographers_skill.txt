@@ -1,0 +1,9 @@
+Name:Cartographer's Skill
+ManaCost:3 G
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRamp | TriggerDescription$ When this enchantment enters and whenever you draw your second card each turn, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.
+T:Mode$ Drawn | ValidCard$ Card.YouCtrl | Number$ 2 | TriggerZones$ Battlefield | Execute$ TrigRamp | Secondary$ True | TriggerDescription$ When this enchantment enters and whenever you draw your second card each turn, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.
+SVar:TrigRamp:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True
+K:Cycling:G
+DeckHas:Ability$Discard
+Oracle:When this enchantment enters and whenever you draw your second card each turn, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nCycling {G} ({G}, Discard this card: Draw a card.)

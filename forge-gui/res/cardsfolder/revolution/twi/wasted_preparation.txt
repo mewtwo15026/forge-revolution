@@ -1,0 +1,8 @@
+Name:Wasted Preparation
+ManaCost:1 U U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | SubAbility$ DBScry | Destination$ Graveyard | SpellDescription$ Counter target spell, then scry 1. If that spell's mana value was 2 or less, scry 2 instead.
+SVar:DBScry:DB$ Scry | ScryNum$ Y
+SVar:X:Count$Compare Y LE2.2.1
+SVar:Y:SpellTargeted$CardManaCostLKI
+Oracle:Counter target spell, then scry 1. If that spell's mana value was 2 or less, scry 2 instead.

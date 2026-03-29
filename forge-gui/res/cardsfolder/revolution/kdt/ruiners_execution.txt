@@ -1,0 +1,7 @@
+Name:Ruiner's Execution
+ManaCost:1 B
+Types:Instant
+A:SP$ Charm | Choices$ SacNonGold,SacGold | CharmNum$ 1
+SVar:SacNonGold:DB$ Sacrifice | Defined$ Opponent | SacValid$ Creature.MonoColor,Creature.Colorless | SacMessage$ creature that's one or fewer colors | SpellDescription$ Each opponent sacrifices a creature that's one or fewer colors.
+SVar:SacGold:DB$ Sacrifice | Defined$ Opponent | SacValid$ Creature.MultiColor | SacMessage$ creature that's two or more colors | SpellDescription$ Each opponent sacrifices a creature that's two or more colors.
+Oracle:Choose one —\n• Each opponent sacrifices a creature that's one or fewer colors.\n• Each opponent sacrifices a creature that's two or more colors.

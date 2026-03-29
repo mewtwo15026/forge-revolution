@@ -1,0 +1,10 @@
+Name:Akai and Toyotomi
+ManaCost:B R G W
+Types:Legendary Creature Human Spirit Samurai
+PT:4/4
+K:Trample
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Alone$ True | TriggerZones$ Battlefield | Execute$ TrigPut | TriggerDescription$ Whenever a creature you control attacks alone, put four +1/+1 counters on it.
+SVar:TrigPut:DB$ PutCounter | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 4
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Trample\nWhenever a creature you control attacks alone, put four +1/+1 counters on it.

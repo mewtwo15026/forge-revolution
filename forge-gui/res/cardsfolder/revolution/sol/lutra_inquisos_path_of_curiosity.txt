@@ -1,0 +1,21 @@
+Name:Lutra Inquisos
+ManaCost:5 U B
+Types:Creature Otter Spirit
+PT:7/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, each opponent mills X cards, where X is the greatest number of cards in a single graveyard.
+SVar:TrigMill:DB$ Mill | NumCards$ X | Defined$ Player.Opponent
+SVar:X:PlayerCount$HighestCardsInGraveyard
+DeckHas:Ability$Mill
+AlternateMode:Adventure
+Oracle:Whenever Lutra Inquisos attacks, each opponent mills X cards, where X is the greatest number of cards in a single graveyard.
+
+ALTERNATE
+
+Name:Path of Curiosity
+ManaCost:U B
+Types:Instant Adventure
+A:SP$ Mill | ValidTgts$ Player | TargetMin$ 0 | TargetMax$ MaxTgts | NumCards$ 3 | RememberMilled$ True | SubAbility$ DBReturn | SpellDescription$ Any number of target players each mill three cards. Return a card you own milled this way to your hand.
+SVar:DBReturn:DB$ ChangeZone | Hidden$ True | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Card.YouOwn+IsRemembered | SelectPrompt$ Select a card you own that was milled this way | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:MaxTgts:PlayerCountPlayers$Amount
+Oracle:Any number of target players each mill three cards. Return a card you own milled this way to your hand. (Then exile this card. You may cast the creature later from exile.) 

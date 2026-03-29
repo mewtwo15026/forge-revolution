@@ -1,0 +1,18 @@
+Name:Vengeful Artificer
+ManaCost:4 B
+Types:Creature Demon Artificer
+PT:5/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, you may sacrifice another creature. If you do, create a number of Treasure tokens equal to that creature's power.
+SVar:TrigToken:DB$ Token | Cost$ Sac<1/Creature.Other/another creature> | TokenScript$ c_a_treasure_sac | TokenAmount$ X
+SVar:X:Sacrificed$CardPower
+DeckHas:Ability$Token|Sacrifice & Type$Treasure
+AlternateMode:Adventure
+Oracle:When this creature enters, you may sacrifice another creature. If you do, create a number of Treasure tokens equal to that creature's power.
+
+ALTERNATE
+
+Name:Oni Artifice
+ManaCost:2 R
+Types:Sorcery Adventure
+A:SP$ CopyPermanent | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumCopies$ 1 | PumpKeywords$ Haste | AtEOT$ Sacrifice | SpellDescription$ Create a token that's a copy of target creature. It gains haste until end of turn. Sacrifice it at the beginning of the next end step.
+Oracle:Create a token that's a copy of target creature. It gains haste until end of turn. Sacrifice it at the beginning of the next end step. (Then exile this card. You may cast the creature later from exile.)

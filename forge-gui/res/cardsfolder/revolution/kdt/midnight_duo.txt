@@ -1,0 +1,9 @@
+Name:Midnight Duo
+ManaCost:4 B
+Types:Creature Human Samurai
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 2/2 white Samurai creature token with exalted.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_2_2_samurai_exalted | TokenOwner$ You
+K:Cycling:2
+DeckHas:Ability$Discard|Token & Type$Samurai & Keyword$Exalted
+Oracle:When this creature enters, create a 2/2 white Samurai creature token with exalted. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)\nCycling {2} ({2}, Discard this card: Draw a card.)

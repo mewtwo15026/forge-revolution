@@ -1,0 +1,9 @@
+Name:Heartfire Lantern
+ManaCost:2
+Types:Artifact
+AI:RemoveDeck:All
+A:AB$ Effect | Cost$ T Sac<1/Creature/creature> | ActivationZones$ Battlefield | Duration$ UntilTheEndOfYourNextTurn | ReplacementEffects$ REHorizon | SpellDescription$ Until the end of your next turn, if you would lose unspent mana, that mana becomes colorless instead.
+SVar:REHorizon:Event$ LoseMana | ValidPlayer$ You | ReplacementResult$ Replaced | ReplaceWith$ ConvertMana | ActiveZones$ Battlefield | Description$ IUntil the end of your next turn, if you would lose unspent mana, that mana becomes colorless instead.
+SVar:ConvertMana:DB$ ReplaceMana | ReplaceType$ C
+A:AB$ Mana | Cost$ 2 | Produced$ Any | SpellDescription$ Add one mana of any color.
+Oracle:{T}, Sacrifice a creature: Until the end of your next turn, if you would lose unspent mana, that mana becomes colorless instead.\n{2}: Add one mana of any color.

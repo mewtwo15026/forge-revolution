@@ -1,0 +1,10 @@
+Name:Cascade Channeller
+ManaCost:U
+Types:Creature Human Wizard
+PT:1/1
+K:Prowess
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature+YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | CheckSVar$ X | SVarCompare$ EQ3 | NoResolvingCheck$ True | TriggerDescription$ Whenever you cast your third noncreature spell each turn, create a tapped token that's a copy of CARDNAME, except it doesn't have this ability.
+SVar:TrigCopy:DB$ CopyPermanent | Defined$ Self | TokenTapped$ True | DoesntHaveThisAbility$ True
+SVar:X:Count$ThisTurnCast_Card.nonCreature+YouCtrl
+DeckHas:Ability$Token
+Oracle:Prowess\nWhenever you cast your third noncreature spell each turn, create a tapped token that's a copy of Cascade Channeller, except it doesn't have this ability.

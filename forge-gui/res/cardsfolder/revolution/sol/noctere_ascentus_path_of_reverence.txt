@@ -1,0 +1,16 @@
+Name:Noctere Ascentus
+ManaCost:5 W B
+Types:Creature
+PT:4/5
+K:Flying
+DeckHas:Ability$Token & Type$Artifact|Wall & Keyword$Defender
+AlternateMode:Adventure
+Oracle:Flying
+
+ALTERNATE
+
+Name:Path of Reverence
+ManaCost:1 WB
+Types:Sorcery Adventure
+A:SP$ Token | TokenScript$ c_a_0_4_wall | SpellDescription$ Create a 0/4 colorless Wall artifact creature token with defender. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Create a 0/4 colorless Wall artifact creature token with defender. (Then exile this card. You may cast the creature later from exile.)

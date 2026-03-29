@@ -1,0 +1,12 @@
+Name:Crab of the Hollow Gale
+ManaCost:4 U
+Types:Creature Crab Horror
+PT:4/4
+K:Flying
+K:Vigilance
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ At the beginning of each end step, tap target creature you don't control. If you've spent four or more mana to cast instant and/or sorcery spells this turn, put a stun counter on that creature.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.YouDontControl | TgtPrompt$ Select target creature you don't control | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ Targeted | CounterType$ Stun | CounterNum$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE4
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying, vigilance\nAt the beginning of each end step, tap target creature you don't control. If you've spent four or more mana to cast instant and/or sorcery spells this turn, put a stun counter on that creature.

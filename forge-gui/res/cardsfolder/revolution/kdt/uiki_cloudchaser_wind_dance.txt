@@ -1,0 +1,19 @@
+Name:Uiki Cloudchaser
+ManaCost:2 U
+Types:Creature Human Monk
+PT:1/4
+K:Flying
+T:Mode$ Taps | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever this creature becomes tapped, surveil 1. If it isn't attacking, surveil 2 instead.
+SVar:TrigSurveil:DB$ Surveil | Amount$ X
+SVar:X:Count$Valid Card.Self+notattacking/Plus.1
+DeckHas:Ability$Surveil
+AlternateMode:Adventure
+Oracle:Flying\nWhenever this creature becomes tapped, surveil 1. If it isn't attacking, surveil 2 instead.
+
+ALTERNATE
+
+Name:Wind Dance
+ManaCost:2 U
+Types:Instant Adventure
+A:SP$ Animate | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | Power$ 4 | Toughness$ 4 | AITgts$ Creature.YouCtrl+basePowerLE2+baseToughnessLE2 | SpellDescription$ Target creature you control has base power and toughness 4/4 until end of turn.
+Oracle:Target creature you control has base power and toughness 4/4 until end of turn. (Then exile this card. You may cast the creature later from exile.)

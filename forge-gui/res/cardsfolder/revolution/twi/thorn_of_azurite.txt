@@ -1,0 +1,8 @@
+Name:Thorn of Azurite
+ManaCost:3
+Types:Artifact Clue
+S:Mode$ RaiseCost | ValidCard$ Card.nonCreature | Type$ Spell | Amount$ 1 | Description$ Noncreature spells cost {1} more to cast.
+A:AB$ ChangeZoneAll | Cost$ 2 Sac<1/CARDNAME> | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.OppOwn | AILogic$ ExileGraveyards | SubAbility$ DBDraw | SpellDescription$ Exile each opponent's graveyard. Draw a card.
+SVar:DBDraw:DB$ Draw
+AI:RemoveDeck:Random
+Oracle:Noncreature spells cost {1} more to cast.\n{2}, Sacrifice Thorn of Azurite: Exile each opponent's graveyard. Draw a card.

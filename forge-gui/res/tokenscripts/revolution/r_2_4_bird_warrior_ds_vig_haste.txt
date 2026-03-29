@@ -1,0 +1,9 @@
+Name:Bird Warrior Token
+ManaCost:no cost
+Colors:red
+Types:Creature Bird Warrior
+PT:2/4
+K:Double Strike
+K:Vigilance
+K:Haste
+Oracle:Double strike, vigilance, haste

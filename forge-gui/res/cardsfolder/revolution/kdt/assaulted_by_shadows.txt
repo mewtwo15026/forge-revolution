@@ -1,0 +1,10 @@
+Name:Assaulted by Shadows
+ManaCost:G U
+Types:Instant
+A:SP$ ChooseCard | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Choose target creature you control | SubAbility$ DBDelayedTrigger | StackDescription$ When {c:Targeted} leaves this turn, choose one — Create a token that's a copy of it; or search your library for a card with lesser mana value than it, put it onto the battlefield, then shuffle. | SpellDescription$ Choose target creature you control. When that creature leaves the battlefield this turn, choose one —\n• Create a token that's a copy of it.\n• Search your library for a creature card with lesser mana value, put it onto the battlefield, then shuffle.
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Targeted | ValidCard$ Card.IsTriggerRemembered | Origin$ Battlefield | Destination$ Any | ThisTurn$ True | Execute$ TrigCharm | StackDescription$ None | SpellDescription$ When that creature leaves the battlefield this turn, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBCopy,DBOrder
+SVar:DBCopy:DB$ CopyPermanent | Defined$ DelayTriggerRememberedLKI | SpellDescription$ Create a token that's a copy of it.
+SVar:DBOrder:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Creature.cmcLTX | ChangeNum$ 1 | SpellDescription$ Search your library for a creature card with lesser mana value, put it onto the battlefield, then shuffle.
+SVar:X:TriggerRemembered$CardManaCost
+Oracle:Choose target creature you control. When that creature leaves the battlefield this turn, choose one —\n• Create a token that's a copy of it.\n• Search your library for a creature card with lesser mana value, put it onto the battlefield, then shuffle.

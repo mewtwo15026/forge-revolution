@@ -1,0 +1,10 @@
+Name:Prideful Reaper
+ManaCost:1 B R
+Types:Creature Demon Warrior
+PT:6/6
+K:Menace
+T:Mode$ DamageDoneOnce | CombatDamage$ True | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | ValidTarget$ Player | Execute$ TrigSac | TriggerDescription$ Whenever one or more creatures you control deal combat damage to a player, sacrifice one of them.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Card.TriggeredSources
+DeckHints:Ability$Token & Keyword$Flying|Menace|Deathtouch|Trample
+DeckHas:Ability$Sacrifice
+Oracle:Menace\nWhenever one or more creatures you control deal combat damage to a player, sacrifice one of them.

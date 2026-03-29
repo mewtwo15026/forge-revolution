@@ -1,0 +1,5 @@
+Name:Malignant Moonbeam
+ManaCost:X R
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/139_Malignant Moonbeam.jpg
+Oracle:Malignant Moonbeam deals X damage to target creature or planeswalker. Excess damage is dealt to that permanent's controller instead.

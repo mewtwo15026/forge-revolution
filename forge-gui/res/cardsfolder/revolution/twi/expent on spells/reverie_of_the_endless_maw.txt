@@ -1,0 +1,11 @@
+Name:Reverie of the Endless Maw
+ManaCost:1 B
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever you cast a noncreature spell, mill a card.
+SVar:TrigMill:DB$ Mill | Defined$ You
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | CheckSVar$ X | SVarCompare$ GE4 | Execute$ TrigReturn | TriggerDescription$ At the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, return target creature or planeswalker card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouOwn,Planeswalker.YouOwn | TgtPrompt$ Select target creature or planeswalker card in your graveyard
+SVar:X:Count$YourSpellManaExpent
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Mill|Graveyard
+Oracle:Whenever you cast a noncreature spell, mill a card.\nAt the beginning of each end step, if you've spent four or more mana to cast instant and/or sorcery spells this turn, return target creature or planeswalker card from your graveyard to your hand.

@@ -1,0 +1,7 @@
+Name:Elf Horror Token
+ManaCost:no cost
+Types:Creature Elf Horror
+Colors:green
+PT:3/3
+A:AB$ Mana | Cost$ T | Produced$ G | Amount$ 3 | SpellDescription$ Add {G}{G}{G}.
+Oracle:{T}: Add {G}{G}{G}.

@@ -1,0 +1,10 @@
+Name:Danuja, Emperor's Pet
+ManaCost:W
+Types:Legendary Creature Bird Samurai
+PT:1/2
+K:Flying
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Alone$ True | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever a creature you control attacks alone, if a creature you control that isn't attacking has flying, the attacking creature gains flying until end of turn. The same is true for first strike, double strike, deathtouch, hexproof, indestructible, lifelink, menace, protection, and trample.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | KW$ Flying & First Strike & Double Strike & Deathtouch & Hexproof & Indestructible & Lifelink & Menace & Protection & Trample | SharedKeywordsZone$ Battlefield | SharedRestrictions$ Creature.YouCtrl+!attacking
+SVar:PlayMain1:TRUE
+DeckHints:Keyword$Exalted|Flying|First Strike|Double Strike|Deathtouch|Hexproof|Indestructible|Lifelink|Menace|Protection|Trample
+Oracle:Flying\nWhenever a creature you control attacks alone, if a creature you control that isn't attacking has flying, the attacking creature gains flying until end of turn. The same is true for first strike, double strike, deathtouch, hexproof, indestructible, lifelink, menace, protection, and trample.

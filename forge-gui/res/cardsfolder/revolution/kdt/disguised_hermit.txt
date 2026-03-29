@@ -1,0 +1,9 @@
+Name:Disguised Hermit
+ManaCost:W W B B
+Types:Creature Human Samurai
+PT:3/3
+K:Exalted
+K:Exalted
+K:Exalted
+SVar:PlayMain1:TRUE
+Oracle:Exalted, exalted, exalted (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)

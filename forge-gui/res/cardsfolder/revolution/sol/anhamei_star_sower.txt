@@ -1,0 +1,13 @@
+Name:Anhamei, Star Sower
+ManaCost:1 G G
+Types:Legendary Planeswalker Anhamei
+Loyalty:4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Landfall — Whenever a land you control enters, put a loyalty counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ Token | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | TokenScript$ c_a_chart_sac | SpellDescription$ Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+A:AB$ Effect | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | StaticAbilities$ ExtraLand | Triggers$ Landfall | SpellDescription$ You may play an additional land this turn. Until end of turn, whenever a land you control enters, create a 1/1 white Spirit creature token.
+SVar:ExtraLand:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 1 | Description$ You may play an additional land this turn.
+SVar:Landfall:Mode$ ChangesZone Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Until end of turn, whenever a land you control enters, create a 1/1 white Spirit creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart|Spirit
+Oracle:Whenever a land you control enters, put a loyalty counter on Anhamei.\n[0]: Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\n[-3]: You may play an additional land this turn. Until end of turn, whenever a land you control enters, create a 1/1 white Spirit creature token.

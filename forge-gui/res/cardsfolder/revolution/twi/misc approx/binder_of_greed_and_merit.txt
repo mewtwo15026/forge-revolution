@@ -1,0 +1,11 @@
+Name:Binder of Greed and Merit
+ManaCost:1 U B
+Types:Creature Human Warlock
+PT:2/1
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast a noncreature spell, create a tapped Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+S:Mode$ Continuous | Affected$ Treasure.YouCtrl | RemoveAllAbilities$ True | AddAbility$ ABMana | Description$ Treasures you control lose all abilities and gain "{T}, Sacrifice this artifact: Add one mana of any color. You can't spend this mana to cast creature spells."
+SVar:ABMana:AB$ Mana | Cost$ T Sac<1/CARDNAME/this artifact> | Produced$ Any | Amount$ 1 | RestrictValid$ CantCastCreatureSpells | SpellDescription$ Add one mana of any color. You can't spend this mana to cast creature spells.
+DeckHas:Ability$Token|Sacrifice & Type$Treasure
+DeckHints:Type$Instant|Sorcery|Enchantment|Artifact|Battle
+Oracle:Whenever you cast a noncreature spell, create a tapped Treasure token.\nTreasures you control lose all abilities and gain "{T}, Sacrifice this artifact: Add one mana of any color. You can't spend this mana to cast creature spells."

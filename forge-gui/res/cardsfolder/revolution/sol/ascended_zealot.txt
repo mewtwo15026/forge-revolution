@@ -1,0 +1,9 @@
+Name:Ascended Zealot
+ManaCost:BR BR BR
+Types:Creature Moonfolk Demon
+PT:0/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ Whenever CARDNAME attacks, each opponent loses 3 life unless they discard a card.
+SVar:TrigRepeat:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDrain
+SVar:DBDrain:DB$ LoseLife | Defined$ Player.IsRemembered | LifeAmount$ 3 | UnlessCost$ Discard<1/Card> | UnlessPayer$ Player.IsRemembered
+SVar:HasAttackEffect:TRUE
+Oracle:Flying, haste\nWhenever Ascended Zealot attacks, each opponent loses 3 life unless they discard a card.

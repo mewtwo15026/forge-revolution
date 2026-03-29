@@ -1,0 +1,17 @@
+Name:Draconos Magistus
+ManaCost:6 U U
+Types:Creature Dragon Spirit
+PT:6/8
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Flying
+AlternateMode:Adventure
+Oracle:This spell can't be countered.\nFlying
+
+ALTERNATE
+
+Name:Path of Prudence
+ManaCost:1 U U
+Types:Instant Adventure
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | SpellDescription$ Counter target spell. (Then exile this card. You may cast the creature later from exile.)
+Oracle:This spell can't be countered.\nCounter target spell. (Then exile this card. You may cast the creature later from exile.)

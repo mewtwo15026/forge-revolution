@@ -1,0 +1,15 @@
+Name:Black Dawn Historian
+ManaCost:3 U R
+Types:Creature Merfolk Wizard
+PT:4/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target instant or sorcery card from your graveyard. You may cast it until the end of your next turn. When you do, copy it. You may choose new targets for the copy.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select target instant or sorcery card in your graveyard. | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ Play | Triggers$ SpellCast | Duration$ UntilTheEndOfYourNextTurn | SubAbility$ DBCleanup
+SVar:Play:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered+nonLand | AffectedZone$ Exile | Description$ You may cast that card until the end of your next turn.
+SVar:SpellCast:Mode$ SpellCast | ValidCard$ Card.IsRemembered | ValidActivatingPlayer$ You | Execute$ TrigCopy | TriggerDescription$ When you cast that card, copy it. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | AILogic$ Always | MayChooseTarget$ True | SubAbility$ DBExileSelf
+SVar:DBExileSelf:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Graveyard
+Oracle:When Black Dawn Historian enters, exile up to one target instant or sorcery card from your graveyard. You may cast it until the end of your next turn. When you do, copy it. You may choose new targets for the copy.

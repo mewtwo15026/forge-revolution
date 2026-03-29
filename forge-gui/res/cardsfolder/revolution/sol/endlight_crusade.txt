@@ -1,0 +1,5 @@
+Name:Endlight Crusade
+ManaCost:X R
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/131_Endlight Crusade.jpg
+Oracle:When Endlight Crusade enters, create X 1/1 red Elemental creature tokens.\nWhenever you cast a spell, you may exile Endlight Crusade and that spell. If you do, create X 1/1 red Elemental creature tokens, where X is that spell's mana value.

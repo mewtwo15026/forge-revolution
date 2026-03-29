@@ -1,0 +1,9 @@
+Name:Turelion Ley-Pillar
+ManaCost:3 W
+Types:Creature Wall
+PT:0/4
+K:Defender
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 1/1 blue Jellyfish creature tokens with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ u_1_1_jellyfish_flying
+DeckHas:Ability$Token & Type$Jellyfish
+Oracle:Defender\nWhen Turelion Ley-Pillar enters, create two 1/1 blue Jellyfish creature tokens with flying.

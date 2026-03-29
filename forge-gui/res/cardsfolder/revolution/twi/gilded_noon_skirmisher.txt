@@ -1,0 +1,9 @@
+Name:Gilded Noon Skirmisher
+ManaCost:3 U
+Types:Creature Faerie Wizard
+PT:3/2
+K:Flying
+T:Mode$ ChangesZoneAll | TriggerZones$ Battlefield | ValidCards$ Permanent.token+YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever you create one or more tokens, put a +1/+1 counter on CARDNAME.
+SVar:TrigPutCounter:DB$ PutCounter | CounterType$ P1P1
+DeckHints:Ability$Token
+Oracle:Flying\nWhenever you create one or more tokens, put a +1/+1 counter on Gilded Noon Skirmisher.

@@ -1,0 +1,16 @@
+Name:Spirit Realm Phoenix
+ManaCost:1 R R
+Types:Creature Spirit Phoenix
+PT:2/2
+K:Flying
+K:Haste
+T:Mode$ CounterAddedOnce | CounterType$ P1P1 | ValidCard$ Card.Self | TriggerZones$ Battlefield | ValidSource$ You | Execute$ TrigBurn | TriggerDescription$ Whenever one or more +1/+1 counters are put on this creature, it deals that much damage to each opponent.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ X
+SVar:X:TriggerCount$Amount
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Graveyard | Execute$ TrigReturn | TriggerDescription$ At the beginning of your end step, you may pay {1} if a +1/+1 counter was put on a creature you control this turn. If you do, return this card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | ConditionCheckSVar$ Y | UnlessCost$ 1 | UnlessPayer$ You | UnlessSwitched$ True | Origin$ Graveyard | Destination$ Hand | Defined$ Self
+SVar:Y:Count$CountersAddedThisTurn P1P1 Player Creature.YouCtrl
+SVar:SacMe:1
+SVar:DiscardMe:1
+DeckHints:Ability$Counters
+Oracle:Flying, haste\nWhenever one or more +1/+1 counters are put on this creature, it deals that much damage to each opponent.\nAt the beginning of your end step, you may pay {1} if a +1/+1 counter was put on a creature you control this turn. If you do, return this card from your graveyard to your hand.

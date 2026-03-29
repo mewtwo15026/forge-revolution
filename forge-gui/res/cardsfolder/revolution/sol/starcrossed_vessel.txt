@@ -1,0 +1,6 @@
+Name:Starcrossed Vessel
+ManaCost:RG RG RG
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/267_Starcrossed Vessel.jpg
+Oracle:When Starcrossed Vessel dies, create three 1/1 white Spirit creature tokens.

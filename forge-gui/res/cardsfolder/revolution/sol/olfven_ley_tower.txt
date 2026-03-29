@@ -1,0 +1,14 @@
+Name:Olfven Ley-Tower
+ManaCost:5 U
+Types:Creature Wall
+PT:3/6
+K:Defender
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigTokenEach | TriggerDescription$ When CARDNAME enters, create a 1/1 blue Jellyfish creature token with flying for each creature with defender you control.
+SVar:TrigTokenEach:DB$ Token | TokenScript$ u_1_1_jellyfish_flying | TokenAmount$ Y
+SVar:Y:Count$Valid Creature.YouCtrl+withDefender
+T:Mode$ ChangesZone | ValidCard$ Creature.YouCtrl+withDefender+Other | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever another creature you control with defender enters, create a 1/1 blue Jellyfish creature token with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ u_1_1_jellyfish_flying
+DeckHas:Ability$Token & Type$Jellyfish
+DeckHints:Keyword$Defender
+Oracle:Defender, flying\nWhen Olfven Ley-Tower enters, create a 1/1 blue Jellyfish creature token with flying for each creature with defender you control.\nWhenever another creature you control with defender enters, create a 1/1 blue Jellyfish creature token with flying.

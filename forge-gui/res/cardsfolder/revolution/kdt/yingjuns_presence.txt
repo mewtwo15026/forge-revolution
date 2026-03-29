@@ -1,0 +1,9 @@
+Name:Yingjun's Presence
+ManaCost:1 WU WU
+Types:Legendary Enchantment
+T:Mode$ Phase | Phase$ EndCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigUntapAll | TriggerDescription$ At the end of combat on your turn, untap all nonland permanents you control.
+SVar:TrigUntapAll:DB$ UntapAll | ValidCards$ Permanent.nonLand+YouCtrl
+A:AB$ Animate | Cost$ W U | Defined$ Self | Power$ 3 | Toughness$ 2 | Types$ Creature,Dragon | Keywords$ Flying | SpellDescription$ CARDNAME becomes a 3/2 Dragon creature with flying in addition to its other types.
+SVar:PlayMain1:TRUE
+DeckHas:Type$Dragon
+Oracle:At the end of combat on your turn, untap all nonland permanents you control.\n{W}{U}: Yingjun's Presence becomes a 3/2 Dragon creature with flying in addition to its other types.

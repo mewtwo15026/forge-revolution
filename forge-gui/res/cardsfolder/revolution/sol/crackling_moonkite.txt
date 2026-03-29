@@ -1,0 +1,9 @@
+Name:Crackling Moonkite
+ManaCost:UR UR UR
+Types:Creature Drake
+PT:3/3
+K:Flying
+K:etbCounter:M1M1:1
+A:AB$ Mana | Cost$ UR SubCounter<1/M1M1> | Produced$ Combo U R | Amount$ 2 | RestrictValid$ Spell.Instant,Spell.Sorcery | SpellDescription$ Add {U}{U}, {U}{R}, or {R}{R}. Spend that mana only to cast an instant or sorcery spell.
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying\nCrackling Moonkite enters with a -1/-1 counter on it.\n{UR}, Remove a -1/-1 counter from Crackling Moonkite: Add {U}{U}, {U}{R}, or {R}{R}. Spend that mana only to cast an instant or sorcery spell.

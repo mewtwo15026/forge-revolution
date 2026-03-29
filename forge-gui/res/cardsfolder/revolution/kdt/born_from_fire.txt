@@ -1,0 +1,13 @@
+Name:Born From Fire
+ManaCost:12 R
+Types:Sorcery
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {X} less to cast, where X is the number of Mountains you control plus the number of cards with a cycling ability in your graveyard.
+SVar:X:Count$Valid Mountain.YouCtrl/Plus.Y
+SVar:Y:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+A:SP$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Permanent.Dragon,Permanent.Phoenix | ChangeNum$ 1 | SpellDescription$ Search your library for a Dragon or Phoenix permanent card, put it onto the battlefield, then shuffle.
+K:TypeCycling:Mountain:2
+SVar:BuffedBy:Mountain
+DeckHints:Keyword$Cycling
+DeckNeeds:Type$Dragon|Phoenix
+DeckHas:Ability$Discard
+Oracle:This spell costs {X} less to cast, where X is the number of Mountains you control plus the number of cards with a cycling ability in your graveyard.\nSearch your library for a Dragon or Phoenix permanent card, put it onto the battlefield, then shuffle.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

@@ -1,0 +1,10 @@
+Name:Abyssal Retriever
+ManaCost:3 B B
+Types:Creature Dog
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target creature, enchantment, or planeswalker. You lose life equal to that permanent's mana value.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature,Enchantment,Planeswalker | AITgts$ Card.cmcLTY | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature, enchantment, or planeswalker | IsCurse$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ X
+SVar:X:Targeted$CardManaCost
+SVar:Y:Count$YourLifeTotal
+Oracle:When Abyssal Retriever enters, exile up to one target creature, enchantment, or planeswalker. You lose life equal to that permanent's mana value.

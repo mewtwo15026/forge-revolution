@@ -1,0 +1,5 @@
+Name:Tireless Pilgrimage
+ManaCost:W
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/35_Tireless Pilgrimage.jpg
+Oracle:Enchant creature\nWhen Tireless Pilgrimage enters and whenever enchanted creature attacks or blocks, put a -1/-1 counter on enchanted creature.

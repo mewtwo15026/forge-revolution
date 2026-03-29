@@ -1,0 +1,11 @@
+Name:Drowntide Exhumer
+ManaCost:3 B
+Types:Creature Merfolk Warlock
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | TriggerDescription$ When CARDNAME enters, return target non-Merfolk creature card from your graveyard to your hand.
+SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.nonMerfolk+YouCtrl | TgtPrompt$ Select target non-Merfolk creature card in your graveyard
+# TODO: implement Chant
+#K:twi_Chant:B
+#A:SP$ Chant | Mode$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.nonMerfolk+YouCtrl | TgtPrompt$ Select target non-Merfolk creature card in your graveyard | SpellDescription$ Return target non-Merfolk creature card from your graveyard to your hand.
+Oracle:When Drowntide Exhumer enters, [return target non-Merfolk creature card from your graveyard to your hand.]\n
+Chant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

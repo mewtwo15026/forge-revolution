@@ -1,0 +1,5 @@
+Name:Last Wish
+ManaCost:4 R G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/218_Last Wish.jpg
+Oracle:You may play a card you own from outside the game not named Last Wish this turn. Untap up to five lands.

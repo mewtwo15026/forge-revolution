@@ -1,0 +1,14 @@
+Name:Gereishin, the Stormlord
+ManaCost:5 R R
+Types:Legendary Creature Dragon
+PT:6/6
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCast | Origin$ Any | Destination$ Battlefield | Execute$ TrigPlay | TriggerDescription$ When NICKNAME enters, if it was cast, you may cast a Dragon spell or a spell with mana value 6 or less from your hand without paying its mana cost.
+SVar:TrigPlay:DB$ Play | ValidZone$ Graveyard | Valid$ Card.YouOwn | ValidSA$ Dragon,Card.nonLand+cmcLE6 | WithoutManaCost$ True | Optional$ True
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigDamage | TriggerZones$ Battlefield | PlayerTurn$ True | ValidSAonCard$ Spell.ManaSpent LTX | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever you cast a spell during your turn, if the amount of mana spent to cast it was less than its mana value, you may have NICKNAME deal damage to up to one target creature equal to the difference. Do this only once each turn.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature | NumDmg$ SVar$Y/Minus.Z
+SVar:X:Count$CardManaCost
+SVar:Y:TriggeredCard$CardManaCost
+SVar:Z:TriggeredCard$CastTotalManaSpent
+DeckHints:Type$Dragon
+Oracle:Flying\nWhen Gereishin enters, if it was cast, you may cast a Dragon spell or a spell with mana value 6 or less from your hand without paying its mana cost.\nWhenever you cast a spell during your turn, if the amount of mana spent to cast it was less than its mana value, you may have Gereishin deal damage to up to one target creature equal to the difference. Do this only once each turn.

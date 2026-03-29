@@ -1,0 +1,34 @@
+Name:Annick, Oathbound
+ManaCost:1 G
+Types:Legendary Creature Human Shaman
+PT:1/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever another creature you control enters, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+# TODO: detach this ability from the Disturb keyword
+S:Mode$ Continuous | EffectZone$ Graveyard | Affected$ Card.Self | AffectedZone$ Graveyard | AddKeyword$ Disturb:2 B G | CheckSVar$ Vigor | SVarCompare$ GE1 | Description$ Vigor — As long as you've gained or lost life this turn, you may cast Annick from your graveyard transformed for {2}{B}{G}.
+SVar:Vigor:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:PlayerCountPropertyYou$LifeLostThisTurn
+AlternateMode:DoubleFaced
+DeckHints:Ability$LifeGain
+DeckHas:Ability$LifeGain|Graveyard|Token & Type$Zombie
+Oracle:Whenever another creature you control enters, you gain 1 life.\nVigor — As long as you've gained or lost life this turn, you may cast Annick from your graveyard transformed for {2}{B}{G}.
+
+ALTERNATE
+
+Name:Devika, Severed
+ManaCost:no cost
+Colors:black,green
+Types:Legendary Planeswalker Devika
+Loyalty:3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If CARDNAME would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+A:AB$ Token | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_zombie_cantblock | SubAbility$ DBGainLife | SpellDescription$ Create a 2/2 black Zombie creature token with "This creature can't block." You gain 2 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
+A:AB$ Sacrifice | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Player | SacValid$ Permanent.nonLand | SacMessage$ nonland permanent | RememberSacrificed$ True | SubAbility$ DBPhaseOut | SpellDescription$ Target player sacrifices a nonland permanent. If that permanent had mana value 2 or less, CARDNAME phases out.
+SVar:DBPhaseOut:DB$ Phases | Defined$ Self | ConditionDefined$ Remembered | ConditionPresent$ Permanent.cmcLE2
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Name$ Emblem — Devika, Severed | Duration$ Permanent | Triggers$ TrigUlt | SubAbility$ DBDrain | SpellDescription$ You get an emblem with "Whenever an opponent loses life, you gain that much life." Then each opponent loses 5 life.
+SVar:TrigUlt:Mode$ LifeLost | ValidPlayer$ Opponent | TriggerZones$ Battlefield | Execute$ TrigLifeGain | TriggerDescription$ Whenever an opponent loses life, you gain that much life.
+SVar:TrigLifeGain:DB$ GainLife | Defined$ You | LifeAmount$ X
+SVar:X:TriggerCount$LifeAmount
+SVar:DBDrain:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 5
+Oracle:If Devika would be put into a graveyard from anywhere, exile her instead.\n[+1]: Create a 2/2 black Zombie creature token with "This creature can't block." You gain 2 life.\n[-1]: Target player sacrifices a nonland permanent. If that permanent had mana value 2 or less, Devika phases out.\n[-6]: You get an emblem with "Whenever an opponent loses life, you gain that much life." Then each opponent loses 5 life.

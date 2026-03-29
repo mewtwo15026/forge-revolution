@@ -1,0 +1,5 @@
+Name:Realm Reap
+ManaCost:2 R
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/145_Realm Reap.jpg
+Oracle:Exile the top three cards of your library. You may play them until the end of your next turn.\nYou may sacrifice a land. If you do, you may play an additional land this turn.

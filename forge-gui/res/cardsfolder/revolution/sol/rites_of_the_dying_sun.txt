@@ -1,0 +1,5 @@
+Name:Rites of the Dying Sun
+ManaCost:2 B
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/108_Rites of the Dying Sun.jpg
+Oracle:When Rites of the Dying Sun enters, create two 1/1 white Spirit creature tokens.\nOnce each turn, when an artifact you control enters, you may sacrifice a creature. If you do, create an X/X red Spirit creature token, where X is the number of enchantments you control.

@@ -1,0 +1,13 @@
+Name:Cloud of Consciousness
+ManaCost:1 U B
+Types:Creature Elemental
+PT:3/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ RepeatReveal | TriggerDescription$ When CARDNAME enters, look at each player's hand. For each player, you may choose a nonland card from their hand. If you do, that player discards that card, then draws a card.
+SVar:RepeatReveal:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBReveal | SubAbility$ RepeatDiscard
+SVar:DBReveal:DB$ RevealHand | Defined$ Player.IsRemembered | Look$ True
+SVar:RepeatDiscard:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ Player.IsRemembered | Mode$ RevealYouChoose | Optional$ True | DiscardValid$ Card.nonLand | DiscardValidDesc$ nonland card | RememberDiscarded$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ Player.IsRemembered | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flying\nWhen Cloud of Consciousness enters, look at each player's hand. For each player, you may choose a nonland card from their hand. If you do, that player discards that card, then draws a card.

@@ -1,0 +1,8 @@
+Name:Spiteful Liberation
+ManaCost:2 B R
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SubAbility$ DBToken | SpellDescription$ Destroy target creature or planeswalker.
+SVar:DBToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_treasure_sac | TokenOwner$ You | SpellDescription$ Create a Treasure token.
+K:Cycling:2
+DeckHas:Ability$Discard|Token & Type$Treasure
+Oracle:Destroy target creature or planeswalker. Create a Treasure token. (It's an artifact with “{T}, Sacrifice this artifact: Add one mana of any color.”)\nCycling {2} ({2}, Discard this card: Draw a card.)

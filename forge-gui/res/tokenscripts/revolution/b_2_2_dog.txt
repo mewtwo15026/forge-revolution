@@ -1,0 +1,6 @@
+Name:Dog Token
+ManaCost:no cost
+Types:Creature Dog
+Colors:black
+PT:2/2
+Oracle:

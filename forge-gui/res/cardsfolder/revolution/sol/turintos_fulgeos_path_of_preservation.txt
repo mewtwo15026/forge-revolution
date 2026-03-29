@@ -1,0 +1,17 @@
+Name:Turintos Fulgeos
+ManaCost:5 G U
+Types:Creature Turtle Spirit
+PT:7/7
+K:Flash
+K:Trample
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPlayerTurn$ False | SpellDescription$ CARDNAME enters tapped if it's not your turn.
+AlternateMode:Adventure
+Oracle:Flash\nTrample\nTurintos Fulgeos enters tapped if it isn't your turn.
+
+ALTERNATE
+
+Name:Path of Preservation
+ManaCost:1 GU
+Types:Instant Adventure
+A:SP$ Animate | ValidTgts$ Creature.YouCtrl | Power$ 4 | Toughness$ 4 | SpellDescription$ Target creature has base power and toughness 4/4 until end of turn. | AITgts$ Creature.YouCtrl+powerLE3+toughnessLE3
+Oracle:Target creature you control has base power and toughness 4/4 until end of turn. (Then exile this card. You may cast the creature later from exile.)

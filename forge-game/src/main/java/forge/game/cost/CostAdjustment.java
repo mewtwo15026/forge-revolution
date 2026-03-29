@@ -283,6 +283,7 @@ public class CostAdjustment {
                 table.triggerChangesZoneAll(game, sa);
             }
             if (host.hasKeyword(Keyword.CONVOKE)) {
+
                 adjustCostByConvokeOrImprovise(cost, sa, activator, false, true, test);
             }
             if (host.hasKeyword(Keyword.IMPROVISE)) {
@@ -464,7 +465,10 @@ public class CostAdjustment {
         final String amount = staticAbility.getParam("Amount");
 
         int value;
-        if ("AffectedX".equals(amount)) {
+        // REVOLUTION
+        // in vanilla Forge, this behavior is tied to the variable name AffectedX
+        // here it's expanded for card Dance of the Three Courts, which requires multiple variables that produce this behavior
+        if (amount.startsWith("Affected")) {
             value = AbilityUtils.calculateAmount(card, amount, staticAbility);
         } else if ("Undaunted".equals(amount)) {
             value = card.getController().getOpponents().size();

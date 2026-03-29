@@ -1,0 +1,5 @@
+Name:Instill Absolution
+ManaCost:R
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/138_Instill Absolution.jpg
+Oracle:Enchant creature\nEnchanted creature gets +1/+1.\nWhen enchanted creature dies, it deals damage equal to its power to any target.

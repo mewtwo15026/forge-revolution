@@ -1,0 +1,17 @@
+Name:Inklight Dancer
+ManaCost:1 B
+Types:Creature Human Performer
+PT:1/3
+A:AB$ DamageAll | Cost$ B Sac<1/Creature/creature> | ValidPlayers$ Player.Opponent | NumDmg$ 1 | SubAbility$ DBGainLife | SpellDescription$ This creature deals 1 damage to each opponent and you gain 1 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckHas:Ability$Sacrifice|LifeGain
+AlternateMode:Adventure
+Oracle:{B}, Sacrifice a creature: This creature deals 1 damage to each opponent and you gain 1 life.
+
+ALTERNATE
+
+Name:Stroke of Light
+ManaCost:1 B
+Types:Instant Adventure
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True | SpellDescription$ Target creature gets -2/-2 until end of turn.
+Oracle:Target creature gets -2/-2 until end of turn. (Then exile this card. You may cast the creature later from exile.)

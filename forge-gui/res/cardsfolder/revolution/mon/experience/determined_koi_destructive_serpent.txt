@@ -1,0 +1,23 @@
+Name:Determined Koi
+ManaCost:1 U
+Types:Creature Fish
+PT:0/1
+K:mon_Experience
+T:Mode$ Always | IsPresent$ Card.Self+counters_GE3_P1P1 | TriggerZones$ Battlefield | Execute$ TrigRemove | TriggerDescription$ When CARDNAME has three or more +1/+1 counters on it, remove them all and transform it.
+SVar:TrigRemove:DB$ RemoveCounter | CounterType$ P1P1 | CounterNum$ All | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+DeckHas:Ability$Counters
+SVar:HasAttackEffect:TRUE
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhen Determined Koi has three or more +1/+1 counters on it, remove them all and transform it.
+
+ALTERNATE
+
+Name:Destructive Serpent
+ManaCost:no cost
+Colors:blue
+Types:Creature Serpent
+PT:7/7
+K:Trample
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | Description$ Creatures your opponents control get -1/-0.
+Oracle:Trample\nCreatures your opponents control get -1/-0.

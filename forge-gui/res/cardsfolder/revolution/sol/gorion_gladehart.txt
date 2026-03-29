@@ -1,0 +1,6 @@
+Name:Gorion Gladehart
+ManaCost:4 G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/171_Gorion Gladehart.jpg
+Oracle:Flash\nReach\nWhen Gorion Gladehart enters, you gain 3 life and draw a card.

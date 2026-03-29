@@ -1,0 +1,6 @@
+Name:Zymith Windreader
+ManaCost:U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/77_Zymith Windreader.jpg
+Oracle:Flash\n{3}{U}, {T}: Create a 1/1 white Bird creature token with flying and \This creature can't block.\ This ability costs {3} less to activate if you've cast an instant spell or a spell with flash this turn.

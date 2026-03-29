@@ -1,0 +1,10 @@
+Name:Deflecting Kitsune
+ManaCost:1 W U
+Types:Creature Fox Monk
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCast | Origin$ Any | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ When this creature enters, if it was cast, counter target noncreature spell unless its controller pays {1} for each creature you control.
+SVar:TrigCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card.nonCreature | UnlessCost$ Y | SpellDescription$ Counter target noncreature spell unless its controller pays {1} for each creature you control.
+SVar:Y:Count$Valid Creature.YouCtrl
+SVar:BuffedBy:Creature 
+Oracle:Flash\nWhen this creature enters, if it was cast, counter target noncreature spell unless its controller pays {1} for each creature you control.

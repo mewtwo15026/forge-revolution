@@ -1,0 +1,9 @@
+Name:Acolyte of the Beyond
+ManaCost:W
+Types:Creature Moonfolk Cleric
+PT:1/1
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Lifelink\nWhen Acolyte of the Beyond enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

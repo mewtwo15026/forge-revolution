@@ -1,0 +1,6 @@
+Name:Slumberzoa
+ManaCost:1 U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/72_Slumberzoa.jpg
+Oracle:Flying, vigilance\n{T}: Add {U}. Activate only if it's not your turn.

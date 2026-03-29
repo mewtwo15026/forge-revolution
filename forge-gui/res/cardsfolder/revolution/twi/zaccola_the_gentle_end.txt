@@ -1,0 +1,10 @@
+Name:Zaccola, the Gentle End
+ManaCost:3 B G
+Types:Legendary Creature Spider Zombie
+PT:3/5
+K:Reach
+T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | ValidPlayer$ You | OptionalDecider$ You | Execute$ TrigTutor | TriggerDescription$ At the beginning of your end step, you may search your library for a creature card with mana value X or less, where X is the amount of life you've lost this turn, put that card onto the battlefield, then shuffle.
+SVar:TrigTutor:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Creature.cmcLEX | ChangeNum$ 1 | ShuffleNonMandatory$ True
+SVar:X:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$LifeGain
+Oracle:Reach\nAt the beginning of your end step, you may search your library for a creature card with mana value X or less, where X is the amount of life you've lost this turn, put that card onto the battlefield, then shuffle.

@@ -1,0 +1,6 @@
+Name:Turelion Justiciar
+ManaCost:WU WU WU
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/270_Turelion Justiciar.jpg
+Oracle:When Turelion Justiciar enters, tap up to two target creatures and put a stun counter on each of them. (If a permanent with a stun counter would become untapped, remove one from it instead.)

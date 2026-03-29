@@ -1,0 +1,8 @@
+Name:Fatal Flourish
+ManaCost:2 R G
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Creature | TgtPrompt$ Select target creature | ExcessSVar$ Excess | NumDmg$ 4 | SubAbility$ DBPutCounter | SpellDescription$ Fatal Flourish deals 4 damage to target creature. If excess damage is dealt this way, put that many +1/+1 counters on a creature you control.
+SVar:DBPutCounter:DB$ PutCounter | Choices$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ Excess
+K:Cycling:2
+DeckHas:Ability$Discard|Counters
+Oracle:Fatal Flourish deals 4 damage to target creature. If excess damage is dealt this way, put that many +1/+1 counters on a creature you control.\nCycling {2} ({2}, Discard this card: Draw a card.)

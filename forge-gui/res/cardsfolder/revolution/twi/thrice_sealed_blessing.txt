@@ -1,0 +1,6 @@
+Name:Thrice Sealed Blessing
+ManaCost:2 B B
+Types:Enchantment
+S:Mode$ Continuous | IsPresent$ Creature.YouCtrl | PresentCompare$ EQ3 | Affected$ Creature.YouCtrl | AddPower$ 3 | AddKeyword$ Ward:PayLife<3> | Description$ As long as you control exactly three creatures, creatures you control get +3/+0, can't be blocked except by three or more creatures, and have "Ward—Pay 3 life."
+S:Mode$ MinMaxBlocker | IsPresent$ Creature.YouCtrl | PresentCompare$ EQ3 | ValidCard$ Creature.YouCtrl | Min$ 3
+Oracle:As long as you control exactly three creatures, creatures you control get +3/+0, can't be blocked except by three or more creatures, and have "Ward—Pay 3 life."

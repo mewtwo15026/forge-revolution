@@ -1,0 +1,6 @@
+Name:Florazoa
+ManaCost:G U
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/209_Florazoa.jpg
+Oracle:Flash\nFlying\n{2}{G}{U}: Draw a card. You may put a land card from your hand onto the battlefield.

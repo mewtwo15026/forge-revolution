@@ -1,0 +1,5 @@
+Name:Nether Ponderings
+ManaCost:3 B
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/97_Nether Ponderings.jpg
+Oracle:Whenever you draw a card, each opponent loses 1 life and you gain 1 life.

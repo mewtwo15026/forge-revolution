@@ -1,0 +1,9 @@
+Name:Groveborn Envoy
+ManaCost:2 G G
+Types:Creature Centaur Druid Soldier
+PT:*/*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of lands you control.
+SVar:X:Count$Valid Land.YouCtrl
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME dies, create a tapped Everywhere token. (It's a land that is every basic land type.)
+SVar:TrigEverywhere:DB$ Token | TokenScript$ everywhere | LockTokenScript$ True | TokenTapped$ True
+Oracle:Groveborn Envoy's power and toughness are each equal to the number of lands you control.\nWhen Groveborn Envoy dies, create a tapped Everywhere token. (It's a land that is every basic land type.)

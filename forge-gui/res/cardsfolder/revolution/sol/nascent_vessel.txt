@@ -1,0 +1,6 @@
+Name:Nascent Vessel
+ManaCost:1 R
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/141_Nascent Vessel.jpg
+Oracle:When Nascent Vessel dies, create a 3/2 blue Beast creature token, then put a -1/-1 counter on a creature you control.

@@ -7,7 +7,7 @@ MciCode=ccr
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 Wildcard, 1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands CCR
 Prerelease=6 Boosters, 1 RareMythic+
@@ -333,7 +333,9 @@ Replace=.020F fromSheet("CCR buy a box")
 284 S Carefree Kappa @special
 285 S Heartbreak @special
 286 S Calamity Cat @special
-287 S Basilo, Lion of Valor @special
+287 S Harvest Time @special
+288 S Contest Coordinator @special
+289 S Temple of Origins @special
 
 [alternate art]
 1002 C Armored Raptor @shiny

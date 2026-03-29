@@ -1,0 +1,6 @@
+Name:Beast Token
+ManaCost:no cost
+Types:Creature Beast
+Colors:red
+PT:3/3
+Oracle:

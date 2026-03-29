@@ -1,0 +1,5 @@
+Name:Form of the Sun
+ManaCost:2 B R
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/210_Form of the Sun.jpg
+Oracle:When Form of the Sun enters, if you cast it, you gain 10 life.\nAt the beginning of your first main phase, put two star counters on Form of the Sun. When you do, it deals damage to you and up to one target creature or planeswalker equal to the number of star counters on it.

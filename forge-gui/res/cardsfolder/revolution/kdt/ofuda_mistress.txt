@@ -1,0 +1,9 @@
+Name:Ofuda Mistress
+ManaCost:W
+Types:Creature Human Monk
+PT:2/1
+T:Mode$ Taps | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever this creature becomes tapped, exile up to one target card from an opponent's graveyard.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Choose target card in an opponent's graveyard | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Card.OppCtrl | TgtZone$ Graveyard
+A:AB$ Token | Cost$ 3 W T | TokenAmount$ 1 | TokenScript$ w_1_1_monk_vigilance | TokenOwner$ You | SpellDescription$ Create a 1/1 white Monk creature token with vigilance.
+DeckHas:Ability$Token
+Oracle:Whenever this creature becomes tapped, exile up to one target card from an opponent's graveyard.\n{3}{W}, {T}: Create a 1/1 white Monk creature token with vigilance.

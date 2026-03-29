@@ -1,0 +1,9 @@
+Name:Remnant of the Devoured Sun
+ManaCost:7
+Types:Legendary Artifact Creature Horror
+PT:7/7
+A:SP$ PermanentCreature | Cost$ 7 ExileFromGrave<7/Card>
+K:Indestructible
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, return a card exiled with it to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Hidden$ True | Mandatory$ True | ChangeType$ Card.ExiledWithSource | Origin$ Exile | Destination$ Hand
+Oracle:As an additional cost to cast this spell, exile seven cards from your graveyard.\nIndestructible\nWhenever Remnant of the Devoured Sun attacks, return a card exiled with it to your hand.

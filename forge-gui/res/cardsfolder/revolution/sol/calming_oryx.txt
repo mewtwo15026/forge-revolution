@@ -1,0 +1,9 @@
+Name:Calming Oryx
+ManaCost:GW GW GW
+Types:Creature Antelope
+PT:4/4
+T:Mode$ DamageDoneOnce | Execute$ TrigGainLife | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+SVar:HasCombatEffect:TRUE
+DeckHas:Ability$LifeGain
+Oracle:Whenever Calming Oryx is dealt damage, you gain 1 life.

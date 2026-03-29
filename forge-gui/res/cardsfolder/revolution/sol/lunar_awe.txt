@@ -1,0 +1,5 @@
+Name:Lunar Awe
+ManaCost:U R
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/221_Lunar Awe.jpg
+Oracle:Lunar Awe deals 3 damage to any target. If a permanent is dealt damage this way, counter all activated and triggered abilities from that source and it loses all abilities until end of turn.

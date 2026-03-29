@@ -1,0 +1,19 @@
+Name:Cereus Aegosa
+ManaCost:6 G W
+Types:Creature Rhino Spirit
+PT:7/10
+T:Mode$ DamageDoneOnce | Execute$ TrigToken | ValidTarget$ Card.Self | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME is dealt damage, create that many 1/1 white Spirit creature tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ X | TokenScript$ w_1_1_spirit | TokenOwner$ You
+SVar:X:TriggerCount$DamageAmount
+SVar:HasCombatEffect:TRUE
+AlternateMode:Adventure
+Oracle:Whenever Cereus Aegosa is dealt damage, create that many 1/1 white Spirit creature tokens.
+
+ALTERNATE
+
+Name:Path of Endurance
+ManaCost:G W
+Types:Instant Adventure
+A:SP$ Effect | ReplacementEffects$ RPrevent | AILogic$ Fog | SpellDescription$ Prevent all damage that would be dealt this turn. (Then exile this card. You may cast the creature later from exile.)
+SVar:RPrevent:Event$ DamageDone | Prevent$ True | ActiveZones$ Command | ValidTarget$ Permanent,Player | Description$ Prevent all damage that would be dealt this turn.
+Oracle:Prevent all damage that would be dealt this turn. (Then exile this card. You may cast the creature later from exile.)

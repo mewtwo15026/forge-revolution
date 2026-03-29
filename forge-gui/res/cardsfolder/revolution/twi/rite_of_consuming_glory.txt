@@ -1,0 +1,7 @@
+Name:Rite of Consuming Glory
+ManaCost:1 R W
+Types:Instant
+A:SP$ Pump | ValidTgts$ Artifact | TgtPrompt$ Select up to one target artifact | IsCurse$ True | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ DBMarkEnchantment
+SVar:DBMarkEnchantment:DB$ Pump | ValidTgts$ Enchantment | TgtPrompt$ Select up to one target enchantment | TargetMin$ 0 | TargetMax$ 1 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | Defined$ Targeted
+Oracle:Exile up to one target artifact and up to one target enchantment.

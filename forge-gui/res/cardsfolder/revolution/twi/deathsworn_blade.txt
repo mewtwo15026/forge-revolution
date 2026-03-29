@@ -1,0 +1,8 @@
+Name:Deathsworn Blace
+ManaCost:4 B
+Types:Creature Nephilim Zombie Warrior
+PT:3/5
+K:Deathtouch
+K:Lifelink
+K:Ward:PayLife<3>
+Oracle:Deathtouch, lifelink\nWard—Pay 3 life. (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 3 life.)

@@ -1,0 +1,11 @@
+Name:Knight of Kage
+ManaCost:4 R
+Types:Creature Demon Knight
+PT:5/4
+K:Trample
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Damned — At the beginning of your end step, put a +1/+1 counter on this creature if you've sacrificed a permanent this turn.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | ConditionCheckSVar$ Damned | ConditionSVarCompare$ GE1
+SVar:Damned:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Counters
+Oracle:Trample\nDamned — At the beginning of your end step, put a +1/+1 counter on this creature if you've sacrificed a permanent this turn.

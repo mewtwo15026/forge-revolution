@@ -1,0 +1,9 @@
+Name:Titanic Behemoth
+ManaCost:4 R G
+Types:Creature Spirit
+PT:5/5
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddStaticAbility$ RevCantBlock | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevCantBlock:Mode$ :Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ This creature can't be blocked by creatures with power 2 or less.
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ This creature can't be blocked by creatures with power 2 or less.
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nThis creature can't be blocked by creatures with power 2 or less.

@@ -1,0 +1,11 @@
+Name:Adorned Kitsune
+ManaCost:R G
+Types:Creature Fox Shapeshifter
+PT:0/3
+K:Trample
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ This creature gets +1/+0 for each counter among creatures you control.
+SVar:X:Count$Valid Card.Creature+YouCtrl$CardCounters.ALL
+A:AB$ PutCounter | Cost$ 2 R G | CounterType$ P1P1 | SpellDescription$ Put a +1/+1 counter on this creature.
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+Oracle:Trample\nThis creature gets +1/+0 for each counter among creatures you control.\n{2}{R}{G}: Put a +1/+1 counter on this creature.

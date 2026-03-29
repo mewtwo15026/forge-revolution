@@ -1,0 +1,9 @@
+Name:Slayer of Numachi
+ManaCost:4 BR BR
+Types:Creature Demon Warrior
+PT:6/4
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerDescription$ When this creature dies, it deals 3 damage to any target.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 3
+K:Cycling:BR
+DeckHas:Ability$Discard
+Oracle:When this creature dies, it deals 3 damage to any target.\nCycling {BR} ({BR}, Discard this card: Draw a card.)

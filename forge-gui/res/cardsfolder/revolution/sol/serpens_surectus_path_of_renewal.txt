@@ -1,0 +1,16 @@
+Name:Serpens Surectus
+ManaCost:6 B G
+Types:Creature Serpent Spirit
+PT:8/6
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ CARDNAME can't be blocked by creatures with power 2 or less.
+DeckHas:Ability$Graveyard
+AlternateMode:Adventure
+Oracle:Serpens Surectus can't be blocked by creatures with power 2 or less.
+
+ALTERNATE
+
+Name:Path of Renewal
+ManaCost:BG
+Types:Instant Adventure
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl+cmcLE2 | TgtPrompt$ Select target creature card with power 2 or less in your graveyard | SpellDescription$ Return target creature card with power 2 or less from your graveyard to your hand.
+Oracle:Return target creature card with power 2 or less from your graveyard to your hand. (Then exile this card. You may cast the creature later from exile.)

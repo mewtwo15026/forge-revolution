@@ -1,0 +1,21 @@
+Name:Iri Sentinel
+ManaCost:3 W
+Types:Creature Human Samurai
+PT:2/2
+K:First Strike
+S:Mode$ AttackRestrict | MaxAttackers$ 1 | Description$ No more than one creature can attack each combat.
+S:Mode$ BlockRestrict | MaxBlockers$ 1 | Description$ No more than one creature can block each combat.
+DeckHints:Keyword$Exalted
+DeckHas:Ability$Sacrifice
+AlternateMode:Adventure
+Oracle:First strike\nNo more than one creature can attack each combat.\nNo more than one creature can block each combat.
+
+ALTERNATE
+
+Name:Terrible Skill
+ManaCost:1 B
+Types:Sorcery Adventure
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Choose two target creatures controlled by the same player | TargetMin$ 2 | TargetMax$ 2 | TargetUnique$ True | TargetsWithSameController$ True | IsCurse$ True | SubAbility$ DBChooseSac | StackDescription$ SpellDescription | SpellDescription$ Choose two target creatures controlled by the same player. That player sacrifices one of them of their choice.
+SVar:DBChooseSac:DB$ ChooseCard | DefinedCards$ Targeted | Defined$ TargetedController | ChoiceTitle$ Choose one to sacrifice | SubAbility$ DBSac | StackDescription$ None | AILogic$ WorstCard
+SVar:DBSac:DB$ SacrificeAll | Defined$ ChosenCard | StackDescription$ None
+Oracle:Choose two target creatures controlled by the same player. That player sacrifices one of them of their choice. (Then exile this card. You may cast the creature later from exile.)

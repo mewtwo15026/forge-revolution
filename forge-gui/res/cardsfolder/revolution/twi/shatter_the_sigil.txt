@@ -1,0 +1,7 @@
+Name:Shatter the Sigil
+ManaCost:1 W
+Types:Instant
+A:SP$ Charm | Choices$ DBPump,DBDestroy | CharmNum$ 1
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +1 | KW$ Indestructible | SpellDescription$ Target creature you control gets +1/+0 and gains indestructible until end of turn.
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | SpellDescription$ Destroy target artifact or enchantment.
+Oracle:Choose one —\n• Target creature you control gets +1/+0 and gains indestructible until end of turn.\n• Destroy target artifact or enchantment.

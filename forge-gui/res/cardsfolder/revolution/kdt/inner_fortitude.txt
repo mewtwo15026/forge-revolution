@@ -1,0 +1,9 @@
+Name:Inner Fortitude
+ManaCost:WU
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Vigilance | Description$ Enchanted creature gets +1/+1 and has vigilance.
+K:Cycling:WU
+DeckHas:Ability$Discard
+Oracle:Enchant creature\nEnchanted creature gets +1/+1 and has vigilance.\nCycling {WU} ({WU}, Discard this card: Draw a card.)

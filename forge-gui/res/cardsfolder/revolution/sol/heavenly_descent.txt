@@ -1,0 +1,5 @@
+Name:Heavenly Descent
+ManaCost:3 R W
+Types:Enchantment
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/214_Heavenly Descent.jpg
+Oracle:When Heavenly Descent enters, put a -1/-1 counter on each creature.\nAt the beginning of your end step, for each permanent, you may choose a counter on it. Put an additional counter of that kind on that permanent.

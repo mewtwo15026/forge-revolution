@@ -1,0 +1,6 @@
+Name:Tumultovore
+ManaCost:3 G G G
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/188_Tumultovore.jpg
+Oracle:Trample, haste\nWhenever Tumultovore or a land you control enters, creatures you control get +1/+1 until end of turn.

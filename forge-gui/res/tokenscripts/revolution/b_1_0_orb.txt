@@ -1,0 +1,6 @@
+Name:Orb Token
+ManaCost:no cost
+Types:Creature Orb
+Colors:black
+PT:1/0
+Oracle:

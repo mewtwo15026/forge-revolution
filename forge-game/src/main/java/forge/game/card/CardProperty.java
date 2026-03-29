@@ -2102,6 +2102,13 @@ public class CardProperty {
         else if (property.equals("HasReprieved")) {
             return !card.getReprievedCards().isEmpty();
         }
+        else if (property.equals("wasSacrificed")) {
+            for(Card c : card.getController().getSacrificedThisTurn()) {
+                System.out.println("Checking against card " + c.getName() + " (" + c.equals(card) + ")");
+                if(c.equals(card)) return true;
+            }
+            return false;
+        }
         //end REVOLUTION tracking
         else if (!card.getCurrentState().hasProperty(property, sourceController, source, spellAbility)) {
             return false;

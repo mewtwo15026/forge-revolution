@@ -1,0 +1,10 @@
+Name:Star-Touched Host
+ManaCost:1 R G
+Types:Creature Elf Shaman
+PT:5/5
+K:etbCounter:M1M1:3
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ X | SVarCompare$ GT0 | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, if a player sacrificed a permanent this turn, you may remove a -1/-1 counter from Star-Touched Host. If you do, create a 1/1 red Spirit creature token with wither. (It deals damage to creatures in the form of -1/-1 counters.)
+SVar:TrigToken:AB$ Token | Cost$ SubCounter<1/M1M1> | TokenScript$ r_1_1_spirit_wither
+SVar:X:PlayerCountPlayers$SacrificedThisTurn Permanent
+DeckHints:Ability$Sacrifice
+Oracle:Star-Touched Host enters with three -1/-1 counters on it.\nAt the beginning of your end step, if a player sacrificed a permanent this turn, you may remove a -1/-1 counter from Star-Touched Host. If you do, create a 1/1 red Spirit creature token with wither. (It deals damage to creatures in the form of -1/-1 counters.)

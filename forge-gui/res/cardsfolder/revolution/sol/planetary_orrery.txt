@@ -1,0 +1,9 @@
+Name:Planetary Orrery
+ManaCost:4
+Types:Legendary Artifact
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ You | Description$ You may look at the top card of your library any time.
+S:Mode$ Continuous | Affected$ Land.TopLibrary+YouCtrl | AffectedZone$ Library | MayPlay$ True | Description$ You may play lands from the top of your library.
+T:Mode$ SpellCast | ValidCard$ Card.nonLand+wasCastFromYourHandByYou | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDig | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell from your hand, you may reveal the top card of your library. If you do and it has lesser mana value, put that card into your hand.
+SVar:TrigDig:DB$ Dig | DigNum$ 1 | Reveal$ True | ChangeNum$ All | ChangeValid$ Card.cmcLTX | DestinationZone$ Hand | LibraryPosition2$ 0
+SVar:X:TriggeredCard$CardManaCost
+Oracle:You may look at the top card of your library any time.\nYou may play lands from the top of your library.\nWhenever you cast a spell from your hand, you may reveal the top card of your library. If you do and it has lesser mana value, put that card into your hand.

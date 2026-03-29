@@ -1,0 +1,7 @@
+Name:Caress of the Stars
+ManaCost:1 B
+Types:Instant
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ M1M1 | CounterNum$ 2 | IsCurse$ True | SubAbility$ DBToken | SpellDescription$ Put two -1/-1 counters on target creature. Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:DBToken:DB$ Token | TokenScript$ c_a_chart_sac
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Put two -1/-1 counters on target creature. Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

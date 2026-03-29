@@ -1,0 +1,12 @@
+Name:The Ancient Master
+ManaCost:1 G W U B
+Types:Legendary Creature Human Ninja Samurai
+PT:5/5
+T:Mode$ Attacks | ValidCard$ Card.Self | Alone$ True | Execute$ TrigSneak | TriggerDescription$ Whenever CARDNAME attacks alone, put any number of creature cards with total mana value 4 or less from your hand onto the battlefield tapped and attacking. Then return any number of creature cards with total mana value 4 or less from your graveyard to the battlefield tapped and attacking.
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | TargetMin$ 0 | TargetMax$ H | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select any number of creatures in your hand with total mana value 4 or less | MaxTotalTargetCMC$ 4 | Tapped$ True | Attacking$ True | SubAbility$ DBReturn
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TargetMin$ 0 | TargetMax$ G | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select any number of creatures in your graveyard with total mana value 4 or less | MaxTotalTargetCMC$ 4 | Tapped$ True | Attacking$ True
+SVar:H:Count$ValidHand Creature.YouCtrl
+SVar:G:Count$ValidGraveyard Creature.YouCtrl
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Graveyard
+Oracle:Whenever The Ancient Master attacks alone, put any number of creature cards with total mana value 4 or less from your hand onto the battlefield tapped and attacking. Then return any number of creature cards with total mana value 4 or less from your graveyard to the battlefield tapped and attacking.

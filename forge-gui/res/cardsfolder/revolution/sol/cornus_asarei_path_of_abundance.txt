@@ -1,0 +1,16 @@
+Name:Cornus Asarei
+ManaCost:7 R G
+Types:Creature Sheep Spirit
+PT:9/8
+K:Annihilator:2
+DeckHas:Ability$Sacrifice|Token & Type$Artifact|Treasure
+AlternateMode:Adventure
+Oracle:Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents.)
+
+ALTERNATE
+
+Name:Path of Abundance
+ManaCost:1 RG
+Types:Instant Adventure
+A:SP$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True | SpellDescription$ Create a tapped Treasure token. (Then exile this card. You may cast the creature later from exile.)
+Oracle:Create a tapped Treasure token. (Then exile this card. You may cast the creature later from exile.)

@@ -1,0 +1,8 @@
+Name:Herald of the Radiant Banner
+ManaCost:1 W
+Types:Creature Elf Cleric
+PT:2/2
+S:Mode$ RaiseCost | Type$ Ability | ValidCard$ Artifact | Cost$ tapXType<1/Artifact> | AffectedZone$ Battlefield | Description$ Activated abilities of artifacts cost an additional "Tap an untapped artifact you control" to activate.
+A:AB$ Animate | Cost$ ExileFromGrave<2/Card> | Defined$ Self | RemoveCardTypes$ True | Types$ Enchantment | ActivationZone$ Battlefield | SpellDescription$ Exile two cards from your graveyard: Until end of turn, CARDNAME becomes an enchantment and loses its other card types.
+AI:RemoveDeck:Random
+Oracle:Activated abilities of artifacts cost an additional "Tap an untapped artifact you control" to activate.\nExile two cards from your graveyard: Until end of turn, Herald of the Radiant Banner becomes an enchantment and loses its other card types.

@@ -1,0 +1,9 @@
+Name:Eager Eelpup
+ManaCost:R R G G
+Types:Creature Spirit Otter Fish
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+Other | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever another creature you control enters, put X +1/+1 counters on it, where X is this creature's power.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ X
+SVar:X:Count$CardPower
+DeckHas:Ability$Counters
+Oracle:Whenever another creature you control enters, put X +1/+1 counters on it, where X is this creature's power.

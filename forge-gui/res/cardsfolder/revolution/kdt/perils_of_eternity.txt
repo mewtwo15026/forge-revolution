@@ -1,0 +1,9 @@
+Name:Perils of Eternity
+ManaCost:1 W
+Types:Enchantment
+S:Mode$ CantBeCast | ValidCard$ Card | Caster$ Player.controlsPlaneswalker_EQ0 | NumLimitEachTurn$ 1 | Description$ Each player who doesn't control a planeswalker can't cast more than one spell each turn.
+K:TypeCycling:Ayeshi:3
+SVar:BuffedBy:Planeswalker
+DeckNeeds:Type$Planeswalker|Ayeshi
+AI:RemoveDeck:Random
+Oracle:Each player who doesn't control a planeswalker can't cast more than one spell each turn.\nAyeshicycling {3} ({3}, Discard this card: Search your library for an Ayeshi card, reveal it, put it into your hand, then shuffle.)

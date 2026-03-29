@@ -1,0 +1,9 @@
+Name:Impenetrable Ronin
+ManaCost:W B
+Types:Creature Mutant Samurai
+PT:2/2
+K:Exalted
+A:AB$ Pump | Cost$ 2 W | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature to gain double strike | KW$ Double Strike | SpellDescription$ Target attacking creature gains double strike until end of turn.
+A:AB$ Pump | Cost$ 2 B | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature to gain indestructible | KW$ Indestructible | SpellDescription$ Target attacking creature gains indestructible until end of turn.
+SVar:PlayMain1:TRUE
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{2}{W}: Target attacking creature gains double strike until end of turn.\n{2}{B}: Target attacking creature gains indestructible until end of turn.

@@ -1,0 +1,11 @@
+Name:Breath of the Spirit Realm
+ManaCost:6 G
+Types:Sorcery
+A:SP$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +X | NumDef$ +X | KW$ Vigilance & Trample | SpellDescription$ Until end of turn, creatures you control get +X/+X and gain vigilance and trample, where X is the number of Forests you control plus the number of cards with a cycling ability in your graveyard.
+SVar:X:Count$Valid Forest.YouCtrl/Plus.Y
+SVar:Y:Count$ValidGraveyard Card.YouOwn+withCycling,Card.YouOwn+withTypeCycling
+K:TypeCycling:Forest:2
+SVar:BuffedBy:Forest
+DeckHints:Keyword$Cycling
+DeckHas:Ability$Discard
+Oracle:Until end of turn, creatures you control get +X/+X and gain vigilance and trample, where X is the number of Forests you control plus the number of cards with a cycling ability in your graveyard.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)

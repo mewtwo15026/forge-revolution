@@ -1,0 +1,10 @@
+Name:Steep the Pactwen
+ManaCost:4 B
+Types:Sorcery
+A:SP$ Charm | Choices$ DBTokenShrink,DBTokenDiscard,DBTokenDrain,DBTokenGain | CharmNum$ 3 | CanRepeatModes$ True | Random$ True | SpellDescription$ Choose three at random. You may choose the same mode more than once. For each mode chosen, create a 2/2 black Warlock creature token with an upkeep trigger with that effect.
+SVar:DBTokenShrink:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_warlock_shrink
+SVar:DBTokenDiscard:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_warlock_discard
+SVar:DBTokenDrain:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_warlock_loselife
+SVar:DBTokenGain:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_2_2_warlock_gainlife
+DeckHas:Ability$Token & Type$Warlock
+Oracle:Choose three at random. You may choose the same mode more than once. For each mode chosen, create a 2/2 black Warlock creature token with an upkeep trigger with that effect.\n• Target creature an opponent controls gets -1/-1 until end of turn.\n• Each opponent discards a card.\n• Each opponent loses 2 life.\n• You gain 2 life.

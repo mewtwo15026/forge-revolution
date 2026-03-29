@@ -139,7 +139,6 @@ public class SpellAbilityCondition extends SpellAbilityVariables {
 
         //REVOLUTION
         if (params.containsKey("ConditionExtraTurn")) {
-            System.out.println("ConditionExtraTurn noted");
             this.setExtraTurn(true);
         }
 
@@ -337,7 +336,6 @@ public class SpellAbilityCondition extends SpellAbilityVariables {
         //REVOLUTION
         if (this.isExtraTurn()) {
             boolean b = !sa.getParam("ConditionExtraTurn").equals("False");
-            System.out.println("Is extra turn? " + phase.getPlayerTurn().isExtraTurn() + " | Does it need to be? " + b);
             if (!b && phase.getPlayerTurn().isExtraTurn()) {
                 return false;
             } else if (b && !phase.getPlayerTurn().isExtraTurn()){

@@ -13,7 +13,7 @@ FatPackExtraSlots=40 BasicLands TWI
 Prerelease=6 Boosters, 1 RareMythic+
 BoosterBox=36
 #ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
-# Set designed by 
+# Set designed by Zangy
 
 #Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
 [Common]
@@ -244,7 +244,7 @@ Replace=.016F fromSheet("TWI buy a box")
 205 U Widow's Knight @Dasha y Park
 206 U Wrought in Hunger @Cola Alter
 207 U Binder of Greed and Merit @Fei Ren and Roanna Peroz
-208 R Ceriddwyn, Matron @Pandart Studio
+208 R Ceridwyn, Matron @Pandart Studio
 209 U Cidraeth Charm @Blackviii
 210 C Destructive Ambition @C Can Yang
 211 M The Ever-Gnashing Dark @KILART (choe, heonhwa)

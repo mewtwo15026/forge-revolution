@@ -4,8 +4,8 @@ Types:Enchantment Creature Bird
 PT:2/2
 K:Flash
 K:Flying
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target spell or nonland permanent. For as long as that card remains exiled, its owner may cast it by paying {3} rather than its mana cost.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target spell or nonland permanent. For as long as that card remains exiled, its owner may cast it by paying {3} rather than its mana cost.
 SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Permanent.nonLand,Card.inZoneStack | TgtZone$ Stack,Battlefield | TgtPrompt$ Select up to one target spell or nonland permanent | TargetMin$ 0 | TargetMax$ 1 | Origin$ Battlefield,Stack | Destination$ Exile | SubAbility$ DBEffect
 SVar:DBEffect:DB$ Effect | RememberObjects$ Targeted | StaticAbilities$ Play | ForgetOnMoved$ Exile | EffectOwner$ TargetedOwner | Duration$ Permanent
 SVar:Play:Mode$ Continuous | MayPlay$ True | MayPlayAltManaCost$ 3 | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ For as long as that card remains exiled, its owner may cast it by paying {3} rather than its mana cost.
-Oracle:Flash\nFlying\nWhen this creature enters, exile target spell or nonland permanent. For as long as that card remains exiled, its owner may cast it by paying {3} rather than its mana cost.
+Oracle:Flash\nFlying\nWhen this creature enters, exile up to one target spell or nonland permanent. For as long as that card remains exiled, its owner may cast it by paying {3} rather than its mana cost.

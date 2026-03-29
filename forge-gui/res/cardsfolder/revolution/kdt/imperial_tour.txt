@@ -1,0 +1,9 @@
+Name:Imperial Tour
+ManaCost:1 W
+Types:Enchantment
+K:Exalted
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCast | Origin$ Any | Destination$ Battlefield | Execute$ TrigSearch | TriggerDescription$ When this enchantment enters, if it was cast, you may search your library for a legendary white card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.White+Legendary | ChangeNum$ 1
+SVar:PlayMain1:TRUE
+DeckHints:Type$Legendary
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhen this enchantment enters, if it was cast, you may search your library for a legendary white card, reveal it, put it into your hand, then shuffle.

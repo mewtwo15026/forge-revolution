@@ -1,0 +1,12 @@
+Name:Koi Float
+ManaCost:3
+Types:Artifact Vehicle
+PT:3/3
+K:Flying
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDigUntil | TriggerDescription$ Whenever this Vehicle attacks, reveal cards from the top of your library until you reveal a nonland card. Exile that card and put the rest on the bottom of your library in a random order. You may cast the exiled card without paying its mana cost if the resulting spell has mana value 2 or less.
+SVar:TrigDigUntil:DB$ DigUntil | Defined$ You | Valid$ Card.nonLand | FoundDestination$ Exile | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True | RememberFound$ True | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | ConditionDefined$ Remembered | ConditionPresent$ Card.nonLand+cmcLE2 | ConditionCompare$ EQ1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Crew:2
+AI:RemoveDeck:Random
+Oracle:Flying\nWhenever this Vehicle attacks, reveal cards from the top of your library until you reveal a nonland card. Exile that card and put the rest on the bottom of your library in a random order. You may cast the exiled card without paying its mana cost if the resulting spell has mana value 2 or less.\nCrew 2

@@ -1,0 +1,5 @@
+Name:Ethereal Exodus
+ManaCost:2 U R
+Types:Instant
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/208_Ethereal Exodus.jpg
+Oracle:Ethereal Exodus deals 2 damage divided as you choose among one or two targets.\nCreate two 1/1 blue Jellyfish creature tokens with flying.

@@ -1,0 +1,12 @@
+Name:Sealed-Sigil Adept
+ManaCost:2 U B
+Types:Creature Elf Warlock
+PT:4/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, you draw a card and you lose 1 life.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+# TODO: implement Chant
+#K:twi_Chant:UB
+#A:SP$ Chant | Mode$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife | SpellDescription$ You draw a card and you lose 1 life.
+Oracle:When Sealed-Sigil Adept enters, [you draw a card and you lose 1 life.]\n
+Chant {UB} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

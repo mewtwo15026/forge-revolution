@@ -1,0 +1,9 @@
+Name:Crust Gorger
+ManaCost:2 G G
+Types:Creature Hellion
+PT:5/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+A:AB$ Effect | Cost$ 1 G SubCounter<1/M1M1> | SorcerySpeed$ True | Defined$ Self | StaticAbilities$ Unblockable | AILogic$ Pump | SpellDescription$ CARDNAME can't be blocked this turn by creatures with power 2 or less. Activate only as a sorcery.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.EffectSource | ValidBlocker$ Creature.powerLE2 | Description$ This creature can't be blocked this turn by creatures with power 2 or less.
+Oracle:When Crust Gorger enters, put two -1/-1 counters on target creature you control.\n{1}{G}, Remove a -1/-1 counter from Crust Gorger: It can't be blocked by creatures with power 2 or less this turn. Activate only as a sorcery.

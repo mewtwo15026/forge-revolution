@@ -1,0 +1,9 @@
+Name:Hopeworn Veteran
+ManaCost:1 G
+Types:Creature Human Soldier
+PT:4/3
+K:Trample
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigReturn | IsPresent$ Card.Self+!ThisTurnEntered | TriggerDescription$ At the beginning of your end step, if CARDNAME didn't enter this turn, return it to its owner's hand.
+SVar:TrigReturn:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand
+DeckHints:Keyword$twi_Reprieve
+Oracle:Trample\nAt the beginning of your end step, if CARDNAME didn't enter this turn, return it to its owner's hand.

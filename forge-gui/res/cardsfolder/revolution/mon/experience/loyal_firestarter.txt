@@ -1,0 +1,12 @@
+Name:Loyal Firestarter
+ManaCost:1 R
+Types:Creature Weasel
+PT:1/1
+K:mon_Experience
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPlay | TriggerDescription$ Whenever CARDNAME attacks, you may cast an instant or sorcery spell from your hand with mana value less than or equal to CARDNAME's power without paying its mana cost.
+SVar:TrigPlay:DB$ Play | ValidZone$ Hand | Valid$ Card | ValidSA$ Instant.YouOwn+cmcLEX,Sorcery.YouOwn+cmcLEX | Controller$ You | WithoutManaCost$ True | Optional$ True
+SVar:X:Count$CardPower
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Counters
+DeckHints:Type$Instant|Sorcery
+Oracle:Experience (Whenever this creature attacks, if it has fewer than three +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever Loyal Firestarter attacks, you may cast an instant or sorcery spell from your hand with mana value less than or equal to Loyal Firestarter's power without paying its mana cost.

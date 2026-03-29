@@ -1,0 +1,6 @@
+Name:Discordant Voidling
+ManaCost:B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/83_Discordant Voidling.jpg
+Oracle:Discordant Voidling can't block creatures with mana value 7 or greater.\n{1}{B}: Return Discordant Voidling from your graveyard to your hand.

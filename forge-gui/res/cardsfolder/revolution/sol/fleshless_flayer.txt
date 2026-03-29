@@ -1,0 +1,6 @@
+Name:Fleshless Flayer
+ManaCost:B
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/86_Fleshless Flayer.jpg
+Oracle:Fleshless Flayer can't block.\nWhenever a creature enters from your graveyard or you cast a spell from your graveyard, you may return Fleshless Flayer from your graveyard to your hand.

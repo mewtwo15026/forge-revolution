@@ -1,0 +1,8 @@
+Name:Creation's Combustion
+ManaCost:B R
+Types:Instant
+K:AlternateAdditionalCost:Sac<1/Artifact;Creature/artifact or creature>:PayLife<3>
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SpellDescription$ Destroy target creature or planeswalker.
+DeckHas:Ability$Sacrifice
+DeckHints:Type$Artifact|Creature
+Oracle:As an additional cost to cast this spell, sacrifice an artifact or creature, or pay 3 life.\nDestroy target creature or planeswalker.

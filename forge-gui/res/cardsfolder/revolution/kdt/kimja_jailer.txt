@@ -1,0 +1,9 @@
+Name:Kimja Jailer
+ManaCost:5 W
+Types:Creature Human Samurai
+PT:3/2
+K:Exalted
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When this creature enters, exile target creature an opponent controls until this creature leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | Duration$ UntilHostLeavesPlay
+SVar:PlayMain1:TRUE
+Oracle:Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhen this creature enters, exile target creature an opponent controls until this creature leaves the battlefield.

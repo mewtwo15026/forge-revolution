@@ -1,0 +1,6 @@
+Name:Fury Sprout
+ManaCost:1 R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | NumAtt$ +2 | NumDef$ +2 | KW$ Trample | SubAbility$ DBDraw | SpellDescription$ Target creature gets +2/+2 and gains trample until end of turn. You may discard a card. If you do, draw a card.
+SVar:DBDraw:DB$ Draw | UnlessCost$ Discard<1/Card> | UnlessSwitched$ True | UnlessPayer$ You
+Oracle:Target creature gets +2/+1 and gains trample until end of turn.\nYou may discard a card. If you do, draw a card.

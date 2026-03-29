@@ -1,0 +1,15 @@
+Name:Wisping Kirin
+ManaCost:3 R R
+Types:Creature Kirin Spirit
+PT:4/3
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevAttacks | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevAttacks:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ Whenever this creature attacks, create a tapped and attacking token that's a copy of it. For each counter on this creature, put a counter of that kind on that token. Sacrifice the token at the end of combat.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCopy | TriggerDescription$ Whenever this creature attacks, create a tapped and attacking token that's a copy of it. For each counter on this creature, put a counter of that kind on that token. Sacrifice the token at the end of combat.
+SVar:TrigCopy:DB$ CopyPermanent | TokenTapped$ True | TokenAttacking$ True | Defined$ Self | NumCopies$ 1 | AtEOT$ SacrificeCombat | RememberTokens$ True | SubAbility$ DBCounter
+SVar:DBCounter:DB$ PutCounter | Defined$ Remembered | CounterType$ EachFromSource | EachFromSource$ TriggeredAttacker | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:PlayMain1:TRUE
+SVar:HasAttackEffect:TRUE
+DeckNeeds:Ability$Counters
+DeckHas:Ability$Token
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nWhenever this creature attacks, create a tapped and attacking token that's a copy of it. For each counter on this creature, put a counter of that kind on that token. Sacrifice the token at the end of combat.

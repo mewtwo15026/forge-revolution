@@ -1,0 +1,5 @@
+Name:Wildermoon Compulsion
+ManaCost:R G
+Types:Sorcery
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/244_Wildermoon Compulsion.jpg
+Oracle:As an additional cost to cast this spell, sacrifice an artifact or creature.\nCreate a 4/4 green Bear creature token. Draw a card.

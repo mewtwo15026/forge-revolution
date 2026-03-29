@@ -1,0 +1,6 @@
+Name:Transcendent Council
+ManaCost:WB WB WB WB
+Types:Creature
+PT:0/0
+SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/269_Transcendent Council.jpg
+Oracle:Flying\nAt the beginning of combat on your turn, each opponent sacrifices a nonland, nontoken permanent. If a player does, tap Transcendent Council.

@@ -1,0 +1,12 @@
+Name:The Ever-Gnashing Dark
+ManaCost:5 U U B
+Types:Legendary Creature Demigod Horror
+PT:10/10
+K:Trample
+T:Mode$ DamageDone | ValidSource$ Card.Self | CombatDamage$ True | ValidTarget$ Player | TriggerZones$ Battlefield | Execute$ TrigAddTurn | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, if it's not an extra turn, take an extra turn after this one.
+SVar:TrigAddTurn:DB$ AddTurn | ConditionExtraTurn$ False | NumTurns$ 1
+#TODO: implement Chant
+#K:twi_Chant:1 U U B B
+#A:SP$ Chant | Mode$ AddTurn | ConditionExtraTurn$ False | NumTurns$ 1 | SpellDescription$ If it's not an extra turn, take an extra turn after this one.
+Oracle:Trample\nWhenever The Ever-Gnashing Dark deals combat damage to a player, [if it's not an extra turn, take an extra turn after this one.]\n
+Chant {1}{U}{U}{B}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)

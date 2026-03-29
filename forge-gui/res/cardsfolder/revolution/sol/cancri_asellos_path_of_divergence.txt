@@ -1,0 +1,21 @@
+Name:Cancri Asellos
+ManaCost:5 R R
+Types:Creature Crab Spirit
+PT:6/8
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPlay | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, you may cast a copy of target instant or sorcery card in your graveyard. If you do, exile that card.
+SVar:TrigPlay:DB$ Play | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtZone$ Graveyard | TgtPrompt$ Select target instant or sorcery card in your graveyard | ValidSA$ Spell | Optional$ True | CopyCard$ True | RememberPlayed$ True | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | Defined$ Targeted | ConditionCheckSVar$ X
+SVar:X:Remembered$Amount
+DeckHints:Type$Instant|Sorcery
+AlternateMode:Adventure
+Oracle:Whenever Cancri Asellos attacks, you may cast a copy of target instant or sorcery card in your graveyard. If you do, exile that card.
+
+ALTERNATE
+
+Name:Path of Divergence
+ManaCost:1 R
+Types:Instant Adventure
+A:SP$ DelayedTrigger | AILogic$ SpellCopy | Execute$ EffTrigCopy | ThisTurn$ True | Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | SpellDescription$ When you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. (Then exile this card. You may cast the creature later from exile.)
+SVar:EffTrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+SVar:AIPriorityModifier:9
+Oracle:When you next cast an instant or sorcery spell this turn, copy it. You may choose new targets for the copy. (Then exile this card. You may cast the creature later from exile.)

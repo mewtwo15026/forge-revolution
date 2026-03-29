@@ -1,0 +1,8 @@
+Name:Spiralhorn Kirin
+ManaCost:2 RG
+Types:Creature Kirin Spirit
+PT:4/2
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player,Planeswalker | CombatDamage$ True | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player or planeswalker, put a +1/+1 counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Counters
+Oracle:Whenever this creature deals combat damage to a player or planeswalker, put a +1/+1 counter on it.

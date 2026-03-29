@@ -1,0 +1,20 @@
+Name:Ruiner Battlesuit
+ManaCost:2
+Types:Artifact Vehicle
+PT:1/1
+K:Trample
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a noncreature spell, put a +1/+1 counter on this Vehicle.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+K:Crew:1
+SVar:BuffedBy:nonCreature
+DeckHas:Ability$Counters
+AlternateMode:Adventure
+Oracle:Trample\nWhenever you cast a noncreature spell, put a +1/+1 counter on this Vehicle.\nCrew 1
+
+ALTERNATE
+
+Name:Ruiner's Find
+ManaCost:2
+Types:Sorcery Adventure
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Choose target artifact card in your graveyard | ValidTgts$ Artifact.YouCtrl | SpellDescription$ Return target artifact card from your graveyard to your hand.
+Oracle:Return target artifact card from your graveyard to your hand. (Then exile this card. You may cast the artifact later from exile.)

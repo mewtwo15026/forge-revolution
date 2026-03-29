@@ -1,0 +1,8 @@
+Name:Haughty Bulwark
+ManaCost:4 W B
+Types:Creature Human Samurai
+PT:5/5
+T:Mode$ Attacks | ValidCard$ Creature.YouCtrl | Alone$ True | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever a creature you control attacks alone, double its power and toughness until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ Double | NumDef$ Double
+SVar:PlayMain1:TRUE
+Oracle:Whenever a creature you control attacks alone, double its power and toughness until end of turn.

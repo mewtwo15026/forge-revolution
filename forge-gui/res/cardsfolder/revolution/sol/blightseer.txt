@@ -1,0 +1,10 @@
+Name:Blightseer
+ManaCost:3 G
+Types:Creature Elf Cleric
+PT:3/5
+T:Mode$ ChangesZoneAll | Origin$ Graveyard | Destination$ Any | ValidCards$ Card.YouOwn | PlayerTurn$ True | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever one or more cards leave your graveyard during your turn, create a 1/1 black Spirit creature token with wither and "This creature can't block."
+T:Mode$ ChangesZone | Origin$ Graveyard | Destination$ Any | ValidCards$ Card.Self | PlayerTurn$ True | Execute$ TrigToken | TriggerDescription$ When CARDNAME leaves your graveyard during your turn, create a 1/1 black Spirit creature token with wither and "This creature can't block."
+SVar:TrigToken:DB$ Token | TokenScript$ b_1_1_spirit_wither_cantblock
+DeckHints:Ability$Graveyard
+DeckHas:Ability$Token|Graveyard
+Oracle:Whenever one or more cards leave your graveyard during your turn, create a 1/1 black Spirit token creature with wither and "This creature can't block." (It deals damage to creatures in the form of -1/-1 counters.)\nWhen Blightseer leaves your graveyard during your turn, create a 1/1 black Spirit creature token with wither and "This creature can't block."

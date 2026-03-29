@@ -1,0 +1,11 @@
+Name:Wandering Thrumhorn
+ManaCost:4 G
+Types:Creature Rhino Spirit
+PT:5/5
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevDies | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevDies:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create a 1/1 green Spirit creature token.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create a 1/1 green Spirit creature token.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ g_1_1_spirit
+DeckHints:Ability$Counters
+DeckHas:Ability$Token
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nWhen this creature dies, create a 1/1 green Spirit creature token.

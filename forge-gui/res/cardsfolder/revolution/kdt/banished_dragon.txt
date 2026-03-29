@@ -1,0 +1,10 @@
+Name:Banished Dragon
+ManaCost:3 WB WB
+Types:Creature Dragon
+PT:3/3
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a noncreature spell, put a +1/+1 counter on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:BuffedBy:nonCreature
+DeckHas:Ability$Counters
+Oracle:Flying\nWhenever you cast a noncreature spell, put a +1/+1 counter on this creature.

@@ -23,6 +23,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import forge.GameCommand;
+import forge.card.CardType;
 import forge.game.*;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.AbilityUtils;
@@ -375,12 +376,22 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             // Add expend mana
             Map<Player, Integer> expendPlayers = Maps.newHashMap();
 
+            //REVOLUTION
+            boolean isInstantOrSorcery = (sp.getHostCard().getType().hasType(CardType.CoreType.Instant)
+                    || sp.getHostCard().getType().hasType(CardType.CoreType.Sorcery));
+            Map<Player, Integer> spellExpendPlayers = Maps.newHashMap();
+
             for (Mana m : sp.getPayingMana()) {
                 // TODO this currently assumes that all mana came from your own pool
                 // but with Assist some might belong to another player instead
                 Player manaPayer = sp.getActivatingPlayer();
 
                 expendPlayers.put(manaPayer, expendPlayers.getOrDefault(manaPayer, 0) + 1);
+
+                //REVOLUTION
+                if (isInstantOrSorcery) {
+                    spellExpendPlayers.put(manaPayer, spellExpendPlayers.getOrDefault(manaPayer, 0) + 1);
+                }
             }
 
             for (Entry<Player, Integer> entry : expendPlayers.entrySet()) {
@@ -398,6 +409,20 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
                     expendParams.put(AbilityKey.SpellAbility, sp);
                     expendParams.put(AbilityKey.Amount, i);
                     game.getTriggerHandler().runTrigger(TriggerType.ManaExpend, expendParams, true);
+                }
+            }
+            //REVOLUTION
+            if (isInstantOrSorcery) {
+                for (Entry<Player, Integer> entry : spellExpendPlayers.entrySet()) {
+                    Player manaPayer = entry.getKey();
+                    int startingMana =  manaPayer.getSpellExpentThisTurn();
+                    int totalMana = startingMana + entry.getValue();
+
+                    if (totalMana == 0) {
+                        continue;
+                    }
+
+                    manaPayer.setSpellExpentThisTurn(totalMana);
                 }
             }
         }
