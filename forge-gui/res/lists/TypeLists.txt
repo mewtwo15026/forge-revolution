@@ -112,6 +112,7 @@ Elf:Elves
 Elk:Elks
 Employee:Employees
 Error:Errors
+Eternal:Eternals
 Eye:Eyes
 Faerie:Faeries
 Ferret:Ferrets
@@ -398,6 +399,7 @@ Spacecraft:Spacecraft
 Stone:Stones
 Treasure:Treasures
 Vehicle:Vehicles
+Vibranium
 Weapon:Weapons
 [WalkerTypes]
 Ajani
