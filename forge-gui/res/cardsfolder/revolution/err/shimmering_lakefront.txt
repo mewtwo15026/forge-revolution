@@ -1,0 +1,13 @@
+Name:Shimmering Lakefront
+ManaCost:no cost
+Types:Land
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ DBSacrifice | TriggerDescription$ When CARDNAME enters, sacrifice it. If you do, search your library for a basic Plains or Island card, put it onto the battlefield tapped, then shuffle.
+SVar:DBSacrifice:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.Plains+Basic,Land.Island+Basic | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ ChangeZone | Cost$ 1 W W U U Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Creature,Subroutine | AITgts$ Creature.!token+YouCtrl,Subroutine.!token+YouCtrl | TgtPrompt$ Select target creature or Subroutine | Origin$ Battlefield | Destination$ Exile | RememberTargets$ True | SubAbility$ DBReturn | SpellDescription$ Exile target creature or Subroutine, then return that card to the battlefield under its owner's control. Draw a card.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ All | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | SpellDescription$ Draw a card.
+DeckHas:Ability$Sacrifice|Discard
+Oracle:When this land enters, sacrifice it. If you do, search your library for a basic Plains or Island card, put it onto the battlefield tapped, then shuffle.\n{1}{W}{W}{U}{U}, Discard this card: Exile target creature or Subroutine, then return that card to the battlefield under its owner's control. Draw a card.
