@@ -54,10 +54,7 @@ public class StaticAbilityCantPreventDamage {
             }
         }
 
-        if (!stAb.matchesValidParam("ValidSource", source)) {
-            return false;
-        }
-        return true;
+        return stAb.matchesValidParam("ValidSource", source);
     }
 
 }

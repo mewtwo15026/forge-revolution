@@ -80,7 +80,7 @@ public class Match {
     public void startGame(final Game game, Runnable startGameHook) {
         prepareAllZones(game);
         if (rules.useAnte()) {  // Deciding which cards go to ante
-            Multimap<Player, Card> list = game.chooseCardsForAnte(rules.getMatchAnteRarity());
+            Multimap<Player, Card> list = game.chooseCardsForAnte(rules.getMatchAnteRarity(), rules.getAnteIncludeBasicLands());
             for (Entry<Player, Card> kv : list.entries()) {
                 Player p = kv.getKey();
                 game.getAction().moveTo(ZoneType.Ante, kv.getValue(), null, AbilityKey.newMap());
@@ -404,7 +404,7 @@ public class Match {
             Deck losersDeck = players.get(i).getDeck();
             List<PaperCard> personalLosses = new ArrayList<>();
             for (Card c : gamePlayer.getCardsIn(ZoneType.Ante)) {
-                if(!c.isCollectible())
+                if (!c.isCollectible())
                     continue;
                 PaperCard toRemove = (PaperCard) c.getPaperCard();
                 // this could miss the cards by returning instances that are not equal to cards found in deck

@@ -17,7 +17,6 @@
  */
 package forge.game.zone;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -187,6 +186,10 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         return c.equals(curResolvingCard);
     }
 
+    public int getUndoStackSize() {
+        return undoStack.size();
+    }
+
     public final boolean canUndo(Player player) {
         return undoStackOwner == player;
     }
@@ -320,14 +323,6 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             System.err.println(str + sp.getAllTargetChoices());
             game.fireEvent(new GameEventAddLog(GameLogEntryType.STACK_ADD, str));
             return;
-        }
-
-        //cancel auto-pass for all opponents of activating player
-        //when a new non-triggered ability is put on the stack
-        if (!sp.isTrigger()) {
-            for (final Player p : activator.getOpponents()) {
-                p.getController().autoPassCancel();
-            }
         }
 
         if (sp instanceof AbilityStatic || (sp.isTrigger() && sp.getTrigger().getOverridingAbility() instanceof AbilityStatic)) {
@@ -621,7 +616,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         final Card source = sa.getHostCard();
         curResolvingCard = source;
 
-        boolean thisHasFizzled = hasFizzled(sa, source, null);
+        boolean thisHasFizzled = hasFizzled(sa, null);
 
         if (!thisHasFizzled) {
             game.copyLastState();
@@ -739,7 +734,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
         return hasLegalTargeting(sa.getSubAbility());
     }
 
-    private boolean hasFizzled(final SpellAbility sa, final Card source, Boolean fizzle) {
+    private boolean hasFizzled(final SpellAbility sa, Boolean fizzle) {
         List<GameObject> toRemove = Lists.newArrayList();
         if (sa.usesTargeting() && !sa.isZeroTargets()) {
             if (fizzle == null) {
@@ -779,7 +774,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             }
         }
         if (sa.getSubAbility() != null) {
-            fizzle = hasFizzled(sa.getSubAbility(), source, fizzle);
+            fizzle = hasFizzled(sa.getSubAbility(), fizzle);
         }
 
         // Remove targets
@@ -1036,7 +1031,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
     }
 
     static protected boolean commitCrimeCheck(Player p, Iterable<TargetChoices> chosenTargets) {
-        List<ZoneType> zoneList = ImmutableList.of(ZoneType.Battlefield, ZoneType.Graveyard, ZoneType.Stack);
+        List<ZoneType> zoneList = List.of(ZoneType.Battlefield, ZoneType.Graveyard, ZoneType.Stack);
 
         for (TargetChoices tc : chosenTargets) {
             if (IterableUtil.any(tc.getTargetPlayers(), PlayerPredicates.isOpponentOf(p))) {

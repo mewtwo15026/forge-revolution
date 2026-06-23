@@ -55,6 +55,8 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
     private final Map<String, String> draftNotes = new HashMap<>();
     private Map<String, List<String>> deferredSections = null;
     private Map<String, List<String>> loadedSections = null;
+    private DeckFormat deckFormat;
+    private String sourceUrl;
     private String lastCardArtPreferenceUsed = "";
     private Boolean lastCardArtOptimisationOptionUsed = null;
     private boolean includeCardsFromUnspecifiedSet = false;
@@ -253,6 +255,8 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
         }
         result.setAiHints(StringUtils.join(aiHints, " | "));
         result.setDraftNotes(draftNotes);
+        result.setDeckFormat(deckFormat);
+        result.setSourceUrl(sourceUrl);
         //noinspection ConstantValue
         if(tags != null) //Can happen deserializing old Decks.
             result.tags.addAll(this.tags);
@@ -527,13 +531,8 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
     }
 
     public CardPool getAllCardsInASinglePool() {
-        return getAllCardsInASinglePool(true);
+        return getAllCardsInASinglePool(true, false);
     }
-
-    public CardPool getAllCardsInASinglePool(final boolean includeCommander) {
-        return getAllCardsInASinglePool(includeCommander, false);
-    }
-
     public CardPool getAllCardsInASinglePool(final boolean includeCommander, boolean includeExtras) {
         final CardPool allCards = new CardPool(); // will count cards in this pool to enforce restricted
         allCards.addAll(this.getMain());
@@ -572,29 +571,6 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
             sum += section.getValue().count(card);
         }
         return sum;
-    }
-
-    public void setAiHints(String aiHintsInfo) {
-        if (aiHintsInfo == null || aiHintsInfo.trim().isEmpty()) {
-            return;
-        }
-        String[] hints = aiHintsInfo.split("\\|");
-        for (String hint : hints) {
-            aiHints.add(hint.trim());
-        }
-    }
-
-    public Set<String> getAiHints() {
-        return aiHints;
-    }
-
-    public String getAiHint(String name) {
-        for (String aiHint : aiHints) {
-            if (aiHint.toLowerCase().startsWith(name.toLowerCase() + "$")) {
-                return aiHint.substring(aiHint.indexOf("$") + 1).trim();
-            }
-        }
-        return "";
     }
 
     public List<String> getKeyCards() {
@@ -641,11 +617,43 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
         return draftNotes;
     }
 
-    public UnplayableAICards getUnplayableAICards() {
-        if (unplayableAI == null) {
-            unplayableAI = new UnplayableAICards(this);
+    public void setDeckFormat(DeckFormat deckFormat0) {
+        deckFormat = deckFormat0;
+    }
+
+    public DeckFormat getDeckFormat() {
+        return deckFormat;
+    }
+
+    public void setSourceUrl(String sourceUrl0) {
+        sourceUrl = sourceUrl0;
+    }
+
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public void setAiHints(String aiHintsInfo) {
+        if (aiHintsInfo == null || aiHintsInfo.trim().isEmpty()) {
+            return;
         }
-        return unplayableAI;
+        String[] hints = aiHintsInfo.split("\\|");
+        for (String hint : hints) {
+            aiHints.add(hint.trim());
+        }
+    }
+
+    public Set<String> getAiHints() {
+        return aiHints;
+    }
+
+    public String getAiHint(String name) {
+        for (String aiHint : aiHints) {
+            if (aiHint.toLowerCase().startsWith(name.toLowerCase() + "$")) {
+                return aiHint.substring(aiHint.indexOf("$") + 1).trim();
+            }
+        }
+        return "";
     }
 
     public void setAiHint(String hintType, String hintValue) {
@@ -658,6 +666,13 @@ public class Deck extends DeckBase implements Iterable<Entry<DeckSection, CardPo
 
         // Add new hint if it's not empty
         aiHints.add(hintType + "$" + hintValue.trim());
+    }
+
+    public UnplayableAICards getUnplayableAICards() {
+        if (unplayableAI == null) {
+            unplayableAI = new UnplayableAICards(this);
+        }
+        return unplayableAI;
     }
 
     public static final class UnplayableAICards {

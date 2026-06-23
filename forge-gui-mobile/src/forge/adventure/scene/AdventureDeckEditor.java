@@ -139,8 +139,6 @@ public class AdventureDeckEditor extends FDeckEditor {
     public boolean isCommanderEditor() {
         if (isLimitedEditor())
             return false;
-        if (AdventurePlayer.current().isCommanderMode())
-            return true;
         return super.isCommanderEditor();
     }
 
@@ -151,6 +149,11 @@ public class AdventureDeckEditor extends FDeckEditor {
                     new StoreCatalogPage(),
                     new CollectionAutoSellPage()
             };
+        }
+        
+        @Override
+        public boolean hasCommander() {
+            return false; // No commanders in the shop, even if player is in commander mode.
         }
     }
 
@@ -246,14 +249,14 @@ public class AdventureDeckEditor extends FDeckEditor {
                     case Ready:
                         return new DeckEditorPage[]{
                                 new AdventureDeckSectionPage(DeckSection.Main, ItemManagerConfig.DRAFT_POOL),
-                                new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.SIDEBOARD)
+                                new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.DRAFT_POOL)
                         };
                     case Entered:
                         if (event.getDraft() != null)
                             return new DeckEditorPage[]{
                                     new DraftPackPage(new AdventureCardManager()),
                                     new AdventureDeckSectionPage(DeckSection.Main, ItemManagerConfig.DRAFT_POOL),
-                                    new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.SIDEBOARD)
+                                    new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.DRAFT_POOL)
                             };
                     default:
                         return new DeckEditorPage[]{
@@ -264,8 +267,8 @@ public class AdventureDeckEditor extends FDeckEditor {
                 }
             } else if (event.format == AdventureEventController.EventFormat.Jumpstart || event.format == AdventureEventController.EventFormat.Sealed) {
                 return new DeckEditorPage[]{
-                        new AdventureDeckSectionPage(DeckSection.Main, ItemManagerConfig.DRAFT_POOL),
-                        new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.SIDEBOARD)};
+                        new AdventureDeckSectionPage(DeckSection.Main, ItemManagerConfig.SEALED_POOL),
+                        new AdventureDeckSectionPage(DeckSection.Sideboard, ItemManagerConfig.SEALED_POOL)};
             }
             return new DeckEditorPage[]{};
         }
