@@ -1,5 +1,15 @@
 Name:Skyfall Sunderer
 ManaCost:5
-Types:Artifact
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/289_Skyfall Sunderer.jpg
-Oracle:When Skyfall Sunderer enters, create a 1/1 white Spirit creature token, then attach it to that token.\nEquipped creature gets +1/+1 for each other creature you control and has \Whenever this creature attacks, create a 1/1 white Spirit creature token.\\nEquip {3}
+Types:Artifact Equipment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 1/1 white Spirit creature token, then attach CARDNAME to that token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit | RememberTokens$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ X | AddToughness$ X | AddTrigger$ AttackTrig | Description$ Equipped creature gets +1/+1 for each other creature you control and has "Whenever this creature attacks, create a 1/1 white Spirit creature token."
+SVar:AttackTrig:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTokenEquipped | TriggerDescription$ Whenever this creature attacks, create a 1/1 white Spirit creature token.
+SVar:TrigTokenEquipped:DB$ Token | TokenScript$ w_1_1_spirit
+K:Equip:3
+SVar:X:Count$Valid Creature.!EquippedBy+YouCtrl
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token
+Oracle:When Skyfall Sunderer enters, create a 1/1 white Spirit creature token, then attach Skyfall Sunderer to that token.\nEquipped creature gets +1/+1 for each other creature you control and has "Whenever this creature attacks, create a 1/1 white Spirit creature token."\nEquip {3}

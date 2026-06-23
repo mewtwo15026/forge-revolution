@@ -1,5 +1,14 @@
 Name:Earthly Absolution
 ManaCost:X B R
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/206_Earthly Absolution.jpg
+A:SP$ RevealHand | Cost$ XMin1 X B R | AILogic$ MaxX | Defined$ Player.Opponent | SubAbility$ DBStore | SpellDescription$ X can't be 0. Each opponent reveals their hand. For each number from 1 to X, each opponent discards a card or sacrifices a permanent with that mana value. Each time they can't, they lose 3 life.
+SVar:DBStore:DB$ StoreSVar | SVar$ TargetMV | Type$ Number | Expression$ 1 | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ Repeat | RepeatCheckSVar$ TargetMV | RepeatSVarCompare$ LEX | RepeatSubAbility$ DBRepeatEach
+SVar:DBRepeatEach:DB$ RepeatEach | RepeatPlayers$ Player.Opponent | RepeatSubAbility$ DBSac | SubAbility$ DBIncr
+SVar:DBSac:DB$ Sacrifice | Defined$ Player.IsRemembered | Amount$ 1 | SacValid$ Permanent.cmcEQTargetMV | RememberSacrificed$ True | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ Player.IsRemembered | NumCards$ 1 | Mode$ TgtChoose | DiscardValid$ Card.cmcEQTargetMV | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | RememberDiscarded$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ Player.IsRemembered | LifeAmount$ 3 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DBIncr:DB$ StoreSVar | SVar$ TargetMV | Type$ CountSVar | Expression$ TargetMV/Plus.1
+SVar:X:Count$xPaid
 Oracle:X can't be 0.\nEach opponent reveals their hand. For each number from 1 to X, each opponent discards a card or sacrifices a permanent with that mana value. Each time they can't, they lose 3 life.

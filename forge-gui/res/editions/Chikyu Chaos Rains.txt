@@ -336,6 +336,14 @@ Replace=.020F fromSheet("CCR buy a box")
 287 S Harvest Time @special
 288 S Contest Coordinator @special
 289 S Temple of Origins @special
+290 S Weather Elemental @Thomas Bourdon
+291 S Avert Disaster @Adam Burke
+292 S Imminent Disaster @Manuel Javier Noreña Castaño
+293 S Crumbling Tower @Pedro Sena
+295 S Warden of Wishes @Adam Burke
+296 S End of Mutations @Alexander Usevich
+300 S Warden of Depths @Alejandro Mirabal
+
 
 [alternate art]
 1002 C Armored Raptor @shiny

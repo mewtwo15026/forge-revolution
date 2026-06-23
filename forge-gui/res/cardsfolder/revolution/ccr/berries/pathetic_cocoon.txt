@@ -1,0 +1,9 @@
+Name:Pathetic Cocoon
+ManaCost:B
+Types:Creature Insect
+PT:0/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters or dies, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | Secondary$ True | TriggerDescription$ When CARDNAME enters or dies, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+DeckHas:Ability$Token & Type$Berry
+Oracle:When Pathetic Cocoon enters or dies, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

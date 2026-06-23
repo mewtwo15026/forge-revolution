@@ -1,0 +1,7 @@
+Name:Pick Up
+ManaCost:1 W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Choose up to one target artifact, enchantment, or land card in your graveyard | ValidTgts$ Artifact.YouOwn,Enchantment.YouOwn,Land.YouOwn | SubAbility$ DBToken | SpellDescription$ Return up to one target artifact, enchantment, or land card from your graveyard to your hand.
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | SpellDescription$ Create two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+DeckHas:Ability$Graveyard|Token & Type$Berry
+Oracle:Return up to one target artifact, enchantment, or land card from your graveyard to your hand.\nCreate two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

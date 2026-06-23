@@ -1,0 +1,10 @@
+Name:Gone Pickin'
+ManaCost:2 W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target nonland permanent an opponent controls until CARDNAME leaves the battlefield. Then create a Berry token. You may attach it to a creature you control. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls | Duration$ UntilHostLeavesPlay | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenScript$ c_a_berry_equip | TokenAmount$ 1 | RememberTokens$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose a creature you control | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Token & Type$Berry
+Oracle:When Gone Pickin' enters, exile up to one target nonland permanent an opponent controls until Gone Pickin' leaves the battlefield. Then create a Berry token. You may attach it to a creature you control. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

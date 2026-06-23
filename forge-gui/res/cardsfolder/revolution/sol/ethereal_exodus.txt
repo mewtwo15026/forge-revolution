@@ -1,5 +1,7 @@
 Name:Ethereal Exodus
 ManaCost:2 U R
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/208_Ethereal Exodus.jpg
+A:SP$ DealDamage | ValidTgts$ Any | TgtPrompt$ Select any target to distribute damage to | NumDmg$ 2 | TargetMin$ 1 | TargetMax$ 2 | DividedAsYouChoose$ 2 | SubAbility$ DBToken | SpellDescription$ CARDNAME deals 2 damage divided as you choose among one or two targets. Create two 1/1 blue Jellyfish creature tokens with flying.
+SVar:DBToken:DB$ Token | TokenAmount$ 2 | TokenScript$ u_1_1_jellyfish_flying
+DeckHas:Ability$Token
 Oracle:Ethereal Exodus deals 2 damage divided as you choose among one or two targets.\nCreate two 1/1 blue Jellyfish creature tokens with flying.

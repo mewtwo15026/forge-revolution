@@ -1,5 +1,7 @@
 Name:Dream Snare
 ManaCost:U U
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/53_Dream Snare.jpg
+A:SP$ ChangeZone | ValidTgts$ Creature | Origin$ Battlefield | Destination$ Hand | Defined$ Targeted | TgtPrompt$ Select target creature | RememberLKI$ True | SubAbility$ DBDraw | SpellDescription$ Return target creature to its owner's hand. If that creature's mana value is 3 or less, draw a card.
+SVar:DBDraw:DB$ Draw | ConditionDefined$ RememberedLKI | ConditionPresent$ Card.cmcLE3 | NumCards$ 1 | StackDescription$ If you controlled that permanent, draw a card. | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Return target creature to its owner's hand. If that creature's mana value is 3 or less, draw a card.

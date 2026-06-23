@@ -225,6 +225,8 @@ public enum Keyword {
     TWI_RAPTURE("twi_Rapture", SimpleKeyword.class, false, "When this creature dies, return it to the battlefield with a haze counter on it. As long as it has a haze counter on it, it loses all abilities and can't block."),
     TWI_REPRIEVE("twi_Reprieve", SimpleKeyword.class, false, "As this creature enters, you may return a creature you control without reprieve to its owner's hand."),
     SOL_SYZYGY("sol_Syzygy", SimpleKeyword.class, true, "Each other creature you tap while casting this spell or activating its abilities pays for {1}."),
+    IWH_POSSESS("iwh_Possess", SimpleKeyword.class, true, "When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature."),
+    IWH_SKAABS("Skaabstitching", SimpleKeyword.class, false, "As you stitch a token, it gains \"Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.\"")
     ;
 
     protected final Class<? extends KeywordInstance<?>> type;

@@ -1,5 +1,8 @@
 Name:Stellar Subjugation
 ManaCost:4 B G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/237_Stellar Subjugation.jpg
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | MaxTotalTargetCMC$ 6 | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select up to two target creature cards with total mana value 6 or less | SubAbility$ DBImmeTrig | SpellDescription$ Return up to two target creature cards with total mana value 6 or less from your graveyard to the battlefield. When you do, those creatures each deal damage equal to their power to up to one target creature or planeswalker.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Targeted | Execute$ DBDamage | Secondary$ True | SubAbility$ DBCleanup | TriggerDescription$ When you do, those creatures each deal damage equal to their power to up to one target creature or planeswalker.
+SVar:DBDamage:DB$ EachDamage | DefindDamagers$ DelayTriggerRemembered | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker to damage | NumDmg$ Count$CardPower
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Return up to two target creature cards with total mana value 6 or less from your graveyard to the battlefield. When you do, those creatures each deal damage equal to their power to up to one target creature or planeswalker.

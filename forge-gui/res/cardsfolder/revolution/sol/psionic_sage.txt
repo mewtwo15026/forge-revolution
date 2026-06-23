@@ -1,6 +1,13 @@
 Name:Psionic Sage
 ManaCost:UR UR UR UR
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/264_Psionic Sage.jpg
+Types:Creature Horror Wizard
+PT:4/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever CARDNAME enters or attacks, exile up to one target instant or sorcery card from your graveyard. You may cast a copy of it without paying its mana cost if its mana value is less than or equal to the number of cards exiled with Psionic Sage.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigExile | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, exile up to one target instant or sorcery card from your graveyard. You may cast a copy of it without paying its mana cost if its mana value is less than or equal to the number of cards exiled with Psionic Sage.
+SVar:TrigExile:DB$ ChangeZone | Optional$ True | RememberChanged$ True | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target instant or sorcery card in your graveyard | SubAbility$ DBPlayCopy
+SVar:DBPlayCopy:DB$ Play | Valid$ Card.IsRemembered | ValidSA$ Spell.cmcLEX | ValidZone$ Exile | Amount$ All | WithoutManaCost$ True | CopyCard$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$ValidExile Card.ExiledWithSource
+DeckHas:Ability$Graveyard
+DeckNeeds:Type$Instant|Sorcery
 Oracle:Whenever Psionic Sage enters or attacks, exile up to one target instant or sorcery card from your graveyard. You may cast a copy of it without paying its mana cost if its mana value is less than or equal to the number of cards exiled with Psionic Sage.

@@ -1,0 +1,12 @@
+Name:Stockpile
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | SubAbility$ DBSac | SpellDescription$ Create a Berry token, then sacrifice any number of Berry tokens. Target creature you control gets +1/+1 until end of turn for each Berry sacrificed this way. Then it fights target creature you don't control. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:DBSac:DB$ Sacrifice | Defined$ You | Amount$ SacX | SacValid$ Berry.token | RememberSacrificed$ True | Optional$ True | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +PumpX | NumDef$ +PumpX | AILogic$ Fight | SubAbility$ DBFight
+SVar:DBFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Berry.token+YouCtrl
+SVar:PumpX:Remembered$Amount
+DeckHints:Type$Berry & Ability$Token
+Oracle:Create a Berry token, then sacrifice any number of Berry tokens. Target creature you control gets +1/+1 until end of turn for each Berry sacrificed this way. Then it fights target creature you don't control. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

@@ -1,5 +1,8 @@
 Name:Eternal Struggle
 ManaCost:G
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/168_Eternal Struggle.jpg
+A:SP$ Charm | Choices$ ChoicePump,ChoiceExile
+SVar:ChoicePump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +1 | NumDef$ +1 | KW$ Hexproof | SpellDescription$ Target creature you control gets +1/+1 and gains hexproof until end of turn.
+SVar:ChoiceExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | TgtPrompt$ Select target card from a graveyard. | SubAbility$ DBDraw | SpellDescription$ Exile target card from a graveyard. Draw a card.
+SVar:DBDraw:DB$ Draw
 Oracle:Choose one -\n• Target creature you control gets +1/+1 and gains hexproof until end of turn.\n• Exile target card from a graveyard. Draw a card.

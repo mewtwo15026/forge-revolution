@@ -1,6 +1,10 @@
 Name:Nova Ravager
 ManaCost:3 R
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/144_Nova Ravager.jpg
-Oracle:Flying\nWhen Nova Ravager enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nNova Ravager gets +1/+0 for each player who sacrificed a permanent this turn.
+Types:Creature Drake Spirit
+PT:2/4
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each player who sacrificed a permanent this turn.
+SVar:X:PlayerCountPlayers$ConditionGE1 SacrificedThisTurn Permanent
+Oracle:Flying\nWhen Nova Ravager enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nNova Ravager gets +1/+0 for each player who sacrificed a permanent this turn.

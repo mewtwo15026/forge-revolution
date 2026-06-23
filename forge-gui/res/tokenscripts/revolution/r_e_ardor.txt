@@ -1,0 +1,6 @@
+Name:Ardor Token
+ManaCost:no cost
+Types:Enchantment Ardor
+Colors:red
+A:AB$ Pump | Cost$ Sac<1/CARDNAME> | ValidTgts$ Creature | NumAtt$ +1 | KW$ Haste | SpellDescription$ Target creature gets +1/+0 and gains haste until end of turn.
+Oracle:Sacrifice this enchantment: Target creature gets +1/+0 and gains haste until end of turn.

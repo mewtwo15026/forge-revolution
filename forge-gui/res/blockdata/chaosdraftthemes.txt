@@ -6,7 +6,8 @@
 21, CORE_SET, Core Sets
 22, MASTERS_SET, Masters Sets (paper only)
 30, MIRRODIN, Mirrodin (Plane)
-30, RAVNICA, Ravnica (Plane)
+31, RAVNICA, Ravnica (Plane)
+32, INNISTRAD, Innistrad (Plane)
 40, GRAVEYARD_MATTERS, Graveyard matters
 
 # REVOLUTION
@@ -14,3 +15,4 @@
 201, REV_T2, Revolution Standard (custom format)
 202, REV_T1, Revolution Eternal (custom format)
 210, CHIKYU, Chikyu (Plane)
+230, C_INNISTRAD, Innistrad (Plane, custom)

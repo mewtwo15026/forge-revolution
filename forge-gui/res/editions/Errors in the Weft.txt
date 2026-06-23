@@ -7,7 +7,7 @@ MciCode=err
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+Booster=9 Common,3 Uncommon,1 RareMythic,1 Wildcard,1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands ERR
 Prerelease=6 Boosters, 1 RareMythic+
@@ -307,7 +307,7 @@ Replace=.020F fromSheet("ERR buy a box")
 265 U Regrowing Outlands @Allesandro Rossi
 266 U Reified Borough @Allesandro Rossi
 267 C Sanguine Palace @Kirinkarwai
-268 U Silent Lakefront @Allesandro Rossi
+268 U Shimmering Lakefront @Allesandro Rossi
 269 C Soaring Soulspace @Pablo Carpio
 270 R Stack Conviviplex @Felix Riano
 271 C Stark Expanse @Kirinkarwai
@@ -351,6 +351,22 @@ Replace=.020F fromSheet("ERR buy a box")
 307 S Task Triage @Ognjen Sporin
 309 S Hang @Gavin Manners
 310 S Fabricated Anomaly @Balancesheet
+312 S Archive Telemetrary @Mariusz Lewandowski
+313 S Ardent Rise @MiHoYo
+314 S Buffer Reconservatory @Alexander Muscat
+315 S Faulty Server @Matthew Attard
+316 S Forgotten Junkyard @Pedro Sena
+317 S Glittering Club @Pedro Sena
+318 S Grip Festivarium @Eiji Tsuburaya
+319 S Heap Ludicon @Alexander Muscat
+320 S Isolated Tower @Margothetwi
+321 S Lost and Found @Stephen Somers
+322 S Meteoric Facade @Paolo Barbieri
+323 S Regrowing Outlands @Aleksey Pollack
+324 S Reified Borough @Celestial Fang
+325 S Shimmering Lakefront @Pedro Sena
+326 S Stack Conviviplex @Mariusz Lewandowski
+327 S Aurore, Buffer Exec @Jackson Tjota
 
 [soulspaces]
 1 Chimeric Soulspace|ERR

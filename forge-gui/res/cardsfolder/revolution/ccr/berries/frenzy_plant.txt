@@ -1,0 +1,11 @@
+Name:Frenzy Plant
+ManaCost:3 G G
+Types:Sorcery
+A:SP$ Token | TokenOwner$ You | TokenAmount$ 3 | TokenScript$ c_a_berry_equip | SubAbility$ DBSac | SpellDescription$ Create three Berry tokens, then sacrifice any number of Berries. For each Berry sacrificed this way, creatures you control get +1/+1 until end of turn. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:DBSac:DB$ Sacrifice | Defined$ You | Amount$ SacX | SacValid$ Berry | RememberSacrificed$ True | Optional$ True | SubAbility$ DBPumpAll
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +PumpX | NumDef$ +PumpX | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Berry.YouCtrl
+SVar:PumpX:Remembered$Amount
+DeckHints:Type$Berry & Keyword$Trample|Flying
+Oracle:Create three Berry tokens, then sacrifice any number of Berries. For each Berry sacrificed this way, creatures you control get +1/+1 until end of turn. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

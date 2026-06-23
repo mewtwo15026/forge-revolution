@@ -1,0 +1,10 @@
+Name:Practicing Guru
+ManaCost:1 W
+Types:Creature Ape
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Indestructible | CheckSVar$ AteThisTurn | Description$ CARDNAME gets +1/+1 and has indestructible as long as you've sacrificed a Berry that was attached to it this turn.
+SVar:AteThisTurn:PlayerCountPropertyYou$SacrificedThisTurn Berry.Attached
+DeckHas:Ability$Token|Sacrifice & Type$Berry
+Oracle:When Practicing Guru enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nPracticing Guru gets +1/+1 and has indestructible as long as you've sacrificed a Berry that was attached to it this turn.

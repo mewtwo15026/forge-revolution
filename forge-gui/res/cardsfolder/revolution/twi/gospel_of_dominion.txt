@@ -1,7 +1,7 @@
 Name:Gospel of Dominion
 ManaCost:2 R
 Types:Enchantment
-T:Mode$ DamageDone | ValidSource$ Creature.NoAbilities+YouCtrl | ValidTarget$ Player,Battle | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigExile | TriggerDescription$ Whenever a creature you control with no abilities deals combat damage to a player or battle, exile the top card of your library. You may play that card until the end of your next turn.
+T:Mode$ DamageAll | ValidSource$ Creature.NoAbilities+YouCtrl | ValidTarget$ Player,Battle | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigExile | TriggerDescription$ Whenever one or more creatures you control with no abilities deals combat damage to one or more players and/or battles, exile the top card of your library. You may play that card until the end of your next turn.
 SVar:TrigExile:DB$ Dig | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
 SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | Duration$ UntilTheEndOfYourNextTurn | StaticAbilities$ Play | SubAbility$ DBCleanup | ForgetOnMoved$ Exile
 SVar:Play:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play that card.
@@ -13,5 +13,4 @@ SVar:PlayMain1:TRUE
 SVar:BuffedBy:Creature.NoAbilities
 DeckHints:Ability$Token & Keyword$twi_Rapture
 DeckHas:Ability$Token & Type$Berserker
-Oracle:Whenever a creature you control with no abilities deals combat damage to a player or battle, exile the top card of your library. You may play that card until the end of your next turn.\n
-Whenever you play a card from exile, create a 1/1 red Berserker creature token.
+Oracle:Whenever one or more creatures you control with no abilities deal combat damage to one or more players and/or battles, exile the top card of your library. You may play that card until the end of your next turn.\nWhenever you play a card from exile, create a 1/1 red Berserker creature token.

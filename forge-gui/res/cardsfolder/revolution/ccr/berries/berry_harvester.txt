@@ -1,0 +1,14 @@
+Name:Berry Harvester
+ManaCost:2 G W
+Types:Creature Human Ranger
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters or attacks, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+R:Event$ CreateToken | ActiveZones$ Battlefield | CheckSVar$ X | SVarCompare$ EQ0 | ValidPlayer$ You | ValidToken$ Berry | ReplaceWith$ DBReplace | Description$ The first time you would create one or more Berry tokens each turn, instead create that many Berry tokens plus one.
+SVar:DBReplace:DB$ ReplaceToken | Type$ AddToken | Amount$ 1 | TokenScript$ c_a_berry_equip
+SVar:X:Count$ThisTurnEntered_Battlefield_Berry.tokenCreated+YouOwn
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Berry
+DeckHas:Ability$Token & Type$Berry
+Oracle:Whenever Berry Harvester enters or attacks, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nThe first time you would create one or more Berry tokens each turn, instead create that many Berry tokens plus one.

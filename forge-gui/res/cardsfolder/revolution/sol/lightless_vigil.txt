@@ -1,5 +1,8 @@
 Name:Lightless Vigil
 ManaCost:3 W
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/18_Lightless Vigil.jpg
-Oracle:Once each turn, when you put one or more counters on a permanent, you may create two 1/1 white Bird creature tokens with flying and \This creature can't block.\
+T:Mode$ CounterPlayerAddedAll | ValidObject$ Permanent.inRealZoneBattlefield | TriggerZones$ Battlefield | ValidSource$ You | Execute$ TrigToken | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once each turn, when you put one or more counters on a permanent, you may create two 1/1 white Bird creature tokens with flying and "This creature can't block."
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_bird_flying_cantblock | TokenAmount$ 2
+DeckHas:Ability$Token
+DeckNeeds:Ability$Counters
+Oracle:Once each turn, when you put one or more counters on a permanent, you may create two 1/1 white Bird creature tokens with flying and "This creature can't block."

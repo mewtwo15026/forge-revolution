@@ -1,0 +1,6 @@
+Name:Cleric Token
+ManaCost:no cost
+Types:Token
+Colors:white,black
+PT:1/1
+Oracle:

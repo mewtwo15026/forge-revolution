@@ -1,0 +1,13 @@
+Name:Sandstorm (CCR)
+ManaCost:2 B
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigDrain | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, each defending player loses 2 life. You gain life equal to the life lost this way.
+SVar:TrigDrain:DB$ LoseLife | Defined$ TriggeredAttackedTarget | LifeAmount$ 2 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ AFLifeLost
+SVar:AFLifeLost:Number$0
+# AFLifeLost will be set by LoseLife
+SVar:PlayMain1:TRUE
+DeckHas:Ability$LifeGain
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhenever you attack, each defending player loses 2 life. You gain life equal to the life lost this way.

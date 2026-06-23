@@ -1,5 +1,10 @@
 Name:Invasion Campaign
 ManaCost:1 W B
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/217_Invasion Campaign.jpg
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 3/2 black Elemental creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ b_3_2_elemental
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Artifact.YouCtrl+!namedInvasion Campaign,Enchantment.YouCtrl+!namedInvasion Campaign | TriggerZones$ Battlefield | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ Whenever an artifact or enchantment not named Invasion Campaign you control enters, you may return CARDNAME to its owner's hand.
+SVar:TrigReturn:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand
+DeckHas:Ability$Token
+DeckNeeds:Type$Artifact|Enchantment
 Oracle:When Invasion Campaign enters, create a 3/2 black Elemental creature token.\nWhenever an artifact or enchantment not named Invasion Campaign you control enters, you may return Invasion Campaign to its owner's hand.

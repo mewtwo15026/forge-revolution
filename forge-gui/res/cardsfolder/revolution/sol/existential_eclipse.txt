@@ -1,5 +1,8 @@
 Name:Existential Eclipse
 ManaCost:2 W
-Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/9_Existential Eclipse.jpg
+Types:Enchantment Aura
+K:Enchant:Permanent.nonLand:nonland permanent
+SVar:AttachAILogic:Curse
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigExile | TriggerDescription$ At the beginning of your first main phase, sacrifice CARDNAME. If you do, exile enchanted permanent.
+SVar:TrigExile:AB$ ChangeZone | Cost$ Mandatory Sac<1/CARDNAME> | Defined$ Enchanted | Origin$ Battlefield | Destination$ Exile
 Oracle:Enchant nonland permanent\nAt the beginning of your first main phase, sacrifice Existential Eclipse. If you do, exile enchanted permanent.

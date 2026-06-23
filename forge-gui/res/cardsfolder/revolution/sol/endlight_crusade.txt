@@ -1,5 +1,13 @@
 Name:Endlight Crusade
 ManaCost:X R
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/131_Endlight Crusade.jpg
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTokenEnter | TriggerDescription$ When CARDNAME enters, create X 1/1 red Elemental creature tokens.
+SVar:TrigTokenEnter:DB$ Token | TokenAmount$ X | TokenScript$ r_1_1_elemental
+SVar:X:Count$xPaid
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigExileSpell | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell, you may exile Endlight Crusade and that spell. If you do, create X 1/1 red Elemental creature tokens, where X is that spell's mana value.
+SVar:TrigExileSpell:DB$ ChangeZone | Origin$ Stack | Destination$ Exile | Defined$ TriggeredSpellAbility | ConditionDefined$ Self | ConditionPresent$ Card.YouCtrl | RememberChanged$ True | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.YouCtrl | SubAbility$ DBExileSelf
+SVar:DBExileSelf:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | Defined$ Self | ConditionDefined$ Remembered | ConditionPresent$ Card | RememberChanged$ True | SubAbility$ DBTokenCast
+SVar:DBTokenCast:DB$ Token | TokenAmount$ Y | TokenScript$ r_1_1_elemental | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ2 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Y:TriggeredSpellAbility$CardManaCostLKI
 Oracle:When Endlight Crusade enters, create X 1/1 red Elemental creature tokens.\nWhenever you cast a spell, you may exile Endlight Crusade and that spell. If you do, create X 1/1 red Elemental creature tokens, where X is that spell's mana value.

@@ -1,6 +1,9 @@
 Name:Moon-Scarred Champion
 ManaCost:1 R W
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/227_Moon-Scarred Champion.jpg
+Types:Creature Moonfolk Soldier
+PT:3/3
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidTarget$ Card.Self | ReplaceWith$ MinusOne | PreventionEffect$ True | AlwaysReplace$ True | Description$ If damage would be dealt to Moon-Scarred Champion, prevent that damage and put a -1/-1 counter on it. (If multiple sources would damage it at once, only one counter is placed.)
+SVar:MinusOne:DB$ PutCounter | Defined$ Self | CounterType$ M1M1 | CounterNum$ 1
+A:AB$ RemoveCounter | Cost$ 2 R W | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Remove a -1/-1 counter from CARDNAME.
+DeckHas:Ability$Counters
 Oracle:If damage would be dealt to Moon-Scarred Champion, prevent that damage and put a -1/-1 counter on it. (If multiple sources would damage it at once, only one counter is placed.)\n{2}{R}{W}: Remove a -1/-1 counter from Moon-Scarred Champion.

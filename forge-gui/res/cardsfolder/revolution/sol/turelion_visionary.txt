@@ -1,6 +1,10 @@
 Name:Turelion Visionary
 ManaCost:3 W
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/37_Turelion Visionary.jpg
+Types:Creature Angel Cleric
+PT:3/1
+K:Flying
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | CheckSVar$ YouLifeGained | Execute$ TrigDig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, if you gained life this turn, look at the top X cards of your library, where X is the amount of life you gained. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ X | ChangeNum$ 1 | Optional$ True | ForceRevealToController$ True | ChangeValid$ Card.Creature | RestRandomOrder$ True
+SVar:X:Count$LifeYouGainedThisTurn
+DeckHints:Ability$LifeGain
 Oracle:Flying\nAt the beginning of your end step, if you gained life this turn, look at the top X cards of your library, where X is the amount of life you gained. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.

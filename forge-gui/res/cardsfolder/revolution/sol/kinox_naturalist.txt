@@ -1,6 +1,9 @@
 Name:Kinox Naturalist
 ManaCost:1 G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/175_Kinox Naturalist.jpg
+Types:Creature Elff Druid
+PT:2/2
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ Draw | Cost$ 1 G T Sac<1/Creature.Other/another creature> | NumCards$ 1 | SpellDescription$ Draw a card.
+SVar:AIPreference:SacCost$Creature.Other+token
+DeckHas:Ability$Sacrifice
 Oracle:{T}: Add {G}.\n{1}{G}, {T}, Sacrifice another creature: Draw a card.

@@ -1,5 +1,9 @@
 Name:Lunar Awe
 ManaCost:U R
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/221_Lunar Awe.jpg
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 3 | SubAbility$ DBCounter | RememberDamaged$ True | SpellDescription$ CARDNAME deals 3 damage to any target. If a permanent is dealt damage this way, counter all activated and triggered abilities from that source and it loses all abilities until end of turn.
+SVar:DBCounter:DB$ Counter | Defined$ ValidStack Activated.Permanent+IsRemembered,Triggered.Permanent+IsRemembered | ConditionDefined$ Remembered | ConditionPresent$ Permanent | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STLoseAB | RememberObjects$ Remembered | ForgetOnMoved$ Battlefield | ConditionDefined$ Remembered | ConditionPresent$ Permanent.inZoneBattlefield | SubAbility$ DBCleanup
+SVar:STLoseAB:Mode$ Continuous | Affected$ Card.IsRemembered | RemoveAllAbilities$ True | AffectedZone$ Battlefield | Description$ This permanent loses all abilities until end of turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Lunar Awe deals 3 damage to any target. If a permanent is dealt damage this way, counter all activated and triggered abilities from that source and it loses all abilities until end of turn.

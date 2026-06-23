@@ -1,6 +1,13 @@
 Name:Invasive Progenitor
 ManaCost:RG RG RG RG
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/260_Invasive Progenitor.jpg
+Types:Creature Beast
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When CARDNAME enters, sacrifice any number of other creatures, then create that many 3/3 red Beast creature tokens.
+SVar:TrigSac:DB$ Sacrifice | Amount$ SacX | SacValid$ Creature | Defined$ You | RememberSacrificed$ True | Optional$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ r_3_3_beast | TokenAmount$ ProgX | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Creature.YouCtrl
+SVar:ProgX:Remembered$Amount
+AI:RemoveDeck:Random
+DeckHas:Ability$Sacrifice|Token
 Oracle:When Invasive Progenitor enters, sacrifice any number of other creatures, then create that many 3/3 red Beast creature tokens.

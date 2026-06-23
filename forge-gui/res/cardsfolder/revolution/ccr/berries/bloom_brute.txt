@@ -1,0 +1,8 @@
+Name:Bloom Brute
+ManaCost:1 G
+Types:Creature Plant Kangaroo
+PT:2/2
+T:Mode$ DamageDone | ValidSource$ Card.Self | Execute$ TrigFood | CombatDamage$ True | ValidTarget$ Player | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigFood:DB$ Token | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | TokenOwner$ You
+DeckHas:Ability$Token & Type$Berry
+Oracle:Whenever Bloom Brute deals combat damage to a player, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

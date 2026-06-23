@@ -1,0 +1,9 @@
+Name:Inversion's Herald
+ManaCost:3 R
+Types:Creature Human Warrior
+PT:4/4
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Permanent.YouCtrl+cmcGE5 | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Corrupt — When this creature enters, if you control a permanent with greater mana value, this creature gets +2/+2 and gains haste until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | KW$ Haste
+SVar:PlayMain1:TRUE
+Oracle:Menace\nCorrupt — When this creature enters, if you control a permanent with greater mana value, this creature gets +2/+2 and gains haste until end of turn.

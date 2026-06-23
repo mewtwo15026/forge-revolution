@@ -161,7 +161,7 @@ public class HumanPlaySpellAbility {
 
         // Freeze the stack just before we start paying costs but after the ability is fully set up
         game.getStack().freezeStack(ability);
-        final boolean prerequisitesMet = preCostRequisites && (isFree || payment.payCost(new HumanCostDecision(controller, human, ability, ability.isTrigger())));
+        final boolean prerequisitesMet = preCostRequisites && (isFree || payment.payCost(new HumanCostDecision(controller, human, ability, ability.isTrigger(), "")));
 
         game.clearTopLibsCast(ability);
 
@@ -228,7 +228,7 @@ public class HumanPlaySpellAbility {
             for (final String aVar : announce.split(",")) {
                 final String varName = aVar.trim();
 
-                final Integer value = controller.announceRequirements(ability, varName);
+                final Integer value = controller.announceRequirements(ability, -254, 255, varName);
                 if (value == null) {
                     return false;
                 }
@@ -249,7 +249,7 @@ public class HumanPlaySpellAbility {
                 // check if X != 0 is even allowed or the X shard got removed
                 boolean replacedXshard = ability.isSpell() && ability.getHostCard().getManaCost().countX() > 0 && !cost.hasXInAnyCostPart();
                 if (("Count$xPaid".equals(sVar) && !replacedXshard) || sVar.isEmpty()) {
-                    final Integer value = controller.announceRequirements(ability, "X");
+                    final Integer value = controller.announceRequirements(ability, -254, 255, "X");
                     if (value == null) {
                         return false;
                     }

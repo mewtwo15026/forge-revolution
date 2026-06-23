@@ -1,5 +1,7 @@
 Name:Eyes Gone Dark
 ManaCost:1 B
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/85_Eyes Gone Dark.jpg
-Oracle:Target player reveals their hand. You may choose a nonland card with mana value 4 or less from it. That player discards that card.\nCreate a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)
+A:SP$ Discard | ValidTgts$ Player | DiscardValid$ Card.nonLand+cmcLE4 | DiscardValidDesc$ nonland card with mana value 4 or less | Mode$ RevealYouChoose | SubAbility$ DBToken | SpellDescription$ Target player reveals their hand. You may choose a nonland card with mana value 4 or less from it. That player discards that card. Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:DBToken:DB$ Token | TokenScript$ c_a_chart_sac
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Target player reveals their hand. You may choose a nonland card with mana value 4 or less from it. That player discards that card.\nCreate a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

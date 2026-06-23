@@ -2,7 +2,7 @@ Name:Darksun Migrant
 ManaCost:R R
 Types:Creature Human Nomad
 PT:3/2
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ Whenever CARDNAME attacks, you may discard a card. If you do, exile the top card of your library. You may play it this turn.
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ Whenever you attack, you may discard a card. If you do, exile the top card of your library. You may play it this turn.
 SVar:DBImpulseDraw:AB$ Dig | Cost$ Discard<1/Card> | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
 SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ DBPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile
 SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play them until the end of your next turn.
@@ -10,4 +10,4 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 T:Mode$ Discarded | TriggerZones$ Battlefield | Execute$ TrigPump | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once during each of your turns, when a player discards a card, you may choose up to one target creature. That creature can't block this turn.
 SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | IsCurse$ True | KW$ HIDDEN CARDNAME can't block.
 DeckHas:Ability$Discard
-Oracle:Whenever Darksun Migrant attacks, you may discard a card. If you do, exile the top card of your library. You may play it this turn.\nOnce during each of your turns, when a player discards a card, you may choose up to one target creature. That creature can't block this turn.
+Oracle:Whenever you attack, you may discard a card. If you do, exile the top card of your library. You may play it this turn.\nOnce during each of your turns, when a player discards a card, you may choose up to one target creature. That creature can't block this turn.

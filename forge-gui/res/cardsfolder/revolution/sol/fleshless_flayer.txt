@@ -1,6 +1,12 @@
 Name:Fleshless Flayer
 ManaCost:B
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/86_Fleshless Flayer.jpg
+Types:Creature Horror Warlock
+PT:2/2
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ CARDNAME can't block.
+T:Mode$ ChangesZone | Destination$ Battlefield | Origin$ Graveyard | TriggerZones$ Graveyard | OptionalDecider$ You | ValidCard$ Creature.YouOwn | Execute$ TrigReturn | TriggerDescription$ Whenever a creature enters from your graveyard or you cast a spell from your graveyard, you may return CARDNAME from your graveyard to your hand.
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigReturn | TriggerZones$ Graveyard | OptionalDecider$ You | Secondary$ True | TriggerDescription$ Whenever a creature enters from your graveyard or you cast a spell from your graveyard, you may return CARDNAME from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand
+SacMe:1
+DiscardMe:1
+DeckHints:Ability$Graveyard & Keyword$Flashback|Unearth|Jump-start
 Oracle:Fleshless Flayer can't block.\nWhenever a creature enters from your graveyard or you cast a spell from your graveyard, you may return Fleshless Flayer from your graveyard to your hand.

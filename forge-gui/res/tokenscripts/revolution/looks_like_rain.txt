@@ -1,0 +1,7 @@
+Name:Looks Like Rain
+ManaCost:no cost
+Types:Enchantment Weather
+S:Mode$ Continuous | Affected$ Card.Self | CharacteristicDefining$ True | SetColor$ All | Description$ CARDNAME is all colors.
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigGainLife | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+Oracle:Looks Like Rain is all colors.\nWhenever you attack, you gain 1 life.

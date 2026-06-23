@@ -1,0 +1,11 @@
+Name:Spatial Collapse
+ManaCost:3 W
+Types:Instant
+# NOTE: DelayTriggerRememberedLKI doesn't respect ownership and doesn't properly forget exiled cards
+A:SP$ ChangeZone | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target nonland permanents | SubAbility$ DelTrig | SpellDescription$ Exile up to two target nonland permanents. At the beginning of the next end step, choose a card an opponent owns from among the exiled cards, then return the rest to the battlefield under their owners' control.
+SVar:DelTrig:DB$ DelayedTrigger | RememberObjects$ RememberedLKI | Mode$ Phase | Phase$ End of Turn | Execute$ TrigChoose | SubAbility$ DBCleanup | TriggerDescription$ At the beginning of the next end step, choose a card an opponent owns from among the exiled cards, then return the rest to the battlefield under their owners' control.
+SVar:TrigChoose:DB$ ChooseCard | ChoiceZone$ Exile | ChooseFromDefined$ DelayTriggerRememberedLKI.OwnedBy Opponent | Mandatory$ True | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Defined$ DelayTriggerRememberedLKI.!ChosenCard | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+AI:RemoveDeck:All
+Oracle:Exile up to two target nonland permanents. At the beginning of the next end step, choose a card an opponent owns from among the exiled cards, then return the rest to the battlefield under their owners' control.

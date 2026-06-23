@@ -1,5 +1,13 @@
 Name:Foreign Frontiers
 ManaCost:4 W W
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/11_Foreign Frontiers.jpg
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 1 | EffectZone$ All | CheckSVar$ CreaturesThem | SVarCompare$ GTCreaturesYou | Description$ This spell costs {1} less to cast if an opponent controls more creatures than you and {1} less to cast if an opponent has more life than you.
+SVar:CreaturesThem:PlayerCountOpponents$HighestValid Creature.YouCtrl
+SVar:CreaturesYou:Count$Valid Creature.YouCtrl
+S:Mode$ ReduceCost | Secondary$ True | ValidCard$ Card.Self | Type$ Spell | Amount$ 1 | EffectZone$ All | CheckSVar$ LifeThem | SVarCompare$ GTLifeYou | Description$ This spell costs {1} less to cast if an opponent controls more creatures than you and {1} less to cast if an opponent has more life than you.
+SVar:LifeThem:PlayerCountOpponents$HighestLifeTotal
+SVar:LifeYou:Count$YourLifeTotal
+A:SP$ Token | TokenScript$ w_1_1_spirit | TokenAmount$ 4 | SubAbility$ DBGainLife | SpellDescription$ Create four 1/1 white Spirit creature tokens. You gain 4 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount 4
+DeckHas:Ability$Token|LifeGain
 Oracle:This spell costs {1} less to cast if an opponent controls more creatures than you and {1} less to cast if an opponent has more life than you.\nCreate four 1/1 white Spirit creature tokens. You gain 4 life.

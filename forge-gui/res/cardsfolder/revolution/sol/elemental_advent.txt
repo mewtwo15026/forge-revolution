@@ -1,5 +1,5 @@
 Name:Elemental Advent
 ManaCost:UR UR
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/257_Elemental Advent.jpg
+A:SP$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_elemental | SpellDescription$ Create two 1/1 red Elemental creature tokens.
 Oracle:Create two 1/1 red Elemental creature tokens.

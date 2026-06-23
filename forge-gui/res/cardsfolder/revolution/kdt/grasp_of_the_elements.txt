@@ -1,6 +1,6 @@
 Name:Grasp of the Elements
 ManaCost:3 U U
 Types:Sorcery
-A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | RememberObjects$ Targeted | SubAbility$ DBBounceAll | SpellDescription$ The owner of up to one target nonland permanent puts it on the top or bottom of their library. Return each other nonland permanent to its owner's hand.
-SVar:DBBounceAll:DB$ ChangeZoneAll | ChangeType$ Permanent.nonLand+IsNotRemembered | Origin$ Battlefield | Destination$ Hand
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | SubAbility$ DBBounceAll | SpellDescription$ The owner of up to one target nonland permanent puts it on the top or bottom of their library. Return each other nonland permanent to its owner's hand.
+SVar:DBBounceAll:DB$ ChangeZoneAll | ChangeType$ Permanent.nonLand | Origin$ Battlefield | Destination$ Hand
 Oracle:The owner of up to one target nonland permanent puts it on the top or bottom of their library. Return each other nonland permanent to its owner's hand.

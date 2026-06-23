@@ -2067,6 +2067,34 @@ public class CardFactoryUtil {
             parsedTrigger.setOverridingAbility(sa);
 
             inst.addTrigger(parsedTrigger);
+        } else if (keyword.equals("iwh_Possess")) {
+            String strTrig = "Mode$ ChangesZone | ValidCard$ Creature.Self | Origin$ Battlefield | Destination$ Graveyard | "
+                    + "OptionalDecider$ You | TriggerDescription$ Possess (" + inst.getReminderText() + ")";
+            String dbTarget = "DB$ Pump | ValidTgts$ Creature";
+            String dbReturn = "DB$ ChangeZone | Defined$ TriggeredNewCardLKICopy | Origin$ Graveyard | "
+                    + "Destination$ Battlefield | AttachedTo$ Targeted | RememberChanged$ True | StaticEffect$ Animate";
+            String dbAttach = "DB$ Attach | Object$ Remembered | Defined$ Targeted";
+            String dbCleanup = "DB$ Cleanup | ClearRemembered$ True";
+            String dbAurify = "Mode$ Continuous | Affected$ Card.IsRemembered | RemoveCardTypes$ True | AddType$ Aura & Enchantment | "
+                    + "AddKeyword$ Enchant:Creature";
+
+            SpellAbility sa = AbilityFactory.getAbility(dbTarget, card);
+
+            AbilitySub saReturn = (AbilitySub)AbilityFactory.getAbility(dbReturn, card);
+            saReturn.setSVar("Animate", dbAurify);
+
+            AbilitySub saAttach = (AbilitySub)AbilityFactory.getAbility(dbAttach, card);
+            AbilitySub saCleanup = (AbilitySub)AbilityFactory.getAbility(dbCleanup, card);
+
+            saAttach.setSubAbility(saCleanup);
+            saReturn.setSubAbility(saAttach);
+            sa.setSubAbility(saReturn);
+
+            sa.setIntrinsic(intrinsic);
+
+            final Trigger parsedTrigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            parsedTrigger.setOverridingAbility(sa);
+            inst.addTrigger(parsedTrigger);
         }
         // end REVOLUTION triggered keywords
     }
@@ -2602,6 +2630,7 @@ public class CardFactoryUtil {
 
             inst.addReplacement(re);
         }
+        // end REVOLUTION replacement keywords
 
         // extra part for the Damage Prevention keywords
         if (keyword.startsWith("Prevent all ")) {

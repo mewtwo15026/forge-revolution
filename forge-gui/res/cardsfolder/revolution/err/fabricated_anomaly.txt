@@ -1,6 +1,6 @@
 Name:Fabricated Anomaly
 ManaCost:2 R
-Types:Enchantment Creature Elemental
+Types:Creature Elemental
 PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create The Puzzlebox, a legendary colorless artifact token with “{T}, Discard a card: Draw a card.”
 SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ the_puzzlebox | TokenOwner$ You

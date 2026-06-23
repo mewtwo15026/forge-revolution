@@ -1,0 +1,12 @@
+Name:Red-Hot Rider
+ManaCost:R
+Types:Creature Hyena Bat Warrior
+PT:1/1
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Permanent.YouCtrl+cmcGE2 | PresentCompare$ GE1 | Execute$ TrigExileTop | TriggerDescription$ Corrupt — When this creature enters, if you control a permanent with greater mana value, exile the top card of your library. You may play it on any turn a creature you control dealt damage to a player.
+SVar:TrigExileTop:DB$ Dig | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Remembered | Duration$ Permanent | SubAbility$ DBCleanup | ForgetOnMoved$ Exile
+SVar:STPlay:Mode$ Continuous | CheckSVar$ CreaturesDmg | SVarCompare$ GE1 | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play the exiled card until your next end step.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:CreaturesDmg:Count$NumDamageThisTurn Creature.YouCtrl Player
+Oracle:Menace\nCorrupt — When this creature enters, if you control a permanent with greater mana value, exile the top card of your library. You may play it on any turn a creature you control dealt damage to a player.

@@ -1,5 +1,8 @@
 Name:Unveil
 ManaCost:X U
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/75_Unveil.jpg
-Oracle:Counter target spell unless its controller pays {X}.\nCreate a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ X | SubAbility$ DBToken | SpellDescription$ Counter target spell unless its controller pays {X}. Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:DBToken:DB$ Token | TokenScript$ c_a_chart_sac
+SVar:X:Count$xPaid
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Counter target spell unless its controller pays {X}.\nCreate a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

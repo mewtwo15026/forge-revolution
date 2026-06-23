@@ -1,0 +1,13 @@
+Name:A Tear in the Weft
+ManaCost:X B
+Types:Sorcery
+A:SP$ Dig | Defined$ Player | DigNum$ X | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBPlay | SpellDescription$ Corrupt — Each player exiles the top X cards of their library. You may cast a spell from among them with mana value X or less without paying its mana cost. If you control a permanent with greater mana value than this spell, you may cast up to two spells with mana value X or less from among them without paying their mana costs instead.
+SVar:DBPlay:DB$ Play | WithoutManaCost$ True | ValidZone$ Exile | Valid$ Card.IsRemembered | ValidSA$ Spell.cmcLEX | Amount$ SpellsCount | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SpellsCount:Count$Compare CorruptCheck GE1.2.1
+SVar:CorruptCheck:Count$Valid Permanent.YouCtrl+cmcGTY
+SVar:Y:SVar$X/Plus.1
+SVar:X:Count$xPaid
+SVar:NeedsToPlayVar:Z GE4
+SVar:Z:Count$Valid Land.YouCtrl+untapped
+Oracle:Corrupt — Each player exiles the top X cards of their library. You may cast a spell from among them with mana value X or less without paying its mana cost. If you control a permanent with greater mana value than this spell, you may cast up to two spells with mana value X or less from among them without paying their mana costs instead.

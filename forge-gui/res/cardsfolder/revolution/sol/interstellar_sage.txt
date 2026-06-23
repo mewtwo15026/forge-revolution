@@ -1,6 +1,12 @@
 Name:Interstellar Sage
 ManaCost:G U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/216_Interstellar Sage.jpg
+Types:Creature Human Wizard
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+!token | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, if it isn't a token, you may exile target instant card or card with flash from your graveyard and copy it. You may cast the copy. (You still pay its costs.)
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouCtrl,Card.withFlash+YouCtrl | TgtPrompt$ Select target instant card or card with flash in your graveyard | RememberChanged$ True | SubAbility$ DBCopy
+SVar:DBCopy:DB$ Play | Defined$ Remembered | Amount$ All | CopyCard$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Graveyard
+DeckHints:Type$Instant & Keyword$Flash
 Oracle:Flash\nWhen Interstellar Sage enters, if it isn't a token, you may exile target instant card or card with flash from your graveyard and cast a copy of it. (You still pay its costs.)

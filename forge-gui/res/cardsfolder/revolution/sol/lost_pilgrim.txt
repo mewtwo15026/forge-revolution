@@ -1,6 +1,9 @@
 Name:Lost Pilgrim
 ManaCost:G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/176_Lost Pilgrim.jpg
+Types:Creature Elf Scout
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may mill two cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | Defined$ You
+A:AB$ ChangeZone | Cost$ 2 G ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | ValidTgts$ Permanent.Other+YouOwn | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select another target permanent card you own | SpellDescription$ Return another target permanent card from your graveyard to your hand. Activate only as a sorcery.
+DeckHas:Ability$Graveyard
 Oracle:When Lost Pilgrim enters, you may mill two cards.\n{2}{G}, Exile Lost Pilgrim from your graveyard: Return another target permanent card from your graveyard to your hand. Activate only as a sorcery.

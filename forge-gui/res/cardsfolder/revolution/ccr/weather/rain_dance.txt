@@ -1,0 +1,11 @@
+Name:Rain Dance
+ManaCost:3 U
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigCopy | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, create a tapped and attacking token that's a copy of target attacking creature, except it isn't legendary. Sacrifice it at the beginning of the next end step.
+SVar:TrigCopy:DB$ CopyPermanent | ValidTgts$ Creature.attacking | TgtPrompt$ Select target creature you control | NumCopies$ 1 | AtEOT$ Sacrifice | TokenTapped$ True | TokenAttacking$ True | NonLegendary$ True
+SVar:BuffedBy:Creature.attacking
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhenever you attack, create a tapped and attacking token that's a copy of target attacking creature, except it isn't legendary. Sacrifice it at the beginning of the next end step.

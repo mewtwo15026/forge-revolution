@@ -1,5 +1,10 @@
 Name:Tireless Pilgrimage
 ManaCost:W
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/35_Tireless Pilgrimage.jpg
+K:Enchant:Creature
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCounter | TriggerDescription$ When CARDNAME enters and whenever enchanted creature attacks or blocks, put a -1/-1 counter on enchanted creature.
+T:Mode$ Attacks | ValidCard$ Card.AttachedBy | TriggerZones$ Battlefield | Execute$ TrigCounter | Secondary$ True | TriggerDescription$ When CARDNAME enters and whenever enchanted creature attacks or blocks, put a -1/-1 counter on enchanted creature.
+T:Mode$ Blocks | ValidCard$ Card.AttachedBy | TriggerZones$ Battlefield | Execute$ TrigCounter | Secondary$ True | TriggerDescription$ When CARDNAME enters and whenever enchanted creature attacks or blocks, put a -1/-1 counter on enchanted creature.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Enchanted | CounterType$ M1M1 | CounterNum$ 1
 Oracle:Enchant creature\nWhen Tireless Pilgrimage enters and whenever enchanted creature attacks or blocks, put a -1/-1 counter on enchanted creature.

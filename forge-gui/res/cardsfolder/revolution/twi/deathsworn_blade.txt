@@ -1,4 +1,4 @@
-Name:Deathsworn Blace
+Name:Deathsworn Blade
 ManaCost:4 B
 Types:Creature Nephilim Zombie Warrior
 PT:3/5

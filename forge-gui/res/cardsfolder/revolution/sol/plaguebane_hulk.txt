@@ -1,6 +1,10 @@
 Name:Plaguebane Hulk
 ManaCost:3 G G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/180_Plaguebane Hulk.jpg
-Oracle:Trample\nWhenever Plaguebane Hulk enters or attacks, destroy up to one target noncreature permanent. Its controller creates a tapped land token named Lotus Spring with \{T}: Add one mana of any color.\
+Types:Creature Beast Horror
+PT:5/5
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | TriggerDescription$ Whenever CARDNAME enters or attacks, destroy up to one target noncreature permanent. Its controller creates a tapped land token named Lotus Spring with "{T}: Add one mana of any color."
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDestroy | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, destroy up to one target noncreature permanent. Its controller creates a tapped land token named Lotus Spring with "{T}: Add one mana of any color."
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonCreature | AITgts$ Permanent.nonCreature+nonLand,Land.nonCreature+nonBasic | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target noncreature permanent | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ lotus_spring | TokenOwner$ TargetedController | TokenTapped$ True
+Oracle:Trample\nWhenever Plaguebane Hulk enters or attacks, destroy up to one target noncreature permanent. Its controller creates a tapped land token named Lotus Spring with "{T}: Add one mana of any color."

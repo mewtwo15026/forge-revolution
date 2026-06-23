@@ -1,0 +1,8 @@
+Name:Concurrent Escapist
+ManaCost:1 G
+Types:Creature Human Druid
+PT:1/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+!token | Execute$ TrigToken | TriggerZones$ Battlefield | IsPresent$ Permanent.YouCtrl+cmcGE3 | TriggerDescription$ Corrupt — When this creature enters, if it isn't a token and you control a permanent with greater mana value than it, create a token that's a copy of this creature.
+SVar:TrigToken:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | NumCopies$ 1
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+Oracle:Corrupt — When this creature enters, if it isn't a token and you control a permanent with greater mana value than it, create a token that's a copy of this creature.\n{T}: Add {G}.

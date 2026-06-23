@@ -1,0 +1,7 @@
+Name:Vampire Token
+ManaCost:no cost
+Types:Creature Vampire
+Colors:red
+PT:1/1
+K:Haste
+Oracle:Haste

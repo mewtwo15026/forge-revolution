@@ -7,7 +7,7 @@ MciCode=kdt
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+Booster=9 Common,3 Uncommon,1 RareMythic,1 Wildcard,1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands KDT
 Prerelease=6 Boosters, 1 RareMythic+
@@ -367,6 +367,16 @@ Replace=.016F fromSheet("KDT buy a box")
 326 S Kitsune Matriarch @Ognjen Sporin
 327 S Kage, Cursed Conqueror @Art of Li
 328 S Omen Skulker @Ognjen Sporin
+329 S Forest @Sarah Janssen
+330 S Welkin Eviction @VookaSheen
+331 S Assaulted by Shadows @OAuZ
+332 S Foreign Encounter @Jason Engle
+333 S Path's End @Adam Burke
+334 S Ruinous Portents @Ken Sarafin
+335 S Faces of the Faceless @Pär Olofsson
+336 S Pass Judgment @Maarten Pelders
+337 S Moonlight Adversary @Daria Klushina
+338 S Bleeding Out @Kevin McKenna
 
 [duals]
 1 Desolate Path|KDT

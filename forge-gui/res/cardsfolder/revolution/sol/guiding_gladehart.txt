@@ -1,6 +1,8 @@
 Name:Guiding Gladehart
 ManaCost:GW GW GW GW
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/259_Guiding Gladehart.jpg
+Types:Creature Elk
+PT:3/5
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your first main phase, create two 1/1 white Spirit creature tokens.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit | TokenAmount$ 2
+DeckHas:Ability$Token & Type$Spirit
 Oracle:At the beginning of your first main phase, create two 1/1 white Spirit creature tokens.

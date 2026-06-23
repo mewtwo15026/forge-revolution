@@ -1,6 +1,10 @@
 Name:Nascent Vessel
 ManaCost:1 R
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/141_Nascent Vessel.jpg
+Types:Creature Elf Shaman
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When Nascent Vessel dies, create a 3/2 blue Beast creature token, then put a -1/-1 counter on a creature you control.
+SVar:TrigToken:DB$ Token | TokenScript$ u_3_2_beast | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Choices$ Creature.YouCtrl | CounterType$ M1M1 | CounterNum$ 1
+DeckHas:Ability$Counters|Token
+SVar:SacMe:2
 Oracle:When Nascent Vessel dies, create a 3/2 blue Beast creature token, then put a -1/-1 counter on a creature you control.

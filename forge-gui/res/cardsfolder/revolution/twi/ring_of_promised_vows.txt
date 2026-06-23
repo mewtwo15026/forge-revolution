@@ -1,8 +1,11 @@
 Name:Ring of Promised Vows
 ManaCost:1 G
 Types:Artifact
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 A:AB$ Mana | Cost$ T | Produced$ G | TriggersWhenSpent$ TrigSecondSpell | SpellDescription$ Add {G}. If this mana is spent to cast your second spell this turn, that spell can't be countered.
-SVar:TrigSecondSpell:Mode$ SpellCast | Static$ True | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ2 | Execute$ TrigEffect | TriggerDescription$ If this mana is spent to cast your second spell this turn, that spell can't be countered.
-SVar:TrigEffect:DB$ Effect | ReplacementEffects$ AntiMagic | RememberObjects$ TriggeredCard | ForgetOnMoved$ Stack
-SVar:AntiMagic:Event$ Counter | ValidCard$ Card.IsRemembered | ValidSA$ Spell | Layer$ CantHappen | Description$ That spell can't be countered.
-Oracle:{T}: Add {G}. If this mana is spent to cast your second spell this turn, that spell can't be countered.
+SVar:TrigSecondSpell:Mode$ SpellCast | Static$ True | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ2 | Execute$ TrigEffect | TriggerDescription$ If this mana is spent to cast your second spell this turn, it enters with an additional +1/+1 counter on it if it's a creature.
+SVar:TrigEffect:DB$ Effect | ReplacementEffects$ ReplaceEnter | RememberObjects$ TriggeredCard | ForgetOnMoved$ Stack
+SVar:ReplaceEnter:Event$ Moved | ValidCard$ Card.Creature+IsRemembered | Destination$ Battlefield | ReplaceWith$ AddExtraCounter | ReplacementResult$ Updated | Description$ That creature enters with an additional +1/+1 counter on it.
+SVar:AddExtraCounter:DB$ PutCounter | ETB$ True | Defined$ ReplacedCard | CounterTypes$ P1P1 | CounterNum$ 1 | SubAbility$ DBExile
+Oracle:Ring of Promised Vows enters tapped.\n{T}: Add {G}. If this mana is spent to cast your second spell this turn, it enters with an additional +1/+1 counter on it if it's a creature.

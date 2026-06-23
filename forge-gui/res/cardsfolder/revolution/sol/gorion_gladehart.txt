@@ -1,6 +1,10 @@
 Name:Gorion Gladehart
 ManaCost:4 G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/171_Gorion Gladehart.jpg
+Types:Creature Antelope
+PT:3/3
+K:Flash
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME enters, you gain 3 life and draw a card.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
 Oracle:Flash\nReach\nWhen Gorion Gladehart enters, you gain 3 life and draw a card.

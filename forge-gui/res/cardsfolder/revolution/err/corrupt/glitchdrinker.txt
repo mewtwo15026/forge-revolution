@@ -1,0 +1,9 @@
+Name:Glitchdrinker
+ManaCost:3 B R
+Types:Creature Human Warlock
+PT:4/4
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Activator$ You | Amount$ 2 | EffectZone$ All | CheckSVar$ X | SVarCompare$ GE1 | Description$ This spell costs {2} less to cast if an opponent lost life this turn.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Permanent.YouCtrl+cmcGE6 | TriggerZones$ Battlefield | Execute$ TrigDestroy | TriggerDescription$ Corrupt — When this creature enters, if you control a permanent with greater mana value, destroy up to one target artifact, creature, or planeswalker.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact,Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target artifact, creature or planeswalker
+SVar:X:Count$LifeOppsLostThisTurn
+Oracle:This spell costs {2} less to cast if an opponent lost life this turn.\nCorrupt — When this creature enters, if you control a permanent with greater mana value, destroy up to one target artifact, creature, or planeswalker.

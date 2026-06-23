@@ -1,5 +1,9 @@
 Name:Tug of the Void
 ManaCost:2 B B
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/113_Tug of the Void.jpg
+K:Enchant:Creature,Planeswalker:creature or planeswalker
+SVar:AttachAILogic:Curse
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of your first main phase, enchanted permanent's controller sacrifices two creatures and/or planeswalkers.
+SVar:TrigSac:DB$ Sacrifice | Defined$ Player.EnchantedController | SacValid$ Creature,Planeswalker | Amount$ 2 | SacMessage$ two creatures and/or planeswalkers
+DeckHas:Ability$Sacrifice
 Oracle:Enchant creature or planeswalker\nAt the beginning of your first main phase, enchanted permanent's controller sacrifices two creatures and/or planeswalkers.

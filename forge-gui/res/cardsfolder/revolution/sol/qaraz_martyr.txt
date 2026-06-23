@@ -1,6 +1,9 @@
 Name:Qaraz Martyr
 ManaCost:B
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/106_Qaraz Martyr.jpg
+Types:Creature Moonfolk Wizard
+PT:1/1
+A:AB$ Draw | Cost$ X B Sac<1/CARDNAME> | ActivationZones$ Battlefield | NumCards$ X | SubAbility$ DBLoseLife | SpellDescription$ You draw X cards and lose X life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ X
+SVar:X:Count$xPaid
+AI:RemoveDeck:All
 Oracle:{X}{B}, Sacrifice Qaraz Martyr: You draw X cards and you lose X life.

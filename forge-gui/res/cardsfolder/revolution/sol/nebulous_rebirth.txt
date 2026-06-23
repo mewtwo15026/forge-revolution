@@ -1,5 +1,8 @@
 Name:Nebulous Rebirth
 ManaCost:3 G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/178_Nebulous Rebirth.jpg
+A:SP$ GainLife | LifeAmount$ 2 | SubAbility$ DBMill | SpellDescription$ You gain 2 life and you may mill two cards. Then you may return a creature card and/or a land card from your graveyard to your hand.
+SVar:DBMill:DB$ Mill | NumCards$ 2 | Optional$ 2 | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | Hidden$ True | ChangeType$ EACH Creature.YouOwn & Land.YouOwn | ChangeTypeDesc$ a creature card and/or a land card you in your graveyard
+DeckHas:Ability$Mill|Graveyard|LifeGain
 Oracle:You gain 2 life and you may mill two cards. Then you may return a creature card and/or a land card from your graveyard to your hand.

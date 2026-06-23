@@ -1,6 +1,10 @@
 Name:Lacufae Pastor
 ManaCost:1 GW GW
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/261_Lacufae Pastor.jpg
+Types:Creature Elf Cleric
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever another creature you control enters, CARDNAME gets +1/+1 until end of turn and you gain 1 life.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
+DeckHas:Ability$LifeGain
+DeckHints:Ability$Token
 Oracle:Whenever another creature you control enters, Lacufae Pastor gets +1/+1 until end of turn and you gain 1 life.

@@ -1,6 +1,10 @@
 Name:Tumultovore
 ManaCost:3 G G G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/188_Tumultovore.jpg
+Types:Creature Wurm
+PT:5/5
+K:Trample
+K:Haste
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Land.YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ Whenever CARDNAME or a land you control enters, creatures you control get +1/+1 until end of turn.
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1
+SVar:BuffedBy:Land
 Oracle:Trample, haste\nWhenever Tumultovore or a land you control enters, creatures you control get +1/+1 until end of turn.

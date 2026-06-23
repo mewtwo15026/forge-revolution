@@ -1,0 +1,14 @@
+Name:The Berry Master
+ManaCost:1 W B G
+Types:Legendary Creature Human Druid
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+R:Event$ CreateToken | ActiveZones$ Battlefield | ValidPlayer$ You | ReplaceWith$ DBReplace | Description$ If you would create one or more tokens, also create that many Berry tokens.
+SVar:DBReplace:DB$ ReplaceToken | Type$ AddToken | TokenScript$ c_a_berry_equip
+A:AB$ Pump | Cost$ 2 Sac<2/Berry> | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature to get -2/-2 | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True | SubAbility$ DBPump | SpellDescription$ Up to one target creature gets -2/-2 until end of turn. Up to one target creature gets +3/+3 until end of turn. You gain 4 life. Activate only as a sorcery.
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature to get +3/+3 | NumAtt$ +3 | NumDef$ +3 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 4
+DeckHints:Ability$ Token & Type$Berry
+DeckHas:Ability$Sacrifice|LifeGain|Token & Type$Berry
+Oracle:When The Berry Master enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nIf you would create one or more tokens, also create that many Berry tokens.\n{2}, Sacrifice two Berries: Up to one target creature gets -2/-2 until end of turn. Up to one target creature gets +3/+3 until end of turn. You gain 4 life. Activate only as a sorcery.

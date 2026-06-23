@@ -6,9 +6,9 @@ S:Mode$ Continuous | Affected$ Dragon.YouCtrl | AddKeyword$ Ward:2 & Haste | Des
 A:AB$ DealDamage | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | TargetMin$ 0 | TargetMax$ 1 | NumDmg$ X | SpellDescription$ NICKNAME deals X damage to up to one target creature or planeswalker, where X is 2 plus twice the number of Dragons you control.
 SVar:X:SVar$DblDragons/Plus.2
 SVar:DblDragons:Count$Valid Dragon.YouCtrl/Twice
-A:AB$ ChangeZone | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | Reveal$ True | Origin$ Sideboard | Destination$ Hand | ChangeType$ Dragon.YouOwn | ChangeTypeDesc$ Dragon card they own | ChangeNum$ 1 | SubAbility$ DBToken | Hidden$ True | SpellDescription$ You may reveal a Dragon card you own from outside the game and put it into your hand. Create two Treasure tokens.
-SVar:DBToken:DB$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ c_a_treasure_sac
+A:AB$ ChangeZone | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | Reveal$ True | Origin$ Sideboard | Destination$ Hand | ChangeType$ Dragon.YouOwn | ChangeTypeDesc$ Dragon card they own | ChangeNum$ 1 | SubAbility$ DBToken | Hidden$ True | SpellDescription$ You may reveal a Dragon card you own from outside the game and put it into your hand. Create two tapped Treasure tokens.
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ c_a_treasure_sac | TokenTapped$ True
 SVar:BuffedBy:Dragon
 DeckHints:Type$Dragon
 DeckHas:Ability$Sacrifice|Token & Type$Treasure|Artifact
-Oracle:Dragons you control have ward {2} and haste.\n[+1]: Iviana deals X damage to up to one target creature or planeswalker, where X is 2 plus twice the number of Dragons you control.\n[-2]: You may reveal a Dragon card you own from outside the game and put it into your hand. Create two Treasure tokens.
+Oracle:Dragons you control have ward {2} and haste.\n[+1]: Iviana deals X damage to up to one target creature or planeswalker, where X is 2 plus twice the number of Dragons you control.\n[-2]: You may reveal a Dragon card you own from outside the game and put it into your hand. Create two tapped Treasure tokens.

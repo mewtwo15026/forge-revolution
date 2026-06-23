@@ -4,7 +4,7 @@ Types:Creature Dragon
 PT:1/2
 K:Flying
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ AccliChange | TriggerDescription$ When CARDNAME enters, it acclimates.
-SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
 SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
 SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
 S:Mode$ ReduceCost | ValidCard$ Weather | Type$ Spell | Activator$ You | Amount$ 1 | Description$ Weather spells you cast cost {1} less to cast.

@@ -1,0 +1,12 @@
+Name:Curse of Searing Ground
+ManaCost:3 R
+Types:Enchantment Aura Curse
+# NOTE: CantPreventDamage effects canonically don't work with targets, only sources
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+S:Mode$ CantPreventDamage | ValidTarget$ Player.EnchantedBy | Description$ Damage dealt to enchanted player can't be prevented.
+T:Mode$ TapsForMana | ValidCard$ Land.nonBasic | Execute$ TrigDmg | TriggerZones$ Battlefield | TriggerDescription$ Whenever a player taps a nonbasic land for mana, this Aura deals 1 damage to them.
+SVar:TrigDmg:DB$ DealDamage | Defined$ TriggeredActivator | NumDmg$ 1
+AI:RemoveDeck:Random
+Oracle:This spell can't be countered.\nEnchant player\nDamage dealt to enchanted player can't be prevented.\nWhenever a player taps a nonbasic land for mana, this Aura deals 1 damage to them.

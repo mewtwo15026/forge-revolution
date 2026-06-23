@@ -1,5 +1,10 @@
 Name:Instill Absolution
 ManaCost:R
-Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/138_Instill Absolution.jpg
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ 1 | AddToughness$ 1 | Description$ Enchanted creature gets +1/+1.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.EnchantedBy | Execute$ TrigDamage | TriggerDescription$ When enchanted creature dies, it deals damage equal to its power to any target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | DamageSource$ TriggeredCard | NumDmg$ X
+SVar:X:TriggeredCard$CardPower
 Oracle:Enchant creature\nEnchanted creature gets +1/+1.\nWhen enchanted creature dies, it deals damage equal to its power to any target.

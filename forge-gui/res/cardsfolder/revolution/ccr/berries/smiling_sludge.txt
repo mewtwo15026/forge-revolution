@@ -1,0 +1,12 @@
+Name:Smiling Sludge
+ManaCost:1 B
+Types:Creature Ooze
+PT:1/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Permanent.nonLand+YouCtrl+wasSacrificed | Execute$ TrigLoseLife | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Whenever a nonland permanent you control is put into a graveyard, if it was sacrificed, target opponent loses 1 life and you gain 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | ValidTgts$ Opponent | TgtPrompt$ Choose an opponent to lose life | LifeAmount$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckHints:Ability$Sacrifice & Type$Berry|Treasure|Clue|Map|Blood
+DeckHas:Ability$Token|LifeGain & Type$Berry
+Oracle:When Smiling Sludge enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nWhenever a nonland permanent you control is put into a graveyard, if it was sacrificed, target opponent loses 1 life and you gain 1 life.

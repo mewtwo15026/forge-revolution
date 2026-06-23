@@ -1,5 +1,8 @@
 Name:Last Wish
 ManaCost:4 R G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/218_Last Wish.jpg
-Oracle:You may play a card you own from outside the game not named Last Wish this turn. Untap up to five lands.
+A:SP$ Effect | StaticAbilities$ PlaySideboard | SubAbility$ DBUntap | SpellDescription$ You may play a card you own from outside the game this turn. Untap up to five lands. Exile CARDNAME.
+SVar:PlaySideboard:Mode$ Continuous | Affected$ Card.YouOwn | MayPlay$ True | MayPlayLimit$ 1 | AffectedZone$ Sideboard | Description$ You may play a card you own from outside the game this turn.
+SVar:DBUntap:DB$ Untap | UntapUpTo$ True | UntapType$ Land | Amount$ 5 | SubAbility$ ExileSelf
+SVar:ExileSelf:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+Oracle:You may play a card you own from outside the game not named Last Wish this turn. Untap up to five lands.\nExile Last Wish.

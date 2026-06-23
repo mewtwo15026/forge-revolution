@@ -1,5 +1,12 @@
 Name:Dwindling Light
 ManaCost:2 B
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/84_Dwindling Light.jpg
-Oracle:When Dwindling Light enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nOnce each turn, when an artifact you control enters, you may have each opponent lose life equal to the number of enchantments you control.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+T:Mode$ ChangesZone | ValidCard$ Artifact.YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigLoseLife | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once each turn, when an artifact you control enters, you may have each opponent lose life equal to the number of enchantments you control.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ X
+SVar:X:Count$Valid Artifact.YouCtrl
+DeckHas:Ability$Token & Type$Chart
+DeckHints:Type$Artifact
+DeckNeeds:Type$Enchantment
+Oracle:When Dwindling Light enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nOnce each turn, when an artifact you control enters, you may have each opponent lose life equal to the number of enchantments you control.

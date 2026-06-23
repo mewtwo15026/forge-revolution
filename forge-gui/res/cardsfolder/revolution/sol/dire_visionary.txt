@@ -1,6 +1,12 @@
 Name:Dire Visionary
 ManaCost:R
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/127_Dire Visionary.jpg
-Oracle:{R}, {T}: Discard a card. If you do, draw a card.\nWhenever a player discards a card during your turn, you may pay {1}. If you do, create a 1/1 white Bird creature token with flying and \This creature can't block.\
+Types:Creature Elf Shaman
+PT:1/1
+A:AB$ Discard | Cost$ R T | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw | SpellDescription$ Discard a card. If you do, draw a card.
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Discarded | TriggerZones$ Battlefield | Execute$ TrigToken | PlayerTurn$ True | TriggerDescription$ Whenever a player discards a card during your turn, you may pay {1}. If you do, create a 1/1 white Bird creature token with flying and "This creature can't block."
+SVar:TrigToken:AB$ Token | Cost$ 1 | TokenScript$ w_1_1_bird_flying_cantblock
+DeckHas:Ability$Discard
+DeckHints:Ability$Discard
+Oracle:{R}, {T}: Discard a card. If you do, draw a card.\nWhenever a player discards a card during your turn, you may pay {1}. If you do, create a 1/1 white Bird creature token with flying and "This creature can't block."

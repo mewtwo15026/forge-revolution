@@ -1,5 +1,13 @@
 Name:Foes Unfed
-ManaCost:3 G
+ManaCost:X G G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/169_Foes Unfed.jpg
-Oracle:Search your library for up to four creature cards with mana value 3 or less that each have different names and reveal them. Target opponent chooses two of those cards. Shuffle the chosen cards into your library, and put the rest onto the battlefield.
+A:SP$ ChangeZone | Origin$ Library | Destination$ Library | ChangeType$ Creature.cmcLEX | ChangeNum$ 4 | RememberChanged$ True | Reveal$ True | Shuffle$ False | DifferentNames$ True | SubAbility$ DBChoosePlayer | StackDescription$ SpellDescription | SpellDescription$ Search your library for up to four creature cards with mana value X or less that each have different names and reveal them. Target opponent chooses two of those cards. Shuffle the chosen cards into your library, and put the rest onto the battlefield.
+SVar:DBChoosePlayer:DB$ ChoosePlayer | Defined$ You | Choices$ Player.Opponent | ChoiceTitle$ Choose an opponent | SubAbility$ OppPickTwo
+SVar:OppPickTwo:DB$ ChooseCard | Defined$ ChosenPlayer | Amount$ 2 | Mandatory$ True | ChoiceTitle$ Choose two cards to shuffle into opponent's library | Choices$ Card.IsRemembered | ChoiceZone$ Library | ForgetChosen$ True | SubAbility$ MoveNotChosen
+SVar:MoveNotChosen:DB$ ChangeZoneAll | Origin$ Library | Destination$ Battlefield | ChangeType$ Card.IsRemembered | SubAbility$ DBShuffle
+SVar:DBShuffle:DB$ Shuffle | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid
+DeckNeeds:Type$Creature
+AI:RemoveDeck:Random
+Oracle:Search your library for up to four creature cards with mana value X or less that each have different names and reveal them. Target opponent chooses two of those cards. Shuffle the chosen cards into your library, and put the rest onto the battlefield.

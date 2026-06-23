@@ -1,0 +1,8 @@
+Name:Attuned Consciousness
+ManaCost:X U
+Types:Instant
+# TODO: figure out how to make "exile cards with different mana values" a cost
+A:SP$ ChangeZone | Origin$ Graveyard,Hand | Destination$ Exile | TargetMin$ X | TargetMax$ X | TgtPrompt$ Select X target cards to exile from your hand and/or graveyard | TargetsWithDifferentCMC$ True | ValidTgts$ Card.YouOwn | SubAbility$ DBDraw | SpellDescription$ Exile X target cards with different mana values from your hand and/or graveyard.
+SVar:DBDraw:DB$ Draw | NumCards$ X | SpellDescription$ Draw X cards.
+Oracle:Exile X target cards with different mana values from your hand and/or graveyard.\nDraw X cards.
+# TRUEOracle:As an additional cost to cast this spell, exile X cards with different mana values from your hand and/or graveyard.\nDraw X cards.

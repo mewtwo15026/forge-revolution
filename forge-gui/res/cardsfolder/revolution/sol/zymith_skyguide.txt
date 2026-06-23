@@ -1,6 +1,9 @@
 Name:Zymith Skyguide
 ManaCost:1 WU WU
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/274_Zymith Skyguide.jpg
+Types:Creature Spirit
+PT:2/1
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, you may return another permanent you control to its owner's hand. If you do, create a 1/1 white Spirit creature token.
+SVar:TrigToken:AB$ Token | Cost$ Return<1/Permanent.Other/other permanent> | TokenScript$ w_1_1_spirit
+DeckHas:Ability$Token
 Oracle:Flying\nWhen Zymith Skyguide enters, you may return another permanent you control to its owner's hand. If you do, create a 1/1 white Spirit creature token.

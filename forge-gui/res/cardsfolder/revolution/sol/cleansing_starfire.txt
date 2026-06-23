@@ -2,7 +2,7 @@ Name:Cleansing Starfire
 ManaCost:2 R W
 Types:Enchantment
 K:Wither
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigDealDamage | TriggerDescription$ When CARDNAME enters, if you cast it, it deals 3 damage to any target.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigDealDamage | TriggerDescription$ When CARDNAME enters, if you cast it, it deals 4 damage to any target.
 SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 4
 T:Mode$ CounterPlayerAddedAll | ValidObject$ Permanent.inRealZoneBattlefield | TriggerZones$ Battlefield | ValidSource$ You | Execute$ TrigGainLife | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once each turn, when you put one or more counters on a permanent, you may gain that much life.
 SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X

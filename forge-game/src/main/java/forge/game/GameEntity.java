@@ -20,6 +20,7 @@ package forge.game;
 import java.util.List;
 import java.util.Map;
 
+import forge.game.staticability.StaticAbilityMode;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.Lists;
@@ -74,13 +75,24 @@ public abstract class GameEntity implements GameObject, IIdentifiable {
     // This function handles damage after replacement and prevention effects are applied
     public abstract int addDamageAfterPrevention(final int damage, final Card source, final SpellAbility cause, final boolean isCombat, GameEntityCounterTable counterTable);
 
+    // REVOLUTION
+    // this will eventually be a non-hacky way to handle unpreventable damage by target
+    public int staticDamagePrevention(int damage, final int possiblePrevention, final Card source, final GameEntity target, final boolean isCombat) {
+        // if(damage <= 0) return 0;
+        // if(!source.canDamagePrevented(target, isCombat)) return damage;
+        return staticDamagePrevention(damage, possiblePrevention, source, isCombat);
+    }
+
     // This should be also usable by the AI to forecast an effect (so it must
     // not change the game state)
     public int staticDamagePrevention(int damage, final int possiblePrevention, final Card source, final boolean isCombat) {
         if (damage <= 0) {
             return 0;
         }
-        if (!source.canDamagePrevented(isCombat)) {
+
+        // REVOLUTION
+        // handles unpreventable damage by target
+        if (!source.canDamagePrevented(this, isCombat)) {
             return damage;
         }
 

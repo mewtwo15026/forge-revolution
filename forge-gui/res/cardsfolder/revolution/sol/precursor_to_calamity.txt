@@ -1,6 +1,10 @@
 Name:Precursor to Calamity
 ManaCost:BR BR BR BR
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/263_Precursor to Calamity.jpg
+Types:Creature Elemental Cleric
+PT:4/4
+K:Menace
+K:Haste
+K:Wither
+S:Mode$ CantGainLife | ValidPlayer$ Player | Description$ Players can't gain life.
+S:Mode$ CantPreventDamage | Description$ Damage can't be prevented.
 Oracle:Menace, haste, wither (This deals damage to creatures in the form of -1/-1 counters.)\nPlayers can't gain life.\nDamage can't be prevented.

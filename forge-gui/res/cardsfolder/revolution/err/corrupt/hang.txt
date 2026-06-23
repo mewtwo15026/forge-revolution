@@ -1,0 +1,8 @@
+Name:Hang
+ManaCost:1 B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature | ConditionCheckSVar$ X | SpellDescription$ Corrupt — Destroy target creature if it has power 3 or less or if you control a permanent with greater mana value than this spell.
+SVar:X:Count$Valid Creature.targetedBy+powerLE3/Plus.Corrupt
+SVar:Corrupt:Count$Valid Permanent.YouCtrl+cmcGE3
+SVar:BuffedBy:Permanent.cmcGE3
+Oracle:Corrupt — Destroy target creature if it has power 3 or less or if you control a permanent with greater mana value than this spell.

@@ -1,0 +1,11 @@
+Name:Swooping Hunter
+ManaCost:2 W
+Types:Creature Bird
+PT:2/2
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token, then you may return another creature you control to its owner's hand. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | Hidden$ True | Optional$ True | ChangeType$ Creature.YouCtrl | ChangeNum$ 1
+DeckHas:Ability$Token & Type$Berry
+Oracle:Flash\nFlying\nWhen Swooping Hunter enters, create a Berry token, then you may return another creature you control to its owner's hand. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

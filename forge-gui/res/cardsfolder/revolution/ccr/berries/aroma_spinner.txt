@@ -1,0 +1,9 @@
+Name:Aroma Spinner
+ManaCost:2 G
+Types:Creature Plant
+PT:3/2
+K:Reach
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your upkeep, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ c_a_berry_equip | TokenAmount$ 1
+DeckHas:Ability$Token & Type$Berry
+Oracle:Reach\nAt the beginning of your upkeep, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

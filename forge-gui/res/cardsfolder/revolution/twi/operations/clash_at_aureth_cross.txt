@@ -1,12 +1,14 @@
 Name:Clash at Aureth Cross
 ManaCost:3 W W
-Types:Battle Operation
-Defense:4
+Types:Enchantment Battle Operation
+Defense:5
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastFromYourHandByYou | Execute$ TrigWrath | TriggerDescription$ When CARDNAME enters, if you cast it from your hand, destroy all creatures.
 SVar:TrigWrath:DB$ DestroyAll | ValidCards$ Creature 
-T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE2_DEFENSE | Execute$ TrigToken | TriggerDescription$ 2 Defense — At the beginning of your end step, create a 1/1 white Soldier creature token.
-SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_soldier
-S:Mode$ Continuous | Affected$ Creature.token+YouCtrl | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Vigilance | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Description$ Defeated — Creature tokens you control get +1/+1 and have vigilance.
-DeckHas:Ability$Token & Type$Soldier
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE3_DEFENSE | Execute$ TrigToken | GameActivationLimit$ 1 | TriggerDescription$ 3 Defense — When CARDNAME first reaches this stage, create two 2/2 white Knight creature tokens with vigilance.
+SVar:TrigToken:DB$ Token | TokenScript$ w_2_2_knight_vigilance | TokenAmount$ 2
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Execute$ TrigGainLife | Description$ Defeated — Whenever you attack, you gain life equal to the number of attacking creatures.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$Valid Creature.attacking
+DeckHas:Ability$Token|LifeGain & Type$Knight
 DeckHints:Ability$Token
-Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Clash at Aureth Cross enters, if you cast it from your hand, destroy all creatures.\n2 Defense — At the beginning of your end step, create a 1/1 white Soldier creature token.\nDefeated — Creature tokens you control get +1/+1 and have vigilance.
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Clash at Aureth Cross enters, if you cast it from your hand, destroy all creatures.\n3 Defense — When this battle first reaches this stage, create two 2/2 white Knight creature tokens with vigilance.\nDefeated — Whenever you attack, you gain life equal to the number of attacking creatures.

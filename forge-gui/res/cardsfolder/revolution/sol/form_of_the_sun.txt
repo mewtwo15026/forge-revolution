@@ -1,5 +1,14 @@
 Name:Form of the Sun
 ManaCost:2 B R
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/210_Form of the Sun.jpg
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCastByYou | Destination$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME enters, if you cast it, you gain 10 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 10
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigStars | TriggerDescription$ At the beginning of your first main phase, put two star counters on Form of the Sun. When you do, it deals damage to you and up to one target creature or planeswalker equal to the number of star counters on it.
+SVar:TrigStars:DB$ PutCounter | Defined$ Self | CounterType$ STAR | CounterNum$ 2 | SubAbility$ DBImmeTrig
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigBurnYou | TriggerDescription$ When you do, it deals damage to you and up to one target creature or planeswalker equal to the number of star counters on it.
+SVar:TrigBurnYou:DB$ DealDamage | Defined$ You | NumDmg$ X | DamageMap$ True | SubAbility$ TrigBurnTarget
+SVar:TrigBurnTarget:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker | NumDmg$ X | SubAbility$ DmgResolve
+SVar:DmgResolve:DB$ DamageResolve
+SVar:X:Count$CardCounters.STAR
+AI:RemoveDeck:All
 Oracle:When Form of the Sun enters, if you cast it, you gain 10 life.\nAt the beginning of your first main phase, put two star counters on Form of the Sun. When you do, it deals damage to you and up to one target creature or planeswalker equal to the number of star counters on it.

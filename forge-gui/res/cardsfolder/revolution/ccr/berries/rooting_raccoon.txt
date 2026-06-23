@@ -1,0 +1,11 @@
+Name:Rooting Raccoon
+ManaCost:1 W B
+Types:Creature Raccoon
+PT:2/3
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Landfall – Whenever a land you control enters, create a Berry token. You may attach it to CARDNAME. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ c_a_berry_equip | TokenAmount$ 1 | RememberTokens$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Defined$ Self | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$LifeGain|Token & Type$Berry
+Oracle:Lifelink\nLandfall – Whenever a land you control enters, create a Berry token. You may attach it to Rooting Raccoon. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

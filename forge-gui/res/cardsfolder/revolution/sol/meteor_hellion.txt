@@ -1,6 +1,9 @@
 Name:Meteor Hellion
 ManaCost:2 B G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/226_Meteor Hellion.jpg
+Types:Creature Hellion
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBDestroy,DBDiscard
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Permanent.nonLand+cmcLE3 | TgtPrompt$ Select target nonland permanent with mana value 3 or less | SpellDescription$ Destroy target nonland permanent with mana value 3 or less.
+SVar:DBDiscard:DB$ Discard | ValidTgts$ Player | Mode$ LookYouChoose | DiscardValid$ Card.nonLand+cmcLE3 | DiscardValidDesc$ nonland card from it with mana value 3 or less | SpellDescription$ Look at target player's hand. You may choose a nonland card from it with mana value 3 or less. If you do, that player discards that card.
 Oracle:When Meteor Hellion enters, choose one -\n• Destroy target nonland permanent with mana value 3 or less.\n• Look at target player's hand. You may choose a nonland card from it with mana value 3 or less. If you do, that player discards that card.

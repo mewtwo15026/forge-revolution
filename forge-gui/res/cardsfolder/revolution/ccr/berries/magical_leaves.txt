@@ -1,0 +1,11 @@
+Name:Magical Leaves
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Charm | Choices$ DBBerry,DBPlant,DBGainLife | CharmNum$ 2
+SVar:DBBerry:DB$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ c_a_berry_equip | SpellDescription$ Create two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:DBPlant:DB$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ g_1_1_plant | SpellDescription$ Create two 1/1 green Plant creature tokens.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X | SpellDescription$ You gain 1 life for each token you control.
+SVar:X:Count$Valid Permanent.token+YouCtrl
+SVar:BuffedBy:Token
+DeckHas:Ability$Token|LifeGain & Type$Berry|Plant
+Oracle:Choose two —\n• Create two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\n• Create two 1/1 green Plant creature tokens.\n• You gain 1 life for each token you control.

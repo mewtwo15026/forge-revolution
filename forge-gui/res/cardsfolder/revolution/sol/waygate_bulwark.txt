@@ -1,5 +1,10 @@
 Name:Waygate Bulwark
 ManaCost:1 W B
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/243_Waygate Bulwark.jpg
+S:Mode$ CantBeCast | ValidCard$ Card | Caster$ Player | NumLimitEachTurn$ 1 | Description$ Each player can't cast more than one spell each turn.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ At the beginning of your end step, each opponent loses 1 life and you gain 1 life.
+SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1 | SubAbility$ DBGainOneLife
+SVar:DBGainOneLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckHas:Ability$LifeGain
+AI:RemoveDeck:Random
 Oracle:Each player can't cast more than one spell each turn.\nAt the beginning of your end step, each opponent loses 1 life and you gain 1 life.

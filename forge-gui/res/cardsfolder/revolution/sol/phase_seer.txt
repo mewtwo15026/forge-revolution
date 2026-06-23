@@ -1,6 +1,14 @@
 Name:Phase Seer
 ManaCost:4 U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/65_Phase Seer.jpg
+Types:Creature Elemental Cleric
+PT:3/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigUnblockable | TriggerDescription$ When CARDNAME enters, target creature can't be blocked this turn.
+SVar:TrigUnblockable:DB$ Effect | ValidTgts$ Creature | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ At the beginning of your end step, you may draw a card. If you do, discard a card unless a creature dealt combat damage to a player this turn.
+SVar:TrigDraw:DB$ Draw | RememberDrawn$ True | OptionalDecider$ You | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ X | Mode$ TgtChoose | ConditionCheckSVar$ Y | ConditionSVarCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize/LimitMax.1
+SVar:Y:Count$NumCombatDamageThisTurn Creature Player
 Oracle:When Phase Seer enters, target creature can't be blocked this turn.\nAt the beginning of your end step, you may draw a card. If you do, discard a card unless a creature dealt combat damage to a player this turn.

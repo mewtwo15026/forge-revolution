@@ -1,5 +1,7 @@
 Name:Stolen Singularity
 ManaCost:U
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/73_Stolen Singularity.jpg
+A:SP$ Charm | Choices$ DBCounterSpell,DBCounterAbility
+SVar:DBCounterSpell:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell with mana value 1 | ValidTgts$ Card.cmcEQ1 | SpellDescription$ Counter target spell with mana value 1.
+SVar:DBCounterAbility:DB$ Counter | TargetType$ Activated,Triggered | TgtPrompt$ Select target activated or triggered ability of a nonland source | ValidTgts$ Emblem,Card.nonLand | SpellDescription$ Counter target activated or triggered ability of a nonland source.
 Oracle:Choose one -\n• Counter target spell with mana value 1.\n• Counter target activated or triggered ability of a nonland source.

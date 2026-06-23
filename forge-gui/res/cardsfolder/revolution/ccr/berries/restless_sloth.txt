@@ -1,0 +1,8 @@
+Name:Restless Sloth
+ManaCost:3 W
+Types:Creature Sloth
+PT:3/3
+K:Vigilance
+A:AB$ Token | Cost$ 2 W | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | AttachedTo$ Self | SpellDescription$ Create a Berry token and attach it to CARDNAME. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+DeckHas:Ability$Token & Type|Berry
+Oracle:Vigilance\n{2}{W}: Create a Berry token and attach it to Restless Sloth. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

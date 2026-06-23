@@ -1,0 +1,11 @@
+Name:Territory Dispute
+ManaCost:2 B
+Types:Instant
+A:SP$ ChooseCard | ValidTgts$ Creature.nonHuman | TgtPrompt$ Select target non-Human creature | SubAbility$ DBCountBerries | SpellDescription$ Destroy target non-Human creature. If it has Berries attached to it, gain control of them. Otherwise, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:DBCountBerries:DB$ StoreSVar | SVar$ BerryCount | Type$ CountSVar | Expression$ BerryCount/Plus.X | SubAbility$ DBDestroy
+SVar:BerryCount:Number$0
+SVar:X:Count$Valid Berry.AttachedTo Targeted
+SVar:DBDestroy:DB$ Destroy | Defined$ Targeted | SubAbility$ DBBugBite
+SVar:DBBugBite:DB$ GainControl | Defined$ AttachedTo Targeted.Berry | NewController$ You | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenScript$ c_a_berry_equip | TokenAmount$ 1 | ConditionCheckSVar$ BerryCount | ConditionSVarCompare$ EQ0
+Oracle:Destroy target non-Human creature. If it has Berries attached to it, gain control of them. Otherwise, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

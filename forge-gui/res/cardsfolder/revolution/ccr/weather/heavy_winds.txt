@@ -1,0 +1,10 @@
+Name:Heavy Winds
+ManaCost:2 G
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigEffect | TriggerDescription$ When CARDNAME enters and whenever you cast a spell, prevent all damage up to one target permanent would deal this turn.
+T:Mode$ SpellCast | TriggerZones$ Battlefield | ValidActivatingPlayer$ You | Execute$ TrigEffect | Secondary$ True | TriggerDescription$ When CARDNAME enters and whenever you cast a spell, prevent all damage up to one target permanent would deal this turn.
+SVar:TrigEffect:DB$ Effect | ValidTgts$ Permanent | TgtPrompt$ Select target permanent | TargetMin$ 0 | TargetMax$ 1 | Duration$ EndOfTurn | RememberObjects$ Targeted | ReplacementEffects$ RPrevent
+SVar:RPrevent:Event$ DamageDone | Prevent$ True | ValidSource$ Card.IsRemembered | Description$ Prevent all damage up to one target permanent would deal this turn.
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhen Heavy Winds enters and whenever you cast a spell, prevent all damage up to one target permanent would deal this turn.

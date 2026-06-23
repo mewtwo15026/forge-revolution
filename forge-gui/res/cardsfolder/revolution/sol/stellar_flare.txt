@@ -1,5 +1,7 @@
 Name:Stellar Flare
 ManaCost:X R
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/151_Stellar Flare.jpg
+A:SP$ DealDamage | ValidTgts$ Creature.cmcLEX,Planeswalker.cmcLEX | TgtPrompt$ Select target creature or planeswalker with mana value X or less | NumDmg$ 5 | SpellDescription$ CARDNAME deals 5 damage to target creature or planeswalker with mana value less than or equal to the amount of mana spent to cast Stellar Flare.
+SVar:X:Count$xPaid
+AI:RemoveDeck:All
 Oracle:Stellar Flare deals 5 damage to target creature or planeswalker with mana value less than or equal to the amount of mana spent to cast Stellar Flare.

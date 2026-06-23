@@ -1,6 +1,11 @@
 Name:Putregoyf
 ManaCost:BG BG BG BG
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/265_Putregoyf.jpg
+Types:Creature Lhurgoyf
+PT:0/1
+K:Trample
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +2/+2 for each card type among cards in your graveyard.
+SVar:X:Count$ValidGraveyard Card.YouOwn$CardTypes/Twice
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Graveyard | Destination$ Any | PlayerTurn$ True | Execute$ TrigMill | TriggerDescription$ When CARDNAME leaves your graveyard during your turn, mill four cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 4 | Defined$ You
+DeckHints:Ability$Discard|Sacrifice|Graveyard
 Oracle:Trample\nPutregoyf gets +2/+2 for each card type among cards in your graveyard.\nWhen Putregoyf leaves your graveyard during your turn, mill four cards.

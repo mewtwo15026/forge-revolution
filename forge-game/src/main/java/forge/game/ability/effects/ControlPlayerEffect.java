@@ -28,6 +28,7 @@ public class ControlPlayerEffect extends SpellAbilityEffect {
         final Player controller = AbilityUtils.getDefinedPlayers(sa.getHostCard(), sa.getParam("Controller"), sa).get(0);
         final Game game = controller.getGame();
         final boolean combat = sa.hasParam("Combat");
+        final boolean untilMain2 = sa.hasParam("UntilMain2");
 
         for (final Player pTarget: getTargetPlayers(sa)) {
             // before next untap gain control
@@ -41,7 +42,8 @@ public class ControlPlayerEffect extends SpellAbilityEffect {
                 pTarget.addController(ts, controller);
 
                 // after following cleanup release control
-                (combat ? game.getEndOfCombat() : game.getCleanup()).addUntil(() -> pTarget.removeController(ts));
+                // REVOLUTION - add "untilMain2" tag
+                ((combat || untilMain2) ? game.getEndOfCombat() : game.getCleanup()).addUntil(() -> pTarget.removeController(ts));
             });
         }
     }

@@ -1,0 +1,10 @@
+Name:Pollen Warning
+ManaCost:1 G
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 1/1 green Plant creature token, then put a +1/+1 counter on a creature you control.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ g_1_1_plant | TokenOwner$ You | SubAbility$ DBCounter
+SVar:DBCounter:DB$ PutCounter | Choices$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Token|Counters
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhen Pollen Warning enters, create a 1/1 green Plant creature token, then put a +1/+1 counter on a creature you control.

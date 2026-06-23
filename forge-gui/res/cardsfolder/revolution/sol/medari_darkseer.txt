@@ -1,6 +1,9 @@
 Name:Medari Darkseer
 ManaCost:1 U B
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/225_Medari Darkseer.jpg
+Types:Creature Moonfolk Wizard
+PT:0/5
+K:Vigilance
+K:Menace
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | Description$ CARDNAME gets +1/+0 for each card you've drawn this turn.
+SVar:X:Count$YouDrewThisTurn
 Oracle:Vigilance, menace\nMedari Darkseer gets +1/+0 for each card you've drawn this turn.

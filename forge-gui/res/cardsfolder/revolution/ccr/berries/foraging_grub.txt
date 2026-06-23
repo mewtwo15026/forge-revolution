@@ -1,0 +1,10 @@
+Name:Foraging Grub
+ManaCost:G
+Types:Creature Insect
+PT:1/1
+K:Deathtouch
+A:AB$ Token | Cost$ 1 W T | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | SpellDescription$ Create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+A:AB$ PutCounter | Cost$ 2 B Sac<1/Berry> | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on CARDNAME.
+DeckHints:Type$Berry
+DeckHas:Ability$Sacrifice|Token|Counters & Type|Berry
+Oracle:Deathtouch\n{1}{W}, {T}: Create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\n{2}{B}, Sacrifice a Berry: Put a +1/+1 counter on Foraging Grub.

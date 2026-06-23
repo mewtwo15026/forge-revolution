@@ -1,5 +1,9 @@
 Name:Eulogy of the Beyond
 ManaCost:1 U
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/54_Eulogy of the Beyond.jpg
-Oracle:When Eulogy of the Beyond enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\n{3}{U}{U}, Sacrifice Eulogy of the Beyond: Return up to two target instant and/or sorcery cards from your graveyard to your hand.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+A:AB$ ChangeZone | Cost$ 3 U U Sac<1/CARDNAME> | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn | TgtPrompt$ Select target instant or sorcery cards from your graveyard | SpellDescription$ Return up to two target instant and/or sorcery cards from your graveyard to your hand.
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+DeckHints:Type$Instant|Sorcery
+Oracle:When Eulogy of the Beyond enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\n{3}{U}{U}, Sacrifice Eulogy of the Beyond: Return up to two target instant and/or sorcery cards from your graveyard to your hand.

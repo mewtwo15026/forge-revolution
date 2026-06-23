@@ -1,0 +1,12 @@
+Name:Smart Shopper
+ManaCost:1 W
+Types:Creature Human Ranger
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigToken | TriggerDescription$ When Smart Shopper enters and whenever you cast a creature spell, you may create a Berry token. If three or more types of mana were spent to cast that spell, create two of those tokens instead. Do this only once each turn. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | ResolvedLimit$ 1 | OptionalDecider$ You | IsPresent$ Card.Self+!ThisTurnEntered | PresentCompare$ GE1 | NoResolvingCheck$ True | TriggerDescription$ When Smart Shopper enters and whenever you cast a creature spell, you may create a Berry token. If three or more types of mana were spent to cast that spell, create two of those tokens instead. Do this only once each turn. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ X | TokenScript$ c_a_berry_equip
+SVar:X:Count$Compare ManaTypes GE3.2.1
+SVar:ManaTypes:TriggeredCard$Converge/Plus.C
+SVar:C:TriggeredCard$CastTotalManaSpent Colorless.1.0
+DeckHas:Ability$Token|Sacrifice & Type$Berry
+Oracle:When Smart Shopper enters and whenever you cast a creature spell, you may create a Berry token. If three or more types of mana were spent to cast that spell, create two of those tokens instead. Do this only once each turn. (Berry tokens are Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

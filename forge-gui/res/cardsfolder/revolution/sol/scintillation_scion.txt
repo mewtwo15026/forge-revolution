@@ -1,6 +1,0 @@
-Name:Scintillation Scion
-ManaCost:1 U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/71_Scintillation Scion.jpg
-Oracle:{T}: Add {U}. Add {U}{U} instead if you've drawn two or more cards this turn. This mana can't be spent to cast creature spells.

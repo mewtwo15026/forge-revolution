@@ -3,5 +3,5 @@ ManaCost:5 W
 Types:Creature Elemental
 PT:5/6
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target creature you don't control if it's tapped or has power 4 or greater.
-SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.YouDontCtrl | AITgts$ Creature.YouDontControl+tapped,Creature.YouDontCtrl+powerGE4 | TgtPrompt$ Select up to one target creature you don't control | IsCurse$ True | ConditionDefined$ Targeted | ConditionPresent$ Creature.tapped,Creature.powerGE4 | ConditionCompare$ GE1
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.YouDontCtrl | AITgts$ Creature.YouDontCtrl+tapped,Creature.YouDontCtrl+powerGE4 | TgtPrompt$ Select up to one target creature you don't control | IsCurse$ True | ConditionDefined$ Targeted | ConditionPresent$ Creature.tapped,Creature.powerGE4 | ConditionCompare$ GE1
 Oracle:When Law Given Form enters, exile target creature you don't control if it's tapped or has power 4 or greater.

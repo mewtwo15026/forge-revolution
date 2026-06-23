@@ -1,5 +1,11 @@
 Name:Scintillating Vista
 ManaCost:2 G
-Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/183_Scintillating Vista.jpg
-Oracle:Enchant land\nWhen Scintillating Vista enters, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)\nEnchanted land has \{T}: Add two mana of any one color.\
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddAbility$ AbundantGrowthTap | Description$ Enchanted land has "{T}: Add two mana of any one color."
+SVar:AbundantGrowthTap:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 2 | SpellDescription$ Add two mana of any one color.
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Enchant land\nWhen Scintillating Vista enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nEnchanted land has "{T}: Add two mana of any one color."

@@ -1,7 +1,0 @@
-Name:Overrule Thought
-ManaCost:1 U
-Types:Instant
-A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell to counter | ValidTgts$ Card | UnlessCost$ 2 | SubAbility$ DBMill | SpellDescription$ Counter target spell unless its controller pays {2}.
-SVar:DBMill:DB$ Mill | NumCards$ 3 | ValidTgts$ Player | TgtPrompt$ Select target player to mill | SpellDescription$ Target player mills three cards.
-DeckHas:Ability$Mill
-Oracle:Counter target spell unless its controller pays {2}.\nTarget player mills three cards.

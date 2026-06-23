@@ -1,6 +1,11 @@
 Name:Stalking Delver
 ManaCost:3 B
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/112_Stalking Delver.jpg
+Types:Creature Mole
+PT:3/4
+K:Menace
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME attacks, for each card you've drawn this turn, create a 1/1 white Spirit creature token that's tapped and attacking.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit | TokenAmount$ X | TokenTapped$ True | TokenAttacking$ True
+SVar:X:Count$YouDrewThisTurn
+DeckHas:Ability$Token
+SVar:HasAttackEffect:TRUE
 Oracle:Menace\nWhenever Stalking Delver attacks, for each card you've drawn this turn, create a 1/1 white Spirit creature token that's tapped and attacking.

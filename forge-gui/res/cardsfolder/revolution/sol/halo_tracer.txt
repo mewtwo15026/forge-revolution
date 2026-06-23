@@ -1,6 +1,12 @@
 Name:Halo Tracer
 ManaCost:G W
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/213_Halo Tracer.jpg
-Oracle:Once each turn, when you gain life, you may choose one -\n• Draw a card if you have more life than an opponent. \n• You gain 2 life.
+Types:Creature Elf Cleric
+PT:2/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBGainLife,DBDraw
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2 | SpellDescription$ You gain 2 life.
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ X | SpellDescription$ Draw a card if you gained life this turn.
+SVar:X:Count$LifeYouGainedThisTurn
+DeckHints:Ability$LifeGain
+DeckHas:Ability$LifeGain
+Oracle:Whenever Halo Tracer attacks, choose one -\n• You gain 2 life.\n• Draw a card if gained life this turn.

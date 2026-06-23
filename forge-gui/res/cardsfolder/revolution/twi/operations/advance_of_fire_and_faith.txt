@@ -1,8 +1,10 @@
 Name:Advance of Fire and Faith
 ManaCost:2 R
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:3
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDamageAll | TriggerDescription$ When CARDNAME enters, it deals 2 damage to each creature you don't control.
-SVar:TrigDamageAll:DB$ DamageAll | NumDmg$ 2 | ValidCards$ Creature.YouDontCtrl | ValidDescription$ each creature you don't control.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTwoDamage | TriggerDescription$ When CARDNAME enters, it deals 2 damage to any nonbattle target and 1 damage to up to one other nonbattle target.
+SVar:TrigTwoDamage:DB$ DealDamage | NumDmg$ 2 | ValidTgts$ Creature,Player,Planeswalker | TgtPrompt$ Select a nonbattle target to deal 2 damage | DamageMap$ True | SubAbility$ TrigOneDamage
+SVar:TrigOneDamage:DB$ DealDamage | NumDmg$ 1 | ValidTgts$ Creature,Player,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TargetUnique$ True | TgtPrompt$ Select up to one other nonbattle target to deal 1 damage | SubAbility$ DamageResolve
+SVar:DBDamageResolve:DB$ DamageResolve
 S:Mode$ Continuous | Affected$ Creature.YouCtrl | AffectedZone$ Battlefield | AddKeyword$ Haste | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Description$ Defeated — Creatures you control have haste.
-Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of Fire and Faith enters, it deals 2 damage to each creature you don't control.\nDefeated — Creatures you control have haste.
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhen Advance of Fire and Faith enters, it deals 2 damage to any nonbattle target and 1 damage to up to one other nonbattle target.\nDefeated — Creatures you control have haste.

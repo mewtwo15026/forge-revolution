@@ -1,5 +1,8 @@
 Name:Waypoint Armillary
 ManaCost:2
-Types:Artifact
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/291_Waypoint Armillary.jpg
+Types:Artifact Chart
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters or you sacrifice it, create a tapped 1/1 white Spirit creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit | TokenTapped$ True
+A:AB$ DigUntil | Cost$ 2 Sac<1/CARDNAME> | Valid$ Card.Land | ValidDescription$ land | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True | FoundDestination$ Hand | SpellDescription$ Reveal cards from the top of your library until you reveal a land card. Put that card into your hand and the rest on the bottom in a random order.
+DeckHas:Ability$Token|Sacrifice & Type$Spirit
 Oracle:When Waypoint Armillary enters or you sacrifice it, create a tapped 1/1 white Spirit creature token.\n{2}, Sacrifice Waypoint Armillary: Reveal cards from the top of your library until you reveal a land card. Put that card into your hand and the rest on the bottom in a random order.

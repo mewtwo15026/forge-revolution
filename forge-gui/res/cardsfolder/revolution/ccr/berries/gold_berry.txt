@@ -1,0 +1,14 @@
+Name:Gold Berry
+ManaCost:2
+Types:Artifact Berry Equipment
+R:Event$ AssignDealDamage | ValidCard$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice CARDNAME. If you do, equipped creature gets +3/+3 until end of turn.
+R:Event$ DamageDone | ValidTarget$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Secondary$ True | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice CARDNAME. If you do, equipped creature gets +3/+3 until end of turn.
+SVar:ReplaceSac:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ ReplacePump
+SVar:ReplacePump:DB$ Pump | Defined$ Equipped | NumAtt$ +3 | NumDef$ +3 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ ReplaceCleanup
+SVar:ReplaceCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Equip:1
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Card.Self | Execute$ TrigBerry | TriggerZones$ Battlefield | TriggerDescription$ When you sacrifice CARDNAME, create a Berry token and a Treasure token.
+SVar:TrigBerry:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip | SubAbility$ TrigTreasure
+SVar:TrigTreasure:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_treasure_sac
+DeckHas:Ability$Sacrifice|Token
+Oracle:Before equipped creature would assign, deal, or be dealt damage, sacrifice Gold Berry. If you do, equipped creature gets +3/+3 until end of turn.\nWhen you sacrifice Gold Berry, create a Berry token and a Treasure token.\nEquip {1}

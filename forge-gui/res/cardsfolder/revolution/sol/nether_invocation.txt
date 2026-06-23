@@ -1,5 +1,11 @@
 Name:Nether Invocation
 ManaCost:2 U B
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/228_Nether Invocation.jpg
+A:SP$ Draw | NumCards$ 1 | SubAbility$ ImmeTrig | SpellDescription$ Draw a card. When you do, ABILITY
+SVar:ImmeTrig:DB$ ImmediateTrigger | Execute$ TrigCharm | TriggerDescription$ When you do, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBDraw,DBDrain
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | SpellDescription$ Draw a card.
+SVar:DBDrain:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | NumDmg$ X | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals X damage to target creature or planeswalker and you gain X life, where X is the number of cards in your hand.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$ValidHand Card.YouOwn
 Oracle:Draw a card. When you do, choose one -\n• Draw a card.\n• Nether Invocation deals X damage to target creature or planeswalker and you gain X life, where X is the number of cards in your hand.

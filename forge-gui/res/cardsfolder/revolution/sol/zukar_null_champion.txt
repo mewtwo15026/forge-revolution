@@ -2,8 +2,8 @@ Name:Zukar, Null Champion
 ManaCost:2 B B
 Types:Legendary Planeswalker Zukar
 Loyalty:4
-A:AB$ Pump | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Opponent | SubAbility$ DBGainControl | SpellDescription$ Target opponent gains control of target permanent you control. | StackDescription$ None
-SVar:DBGainControl:DB$ GainControl | ValidTgts$ Permanent.YouCtrl | TgtPrompt$ Select target permanent you control | NewController$ ParentTarget
+A:AB$ Pump | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Opponent | SubAbility$ DBGainControl | SpellDescription$ Target opponent gains control of target nonland permanent you control. | StackDescription$ None
+SVar:DBGainControl:DB$ GainControl | ValidTgts$ Permanent.nonLand+YouCtrl | TgtPrompt$ Select target nonland permanent you control | NewController$ ParentTarget
 A:AB$ Draw | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | NumCards$ 2 | SubAbility$ DBOblivion | SpellDescription$ Draw two cards. Create a black enchantment token named Oblivion with "At the beginning of your end step, discard a card."
 SVar:DBOblivion:DB$ Token | TokenScript$ oblivion_zukar
 A:AB$ DealDamage | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | ValidTgts$ Any | NumDmg$ 2 | SubAbility$ DBGainLife | SpellDescription$ NICKNAME deals 2 damage to any target and you gain 2 life. Create a black enchantment token named Entropy with "At the beginning of your end step, you lose 1 life."
@@ -11,4 +11,4 @@ SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2 | SubAbility$ DBEntropy
 SVar:DBEntropy:DB$ Token | TokenScript$ entropy_zukar
 DeckHas:Ability$Discard|LifeGain
 AI:RemoveDeck:Random
-Oracle:[+1]: Target opponent gains control of target permanent you control.\n[0]: Draw two cards. Create a black enchantment token named Oblivion with "At the beginning of your end step, discard a card."\n[0]: Zukar deals 2 damage to any target and you gain 2 life. Create a black enchantment token named Entropy with "At the beginning of your end step, you lose 1 life."
+Oracle:[+1]: Target opponent gains control of target nonland permanent you control.\n[0]: Draw two cards. Create a black enchantment token named Oblivion with "At the beginning of your end step, discard a card."\n[0]: Zukar deals 2 damage to any target and you gain 2 life. Create a black enchantment token named Entropy with "At the beginning of your end step, you lose 1 life."

@@ -239,10 +239,13 @@ public class ComputerUtilCombat {
     public static int sumDamageIfUnblocked(final Iterable<Card> attackers, final Player attacked) {
         return sumDamageIfUnblocked(attackers, attacked, false);
     }
+
+    // REVOLUTION
+    // edited to handle unpreventable damage by target
     public static int sumDamageIfUnblocked(final Iterable<Card> attackers, final Player attacked, boolean onlyPreventable) {
         int sum = 0;
         for (final Card attacker : attackers) {
-            if (onlyPreventable && !attacker.canDamagePrevented(true)) {
+            if (onlyPreventable && !attacker.canDamagePrevented(attacked,true)) {
                 continue;
             }
             // TODO always applies full prevention shields for each, so this might wrongly lower the result
@@ -2228,7 +2231,10 @@ public class ComputerUtilCombat {
         int restDamage = damage;
 
         restDamage = target.staticReplaceDamage(restDamage, source, isCombat);
-        restDamage = target.staticDamagePrevention(restDamage, possiblePrevention, source, isCombat);
+
+        // REVOLUTION
+        // handles unpreventable damage by target
+        restDamage = target.staticDamagePrevention(restDamage, possiblePrevention, source, target, isCombat);
 
         return restDamage;
     }
@@ -2324,7 +2330,9 @@ public class ComputerUtilCombat {
     }
 
     public static boolean isCombatDamagePrevented(final Card attacker, final GameEntity target, final int damage) {
-        if (!attacker.canDamagePrevented(true)) {
+        // REVOLUTION
+        // edited to handle unpreventable damage by target
+        if (!attacker.canDamagePrevented(target,true)) {
             return false;
         }
 

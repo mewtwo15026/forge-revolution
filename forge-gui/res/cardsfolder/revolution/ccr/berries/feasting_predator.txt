@@ -1,0 +1,11 @@
+Name:Feasting Predator
+ManaCost:W B G
+Types:Creature Snake
+PT:3/3
+T:Mode$ ChangesZoneAll | TriggerZones$ Battlefield | ValidCards$ Creature | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigToken | TriggerDescription$ Whenever one or more creatures die, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ c_a_berry_equip | TokenAmount$ 1
+A:AB$ Pump | Cost$ Sac<1/Berry> | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | KW$ Trample | SubAbility$ DBEffect | SpellDescription$ CARDNAME gets +1/+1 and gains trample until end of turn. Up to one target creature blocks each combat this turn if able.
+SVar:DBEffect:DB$ Effect | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | IsCurse$ True | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ STMustBlock
+SVar:STMustBlock:DB$ Effect | ValidCreature$ Card.IsRemembered | Description$ This creature blocks each combat this turn if able.
+DeckHas:Ability$Token|Sacrifice & Type$Berry
+Oracle:Whenever one or more creatures die, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nSacrifice a Berry: Feasting Predator gets +1/+1 and gains trample until end of turn. Up to one target creature blocks each combat this turn if able.

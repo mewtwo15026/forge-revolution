@@ -1,5 +1,10 @@
 Name:Realm Reap
 ManaCost:2 R
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/145_Realm Reap.jpg
+A:SP$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top three cards of your library. You may play them until the end of your next turn.
+SVar:DBEffect:DB$ Effect | Name$ Realm Reap - STPlay | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBExtraLand | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play the exiled cards.
+SVar:DBExtraLand:DB$ Effect | Name$ Realm Reap - STExplore | StaticAbilities$ STExplore | UnlessCost$ Sac<1/Land> | UnlessPayer$ You | UnlessSwitched$ True | SubAbility$ DBCleanup | SpellDescription$ You may sacrifice a land. If you do, you may play an additional land this turn.
+SVar:STExplore:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 1 | Description$ You may play an additional land this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 Oracle:Exile the top three cards of your library. You may play them until the end of your next turn.\nYou may sacrifice a land. If you do, you may play an additional land this turn.

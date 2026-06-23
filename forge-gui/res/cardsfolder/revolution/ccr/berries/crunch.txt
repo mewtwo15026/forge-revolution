@@ -1,0 +1,6 @@
+Name:Crunch
+ManaCost:3 B B
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Creature | TgtPrompt$ Select target creature | SubAbility$ DBToken | SpellDescription$ Destroy target creature. Create two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:DBToken:DB$ Token | TokenOwner$ You | TokenAmount$ 2 | TokenScript$ c_a_berry_equip
+Oracle:Destroy target creature. Create two Berry tokens. (They're Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")

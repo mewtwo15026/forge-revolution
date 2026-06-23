@@ -1,5 +1,12 @@
 Name:One Night of Serenity
 ManaCost:3 G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/179_One Night of Serenity.jpg
+A:SP$ Charm | Choices$ DBTokensOnly,DBGainLife
+SVar:DBTokensOnly:DB$ Token | TokenScript$ w_1_1_elf | TokenAmount$ 3 | SpellDescription$ Create three 1/1 white Elf creature tokens.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBToken | SpellDescription$ You gain 3 life. Then create X 1/1 white Elf creature tokens, where X is your life total minus your starting life total.
+SVar:DBToken:DB$ Token | TokenScript$ w_1_1_elf | TokenAmount$ X
+SVar:X:Count$YourLifeTotal/Minus.Y
+SVar:Y:Count$YourStartingLife
+DeckHas:Ability$Token & Type$Elf
+DeckHints:Ability$LifeGain
 Oracle:Choose one -\n• Create three 1/1 white Elf creature tokens.\n• You gain 3 life. Then create X 1/1 white Elf creature tokens, where X is your life total minus your starting life total.

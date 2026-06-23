@@ -1,6 +1,10 @@
 Name:Omenmare
 ManaCost:2 G U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/231_Omenmare.jpg
+Types:Creature Elk
+PT:3/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBCounter,DBDestroy
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target noncreature spell | ValidTgts$ Card.nonCreature | SpellDescription$ Counter target noncreature spell.
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Permanent.nonCreature+nonLand | TgtPrompt$ Select target noncreature, nonland permanent | SpellDescription$ Destroy target noncreature, nonland permanent.
 Oracle:Flash\nWhen Omenmare enters, you may choose one -\n• Counter target noncreature spell.\n• Destroy target noncreature, nonland permanent.

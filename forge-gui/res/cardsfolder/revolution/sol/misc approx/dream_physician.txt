@@ -1,0 +1,9 @@
+Name:Dream Physician
+ManaCost:U U
+Types:Creature Elemental Cleric
+PT:3/4
+K:Ward:1
+# TODO: WardPaid trigger
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility.OppCtrl | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ When an opponent pays CARDNAME's ward cost, sacrifice CARDNAME.
+SVar:TrigSac:DB$ Sacrifice | ConditionPresentZone$ Stack | ConditionPresent$ TriggeredSourceSA
+Oracle:Ward {1}\nWhen an opponent pays Dream Physician's ward cost, sacrifice Dream Physician.

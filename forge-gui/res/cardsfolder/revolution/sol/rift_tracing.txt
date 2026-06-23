@@ -1,5 +1,7 @@
 Name:Rift Tracing
 ManaCost:2 U
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/70_Rift Tracing.jpg
-Oracle:Create a Chart token and two 1/1 blue Jellyfish creature tokens with flying. (A Chart token is an artifact with \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)
+A:SP$ Token | TokenScript$ c_a_chart_sac | SubAbility$ DBTokens | SpellDescription$ Oracle:Create a Chart token and two 1/1 blue Jellyfish creature tokens with flying. (A Chart token is an artifact with "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:DBTokens:DB$ Token | TokenScript$ u_1_1_jellyfish_flying | TokenAmount$ 2
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart|Jellyfish
+Oracle:Create a Chart token and two 1/1 blue Jellyfish creature tokens with flying. (A Chart token is an artifact with "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

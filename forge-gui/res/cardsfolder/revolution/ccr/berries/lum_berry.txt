@@ -1,0 +1,15 @@
+Name:Lum Berry
+ManaCost:1
+Types:Artifact Berry Equipment
+R:Event$ AssignDealDamage | ValidCard$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice CARDNAME. If you do, equipped creature gets +1/+1 until end of turn.
+R:Event$ DamageDone | ValidTarget$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Secondary$ True | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice CARDNAME. If you do, equipped creature gets +1/+1 until end of turn.
+SVar:ReplaceSac:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ ReplacePump
+SVar:ReplacePump:DB$ Pump | Defined$ Equipped | NumAtt$ +1 | NumDef$ +1 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ ReplaceCleanup
+SVar:ReplaceCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Card.Self | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ When you sacrifice CARDNAME, you may exile equipped creature, then return that card to the battlefield under its owner's control with a +1/+1 counter on it.
+SVar:TrigExile:DB$ ChangeZone | Defined$ Equipped | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | Optional$ True | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | WithCountersType$ P1P1 | WithCountersAmount$ 1 | SubAbility$ DBCleanup | StackDescription$ None
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Equip:1
+DeckHas:Ability$Sacrifice|Token|Counters
+Oracle:Before equipped creature would assign, deal, or be dealt damage, sacrifice Lum Berry. If you do, equipped creature gets +1/+1 until end of turn.\nWhen you sacrifice Lum Berry, you may exile equipped creature, then return that card to the battlefield under its owner's control with a +1/+1 counter on it.\nEquip {1}

@@ -1,5 +1,9 @@
 Name:Light-Pierced Envoy
 ManaCost:1
-Types:Artifact
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/284_Light-Pierced Envoy.jpg
-Oracle:When Light-Pierced Envoy dies, create a Weapon token. (It's an Equipment with equip {2} and \Equipped creature gets +1/+1.\)
+Types:Artifact Creature Elemental
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME dies, create a Weapon token. (It's an Equipment with equip {2} and "Equipped creature gets +1/+1.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_weapon_equip
+DeckHas:Ability$Token & Type$Artifact|Equipment|Weapon
+SVar:SacMe:1
+Oracle:When Light-Pierced Envoy dies, create a Weapon token. (It's an Equipment with equip {2} and "Equipped creature gets +1/+1.")

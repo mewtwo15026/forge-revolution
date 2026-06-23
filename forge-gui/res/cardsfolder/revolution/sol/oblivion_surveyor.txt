@@ -1,6 +1,11 @@
 Name:Oblivion Surveyor
 ManaCost:1 B
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/102_Oblivion Surveyor.jpg
-Oracle:When Oblivion Surveyor enters, each player discards a card. If you discarded a card this way, create a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)
+Types:Creature Moonfolk Cleric
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters, each player discards a card. If you discarded a card this way, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigDiscard:DB$ Discard | Defined$ Player | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_chart_sac | ConditionDefined$ Remembered | ConditionPresent$ Card.YouOwn | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:DiscardCost$Card.cmcLE1
+DeckHas:Ability$Token|Sacrifice|Discard & Type$Artifact|Chart
+Oracle:When Oblivion Surveyor enters, each player discards a card. If you discarded a card this way, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

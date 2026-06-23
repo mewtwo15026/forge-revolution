@@ -1,5 +1,8 @@
 Name:Wildermoon Compulsion
 ManaCost:R G
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/244_Wildermoon Compulsion.jpg
+A:SP$ Token | Cost$ R G Sac<1/Artifact;Creature/artifact or creature> | TokenScript$ g_4_4_bear | SubAbility$ DBDraw | SpellDescription$ Create a 4/4 green Bear creature token. Draw a card.
+SVar:DBDraw:DB$ Draw
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+!namedMox Pearl+!namedMox Sapphire+!namedMox Ruby+!namedMox Emerald+!namedMox Jet+!namedBlack Lotus+!namedLotus Petal,Artifact.cmcEQ1,Artifact.cmcEQ2,Artifact.cmcEQ3,Creature.token,Creature.powerLE2+toughnessLE2
+DeckHas:Ability$Token|Sacrifice
 Oracle:As an additional cost to cast this spell, sacrifice an artifact or creature.\nCreate a 4/4 green Bear creature token. Draw a card.

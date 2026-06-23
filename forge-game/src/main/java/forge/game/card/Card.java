@@ -6178,6 +6178,12 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
         return total;
     }
 
+    // REVOLUTION
+    // this will eventually be a non-hacky way to handle unpreventable damage by target
+    public final boolean canDamagePrevented(final GameEntity target, final boolean isCombat) {
+        return !StaticAbilityCantPreventDamage.cantPreventDamage(this, target, isCombat);
+    }
+
     public final boolean canDamagePrevented(final boolean isCombat) {
         return !StaticAbilityCantPreventDamage.cantPreventDamage(this, isCombat);
     }

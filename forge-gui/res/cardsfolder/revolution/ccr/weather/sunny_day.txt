@@ -1,0 +1,11 @@
+Name:Sunny Day
+ManaCost:2 R
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigDamage | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, CARDNAME deals X damage to target player or planeswalker, where X is the number of attacking creatures.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Player,Planeswalker | NumDmg$ X
+SVar:X:Count$Valid Creature.attacking
+SVar:BuffedBy:Creature.attacking
+SVar:PlayMain1:TRUE
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhenever you attack, Sunny Day deals X damage to target player or planeswalker, where X is the number of attacking creatures.

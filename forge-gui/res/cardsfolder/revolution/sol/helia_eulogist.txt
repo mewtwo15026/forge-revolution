@@ -1,6 +1,13 @@
 Name:Helia Eulogist
 ManaCost:1 W
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/12_Helia Eulogist.jpg
+Types:Creature Elf Cleric
+PT:1/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBranch | TriggerDescription$ When CARDNAME enters, draw a card if you have more life than your starting life total. Otherwise, you gain 3 life.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ GTY | TrueSubAbility$ DBDraw | FalseSubAbility$ DBGainLife
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+SVar:X:Count$YourLifeTotal
+SVar:Y:Count$YourStartingLife
+DeckHas:Ability$LifeGain
+DeckNeeds:Ability$LifeGain
 Oracle:When Helia Eulogist enters, draw a card if you have more life than your starting life total. Otherwise, you gain 3 life.

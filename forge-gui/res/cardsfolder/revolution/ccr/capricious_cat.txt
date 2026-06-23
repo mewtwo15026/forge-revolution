@@ -4,7 +4,7 @@ Types:Creature Cat
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When CARDNAME enters, it acclimates twice.
 SVar:TrigRepeat:DB$ Repeat | MaxRepeat$ 2 | RepeatSubAbility$ AccliChange
-SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
 SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
 SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
 DeckHints:Type$Weather

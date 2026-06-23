@@ -1,6 +1,10 @@
 Name:Radiant Pilgrim
 ManaCost:W
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/26_Radiant Pilgrim.jpg
+Types:Creature Moonfolk Cleric
+PT:2/1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME attacks, create a 1/1 red Spirit creature token with wither that's tapped and attacking if you've created another token this turn. Sacrifice the token at the beginning of the next end step. (It deals damage to creatures in the form of -1/-1 counters.)
+SVar:TrigToken:DB$ Token | ConditionCheckSVar$ X | TokenScript$ r_1_1_spirit_wither | TokenTapped$ True | TokenAttacking$ True | AtEOT$ Sacrifice
+SVar:X:Count$ThisTurnEntered_Battlefield_Card.tokenCreated+YouCtrl
+DeckHas:Ability$Token
+DeckHints:Ability$Token
 Oracle:Whenever Radiant Pilgrim attacks, create a 1/1 red Spirit creature token with wither that's tapped and attacking if you've created another token this turn. Sacrifice the token at the beginning of the next end step. (It deals damage to creatures in the form of -1/-1 counters.)

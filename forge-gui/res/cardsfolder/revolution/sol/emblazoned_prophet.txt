@@ -1,6 +1,9 @@
 Name:Emblazoned Prophet
 ManaCost:R
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/130_Emblazoned Prophet.jpg
+Types:Creature Human Shaman
+PT:1/1
+K:Menace
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to the player or permanent it's attacking for each spell you've cast this turn.
+SVar:TrigBurn:DB$ DealDamage | Defined$ TriggeredDefender.Opponent & Valid Permanent.TriggeredDefender | NumDmg$ X
+SVar:X:Count$ThisTurnCast_Card.YouCtrl
 Oracle:Menace\nWhenever Emblazoned Prophet attacks, it deals 1 damage to the player or permanent it's attacking for each spell you've cast this turn.

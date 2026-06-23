@@ -3,7 +3,7 @@ ManaCost:3 U
 Types:Creature Elemental
 PT:3/3
 T:Mode$ AttackersDeclared | Execute$ AccliChange | ValidAttackers$ Card.Self | IsPresent$ Creature.attacking | PresentCompare$ EQ2 | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Amity — Whenever you attack with CARDNAME and exactly one other creature, CARDNAME acclimates. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)
-SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
 SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
 SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
 S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying | IsPresent$ Weather.Blue+YouCtrl | Description$ CARDNAME has flying as long as you control a blue Weather.

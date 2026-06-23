@@ -6,7 +6,7 @@ S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 1 | AddToughness$ 1 | Check
 SVar:Landfall:Count$Valid Land.YouCtrl+ThisTurnEntered
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigChangeZone | TriggerDescription$ Whenever CARDNAME attacks, you may pay {G}. If you do, put a land card from your hand or graveyard onto the battlefield tapped. If it entered from your graveyard, put a finality counter on it.
 SVar:TrigChangeZone:AB$ ChangeZone | Cost$ G | Origin$ Hand,Graveyard | Destination$ Battlefield | ChangeType$ Land | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ DBFinalize
-SVar:DBFinalize:DB$ PutCounter | Defined$ Remembered | CounterType$ FINALITY | ConditionDefined$ Remembered | ConditionPresent$ Card.ThisTurnEnteredFrom Graveyard | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBFinalize:DB$ PutCounterAll | ValidCards$ Card.IsRemembered+ThisTurnEnteredFrom Graveyard | CounterType$ FINALITY | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:HasAttackEffect:TRUE
 DeckHas:Ability$Graveyard

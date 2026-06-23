@@ -1,5 +1,5 @@
 Name:Gereishin, the Stormlord
-ManaCost:5 R R
+ManaCost:6 R R
 Types:Legendary Creature Dragon
 PT:6/6
 K:Flying

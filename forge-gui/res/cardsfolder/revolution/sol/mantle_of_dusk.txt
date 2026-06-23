@@ -1,5 +1,11 @@
 Name:Mantle of Dusk
 ManaCost:1 B
-Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/94_Mantle of Dusk.jpg
+Types:Enchantment Aura
+K:Enchant:Creature.YouCtrl:creature you control
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigEdict | TriggerDescription$ When CARDNAME enters, each opponent sacrifices a creature.
+SVar:TrigEdict:DB$ Sacrifice | Defined$ Opponent | SacValid$ Creature
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.AttachedBy | Execute$ TrigChange | TriggerDescription$ When enchanted creature dies, return that card to its owner's hand.
+SVar:TrigChange:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | Defined$ TriggeredNewCardLKICopy
+DeckHas:Ability$Sacrifice
 Oracle:Enchant creature you control\nWhen Mantle of Dusk enters, each opponent sacrifices a creature.\nWhen enchanted creature dies, return that card to its owner's hand.

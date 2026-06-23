@@ -1,6 +1,9 @@
 Name:Starcrossed Vessel
 ManaCost:RG RG RG
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/267_Starcrossed Vessel.jpg
+Types:Creature Beast
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME dies, create three 1/1 white Spirit creature tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 3 | TokenScript$ w_1_1_spirit | TokenOwner$ TriggeredCardController
+SVar:SacMe:1
+DeckHas:Ability$Token
 Oracle:When Starcrossed Vessel dies, create three 1/1 white Spirit creature tokens.

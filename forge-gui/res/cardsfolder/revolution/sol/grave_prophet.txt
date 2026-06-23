@@ -1,6 +1,11 @@
 Name:Grave Prophet
 ManaCost:1 B G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/212_Grave Prophet.jpg
+Types:Creature Elf Druid
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Graveyard | Destination$ Any | TriggerZones$ Battlefield | ValidCard$ Card | Execute$ TrigDraw | PlayerTurn$ True | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once during each of your turns, when a card leaves your graveyard, you may draw a card and gain 1 life.
+SVar:TrigDraw:DB$ Draw | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
+A:AB$ ChangeZone | Cost$ 4 | ValidTgts$ Card | Origin$ Graveyard | TgtPrompt$ Select target card in a graveyard | Destination$ Library | LibraryPosition$ -1 | SpellDescription$ Put target card from a graveyard on the bottom of its owner's library.
+DeckHas:Ability$Graveyard
+DeckHints:Ability$Graveyard
 Oracle:Once during each of your turns, when a card leaves your graveyard, you may draw a card and gain 1 life.\n{4}: Put target card from a graveyard on the bottom of its owner's library.

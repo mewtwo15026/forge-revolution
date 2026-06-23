@@ -1,5 +1,0 @@
-Name:Spatial Collapse
-ManaCost:3 W
-Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/31_Spatial Collapse.jpg
-Oracle:Exile up to two target nonland permanents. At the beginning of the next end step, choose a card exiled this way an opponent owns. Return all other exiled cards to the battlefield under their owners' control.

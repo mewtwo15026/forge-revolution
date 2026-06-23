@@ -1,6 +1,9 @@
 Name:Florazoa
 ManaCost:G U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/209_Florazoa.jpg
+Types:Creature Jellyfish
+PT:2/1
+K:Flash
+K:Flying
+A:AB$ Draw | Cost$ 2 G U | Defined$ You | NumCards$ 1 | SubAbility$ DBPutLand | SpellDescription$ Draw a card. You may put a land card from your hand onto the battlefield.
+SVar:DBPutLand:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | Optional$ You | ChangeType$ Land | ChangeNum$ 1
 Oracle:Flash\nFlying\n{2}{G}{U}: Draw a card. You may put a land card from your hand onto the battlefield.

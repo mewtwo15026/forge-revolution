@@ -1,6 +1,8 @@
 Name:Ursus Minora
 ManaCost:G G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/191_Ursus Minora.jpg
-Oracle:Whenever a land you control enters, Ursus Minora gets +1/+1 and gains trample until end of turn.
+Types:Creature Bear
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Landfall — Whenever a land you control enters, CARDNAME gets +1/+1 and gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | KW$ Trample
+SVar:BuffedBy:Land
+Oracle:Landfall — Whenever a land you control enters, Ursus Minora gets +1/+1 and gains trample until end of turn.

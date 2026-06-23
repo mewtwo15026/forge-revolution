@@ -1,0 +1,13 @@
+Name:Feasting Sloth
+ManaCost:1 B
+Types:Creature Sloth
+PT:3/2
+K:Defender
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+S:Mode$ CanAttackDefender | ValidCard$ Card.Self | IsPresent$ Card.Self+modified,Card.Self+enchanted | Description$ CARDNAME can attack as though it didn't have defender as long as it has a counter on it, is enchanted, or is equipped.
+SVar:EquipMe:Once
+SVar:EnchantMe:Once
+DeckHints:Type$Berry|Equipment|Aura & Ability$Counters
+DeckHas:Ability$Sacrifice|LifeGain|Token & Type$Berry
+Oracle:Defender\nWhen Feasting Sloth enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nFeasting Sloth can attack as though it didn't have defender as long as it has a counter on it, is enchanted, or is equipped.

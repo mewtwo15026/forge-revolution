@@ -1,12 +1,9 @@
 Name:Cyra, Blade of Memory
-ManaCost:1 G W
+ManaCost:2 G W
 Types:Legendary Creature Human Soldier
-PT:2/3
-T:Mode$ ChangesZone | ValidCard$ Card.Self,Creature.Other+YouCtrl | Origin$ Any | Destination$ Battlefield | Execute$ TrigGainLife | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME or another creature you control enters, you gain 1 life. If this is the second time this ability has resolved this turn, draw a card. If it's the third time, put a +1/+1 counter on each creature you control.
-SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1 | SubAbility$ DBDraw
-SVar:DBDraw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ ResCt | ConditionSVarCompare$ EQ2 | SubAbility$ DBPutCounterAll
-SVar:DBPutCounterAll:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | ConditionCheckSVar$ ResCt | ConditionSVarCompare$ EQ3
-SVar:ResCt:Count$ResolvedThisTurn
+PT:4/5
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Lifelink
+S:Mode$ CantBeCast | ValidCard$ Card | Caster$ Opponent.NonActive | Description$ Your opponents can cast spells only during their own turns.
 DeckHas:Ability$LifeGain
-DeckHints:Type$Creature & Ability$Token
-Oracle:Whenever Cyra, Blade of Memory or another creature you control enters, you gain 1 life. If this is the second time this ability has resolved this turn, draw a card. If it's the third time, put a +1/+1 counter on each creature you control.
+Oracle:This spell can't be countered.\nLifelink\nYour opponents can cast spells only during their own turns.

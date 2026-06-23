@@ -1,0 +1,14 @@
+Name:Transcendent Council
+ManaCost:WB WB WB WB
+Types:Creature Moonfolk Cleric
+PT:4/4
+K:Flying
+# NOTE: always draws a card
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigImmeTrig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, you may sacrifice another nonland, nontoken permanent. When you do, target opponent sacrifices a nonland, nontoken permanent. Then you draw a card unless the sacrificed permanents share a card type.
+SVar:TrigImmeTrig:AB$ ImmediateTrigger | Cost$ Sac<1/Permanent.nonLand+!token+StrictlyOther/another nonland, nontoken permanent> | Execute$ TrigSac | RememberObjects$ Sacrificed | TriggerDescription$ When you do, target opponent sacrifices a nonland, nontoken permanent. Then you draw a card unless the sacrificed permanents share a card type.
+SVar:TrigSac:DB$ Sacrifice | ValidTgts$ Opponent | SacValid$ Permanent.nonLand+!token | SacMessage$ nonland, nontoken permanent | RememberSacrificed$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ SameType | ConditionSVarCompare$ LT2 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SameType:Count$RememberedWithSharedCardType
+AI:RemoveDeck:All
+Oracle:Flying\nAt the beginning of combat on your turn, you may sacrifice another nonland, nontoken permanent. When you do, target opponent sacrifices a nonland, nontoken permanent. Then you draw a card unless the sacrificed permanents share a card type.

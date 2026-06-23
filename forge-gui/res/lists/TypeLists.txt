@@ -217,6 +217,7 @@ Noggle:Noggles
 Nomad:Nomads
 Nymph:Nymphs
 Octopus:Octopi
+Offering:Offerings
 Ogre:Ogres
 Ooze:Oozes
 Orb:Orbs
@@ -355,6 +356,7 @@ Lesson
 Omen
 Trap
 [EnchantmentTypes]
+Ardor
 Aura:Auras
 Background
 Blessing
@@ -362,6 +364,7 @@ Cartouche
 Case
 Class
 Clique
+Cloister
 Curse:Curses
 Plan:Plans
 Policy:Policies
@@ -392,6 +395,7 @@ Key:Keys
 Lander:Landers
 Map
 Memory:Memories
+Monument
 Mutagen
 Powerstone:Powerstones
 Ruin

@@ -1,0 +1,9 @@
+Name:Shadow Sky
+ManaCost:4 B B
+Types:Enchantment Weather
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Weather | Execute$ TrigWeatherSac | TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Weather Rule (As a Weather enters, players sacrifice other Weathers that don't share a color with it.)
+SVar:TrigWeatherSac:DB$ SacrificeAll | ValidCards$ Triggered.!SharesColorWith+Weather+Other
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigShrink | TriggerDescription$ When CARDNAME enters and whenever you cast a spell, each creature target player controls gets -1/-1 until end of turn.
+T:Mode$ SpellCast | TriggerZones$ Battlefield | ValidActivatingPlayer$ You | Execute$ TrigShrink | Secondary$ True | TriggerDescription$ When CARDNAME enters and whenever you cast a spell, each creature target player controls gets -1/-1 until end of turn.
+SVar:TrigShrink:DB$ PumpAll | ValidTgts$ Player | TgtPrompt$ Select target player | ValidCards$ Creature | NumAtt$ -1 | NumDef$ -1 | IsCurse$ True
+Oracle:(As a Weather enters, players sacrifice other Weathers that don't share a color with it.)\nWhen Shadow Sky enters and whenever you cast a spell, each creature target player controls gets -1/-1 until end of turn.

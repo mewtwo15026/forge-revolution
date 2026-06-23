@@ -1,5 +1,16 @@
 Name:Orbital Vacuum
 ManaCost:1 W W
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/24_Orbital Vacuum.jpg
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile target nonland permanent an opponent controls until CARDNAME leaves the battlefield.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls | RememberChanged$ True | Duration$ UntilHostLeavesPlay
+T:Mode$ SpellCast | ValidCard$ Card.nonLand+cmcGTX | ValidActivatingPlayer$ You | Execute$ TrigSac | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever you cast a spell with mana value greater than the exiled card's, you may put that card into its owner's graveyard. If you do, sacrifice CARDNAME and you gain 5 life.
+SVar:TrigSac:AB$ Sacrifice | Cost$ ExiledMoveToGrave<1/Card.IsRemembered+ExiledWithSource/the exiled card> | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 5
+T:Mode$ ChangesZone | Origin$ Exile | Destination$ Any | Static$ True | ValidCard$ Card.IsRemembered+ExiledWithSource | Execute$ DBForget
+SVar:DBForget:DB$ Pump | ForgetObjects$ TriggeredCard
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | Static$ True | ValidCard$ Card.Self | Execute$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$CardManaCost
+SVar:PlayMain1:TRUE
+SVar:OblivionRing:TRUE
 Oracle:When Orbital Vacuum enters, exile target nonland permanent an opponent controls until Orbital Vacuum leaves the battlefield.\nWhenever you cast a spell with mana value greater than the exiled card's, you may put that card into its owner's graveyard. If you do, sacrifice Orbital Vacuum and you gain 5 life.

@@ -1,0 +1,8 @@
+Name:Scintillation Scion
+ManaCost:1 U
+Types:Creature Moonfolk Cleric
+PT:1/3
+A:AB$ Mana | Cost$ T | Produced$ U | Amount$ X | RestrictValid$ Spell.nonCreature,Activated,Triggered | SpellDescription$ Add {U}. Add {U}{U} instead if you've drawn two or more cards this turn. This mana can't be spent to cast creature spells.
+SVar:X:Count$Compare Y GE2.2.1
+SVar:Y:Count$YouDrewThisTurn
+Oracle:{T}: Add {U}. Add {U}{U} instead if you've drawn two or more cards this turn. This mana can't be spent to cast creature spells.

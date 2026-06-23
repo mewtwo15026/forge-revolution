@@ -1,5 +1,6 @@
 Name:March of the Long Night
 ManaCost:B B
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/95_March of the Long Night.jpg
-Oracle:Return target creature card with mana value 3 or less from your graveyard to the battlefield.\nEach opponent loses 3 life.
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl | SubAbility$ DBPump | SpellDescription$ Return target creature card with mana value 3 or less from your graveyard to the battlefield. It gains deathtouch and haste until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Deathtouch & Haste
+Oracle:Return target creature card with mana value 3 or less from your graveyard to the battlefield. It gains deathtouch and haste until end of turn.

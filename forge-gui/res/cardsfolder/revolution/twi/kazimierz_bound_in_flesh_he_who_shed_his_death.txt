@@ -1,19 +1,20 @@
 Name:Kazimierz, Bound in Flesh
 ManaCost:3 U B
 Types:Legendary Planeswalker Kazimierz
-Loyalty:3
+Loyalty:5
 T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDiscard | TriggerDescription$ At the beginning of your end step, discard a card. Then if there are five or more card types among cards in your graveyard, transform CARDNAME. Otherwise, draw a card.
 SVar:TrigDiscard:DB$ Discard | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ DBBranch
 SVar:DBBranch:DB$ Branch | BranchConditionSVar$ Z | BranchConditionSVarCompare$ GE5 | TrueSubAbility$ BranchTransform | FalseSubAbility$ BranchDraw
-SVar:BranchTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:BranchTransform:DB$ SetState | Defined$ Self | Mode$ Transform | SubAbility$ DBPhaseOut
+SVar:DBPhaseOut:DB$ Phases | Defined$ Self
 SVar:BranchDraw:DB$ Draw | NumCards$ 1
 SVar:Z:Count$ValidGraveyard Card.YouOwn$CardTypes
 A:AB$ Dig | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | DigNum$ 3 | DestinationZone2$ Graveyard | NoReveal$ True | SpellDescription$ Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.
-A:AB$ Destroy | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SubAbility$ FrontGainLife | SpellDescription$ Destroy target creature or planeswalker. You gain 2 life.
-SVar:FrontGainLife:DB$ GainLife | LifeAmount$ 2
+A:AB$ Destroy | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SpellDescription$ Destroy target creature or planeswalker.
 AlternateMode:DoubleFaced
-DeckHas:Ability$Mill|Discard|LifeGain
-Oracle:At the beginning of your end step, discard a card. Then if there are five or more card types among cards in your graveyard, transform Kazimierz. Otherwise, draw a card.\n[+1]: Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.\n[-2]: Destroy target creature or planeswalker. You gain 2 life.
+DeckHas:Ability$Mill|Discard
+DeckHints:Type$Instant|Sorcery|Battle|Artifact|Enchantment
+Oracle:At the beginning of your end step, discard a card. Then if there are five or more card types among cards in your graveyard, transform Kazimierz and he phases out. Otherwise, draw a card.\n[+1]: Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.\n[-3]: Destroy target creature or planeswalker.
 
 ALTERNATE
 
@@ -21,12 +22,15 @@ Name:He Who Shed His Death
 ManaCost:no cost
 Colors:blue,black
 Types:Legendary Planeswalker Kazimierz
-Loyalty:3
-K:Protection:Card.cmcLTY:mana values less than the number of loyalty counters on this planeswalker
-SVar:Y:Count$CardCounters.LOYALTY
-A:AB$ Dig | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | DigNum$ 3 | ChangeNum$ 2 | DestinationZone2$ Graveyard | NoReveal$ True | SpellDescription$ Look at the top three cards of your library. Put two of them into your hand and the rest into your graveyard.
-A:AB$ ChangeZone | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | Origin$ Battlefield | Destination$ Exile | SubAbility$ BackGainLife | SpellDescription$ Exile target creature or planeswalker. You gain 5 life.
-SVar:BackGainLife:DB$ GainLife | LifeAmount$ 5
-A:AB$ Dig | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | DigNum$ X | ChangeNum$ All | Defined$ Opponent | DestinationZone$ Exile | SpellDescription$ Exile the top X cards of each opponent's library, where X is the number of cards in your graveyard.
-SVar:X:Count$ValidGraveyard Card.YouOwn
-Oracle:This planeswalker has protection from mana values less than the number of loyalty counters on him.\n[+1]: Look at the top three cards of your library. Put two of them into your hand and the rest into your graveyard.\n[-1]: Exile target creature or planeswalker. You gain 5 life.\n[-6]: Exile the top X cards of each opponent's library, where X is the number of cards in your graveyard.
+Loyalty:0
+R:Event$ Moved | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | ReplaceWith$ REBounce | Description$ If this planeswalker would die, instead return him to your hand and you lose half your life, rounded up.
+SVar:REBounce:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Hand | Defined$ ReplacedCard | SubAbility$ DBHalve
+SVar:DBHalve:DB$ LoseLife | LifeAmount$ Y
+SVar:Y:Count$YourLifeTotal/HalfUp
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ 3 | SubAbility$ DBDiscard | SpellDescription$ Draw three cards, then discard a card.
+SVar:DBDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ 1
+A:AB$ ChangeZone | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | Origin$ Battlefield | Destination$ Exile | SubAbility$ BackGainLife | SpellDescription$ Exile target creature or planeswalker. You gain 4 life.
+SVar:BackGainLife:DB$ GainLife | LifeAmount$ 4
+A:AB$ Dig | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | DigNum$ X | ChangeNum$ All | Defined$ Opponent | DestinationZone$ Exile | SpellDescription$ Exile the top X cards of each opponent's library, where X is the number of cards in all graveyards.
+SVar:X:Count$ValidGraveyard Card
+Oracle:If this planeswalker would die, instead return him to your hand and you lose half your life, rounded up.\n[+1]: Draw three cards, then discard a card.\n[-3]: Exile target creature or planeswalker. You gain 4 life.\n[-6]: Exile the top X cards of each opponent's library, where X is the number of cards in all graveyards.

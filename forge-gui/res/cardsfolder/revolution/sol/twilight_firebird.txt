@@ -1,6 +1,13 @@
 Name:Twilight Firebird
 ManaCost:RW RW RW RW
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/271_Twilight Firebird.jpg
+Types:Creature Phoenix
+PT:4/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile the top four cards of your library.
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 4 | ChangeNum$ All | DestinationZone$ Exile
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ Whenever CARDNAME attacks or dies, until the end of your next turn, you may play a permanent card exiled with it.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigEffect | Secondary$ True | TriggerDescription$ Whenever CARDNAME attacks or dies, until the end of your next turn, you may play a permanent card exiled with it.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STPlay | SpellDescription$ Until end of turn, you may play a permanent card exiled with CARDNAME.
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Permanent.ExiledWithEffectSource | AffectedZone$ Exile | MayPlayLimit$ 1
+SVar:HasAttackEffect:TRUE
 Oracle:Flying\nWhen Twilight Firebird enters, exile the top four cards of your library.\nWhenever Twilight Firebird attacks or dies, until the end of your next turn, you may play a permanent card exiled with it.

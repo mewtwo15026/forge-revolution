@@ -1,0 +1,10 @@
+Name:Poisoned Rose
+ManaCost:1 B G
+Types:Creature Plant
+PT:3/3
+K:Deathtouch
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+A:AB$ Pump | Cost$ B Sac<1/Berry> | ValidTgts$ Creature | TgtPrompt$ Select target creature | NumAtt$ -1 | NumDef$ -1 | IsCurse$ True | ActivationPhases$ Upkeep->Main1,Main2->Cleanup | SpellDescription$ Target creature gets -1/-1 until end of turn. You can't activate this ability during combat.
+DeckHas:Ability$Sacrifice|Token & Type$Berry
+Oracle:Deathtouch\nWhen Poisoned Rose enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\n{B}, Sacrifice a Berry: Target creature gets -1/-1 until end of turn. You can't activate this ability during combat.

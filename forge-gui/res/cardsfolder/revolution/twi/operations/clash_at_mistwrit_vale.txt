@@ -1,12 +1,18 @@
 Name:Clash at Mistwrit Vale
 ManaCost:1 U U
-Types:Battle Operation
-Defense:5
-T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast a noncreature spell, create a 1/1 white Soldier creature token.
-SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_soldier
-T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE3_DEFENSE | Execute$ TrigReturn | GameActivationLimit$ 1 | TriggerDescription$ 3 Defense — When CARDNAME first reaches this stage, return target instant or sorcery card from your graveyard to your hand.
-SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl
-S:Mode$ ReduceCost | ValidCard$ Card.nonCreature | Type$ Spell | Activator$ You | Amount$ 2 | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Description$ Defeated — Noncreature spells you cast cost {2} less to cast.
+Types:Enchantment Battle Operation
+Defense:4
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Prowess | Description$ Creatures you control have prowess.
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_LE3_DEFENSE | Execute$ TrigToken | GameActivationLimit$ 1 | TriggerDescription$ 3 Defense — When CARDNAME first reaches this stage, create two 1/1 white Soldier creature tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ w_1_1_soldier
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Card.Self+counters_EQ0_DEFENSE | Execute$ TrigTap | GameActivationLimit$ 1 | TriggerDescription$ Defeated — When this battle first reaches this stage, tap up to two target nonland permanents and put a stun counter on each of them. They lose all abilities for as long as they remain tapped.
+SVar:TrigTap:DB$ Tap | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | DefinedCards$ Targeted | Zone$ Battlefield | RepeatSubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STNoAbils | Triggers$ OnUntap | Duration$ Permanent | ExileOnMoved$ Battlefield
+SVar:STNoAbils:Mode$ Continuous | Affected$ Card.IsRemembered | RemoveAllAbilities$ True | Description$ This creature loses all abilities for as long as it remains tapped.
+SVar:OnUntap:DB$ Untaps | ValidCard$ Card.IsRemembered | Execute$ ClearEffect | Static$ True
+SVar:ClearEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
 DeckHas:Ability$Token & Type$Soldier
 DeckHints:Type$Instant|Sorcery|Enchantment|Artifact|Battle
-Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nWhenever you cast a noncreature spell, create a 1/1 white Soldier creature token.\n3 Defense — When Clash of Mistwrit Vale first reaches this stage, return target instant or sorcery card from your graveyard to your hand.\nDefeated — Noncreature spells you cast cost {2} less to cast.
+Oracle:(As this enters, choose an opponent to protect it. You and others can attack it. It gains abilities while at or below certain stages.)\nCreatures you control have prowess.\n3 Defense — When this battle first reaches this stage, create two 1/1 white Soldier creature tokens.\nDefeated — When this battle first reaches this stage, tap up to two target nonland permanents and put a stun counter on each of them. They lose all abilities for as long as they remain tapped.

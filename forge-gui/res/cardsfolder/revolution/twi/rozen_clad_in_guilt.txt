@@ -2,12 +2,11 @@ Name:Rozen, Clad in Guilt
 ManaCost:1 G W
 Types:Legendary Creature Elf Soldier
 PT:3/3
-K:Ward:X:where X is the number of counters on CARDNAME
-SVar:X:Count$CardCounters.ALL
+K:Ward:1
 S:Mode$ ReduceCost | ValidCard$ Card | Type$ Spell | Activator$ You | Amount$ 2 | CheckSVar$ YouCastThisTurn | SVarCompare$ EQ1 | Description$ The second spell you cast each turn costs {2} less to cast.
 SVar:YouCastThisTurn:Count$ThisTurnCast_Card.YouCtrl
 T:Mode$ SpellCast | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell, put a +1/+1 counter on CARDNAME.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
 SVar:PlayMain1:TRUE
 DeckHas:Ability$Counters
-Oracle:Ward {X}, where X is the number of counters on Rozen, Clad in Guilt.\nThe second spell you cast each turn costs {2} less to cast.\nWhenever you cast a spell, put a +1/+1 counter on Rozen, Clad in Guilt.
+Oracle:Ward {1}\nThe second spell you cast each turn costs {2} less to cast.\nWhenever you cast a spell, put a +1/+1 counter on Rozen, Clad in Guilt.

@@ -3,5 +3,6 @@ ManaCost:U
 Types:Instant
 A:SP$ Charm | Choices$ DBPump,DBShuffle | CharmNum$ 1
 SVar:DBPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +1 | NumDef$ +1 | KW$ Hexproof | SpellDescription$ Target creature you control gets +1/+1 and gains hexproof until end of turn.
-SVar:DBShuffle:DB$ ChangeZoneAll | ValidTgts$ Player | Origin$ Graveyard | Destination$ Library | ChangeType$ Card | Shuffle$ True | SpellDescription$ Target player shuffles their graveyard into their library.
-Oracle:Choose one —\n• Target creature you control gets +1/+1 and gains hexproof until end of turn.\n• Target player shuffles their graveyard into their library.
+SVar:DBShuffle:DB$ Pump | ValidTgts$ Player | IsCurse$ True | SubAbility$ DBChangeZone | SpellDescription$ Target player shuffles up to three target cards from their graveyard into their library.
+SVar:DBChangeZone:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ 3 | TargetsWithDefinedController$ ParentTarget | Origin$ Graveyard | Destination$ Library | Shuffle$ True | ValidTgts$ Card
+Oracle:Choose one —\n• Target creature you control gets +1/+1 and gains hexproof until end of turn.\n• Target player shuffles up to three target cards from their graveyard into their library.

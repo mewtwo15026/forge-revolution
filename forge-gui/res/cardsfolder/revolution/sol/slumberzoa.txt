@@ -1,6 +1,9 @@
 Name:Slumberzoa
 ManaCost:1 U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/72_Slumberzoa.jpg
+Types:Creature Jellyfish
+PT:1/2
+K:Flying
+K:Vigilance
+A:AB$ Mana | Cost$ T | Activator$ You.NonActive | Produced$ U | SpellDescription$ Add {U}. Activate only if it's not your turn.
+DeckHints:Keyword$Flash & Type$Instant
 Oracle:Flying, vigilance\n{T}: Add {U}. Activate only if it's not your turn.

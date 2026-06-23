@@ -1,0 +1,11 @@
+Name:Advent Herald
+ManaCost:W U
+Types:Creature Moonfolk Wizard
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When CARDNAME enters, put a -1/-1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ M1M1 | AITgts$ Card.Self | IsCurse$ True | CounterNum$ 1
+# TODO: figure out how to make this a Panharmonicon static instead of an AbilityTriggered trigger
+A:AB$ Effect | Cost$ 1 T SubCounter<1/M1M1> | SorcerySpeed$ True | Triggers$ SelfPanharm | SpellDescription$ Until end of turn, if a creature you control entering causes a triggered ability of that creature to trigger, that ability triggers an additional time. Activate only as a sorcery.
+SVar:SelfPanharm:Mode$ AbilityTriggered | Static$ True | TriggerZones$ Battlefield | ValidDestination$ Battlefield | ValidMode$ ChangesZone,ChangesZoneAll | Execute$ TrigCopy | ValidSource$ Creature.YouCtrl | TriggeredOwnAbility$ True | TriggerDescription$ If a creature you control entering causes a triggered ability of that creature to trigger, that ability triggers an additional time.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:When Advent Herald enters, put a -1/-1 counter on target creature you control.\n{1}, {T}, Remove a -1/-1 counter from Advent Herald: Until end of turn, if a creature you control entering causes a triggered ability of that creature to trigger, that ability triggers an additional time. Activate only as a sorcery.

@@ -1,0 +1,11 @@
+Name:Berry Fermenter
+ManaCost:2 G
+Types:Creature Turtle
+PT:1/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+A:AB$ GainLife | Cost$ 2 Sac<1/Berry> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
+A:AB$ Mana | Cost$ T Sac<1/Berry> | Produced$ Any | SpellDescription$ Add one mana of any color.
+DeckHints:Type$Berry
+DeckHas:Ability$Sacrifice|LifeGain|Token & Type$Berry
+Oracle:When Berry Fermenter enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\n{2}, Sacrifice a Berry: You gain 3 life.\n{T}, Sacrifice a Berry: Add one mana of any color.

@@ -1,6 +1,9 @@
 Name:Qaraz Nullblade
 ManaCost:1 U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/68_Qaraz Nullblade.jpg
-Oracle:When Qaraz Nullblade enters, tap target creature you don't control. It doesn't untap during its controller's next untap step.
+Types:Creature Elf Rogue
+PT:1/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, tap target creature you don't control. That creature doesn't untap during its controller's next untap step.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.YouDontCtrl | IsCurse$ True | TgtPrompt$ Select target creature you don't control | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ HIDDEN This card doesn't untap during your next untap step. | Duration$ Permanent
+SVar:PlayMain1:TRUE
+Oracle:When Qaraz Nullblade enters, tap target creature you don't control. That creature doesn't untap during its controller's next untap step.

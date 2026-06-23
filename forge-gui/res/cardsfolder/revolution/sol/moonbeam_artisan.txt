@@ -1,6 +1,10 @@
 Name:Moonbeam Artisan
 ManaCost:WB WB WB
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/262_Moonbeam Artisan.jpg
+Types:Creature Moonfolk Cleric
+PT:3/2
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for an artifact or enchantment card with mana value 1 or less, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Artifact.cmcLE1,Enchantment.cmcLE1 | ChangeNum$ 1
+DeckHas:Ability$LifeGain
+DeckHints:Type$Artifact|Enchantment
 Oracle:Lifelink\nWhen Moonbeam Artisan enters, you may search your library for an artifact or enchantment card with mana value 1 or less, reveal it, put it into your hand, then shuffle.

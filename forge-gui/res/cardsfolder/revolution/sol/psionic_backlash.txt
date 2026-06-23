@@ -1,5 +1,9 @@
 Name:Psionic Backlash
 ManaCost:B R
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/232_Psionic Backlash.jpg
+A:SP$ Discard | NumCards$ 2 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw | SpellDescription$ Discard two cards, then draw two cards. All creatures get -1/-1 until end of turn for each nonland card discarded this way.
+SVar:DBDraw:DB$ Draw | NumCards$ 2 | SubAbility$ DBShrinkAll
+SVar:DBShrinkAll:DB$ PumpAll | ValidCards$ Creature | NumAtt$ -X | NumDef$ -X | IsCurse$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$Valid Card.nonLand
 Oracle:Discard two cards, then draw two cards. All creatures get -1/-1 until end of turn for each nonland card discarded this way.

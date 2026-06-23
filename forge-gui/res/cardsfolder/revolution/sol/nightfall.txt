@@ -1,5 +1,7 @@
 Name:Nightfall
 ManaCost:2 B B
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/98_Nightfall.jpg
+A:SP$ Charm | Choices$ DBShrinkAll,DBToken
+SVar:DBShrinkAll:DB$ PumpAll | ValidCards$ Creature | NumAtt$ -4 | NumDef$ -4 | IsCurse$ True | SpellDescription$ All creatures get -4/-4 until end of turn.
+SVar:DBToken:DB$ Token | TokenScript$ b_4_4_dragon_flying | SpellDescription$ Create a 4/4 black Dragon creature token with flying.
 Oracle:Choose one -\n• All creatures get -4/-4 until end of turn.\n• Create a 4/4 black Dragon creature token with flying.

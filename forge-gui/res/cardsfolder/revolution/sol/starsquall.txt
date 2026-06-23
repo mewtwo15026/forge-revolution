@@ -1,5 +1,7 @@
 Name:Starsquall
 ManaCost:2 R
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/150_Starsquall.jpg
-Oracle:Starsquall deals 2 damage to each creature.\nCreate a Chart token. (It has \{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.\)
+A:SP$ DamageAll | NumDmg$ 2 | ValidCards$ Creature | ValidDescription$ each creature. | SubAbility$ TrigToken | SpellDescription$ CARDNAME deals 2 damage to each creature. Create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_chart_sac
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Chart
+Oracle:Starsquall deals 2 damage to each creature.\nCreate a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")

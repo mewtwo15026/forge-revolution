@@ -1,11 +1,12 @@
 Name:Stargazing
-ManaCost:U
+ManaCost:1 U
 Types:Sorcery
-A:SP$ Scry | NumCards$ 1 | SubAbility$ DBDraw | SpellDescription$ Scry 1, then draw a card. Then you may discard a card. If you do, return CARDNAME to its owner's hand. You can't cast any more spells named Stargazing this turn.
+A:SP$ Scry | NumCards$ 1 | SubAbility$ DBDraw | SpellDescription$ Scry 1, then draw a card. If you cast this spell from your hand, you may discard a card. If you do, exile CARDNAME. During your next turn, you may cast CARDNAME as long as it remains exiled.
 SVar:DBDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBReturn
-SVar:DBReturn:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Hand | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SubAbility$ DBEffect
-SVar:DBEffect:DB$ Effect | StaticAbilities$ STCantBeCast
-SVar:STCantBeCast:DB$ CantBeCast | ValidCard$ Card.namedStargazing | Caster$ You | Description$ You can't cast spells named Stargazing this turn.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Exile | ConditionDefined$ Self | ConditionPresent$ Card.wasCastFromYourHand | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | RememberChanged$ True | SubAbility$ DelTrigNextTurn
+SVar:DelTrigNextTurn:DB$ DelayedTrigger | Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigEffect | RememberObjects$ Remembered | Static$ True
+SVar:TrigEffect:DB$ Effect | RememberObjects$ DelayTriggerRemembered | ExileOnMoved$ Exile | StaticAbilities$ STMayPlay
+SVar:STMayPlay:Mode$ Continuous | Affected$ Card.IsRemembered+nonLand | MayPlay$ True | MayPlayWithoutManaCost$ True | AffectedZone$ Exile | Description$ You may cast this card from exile this turn without paying its mana cost.
 DeckHas:Ability$Discard
 DeckNeeds:Keyword$Madness|Flashback|Unearth|twi_Chant
-Oracle:Scry 1, then draw a card. Then you may discard a card. If you do, return Stargazing to its owner's hand.\nYou can't cast any more spells named Stargazing this turn.
+Oracle:Scry 1, then draw a card.\nIf you cast this spell from your hand, you may discard a card. If you do, exile Stargazing. During your next turn, you may cast it from exile without paying its mana cost.

@@ -1,6 +1,9 @@
 Name:Humbled Invoker
 ManaCost:3 U
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/57_Humbled Invoker.jpg
+Types:Creature Moonfolk Scout
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 3/2 blue Beast creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ u_3_2_beast
+DeckHas:Ability$Token & Type$Beast
 Oracle:Flash\nWhen Humbled Invoker enters, create a 3/2 blue Beast creature token.

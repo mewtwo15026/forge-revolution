@@ -1,0 +1,7 @@
+Name:Error's Advocate
+ManaCost:1 BR BR
+Types:Creature Human Citizen
+PT:4/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | IsPresent$ Permanent.YouCtrl+cmcGE4 | TriggerZones$ Battlefield | Execute$ TrigDealDamage | TriggerDescription$ Corrupt — When this creature enters, if you control a permanent with greater mana value, it deals 1 damage to any target.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 1
+Oracle:Corrupt — When this creature enters, if you control a permanent with greater mana value, it deals 1 damage to any target.

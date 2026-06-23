@@ -1,0 +1,9 @@
+Name:Berry Token
+ManaCost:no cost
+Types:Artifact Berry Equipment
+R:Event$ AssignDealDamage | ValidCard$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice this token. If you do, equipped creature gets +2/+2 until end of turn.
+R:Event$ DamageDone | ValidTarget$ Creature.EquippedBy | IsPresent$ Card.Self+AttachedTo Creature | ReplaceWith$ ReplaceSac | ReplacementResult$ Updated | Secondary$ True | Description$ Before equipped creature would assign, deal, or be dealt damage, sacrifice this token. If you do, equipped creature gets +2/+2 until end of turn.
+SVar:ReplaceSac:DB$ Sacrifice | RememberSacrificed$ True | SubAbility$ ReplacePump
+SVar:ReplacePump:DB$ Pump | Defined$ Equipped | NumAtt$ +2 | NumDef$ +2 | ConditionDefined$ Remembered | ConditionPresent$ Card
+K:Equip:1
+Oracle:Before equipped creature would assign, deal, or be dealt damage, sacrifice this token. If you do, equipped creature gets +2/+2 until end of turn.\nEquip {1}

@@ -1,10 +1,28 @@
 package forge.game.staticability;
 
+import forge.game.GameEntity;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
 import forge.game.zone.ZoneType;
 
 public class StaticAbilityCantPreventDamage {
+
+    // REVOLUTION
+    public static boolean cantPreventDamage(final Card source, final GameEntity target, final boolean isCombat) {
+        CardCollection list = new CardCollection(source.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
+        list.add(source);
+        for (final Card ca : list) {
+            for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                if (!stAb.checkConditions(StaticAbilityMode.CantPreventDamage)) {
+                    continue;
+                }
+                if (applyCantPreventDamage(stAb, source, target, isCombat)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static boolean cantPreventDamage(final Card source, final boolean isCombat) {
         CardCollection list = new CardCollection(source.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
@@ -20,6 +38,13 @@ public class StaticAbilityCantPreventDamage {
             }
         }
         return false;
+    }
+
+    // REVOLUTION
+    // this will eventually be a non-hacky way to handle Curse of Searing Ground
+    public static boolean applyCantPreventDamage(final StaticAbility stAb, final Card source, final GameEntity target, final boolean isCombat) {
+        if(!stAb.matchesValidParam("ValidTarget", target)) return false;
+        else return applyCantPreventDamage(stAb, source, isCombat);
     }
 
     public static boolean applyCantPreventDamage(final StaticAbility stAb, final Card source, final boolean isCombat) {

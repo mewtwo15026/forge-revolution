@@ -1,5 +1,14 @@
 Name:Rites of the Dying Sun
 ManaCost:2 B
 Types:Enchantment
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/108_Rites of the Dying Sun.jpg
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 1/1 white Spirit creature tokens.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit | TokenAmount$ 2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Artifact.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigSac | PresentDefined$ Remembered | IsPresent$ Card | PresentCompare$ EQ0 | TriggerDescription$ Once each turn, when an artifact you control enters, you may sacrifice a creature. If you do, create an X/X red Spirit creature token, where X is the number of enchantments you control.
+SVar:TrigSac:DB$ Sacrifice | SacValid$ Creature | Optional$ True | RememberSacrificed$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ r_x_x_spirit | TokenPower$ X | TokenPower$ X | ConditionDefined$ Remembered | ConditionPresent$ Card
+SVar:X:Count$Valid Enchantment.YouCtrl
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ DBCleanup | Static$ True
+T:Mode$ TurnBegin | ValidPlayer$ Player | Execute$ DBCleanup | Static$ True
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+AI:RemoveDeck:All
 Oracle:When Rites of the Dying Sun enters, create two 1/1 white Spirit creature tokens.\nOnce each turn, when an artifact you control enters, you may sacrifice a creature. If you do, create an X/X red Spirit creature token, where X is the number of enchantments you control.

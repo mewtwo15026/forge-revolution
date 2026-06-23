@@ -1,6 +1,9 @@
 Name:Zukar's Informant
 ManaCost:1 UB UB
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/273_Zukar's Informant.jpg
+Types:Creature Moonfolk Rogue
+PT:2/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever CARDNAME attacks, you draw a card and you lose 1 life.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+SVar:HasAttackEffect:TRUE
 Oracle:Whenever Zukar's Informant attacks, you draw a card and you lose 1 life.

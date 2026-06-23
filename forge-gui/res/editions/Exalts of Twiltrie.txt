@@ -7,12 +7,12 @@ MciCode=twi
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 WildCard, 1 AnyLand
+Booster=9 Common,3 Uncommon,1 RareMythic,1 Wildcard,1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands TWI
 Prerelease=6 Boosters, 1 RareMythic+
 BoosterBox=36
-#ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
 # Set designed by Zangy
 
 #Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
@@ -53,7 +53,7 @@ Replace=.016F fromSheet("TWI buy a box")
 14 C Dawnward Minister @Xo Xue
 15 R Diviner of the Sun @Thanet Thanakij
 16 U Ember-Caged Siegebreaker @Bo Chen
-17 U Fiendlight Tactician @V Wei
+17 U Fieldlight Tactician @V Wei
 18 R Henda Ravellan @XiangYu Zhou
 19 R Herald of the Radiant Banner @Aleksi Remes
 20 U Law Given Form @Sam Yang
@@ -99,7 +99,7 @@ Replace=.016F fromSheet("TWI buy a box")
 60 C Gossamer Dreamer @Anastasia Chaykovskaya
 61 C Hushed Briefing @Andy Napoles
 62 U Mistwrit Archivist @Monkae
-63 U Overrule Thought @Kamiu rei
+63 U Overrule Will @Kamiu rei
 64 C Pagebinder Witch @Amekoi Eliza
 65 M Path of Scales @Vagelio Kaliva
 66 C Raven of Onyx Wing @Muhammx Fajri
@@ -244,7 +244,7 @@ Replace=.016F fromSheet("TWI buy a box")
 205 U Widow's Knight @Dasha y Park
 206 U Wrought in Hunger @Cola Alter
 207 U Binder of Greed and Merit @Fei Ren and Roanna Peroz
-208 R Ceridwyn, Matron @Pandart Studio
+208 R Cerridwyn, Matron @Pandart Studio
 209 U Cidraeth Charm @Blackviii
 210 C Destructive Ambition @C Can Yang
 211 M The Ever-Gnashing Dark @KILART (choe, heonhwa)
@@ -374,6 +374,13 @@ Replace=.016F fromSheet("TWI buy a box")
 336 S Sanctum of Repression @twarda8
 337 S Discern @yami-no-kuni
 340 S Trauma Spike @kerem-beyit
+342 S Bleed for the Cause @Adam Burke
+343 S Destructive Ambition @Adam Burke
+344 S Uplifting Chorus @CREADFECTUS
+345 S Culling Ritual @Sabrina Normani
+346 S Deafening Clarion @Edwin Sablaya
+347 S Crumbling Ruin @Logan Feliciano
+349 S Aegis of Grace @Marcello Chall
 
 [duals]
 1 Blossoming Sands|TWI

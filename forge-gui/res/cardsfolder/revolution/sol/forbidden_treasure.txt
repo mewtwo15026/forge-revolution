@@ -1,5 +1,14 @@
 Name:Forbidden Treasure
 ManaCost:1 U
 Types:Instant
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/55_Forbidden Treasure.jpg
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Instant,Sorcery | SubAbility$ ExileYard | SpellDescription$ Counter target instant or sorcery spell. Search its controller's graveyard, hand, and library for any number of cards with the same name as that spell and exile them. That player shuffles, then draws a card for each card exiled from their hand this way.
+SVar:ExileYard:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | DefinedPlayer$ TargetedController | ChangeType$ TargetedCard.sameName | ChangeNum$ NumInYard | Chooser$ You | SubAbility$ ExileHand | StackDescription$ None
+SVar:ExileHand:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | DefinedPlayer$ TargetedController | ChangeType$ TargetedCard.sameName | ChangeNum$ NumInHand | Chooser$ You | RememberChanged$ True | SubAbility$ ExileLib | StackDescription$ None
+SVar:ExileLib:DB$ ChangeZone | Origin$ Library | Destination$ Exile | DefinedPlayer$ TargetedController | ChangeType$ TargetedCard.sameName | ChangeNum$ NumInLib | Chooser$ You | Shuffle$ True | SubAbility$ DBDraw | StackDescription$ None
+SVar:DBDraw:DB$ Draw | Defined$ TargetedPlayer | NumCards$ X | SubAbility$ DBCleanup | StackDescription$ None
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedSize
+SVar:NumInYard:TargetedController$CardsInGraveyard
+SVar:NumInHand:TargetedController$CardsInHand
+SVar:NumInLib:TargetedController$CardsInLibrary
 Oracle:Counter target instant or sorcery spell. Search its controller's graveyard, hand, and library for any number of cards with the same name as that spell and exile them. That player shuffles, then draws a card for each card exiled from their hand this way.

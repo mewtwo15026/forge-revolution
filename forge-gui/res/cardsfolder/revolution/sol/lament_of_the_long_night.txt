@@ -1,5 +1,10 @@
 Name:Lament of the Long Night
 ManaCost:B
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/90_Lament of the Long Night.jpg
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | RememberChanged$ True | SubAbility$ DBGainLife | StackDescription$ SpellDescription | SpellDescription$ Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card and you lose 1 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3 | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ1 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ0 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Flashback:2 B
 Oracle:Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card and you lose 1 life.\nFlashback {2}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

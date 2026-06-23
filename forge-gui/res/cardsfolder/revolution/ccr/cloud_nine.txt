@@ -4,7 +4,7 @@ Types:Sorcery
 A:SP$ Charm | Choices$ DBExile,DBGainLife,DBAcclimate
 SVar:DBExile:DB$ ChangeZone | ValidTgts$ Enchantment | TgtPrompt$ Select target enchantment | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target enchantment.
 SVar:DBGainLife:DB$ GainLife | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
-SVar:DBAcclimate:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Optional$ True | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter | SpellDescription$ Acclimate. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on a creature you control.)
+SVar:DBAcclimate:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter | SpellDescription$ Acclimate. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on a creature you control.)
 SVar:AccliCounter:DB$ PutCounter | Choices$ Creature.YouCtrl | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
 SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
 DeckHas:Ability$Counters|LifeGain

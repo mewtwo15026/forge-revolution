@@ -1,0 +1,6 @@
+Name:Parse
+ManaCost:U
+Types:Sorcery
+A:SP$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBSurveil | SpellDescription$ Draw a card. Corrupt — If you control a permanent with greater mana value than this spell, surveil 2.
+SVar:DBSurveil:DB$ Surveil | Amount$ 2 | ConditionPresent$ Permanent.YouCtrl+cmcGE2 | ConditionCompare$ GE1
+Oracle:Draw a card.\nCorrupt — If you control a permanent with greater mana value than this spell, surveil 2.

@@ -1,0 +1,6 @@
+Name:Offering Token
+ManaCost:no cost
+Types:Artifact Creature Offering
+Colors:white,blue,black,red,green
+PT:0/1
+Oracle:(This creature is all colors.)

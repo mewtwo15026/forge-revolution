@@ -1,6 +1,11 @@
 Name:Horizon Vassal
 ManaCost:2 G
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/173_Horizon Vassal.jpg
+Types:Creature Moonfolk Druid
+PT:3/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may mill three cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You
+A:AB$ Token | Cost$ 2 G ExileFromGrave<1/CARDNAME> ExileFromGrave<2/Card.Other+namedHorizon Vassal> | ActivationZone$ Graveyard | SorcerySpeed$ True | TokenScript$ g_9_6_wolf_spirit_trample | SpellDescription$ Create a 9/6 green Wolf Spirit creature token with trample. Activate only as a sorcery.
+DeckHas:Ability$Graveyard
+DeckHints:Name$Horizon Vassal
 Oracle:Flash\nWhen Horizon Vassal enters, you may mill three cards.\n{2}{G}, Exile Horizon Vassal and two other cards named Horizon Vassal from your graveyard: Create a 9/6 green Wolf Spirit creature token with trample. Activate only as a sorcery.

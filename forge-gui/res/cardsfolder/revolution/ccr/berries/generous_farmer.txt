@@ -1,0 +1,11 @@
+Name:Generous Farmer
+ManaCost:3 W
+Types:Creature Human Ranger
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBerry | TriggerDescription$ When CARDNAME enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")
+SVar:TrigBerry:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ c_a_berry_equip
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Berry | Execute$ TrigPlant | TriggerZones$ Battlefield | TriggerDescription$ Whenever you sacrifice a Berry, create a 1/1 green Plant creature token.
+SVar:TrigPlant:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ g_1_1_plant
+DeckHints:Type$Berry
+DeckHas:Ability$Token & Type$Berry|Plant
+Oracle:When Generous Farmer enters, create a Berry token. (It's an Equipment with equip {1} and "Before damage, sacrifice this to give equipped creature +2/+2 until end of turn.")\nWhenever you sacrifice a Berry, create a 1/1 green Plant creature token.

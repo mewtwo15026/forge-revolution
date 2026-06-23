@@ -1,5 +1,11 @@
 Name:Manifest Naught
 ManaCost:3 B
 Types:Sorcery
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/93_Manifest Naught.jpg
+S:Mode$ ReduceCost | ValidCard$ Card.Self | CheckSVar$ X | Type$ Spell | Amount$ 2 | EffectZone$ All | Description$ This spell costs {2} less to cast if a player discarded a card this turn.
+SVar:X:PlayerCountPlayers$CardsDiscardedThisTurn
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBDrain | SpellDescription$ Draw two cards. Each opponent loses 2 life and you gain 2 life.
+SVar:DBDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 2 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
+DeckHas:Ability$LifeGain
+DeckHints:Ability$Discard
 Oracle:This spell costs {2} less to cast if a player discarded a card this turn.\nDraw two cards. Each opponent loses 2 life and you gain 2 life.

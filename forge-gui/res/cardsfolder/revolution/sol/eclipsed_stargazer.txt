@@ -1,6 +1,9 @@
 Name:Eclipsed Stargazer
 ManaCost:UB UB UB
-Types:Creature
-PT:0/0
-SVar:Picture:https://EscapeFromLimbo.github.io/sets/SOL-files/img/256_Eclipsed Stargazer.jpg
+Types:Creature Moonfolk Cleric
+PT:3/1
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ CARDNAME can't block.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME dies, draw three cards.
+SVar:TrigDraw:DB$ Draw | Defined$ TriggeredCardController | NumCards$ 3
+SVar:SacMe:1
 Oracle:Eclipsed Stargazer can't block.\nWhen Eclipsed Stargazer dies, draw three cards.
