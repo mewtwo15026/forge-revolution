@@ -1,0 +1,13 @@
+Name:The Harvesttide Procession
+ManaCost:4 G
+Types:Legendary Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TokenChoice | TriggerDescription$ At the beginning of your end step, create your choice of a 1/1 white Human creature token or a Treasure token.
+SVar:TokenChoice:DB$ Charm | Choices$ DBHuman,DBTreasure
+SVar:DBHuman:DB$ Token | TokenScript$ w_1_1_human | SpellDescription$ 1/1 white Human creature token
+SVar:DBTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | SpellDescription$ Treasure token
+R:Event$ CreateToken | ActiveZones$ Battlefield | ValidToken$ Card.YouCtrl | ReplaceWith$ DBReplace | CheckSVar$ Concord | SVarCompare$ GE4 | Description$ Concord - If there are four or more card types among permanents you control, if an effect would create one or more tokens under your control, it creates that many plus one of those tokens instead.
+SVar:DBReplace:DB$ ReplaceToken | Type$ Amount | Amount$ Plus.1
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHas:Ability$Token & Type$Artifact|Human|Treasure
+DeckHints:Type$Artifact|Creature|Planeswalker|Battle
+Oracle:At the beginning of your end step, create your choice of a 1/1 white Human creature token or a Treasure token.\nConcord - If there are four or more card types among permanents you control, if an effect would create one or more tokens under your control, it creates that many plus one of those tokens instead.

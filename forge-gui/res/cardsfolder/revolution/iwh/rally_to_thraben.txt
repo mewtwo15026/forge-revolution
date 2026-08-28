@@ -1,0 +1,11 @@
+Name:Rally to Thraben
+ManaCost:X R W
+Types:Sorcery
+A:SP$ Token | TokenScript$ w_1_1_human | TokenAmount$ X | SubAbility$ DBImmeTrig | SpellDescription$ Create X 1/1 white Human creature tokens. When you do, CARDNAME deals damage to up to one target creature or planeswalker equal to the number of creatures you control.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigBurn | TriggerDescription$ When you do, Rally to Thraben deals damage to up to one target creature or planeswalker equal to the number of creatures you control.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker | NumDmg$ Y
+SVar:X:Count$xPaid
+SVar:Y:Count$Valid Creature.YouCtrl
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Human
+Oracle:Create X 1/1 white Human creature tokens. When you do, Rally to Thraben deals damage to up to one target creature or planeswalker equal to the number of creatures you control.

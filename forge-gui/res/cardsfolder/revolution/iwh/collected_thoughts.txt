@@ -1,0 +1,10 @@
+Name:Collected Thoughts
+ManaCost:2 U U
+Types:Sorcery
+A:SP$ Dig | DigNum$ 6 | ChangeNum$ 1 | NoReveal$ True | LibraryPosition2$ 0 | SkipReorder$ True | RememberRevealed$ True | SubAbility$ DBCast | NoLooking$ True | SpellDescription$ Look at the top six cards of your library. Put one of those cards into your hand, then you may cast an instant or sorcery card with mana value 3 or less from among the cards without paying its mana cost. Put the rest on the bottom in a random order.
+SVar:DBCast:DB$ Play | ValidZone$ Library | Valid$ Instant.IsRemembered+cmcLE3,Sorcery.IsRemembered+cmcLE3 | ValidSA$ Spell | Controller$ You | WithoutManaCost$ True | Optional$ True | Amount$ 1 | ForgetPlayed$ True | SubAbility$ DBRestRandomOrder
+SVar:DBRestRandomOrder:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Library | Destination$ Library | LibraryPosition$ -1 | RandomOrder$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:BuffedBy:Instant.cmcLE3,Sorcery.cmcLE3
+DeckHints:Type$Instant|Sorcery
+Oracle:Look at the top six cards of your library. Put one of those cards into your hand, then you may cast an instant or sorcery card with mana value 3 or less from among the cards without paying its mana cost. Put the rest on the bottom in a random order.

@@ -1,0 +1,11 @@
+Name:Hollowhenge Martyr
+ManaCost:W
+Types:Creature Spirit
+PT:0/1
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Creature.EnchantedBy | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigToken | TriggerDescription$ When this creature or enchanted creature dies, that creature's controller creates a 1/1 white Spirit creature token with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit_flying | TokenOwner$ TriggeredCardController
+SVar:SacMe:1
+DeckHas:Ability$Token
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhen this creature or enchanted creature dies, that creature's controller creates a 1/1 white Spirit creature token with flying.

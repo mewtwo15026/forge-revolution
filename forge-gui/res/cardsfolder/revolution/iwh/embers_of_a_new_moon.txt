@@ -1,0 +1,10 @@
+Name:Embers of a New Moon
+ManaCost:R
+Types:Instant
+K:AlternateAdditionalCost:Behold<1/Wolf;Werewolf/Wolf or Werewolf>:2
+A:SP$ Dig | Defined$ You | DigNum$ 2 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top two cards of your library. Until the end of your next turn, you may play those cards.
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play the exiled cards.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Wolf|Werewolf
+Oracle:As an additional cost to cast this spell, behold a Wolf or Werewolf or pay {2}. (You may choose a Wolf or Werewolf you control or reveal a Wolf or Werewolf card from your hand.)\nExile the top two cards of your library. You may play them until the end of your next turn.

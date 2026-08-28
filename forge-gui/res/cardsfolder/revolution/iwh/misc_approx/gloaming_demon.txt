@@ -1,0 +1,16 @@
+Name:Gloaming Demon
+ManaCost:1 B B B
+Types:Creature Demon
+PT:3/5
+K:Flying
+K:Deathtouch
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 0/1 Offering artifact creature token that's all colors.
+SVar:TrigToken:DB$ Token | TokenScript$ wubrg_0_1_a_offering
+# TODO: figure out how to do this for multiple same-color pips and for hybrid mana
+S:Mode$ OptionalCost | ValidCard$ Card.White | ValidSA$ Spell | Activator$ You | Cost$ PayLife<1> Sac<1/Permanent.White/white permanent> | ReduceColor$ W | Description$ For each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+S:Mode$ OptionalCost | ValidCard$ Card.Blue | ValidSA$ Spell | Activator$ You | Cost$ PayLife<1> Sac<1/Permanent.Blue/blue permanent> | ReduceColor$ U | Secondary$ True | Description$ (BLUE) For each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+S:Mode$ OptionalCost | ValidCard$ Card.Black | ValidSA$ Spell | Activator$ You | Cost$ PayLife<1> Sac<1/Permanent.Black/black permanent> | ReduceColor$ B | Secondary$ True | Description$ (BLACK) For each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+S:Mode$ OptionalCost | ValidCard$ Card.Red | ValidSA$ Spell | Activator$ You | Cost$ PayLife<1> Sac<1/Permanent.Red/red permanent> | ReduceColor$ R | Secondary$ True | Description$ (RED) For each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+S:Mode$ OptionalCost | ValidCard$ Card.Green | ValidSA$ Spell | Activator$ You | Cost$ PayLife<1> Sac<1/Permanent.Green/green permanent> | ReduceColor$ G | Secondary$ True | Description$ (GREEN) For each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+Oracle:Flying, deathtouch\nWhen this creature enters, create a 0/1 Offering artifact creature token that's all colors.\nFor each color of mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.
+# Oracle:Flying, deathtouch\nWhen this creature enters, create a 0/1 Offering artifact creature token that's all colors.\nFor each colored mana in the cost of a spell, you may pay 1 life and sacrifice a permanent of that color rather than pay that mana.

@@ -1,0 +1,21 @@
+Name:Dire-Strain Imbuer
+ManaCost:3 G
+Types:Creature Human Rogue Werewolf
+PT:4/3
+K:Ward:2
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+Oracle:Ward {2}\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Direfuel Abomination
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:5/4
+K:Hexproof
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Hexproof\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

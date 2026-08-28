@@ -1,0 +1,15 @@
+Name:Silverflame Zealot
+ManaCost:1 W
+Types:Creature Human Cleric
+PT:2/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReveal | TriggerDescription$ When this creature enters, 
+SVar:TrigReveal:DB$ RevealHand | Defined$ Player | ImprintRevealed$ True | SubAbility$ DBRepeatEach
+SVar:DBRepeatEach:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ RepeatExile | SubAbility$ DBCleanup
+SVar:RepeatExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | ChangeType$ Card.nonLand+IsImprinted | ChangeNum$ 1 | AlreadyRevealed$ True | Chooser$ Remembered | IsCurse$ True | RememberChanged$ True | SubAbility$ RepeatEffect
+SVar:RepeatEffect:DB$ Effect | Duration$ Permanent | StaticAbilities$ MayPlay,CostsMore | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ RepeatCleanup
+SVar:MayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | MayPlayPlayer$ CardOwner | Description$ For as long as the remembered card remains exiled, you may play it.
+SVar:CostsMore:Mode$ RaiseCost | ValidCard$ Card.IsRemembered+CastSa Spell.MayPlaySource | AffectedZone$ Exile | Type$ Spell | Amount$ 2 | Description$ A spell cast this way costs {2} more to cast.
+SVar:RepeatCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
+A:AB$ Pump | Cost$ 1 R | Defined$ Self | NumAtt$ +2 | SpellDescription$ This creature gets +2/+0 until end of turn.
+Oracle:When this creature enters, each player reveals their hand. Starting with you, each of those players may exile a nonland card revealed this way. For as long as those cards remain exiled, their owners may play them. A spell cast this way costs {2} more to cast.\n{1}{R}: This creature gets +2/+0 until end of turn.

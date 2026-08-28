@@ -1,0 +1,13 @@
+Name:Lunarblind Packmaster
+ManaCost:1 R R
+Types:Creature Wolf
+PT:2/4
+# TODO: add specifics to "K:CARDNAME can't attack or block alone."
+K:Flash
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ EntersTapped | ReplacementResult$ Updated | Description$ This creature enters tapped.
+SVar:EntersTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDealDamage | TriggerDescription$ When this creature enters, it deals 2 damage to any target.
+SVar:TrigDealDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2
+K:CARDNAME can't attack or block alone.
+S:Mode$ CantAttack,CantBlock | ValidCard$ Card.Self | IsPresent$ Creature.Other+YouCtrl+Transformed,Creature.Other+YouCtrl+powerGTbasePower | Description$ This creature can't attack or block unless you control another savage creature. (A creature is savage if it's transformed or has power greater than its base power.)
+Oracle:Flash\nThis creature enters the battlefield tapped.\nWhen this creature enters, it deals 2 damage to any target.\nThis creature can't attack or block unless it attacks or blocks with another savage creature. (A creature is savage if it's transformed or has power greater than its base power.)

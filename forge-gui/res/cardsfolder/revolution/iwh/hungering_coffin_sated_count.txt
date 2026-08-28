@@ -1,0 +1,28 @@
+Name:Hungering Coffin
+ManaCost:B
+Types:Artifact
+A:AB$ Draw | Cost$ B T Sac<1/Creature> | SubAbility$ DBGainLife | SpellDescription$ Draw a card and you gain 1 life. Put a feed counter on this artifact.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1 | SubAbility$ DBFeed
+SVar:DBFeed:DB$ PutCounter | CounterType$ FEED | CounterNum$ 1
+A:AB$ SetState | Cost$ 2 B | SorcerySpeed$ True | Defined$ Self | Mode$ Transform | IsPresent$ Card.Self+counters_GE3_FEED | SubAbility$ DBUntap | SpellDescription$ Transform this artifact and untap it. Activate only if it has three or more feed counters on it and only as a sorcery.
+SVar:DBUntap:DB$ Untap | Defined$ Self
+SVar:AIPreference:SacCost$Creature.token,Creature.cmcLE1
+DeckHas:Ability$Counters|Sacrifice
+DeckHints:Ability$Token|Graveyard
+AlternateMode:DoubleFaced
+Oracle:{B}, {T}, Sacrifice a creature: Draw a card and you gain 1 life. Put a feed counter on this artifact.\n{2}{B}: Transform this artifact and untap it. Activate only if it has three or more feed counters on it and only as a sorcery.
+
+ALTERNATE
+
+Name:Sated Count
+ManaCost:no cost
+Types:Creature Vampire Noble
+Colors:black
+PT:4/3
+K:Flying
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigFed | TriggerDescription$ When this creature transforms into CARDNAME, remove all feed counters from it. You may have target creature get -X/-X until end of turn, where X is the number of feed counters removed this way.
+SVar:TrigFed:DB$ RemoveCounter | Defined$ Self | CounterType$ FEED | SubAbility$ DBShrink | RememberAmount$ True
+SVar:DBShrink:DB$ Pump | ValidTgts$ Creature | IsCurse$ True | Optional$ True | NumAtt$ -X | NumDef$ -X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$RememberedNumber
+Oracle:Flying\nWhen this creature transforms into Sated Count, remove all feed counters from it. You may have target creature get -X/-X until end of turn, where X is the number of feed counters removed this way.

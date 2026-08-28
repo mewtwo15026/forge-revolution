@@ -1,0 +1,12 @@
+Name:Malignant Entangler
+ManaCost:1 G G
+Types:Creature Spider Horror
+PT:2/4
+K:Reach
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When this creature enters, surveil 2. Then if there are seven or more cards in your graveyard, you may pay {1}{B}. When you do, destroy target nonland permanent.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 2 | SubAbility$ DBImmeTrig
+SVar:DBImmeTrig:AB$ ImmediateTrigger | Cost$ 1 B | ConditionPresent$ Card.YouOwn | ConditionZone$ Graveyard | ConditionCompare$ GE7 | Execute$ TrigDestroy | TriggerDescription$ When you do, destroy target nonland permanent.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent
+DeckHas:Ability$Surveil
+DeckHints:Ability$Mill|Surveil
+Oracle:Reach\nWhen this creature enters, surveil 2. Then if there are seven or more cards in your graveyard, you may pay {1}{B}. When you do, destroy target nonland permanent.

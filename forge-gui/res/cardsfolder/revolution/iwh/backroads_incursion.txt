@@ -1,0 +1,6 @@
+Name:Backroads Incursion
+ManaCost:1 G
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Artifact,Creature.withFlying | TgtPrompt$ Select target creature with flying or artifact | SubAbility$ DBSurveil | SpellDescription$ Destroy target creature with flying or artifact. If you control a savage creature, surveil 2. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:DBSurveil:DB$ Surveil | Amount$ 2 | ConditionPresent$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower
+Oracle:Destroy target creature with flying or artifact. If you control a savage creature, surveil 2. (A creature is savage if it's transformed or has power greater than its base power.)

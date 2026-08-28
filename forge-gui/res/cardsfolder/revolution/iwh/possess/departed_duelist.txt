@@ -1,0 +1,10 @@
+Name:Departed Duelist
+ManaCost:2 W
+Types:Creature Spirit Soldier
+PT:2/3
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ Attacks | ValidCard$ Card.Self,Creature.EnchantedBy | Execute$ TrigToken | OptionalDecider$ You | TriggerDescription$ Whenever this creature or enchanted creature attacks, you may tap target creature defending player controls.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target creature defending player controls
+SVar:HasAttackEffect:TRUE
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhenever this creature or enchanted creature attacks, you may tap target creature defending player controls.

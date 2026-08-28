@@ -1,0 +1,12 @@
+Name:Angel of Fading Dusk
+ManaCost:2 B B
+Types:Creature Angel
+PT:4/4
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigDrain | TriggerDescription$ When this creature enters, you may sacrifice another creature. If you do, each opponent loses 3 life and you gain 3 life.
+SVar:TrigDrain:AB$ LoseLife | Cost$ Sac<1/Creature.Other/another creature> | Defined$ Player.Opponent | LifeAmount$ 3 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+A:AB$ ChangeZone | Cost$ 2 W | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | WithCountersType$ Finality | ValidTgts$ Creature.YouCtrl+cmcLE2 | TgtPrompt$ Select target creature card in your graveyard with mana value 2 or less | SpellDescription$ Return target creature card with mana value 2 or less from your graveyard to the battlefield tapped with a finality counter on it.
+SVar:BuffedBy:Creature.!token+cmcLE2
+DeckHas:Ability$Graveyard|Sacrifice|LifeGain
+Oracle:Flying\nWhen this creature enters, you may sacrifice another creature. If you do, each opponent loses 3 life and you gain 3 life.\n{2}{W}: Return target creature card with mana value 2 or less from your graveyard to the battlefield tapped with a finality counter on it.

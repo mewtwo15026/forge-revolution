@@ -1,0 +1,8 @@
+Name:Looming Grafspider
+ManaCost:3 G
+Types:Creature Spider
+PT:2/5
+K:Reach
+A:AB$ Pump | Cost$ 1 G | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | KW$ Trample | ActivationLimit$ 1 | Activation$ Threshold | SpellDescription$ This creature gets +2/+2 and gains trample until end of turn. Activate only if there are seven or more cards in your graveyard and only once each turn.
+DeckHints:Ability$Mill|Surveil
+Oracle:Reach\n{1}{G}: This creature gets +2/+2 and gains trample until end of turn. Activate only if there are seven or more cards in your graveyard and only once each turn.

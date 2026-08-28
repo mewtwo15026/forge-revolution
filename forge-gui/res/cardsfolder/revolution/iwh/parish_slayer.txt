@@ -1,0 +1,11 @@
+Name:Parish Slayer
+ManaCost:2 W W
+Types:Creature Human Soldier
+PT:3/2
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDamage | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may have it deal X damage to target attacking or blocking creature, where X is the number of Humans you control.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Creature.attacking,Creature.blocking | TgtPrompt$ Select target attacking or blocking creature | NumDmg$ X
+SVar:X:Count$Valid Human.YouCtrl
+SVar:BuffedBy:Human
+DeckHints:Type$Human
+Oracle:Flash\nWhen this creature enters, you may have it deal X damage to target attacking or blocking creature, where X is the number of Humans you control.

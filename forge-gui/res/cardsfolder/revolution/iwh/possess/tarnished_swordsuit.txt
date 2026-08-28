@@ -1,0 +1,10 @@
+Name:Tarnished Swordsuit
+ManaCost:4
+Types:Artifact Creature Construct Spirit
+PT:2/5
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ Attacks | ValidCard$ Card.Self,Creature.EnchantedBy | IsPresent$ Card.Other+attacking | PresentCompare$ EQ0 | Execute$ TrigPump | TriggerDescription$ Whenever this creature or enchanted creature attacks, it gets +2/+0 and gains menace until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ +2 | KW$ Menace
+SVar:HasAttackEffect:TRUE
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature. It's also no longer an artifact.)\nWhenever this creature or enchanted creature attacks, it gets +2/+0 and gains menace until end of turn.

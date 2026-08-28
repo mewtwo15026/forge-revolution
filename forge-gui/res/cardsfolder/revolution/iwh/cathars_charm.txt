@@ -1,0 +1,8 @@
+Name:Cathar's Charm
+ManaCost:W
+Types:Instant
+A:SP$ Charm | Choices$ DBSac,DBDamage,DBExile
+SVar:DBSac:DB$ Sacrifice | Defined$ Opponent | SacValid$ Enchantment | SacMessage$ enchantment | SpellDescription$ Each opponent sacrifices an enchantment.
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Creature.tapped | TgtPrompt$ Select target tapped creature | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to target tapped creature.
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | TargetMin$ 0 | TargetMax$ 3 | ValidTgts$ Card | TgtPrompt$ Select up to three target cards in graveyards | SpellDescription$ Exile up to three target cards from graveyards.
+Oracle:Choose one -\n• Each opponent sacrifices an enchantment.\n• Cathar's Charm deals 2 damage to target tapped creature.\n• Exile up to three target cards from graveyards.

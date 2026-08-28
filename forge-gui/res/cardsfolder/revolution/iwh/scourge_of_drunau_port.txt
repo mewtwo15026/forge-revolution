@@ -1,0 +1,12 @@
+Name:Scourge of Drunau Port
+ManaCost:3 U U
+Types:Creature Spirit
+PT:4/4
+K:Flying
+S:Mode$ Continuous | Affected$ Spirit.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Hexproof | Description$ Other Spirits you control get +1/+1.
+A:AB$ Token | Cost$ 2 U Discard<1/CARDNAME> | ActivationZone$ Hand | TokenScript$ w_1_1_spirit_flying | TokenAmount$ 2 | SubAbility$ DBSurveil | SpellDescription$ Create two 1/1 white Spirit creature tokens with flying. Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)
+SVar:DBSurveil:DB$ Surveil | Amount$ 2
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token|Discard|Surveil
+DeckHints:Type$Spirit
+Oracle:Flying\nOther Spirits you control get +1/+1.\n{2}{U}, Discard this card: Create two 1/1 white Spirit creature tokens with flying. Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)

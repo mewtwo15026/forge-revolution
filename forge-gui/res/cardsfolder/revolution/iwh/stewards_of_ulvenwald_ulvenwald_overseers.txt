@@ -1,0 +1,24 @@
+Name:Stewards of Ulvenwald
+ManaCost:4 G G
+Types:Creature Human Druid Werewolf
+PT:6/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When this creature enters, you gain life equal to the greatest power among other creatures you control.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:X:Count$Valid Creature.YouCtrl+Other$GreatestCardPower
+DeckHints:Type$Creature
+AlternateMode:DoubleFaced
+Oracle:When this creature enters, you gain life equal to the greatest power among other creatures you control.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Ulvenwald Overseers
+ManaCost:no cost
+Types:Creature
+Colors:green
+PT:8/7
+K:Vigilance
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Vigilance\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

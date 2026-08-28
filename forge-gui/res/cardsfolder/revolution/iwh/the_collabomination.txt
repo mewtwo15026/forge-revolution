@@ -1,0 +1,10 @@
+Name:The Collabomination
+ManaCost:2 U B B
+Types:Legendary Creature Zombie Horror
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Zombie.Other+YouCtrl+!token | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigMill | TriggerDescription$ Whenever CARDNAME or another nontoken Zombie you control enters, mill two cards and create a 2/2 black Zombie creature token.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ b_2_2_zombie
+A:AB$ Mana | Cost$ PayLife<1> ExileFromGrave<1/Card> | Produced$ C | RestrictValid$ Spell.Instant+!hasXCost,Spell.Sorcery+!hasXCost | SpellDescription$ Add {C}. Spend this mana only to cast an instant or sorcery spell without {X} in its mana cost.
+DeckHas:Ability$Mill|Token
+DeckHints$Type$Zombie & Type$Instant|Sorcery
+Oracle:Whenever The Collabomination or another nontoken Zombie you control enters, mill two cards and create a 2/2 black Zombie creature token.\nPay 1 life, Exile a card from your graveyard: Add {C}. Spend this mana only to cast an instant or sorcery spell without {X} in its mana cost.

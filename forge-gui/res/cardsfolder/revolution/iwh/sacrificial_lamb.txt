@@ -1,0 +1,10 @@
+Name:Sacrificial Lamb
+ManaCost:B
+Types:Creature
+PT:1/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigDraw | TriggerDescription$ When this creature dies, draw a card.
+SVar:TrigDraw:DB$ Draw
+A:AB$ Sacrifice | Cost$ T | SpellDescription$ Sacrifice this creature.
+SVar:SacMe:1
+DeckHas:Ability$Sacrifice
+Oracle:When this creature dies, draw a card.\n{T}: Sacrifice this creature.

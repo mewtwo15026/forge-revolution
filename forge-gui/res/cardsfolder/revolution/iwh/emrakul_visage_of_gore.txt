@@ -1,0 +1,19 @@
+Name:Emrakul, Visage of Gore
+ManaCost:10
+Types:Legendary Creature Eldrazi
+PT:10/10
+T:Mode$ SpellCast | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigExchange | TriggerDescription$ When you cast this spell, you may have two target players exchange life totals.
+SVar:TrigExchange:DB$ ExchangeLife | ValidTgts$ Player | TargetMin$ 2 | TargetMax$ 2 | AILogic$ Never
+K:Flying
+K:Menace
+S:Mode$ Continuous | Affected$ Card.Self+ThisTurnEntered | AddKeyword$ Hexproof | Description$ NICKNAME has hexproof as long as she entered this turn.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ CountLostLife | Static$ True
+SVar:CountLostLife:DB$ Pump | RememberObjects$ Opponent.LostLifeThisTurn
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPoint | TriggerDescription$ At the beginning of your end step, for each opponent that lost life this turn, you may gain control of target permanent that player controls.
+SVar:TrigPoint:DB$ Pump | ValidTgts$ Permanent.RememberedPlayerCtrl,Permanent.ControlledBy Opponent.LostLifeThisTurn | TargetMin$ 0 | TargetMax$ OneEach | TargetsForEachPlayer$ True | TgtPrompt$ For each opponent who lost life this turn, select target permanent that player controls | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | DefinedCards$ Targeted | RepeatSubAbility$ DBYoink | SubAbility$ TrigCleanup
+SVar:DBYoink:DB$ GainControl | Defined$ Remembered | Optional$ True
+SVar:OneEach:PlayerCountRegisteredOpponents$HasPropertyLostLifeThisTurn
+T:Mode$ TurnBegin | Execute$ TrigCleanup | Static$ True
+SVar:TrigCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When you cast this spell, you may have two target players exchange life totals.\nFlying, menace\nEmrakul has hexproof as long as she entered this turn.\nAt the beginning of your end step, for each opponent that lost life this turn, you may gain control of target permanent that player controls. (This effect lasts indefinitely.)

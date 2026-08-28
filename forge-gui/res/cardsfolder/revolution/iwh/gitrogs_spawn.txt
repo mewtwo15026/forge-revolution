@@ -1,0 +1,10 @@
+Name:Gitrog's Spawn
+ManaCost:1 G
+Types:Creature Frog
+PT:1/1
+K:Deathtouch
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When this creature enters, you may discard a card. If you do, search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land
+SVar:AIPreference:DiscardCost$Card.withMadness,Card.withFlashback,Card.nonLand
+DeckHas:Ability$Discard
+Oracle:Deathtouch\nWhen this creature enters, you may discard a card. If you do, search your library for a basic land card, reveal it, put it into your hand, then shuffle.

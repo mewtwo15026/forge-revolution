@@ -1,0 +1,23 @@
+Name:Enthralled Alchemist
+ManaCost:U
+Types:Creature Human Wizard
+PT:1/2
+A:AB$ Draw | Cost$ 1 U Discard<1/Instant;Sorcery/instant or sorcery card> | SorcerySpeed$ True | SubAbility$ DBTransform | SpellDescription$ Draw a card, then transform this creature. Activate only as a sorcery.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:AIPreference:DiscardCost$Card.cmcLE2,Card.withFlashback
+DeckNeeds:Type$Instant|Sorcery
+AlternateMode:DoubleFaced
+Oracle:{1}{U}, Discard an instant or sorcery card: Draw a card, then transform this creature. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Chrysalis Emergent
+ManaCost:no cost
+Types:Creature Human Insect
+Colors:green
+PT:3/2
+K:Flying
+K:Trample
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigSac | TriggerDescription$ Whenever this creature deals combat damage to a player, sacrifice it unless you exile an instant or sorcery card from your graveyard.
+SVar:DBSac:DB$ Sacrifice | UnlessCost$ ExileFromGrave<1/Instant;Sorcery/an instant or sorcery card> | UnlessPayer$ You
+Oracle:Flying, trample\nWhenever this creature deals combat damage to a player, sacrifice it unless you exile an instant or sorcery card from your graveyard.

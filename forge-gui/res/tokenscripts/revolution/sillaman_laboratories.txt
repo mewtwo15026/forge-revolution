@@ -1,0 +1,9 @@
+Name:Sillaman Laboratories 
+ManaCost:no cost
+Types:Enchantment Clique
+Colors:green,white,blue
+A:AB$ Tap | Cost$ 4 | PrecostDesc$ Pledge - | SorcerySpeed$ True | ValidTgts$ Creature.untapped | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target untapped creature | SubAbility$ DBCounter | SpellDescription$ Tap up to one target untapped creature. You may put a +1/+1 counter on it. Activate only as a sorcery unless you're making a pledge.
+A:AB$ Tap | Cost$ 0 | PrecostDesc$ Pledge - | IsPresent$ Effect.YouCtrl+namedPledging | PresentZone$ Command | ValidTgts$ Creature.untapped | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target untapped creature | SubAbility$ DBCounter | Secondary$ True | SpellDescription$ Tap up to one target untapped creature. You may put a +1/+1 counter on it. Activate only as a sorcery unless you're making a pledge.
+SVar:DBCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | Optional$ True
+# NOTE: if this doesn't work, try using DB$ ActivateAbility somehow
+Oracle:(This token is green, white, and blue.)\nPledge - {4}: Tap up to one target untapped creature. You may put a +1/+1 counter on it. Activate only as a sorcery unless you're making a pledge.

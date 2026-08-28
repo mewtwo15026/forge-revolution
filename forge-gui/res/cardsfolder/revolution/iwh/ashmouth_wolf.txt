@@ -1,0 +1,7 @@
+Name:Ashmouth Wolf
+ManaCost:1 R
+Types:Creature Wolf
+PT:2/2
+A:AB$ Draw | Cost$ 2 R Discard<1/Card> | NumCards$ 1 | Defined$ You | SpellDescription$ Draw a card.
+DeckHas:Ability$Discard
+Oracle:{2}{R}, Discard a card: Draw a card.

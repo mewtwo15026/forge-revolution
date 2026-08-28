@@ -1,0 +1,29 @@
+Name:Tempting Puzzlebox
+ManaCost:3 R
+Types:Artifact
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, exile the top card of your library with a puzzle counter on it. You may play it this turn. Then if there are three or more mana values among cards you own in exile with puzzle counters on them, you may transform this artifact.
+SVar:TrigExile:DB$ Dig | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | ExileWithCounters$ PUZZLE | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | ExileOnMoved$ Exile | RememberObjects$ Remembered | SubAbility$ DBTransform
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play that card this turn.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | Optional$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$ValidExile Card.YouOwn+counters_GE1_PUZZLE$DifferentCardManaCost
+SVar:PlayMain1:TRUE
+AlternateMode:DoubleFaced
+Oracle:At the beginning of combat on your turn, exile the top card of your library with a puzzle counter on it. You may play it this turn. Then if there are three or more mana values among cards you own in exile with puzzle counters on them, you may transform this artifact.
+
+ALTERNATE
+
+Name:Unshackled Spitefiend
+ManaCost:no cost
+Types:Creature Devil
+Colors:red
+PT:4/4
+K:Flying
+K:Menace
+# NOTE: don't know if this is how the order of events is supposed to work - needs clarification
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigChooseRandom | TriggerDescription$ Whenever this creature deals combat damage to a player, you may cast a nonland card chosen at random from among nonland cards you own in exile with puzzle counters on them without paying its mana cost.
+SVar:TrigChooseRandom:DB$ ChooseCard | ChoiceZone$ Exile | AtRandom$ True | Choices$ Card.nonLand+YouOwn+counters_GE1_PUZZLE | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Defined$ ChosenCard | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+Oracle:Flying, menace\nWhenever this creature deals combat damage to a player, you may cast a nonland card chosen at random from among nonland cards you own in exile with puzzle counters on them without paying its mana cost.

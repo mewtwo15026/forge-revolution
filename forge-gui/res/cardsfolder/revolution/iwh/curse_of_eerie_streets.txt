@@ -1,0 +1,11 @@
+Name:Curse of Eerie Streets
+ManaCost:W
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+R:Event$ Moved | ValidCard$ Creature.EnchantedPlayerCtrl | Destination$ Battlefield | ReplaceWith$ ETBTapped | ReplacementResult$ Updated | ActiveZones$ Battlefield | Description$ Creatures enchanted player controls enter tapped.
+SVar:ETBTapped:DB$ Tap | ETB$ True | Defined$ ReplacedCard
+T:Mode$ ChangesZone | ValidCard$ Creature.EnchantedPlayerCtrl | Destination$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever a creature enchanted player controls enters, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+DeckHas:Ability$LifeGain
+Oracle:Enchant player\nCreatures enchanted player controls enter tapped.\nWhenever a creature enchanted player controls enters, you gain 1 life.

@@ -1,0 +1,22 @@
+Name:Stormbrewer Alchemist
+ManaCost:1 R
+Types:Creature Human Wizard
+PT:2/1
+K:Reach
+S:Mode$ ReduceCost | ValidCard$ Instant,Sorcery | Type$ Spell | Activator$ You | Amount$ 1 | Description$ Instant and sorcery spells you cast cost {1} less to cast.
+A:AB$ SetState | Cost$ 4 R | SorcerySpeed$ True | Defined$ Self | Mode$ Transform | SpellDescription$ Transform this creature. Activate only as a sorcery.
+DeckHints:Type$Instant|Sorcery
+AlternateMode:DoubleFaced
+Oracle:Reach\nInstant and sorcery spells you cast cost {1} less to cast.\n{4}{R}: Transform this creature. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Unshackled Sturmgeist
+ManaCost:no cost
+Types:Creature Elemental Spirit
+Colors:blue
+PT:3/2
+K:Flying
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard
+Oracle:Flying\nWhen this creature transforms into Unshackled Sturmgeist, you may return target instant or sorcery card from your graveyard to your hand.

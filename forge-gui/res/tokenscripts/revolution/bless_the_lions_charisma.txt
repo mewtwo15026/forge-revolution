@@ -1,0 +1,21 @@
+Name:The Lion's Charisma
+ManaCost:1 W
+Types:Token Enchantment Aura Blessing
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ X | AddToughness$ X | Description$ Enchanted creature gets +1/+1 for each enchantment you control.
+SVar:X:Count$Valid Enchantment.YouCtrl
+AlternateMode:Modal
+Oracle:Enchant creature\nEnchanted creature gets +1/+1 for each enchantment you control.
+
+ALTERNATE
+
+Name:Basilo, Lion of Valor
+ManaCost:1 W W
+Types:Legendary Token Creature Human Soldier
+PT:2/2
+K:Lifelink
+K:Ward:1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBless | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, you may have it bless target nonenchanted creature. (Create a token copy of this creature's blessing attached to that permanent.)
+SVar:TrigBless:DB$ CopyPermanent | Defined$ Self | AttachedTo$ Targeted | ValidTgts$ Creature.YouCtrl.!enchanted | TgtPrompt$ Choose target nonenchanted creature to bless | Transformed$ True
+Oracle:Lifelink, ward {1}\nWhenever Basilo, Lion of Valor attacks, you may have it bless target nonenchanted creature. (Create a token copy of this creature's blessing attached to that permanent.)

@@ -1,0 +1,12 @@
+Name:Sigarda, Hope's Accord
+ManaCost:3 G W
+Types:Legendary Creature Angel
+PT:4/5
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigDig | TriggerDescription$ When NICKNAME enters, reveal the top six cards of your library. You may put a noncreature permanent card with mana value 3 or less from among them onto the battlefield, then shuffle.
+SVar:TrigDig:DB$ Dig | DigNum$ 6 | Reveal$ True | ChangeNum$ 1 | ChangeValid$ Permanent.nonCreature+cmcLE3 | DestinationZone$ Battlefield | LibraryPosition2$ 0 | SubAbility$ DBShuffle | Optional$ True | RestRandomOrder$ True
+SVar:DBShuffle:DB$ Shuffle | Defined$ You
+S:Mode$ Continuous | EffectZone$ Battlefield | Affected$ Angel.Other+YouCtrl,Human.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | CheckSVar$ Concord | SVarCompare$ GE4 | Description$ Concord - As long as there are four or more card types among permanents you control, other Angels and Humans you control get +1/+1.
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:Flying\nWhen Sigarda enters, reveal the top six cards of your library. You may put a noncreature permanent card with mana value 3 or less from among them onto the battlefield, then shuffle.\nConcord - As long as there are four or more card types among permanents you control, other Angels and Humans you control get +1/+1.

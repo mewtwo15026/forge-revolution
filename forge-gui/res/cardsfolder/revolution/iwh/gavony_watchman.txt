@@ -1,0 +1,13 @@
+Name:Gavony Watchman
+ManaCost:G
+Types:Creature Human Soldier
+PT:2/2
+K:Reach
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigChoice | TriggerDescription$ When this creature dies, target opponent creates their choice of a tapped Treasure token or a 1/1 white Human creature token, then you create the other token.
+SVar:TrigChoice:DB$ GenericChoice | ValidTgts$ Opponent | Choices$ DBCreateTreasure,DBCreateHuman
+SVar:DBCreateTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True | TokenOwner$ Targeted | SubAbility$ DBYourHuman | SpellDescription$ You create a tapped Treasure token. CARDNAME's controller creates a 1/1 white Human creature token.
+SVar:DBYourHuman:DB$ Token | TokenScript$ w_1_1_human
+SVar:DBCreateHuman:DB$ Token | TokenScript$ w_1_1_human | TokenOwner$ Targeted | SubAbility$ DBYourTreasure | SpellDescription$ You create a 1/1 white Human creature token. CARDNAME's controller creates a tapped Treasure token.
+SVar:DBYourTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+DeckHas:Ability$Token
+Oracle:Reach\nWhen this creature dies, target opponent creates their choice of a tapped Treasure token or a 1/1 white Human creature token, then you create the other token.

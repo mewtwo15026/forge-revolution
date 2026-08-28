@@ -1,0 +1,26 @@
+Name:Geist Researcher
+ManaCost:1 U
+Types:Creature Human Scientist
+PT:2/1
+K:Vigilance
+A:AB$ Pump | Cost$ 4 U | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBCurse | SpellDescription$ Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+SVar:DBCurse:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | AttachedToPlayer$ ParentTarget | AILogic$ Curse
+SVar:SacMe:2
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard & Type$Enchantment|Aura|Curse
+AlternateMode:DoubleFaced
+Oracle:Vigilance\n{4}{U}: Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Curse of Haunted Skies
+ManaCost:no cost
+Types:Enchantment Aura Curse
+Colors:blue
+K:Enchant:Player
+T:Mode$ AttackersDeclared | AttackingPlayer$ Player | AttackedTarget$ Player.EnchantedBy | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever one or more creatures attack enchanted player, target attacking creature gets +1+0 and gains flying until end of turn. Untap that creature.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | NumAtt$ +1 | KW$ Flying | SubAbility$ DBUntap
+SVar:DBUntap:DB$ Untap | Defined$ Targeted
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this Aura would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Enchant player\nWhenever one or more creatures attack enchanted player, target attacking creature gets +1+0 and gains flying until end of turn. Untap that creature.\nIf this Aura would be put into a graveyard from anywhere, exile it instead.

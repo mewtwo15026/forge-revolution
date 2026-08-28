@@ -1,0 +1,9 @@
+Name:Horrendous Experiment
+ManaCost:1 U
+Types:Creature Zombie Mutant
+PT:2/3
+K:Defender
+A:AB$ Draw | Cost$ 2 U Sac<1/CARDNAME> Sac<1/Creature.Other/another creature> | NumCards$ 2 | SpellDescription$ Draw two cards.
+SVar:AIPreference:SacCost$Creature.token,Creature.cmcLE2
+DeckHas:Ability$Sacrifice
+Oracle:Defender\n{2}{U}, Sacrifice this creature and another creature: Draw two cards.

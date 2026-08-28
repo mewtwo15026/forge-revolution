@@ -1,0 +1,12 @@
+Name:Blessings of a New Spring
+ManaCost:2 W
+Types:Enchantment
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create a 1/1 white Human creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_human
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Lifelink | AddAbility$ ABPump | Description$ Enchanted creature gets +1/+1, has lifelink, and has "{2}, Sacrifice a Human: This creature gains indestructible until end of turn."
+SVar:ABPump:AB$ Pump | Cost$ 2 Sac<1/Human> | Defined$ Self | KW$ Indestructible | SpellDescription$ This creature gains indestructible until end of turn.
+DeckHas:Ability$Token|LifeGain|Sacrifice & Type$Human
+DeckHints:Type$Human
+Oracle:Enchant creature\nWhen this enchantment enters, create a 1/1 white Human creature token.\nEnchanted creature gets +1/+1, has lifelink, and has "{2}, Sacrifice a Human: This creature gains indestructible until end of turn."

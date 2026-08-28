@@ -1,0 +1,10 @@
+Name:Putrid Bloodbag
+ManaCost:2 B B
+Types:Creature Zombie Horror
+PT:5/3
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Opponent | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever this creature deals combat damage to an opponent, create a 1/1 black Vampire creature token with lifelink.
+SVar:TrigToken:DB$ Token | TokenScript$ b_1_1_vampire_lifelink
+A:AB$ Pump | Cost$ Discard<1/Card> | KW$ Indestructible | SubAbility$ DBTap | SpellDescription$ This creature gains indestructible until end of turn. Tap it.
+SVar:DBTap:DB$ Tap
+DeckHas:Ability$Token|Discard & Type$Vampire
+Oracle:Whenever this creature deals combat damage to an opponent, create a 1/1 black Vampire creature token with lifelink.\nDiscard a card: This creature gains indestructible until end of turn. Tap it.

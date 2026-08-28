@@ -1,0 +1,12 @@
+Name:Unstable Experimentation
+ManaCost:U R
+Types:Sorcery
+A:SP$ Draw | NumCards$ 1 | SubAbility$ DiscOrSurv | SpellDescription$ Draw a card. Then you may discard a card or surveil 1. When you discard a card this way, CARDNAME deals 3 damage to any target.
+SVar:DiscOrSurv:DB$ GenericChoice | Choices$ DBDiscard,DBSurveil | Defined$ You
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | Optional$ True | SubAbility$ DBImmeTrig | SpellDescription$ Discard a card. When you discard a card this way, CARDNAME deals 3 damage to any target.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | ConditionDefined$ Remembered | ConditionPresent$ Card | Execute$ TrigBurn | TriggerDescription$ When you discard a card this way, CARDNAME deals 3 damage to any target.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 3 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DBSurveil:DB$ Surveil | Amount$ 1 | Optional$ True | SpellDescription$ Surveil 1.
+DeckHas:Ability$Discard|Surveil
+Oracle:Draw a card. Then you may discard a card or surveil 1. When you discard a card this way, Unstable Experimentation deals 3 damage to any target.

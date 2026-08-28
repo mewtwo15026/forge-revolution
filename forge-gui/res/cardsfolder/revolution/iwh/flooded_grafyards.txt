@@ -1,0 +1,8 @@
+Name:Flooded Grafyards
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ As CARDNAME enters, you may behold a Zombie. If you don't, it enters tapped. (To behold a Zombie, choose a Zombie you control or reveal a Zombie card from your hand.)
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ Self | UnlessCost$ Behold<1/Zombie> | UnlessPayer$ You | StackDescription$ enters tapped.
+A:AB$ Mana | Cost$ T | Produced$ Combo U B | SpellDescription$ Add {U} or {B}.
+DeckHints:Type$Zombie
+Oracle:As this land enters, you may behold a Zombie. If you don't, it enters the battlefield tapped. (To behold a Zombie, choose a Zombie you control or reveal a Zombie card from your hand.)\n{T}: Add {U} or {B}.

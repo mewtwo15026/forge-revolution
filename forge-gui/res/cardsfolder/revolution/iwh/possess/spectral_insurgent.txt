@@ -1,0 +1,11 @@
+Name:Spectral Insurgent
+ManaCost:1 U
+Types:Creature Spirit
+PT:1/3
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ Attacks | ValidCard$ Card.Self,Creature.EnchantedBy | IsPresent$ Card.Other+attacking | PresentCompare$ EQ0 | Execute$ TrigPump | TriggerDescription$ Whenever this creature or enchanted creature attacks, if that creature is attacking alone, it gets +1/+0 and can't be blocked until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | NumAtt$ +1 | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ TriggeredAttackerLKICopy | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhenever this creature or enchanted creature attacks, if that creature is attacking alone, it gets +1/+0 and can't be blocked until end of turn.

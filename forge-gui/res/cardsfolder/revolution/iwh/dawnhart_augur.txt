@@ -1,0 +1,10 @@
+Name:Dawnhart Augur
+ManaCost:1 G W
+Types:Creature Human Warlock Druid
+PT:2/3
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ You | Description$ You may look at the top card of your library any time.
+S:Mode$ Continuous | MayPlay$ True | MayPlayLimit$ 1 | Affected$ Card.Artifact+TopLibrary+YouCtrl,Card.Enchantment+TopLibrary+YouCtrl,Card.Land+TopLibrary+YouCtrl | AffectedZone$ Library | Description$ Once each turn, you may play an artifact, enchantment, or land card from the top of your library.
+A:AB$ Mana | Cost$ T | CheckSVar$ Concord | SVarCompare$ GE4 | Produced$ Any | Amount$ 2 | RestrictValid$ Spell.Artifact,Spell.Enchantment | SpellDescription$ Concord - Add two mana of any one color. Spend this mana only to cast artifact or enchantment spells. Activate only if there are four or more card types among permanents you control.
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Type$Artifact & Type$Enchantment
+Oracle:You may look at the top card of your library any time.\nOnce each turn, you may play an artifact, enchantment, or land card from the top of your library.\nConcord - {T}: Add two mana of any one color. Spend this mana only to cast artifact or enchantment spells. Activate only if there are four or more card types among permanents you control.

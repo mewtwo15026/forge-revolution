@@ -1,0 +1,25 @@
+Name:Looming Serpent
+ManaCost:4 U U
+Types:Creature Serpent
+PT:4/5
+K:Ward:2
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | Description$ Creatures your opponents control get -1/-0.
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Threshold$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of combat on your turn, if there are seven or more cards in your graveyard, you may pay {1}{U}. If you do, transform this creature.
+SVar:TrigTransform:AB$ Transform | Cost$ 1 U | Defined$ Self | Mode$ Transform
+DeckHints:Ability$Discard|Mill
+AlternateMode:DoubleFaced
+Oracle:Ward {2}\nCreatures your opponents control get -1/-0.\nAt the beginning of combat on your turn, if there are seven or more cards in your graveyard, you may pay {1}{U}. If you do, transform this creature.
+
+ALTERNATE
+
+Name:Drowntide Harbinger
+ManaCost:no cost
+Types:Creature Serpent Horror
+Colors:blue
+PT:6/7
+K:Hexproof
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigEffect | TriggerDescription$ When this creature transforms into CARDNAME, up to two target creatures you control can't be blocked this turn.
+SVar:TrigEffect:DB$ Effect | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creatures you control | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | Description$ Creatures your opponents control get -1/-0.
+Oracle:Hexproof\nWhen this creature transforms into Drowntide Harbinger, up to two target creatures you control can't be blocked this turn.\nCreatures your opponents control get -1/-0.

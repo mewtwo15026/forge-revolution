@@ -1,0 +1,14 @@
+Name:Tinua, of Whispered Pains
+ManaCost:W B
+Types:Legendary Creature Human Cleric
+PT:2/2
+K:Deathtouch
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigToken | TriggerDescription$ When NICKNAME dies, create a 1/1 white and black Cleric creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ wb_1_1_cleric
+A:AB$ RepeatEach | Cost$ W B T Sac<3/Creature> | SorcerySpeed$ True | RepeatPlayers$ Player.Opponent | RepeatSubAbility$ ChooseExile | SubAbility$ DBGainLife | SpellDescription$ Each opponent exiles a creature they control, discards a card, and loses 3 life. You gain 3 life. Activate only as a sorcery.
+SVar:ChooseExile:DB$ ChooseCard | Defined$ Remembered | Choices$ Creature | ControlledByPlayer$ Chooser | ChoiceZone$ Battlefield | Mandatory$ True | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3
+SVar:AIPreference:SacCost$Creature.token,Creature.cmcLE2
+Oracle:Deathtouch\nWhen Tinua dies, create a 1/1 white and black Cleric creature token.\n{W}{B}, {T}, Sacrifice three creatures: Each opponent exiles a creature they control, discards a card, and loses 3 life. You gain 3 life. Activate only as a sorcery.

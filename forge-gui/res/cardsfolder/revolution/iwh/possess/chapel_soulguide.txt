@@ -1,0 +1,9 @@
+Name:Chapel Soulguide
+ManaCost:3 W
+Types:Creature Spirit Cleric
+PT:3/3
+K:Flying
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddKeyword$ Flying | Description$ Enchanted creature has flying.
+Oracle:Flying\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nEnchanted creature has flying.

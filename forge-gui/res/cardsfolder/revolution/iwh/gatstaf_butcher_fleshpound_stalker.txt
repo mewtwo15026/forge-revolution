@@ -1,0 +1,24 @@
+Name:Gatstaf Butcher
+ManaCost:1 R
+Types:Creature Human Citizen Werewolf
+PT:2/1
+A:AB$ DealDamage | Cost$ 3 R Sac<1/Creature.Other/another creature> | ActivationZone$ Battlefield | ValidTgts$ Any | NumDmg$ 2 | SpellDescription$ This creature deals 2 damage to any target.
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:AIPreference:SacCost$Creature.token
+DeckHas:Ability$Token|Sacrifice
+AlternateMode:DoubleFaced
+Oracle:{3}{R}, Sacrifice another creature: This creature deals 2 damage to any target.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Fleshpound Stalker
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:red
+PT:2/3
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever this creature transforms into CARDNAME, create a 1/1 white Human creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_human
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Whenever this creature transforms into Fleshpound Stalker, create a 1/1 white Human creature token.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

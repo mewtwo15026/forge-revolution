@@ -1,0 +1,13 @@
+Name:Curse of Devilish Ire
+ManaCost:2 R
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 1/1 red Devil creature token with "When this creature dies, it deals 1 damage to any target."
+SVar:TrigToken:DB$ Token | TokenScript$ r_1_1_devil_burn
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Devil,Demon | ValidTarget$ Player.EnchantedBy,Permanent.EnchantedPlayerCtrl | ReplaceWith$ DmgPlus | Description$ If a Demon or Devil would deal damage to enchanted player or a permanent they control, it deals that much damage plus 1 instead.
+SVar:DmgPlus:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ Y
+SVar:Y:ReplaceCount$DamageAmount/Plus.1
+DeckHas:Ability$Token & Type$Devil
+DeckHints:Type$Devil|Demon
+Oracle:Enchant player\nWhen this Aura enters, create a 1/1 red Devil creature token with "When this creature dies, it deals 1 damage to any target."\nIf a Demon or Devil would deal damage to enchanted player or a permanent they control, it deals that much damage plus 1 instead.

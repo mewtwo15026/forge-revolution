@@ -1,0 +1,18 @@
+Name:Prying Eyedra
+ManaCost:2 G G G
+Types:Creature Eye Hydra
+PT:*/*
+K:Reach
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of cards in your hand.
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | OptionalDecider$ You | TriggerDescription$ Whenever this creature enters or attacks, you may sacrifice another non-Eye creature. If you do, you draw X cards and gain X life, where X is the sacrificed creature's toughness.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigSac | OptionalDecider$ You | TriggerDescription$ Whenever this creature enters or attacks, you may sacrifice another non-Eye creature. If you do, you draw X cards and gain X life, where X is the sacrificed creature's toughness.
+SVar:TrigSac:DB$ Sacrifice | Amount$ 1 | SacValid$ Creature.nonEye+Other | RememberSacrificed$ True | SubAbility$ GainLife
+SVar:GainLife:DB$ GainLife | LifeAmount$ Y | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ Y | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$ValidHand Card.YouOwn
+SVar:Y:RememberedLKI$CardToughness
+SVar:NeedsToPlayVar:X GE2
+SVar:NeedsToPlay:Creature.nonEye+YouCtrl
+AI:RemoveDeck:All
+Oracle:Reach\nPrying Eyedra's power and toughness are each equal to the number of cards in your hand.\nWhenever this creature enters or attacks, you may sacrifice another non-Eye creature. If you do, you draw X cards and gain X life, where X is the sacrificed creature's toughness.

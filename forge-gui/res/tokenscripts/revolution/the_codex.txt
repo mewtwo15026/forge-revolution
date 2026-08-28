@@ -1,0 +1,6 @@
+Name:The Codex 
+ManaCost:no cost
+Types:Legendary Artifact
+A:AB$ Mill | Cost$ T | Defined$ You | SpellDescription$ Mill a card.
+A:AB$ ChangeZone | Cost$ T Sac<1/CARDNAME> | Origin$ Library | Destination$ Graveyard | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True | SpellDescription$ Search your library for a card, put that card into your graveyard, then shuffle.
+Oracle:{T}: Mill a card.\n{T}, Sacrifice this token: Search your library for a card, put it into your graveyard, then shuffle.

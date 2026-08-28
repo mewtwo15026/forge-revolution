@@ -1,0 +1,15 @@
+Name:Eerie Nightdrifter
+ManaCost:2 W W
+Types:Creature Spirit Horror
+PT:3/3
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill five cards. You may put an enchantment or Spirit card milled this way into your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 5 | Defined$ You | RememberMilled$ True | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Hidden$ True | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Enchantment.IsRemembered,Spirit.IsRemembered | SelectPrompt$ You may select an enchantment or Spirit card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Animate | Cost$ 5 W W | Power$ X | Toughness$ X | SpellDescription$ Until end of turn, this creature's base power and toughness each become equal to your life total.
+SVar:X:Count$YourLifeTotal
+DeckHas:Ability$Mill|LifeGain
+DeckHints:Type$Enchantment|Spirit & Ability$LifeGain
+Oracle:Flying, lifelink\nWhen this creature enters, mill five cards. You may put an enchantment or Spirit card milled this way into your hand.\n{5}{W}{W}: Until end of turn, this creature's base power and toughness each become equal to your life total.

@@ -1,0 +1,9 @@
+Name:Nightfright
+ManaCost:1 U
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | IsCurse$ True | NumAtt$ -X | SubAbility$ DBDraw | SpellDescription$ Target creature gets -2/-0 until end of turn. If you control a Spirit, that creature gets -6/-0 until end of turn instead. Draw a card.
+SVar:DBDraw:DB$ Draw
+SVar:X:Count$Compare Spirits GE1.6.2
+SVar:Spirits:Count$Valid Spirit.YouCtrl
+DeckHints:Type$Spirit
+Oracle:Target creature gets -2/-0 until end of turn. If you control a Spirit, that creature gets -6/-0 until end of turn instead.\nDraw a card.

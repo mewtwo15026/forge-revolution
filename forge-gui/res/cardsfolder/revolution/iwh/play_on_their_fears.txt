@@ -1,0 +1,15 @@
+Name:Play on Their Fears
+ManaCost:4 U U
+Types:Enchantment Aura
+K:Enchant:Permanent.nonLand:nonland permanent
+SVar:AttachAILogic:GainControl
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigTap | TriggerDescription$ When this enchantment enters, tap enchanted permanent and put a stun counter on it. It loses all abilities for as long as it remains tapped.\nYou control enchanted permanent.
+SVar:TrigTap:DB$ Tap | Defined$ Enchanted | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ Enchanted | CounterType$ Stun | CounterNum$ 1 | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Enchanted | StaticAbilities$ STNoAbils | Triggers$ OnUntap | Duration$ Permanent | ExileOnMoved$ Battlefield
+SVar:STNoAbils:Mode$ Continuous | Affected$ Card.IsRemembered | RemoveAllAbilities$ True | Description$ This creature loses all abilities for as long as it remains tapped.
+SVar:OnUntap:DB$ Untaps | ValidCard$ Card.IsRemembered | Execute$ ClearEffect | Static$ True
+SVar:ClearEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+S:Mode$ Continuous | Affected$ Permanent.EnchantedBy | GainControl$ You | Description$ You control enchanted permanent.
+SVar:PlayMain1:TRUE
+Oracle:Enchant nonland permanent\nWhen this enchantment enters, tap enchanted permanent and put a stun counter on it. It loses all abilities for as long as it remains tapped.\nYou control enchanted permanent.

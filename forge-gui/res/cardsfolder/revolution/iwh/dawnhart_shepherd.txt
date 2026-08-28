@@ -1,0 +1,12 @@
+Name:Dawnhart Shepherd
+ManaCost:3 G G
+Types:Creature Human Warlock Druid
+PT:5/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Concord - Whenever this creature enters or attacks, target creature you control gets +2/+2 until end of turn. If there are four or more card types among permanents you control, untap that creature. It gains trample until end of turn.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | Secondary$ True | TriggerDescription$ Concord - Whenever this creature enters or attacks, target creature you control gets +2/+2 until end of turn. If there are four or more card types among permanents you control, untap that creature. It gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | NumDef$ +2 | SubAbility$ DBUntap
+SVar:DBUntap:DB$ Untap | Defined$ Targeted | ConditionCheckSVar$ Concord | ConditionSVarCompare$ GE4 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Trample | ConditionCheckSVar$ Concord | ConditionSVarCompare$ GE4
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:Concord - Whenever this creature enters or attacks, target creature you control gets +2/+2 until end of turn. If there are four or more card types among permanents you control, untap that creature. It gains trample until end of turn.

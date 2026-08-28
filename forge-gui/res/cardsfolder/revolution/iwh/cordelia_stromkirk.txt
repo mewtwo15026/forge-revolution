@@ -1,0 +1,15 @@
+Name:Cordelia Stromkirk
+ManaCost:2 R R
+Types:Legendary Creature Vampire Noble
+PT:4/3
+T:Mode$ Discarded | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever you discard a card, you may exile that card from your graveyard. If you do, you may play that card this turn.
+SVar:TrigExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Graveyard | Destination$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ SpellCast | ValidCard$ Card.!wasCastFromYourHand | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast a spell from anywhere other than your hand, create a number of 1/1 black Bat creature tokens with flying equal to that spell's mana value. They gain haste. Exile them at the beginning of the next end step.
+SVar:TrigToken:DB$ Token | TokenScript$ b_1_1_bat_flying | TokenAmount$ X | TokenOwner$ You | PumpKeywords$ Haste | AtEOT$ Exile
+SVar:X:TriggeredSpellAbility$CardManaCostLKI
+DeckHas:Ability$Token
+DeckHints:Ability$Discard|Graveyard & Keyword$Flashback|Disturb|Jump-start|Retrace|ccr_Surveil
+Oracle:Whenever you discard a card, you may exile that card from your graveyard. If you do, you may play that card this turn.\nWhenever you cast a spell from anywhere other than your hand, create a number of 1/1 black Bat creature tokens with flying equal to that spell's mana value. They gain haste. Exile them at the beginning of the next end step.

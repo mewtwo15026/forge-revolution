@@ -1,0 +1,10 @@
+Name:Night of the Long Silence
+ManaCost:3 W W W
+Types:Sorcery
+# TODO: just do two different ChangeZoneAll effects
+A:SP$ ChangeZoneAll | ChangeType$ Aura.withiwh_Possess+YouOwn | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBExileAll | SpellDescription$ Exile all nonland permanents. You may return an Aura with possess you owned that was exiled this way to the battlefield. (It returns as a creature.)
+SVar:DBExileAll:DB$ ChangeZoneAll | ChangeType$ Permanent.nonLand | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Exile | Destination$ Battlefield | ChangeType$ Permanent.IsRemembered | Hidden$ True | Optional$ True | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Keyword$iwh_Possess
+Oracle:Exile all nonland permanents. You may return an Aura with possess you owned that was exiled this way to the battlefield. (It returns as a creature.)

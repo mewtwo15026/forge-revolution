@@ -1,0 +1,12 @@
+Name:Traft, Aiding the Worthy
+ManaCost:2 W U
+Types:Legendary Creature Spirit Cleric
+PT:3/3
+K:Ward:2
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddKeyword$ Ward:2 | Description$ Enchanted creature has ward {2}.
+T:Mode$ Attacks | ValidCard$ Card.Self,Creature.EnchantedBy | Attacked$ Opponent | Execute$ TrigToken | TriggerDescription$ Whenever NICKNAME or enchanted creature attacks an opponent, create a 4/4 white Angel creature token with flying that's tapped and attacking. Exile that token at end of combat.
+SVar:TrigToken:DB$ Token | TokenScript$ w_4_4_angel_flying | TokenTapped$ True | TokenAttacking$ True | AtEOT$ ExileCombat
+SVar:HasAttackEffect:TRUE
+Oracle:Ward {2}\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nEnchanted creature has ward {2}.\nWhenever Traft or enchanted creature attacks an opponent, create a 4/4 white Angel creature token with flying that's tapped and attacking. Exile that token at end of combat.

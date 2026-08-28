@@ -1,0 +1,11 @@
+Name:Sorin's Interrogation
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Discard | ValidTgts$ Opponent | DiscardValid$ Creature,Planeswalker | DiscardValidDesc$ creature or planeswalker | Mode$ RevealYouChoose | SubAbility$ GorgeChoice | SpellDescription$ Target opponent reveals their hand. You choose a creature or planeswalker card from it. That player discards that card. You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeChoice:DB$ GenericChoice | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you control to gorge | Choices$ GorgeDiscard,GorgeSac | Defined$ You
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters
+Oracle:Target opponent reveals their hand. You choose a creature or planeswalker card from it. That player discards that card. You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)

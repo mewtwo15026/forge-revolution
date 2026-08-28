@@ -1,0 +1,6 @@
+Name:Chaneryx, Perfect Lifeform 
+ManaCost:no cost
+Types:Legendary Creature Leviathan
+Colors:green,white,blue
+K:Ward:10
+Oracle:Ward {10} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {10}.)

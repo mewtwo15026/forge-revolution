@@ -1,0 +1,7 @@
+Name:Skeleton Dragon Token
+ManaCost:no cost
+Types:Creature Skeleton Dragon
+Colors:red
+PT:5/5
+K:Flying
+Oracle:Flying

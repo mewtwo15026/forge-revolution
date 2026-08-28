@@ -1,0 +1,14 @@
+Name:Ghrin-Danu Returned
+ManaCost:2 W B G
+Types:Legendary Creature Elk God Horror
+PT:6/5
+K:Vigilance
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigChoose | TriggerDescription$ When CARDNAME enters, if you cast it, for each permanent type, choose a card in your graveyard of that type with mana value 2 or less that hasn't been chosen yet. For each of those cards, return it to the battlefield tapped unless any player pays 2 life.
+SVar:TrigChoose:DB$ ChooseCard | Defined$ You | Choices$ Card.Permanent+YouOwn+cmcLE2 | ChoiceZone$ Graveyard | ChooseEach$ Artifact & Battle & Creature & Enchantment & Land & Planeswalker | ControlledByPlayer$ Chooser | Amount$ 1 | Reveal$ True | RememberChosen$ True | SubAbility$ DBRepeatEach
+SVar:DBRepeatEach:DB$ RepeatEach | RepeatSubAbility$ DBChangeZone | RepeatCards$ Card.IsRemembered | ChooseOrder$ True | Zone$ Graveyard | UseImprinted$ True | SubAbility$ DBCleanup
+SVar:DBChangeZone:DB$ ChangeZone | Defined$ Imprinted | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | UnlessCost$ PayLife<2> | UnlessPayer$ Player | ForgetChanged$ True
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Graveyard
+DeckHints:Ability$Mill|Sacrifice|Discard
+Oracle:Vigilance, menace\nWhen Ghrin-Danu enters, if you cast it, for each permanent type, choose a card in your graveyard of that type with mana value 2 or less that hasn't been chosen yet. For each of those cards, return it to the battlefield tapped unless any player pays 2 life.

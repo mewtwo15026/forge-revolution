@@ -1,0 +1,9 @@
+Name:Abandoned Memorial
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ 1 T | Produced$ Any | SpellDescription$ Add one mana of any color.
+A:AB$ ChangeZone | Cost$ 13 T Sac<1/CARDNAME> | ReduceCost$ X | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Permanent.YouCtrl | TgtPrompt$ Select target permanent card in your graveyard | SpellDescription$ Return target permanent card from your graveyard to your hand. This ability costs {1} less for each permanent card in your graveyard.
+SVar:X:Count$ValidGraveyard Permanent.YouOwn
+DeckHas:Ability$Mana.Colorless & Ability$Graveyard
+Oracle:{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{13}, {T}, Sacrifice this land: Return target permanent card from your graveyard to your hand. This ability costs {1} less for each permanent card in your graveyard.

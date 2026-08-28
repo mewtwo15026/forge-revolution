@@ -1,0 +1,9 @@
+Name:Odric, Traft's Anointed
+ManaCost:U R W
+Types:Legendary Creature Vampire Spirit Soldier
+PT:2/4
+S:Mode$ Continuous | EffectZone$ Battlefield | Affected$ Angel.YouCtrl | AddKeyword$ Flying & First Strike & Double Strike & Deathtouch & Haste & Hexproof & Indestructible & Lifelink & Menace & Reach & Trample & Vigilance | SharedKeywordsZone$ Graveyard | SharedRestrictions$ Creature | Description$ Angels you control have flying as long as there is a creature card in your graveyard with flying. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.
+A:AB$ Token | Cost$ 1 U R W T Discard<1/Card> | PlayerTurn$ True | TokenScript$ w_4_4_angel_flying | SpellDescription$ Create a 4/4 white Angel creature token with flying. Activate only during your turn.
+DeckHas:Ability$Token|Discard
+DeckHints:Type$Angel & Keyword$First Strike|Double Strike|Deathtouch|Haste|Hexproof|Indestructible|Lifelink|Menace|Reach|Trample|Vigilance
+Oracle:Angels you control have flying as long as there is a creature card in your graveyard with flying. The same is true for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.\n{1}{U}{R}{W}, {T}, Discard a card: Create a 4/4 white Angel creature token with flying. Activate only during your turn.

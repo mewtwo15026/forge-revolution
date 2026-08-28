@@ -1,0 +1,10 @@
+Name:Feasting Ceremony
+ManaCost:1 R
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Vampire.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Whenever a Vampire you control enters or you discard a card, this enchantment deals 1 damage to each opponent.
+T:Mode$ Discarded | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigBurn | Secondary$ True | TriggerDescription$ Whenever a Vampire you control enters or you discard a card, this enchantment deals 1 damage to each opponent.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+A:AB$ Token | Cost$ 1 R ExileFromGrave<3/Card> | TokenScript$ r_1_1_vampire_haste | PlayerTurn$ True | SpellDescription$ Create a 1/1 red Vampire creature token with haste. Activate only during your turn.
+DeckHints:Type$Vampire & Ability$Discard & Ability$Mill
+DeckHas:Ability$Token
+Oracle:Whenever a Vampire you control enters or you discard a card, this enchantment deals 1 damage to each opponent.\n{1}{R}, Exile three cards from your graveyard: Create a 1/1 red Vampire creature token with haste. Activate only during your turn.

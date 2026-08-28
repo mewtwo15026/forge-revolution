@@ -1,0 +1,26 @@
+Name:Devotion to Ghrin-Danu
+ManaCost:2 G
+Types:Legendary Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill two cards and you gain 3 life. When you do, you may return target land card from your graveyard to the battlefield.
+SVar:TrigMill:DB$ Mill | NumCards$ 2 | Defined$ You | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ ImmeTrig
+SVar:ImmeTrig:DB$ ImmediateTrigger | Execute$ TrigReturn | StackDescription$ SpellDescription | SpellDescription$ When you do, you may return target land card from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Land.YouCtrl | TgtPrompt$ Select target land card in your graveyard | Optional$ True
+A:AB$ SetState | Cost$ 3 B G | SorcerySpeed$ True | ActivationZone$ Battlefield | CheckSVar$ GraveCount | SVarCompare$ GE13 | Defined$ Self | Mode$ Transform | SpellDescription$ Transform CARDNAME. Activate only if there are thirteen or more cards in your graveyard and only as a sorcery.
+SVar:GraveCount:Count$ValidGraveyard Card.YouOwn
+AlternateMode:DoubleFaced
+DeckHas:Ability$Mill|LifeGain|Graveyard
+DeckHints:Ability$Mill|Discard|Sacrifice
+Oracle:When Devotion to Ghrin-Danu enters, mill two cards and you gain 3 life. When you do, you may return target land card from your graveyard to the battlefield.\n{3}{B}{G}: Transform Devotion to Ghrin-Danu. Activate only if there are thirteen or more cards in your graveyard and only as a sorcery.
+
+ALTERNATE
+
+Name:Ghrin-Danu's Dark Return
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:black
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigChoose | TriggerDescription$ At the beginning of your end step, choose a card at random from among permanent cards in your graveyard. Return that card and each card in your graveyard that shares a name with it to the battlefield.
+SVar:TrigChoose:DB$ ChooseCard | ChoiceZone$ Graveyard | AtRandom$ True | Choices$ Permanent.YouOwn | SubAbility$ DBReturnAll
+SVar:DBReturnAll:DB$ ChangeZoneAll | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Card.sharesNameWith ChosenCard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+Oracle:At the beginning of your end step, choose a card at random from among permanent cards in your graveyard. Return that card and each card in your graveyard that shares a name with it to the battlefield.

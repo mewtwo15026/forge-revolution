@@ -1,0 +1,11 @@
+Name:Illicit Mortician
+ManaCost:1 B
+Types:Creature Human Rogue Scientist
+PT:2/2
+K:Deathtouch
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may exile up to two target cards from graveyards.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Card | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target cards in graveyards | Origin$ Graveyard | Destination$ Exile | IsCurse$ True
+R:Event$ Moved | Destination$ Graveyard | ValidCard$ Card.OppOwn | ReplaceWith$ ToExile | Description$ If a card would be put into an opponent's graveyard from anywhere, exile it unless that player pays 1 life.
+SVar:ToExile:DB$ ChangeZone | UnlessCost$ PayLife<1> | UnlessPayer$ ReplacedCardController | UnlessResolveSubs$ WhenPaid | Origin$ All | Destination$ Exile | Defined$ ReplacedCard | SubAbility$ ToGrave
+SVar:ToGrave:DB$ ChangeZone | Origin$ All | Destination$ Graveyard | Defined$ ReplacedCard
+Oracle:Deathtouch\nWhen this creature enters, you may exile up to two target cards from graveyards.\nIf a card would be put into an opponent's graveyard from anywhere, exile it unless that player pays 1 life.

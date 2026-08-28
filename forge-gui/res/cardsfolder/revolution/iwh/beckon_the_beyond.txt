@@ -1,0 +1,10 @@
+Name:Beckon the Beyond
+ManaCost:2 B
+Types:Sorcery
+A:SP$ ChangeZone | Reveal$ True | Origin$ Sideboard | Destination$ Hand | ChangeType$ Ashiok.YouOwn,Eldrazi.YouOwn,Horror.YouOwn,Planeswalker.Black+YouOwn | ChangeTypeDesc$ Ashiok, Eldrazi, Horror, or black planeswalker card you own | ChangeNum$ 1 | Hidden$ True | RememberChanged$ True | SubAbility$ DBLoseLife | SpellDescription$ You may reveal an Ashiok, Eldrazi, Horror, or black planeswalker card you own from outside the game and put it into your hand. If you don't, you lose 2 life, surveil 2, then draw two cards.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 2 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 2 | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Surveil|Graveyard
+Oracle:You may reveal an Ashiok, Eldrazi, Horror, or black planeswalker card you own from outside the game and put it into your hand. If you don't, you lose 2 life, surveil 2, then draw two cards.

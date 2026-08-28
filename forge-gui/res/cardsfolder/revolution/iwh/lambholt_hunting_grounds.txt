@@ -1,0 +1,10 @@
+Name:Lambholt Hunting Grounds
+ManaCost:3 G
+Types:Enchantment
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigSac | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, you may draw cards equal to the greatest power among savage creatures you control. If you do, sacrifice this enchantment. Otherwise, put a +1/+1 counter on target creature you control. It gains vigilance until end of turn. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:TrigSac:DB$ Sacrifice | UnlessCost$ Draw<X/You> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenNotPaid | Defined$ Self | RememberSacrificed$ True | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Vigilance
+SVar:X:Count$Valid Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower$GreatestCardPower
+AI:RemoveDeck:All
+Oracle:At the beginning of combat on your turn, you may draw cards equal to the greatest power among savage creatures you control. If you do, sacrifice this enchantment. Otherwise, put a +1/+1 counter on target creature you control. It gains vigilance until end of turn. (A creature is savage if it's transformed or has power greater than its base power.)

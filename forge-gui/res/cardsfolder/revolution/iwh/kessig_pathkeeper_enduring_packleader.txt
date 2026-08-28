@@ -1,0 +1,25 @@
+Name:Kessig Pathkeeper
+ManaCost:1 G G
+Types:Creature Human Scout Werewolf
+PT:3/4
+A:AB$ Effect | Cost$ 2 G | Triggers$ TrigDamageDone | SpellDescription$ Whenever a Wolf or Werewolf you control deals combat damage to a player this turn, draw a card.
+SVar:TrigDamageDone:Mode$ DamageDone | ValidSource$ Wolf.YouCtrl,Werewolf.YouCtrl | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever a Wolf or Werewolf you control deals combat damage to a player this turn, draw a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+DeckHas:Ability$Discard
+DeckHints:Type$Wolf|Werewolf
+AlternateMode:DoubleFaced
+Oracle:{2}{G}: Whenever a Wolf or Werewolf you control deals combat damage to a player this turn, draw a card.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Enduring Packleader
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:5/4
+A:AB$ Pump | Cost$ Discard<1/Card> | ValidTgts$ Wolf.attacking,Werewolf.attacking | TgtPrompt$ Select target attacking Wolf or Werewolf | KW$ Indestructible | ActivationLimit$ 1 | SpellDescription$ Target attacking Wolf or Werewolf gains indestructible until end of turn. Activate only once each turn.
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Discard a card: Target attacking Wolf or Werewolf gains indestructible until end of turn. Activate only once each turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

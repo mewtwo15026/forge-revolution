@@ -1,0 +1,13 @@
+Name:Moonsilver Archangel
+ManaCost:X X W W W
+Types:Creature Angel
+PT:3/3
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When this creature enters, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBMonument,DBCloister | CharmNum$ X | CanRepeatModes$ True
+SVar:DBMonument:DB$ Token | TokenScript$ c_a_monument_anthem | SpellDescription$ Create a Monument token. (An artifact with "Creatures you control get +1/+1.")
+SVar:DBCloister:DB$ Token | TokenScript$ w_e_cloister | SpellDescription$ Create a Cloister token. (A white enchantment with "When this enters, exile target nonland permanent until this leaves.")
+SVar:X:Count$xPaid
+DeckHas:Ability$Token
+Oracle:Flash\nFlying\nWhen this creature enters, choose X. You may choose the same mode more than once.\n• Create a Monument token. (An artifact with "Creatures you control get +1/+1.")\n• Create a Cloister token. (A white enchantment with "When this enters, exile target nonland permanent until this leaves.")

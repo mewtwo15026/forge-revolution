@@ -1,0 +1,7 @@
+Name:Ashiok's Manipulation
+ManaCost:U
+Types:Sorcery
+S:Mode$ CastWithFlash | ValidCard$ Card.Self | ValidSA$ Spell | CheckSVar$ X | SVarCompare$ GE2 | EffectZone$ All | Caster$ You | Description$ You may cast this spell as though it had flash as long as your opponents have cast two or more spells this turn.
+SVar:X:Count$ThisTurnCast_Card.OppCtrl
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target nonland permanent to its owner's hand.
+Oracle:You may cast this spell as though it had flash as long as your opponents have cast two or more spells this turn.\nReturn target nonland permanent to its owner's hand.

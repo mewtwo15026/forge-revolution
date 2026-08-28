@@ -1,0 +1,10 @@
+Name:Goremare
+ManaCost:2 R
+Types:Creature Horse Horror
+PT:2/2
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature. It gains menace until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Self | KW$ Menace
+SVar:BuffedBy:Instant,Sorcery
+DeckHas:Ability$Counters
+Oracle:Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature. It gains menace until end of turn.

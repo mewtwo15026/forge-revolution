@@ -1,0 +1,13 @@
+Name:Thalia, the Guiding Blade
+ManaCost:2 W
+Types:Legendary Creature Human Soldier
+PT:3/2
+K:First Strike
+S:Mode$ SetCost | ValidCard$ Card.nonLand+nonCreature | Type$ Spell | Amount$ 3 | RaiseTo$ True | EffectZone$ Battlefield | Description$ Each noncreature spell that would cost less than three mana to cast costs three mana to cast. (Additional mana in the cost may be paid with any mana.)
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCounterAll | TriggerDescription$ Whenever NICKNAME attacks, you may pay {4}{W}. If you do, put a +1/+1 counter on each Human you control.
+SVar:TrigCounterAll:AB$ PutCounterAll | Cost$ 4 W | ValidCards$ Human.YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Human
+DeckHas:Ability$Counters
+DeckHints:Type$Human
+Oracle:First strike\nEach noncreature spell that would cost less than three mana to cast costs three mana to cast. (Additional mana in the cost may be paid with any mana.)\nWhenever Thalia attacks, you may pay {4}{W}. If you do, put a +1/+1 counter on each Human you control.

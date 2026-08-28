@@ -1,0 +1,27 @@
+Name:Hinterland Bandits
+ManaCost:3 R R
+Types:Creature Human Rogue Werewolf
+PT:4/3
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPumpSelf | TriggerDescription$ When this creature enters, it gains first strike and haste until end of turn.
+SVar:TrigPumpSelf:DB$ Pump | Defined$ Self | KW$ First Strike & Haste
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:BuffedBy:Wolf,Werewolf
+AlternateMode:DoubleFaced
+Oracle:Flash\nWhen this creature enters, it gains first strike and haste until end of turn.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Hinterland Predators
+ManaCost:no cost
+Types:Creature
+Colors:red
+PT:5/4
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPumpAll | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, Wolves and Werewolves you control gain first strike and haste until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Wolf.YouCtrl,Werewolf.YouCtrl | KW$ First Strike & Haste
+S:Mode$ Continuous | Affected$ Wolf.YouCtrl,Werewolf.YouCtrl | AffectedZone$ Hand,Library,Command,Sideboard,Exile,Graveyard,Stack | AddSVar$ PM1
+SVar:PM1:PlayMain1:TRUE
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:At the beginning of combat on your turn, Wolves and Werewolves you control gain first strike and haste until end of turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

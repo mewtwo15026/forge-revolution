@@ -1,0 +1,8 @@
+Name:Lonely Cabin
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ As CARDNAME enters, you may behold a Wolf or Werewolf. If you don't, it enters tapped. (To behold a Wolf or Werewolf, choose a Wolf or Werewolf you control or reveal a Wolf or Werewolf card from your hand.)
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ Self | UnlessCost$ Behold<1/Wolf;Werewolf/Wolf or Werewolf> | UnlessPayer$ You | StackDescription$ enters tapped.
+A:AB$ Mana | Cost$ T | Produced$ Combo R G | SpellDescription$ Add {R} or {G}.
+DeckHints:Type$Wolf|Werewolf
+Oracle:As this land enters, you may behold a Wolf or Werewolf. If you don't, it enters the battlefield tapped. (You may choose a Wolf or Werewolf you control or reveal a Wolf or Werewolf card from your hand.)\n{T}: Add {R} or {G}.

@@ -1,0 +1,8 @@
+Name:Dirge of the Drowned
+ManaCost:1 B
+Types:Instant
+A:SP$ Dig | DigNum$ 3 | DestinationZone2$ Graveyard | NoReveal$ True | SubAbility$ DBLoseLife | SpellDescription$ Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard. You lose 1 life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+K:Flashback:U Discard<1/Zombie>
+DeckNeeds:Type$Zombie & Ability$Graveyard
+Oracle:Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard. You lose 1 life.\nFlashback-{U}, Discard a Zombie card. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

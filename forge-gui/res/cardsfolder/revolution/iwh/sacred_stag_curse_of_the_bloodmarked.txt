@@ -1,0 +1,24 @@
+Name:Sacred Stag
+ManaCost:2 W
+Types:Creature Elk
+PT:3/3
+A:AB$ Pump | Cost$ 3 R | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBCurse | SpellDescription$ Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+SVar:DBCurse:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | AttachedToPlayer$ ParentTarget | AILogic$ Curse
+SVar:SacMe:1
+SVar:DiscardMe:2
+DeckHas:Ability$Graveyard|LifeGain & Type$Enchantment|Aura|Curse
+AlternateMode:DoubleFaced
+Oracle:{2}{W}: Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Curse of the Bloodmarked
+ManaCost:no cost
+Types:Enchantment Aura Curse
+Colors:white
+K:Enchant:Player
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Player.EnchantedBy | Execute$ TrigGainLife | TriggerZones$ Battlefield | TriggerDescription$ Whenever enchanted player casts a spell, each of that player's opponents gains 1 life.
+SVar:TrigGainLife:DB$ GainLife | Defined$ TriggeredCardOpponent | LifeAmount$ 1
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this Aura would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Enchant player\nWhenever enchanted player casts a spell, each of that player's opponents gains 1 life.\nIf this Aura would be put into a graveyard from anywhere, exile it instead.

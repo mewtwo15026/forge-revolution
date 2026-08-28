@@ -1,0 +1,8 @@
+Name:Berserker Token
+ManaCost:no cost
+Types:Creature Berserker
+Colors:red
+PT:2/2
+K:Haste
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+Oracle:Haste\nThis creature can't block.

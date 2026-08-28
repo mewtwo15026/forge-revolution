@@ -1,0 +1,12 @@
+Name:Watching the Trails
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Mill | NumCards$ 4 | RememberMilled$ True | SubAbility$ DBChangeZone | SpellDescription$ Mill four cards. You may put a permanent card from among the cards milled this way into your hand. Concord - If there are four or more card types among permanents you control, create a Weapon token and attach it to a creature you control. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | Hidden$ True | ChangeType$ Permanent.IsRemembered | ChangeNum$ 1 | SelectPrompt$ You may choose a permanent card milled this way | ForgetChanged$ True | ForgetOtherRemembered$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_weapon_equip | RememberTokens$ True | ConditionCheckSVar$ Concord | ConditionSVarCompare$ GE4 | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose a creature you control to wield Weapon Token | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHas:Ability$Mill
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:Mill four cards. You may put a permanent card from among the cards milled this way into your hand.\nConcord - If there are four or more card types among permanents you control, create a Weapon token and attach it to a creature you control. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")

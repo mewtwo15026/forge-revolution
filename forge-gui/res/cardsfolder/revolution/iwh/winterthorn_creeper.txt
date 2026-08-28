@@ -1,0 +1,12 @@
+Name:Winterthorn Creeper
+ManaCost:1 G G U
+Types:Creature Elk Plant Spirit
+PT:4/5
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRamp | TriggerDescription$ Whenever this creature enters or attacks, you may discard a card. If you do, search your library for a land card, put it onto the battlefield tapped, then shuffle.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigRamp | TriggerDescription$ Whenever this creature enters or attacks, you may discard a card. If you do, search your library for a land card, put it onto the battlefield tapped, then shuffle.
+SVar:TrigRamp:AB$ ChangeZone | Cost$ Discard<1/Card> | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land.YouOwn | ChangeNum$ 1
+A:AB$ Tap | Cost$ 1 G U ExileFromGrave<4/Card> | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature | SubAbility$ DBStun | SpellDescription$ Tap up to one target creature and put a stun counter on it. Put a +1/+1 counter on this creature.
+SVar:DBStun:DB$ PutCounter | Defined$ ParentTarget | CounterType$ Stun | CounterNum$ 1 | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Discard|Counters
+Oracle:Whenever this creature enters or attacks, you may discard a card. If you do, search your library for a land card, put it onto the battlefield tapped, then shuffle.\n{1}{G}{U}, Exile four cards from your graveyard: Tap up to one target creature and put a stun counter on it. Put a +1/+1 counter on this creature.

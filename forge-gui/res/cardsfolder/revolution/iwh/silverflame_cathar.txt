@@ -1,0 +1,8 @@
+Name:Silverflame Cathar
+ManaCost:1 R
+Types:Creature Human Soldier
+PT:2/2
+K:Haste
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ This creature has first strike as long as it's your turn.
+A:AB$ PumpAll | Cost$ 3 W | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ Creatures you control get +1/+1 until end of turn.
+Oracle:Haste\nThis creature has first strike as long as it's your turn.\n{3}{W}: Creatures you control get +1/+1 until end of turn.

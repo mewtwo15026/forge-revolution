@@ -1,0 +1,15 @@
+Name:Gravespore Guardian
+ManaCost:2 B G
+Types:Creature Skeleton Fungus
+PT:*/5
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ CARDNAME's power is equal to the number of land cards in your graveyard.
+SVar:X:Count$ValidGraveyard Land.YouOwn
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChoice | TriggerDescription$ Whenever this creature enters or attacks, you may sacrifice a land or discard a land card. If you do, draw a card and you gain 2 life.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigChoice | Secondary$ True | TriggerDescription$ Whenever this creature enters or attacks, you may sacrifice a land or discard a land card. If you do, draw a card and you gain 2 life.
+SVar:TrigChoice:DB$ GenericChoice | Defined$ You | Choices$ DBSac,DBDiscard
+SVar:DBSac:DB$ Draw | UnlessCost$ Sac<1/Land> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | SubAbility$ DBGainLife | SpellDescription$ Sacrifice a land.
+SVar:DBDiscard:DB$ Discard | UnlessCost$ Discard<1/Land> | SubAbility$ DBGainLife | SpellDescription$ Discard a land card.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
+SVar:AIPreference:SacCost$Land.Basic | DiscardCost$Land.Basic
+DeckHints:Ability$Mill
+Oracle:Gravespore Guardian's power is equal to the number of land cards in your graveyard.\nWhenever this creature enters or attacks, you may sacrifice a land or discard a land card. If you do, draw a card and you gain 2 life.

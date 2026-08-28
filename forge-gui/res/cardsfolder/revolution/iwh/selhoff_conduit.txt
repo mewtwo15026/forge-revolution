@@ -1,0 +1,13 @@
+Name:Selhoff Conduit
+ManaCost:U
+Types:Creature Human Mutant Warlock
+PT:1/2
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying | CheckSVar$ X | Description$ This creature has flying as long as you've cast an instant or sorcery spell this turn.
+SVar:X:Count$ThisTurnCast_Instant.YouCtrl,Sorcery.YouCtrl
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever this creature attacks, draw a card. Then put a card from your hand on the bottom of your library unless there are four or more differently named instant and/or sorcery cards in your graveyard.
+SVar:TrigDraw:DB$ Draw | SubAbility$ DBTuck
+SVar:DBTuck:DB$ ChangeZone | Origin$ Hand | Destination$ Library | LibraryPosition$ -1 | ChangeNum$ Y | Mandatory$ True
+SVar:Y:Count$Compare Z GE4.0.1
+SVar:Z:Count$ValidGraveyard Instant.YouCtrl,Sorcery.YouCtrl$DifferentCardNames
+DeckHints:Type$Instant|Sorcery
+Oracle:This creature has flying as long as you've cast an instant or sorcery spell this turn.\nWhenever this creature attacks, draw a card. Then put a card from your hand on the bottom of your library unless there are four or more differently named instant and/or sorcery cards in your graveyard.

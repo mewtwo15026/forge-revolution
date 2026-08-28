@@ -1,0 +1,9 @@
+Name:Drogskol Duelist
+ManaCost:1 U U
+Types:Creature Spirit Soldier
+PT:3/1
+K:Flying
+K:iwh_Possess
+SVar:AttachAILogic:Curse
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddKeyword$ Prevent all combat damage that would be dealt to and dealt by CARDNAME. | Description$ Prevent all combat damage that would be dealt to and dealt by enchanted creature.
+Oracle:Flying\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nPrevent all combat damage that would be dealt to and dealt by enchanted creature.

@@ -1,0 +1,12 @@
+Name:Curse of Entomophobia
+ManaCost:1 G U
+Types:Enchantment
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this Aura enters, enchanted player mills four cards.
+SVar:TrigMill:DB$ Mill | Defined$ EnchantedPlayer | NumCards$ 4
+T:Mode$ ChangesZoneAll | Destination$ Graveyard | ValidCards$ Land.EnchantedPlayerOwn | Execute$ TrigToken | TriggerDescription$ Whenever one or more land cards are put into enchanted player's graveyard from anywhere, create a 1/1 green and blue Insect creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ gu_1_1_insect
+DeckHas:Ability$Token & Type$Insect
+DeckHints:Ability$Mill
+Oracle:Enchant player\nWhen this Aura enters, enchanted player mills four cards.\nWhenever one or more land cards are put into enchanted player's graveyard from anywhere, create a 1/1 green and blue Insect creature token.

@@ -1,0 +1,10 @@
+Name:Covetous Neonate
+ManaCost:R
+Types:Creature Vampire Rogue
+PT:1/1
+S:Mode$ Continuous | Affected$ Card.Self | EffectZone$ Battlefield | AddPower$ 1 | AddKeyword$ Haste | PresentZone$ Graveyard | IsPresent$ Instant.YouCtrl,Sorcery.YouCtrl,Vampire.YouCtrl | Description$ This creature gets +1/+0 and has haste as long as there is an instant, sorcery, or Vampire card in your graveyard.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_blood_draw
+DeckHints:Type$Instant|Sorcery|Vampire
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Blood
+Oracle:This creature gets +1/+0 and has haste as long as there is an instant, sorcery, or Vampire card in your graveyard.\nWhen this creature dies, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")

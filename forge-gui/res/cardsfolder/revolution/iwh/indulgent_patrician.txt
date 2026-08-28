@@ -1,0 +1,14 @@
+Name:Indulgent Patrician
+ManaCost:1 B B
+Types:Creature Vampire Noble
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may have target player discard a card. If you discard a card this way, put a +1/+1 counter on each Vampire you control.
+SVar:TrigDiscard:DB$ Discard | ValidTgts$ Player | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBCounterAll
+SVar:DBCounterAll:DB$ PutCounterAll | ValidCards$ Vampire.YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card.YouCtrl | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ DiscardedAll | ValidPlayer$ Player | TriggerZones$ Battlefield | Execute$ TrigDrain | TriggerDescription$ Whenever a player discards one or more cards, each opponent loses 1 life and you gain 1 life.
+SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+DeckHas:Ability$LifeGain|Counters|Discard
+DeckHints:Ability$Discard & Type$Vampire
+Oracle:When this creature enters, you may have target player discard a card. If you discard a card this way, put a +1/+1 counter on each Vampire you control.\nWhenever a player discards one or more cards, each opponent loses 1 life and you gain 1 life.

@@ -1,0 +1,14 @@
+Name:Feudrach of Ashmouth
+ManaCost:2 R R R
+Types:Legendary Creature Dragon
+PT:4/5
+K:Flying
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature gets +2/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ +2
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPreburn | TriggerDescription$ Whenever you attack, choose target creature you control. NICKNAME deals X damage to up to one target creature or planeswalker, where X is the difference between the first target's power and base power.
+SVar:TrigPreburn:DB$ Pump | ValidTgts$ Creature.YouCtrl | AITgts$ Creature.YouCtrl+powerGTbasePower | TgtPrompt$ Select target creature you control to determine damage | RememberObjects$ Targeted | SubAbility$ DBDamage
+SVar:DBDamage:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature or planeswalker to deal damage | NumDmg$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$CardPower/Minus.Remembered$CardBasePower
+Oracle:Flying, haste\nWhen Feudrach of Ashmouth enters, target creature gets +2/+0 until end of turn.\nWhenever you attack, choose target creature you control. Feudrach deals X damage to up to one target creature or planeswalker, where X is the difference between the first target's power and base power.

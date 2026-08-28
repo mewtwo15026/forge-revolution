@@ -1,0 +1,19 @@
+Name:Pious Friar
+ManaCost:1 W
+Types:Creature Human Cleric
+PT:3/1
+A:AB$ SetState | Cost$ T tapXType<2/Creature> | SorcerySpeed$ True | Defined$ Self | Mode$ Transform | SubAbility$ DBUntap | SpellDescription$ Transform this creature and untap it. Activate only as a sorcery.
+SVar:DBUntap:DB$ Untap | Defined$ Self
+AlternateMode:DoubleFaced
+Oracle:{T}, Tap two untapped creatures you control: Transform this creature and untap it. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Zealous Inquisitor
+ManaCost:no cost
+Types:Creature Human Inquisitor
+Colors:red
+PT:4/2
+S:Mode$ MustAttack | ValidCreature$ Card.Self | Description$ This creature attacks each combat if able.
+A:AB$ Pump | ValidTgts$ Creature | KW$ HIDDEN CARDNAME can't block. | IsCurse$ True | SpellDescription$ Target creature can't block this turn.
+Oracle:This creature attacks each combat if able.\n{5}: Target creature can't block this turn.

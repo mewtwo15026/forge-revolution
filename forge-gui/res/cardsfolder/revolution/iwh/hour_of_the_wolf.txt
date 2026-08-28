@@ -1,0 +1,8 @@
+Name:Hour of the Wolf
+ManaCost:2 R G G
+Types:Sorcery
+A:SP$ PumpAll | ValidCards$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower | KW$ First Strike & Vigilance | SubAbility$ DBPumpAll | SpellDescription$ Savage creatures you control gain first strike and vigilance until end of turn, then creatures you control get +3/+3 until end of turn. You may transform a Werewolf you control. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +3 | NumDef$ +3 | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Choices$ Werewolf.YouCtrl | ChoiceTitle$ Choose a Werewolf you control | Mode$ Transform | Optional$ True
+DeckHints:Type$Werewolf
+Oracle:Savage creatures you control gain first strike and vigilance until end of turn, then creatures you control get +3/+3 until end of turn. You may transform a Werewolf you control. (A creature is savage if it's transformed or has power greater than its base power.)

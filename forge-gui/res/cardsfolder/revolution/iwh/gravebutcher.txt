@@ -1,0 +1,13 @@
+Name:Gravebutcher
+ManaCost:B B
+Types:Creature Zombie
+PT:2/1
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigReturnOther | TriggerDescription$ When this creature dies, you may pay {B}. If you do, return target creature card not named Gravebutcher from your graveyard to your hand. If you returned a Zombie card this way, return this card from your graveyard to your hand.
+SVar:TrigReturnOther:DB$ ChangeZone | UnlessCost$ B | UnlessPayer$ You | UnlessSwitched$ True | ValidTgts$ Creature.YouOwn+!namedGravebutcher | TgtPrompt$ Select target creature card in your graveyard that isn't named Gravebutcher | Origin$ Graveyard | Destination$ Hand | RememberChanged$ True | SubAbility$ DBReturnSelf
+SVar:DBReturnSelf:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Zombie | Defined$ TriggeredNewCardLKICopy | Origin$ Graveyard | Destination$ Hand | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacMe:1
+DeckHas:Ability$Graveyard
+DeckHints:Type$Zombie
+Oracle:This creature can't block.\nWhen this creature dies, you may pay {B}. If you do, return target creature card not named Gravebutcher from your graveyard to your hand. If you returned a Zombie card this way, return this card from your graveyard to your hand.

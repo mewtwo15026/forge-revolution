@@ -1,0 +1,17 @@
+Name:Lidern, the Goreblossom
+ManaCost:X G U R
+Types:Legendary Creature Dryad Spirit Horror
+PT:0/1
+SVar:X:Count$xPaid
+K:etbCounter:P1P1:3
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigPutCounter | OptionalDecider$ You | TriggerDescription$ When NICKNAME enters, you may distribute X +1/+1 counters among creatures you control.
+SVar:TrigPutCounter:DB$ PutCounter | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose any number of creatures you control to distribute counters to | CounterType$ P1P1 | CounterNum$ X | ChoiceAmount$ X | MinChoiceAmount$ 1 | DividedAsYouChoose$ X
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigRemoveCounter | TriggerDescription$ Whenever NICKNAME attacks, Whenever Lidern attacks, you may remove a counter from any number of creatures you control. When you do, draw that many cards and Lidern deals that much damage to each opponent.
+SVar:TrigRemoveCounter:DB$ RemoveCounter | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose any number of creatures you control to remove a +1/+1 counter from | CounterType$ P1P1 | CounterNum$ 1 | ChoiceOptional$ True | SubAbility$ DBDraw | RememberAmount$ True
+SVar:DBDraw:DB$ Draw | NumCards$ Y | SubAbility$ DBBurn
+SVar:DBBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ Y | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Y:Count$RememberedNumber
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Lidern enters with three +1/+1 counters on it.\nWhen Lidern enters, you may distribute X +1/+1 counters among creatures you control.\nWhenever Lidern attacks, you may remove a counter from any number of creatures you control. When you do, draw that many cards and Lidern deals that much damage to each opponent.

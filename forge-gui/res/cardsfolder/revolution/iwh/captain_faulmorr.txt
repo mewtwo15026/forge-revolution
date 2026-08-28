@@ -1,0 +1,10 @@
+Name:Captain Faulmorr
+ManaCost:B
+Types:Legendary Creature Zombie Knight
+PT:1/1
+T:Mode$ ChangesZoneAll | ValidCards$ Zombie.YouOwn+!token | Origin$ Any | Destination$ Graveyard | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever one or more Zombie cards are put into your graveyard from anywhere, put a +1/+1 counter on CARDNAME.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Draw | Cost$ 2 B PayLife<2> ExileFromGrave<2/Card> | NumCards$ 1 | SpellDescription$ Draw a card.
+DeckHas:Ability$Counters
+DeckHints:Ability$Mill|Surveil|Discard & Type$Zombie
+Oracle:Whenever one or more Zombie cards are put into your graveyard from anywhere, put a +1/+1 counter on Captain Faulmorr.\n{2}{B}, Pay 2 life, Exile two cards from your graveyard: Draw a card.

@@ -1,0 +1,11 @@
+Name:Boughbreak Lumberknot
+ManaCost:4 G G
+Types:Creature Treefolk
+PT:7/5
+K:Reach
+K:Trample
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When this creature enters, ABILITY
+SVar:TrigCharm:DB$ Charm | MinCharmNum$ 0 | CharmNum$ 1 | Choices$ DBShufflePerm,DBShuffleGrave
+SVar:DBShufflePerm:DB$ ChangeZone | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment to shuffle | Origin$ Battlefield | Destination$ Library | Shuffle$ True | IsCurse$ True | SpellDescription$ The owner of target artifact or enchantment shuffles it into their library.
+SVar:DBShuffleGrave:DB$ ChangeZone | ValidTgts$ Card | TgtPrompt$ Select target card in a graveyard | Origin$ Graveyard | Destination$ Library | Shuffle$ True | SpellDescription$ The owner of target card in a graveyard shuffles it into their library.
+Oracle:Reach, trample\nWhen this creature enters, you may choose target artifact, enchantment, or card in a graveyard. If you do, shuffle that card into its owner's library.

@@ -1,0 +1,11 @@
+Name:Overlord of Ashmouth
+ManaCost:4 B B
+Types:Creature Demon
+PT:5/5
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ ImmeTrig | TriggerDescription$ When this creature enters, you may sacrifice another creature. When you do, destroy target creature an opponent controls with mana value 3 or less.
+SVar:ImmeTrig:AB$ ImmediateTrigger | Cost$ Sac<1/Creature.Other/other creature> | Execute$ TrigDestroy | TriggerDescription$ When you do, destroy target creature an opponent controls with mana value 3 or less.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Creature.OppCtrl+cmcLE3 | TgtPrompt$ Select target creature an opponent controls with mana value 3 or less
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying | Condition$ Threshold | Description$ This creature has flying as long as there are seven or more cards in your graveyard.
+DeckHas:Ability$Sacrifice
+Oracle:When this creature enters, you may sacrifice another creature. When you do, destroy target creature with mana value 3 or less an opponent controls.\nThis creature has flying as long as there are seven or more cards in your graveyard.

@@ -1,0 +1,17 @@
+Name:Urgent Investigations
+ManaCost:2 W U B
+Types:Instant
+# use !sharesCardTypeWith Remembered
+# might be a DB$ Repeat that goes until either you find 4 cards or you cancel?
+A:SP$ PeekAndReveal | Defined$ You | NoReveal$ True | PeekAmount$ 7 | SubAbility$ DBRepeat | StackDescription$ SpellDescription | SpellDescription$ Look at the top seven cards of your library. You may reveal up to four cards that share no card types from among them. Put the revealed cards into your hand, then put the rest on the bottom in a random order.
+SVar:DBRepeat:DB$ Repeat | RepeatSubAbility$ DBCount | RepeatDefined$ Remembered | RepeatPresent$ Card | RepeatCompare$ NELastCount | RepeatCheckSVar$ CountRemembered | RepeatSVarCompare$ LT4 | SubAbility$ DBToHand
+SVar:DBCount:DB$ StoreSVar | SVar$ LastCount | Type$ CountSVar | Expression$ CountRemembered | SubAbility$ DBDig
+SVar:DBDig:DB$ Dig | DigNum$ DigCount | ChangeNum$ 1 | ChangeValid$ Card.!sharesCardTypeWith Remembered | Optional$ True | RememberChanged$ True | DestinationZone$ Library | LibraryPosition$ 0 | DestinationZone2$ Library | LibraryPosition2$ 0
+SVar:DBToHand:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Hand | Shuffle$ False | Mandatory$ True | SubAbility$ DBRandomOrder
+SVar:DBRandomOrder:DB$ Dig | DigNum$ ShuffleCount | ChangeNum$ 0 | RestRandomOrder$ True | NoReveal$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DigCount:Number$7/Minus.LastCount
+SVar:CountRemembered:Remembered$Valid Card
+SVar:LastCount:Number$8
+SVar:ShuffleCount:Number$7/Minus.CountRemembered
+Oracle:Look at the top seven cards of your library. You may reveal up to four cards that share no card types from among them. Put the revealed cards into your hand, then put the rest on the bottom in a random order.

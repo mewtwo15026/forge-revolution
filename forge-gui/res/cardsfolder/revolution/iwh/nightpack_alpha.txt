@@ -1,0 +1,10 @@
+Name:Nightpack Alpha
+ManaCost:R
+Types:Creature Wolf
+PT:2/1
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+T:Mode$ Transformed | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever a creature you control transforms, put a +1/+1 counter on it.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCard | CounterType$ P1P1
+DeckHints:Type$Werewolf
+DeckHas:Ability$Counters
+Oracle:This creature can't block.\nWhenever a creature you control transforms, put a +1/+1 counter on it.

@@ -1,0 +1,12 @@
+Name:Grasping Dreams
+ManaCost:2 U
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand+OppCtrl | TgtPrompt$ Select target nonland permanent an opponent controls | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile target nonland permanent an opponent controls. For as long as that card remains exiled, its owner may cast it. It costs {2} more to cast this way.
+SVar:DBEffect:DB$ Effect | Duration$ Permanent | StaticAbilities$ MayPlay,CostsMore | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:MayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | MayPlayPlayer$ CardOwner | Description$ For as long as the remembered card remains exiled, its owner may cast it.
+SVar:CostsMore:Mode$ RaiseCost | ValidCard$ Card.IsRemembered+CastSa Spell.MayPlaySource | AffectedZone$ Exile | Type$ Spell | Amount$ 2 | Description$ The remembered card costs {2} more to cast this way.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+K:Flashback:1 W Sac<1/Spirit>
+SVar:AIPreference:SacCost$Spirit.token,Spirit.cmcLE2+withiwh_Possess
+DeckHints:Type$Spirit
+Oracle:Exile target nonland permanent an opponent controls. For as long as that card remains exiled, its owner may cast it. It costs {2} more to cast this way.\nFlashback-{1}{W}, Sacrifice a Spirit. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

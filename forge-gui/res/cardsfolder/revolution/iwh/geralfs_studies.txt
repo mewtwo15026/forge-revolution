@@ -1,0 +1,6 @@
+Name:Geralf's Studies
+ManaCost:2 U
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent | IsCurse$ True | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return up to one target nonland permanent to its owner's hand. | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | SpellDescription$ Draw a card.
+Oracle:Return up to one target nonland permanent to its owner's hand.\nDraw a card.

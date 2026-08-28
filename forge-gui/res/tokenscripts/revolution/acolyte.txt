@@ -1,0 +1,7 @@
+Name:Acolyte 
+ManaCost:no cost
+Types:Creature Warlock
+Colors:white,black
+PT:0/1
+A:AB$ Surveil | Cost$ 1 Sac<1/CARDNAME> | Amount$ 1 | SpellDescription$ Surveil 1.
+Oracle:{1}, Sacrifice this token: Surveil 1.

@@ -1,0 +1,13 @@
+Name:Riding the Geistroads
+ManaCost:W U
+Types:Enchantment
+S:Mode$ Continuous | Affected$ Creature.Spirit+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Spirits you control get +1/+1.
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Enchantment.Other+YouCtrl | Destination$ Battlefield | OptionalDecider$ You | Execute$ TrigMill | TriggerDescription$ Whenever this enchantment or another enchantment you control enters, you may mill two cards. Put up to one Spirit card milled this way on top of your library.
+SVar:TrigMill:DB$ NumCards$ 2 | RememberMilled$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Library | LibraryPosition$ 0 | ChangeType$ Spirit.IsRemembered | ChangeNum$ 1 | SelectPrompt$ You may choose a Spirit card milled this way | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Mill
+DeckHints:Type$Enchantment & Keyword$iwh_Possess
+DeckNeeds:Type$Spirit
+Oracle:Spirits you control get +1/+1.\nWhenever this enchantment or another enchantment you control enters, you may mill two cards. Put up to one Spirit card milled this way on top of your library.

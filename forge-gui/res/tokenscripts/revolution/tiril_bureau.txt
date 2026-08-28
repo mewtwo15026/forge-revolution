@@ -1,0 +1,8 @@
+Name:Tiril Bureau 
+ManaCost:no cost
+Types:Enchantment Clique
+Colors:white,blue,black
+A:AB$ Surveil | Cost$ 4 | PrecostDesc$ Pledge - | SorcerySpeed$ True | Amount$ 2 | SpellDescription$ Surveil 2. Activate only as a sorcery unless you're making a pledge.
+A:AB$ Surveil | Cost$ 0 | PrecostDesc$ Pledge - | IsPresent$ Effect.YouCtrl+namedPledging | PresentZone$ Command | Amount$ 2 | Secondary$ True | SpellDescription$ Surveil 2. Activate only as a sorcery unless you're making a pledge.
+# NOTE: if this doesn't work, try using DB$ ActivateAbility somehow
+Oracle:(This token is white, blue, and black.)\nPledge - {4}: Surveil 2. Activate only as a sorcery unless you're making a pledge.

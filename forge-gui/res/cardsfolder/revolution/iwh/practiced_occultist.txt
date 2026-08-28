@@ -1,0 +1,12 @@
+Name:Practiced Occultist
+ManaCost:2 W
+Types:Creature Human Warlock
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 1/1 white Human creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_human
+A:AB$ LoseLife | Cost$ 6 B | Defined$ Player.Opponent | LifeAmount$ X | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses X life and you gain X life, where X is the number of creatures you control.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$Valid Creature.YouCtrl
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token
+Oracle:When this creature enters, create a 1/1 white Human creature token.\n{6}{B}: Each opponent loses X life and you gain X life, where X is the number of creatures you control.

@@ -1,0 +1,13 @@
+Name:Anje's Thirst
+ManaCost:2 B
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature to shrink | IsCurse$ True | NumAtt$ -5 | NumDef$ -5 | SubAbility$ GorgeTarget | SpellDescription$ Target creature gets -5/-5 until end of turn. You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeTarget:DB$ Pump | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you control to gorge | RememberPumped$ True | SubAbility$ GorgeChoice
+SVar:GorgeChoice:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You | FallbackAbility$ DBCleanup
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.!IsRemembered/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters
+Oracle:Target creature gets -5/-5 until end of turn. You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)

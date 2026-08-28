@@ -1,0 +1,9 @@
+Name:Ritual Preparations
+ManaCost:1 W
+Types:Sorcery
+A:SP$ PutCounter | CounterNum$ 1 | CounterType$ P1P1 | TargetMin$ 0 | TargetMax$ 2 | ValidTgts$ Creature.YouCtrl | SubAbility$ DBPump | TgtPrompt$ Select up to two target creatures you control | SpellDescription$ Put a +1/+1 counter on each of up to two target creatures you control. Those creatures gain vigilance until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Vigilance
+K:Flashback:G Return<1/Human>
+DeckHas:Ability$Counters|Graveyard
+DeckHints:Type$Human
+Oracle:Put a +1/+1 counter on each of up to two target creatures you control. Those creatures gain vigilance until end of turn.\nFlashback-{G}, Return a Human you control to its owner's hand. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

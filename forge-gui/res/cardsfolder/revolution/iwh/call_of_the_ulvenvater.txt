@@ -1,0 +1,8 @@
+Name:Call of the Ulvenvater
+ManaCost:3 G
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ Savage | EffectZone$ All | Description$ This spell costs {1} less to cast for each savage creature you control. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:Savage:Count$Valid Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower
+A:SP$ DigMultiple | DigNum$ 10 | Reveal$ True | ChangeValid$ Creature,Land | DestinationZone2$ Library | LibraryPosition$ -1 | RestRandomOrder$ True | Optional$ True | SpellDescription$ Reveal the top ten cards of your library. You may put a creature and/or a land card from among them into your hand. Put the rest on the bottom in a random order.
+DeckHints:Type$Werewolf|Aura|Equipment
+Oracle:This spell costs {1} less to cast for each savage creature you control. (A creature is savage if it's transformed or has power greater than its base power.)\nReveal the top ten cards of your library. You may put a creature and/or a land card from among them into your hand. Put the rest on the bottom in a random order.

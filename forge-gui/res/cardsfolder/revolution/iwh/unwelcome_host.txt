@@ -1,0 +1,13 @@
+Name:Unwelcome Host
+ManaCost:3 U
+Types:Creature Spirit Horror
+PT:3/3
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeatEach | TriggerDescription$ When this creature enters, for each other creature, you may choose a permanent attached to that creature or a counter on that creature. Move the chosen counters onto this creature and attach the chosen permanents to this creature (if able).
+SVar:TrigRepeatEach:DB$ RepeatEach | RepeatCards$ Creature.Other+enchanted,Creature.Other+equipped,Creature.Other+HasCounters | RepeatSubAbility$ RepeatChoice | StackDescription$ None
+SVar:RepeatChoice:DB$ GenericChoice | Defined$ You | Choices$ RepeatAttached,RepeatCounter
+SVar:RepeatAttached:DB$ ChooseCard | Choices$ Aura.CanEnchantSource+AttachedTo Creature.IsRemembered,Equipment.AttachedTo Creature.IsRemembered | ChoicePrompt$ Select a permanent to attach to CARDNAME | SubAbility$ DBAttach | SpellDescription$ Attach a permanent from that creature to CARDNAME.
+SVar:DBAttach:DB$ Attach | Object$ ChosenCard | Defined$ Self | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+SVar:RepeatCounter:DB$ MoveCounter | Source$ Remembered | Defined$ Self | CounterType$ Any | SpellDescription$ Move a counter from that creature to CARDNAME.
+Oracle:Flying\nWhen this creature enters, for each other creature, you may choose a permanent attached to that creature or a counter on that creature. Move the chosen counters onto this creature and attach the chosen permanents to this creature (if able).

@@ -1,0 +1,9 @@
+Name:Cultist of the Drowntide
+ManaCost:3 U
+Types:Creature Human Warlock
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may return target creature an opponent controls to its owner's hand. If there are seven or more cards in your graveyard, instead that creature's owner puts it on their choice of the top or bottom of their library.
+SVar:TrigBounce:DB$ ChangeZone | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | Origin$ Battlefield | Destination$ Hand | SubAbility$ DBTuck | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ0
+SVar:TrigTuck:DB$ ChangeZone | Defined$ Targeted | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | ConditionCheckSVar$ X
+SVar:X:Count$Threshold.1.0
+Oracle:When this creature enters, you may return target creature an opponent controls to its owner's hand. If there are seven or more cards in your graveyard, instead that creature's owner puts it on their choice of the top or bottom of their library.

@@ -1,0 +1,6 @@
+Name:Sentry of the New World
+ManaCost:no cost
+Types:Artifact Creature Robot
+Colors:white,blue,black,red,green
+PT:5/5
+Oracle:(This creature is all colors.)

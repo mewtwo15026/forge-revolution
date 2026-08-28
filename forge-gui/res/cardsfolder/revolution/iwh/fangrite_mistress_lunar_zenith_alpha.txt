@@ -1,0 +1,27 @@
+Name:Fangrite Mistress
+ManaCost:R G
+Types:Creature Human Shaman Werewolf
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerDescription$ When this creature enters, it deals damage to each opponent equal to the number of spells all of your opponents have cast this turn.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ X
+SVar:X:Count$ThisTurnCast_Card.OppCtrl
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:BuffedBy:Wolf,Werewolf
+DeckHas:Ability$Counters
+AlternateMode:DoubleFaced
+Oracle:Flash\nWhen this creature enters, it deals damage to each opponent equal to the number of spells all of your opponents have cast this turn.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Lunar-Zenith Alpha
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:red,green
+PT:3/2
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigCounters | TriggerDescription$ Whenever this creature transforms into CARDNAME, put a +1/+1 counter on each other Wolf and Werewolf you control.
+SVar:TrigCounters:DB$ PutCounterAll | ValidCards$ Wolf.StrictlyOther+YouCtrl,Werewolf.StrictlyOther+YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Whenever this creature transforms into Lunar-Zenith Alpha, put a +1/+1 counter on each other Wolf and Werewolf you control.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

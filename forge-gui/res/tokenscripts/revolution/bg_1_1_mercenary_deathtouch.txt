@@ -1,0 +1,7 @@
+Name:Mercenary Token
+ManaCost:no cost
+Types:Creature Mercenary
+Colors:black,green
+PT:1/1
+K:Deathtouch
+Oracle:Deathtouch

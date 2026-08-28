@@ -1,0 +1,14 @@
+Name:Olivia's Debauchery
+ManaCost:X R
+Types:Sorcery
+A:SP$ Charm | Choices$ DBBlaze,DBGorge
+SVar:DBBlaze:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X | SpellDescription$ CARDNAME deals X damage to any target.
+SVar:DBGorge:DB$ RepeatEach | DefinedCards$ Targeted | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ X | TgtPrompt$ Select up to X target creatures you control to gorge. (They gorge in the order you target them.) | RepeatSubAbility$ GorgeChoice | SpellDescription$ You may have any number of up to X target creatures you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeChoice:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You | ShowCurrentCard$ Remembered |  StackDescription$ (The creatures gorge in the order they were targeted.)
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+SVar:X:Count$xPaid
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Discard|Sacrifice|Counters
+Oracle:Choose one -\n• Olivia's Debauchery deals X damage to any target.\n• You may have any number of up to X target creatures you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)

@@ -1,0 +1,12 @@
+Name:The Ulvenvater
+ManaCost:2 G G
+Types:Legendary Creature Wolf
+PT:4/4
+K:Flash
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ1 | TriggerZones$ Battlefield | OpponentTurn$ True | Execute$ TrigCharm | TriggerDescription$ Whenever you cast your first spell during each opponent's turn, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBToken,DBCounterAll
+SVar:DBToken:DB$ Token | TokenScript$ g_2_2_wolf | SpellDescription$ Create a 2/2 green Wolf creature token.
+SVar:DBCounterAll:DB$ PutCounterAll | ValidCards$ Creature.Wolf+YouCtrl,Creature.Werewolf+YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on each creature you control that's a Wolf or a Werewolf.
+DeckHas:Ability$Token
+DeckHints:Type$Wolf|Werewolf & Type$Instant & Keyword$Flash
+Oracle:Flash\nWhenever you cast your first spell during each opponent's turn, choose one -\n• Create a 2/2 green Wolf creature token.\n• Put a +1/+1 counter on each creature you control that's a Wolf or a Werewolf.

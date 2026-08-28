@@ -1,0 +1,26 @@
+Name:Overfueled Abomination
+ManaCost:4 B
+Types:Creature Zombie Mutant
+PT:3/2
+K:Menace
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigChoose | TriggerDescription$ When this creature enters, stitch 3. If you don't create a token this way, put two +1/+1 counters on this creature. (To stitch 3, you may exile a creature card and an instant or sorcery card from your graveyard to create a 3/3 blue Zombie creature token.)
+SVar:TrigChoose:DB$ GenericChoice | Choices$ StitchBranch,DBPutCounter
+# TODO: make stitching work without the Stonestitching and Masterstitching keywords
+SVar:StitchBranch:DB$ Branch | BranchConditionSVar$ SGA | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ SGAChoice | FalseSubAbility$ NormalTrig | SpellDescription$ Stitch 3.
+SVar:SGAChoice:DB$ GenericChoice | Defined$ You | Choices$ SGATrig,NormalTrig | StackDescription$ None
+SVar:SGATrig:DB$ ImmediateTrigger | Static$ True | Execute$ SGAStitch | SpellDescription$ Stitch - Exile a Zombie card.
+SVar:SGAStitch:AB$ Token | Cost$ ExileFromGrave<1/Zombie> | TokenScript$ u_3_3_zombie | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:NormalTrig:DB$ ImmediateTrigger | Static$ True | Execute$ NormalStitch | SpellDescription$ Stitch - Exile a creature card and an instant or sorcery card.
+SVar:NormalStitch:AB$ Token | Cost$ ExileFromGrave<1/Creature> ExileFromGrave<1/Instant;Sorcery.Other/instant or sorcery> | TokenScript$ u_3_3_zombie | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:StitchRepeat:DB$ Repeat | MaxRepeat$ MSS | RepeatCheckSVar$ MSS | RepeatSVarCompare$ GE1 | RepeatSubAbility$ StitchAnimate | SubAbility$ StitchCleanup | StackDescription$ None
+SVar:StitchAnimate:DB$ Animate | Defined$ Imprinted | Duration$ Permanent | Triggers$ MSSTrigger
+SVar:MSSTrigger:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ MSSPlay | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.
+SVar:MSSPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell.Instant,Spell.Sorcery | Amount$ 1 | CopyCard$ True | WithoutManaCost$ True | Optional$ True
+SVar:StitchCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True | SubAbility$ DBDraw
+SVar:MSS:Count$Valid Permanent.YouCtrl+withMasterstitching
+SVar:SGA:Count$Valid Permanent.YouCtrl+withStonestitching
+# end stitch stuff
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 2 | SpellDescription$ Put two +1/+1 counters on this creature.
+DeckHas:Ability$Counters|Token
+DeckHints:Type$Instant|Sorcery
+Oracle:Menace\nWhen this creature enters, stitch 3. If you don't create a token this way, put two +1/+1 counters on this creature. (To stitch 3, you may exile a creature card and an instant or sorcery card from your graveyard to create a 3/3 blue Zombie creature token.)

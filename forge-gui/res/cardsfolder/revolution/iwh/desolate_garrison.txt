@@ -1,0 +1,11 @@
+Name:Desolate Garrison
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ ETBSurveil | Optional$ True | ReplacementResult$ Updated | Description$ As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.
+SVar:ETBSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ ETBTapped
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T PayLife<1> | Produced$ W | SpellDescription$ Add {W}.
+A:AB$ Token | Cost$ 1 W T Sac<1/CARDNAME> | Activation$ Threshold | TokenScript$ w_1_1_human | TokenAmount$ 2 | TokenTapped$ True | SpellDescription$ Create two tapped 1/1 white Human creature tokens. Activate only if there are seven or more cards in your graveyard.
+DeckHas:Ability$Surveil|Graveyard|Token & Type$Human
+DeckHints:Ability$Graveyard
+Oracle:As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.\n{T}, Pay 1 life: Add {W}.\n{1}{W}, {T}, Sacrifice this land: Create two tapped 1/1 white Human creature tokens. Activate only if there are seven or more cards in your graveyard.

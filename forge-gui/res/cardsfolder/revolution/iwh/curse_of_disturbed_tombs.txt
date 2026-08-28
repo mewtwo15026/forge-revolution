@@ -1,0 +1,16 @@
+Name:Curse of Disturbed Tombs
+ManaCost:3 W W
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When this Aura enters, each of enchanted player's opponents may return a creature card from their graveyard to the battlefield.
+SVar:TrigRepeat:DB$ RepeatEach | RepeatPlayers$ Player.OpponentOf EnchantedPlayer | RepeatSubAbility$ DBChoose | SubAbility$ DBReturnAll
+SVar:DBChoose:DB$ ChooseCard | Choices$ Creature.RememberedPlayerCtrl | ChoiceZone$ Graveyard | Defined$ Player.IsRemembered | Amount$ 1 | RememberChosen$ True
+SVar:DBReturnAll:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered | Origin$ Graveyard | Destination$ Hand | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ AttackersDeclared | AttackedTarget$ Player.EnchantedBy | Execute$ TrigPutCounter | TriggerDescription$ Whenever a player attacks enchanted player, the attacking player puts a +1/+1 counter on target attacking creature. It gains lifelink until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | TargetingPlayer$ AttackingPlayer | ValidTgts$ Creature.attacking | TgtPrompt$ Select target attacking creature | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Targeted | KW$ Lifelink
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Graveyard|Counters|LifeGain
+Oracle:Enchant player\nWhen this Aura enters, each of enchanted player's opponents may return a creature card from their graveyard to the battlefield.\nWhenever a player attacks enchanted player, the attacking player puts a +1/+1 counter on target attacking creature. It gains lifelink until end of turn.

@@ -1,0 +1,9 @@
+Name:Bleeding Tithe
+ManaCost:R
+Types:Sorcery
+A:SP$ Token | TokenScript$ c_a_blood_draw | SubAbility$ DBMana | SpellDescription$ Create a Blood token. Add {R}. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")
+SVar:DBMana:DB$ Mana | Produced$ R | Amount$ 1
+K:Flashback:B ExileFromGrave<1/Vampire>
+DeckHas:Ability$Graveyard|Token|Discard|Sacrifice & Type$Artifact|Blood
+DeckHints:Type$Vampire
+Oracle:Create a Blood token. Add {R}. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")\nFlashback-{B}, Exile a Vampire card from your graveyard. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

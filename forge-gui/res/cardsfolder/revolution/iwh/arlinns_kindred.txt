@@ -1,0 +1,11 @@
+Name:Arlinn's Kindred
+ManaCost:1 G G
+Types:Creature Wolf
+PT:3/1
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When this creature enters, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBPump,DBTransform
+SVar:DBPump:DB$ Pump | ValidTgts$ Wolf.YouCtrl,Werewolf.YouCtrl | TgtPrompt$ Select target Wolf or Werewolf you control to pump | KW$ Hexproof | SpellDescription$ Target Wolf or Werewolf you control gains hexproof until end of turn.
+SVar:DBTransform:DB$ SetState | ValidTgts$ Werewolf.YouCtrl | TgtPrompt$ Select target Wolf or Werewolf you control | Mode$ Transform | Optional$ True | SpellDescription$ You may transform target Wolf or Werewolf creature you control.
+DeckHints:Type$Wolf|Werewolf
+Oracle:Flash\nWhen this creature enters, choose one -\n• Target Wolf or Werewolf you control gains hexproof until end of turn.\n• You may transform target Wolf or Werewolf creature you control.

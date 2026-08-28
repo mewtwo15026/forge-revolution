@@ -1,0 +1,21 @@
+Name:Callous Killer
+ManaCost:2 B
+Types:Creature Human Rogue
+PT:3/2
+K:Menace
+A:AB$ Draw | Cost$ 1 B Sac<1/Creature.Other/another creature> | SorcerySpeed$ True | SubAbility$ DBTransform | SpellDescription$ Draw a card. Then if there are seven or more cards in your graveyard, you may transform this creature. Activate only as a sorcery.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | Condition$ Threshold
+SVar:AIPreference:SacCost$Creature.token
+DeckHas:Ability$Sacrifice
+AlternateMode:DoubleFaced
+Oracle:Menace\n{1}{B}, Sacrifice another creature: Draw a card. Then if there are seven or more cards in your graveyard, you may transform this creature. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Repentant Geist
+ManaCost:no cost
+Types:Creature Spirit
+Colors:white
+PT:4/4
+K:Flying
+Oracle:Flying

@@ -1,0 +1,8 @@
+Name:The Haunting of Silbern
+ManaCost:2 R
+Types:Legendary Enchantment
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPumpAll | TriggerDescription$ Whenever you cast an instant or sorcery spell, creatures you control get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +1
+A:AB$ Animate | Cost$ 1 U | Defined$ Self | Power$ 4 | Toughness$ 4 | Types$ Creature,Elemental,Spirit | Colors$ Blue | OverwriteColors$ True | Keywords$ Flying | SpellDescription$ The Haunting of Silbern becomes a 4/4 blue Elemental Spirit creature with flying in addition to its other types until end of turn.
+SVar:BuffedBy:Instant,Sorcery
+Oracle:Whenever you cast an instant or sorcery spell, creatures you control get +1/+0 until end of turn.\n{1}{U}: The Haunting of Silbern becomes a 4/4 blue Elemental Spirit creature with flying in addition to its other types until end of turn.

@@ -1,0 +1,14 @@
+Name:Shadowgrange Tormenter
+ManaCost:1 B B
+Types:Creature Demon
+PT:4/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTorment | TriggerDescription$ When this creature enters, target opponent may have you draw a card. If they don't, that player loses 3 life and you gain 3 life.
+SVar:TrigTorment:DB$ GenericChoice | ValidTgts$ Opponent | Choices$ TormentDraw,TormentDrain
+SVar:TormentDraw:DB$ Draw | Defined$ You | SpellDescription$ CARDNAME's controller draws a card.
+SVar:TormentDrain:DB$ LoseLife | Defined$ Targeted | LifeAmount$ 3 | SubAbility$ DBGainLife | SpellDescription$ You lose 3 life and CARDNAME's controller gains 3 life.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 3
+T:Mode$ ChangesZone | Origin$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepay | TriggerDescription$ When this creatures leaves the battlefield, you may discard a card. If you don't, you lose 3 life and target opponent gains 3 life.
+SVar:TrigRepay:DB$ LoseLife | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessResolveSubs$ WhenNotPaid | Defined$ You | LifeAmount$ 3 | SubAbility$ DBRepayLife
+SVar:DBRepayLife:DB$ GainLife | ValidTgts$ Player.Opponent | TgtPrompt$ Select target opponent to gain life | LifeAmount$ 3
+DeckHas:Ability$Discard
+Oracle:When this creature enters, target opponent may have you draw a card. If they don't, that player loses 3 life and you gain 3 life.\nWhen this creatures leaves the battlefield, you may discard a card. If you don't, you lose 3 life and target opponent gains 3 life.

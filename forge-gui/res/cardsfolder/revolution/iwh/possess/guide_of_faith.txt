@@ -1,0 +1,13 @@
+Name:Guide of Faith
+ManaCost:W U
+Types:Creature Spirit Cleric
+PT:2/1
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | ValidCard$ Spirit.Other+YouCtrl,Aura.Other+YouCtrl | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever another Spirit or Aura enters under your control, put a +1/+1 counter on this permanent.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ X | AddToughness$ X | IsPresent$ Card.Self+counters_GE6_LEVEL | Description$ Enchanted creature gets +1/+1 for each +1/+1 counter on this permanent.
+SVar:X:Count$CardCounters.P1P1
+DeckHas:Ability$Counters
+DeckHints:Type$Spirit|Aura & Keyword$iwh_Possess
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhenever another Spirit or Aura enters under your control, put a +1/+1 counter on this permanent.\nEnchanted creature gets +1/+1 for each +1/+1 counter on this permanent.

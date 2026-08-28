@@ -1,0 +1,8 @@
+Name:Haunted Doll
+ManaCost:W
+Types:Artifact Creature Toy Spirit
+PT:1/2
+K:Flying
+A:AB$ ChangeZone | Cost$ 2 W Sac<1/CARDNAME> | AILogic$ Never | ValidTgts$ Permanent.nonLand+YouCtrl | TgtPrompt$ Select target nonland permanent you control | RememberTargets$ True | ForgetOtherTargets$ True | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBReturn | SpellDescription$ Exile target nonland permanent you control, then return it to the battlefield tapped under its owner's control.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Tapped$ True | Destination$ Battlefield
+Oracle:Flying\n{2}{W}, Sacrifice this creature: Exile target nonland permanent you control, then return it to the battlefield tapped under its owner's control.

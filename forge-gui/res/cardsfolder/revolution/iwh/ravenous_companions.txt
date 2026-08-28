@@ -1,0 +1,9 @@
+Name:Ravenous Companions
+ManaCost:2 R
+Types:Creature Vampire Wolf Berserker
+PT:2/3
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ This creature has first strike as long as it's your turn.
+A:AB$ Pump | Cost$ 2 R Sac<1/Creature.Other/other creature> | Defined$ Self | NumAtt$ +2 | NumDef$ +1 | KW$ Trample | SpellDescription$ This creature gets +2/+1 and gains trample until end of turn.
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice
+Oracle:This creature has first strike as long as it's your turn.\n{2}{R}, Sacrifice another creature: This creature gets +2/+1 and gains trample until end of turn.

@@ -1,0 +1,11 @@
+Name:Thing from the Depths
+ManaCost:3 U U U
+Types:Creature Kraken Horror
+PT:5/6
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | OptionalDecider$ You | TriggerDescription$ Whenever this creature enters or attacks, you may return target nonland permanent to its owner's hand.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigBounce | OptionalDecider$ You | TriggerDescription$ Whenever this creature enters or attacks, you may return target nonland permanent to its owner's hand.
+SVar:TrigBounce:DB$ ChangeZone | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Hand
+A:AB$ ChangeZone | Cost$ 2 U ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target nonland permanent to its owner's hand. Activate only as a sorcery.
+SVar:HasAttackEffect:TRUE
+Oracle:This spell can't be countered.\nWhenever this creature enters or attacks, you may return target nonland permanent to its owner's hand.\n{2}{U}, Exile this card from your graveyard: Return target nonland permanent to its owner's hand. Activate only as a sorcery.

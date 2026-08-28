@@ -1,0 +1,8 @@
+Name:Tovolar's Ire
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +2 | NumDef$ +1 | SubAbility$ AirFight | SpellDescription$ Target creature you control gets +2/+1 until end of turn. You may have it fight up to one target creature you don't control.
+SVar:AirFight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.YouDontCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Choose up to one target creature you don't control | Optional$ True
+K:Flashback:5 R tapXType<1/Wolf;Werewolf/Wolf or Werewolf>
+DeckHints:Type$Wolf|Werewolf
+Oracle:Target creature you control gets +2/+1 until end of turn. You may have it fight up to one target creature you don't control.\nFlashback-{5}{R}, Tap an untapped Wolf or Werewolf you control. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

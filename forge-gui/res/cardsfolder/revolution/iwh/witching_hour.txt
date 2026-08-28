@@ -1,0 +1,8 @@
+Name:Witching Hour
+ManaCost:X B B B
+Types:Sorcery
+A:SP$ SetLife | ValidTgts$ Player | IsCurse$ True | LifeAmount$ 13 | Optional$ True | SubAbility$ DBCurse | SpellDescription$ Search your library for a Curse card with mana value twice X or less, put it onto the battlefield attached to target player, then shuffle. You may have that player's life total become 13.
+SVar:DBCurse:DB$ ChangeZone | ChangeType$ Curse.YouCtrl+cmcLEX | ChangeTypeDesc$ Curse card with mana value twice X or less | Hidden$ True | Origin$ Library | Destination$ Battlefield | ChangeNum$ 1
+SVar:X:Count$xPaid/Twice
+DeckNeeds:Type$Enchantment|Curse
+Oracle:Search your library for a Curse card with mana value twice X or less, put it onto the battlefield attached to target player, then shuffle. You may have that player's life total become 13.

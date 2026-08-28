@@ -1,0 +1,11 @@
+Name:Desolate Thicket
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ ETBSurveil | Optional$ True | ReplacementResult$ Updated | Description$ As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.
+SVar:ETBSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ ETBTapped
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T PayLife<1> | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ PutCounterAll | Cost$ 2 G T Sac<1/CARDNAME> | Activation$ Threshold | ValidCards$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | AILogic$ AtEOTOrBlock | SpellDescription$ Put a +1/+1 counter on each creature you control. Activate only if there are seven or more cards in your graveyard.
+DeckHas:Ability$Surveil|Graveyard|Counters
+DeckHints:Ability$Graveyard
+Oracle:As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.\n{T}, Pay 1 life: Add {G}.\n{2}{G}, {T}, Sacrifice this land: Put a +1/+1 counter on each creature you control. Activate only if there are seven or more cards in your graveyard.

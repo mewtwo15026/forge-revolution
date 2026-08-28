@@ -1,0 +1,9 @@
+Name:Moldgraf Stewards
+ManaCost:W
+Types:Creature Fungus
+PT:2/1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCounter | IsPresent$ Creature.YouCtrl | PresentCompare$ GE4 | TriggerDescription$ Whenever this creature attacks, if you control four or more creatures, put a +1/+1 counter on target creature.
+SVar:TrigCounter:DB$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Pump | Cost$ 2 W | KW$ Indestructible | SpellDescription$ This creature gains indestructible until end of turn.
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever this creature attacks, if you control four or more creatures, put a +1/+1 counter on target creature.\n{2}{W}: This creature gains indestructible until end of turn.

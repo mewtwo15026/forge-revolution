@@ -1,0 +1,18 @@
+Name:Goldnight Purgeblade
+ManaCost:1 R W
+Types:Creature Angel
+PT:2/1
+K:Flash
+K:Flying
+S:Mode$ CantBlock | ValidCard$ Creature.Self | Description$ This creature can't block.
+T:Mode$ Transformed | ValidCard$ Permanent | Execute$ STListener | Static$ True
+SVar:STListener:DB$ Pump | Defined$ TriggeredCard | RememberPumped$ True
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.IsRemembered | Static$ True | Execute$ STForgetOne
+SVar:STForgetOne:DB$ Pump | ForgetObjects$ TriggeredCard
+T:Mode$ TurnBegin | Execute$ STForgetAll | Static$ True
+SVar:STForgetAll:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ When this creature enters, ABILITY
+SVar:TrigCharm:DB$ Charm | MinCharmNum$ 0 | Choices$ DBBurn,DBExile
+SVar:DBBurn:DB$ DealDamage | ValidTgts$ Creature.IsRemembered,Creature.ThisTurnEntered | TgtPrompt$ Select target creature that entered or transformed this turn | NumDmg$ 3 | SpellDescription$ This creature deals 3 damage to target creature that entered or transformed this turn.
+SVar:DBExile:DB$ ChangeZone | ValidTgts$ Artifact.IsRemembered,Artifact.ThisTurnEntered,Enchantment.IsRemembered,Enchantment.ThisTurnEntered | TgtPrompt$ Select target artifact or enchantment that entered or transformed this turn | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target artifact or enchantment that entered or transformed this turn.
+Oracle:Flash\nFlying\nThis creature can't block.\nWhen this creature enters, choose up to one -\n• This creature deals 3 damage to target creature that entered or transformed this turn.\n• Exile target artifact or enchantment that entered or transformed this turn.

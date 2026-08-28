@@ -1,0 +1,11 @@
+Name:Bloodsire's Herald
+ManaCost:1 B
+Types:Creature Bat
+PT:1/1
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When this creature enters, look at the top six cards of your library. You may reveal a Vampire or Sorin card from among them and put it into your hand. Put the rest on the bottom in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ 6 | ChangeNum$ 1 | Optional$ True | ForceRevealToController$ True | ChangeValid$ Card.Vampire,Card.Sorin | ChangeValidDesc$ creature or land | RestRandomOrder$ True
+DeckHas:Ability$LifeGain
+DeckHints:Type$Vampire|Sorin
+Oracle:Flying, lifelink\nWhen this creature enters, look at the top six cards of your library. You may reveal a Vampire or Sorin card from among them and put it into your hand. Put the rest on the bottom in a random order.

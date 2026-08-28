@@ -1,0 +1,13 @@
+Name:Traft's Embrace
+ManaCost:4 W
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create two 1/1 white Spirit creature tokens with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit_flying | TokenAmount$ 2
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ X | AddToughness$ X | Description$ Enchanted creature gets +1/+1 for each Spirit and/or Aura you control.
+SVar:X:Count$Valid Aura.YouCtrl,Spirit.YouCtrl
+SVar:BuffedBy:Aura,Spirit
+DeckHints:Type$Aura|Spirit
+DeckHas:Ability$Token & Type$Spirit
+Oracle:Enchant creature\nWhen this enchantment enters, create two 1/1 white Spirit creature tokens with flying.\nEnchanted creature gets +1/+1 for each Spirit and/or Aura you control.

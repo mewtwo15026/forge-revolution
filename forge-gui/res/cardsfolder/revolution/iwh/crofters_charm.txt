@@ -1,0 +1,9 @@
+Name:Crofter's Charm
+ManaCost:1 W
+Types:Instant
+A:SP$ Charm | Choices$ DBDestroy,DBTokens,DBGainLife
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Creature.powerGE4 | TgtPrompt$ Select target creature with power 4 or greater | SpellDescription$ Destroy target creature with power 4 or greater.
+SVar:DBTokens:DB$ Token | TokenScript$ w_1_1_human | SubAbility$ DBWeapon | SpellDescription$ Create a 1/1 white Human creature token and a Weapon token. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 4
+DeckHas:Ability$Token & Type$Human|Artifact|Equipment|Weapon
+Oracle:Choose one -\n• Destroy target creature with power 4 or greater.\n• Create a 1/1 white Human creature token and a Weapon token. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")\n• You gain 4 life.

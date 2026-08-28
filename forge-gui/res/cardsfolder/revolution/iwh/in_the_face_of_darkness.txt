@@ -1,0 +1,11 @@
+Name:In the Face of Darkness
+ManaCost:1 G
+Types:Enchantment
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ When this enchantment enters, you gain 3 life, then surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 1
+S:Mode$ Continuous | Affected$ Human.YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Humans you control get +1/+1.
+SVar:PlayMain1:TRUE
+DeckHas:Ability$GainLife|Surveil
+DeckNeeds:Type$Human
+Oracle:When this enchantment enters, you gain 3 life, then surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nHumans you control get +1/+1.

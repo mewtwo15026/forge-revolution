@@ -1,0 +1,8 @@
+Name:Foray into Stensia
+ManaCost:2 G
+Types:Sorcery
+S:Mode$ OptionalCost | EffectZone$ All | ValidCard$ Card.Self | ValidSA$ Spell | Cost$ Behold<1/Human> | Description$ As an additional cost to cast this spell, you may behold a Human. (To behold a Human, choose a Human you control or reveal a Human card from your hand.)
+A:SP$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPumpAll | SpellDescription$ Put a +1/+1 counter on each creature you control. If a Human was beheld, those creatures gain vigilance until end of turn.
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Vigilance | Condition$ OptionalCost | ConditionOptionalPaid$ True
+DeckHints:Type$Human
+Oracle:As an additional cost to cast this spell, you may behold a Human. (To behold a Human, choose a Human you control or reveal a Human card from your hand.)\nPut a +1/+1 counter on each creature you control. If a Human was beheld, those creatures gain vigilance until end of turn.

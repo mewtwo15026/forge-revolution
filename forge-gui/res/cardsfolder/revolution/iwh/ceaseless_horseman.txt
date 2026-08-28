@@ -1,0 +1,13 @@
+Name:Ceaseless Horseman
+ManaCost:1 B B
+Types:Creature Zombie Knight
+PT:4/2
+K:Deathtouch
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | CheckSVar$ Zombos | Execute$ TrigToken | TriggerDescription$ When this creature dies, if you control another Zombie or there are three or more Zombie cards in your graveyard, create a tapped 2/2 black Zombie creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ b_2_2_zombie
+SVar:Zombos:Count$Valid Zombie.Other+YouCtrl/Plus.ZombosGrave
+SVar:ZombosGrave:Count$Compare ZG GE3.1.0
+SVar:ZG:Count$ValidGraveyard Zombie.YouCtrl
+DeckHas:Ability$Token
+DeckHints:Type$Zombie
+Oracle:Deathtouch\nWhen this creature dies, if you control another Zombie or there are three or more Zombie cards in your graveyard, create a tapped 2/2 black Zombie creature token.

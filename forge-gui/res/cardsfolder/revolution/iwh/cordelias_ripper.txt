@@ -1,0 +1,13 @@
+Name:Cordelia's Ripper
+ManaCost:7 R R
+Types:Creature Vampire Berserker
+PT:3/4
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ CARDNAME costs {1} less to cast for each instant, sorcery, and/or Vampire card in your graveyard.
+SVar:X:Count$ValidGraveyard Instant.YouOwn,Sorcery.YouOwn,Vampire.YouOwn
+K:Flying
+K:Haste
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerDescription$ Whenever this creature attacks, it deals 2 damage to any target.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2
+SVar:HasAttackEffect:TRUE
+DeckNeeds:Type$Instant|Sorcery|Vampire
+Oracle:This spell costs {1} less to cast for each instant, sorcery, and/or Vampire card in your graveyard.\nFlying, haste\nWhenever this creature attacks, it deals 2 damage to any target.

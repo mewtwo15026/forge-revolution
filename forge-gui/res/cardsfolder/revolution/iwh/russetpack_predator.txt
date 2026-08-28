@@ -1,0 +1,9 @@
+Name:Russetpack Predator
+ManaCost:3 R
+Types:Creature Wolf
+PT:3/4
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigBurn | TriggerDescription$ When this creature enters, it deals damage to each opponent equal to the number of savage creatures you control. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:TrigBurn:DB$ DamageAll | ValidPlayers$ Player.Opponent | NumDmg$ X | DamageSource$ TriggeredCard
+SVar:X:Count$Valid Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower
+DeckHints:Ability$Counters & Type$Werewolf|Aura|Equipment
+Oracle:When this creature enters, it deals damage to each opponent equal to the number of savage creatures you control. (A creature is savage if it's transformed or has power greater than its base power.)

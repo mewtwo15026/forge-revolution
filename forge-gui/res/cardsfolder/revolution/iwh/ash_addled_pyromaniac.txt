@@ -1,0 +1,11 @@
+Name:Ash-Addled Pyromaniac
+ManaCost:1 R
+Types:Creature Human Peasant
+PT:3/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCharm | TriggerDescription$ When this creature dies, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBDevil,DBArdor
+SVar:DBDevil:DB$ Token | TokenScript$ r_1_1_devil_burn | SpellDescription$ Create a 1/1 red Devil creature token with "When this creature dies, it deals 1 damage to any target."
+SVar:DBArdor:DB$ Token | TokenScript$ r_e_ardor | SpellDescription$ Create a red Ardor enchantment token with "Sacrifice this token: Target creature gets +1/+0 and gains haste until end of turn."
+SVar:SacMe:1
+DeckHas:Ability$Token|Sacrifice & Type$Devil|Enchantment|Ardor
+Oracle:When this creature dies, choose one -\n• Create a 1/1 red Devil creature token with "When this creature dies, it deals 1 damage to any target."\n• Create a red Ardor enchantment token with "Sacrifice this token: Target creature gets +1/+0 and gains haste until end of turn."

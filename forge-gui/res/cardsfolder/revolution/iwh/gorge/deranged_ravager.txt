@@ -1,0 +1,13 @@
+Name:Deranged Ravager
+ManaCost:2 B
+Types:Creature Vampire
+PT:2/1
+K:Lifelink
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGorge | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may have it gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)
+SVar:TrigGorge:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters|LifeGain
+Oracle:Lifelink\nWhen this creature enters, you may have it gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)

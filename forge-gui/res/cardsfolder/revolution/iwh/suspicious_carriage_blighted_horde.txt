@@ -1,0 +1,26 @@
+Name:Suspicious Carriage
+ManaCost:1 B B
+Types:Artifact Vehicle
+PT:2/5
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When this creature enters, surveil 2.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 2
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigTransform | CombatDamage$ True | TriggerDescription$ When this Vehicle deals combat damage to a player, transform it.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+K:Crew:1
+DeckHas:Ability$Surveil|Token|LifeGain|Sacrifice & Type$Food
+AlternateMode:DoubleFaced
+Oracle:Menace\nWhen this Vehicle enters, surveil 2.\nWhenever this Vehicle deals combat damage to a player, transform it.\nCrew 1
+
+ALTERNATE
+
+Name:Blighted Horde
+ManaCost:no cost
+Types:Creature Zombie
+Colors:black
+PT:3/5
+K:Deathtouch
+A:AB$ Token | Cost$ 1 B T ExileFromGrave<2/Card> | TokenScript$ c_a_food_sac | SpellDescription$ Create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.")
+T:Mode$ Sacrificed | ValidCard$ Food | Execute$ TrigLoseLife | TriggerZones$ Battlefield | ValidPlayer$ You | TriggerDescription$ Whenever you sacrifice a Food, each opponent loses 2 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 2
+Oracle:Deathtouch\n{1}{B}, {T}, Exile two cards from your graveyard: Create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.")\nWhenever you sacrifice a Food, each opponent loses 2 life.

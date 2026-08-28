@@ -1,0 +1,25 @@
+Name:Cackling Igniter
+ManaCost:R
+Types:Creature Elemental Devil
+PT:1/1
+K:Haste
+A:AB$ Pump | Cost$ 3 R | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBCurse | SpellDescription$ Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+SVar:DBCurse:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | AttachedToPlayer$ ParentTarget | AILogic$ Curse
+SVar:SacMe:4
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard & Type$Enchantment|Aura|Curse
+AlternateMode:DoubleFaced
+Oracle:Haste\nWhen this creature dies, it deals 1 damage to any target.\n{3}{R}: Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Curse of Wyldfyre
+ManaCost:no cost
+Types:Enchantment Aura Curse
+Colors:red
+K:Enchant:Player
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ Player.EnchantedBy | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ At the beginning of enchanted player's upkeep, this Aura deals 1 damage to them.
+SVar:TrigBurn:DB$ DealDamage | Defined$ EnchantedPlayer | NumDmg$ 1
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this Aura would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Enchant player\nAt the beginning of enchanted player's upkeep, this Aura deals 1 damage to them.\nIf this Aura would be put into a graveyard from anywhere, exile it instead.

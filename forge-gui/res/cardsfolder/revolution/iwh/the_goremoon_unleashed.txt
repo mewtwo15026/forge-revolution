@@ -1,0 +1,11 @@
+Name:The Goremoon Unleashed
+ManaCost:3 R R
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ DBDamageAll | StackDescription$ None | SpellDescription$ Choose target creature you control. It deals damage equal to its power to each other creature and planeswalker. If the chosen creature was savage, exile the top three cards of your library. You may play them until the end of your next turn.
+SVar:DBDamageAll:DB$ DamageAll | ValidCards$ Creature.NotDefinedTargeted,Planeswalker.NotDefinedTargeted | NumDmg$ X | DamageSource$ ParentTarget | SubAbility$ DBDig
+SVar:DBDig:DB$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | ConditionDefined$ Targeted | ConditionPresent$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play the exiled cards.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:ParentTargeted$CardPower
+Oracle:Choose target creature you control. It deals damage equal to its power to each other creature and planeswalker. If the chosen creature was savage, exile the top three cards of your library. You may play them until the end of your next turn. (A creature is savage if it's transformed or has power greater than its base power.)

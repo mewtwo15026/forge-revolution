@@ -1,0 +1,11 @@
+Name:Gnarlwood's Claim
+ManaCost:X 2 B G
+Types:Sorcery
+A:SP$ ChooseType | Defined$ You | Type$ Card | InvalidTypes$ Instant,Sorcery,Kindred | SubAbility$ DBReturnLands
+SVar:DBReturnLands:DB$ ChangeZoneAll | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | ChangeType$ Card.Land+ChosenType+YouCtrl+cmcLEX | RememberChanged$ True | SubAbility$ DBReturnNonLands
+SVar:DBReturnNonLands:DB$ ChangeZoneAll | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Card.nonLand+ChosenType+YouCtrl+cmcLEX | RememberChanged$ True | SubAbility$ DBSac
+SVar:DBSac:DB$ SacrificeAll | ValidCards$ Permanent.YouCtrl+ChosenType+cmcLEX+!IsRemembered | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid/Twice
+AI:RemoveDeck:All
+Oracle:Choose a permanent type. Simultaneously sacrifice each permanent you control of the chosen type and return to the battlefield each card in your graveyard of the chosen type with mana value twice X or less. Lands that enter this way enter tapped.

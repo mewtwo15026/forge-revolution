@@ -1,0 +1,11 @@
+Name:Curse of Warped Realities
+ManaCost:3 G G
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ Attacks | ValidCard$ Creature | Attacked$ Player.EnchantedBy | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever a creature attacks enchanted player, put a +1/+1 counter on it. It gains trample until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ TriggeredAttackerLKICopy | KW$ Trample
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+Oracle:Enchant player\nWhenever a creature attacks enchanted player, put a +1/+1 counter on that creature. It gains trample until end of turn.

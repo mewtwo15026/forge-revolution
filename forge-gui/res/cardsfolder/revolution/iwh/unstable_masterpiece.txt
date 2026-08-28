@@ -1,0 +1,16 @@
+Name:Unstable Masterpiece
+ManaCost:1 U U
+Types:Creature Zombie Horror
+PT:5/4
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When this creature enters, sacrifice it unless you exile a creature card and an instant or sorcery card from your graveyard.
+SVar:TrigSac:DB$ Sacrifice | SacValid$ Self | UnlessCost$ ExileFromGrave<1/Creature> ExileFromGrave<1/Instant;Sorcery/instant or sorcery> | UnlessPayer$ You
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When this creature dies, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.
+SVar:TrigDig:DB$ Dig | DigNum$ 2 | ChangeNum$ 1 | DestinationZone2$ Graveyard | NoReveal$ True
+SVar:NeedsToPlayVar:X EQ2
+SVar:X:SVar$Y/Plus.Z
+SVar:Y:Count$ValidGraveyard Creature.YouCtrl/LimitMax.1
+SVar:Z:Count$ValidGraveyard Instant.YouCtrl,Sorcery.YouCtrl/LimitMax.1
+DeckNeeds:Type$Creature & Type$Instant|Sorcery
+DeckHints:Ability$Mill|Surveil|Discard
+Oracle:Vigilance\nWhen this creature enters, sacrifice it unless you exile a creature card and an instant or sorcery card from your graveyard.\nWhen this creature dies, look at the top two cards of your library. Put one into your hand and the rest into your graveyard.

@@ -1,0 +1,8 @@
+Name:Addled Psyche
+ManaCost:U B
+Types:Instant
+A:SP$ Charm | Choices$ ExileSpell,ExileCreature,ExileWalker
+SVar:ExileSpell:DB$ ChangeZone | ValidTgts$ Card.inZoneStack+cmcLE2 | TgtZone$ Stack | TgtPrompt$ Select target spell with mana value 2 or less | Origin$ Stack | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target spell with mana value 2 or less.
+SVar:ExileCreature:DB$ ChangeZone | ValidTgts$ Creature.powerLE2 | TgtPrompt$ Select target creature with power 2 or less | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target creature with power 2 or less.
+SVar:ExileWalker:DB$ ChangeZone | ValidTgts$ Planeswalker.counters_LE2_LOYALTY | TgtPrompt$ Select target planeswalker with two or fewer loyalty counters | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target planeswalker with two or fewer loyalty counters on it.
+Oracle:Choose one -\n• Exile target spell with mana value 2 or less.\n• Exile target creature with power 2 or less.\n• Exile target planeswalker with two or fewer loyalty counters on it.

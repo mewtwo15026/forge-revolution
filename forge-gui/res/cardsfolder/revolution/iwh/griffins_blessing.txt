@@ -1,0 +1,11 @@
+Name:Griffin's Blessing
+ManaCost:1 G
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ 2 | Choices$ DBCounter,DBPump,DBFight,DBSac
+SVar:DBCounter:DB$ PutCounter | ValidTgts$ Creature | TgtPrompt$ Select target creature to get a +1/+1 counter | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on target creature.
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature to gain hexproof | KW$ Hexproof | SpellDescription$ Target creature gains hexproof until end of turn.
+SVar:DBFight:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control to fight | SubAbility$ DBFight2 | StackDescription$ None | SpellDescription$ Target creature you control fights target creature an opponent controls.
+SVar:DBFight2:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls to fight
+SVar:DBSac:DB$ Sacrifice | ValidTgts$ Player | SacValid$ Artifact | SpellDescription$ Target player sacrifices an artifact.
+DeckHas:Ability$Counters
+Oracle:Choose up to two -\n• Put a +1/+1 counter on target creature.\n• Target creature gains hexproof until end of turn.\n• Target creature you control fights target creature an opponent controls.\n• Target player sacrifices an artifact.

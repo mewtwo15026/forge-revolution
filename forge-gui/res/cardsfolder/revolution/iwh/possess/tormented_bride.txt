@@ -1,0 +1,13 @@
+Name:Tormented Bride
+ManaCost:4 U
+Types:Creature Spirit
+PT:2/5
+K:Flying
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ Attacks | ValidCard$ Card.Self,Creature.EnchantedBy | Attacked$ Opponent | Execute$ TrigMill | OptionalDecider$ You | TriggerDescription$ Whenever this creature or enchanted creature attacks an opponent, you may have target player mill cards equal to its power.
+SVar:TrigMill:DB$ Mill | ValidTgts$ Player | NumCards$ X
+SVar:X:TriggeredAttacker$CardPower
+SVar:HasAttackAbility:TRUE
+DeckHas:Ability$Mill
+Oracle:Flying\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhenever this creature or enchanted creature attacks an opponent, you may have target player mill cards equal to its power.

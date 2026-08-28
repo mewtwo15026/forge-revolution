@@ -1,0 +1,9 @@
+Name:Breathstealer Spirit
+ManaCost:3 U U
+Types:Creature Spirit
+PT:3/3
+K:Flying
+K:iwh_Possess
+SVar:AttachAILogic:GainControl
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | GainControl$ You | Description$ You control enchanted creature.
+Oracle:Flying\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nYou control enchanted creature.

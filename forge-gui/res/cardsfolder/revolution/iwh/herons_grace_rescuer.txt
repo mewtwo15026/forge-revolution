@@ -1,0 +1,12 @@
+Name:Heron's Grace Rescuer
+ManaCost:1 W W
+Types:Creature Human Knight Soldier
+PT:4/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may return another target nonland permanent you own to your hand.
+SVar:TrigBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Permanent.nonLand+Other+YouOwn | TgtPrompt$ Select another target nonland permanent you own | AITgts$ Permanent.nonLand+Other+YouOwn+!token+cmcLE2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSneak | CheckSVar$ Concord | SVarCompare$ GE4 | TriggerDescription$ Concord - Whenever this creature attacks, if there are four or more card types among permanents you control, you may put a permanent card with mana value 2 or less from your hand onto the battlefield.
+SVar:TrigSneak:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Permanent.YouOwn+cmcLE2 | Optional$ True
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:Flash\nWhen this creature enters, you may return another target nonland permanent you own to your hand.\nConcord - Whenever this creature attacks, if there are four or more card types among permanents you control, you may put a permanent card with mana value 2 or less from your hand onto the battlefield.

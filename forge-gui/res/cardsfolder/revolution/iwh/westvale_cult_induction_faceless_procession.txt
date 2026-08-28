@@ -1,0 +1,20 @@
+Name:Westvale Cult Induction
+ManaCost:1 W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | OptionalDecider$ You | TriggerDescription$ When this enchantment enters, you may create a white Aura enchantment token with enchant creature and "Enchanted creature loses all abilities and has base power and toughness 3/3" attached to target creature.
+SVar:TrigToken:DB$ Token | TokenScript$ w_e_aura_faceless | TokenOwner$ You | AttachedTo$ Targeted | ValidTgts$ Creature | TgtPrompt$ Select target creature | AITgts$ Creature.token+YouCtrl,Creature.!NoAbilities+OppCtrl
+A:AB$ SetState | Cost$ 2 W W | SorcerySpeed$ True | Defined$ Self | Mode$ Transform | SpellDescription$ Transform this enchantment. Activate only as a sorcery.
+DeckHas:Ability$Token & Type$Aura|Human
+DeckHints:Ability$Token
+AlternateMode:DoubleFaced
+Oracle:When this enchantment enters, you may create a white Aura enchantment token with enchant creature and "Enchanted creature loses all abilities and has base power and toughness 3/3" attached to target creature.\n{2}{W}{W}: Transform this enchantment. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Faceless Procession
+ManaCost:no cost
+Types:Creature Human
+Colors:white
+PT:3/3
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+NoAbilities | AddPower$ 1 | AddToughness$ 1 | Description$ Creatures you control with no abilities get +1/+1.
+Oracle:Creatures you control with no abilities get +1/+1.

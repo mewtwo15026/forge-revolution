@@ -1,0 +1,10 @@
+Name:Hamlet Guardians
+ManaCost:3 G
+Types:Creature Human Warrior
+PT:3/3
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | ValidCard$ Human.Other+YouCtrl | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever another Human you control enters, put a +1/+1 counter on it if it was a token. Otherwise, draw a card.
+SVar:TrigCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ TriggeredCardLKICopy | ConditionPresent$ Creature.token | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ TriggeredCardLKICopy | ConditionPresent$ Creature.!token
+DeckNeeds:Type$Human
+DeckHints:Ability$Token
+Oracle:Whenever another Human you control enters, put a +1/+1 counter on it if it was a token. Otherwise, draw a card.

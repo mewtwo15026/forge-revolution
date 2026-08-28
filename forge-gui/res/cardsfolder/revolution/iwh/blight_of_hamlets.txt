@@ -1,0 +1,9 @@
+Name:Blight of Hamlets
+ManaCost:4 B G
+Types:Creature Ooze
+PT:5/5
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When this creature enters, look at the top X cards of your library, where X is one plus the number of land cards in your graveyard. Put one of them into your hand and the rest on the bottom in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ X | ChangeNum$ 1 | Optional$ True | NoReveal$ True | RestRandomOrder$ True
+SVar:X:Count$ValidGraveyard Land.YouOwn
+Oracle:Menace\nWhen this creature enters, look at the top X cards of your library, where X is one plus the number of land cards in your graveyard. Put one of them into your hand and the rest on the bottom in a random order.

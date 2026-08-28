@@ -1,0 +1,9 @@
+Name:March of the Drowntide
+ManaCost:3 U
+Types:Sorcery
+K:MayFlashCost:Behold<1/Zombie>
+A:SP$ ChangeZone | ValidTgts$ Creature | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | SubAbility$ DBSurveil | SpellDescription$ Target creature's owner puts it on the top or bottom of their library. Surveil 2.
+SVar:DBSurveil:DB$ Surveil | Amount$ 2
+DeckHas:Ability$Surveil
+DeckHints:Type$Zombie
+Oracle:You may cast this spell as though it had flash if you behold a Zombie as an additional cost to cast it. (To behold a Zombie, choose a Zombie you control or reveal a Zombie card from your hand.)\nTarget creature's owner puts it on the top or bottom of their library. Surveil 2.

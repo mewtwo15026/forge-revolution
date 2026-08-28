@@ -1,0 +1,23 @@
+Name:Odric, Accursed Slayer
+ManaCost:R W
+Types:Legendary Creature Vampire Soldier
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever NICKNAME enters or attacks, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | Secondary$ True | TriggerDescription$ Whenever NICKNAME enters or attacks, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_blood_draw
+T:Mode$ Discarded | ValidCard$ Creature.YouCtrl+withFlying,Creature.YouCtrl+withFirst Strike,Creature.YouCtrl+withDouble Strike,Creature.YouCtrl+withHaste,Creature.YouCtrl+withHexproof,Creature.YouCtrl+withIndestructible,Creature.YouCtrl+withLifelink,Creature.YouCtrl+withMenace,Creature.YouCtrl+withReach,Creature.YouCtrl+withTrample,Creature.YouCtrl+withVigilance | TriggerZones$ Battlefield | Execute$ TrigPumpFlying | TriggerDescription$ Whenever you discard a creature card with flying, NICKNAME gains flying until end of turn. The same is true for first strike, double strike, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.
+SVar:TrigPumpFlying:DB$ Pump | Defined$ Self | KW$ Flying | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withFlying | SubAbility$ DBPumpFS
+SVar:DBPumpFS:DB$ Pump | Defined$ Self | KW$ First Strike | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withFirst Strike | SubAbility$ DBPumpDS
+SVar:DBPumpDS:DB$ Pump | Defined$ Self | KW$ Double Strike | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withDouble Strike | SubAbility$ DBPumpHaste
+SVar:DBPumpHaste:DB$ Pump | Defined$ Self | KW$ Haste | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withHaste | SubAbility$ DBPumpHexproof
+SVar:DBPumpHexproof:DB$ Pump | Defined$ Self | KW$ Hexproof | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withHexproof | SubAbility$ DBPumpIndestructible
+SVar:DBPumpIndestructible:DB$ Pump | Defined$ Self | KW$ Indestructible | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withIndestructible | SubAbility$ DBPumpLifelink
+SVar:DBPumpLifelink:DB$ Pump | Defined$ Self | KW$ Lifelink | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withLifelink | SubAbility$ DBPumpMenace
+SVar:DBPumpMenace:DB$ Pump | Defined$ Self | KW$ Menace | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withMenace | SubAbility$ DBPumpReach
+SVar:DBPumpReach:DB$ Pump | Defined$ Self | KW$ Reach | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withReach | SubAbility$ DBPumpTrample
+SVar:DBPumpTrample:DB$ Pump | Defined$ Self | KW$ Trample | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withTrample | SubAbility$ DBPumpVigilance
+SVar:DBPumpVigilance:DB$ Pump | Defined$ Self | KW$ Vigilance | ConditionDefined$ TriggeredCard | ConditionPresent$ Creature.withVigilance
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Discard|Sacrifice|Token & Type$Artifact|Blood
+DeckHints:Keyword$Flying|First Strike|Double Strike|Deathtouch|Haste|Hexproof|Indestructible|Lifelink|Menace|Reach|Trample|Vigilance
+Oracle:Whenever Odric enters or attacks, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")\nWhenever you discard a creature card with flying, Odric gains flying until end of turn. The same is true for first strike, double strike, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.

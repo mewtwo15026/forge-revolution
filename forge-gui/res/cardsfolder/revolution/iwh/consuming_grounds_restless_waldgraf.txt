@@ -1,0 +1,21 @@
+Name:Consuming Grounds
+ManaCost:1 G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Permanent.YouCtrl | SpellDescription$ Return target permanent card from your graveyard to your hand.
+A:AB$ ChangeZone | Cost$ 4 G | ActivationZone$ Graveyard | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | SpellDescription$ Return this card from your graveyard to the battlefield transformed. Activate only as a sorcery.
+DeckHas:Ability$Discard
+AlternateMode:DoubleFaced
+Oracle:Return target permanent card from your graveyard to your hand.\n{4}{G}: Return this card from your graveyard to the battlefield transformed. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Restless Waldgraf
+ManaCost:no cost
+Types:Land
+Colors:green
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+T:Mode$ Phase | Phase$ BeginCombat | TriggerZones$ Battlefield | Execute$ TrigAnimate | TriggerDescription$ At the beginning of combat, you may discard a card. If you do, untap this land. It becomes a 5/5 green Zombie Treefolk creature with reach and trample until end of turn. It's still a land.
+SVar:TrigAnimate:AB$ Animate | Cost$ Discard<1/Card> | Defined$ Self | Power$ 5 | Toughness$ 5 | Types$ Creature,Zombie,Treefolk | Colors$ Green | OverwriteColors$ True | Keywords$ Reach & Trample
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this land would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:{T}: Add {G}.\nAt the beginning of combat, you may discard a card. If you do, untap this land. It becomes a 5/5 green Zombie Treefolk creature with reach and trample until end of turn. It's still a land.\nIf this land would be put into a graveyard from anywhere, exile it instead.

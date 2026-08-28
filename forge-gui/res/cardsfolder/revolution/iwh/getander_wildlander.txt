@@ -1,0 +1,12 @@
+Name:Getander Wildlander
+ManaCost:2 G
+Types:Creature Human Ranger
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTreasure | TriggerDescription$ When this creature enters or attacks, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTreasure | Secondary$ True | TriggerDescription$ When this creature enters or attacks, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:TrigTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+A:AB$ Token | Cost$ G Sac<3/Artifact;Enchantment/artifacts or enchantments> | SorcerySpeed$ True | TokenScript$ g_4_4_bear | SpellDescription$ Create a 4/4 green Bear creature token. Activate only as a sorcery.
+SVar:AIPreference:SacCost$Artifact.token,Enchantment.cmcLE2,Artifact.cmcLE2+nonLegendary+!named
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+Oracle:When this creature enters or attacks, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")\n{G}, Sacrifice three artifacts and/or enchantments: Create a 4/4 green Bear creature token. Activate only as a sorcery.

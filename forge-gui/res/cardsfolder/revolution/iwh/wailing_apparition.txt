@@ -1,0 +1,9 @@
+Name:Wailing Apparition
+ManaCost:3 U
+Types:Creature Spirit
+PT:3/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When this creature enters, tap target creature an opponent controls. If you control another Spirit, put a stun counter on that creature.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.OppCtrl | SubAbility$ DBCounter
+SVar:DBCounter:DB$ PutCounter | Defined$ ParentTarget | ConditionPresent$ Spirit.Other+YouCtrl | ConditionCompare$ GE1 | CounterType$ Stun | CounterNum$ 1
+DeckHints:Type$Spirit
+Oracle:When this creature enters, tap target creature an opponent controls. If you control another Spirit, put a stun counter on that creature.

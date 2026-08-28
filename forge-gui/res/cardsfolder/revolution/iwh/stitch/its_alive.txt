@@ -1,0 +1,25 @@
+Name:It's Alive!
+ManaCost:3 B B
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card in your graveyard | ValidTgts$ Creature.YouCtrl | ChangeNum$ 1 | RememberLKI$ True | SubAbility$ StitchBranch | SpellDescription$ Return target creature card from your graveyard to the battlefield. Stitch X, where X is that creature's power. (To stitch X, you may exile a creature card and an instant or sorcery card from your graveyard to create an X/X blue Zombie creature token.)
+# TODO: make stitching work without the Stonestitching and Masterstitching keywords
+# NOTE: in this configuration, the spell enters your graveyard before the stitching
+#       also the card draw seems to happen before the stitching
+SVar:StitchBranch:DB$ Branch | BranchConditionSVar$ SGA | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ SGAChoice | FalseSubAbility$ NormalTrig | StackDescription$ Stitch X, where X is that creature's power.
+SVar:SGAChoice:DB$ GenericChoice | Defined$ You | Choices$ SGATrig,NormalTrig | StackDescription$ None
+SVar:SGATrig:DB$ ImmediateTrigger | Static$ True | Execute$ SGAStitch | SpellDescription$ Stitch - Exile a Zombie card.
+SVar:SGAStitch:AB$ Token | Cost$ ExileFromGrave<1/Zombie> | TokenScript$ u_x_x_zombie | TokenPower$ X | TokenToughness$ X | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:NormalTrig:DB$ ImmediateTrigger | Static$ True | Execute$ NormalStitch | SpellDescription$ Stitch - Exile a creature card and an instant or sorcery card.
+SVar:NormalStitch:AB$ Token | Cost$ ExileFromGrave<1/Creature> ExileFromGrave<1/Instant;Sorcery.Other/instant or sorcery> | TokenScript$ u_x_x_zombie | TokenPower$ X | TokenToughness$ X | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:StitchRepeat:DB$ Repeat | MaxRepeat$ MSS | RepeatCheckSVar$ MSS | RepeatSVarCompare$ GE1 | RepeatSubAbility$ StitchAnimate | SubAbility$ StitchCleanup | StackDescription$ None
+SVar:StitchAnimate:DB$ Animate | Defined$ Imprinted | Duration$ Permanent | Triggers$ MSSTrigger
+SVar:MSSTrigger:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ MSSPlay | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.
+SVar:MSSPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell.Instant,Spell.Sorcery | Amount$ 1 | CopyCard$ True | WithoutManaCost$ True | Optional$ True
+SVar:StitchCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True | SubAbility$ DBDraw
+SVar:MSS:Count$Valid Permanent.YouCtrl+withMasterstitching
+SVar:SGA:Count$Valid Permanent.YouCtrl+withStonestitching
+SVar:X:RememberedLKI$CardPower
+# end stitch stuff
+DeckHas:Ability$Graveyard|Token & Type$Zombie
+DeckNeeds:Type$Instant|Sorcery & Type$Creature
+Oracle:Return target creature card from your graveyard to the battlefield. Stitch X, where X is that creature's power. (To stitch X, you may exile a creature card and an instant or sorcery card from your graveyard to create an X/X blue Zombie creature token.)

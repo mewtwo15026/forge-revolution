@@ -1,0 +1,8 @@
+Name:Storms over Nephalia
+ManaCost:1 U U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Card | SubAbility$ DBToken | SpellDescription$ Counter target spell. If there are seven or more cards in your graveyard, create a 1/1 red Elemental creature token with flying and "This creature can't block."
+SVar:DBToken:DB$ Token | TokenScript$ r_1_1_elemental_flying_cantblock | ConditionCheckSVar$ X | ConditionSVarCompare$ GE7
+SVar:X:Count$ValidGraveyard Card.YouOwn
+DeckHints:Ability$Discard|Sacrifice|Mill|Surveil
+Oracle:Counter target spell. If there are seven or more cards in your graveyard, create a 1/1 red Elemental creature token with flying and "This creature can't block."

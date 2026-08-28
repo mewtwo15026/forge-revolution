@@ -1,0 +1,10 @@
+Name:Niblis of the Gloom
+ManaCost:3 U
+Types:Creature Spirit
+PT:2/5
+K:Vigilance
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast an instant or sorcery spell, you may pay {2}. If you do, create a tapped 2/2 black Zombie creature token.
+SVar:TrigToken:AB$ Token | Cost$ 2 | TokenScript$ b_2_2_zombie | TokenTapped$ True
+DeckHints:Type$Instant|Sorcery
+DeckHas:Type$Zombie & Ability$Token
+Oracle:Vigilance\nWhenever you cast an instant or sorcery spell, you may pay {2}. If you do, create a tapped 2/2 black Zombie creature token.

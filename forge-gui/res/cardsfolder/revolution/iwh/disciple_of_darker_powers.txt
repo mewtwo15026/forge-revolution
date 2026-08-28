@@ -1,0 +1,16 @@
+Name:Disciple of Darker Powers
+ManaCost:B
+Types:Creature Zombie Warlock
+PT:2/1
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ This creature enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, you mill a card and lose 1 life.
+SVar:TrigMill:DB$ Mill | NumCards$ 1 | Defined$ You | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+A:AB$ ChangeZone | Cost$ 3 B B ExileFromGrave<4/Card.Other/other cards> | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Battlefield | WithCountersType$ FINALITY | StaticEffect$ Animate | SpellDescription$ Return this card from your graveyard to the battlefield with a finality counter on it. It's a Demon Horror with base power and toughness 5/4.
+SVar:Animate:Mode$ Continuous | Affected$ Card.IsRemembered | SetPower$ 5 | SetToughness$ 4 | AddType$ Demon & Horror | RemoveCreatureTypes$ True
+SVar:SacMe:1
+SVar:DiscardMe:1
+DeckHas:Ability$Mill|Graveyard
+DeckHints:Ability$Mill
+Oracle:This creature enters the battlefield tapped.\nWhen this creature enters, you mill a card and lose 1 life.\n{3}{B}{B}, Exile four other cards from your graveyard: Return this card from your graveyard to the battlefield with a finality counter on it. It's a Demon Horror with base power and toughness 5/4.

@@ -1,0 +1,9 @@
+Name:Nearheath Disciples
+ManaCost:1 W
+Types:Creature Human Spirit Scout
+PT:2/2
+K:Vigilance
+K:iwh_Possess
+S:Mode$ Continuous | Affected$ Human.EnchantedBy,Spirit.EnchantedBy | AddPower$ 1 | AddToughness$ 1 | Description$ As long as enchanted creature is a Human or Spirit, it gets +1/+1.
+DeckHints:Type$Human|Spirit
+Oracle:Vigilance\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nAs long as enchanted creature is a Human or Spirit, it gets +1/+1.

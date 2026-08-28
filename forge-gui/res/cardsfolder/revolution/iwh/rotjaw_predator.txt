@@ -1,0 +1,9 @@
+Name:Rotjaw Predator
+ManaCost:2 B
+Types:Creature Zombie Bear
+PT:1/4
+A:AB$ LoseLife | Cost$ T | CheckSVar$ X | Defined$ Player.Opponent | LifeAmount$ 1 | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses 1 life and you gain 1 life. Activate only if a card left your graveyard this turn.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+SVar:X:Count$LeftGraveyardThisTurn Card.YouOwn
+DeckHints:Ability$Graveyard & Keyword$Flashback|iwh_Possess|Jump-start|Unearth
+Oracle:{T}: Each opponent loses 1 life and you gain 1 life. Activate only if a card left your graveyard this turn.

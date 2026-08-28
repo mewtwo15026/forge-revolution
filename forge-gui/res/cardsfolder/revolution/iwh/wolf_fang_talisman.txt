@@ -1,0 +1,8 @@
+Name:Wolf-Fang Talisman
+ManaCost:2
+Types:Artifact
+A:AB$ Mana | Cost$ T | Produced$ C | RestrictValid$ Spell.Creature | SpellDescription$ Add {C}. Spend this mana only to cast a creature spell.
+A:AB$ Pump | Cost$ X T | SorcerySpeed$ True | ValidTgts$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower | TgtPrompt$ Select target savage creature you control | NumAtt$ X | KW$ Trample | SpellDescription$ Target savage creature you control gets +X/+0 and gains trample until end of turn. Activate only as a sorcery. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:X:Count$xPaid
+SVar:PlayMain1:TRUE
+Oracle:{T}: Add {C}. Spend this mana only to cast creature spells.\n{X}, {T}: Target savage creature you control gets +X/+0 and gains trample until end of turn. Activate only as a sorcery. (A creature is savage if it's transformed or has power greater than its base power.)

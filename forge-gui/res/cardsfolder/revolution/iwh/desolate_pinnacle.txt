@@ -1,0 +1,11 @@
+Name:Desolate Pinnacle
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ ETBSurveil | Optional$ True | ReplacementResult$ Updated | Description$ As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.
+SVar:ETBSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ ETBTapped
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T PayLife<1> | Produced$ R | SpellDescription$ Add {R}.
+A:AB$ DealDamage | Cost$ 2 R T Sac<1/CARDNAME> | Activation$ Threshold | ValidTgts$ Player,Planeswalker | TgtPrompt$ Select target player or planeswalker | NumDmg$ 3 | SpellDescription$ This land deals 3 damage to target player or planeswalker. Activate only if there are seven or more cards in your graveyard.
+DeckHas:Ability$Surveil|Graveyard
+DeckHints:Ability$Graveyard
+Oracle:As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.\n{T}, Pay 1 life: Add {R}.\n{2}{R}, {T}, Sacrifice this land: It deals 3 damage to target player or planeswalker. Activate only if there are seven or more cards in your graveyard.

@@ -1,0 +1,8 @@
+Name:Dawnhart Familiar
+ManaCost:4 G
+Types:Creature Elk
+PT:4/5
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | Threshold$ True | TriggerDescription$ When this creature enters, if there are seven or more cards in your graveyard, draw a card.
+SVar:TrigDraw:DB$ Draw
+Oracle:Trample\nWhen this creature enters, if there are seven or more cards in your graveyard, draw a card.

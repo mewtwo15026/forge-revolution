@@ -1,0 +1,23 @@
+Name:Grand Necrotect
+ManaCost:U
+Types:Creature Zombie Warlock
+PT:0/3
+A:AB$ Mill | Cost$ T | ValidTgts$ Player | TgtPrompt$ Select any number of target players | TargetMin$ 0 | TargetMax$ MaxTgt | NumCards$ 1 | SpellDescription$ Any number of target players each mill a card.
+# TODO: make stitching work without the Stonestitching and Masterstitching keywords
+# NOTE: consider line "IsPresent$ Creature.YouOwn | PresentZone$ Graveyard | IsPresent2$ Instant.YouOwn,Sorcery.YouOwn | PresentZone2$ Graveyard | "
+A:AB$ Branch | Cost$ 3 U U T Exile<1/CARDNAME> | SorcerySpeed$ True | BranchConditionSVar$ SGA | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ SGAChoice | FalseSubAbility$ NormalTrig | SpellDescription$ Stitch 8. Activate only as a sorcery. (To stitch 8, you may exile a creature card and an instant or sorcery card from your graveyard to create a 8/8 blue Zombie creature token.)
+SVar:SGAChoice:DB$ GenericChoice | Defined$ You | Choices$ SGATrig,NormalTrig | StackDescription$ None
+SVar:SGATrig:DB$ ImmediateTrigger | Static$ True | Execute$ SGAStitch | SpellDescription$ Stitch - Exile a Zombie card.
+SVar:SGAStitch:AB$ Token | Cost$ ExileFromGrave<1/Zombie> | TokenScript$ u_8_8_zombie | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:NormalTrig:DB$ ImmediateTrigger | Static$ True | Execute$ NormalStitch | SpellDescription$ Stitch - Exile a creature card and an instant or sorcery card.
+SVar:NormalStitch:AB$ Token | Cost$ ExileFromGrave<1/Creature> ExileFromGrave<1/Instant;Sorcery/instant or sorcery> | TokenScript$ u_8_8_zombie | TokenRemembered$ ExiledCards | ImprintTokens$ True | SubAbility$ StitchRepeat
+SVar:StitchRepeat:DB$ Repeat | MaxRepeat$ MSS | RepeatCheckSVar$ MSS | RepeatSVarCompare$ GE1 | RepeatSubAbility$ StitchAnimate | SubAbility$ StitchCleanup | StackDescription$ None
+SVar:StitchAnimate:DB$ Animate | Defined$ Imprinted | Duration$ Permanent | Triggers$ MSSTrigger
+SVar:MSSTrigger:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ MSSPlay | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.
+SVar:MSSPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell.Instant,Spell.Sorcery | Amount$ 1 | CopyCard$ True | WithoutManaCost$ True | Optional$ True
+SVar:StitchCleanup:DB$ Cleanup | ClearRemembered$ True | ClearImprinted$ True
+SVar:MSS:Count$Valid Permanent.YouCtrl+withMasterstitching
+SVar:SGA:Count$Valid Permanent.YouCtrl+withStonestitching
+# end stitch stuff
+AI:RemoveDeck:All
+Oracle:{T}: Any number of target players each mill a card.\n{3}{U}{U}, {T}, Exile this creature: Stitch 8. Activate only as a sorcery. (To stitch 8, you may exile a creature card and an instant or sorcery card from your graveyard to create a 8/8 blue Zombie creature token.)

@@ -1,0 +1,8 @@
+Name:Thirsty Work
+ManaCost:B
+Types:Instant
+S:Mode$ OptionalCost | EffectZone$ All | ValidCard$ Card.Self | ValidSA$ Spell | Cost$ Behold<1/Vampire> | Description$ As an additional cost to cast this spell, you may behold a Vampire. (To behold a Vampire, choose a Vampire you control or reveal a Vampire card from your hand.)
+A:SP$ Pump | ValidTgts$ Creature | IsCurse$ True | NumAtt$ -2 | NumDef$ -2 | SubAbility$ DBGainLife | SpellDescription$ Target creature gets -2/-2 until end of turn. If a Vampire was beheld, you gain 2 life.
+SVar:DBGainLife:DB$ GainLife | Condition$ OptionalCost | ConditionOptionalPaid$ True | LifeAmount$ 2
+DeckHints:Type$Vampire
+Oracle:As an additional cost to cast this spell, you may behold a Vampire. (To behold a Vampire, choose a Vampire you control or reveal a Vampire card from your hand.)\nTarget creature gets -2/-2 until end of turn. If a Vampire was beheld, you gain 2 life.

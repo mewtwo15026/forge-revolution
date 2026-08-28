@@ -1,0 +1,5 @@
+Name:Minion Token
+ManaCost:no cost
+Types:Creature Minion
+K:Decayed
+Oracle:Decayed (This can't block. When it attacks, sacrifice it at end of combat.)

@@ -1,0 +1,10 @@
+Name:Stonegraf Awakener
+ManaCost:U B
+Types:Creature Zombie Warlock
+PT:2/2
+K:Menace
+S:Mode$ Continuous | Affected$ Creature.Zombie+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Zombie creatures you control get +1/+1.
+K:Stonestitching
+SVar:PlayMain1:TRUE
+DeckHints:Type$Zombie
+Oracle:Menace\nOther Zombies you control get +1/+1.\nYou may exile a Zombie card from your graveyard to stitch rather than a creature card and an instant or sorcery card.

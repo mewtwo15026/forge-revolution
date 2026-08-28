@@ -1,0 +1,7 @@
+Name:Thalia's Skill
+ManaCost:1 W
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | AITgts$ Creature.YouCtrl+equipped,Creature.YouCtrl+enchanted | NumAtt$ +2 | NumDef$ +2 | KW$ First Strike | SubAbility$ ExtraPump | SpellDescription$ Target creature gets +2/+2 and gains first strike until end of turn. If it's equipped or enchanted, it also gains hexproof until end of turn.
+SVar:ExtraPump:DB$ Pump | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Creature.equipped,Creature.enchanted | KW$ Hexproof
+DeckHints:Type$Equipment|Aura
+Oracle:Target creature gets +2/+2 and gains first strike until end of turn. If it's equipped or enchanted, it also gains hexproof until end of turn.

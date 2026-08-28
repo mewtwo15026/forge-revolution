@@ -1,0 +1,11 @@
+Name:Dawnsmite Cavalier
+ManaCost:1 W
+Types:Creature Human Knight
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may tap target creature an opponent controls.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Choose target creature an opponent controls
+A:AB$ ChangeZone | Cost$ 2 W | Origin$ Graveyard | Destination$ Hand | ActivationZone$ Graveyard | CheckSVar$ Concord | SVarCompare$ GE4 | SpellDescription$ Concord - Return this card from your graveyard to your hand. Activate only if there are there are four or more card types among permanents you control.
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+SVar:PlayMain1:TRUE
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:When this creature enters, you may tap target creature an opponent controls.\nConcord - {2}{W}: Return this card from your graveyard to your hand. Activate only if there are there are four or more card types among permanents you control.

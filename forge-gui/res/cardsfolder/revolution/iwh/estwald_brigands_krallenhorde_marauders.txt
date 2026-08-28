@@ -1,0 +1,29 @@
+Name:Estwald Brigands
+ManaCost:3 G G
+Types:Creature Human Warrior Werewolf
+PT:4/5
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Whenever this creature enters or transforms into CARDNAME, mill three cards. You may put a creature card milled this way into your hand.
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigMill | Secondary$ True | TriggerDescription$ Whenever this creature enters or transforms into CARDNAME, mill three cards. You may put a creature card milled this way into your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You | RememberMilled$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Hidden$ True | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Creature.IsRemembered | Optional$ True | SelectPrompt$ You may select a creature card milled this way | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+DeckHas:Ability$Mill|Graveyard
+AlternateMode:DoubleFaced
+Oracle:Haste\nWhenever this creature enters or transforms into Estwald Brigands, mill three cards. You may put a creature card milled this way into your hand.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Krallenhorde Marauders
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:6/5
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigSneak | TriggerDescription$ Whenever this creature transforms into CARDNAME, you may put a creature card from your hand onto the battlefield. It gains haste until end of turn.
+SVar:TrigSneak:DB$ ChangeZone | ChangeType$ Creature.YouOwn | Origin$ Hand | Destination$ Battlefield | Hidden$ True | RememberChanged$ True | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Remembered | KW$ Haste | SubAbility$ DBCleanup
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Whenever this creature transforms into Krallenhorde Marauders, you may put a creature card from your hand onto the battlefield. It gains haste until end of turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

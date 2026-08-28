@@ -1,0 +1,10 @@
+Name:Subsuming Sludge
+ManaCost:1 U U
+Types:Creature Ooze
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCounter | TriggerDescription$ When this creature enters, counter target spell if its mana value is less than or equal to this creature's power.
+SVar:TrigCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | AITgts$ Card.cmcLEX | ConditionDefined$ Targeted | ConditionPresent$ Spell.cmcLEX
+SVar:X:Count$CardPower
+A:AB$ Pump | Cost$ 1 G | ActivationZone$ Battlefield | ActivationLimit$ 1 | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | KW$ Trample | SpellDescription$ This creature gets +2/+2 and gains trample until end of turn. Activate only once each turn.
+Oracle:Flash\nWhen this creature enters, counter target spell if its mana value is less than or equal to this creature's power.\n{1}{G}: This creature gets +2/+2 and gains trample until end of turn. Activate only once each turn.

@@ -1,0 +1,10 @@
+Name:Blood Bank
+ManaCost:B R
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create two Blood tokens.
+SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ c_a_blood_draw
+S:Mode$ Continuous | Affected$ Blood.token+YouCtrl | AddAbility$ ABReturn | Description$ Blood tokens you control have "{T}, Sacrifice this artifact: Return to your hand target card in your graveyard that you discarded this turn."
+SVar:ABReturn:AB$ ChangeZone | Cost$ T Sac<1/CARDNAME> | ValidTgts$ Card.YouOwn+DiscardedThisTurn | TgtPrompt$ Select target card in your graveyard that you discarded this turn | Origin$ Battlefield | Destination$ Hand | AILogic$ RetDiscardedThisTurn | SpellDescription$ Return to your hand target card in your graveyard that you discarded this turn.
+DeckHas:Ability$Token|Sacrifice|Discard & Type$Artifact|Blood
+DeckHints:Type$Blood
+Oracle:When this enchantment enters, create two Blood tokens. (They're artifacts with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.")\nBlood tokens you control have "{T}, Sacrifice this artifact: Return to your hand target card in your graveyard that you discarded this turn."

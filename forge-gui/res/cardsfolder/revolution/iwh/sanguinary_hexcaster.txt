@@ -1,0 +1,15 @@
+Name:Sanguinary Hexcaster
+ManaCost:3 R
+Types:Creature Vampire Wizard
+PT:3/3
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may exile target instant or sorcery card from your graveyard. If you do, you may cast that card until the end of your next turn. If that spell would be put into a graveyard from anywhere, exile it instead.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target instant or sorcery card in your graveyard | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STPlay | ExileOnMoved$ Exile | SubAbility$ DBEffect2 | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play the exiled card.
+SVar:DBEffect2:DB$ Effect | RememberObjects$ Remembered | ExileOnMoved$ Stack | ReplacementEffects$ ReplaceGraveyard | Duration$ UntilTheEndOfYourNextTurn | SubAbility$ DBCleanup
+SVar:ReplaceGraveyard:Event$ Moved | ValidCard$ Card.IsRemembered | Origin$ Stack | Destination$ Graveyard | ReplaceWith$ MoveExile | Description$ If that card would be put into your graveyard from anywhere, exile it instead.
+SVar:MoveExile:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Stack | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Instant|Sorcery
+Oracle:Menace\nWhen this creature enters, you may exile target instant or sorcery card from your graveyard. If you do, you may cast that card until the end of your next turn. If that spell would be put into a graveyard from anywhere, exile it instead.

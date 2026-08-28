@@ -1,0 +1,21 @@
+Name:Somberwald Boar
+ManaCost:2 G
+Types:Creature Boar
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill three cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You
+A:AB$ SetState | Cost$ 4 G ExileFromGrave<1/Land> | SorcerySpeed$ True | Defined$ Self | Mode$ Transform | SpellDescription$ Transform this creature. Activate only as a sorcery.
+DeckHas:Ability$Mill|Graveyard
+AlternateMode:DoubleFaced
+Oracle:When this creature enters, mill three cards.\n{4}{G}, Exile a land card from your graveyard: Transform this creature. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Malignant Swine
+ManaCost:no cost
+Types:Creature Boar Horror
+Colors:black
+PT:5/4
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ When this creature transforms into CARDNAME, you may return target non-Boar creature card from your graveyard to your hand.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.nonBoar+YouCtrl | TgtPrompt$ Select target non-Boar creature card in your graveyard
+Oracle:When this creature transforms into Malignant Swine, you may return target non-Boar creature card from your graveyard to your hand.

@@ -1,0 +1,8 @@
+Name:Hazakh Arsenal 
+ManaCost:no cost
+Types:Enchantment Clique
+Colors:blue,black,red
+A:AB$ Token | Cost$ 4 | PrecostDesc$ Pledge - | SorcerySpeed$ True | TokenScript$ c_2_2_minion_decayed | SpellDescription$ Create a 2/2 colorless Minion creature token with decayed. Activate only as a sorcery unless you're making a pledge.
+A:AB$ Token | Cost$ 0 | PrecostDesc$ Pledge - | IsPresent$ Effect.YouCtrl+namedPledging | PresentZone$ Command | Secondary$ True | TokenScript$ c_2_2_minion_decayed | SpellDescription$ Create a 2/2 colorless Minion creature token with decayed. Activate only as a sorcery unless you're making a pledge.
+# NOTE: if this doesn't work, try using DB$ ActivateAbility somehow
+Oracle:(This token is blue, black, and red)\nPledge - {4}: Create a 2/2 colorless Minion creature token with decayed. Activate only as a sorcery unless you're making a pledge.

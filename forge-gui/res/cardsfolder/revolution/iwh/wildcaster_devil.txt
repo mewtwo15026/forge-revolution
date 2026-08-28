@@ -1,0 +1,12 @@
+Name:Wildcaster Devil
+ManaCost:2 U R
+Types:Creature Devil
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When this creature enters, you may exile from your graveyard exactly an instant card and a sorcery card each with mana value 2 or less. If you do, put one of those cards chosen at random into your hand. Cast a copy of the other without paying its mana cost if able.
+SVar:TrigExile:AB$ Pump | Cost$ ExileFromGrave<1/Instant.cmcLE2/instant card with mana value 2 or less> ExileFromGrave<1/Sorcery.cmcLE2/sorcery card with mana value 2 or less> | RememberObjects$ ExiledCards | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | ChangeType$ Card.IsRemembered | ChangeNum$ 1 | Hidden$ True | Origin$ Exile | Destination$ Hand | AtRandom$ True | ForgetChanged$ True | SubAbility$ DBCast
+SVar:DBCast:DB$ Play | Defined$ Remembered | ValidSA$ Spell | Mandatory$ True | CopyCard$ True | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:BuffedBy:Instant.cmcLE2,Sorcery.cmcLE2
+DeckHas:Ability$Graveyard
+Oracle:When this creature enters, you may exile from your graveyard exactly an instant card and a sorcery card each with mana value 2 or less. If you do, put one of those cards chosen at random into your hand. Cast a copy of the other without paying its mana cost if able.

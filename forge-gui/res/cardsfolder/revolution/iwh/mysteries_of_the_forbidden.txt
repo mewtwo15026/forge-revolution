@@ -1,0 +1,11 @@
+Name:Mysteries of the Forbidden
+ManaCost:1 U
+Types:Instant
+A:SP$ Dig | DigNum$ X | ChangeNum$ Y | RestRandomOrder$ True | StackDescription$ SpellDescription | SpellDescription$ Look at the top X cards of your library, where X is 1 plus the number of differently named instant and/or sorcery cards in your graveyard. Put one of those cards into your hand and the rest on the bottom in a random order. If X is 13 or greater, you may put all of those cards into your hand instead.
+SVar:Y:Count$Compare X GE13.X.1
+SVar:X:Count$ValidGraveyard Instant.YouOwn,Sorcery.YouOwn$DifferentCardNames
+K:Flashback:3 U
+SVar:BuffedBy:Instant,Sorcery
+DeckHas:Ability$Graveyard
+DeckNeeds:Type$Instant|Sorcery
+Oracle:Look at the top X cards of your library, where X is 1 plus the number of differently named instant and/or sorcery cards in your graveyard. Put one of those cards into your hand and the rest on the bottom in a random order. If X is 13 or greater, you may put all of those cards into your hand instead.\nFlashback {3}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

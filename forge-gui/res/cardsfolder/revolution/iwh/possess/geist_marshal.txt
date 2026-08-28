@@ -1,0 +1,14 @@
+Name:Geist Marshal
+ManaCost:1 W
+Types:Creature Spirit Soldier
+PT:2/2
+K:iwh_Possess
+SVar:AttachAILogic:Pump
+T:Mode$ DamageDone | ValidSource$ Card.Self,Creature.EnchantedBy | ValidTarget$ Opponent | CombatDamage$ True | TriggerZones$ Battlefield | Execute$ TrigChoice | TriggerDescription$ Whenever this creature or enchanted creature deals combat damage to an opponent, you may create a 1/1 blue Spirit Soldier creature token. If you don't, put a +1/+1 counter on another Spirit you control.
+SVar:TrigChoice:DB$ GenericChoice | Choices$ DBToken,DBCounter | Defined$ You | StackDescription$ None
+SVar:DBToken:DB$ Token | TokenScript$ u_1_1_spirit_soldier | RememberTokens$ True | Optional$ True | SubAbility$ DBCounter | SpellDescription$ Create a 1/1 blue Spirit Soldier creature token. If you don't, put a +1/+1 counter on another Spirit you control.
+SVar:DBCounter:DB$ PutCounter | Choices$ Spirit.Other+YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Permanent | ConditionCompare$ EQ0 | SubAbility$ DBCleanup | SpellDescription$ Put a +1/+1 counter on another Spirit you control.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Spirit
+DeckHas:Ability$Token|Counters
+Oracle:Possess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nWhenever this creature or enchanted creature deals combat damage to an opponent, you may create a 1/1 blue Spirit Soldier creature token. If you don't, put a +1/+1 counter on another Spirit you control.

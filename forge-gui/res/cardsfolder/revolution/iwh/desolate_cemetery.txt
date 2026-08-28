@@ -1,0 +1,11 @@
+Name:Desolate Cemetery
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ ETBSurveil | Optional$ True | ReplacementResult$ Updated | Description$ As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.
+SVar:ETBSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ ETBTapped
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+A:AB$ Mana | Cost$ T PayLife<1> | Produced$ B | SpellDescription$ Add {B}.
+A:AB$ ChangeZone | Cost$ 1 B T Sac<1/CARDNAME> | Activation$ Threshold | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl,Planeswalker.YouCtrl | TgtPrompt$ Select target creature or planeswalker card in your graveyard | SpellDescription$ Return target creature or planeswalker card from your graveyard to your hand. Activate only if there are seven or more cards in your graveyard.
+DeckHas:Ability$Surveil|Graveyard
+DeckHints:Ability$Graveyard
+Oracle:As this land enters, you may surveil 1. If you do, it enters the battlefield tapped.\n{T}, Pay 1 life: Add {B}.\n{1}{B}, {T}, Sacrifice this land: Return target creature or planeswalker card from your graveyard to your hand. Activate only if there are seven or more cards in your graveyard.

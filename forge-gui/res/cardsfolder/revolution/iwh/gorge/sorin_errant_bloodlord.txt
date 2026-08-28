@@ -1,0 +1,17 @@
+Name:Sorin, Errant Bloodlord
+ManaCost:1 B B
+Types:Legendary Planeswalker Sorin
+Loyalty:3
+A:AB$ Pump | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TargetPrompt$ Select up to one target creature you control | SubAbility$ GorgeChoice | StackDescription$ SpellDescription | SpellDescription$ You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeChoice:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You | ConditionPresent$ Creature.YouCtrl+targetedBy
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.!targetedBy/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw | ConditionDefined$ Targeted | ConditionPresent$ Creature.YouCtrl
+A:AB$ Token | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | TokenScript$ b_2_2_vampire_flying_lifelink | SpellDescription$ Create a 2/2 black Vampire creature token with flying and lifelink.
+A:AB$ DealDamage | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | ValidTgts$ Any | TgtPrompt$ Select targets to distribute damage among | NumDmg$ X | TargetMin$ 0 | TargetMax$ X | DividedAsYouChoose$ X | SubAbility$ DBGainLife | SpellDescription$ NICKNAME deals X damage divided among any number of targets and you gain X life, where X is the number of cards in your graveyard.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$ValidGraveyard Card.YouOwn
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters|Token & Type$Vampire
+DeckHints:Ability$Token|Mill|Surveil & Keyword$Flashback
+Oracle:[+1]: You may have up to one target creature you control gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)\n[-2]: Create a 2/2 black Vampire creature token with flying and lifelink.\n[-6]: Sorin deals X damage divided among any number of targets and you gain X life, where X is the number of cards in your graveyard.

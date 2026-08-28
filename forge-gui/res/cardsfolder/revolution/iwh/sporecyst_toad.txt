@@ -1,0 +1,10 @@
+Name:Sporecyst Toad
+ManaCost:2 G
+Types:Creature Fungus Frog
+PT:2/2
+K:Vigilance
+S:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 1 | Description$ You may play an additional land on each of your turns.
+A:AB$ Surveil | Cost$ 3 U | Amount$ 1 | SubAbility$ DBDraw | SpellDescription$ Surveil 1, then draw a card.
+SVar:DBDraw:DB$ Draw
+DeckHas:Ability$Surveil
+Oracle:Vigilance\nYou may play an additional land on each of your turns.\n{3}{U}: Surveil 1, then draw a card.

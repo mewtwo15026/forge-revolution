@@ -1,0 +1,29 @@
+Name:Ominous Frogs
+ManaCost:U R
+Types:Creature Frog
+PT:2/3
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent. Put a croak counter on this creature. Then if it has four or more croak counters on it, you may remove them all and transform it.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1 | SubAbility$ DBCroak
+SVar:DBCroak:DB$ PutCounter | Defined$ Self | CounterType$ CROAK | CounterNum$ 1 | SubAbility$ DBRemoveAll
+SVar:DBRemoveAll:DB$ RemoveCounter | Optional$ True | Defined$ Self | CounterType$ CROAK | CounterNum$ All | ConditionPresent$ Card.Self+counters_GE4_CROAK | RememberAmount$ True | SubAbility$ DBTransform
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | ConditionCheckSVar$ Croaked | ConditionSVarCompare$ GE4 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Croaked:Count$RememberedNumber
+DeckHas:Ability$Counters|Graveyard
+DeckNeeds:Type$Instant|Sorcery
+AlternateMode:DoubleFaced
+Oracle:Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent. Put a croak counter on this creature. Then if it has four or more croak counters on it, you may remove them all and transform it.
+
+ALTERNATE
+
+Name:Scourge of Vustrow
+ManaCost:no cost
+Types:Creature Frog Horror
+Colors:blue,red
+PT:4/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigChoose | TriggerDescription$ Whenever this creature attacks, choose an instant or sorcery card in your graveyard with mana value 3 or less at random. You may exile that card. If you do, cast a copy of it without paying its mana cost.
+SVar:TrigChoose:DB$ ChooseCard | ChoiceZone$ Graveyard | AtRandom$ True | Choices$ Instant.YouOwn+cmcLE3,Sorcery.YouOwn+cmcLE3 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | Defined$ ChosenCard | Optional$ True | RememberChanged$ True | SubAbility$ DBCastCopy
+SVar:DBCastCopy:DB$ Play | Defined$ Remembered | ValidSA$ Spell | CopyCard$ True | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+Oracle:Whenever this creature attacks, choose an instant or sorcery card in your graveyard with mana value 3 or less at random. You may exile that card. If you do, cast a copy of it without paying its mana cost.

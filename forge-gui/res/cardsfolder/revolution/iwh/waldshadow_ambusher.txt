@@ -1,0 +1,7 @@
+Name:Waldshadow Ambusher
+ManaCost:2 G
+Types:Creature Wolf
+PT:3/2
+K:Flash
+K:etbCounter:P1P1:1:IsPresent$ Creature.Other+YouCtrl+Transformed,Creature.Other+YouCtrl+powerGTbasePower:This creature enters with a +1/+1 counter on it if you control another savage creature. (A creature is savage if it's transformed or has power greater than its base power.)
+Oracle:Flash\nThis creature enters with a +1/+1 counter on it if you control another savage creature. (A creature is savage if it's transformed or has power greater than its base power.)

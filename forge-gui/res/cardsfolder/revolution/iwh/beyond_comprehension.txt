@@ -1,0 +1,8 @@
+Name:Beyond Comprehension
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ DestroyAll | ValidCards$ Creature | RememberDestroyed$ True | SubAbility$ DBRepeat | SpellDescription$ Destroy all creatures. Starting with you, each player who controlled three or more creatures destroyed this way may surveil 2.
+SVar:DBRepeat:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBSurveil | SubAbility$ DBCleanup
+SVar:DBSurveil:DB$ Surveil | Defined$ RememberedPlayer | Amount$ 2 | Optional$ True | ConditionDefined$ Remembered | ConditionPresent$ Creature.RememberedPlayerCtrl
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Destroy all creatures. Starting with you, each player who controlled three or more creatures destroyed this way may surveil 2. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)

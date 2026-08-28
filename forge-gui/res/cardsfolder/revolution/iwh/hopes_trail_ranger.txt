@@ -1,0 +1,14 @@
+Name:Hope's Trail Ranger
+ManaCost:1 G G
+Types:Creature Human Soldier Ranger
+PT:1/2
+K:Vigilance
+K:Reach
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Concord - At the beginning of combat on your turn, put a +1/+1 counter on target creature you control. If there are four or more card types among permanents you control, put a +1/+1 counter on each nontoken creature you control instead.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1 | ConditionCheckSVar$ Concord | ConditionSVarCompare$ LE3 | SubAbility$ DBIfConcord
+SVar:DBIfConcord:DB$ PutCounterAll | ValidCards$ Creature.!token+YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | ConditionCheckSVar$ Concord | ConditionSVarCompare$ GE4
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:Vigilance, reach\nConcord - At the beginning of combat on your turn, put a +1/+1 counter on target creature you control. If there are four or more card types among permanents you control, put a +1/+1 counter on each nontoken creature you control instead.

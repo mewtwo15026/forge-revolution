@@ -1,0 +1,12 @@
+Name:Famished Twins
+ManaCost:1 R
+Types:Creature Vampire Berserker
+PT:3/4
+K:Trample
+R:Event$ Untap | ValidCard$ Card.Self | ValidStepTurnToController$ You | Layer$ CantHappen | Description$ This creature doesn't untap during your untap step.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ Gorged | Execute$ TrigUntap | TriggerDescription$ At the beginning of your end step, if you discarded a card or sacrificed a creature this turn, untap this creature.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+SVar:Gorged:PlayerCountPropertyYou$CardsDiscardedThisTurn/Plus.Sacced
+SVar:Sacced:PlayerCountPropertyYou$SacrificedThisTurn Creature
+DeckNeeds:Ability$Discard|Sacrifice
+Oracle:Trample\nThis creature doesn't untap during your untap step.\nAt the beginning of your end step, if you discarded a card or sacrificed a creature this turn, untap this creature.

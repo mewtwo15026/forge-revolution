@@ -1,0 +1,11 @@
+Name:Scorned Zombie
+ManaCost:1 B
+Types:Creature Zombie
+PT:2/2
+A:AB$ ChangeZone | Cost$ 4 B | ReduceCost$ X | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return this card from your graveyard to your hand. This ability costs {1} less to activate for each Zombie you control.
+SVar:X:Count$Valid Zombie.YouCtrl
+SVar:SacMe:1
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard
+DeckHints:Ability$Sacrifice|Discard & Type$Zombie
+Oracle:{4}{B}: Return this card from your graveyard to your hand. This ability costs {1} less to activate for each Zombie you control.

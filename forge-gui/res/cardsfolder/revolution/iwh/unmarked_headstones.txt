@@ -1,0 +1,9 @@
+Name:Unmarked Headstones
+ManaCost:0
+Types:Artifact Clue
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When this artifact enters, you may exile target card from a graveyard.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | TgtPrompt$ Select target card in a graveyard | IsCurse$ True
+A:AB$ Draw | Cost$ 2 Sac<1/CARDNAME> | SpellDescription$ Draw a card.
+A:AB$ ChangeZone | Cost$ 2 ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card.Other | TgtPrompt$ Select target card in a graveyard | IsCurse$ True | Optional$ True | SpellDescription$ You may exile target card from a graveyard.
+DeckHas:Ability$Sacrifice & Type$Clue
+Oracle:When this artifact enters, you may exile target card from a graveyard.\n{2}, Sacrifice this artifact: Draw a card.\n{1}, Exile this card from your graveyard: You may exile target card from a graveyard.

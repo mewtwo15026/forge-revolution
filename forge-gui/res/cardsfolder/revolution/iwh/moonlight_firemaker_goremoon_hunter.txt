@@ -1,0 +1,23 @@
+Name:Moonlight Firemaker
+ManaCost:2 R
+Types:Creature Human Ranger Werewolf
+PT:2/3
+A:AB$ Pump | Cost$ 2 T | ValidTgts$ Creature | KW$ HIDDEN CARDNAME can't block. | IsCurse$ True | SpellDescription$ Target creature can't block this turn.
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+Oracle:{2}, {T}: Target creature can't block this turn.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Goremoon Hunter
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:red
+PT:4/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, target creature can't block this turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | KW$ HIDDEN CARDNAME can't block. | IsCurse$ True
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever this creature attacks, target creature can't block this turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

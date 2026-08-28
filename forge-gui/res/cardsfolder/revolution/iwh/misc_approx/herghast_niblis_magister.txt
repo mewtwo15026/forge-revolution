@@ -1,0 +1,16 @@
+Name:Herghast, Niblis Magister
+ManaCost:1 U
+Types:Legendary Creature Spirit Wizard
+PT:2/1
+K:Flash
+K:Flying
+K:Ward:1
+S:Mode$ CastWithFlash | ValidCard$ Card.Self+ThisTurnEntered | ValidSA$ Activated.NamedAbilityHerghast | Caster$ You
+A:AB$ Pump | Named$ Herghast | Cost$ U | ActivationZone$ Battlefield | ActivationLimit$ 1 | SorcerySpeed$ True | ValidTgts$ Permanent | RememberTargets$ True | SubAbility$ DBHerghastChoice | AILogic$ Never | SpellDescription$ Choose target permanent. Attach an Aura you control that could enchant it to it, or move a counter from a permanent you control onto it. Activate only once each turn, and only as a sorcery unless NICKNAME entered this turn.
+SVar:DBHerghastChoice:DB$ GenericChoice | Choices$ HerghastAura,HerghastCounter | Defined$ You | ShowCurrentCard$ Remembered | FallbackAbility$ DBCleanup
+SVar:HerghastAura:DB$ ChooseCard | Choices$ Aura.YouCtrl+CanEnchantRemembered | ChoicePrompt$ Select an Aura you control to attach to targeted permanent | SubAbility$ DBAttach | SpellDescription$ Attach an Aura you control to target permanent.
+SVar:DBAttach:DB$ Attach | Object$ ChosenCard | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:HerghastCounter:DB$ ChooseCard | Choices$ Permanent.YouCtrl+!IsRemembered+HasCounters | ChoicePrompt$ Select a permanent you control to move a counter from | SubAbility$ DBMoveCounter | SpellDescription$ Move a counter from a permanent you control to target permanent.
+SVar:DBMoveCounter:DB$ MoveCounter | Source$ ChosenCard | Defined$ Remembered | CounterType$ Any | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+Oracle:Flash\nFlying, ward {1}\n{U}: Choose target permanent. Attach an Aura you control that could enchant it to it, or move a counter from a permanent you control onto it. Activate only once each turn, and only as a sorcery unless Herghast entered this turn.

@@ -1,0 +1,8 @@
+Name:Bittersweet Parting
+ManaCost:3 B
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SpellDescription$ Destroy target creature or planeswalker.
+A:AB$ LoseLife | Cost$ 3 B ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | Defined$ Player.Opponent | LifeAmount$ 2 | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses 2 life and you gain 2 life. Activate only as a sorcery.
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
+DeckHas:Ability$Graveyard
+Oracle:Destroy target creature or planeswalker.\n{3}{B}, Exile this card from your graveyard: Each opponent loses 2 life and you gain 2 life. Activate only as a sorcery.

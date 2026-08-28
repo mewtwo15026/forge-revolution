@@ -1,0 +1,6 @@
+Name:Feudrach's Hunger
+ManaCost:4 R
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 2 | PlayerTurn$ You | EffectZone$ All | Description$ This spell costs {2} less to cast during your turn.
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | NumDmg$ 5 | ReplaceDyingDefined$ Targeted | SpellDescription$ CARDNAME deals 5 damage to target creature or planeswalker. If that permanent would die this turn, exile it instead.
+Oracle:This spell costs {2} less to cast during your turn.\nFeudrach's Hunger deals 5 damage to target creature or planeswalker. If that permanent would die this turn, exile it instead.

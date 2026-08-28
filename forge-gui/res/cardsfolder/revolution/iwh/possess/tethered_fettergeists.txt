@@ -1,0 +1,12 @@
+Name:Tethered Fettergeists
+ManaCost:1 W U
+Types:Creature Spirit
+PT:4/5
+K:Flying
+K:Vigilance
+K:iwh_Possess
+SVar:AttachAILogic:Curse
+S:Mode$ CantAttackUnless | ValidCard$ Card.Self,Creature.EnchantedBy | Cost$ 2 | Description$ This creature can't attack or block unless you pay {2}.
+S:Mode$ CantBlockUnless | ValidCard$ Card.Self,Creature.EnchantedBy | Cost$ 2 | Description$ Enchanted creature can't attack or block unless you pay {2}.
+SVar:SacMe:2
+Oracle:Flying, vigilance\nPossess (When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature.)\nThis creature can't attack or block unless you pay {2}.\nEnchanted creature can't attack or block unless its controller pays {2}.

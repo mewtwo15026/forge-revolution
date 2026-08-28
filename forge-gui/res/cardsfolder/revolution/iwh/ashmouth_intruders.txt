@@ -1,0 +1,9 @@
+Name:Ashmouth Intruders
+ManaCost:3 R R
+Types:Creature Devil
+PT:3/4
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerDescription$ When this creature enters or dies, it deals 1 damage to each opponent and each creature or planeswalker they control.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigBurn | Secondary$ True | TriggerDescription$ When this creature enters or dies, it deals 1 damage to each opponent and each creature or planeswalker that player controls.
+SVar:TrigBurn:DB$ DamageAll | ValidCards$ Creature.OppCtrl,Planeswalker.OppCtrl | ValidPlayers$ Player.Opponent | NumDmg$ X | ValidDescription$ each opponent and each creature or planeswalker they control
+Oracle:Menace\nWhen this creature enters or dies, it deals 1 damage to each opponent and each creature or planeswalker they control.

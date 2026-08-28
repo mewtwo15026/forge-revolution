@@ -1,0 +1,21 @@
+Name:Misthollow Primarch
+ManaCost:4 U U U
+Types:Creature Griffin
+PT:5/6
+K:Flying
+K:Ward:2
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigGainLife | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell, exile any number of cards from your graveyard. For each card type among cards exiled this way other than that spell's card types, copy that spell. You may choose new targets for the copies.
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | ChangeNum$ Y | RememberChanged$ True | Hidden$ True | SubAbility$ DBCopyLand
+SVar:DBCopyLand:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Land | SubAbility$ DBCopyArtifact
+SVar:DBCopyArtifact:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Artifact | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Artifact | ConditionCompare2$ EQ0 | SubAbility$ DBCopyBattle
+SVar:DBCopyBattle:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Battle | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Battle | ConditionCompare2$ EQ0 | SubAbility$ DBCopyCreature
+SVar:DBCopyCreature:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Creature | ConditionCompare2$ EQ0 | SubAbility$ DBCopyEnchantment
+SVar:DBCopyEnchantment:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Enchantment | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Enchantment | ConditionCompare2$ EQ0 | SubAbility$ DBCopyInstant
+SVar:DBCopyInstant:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Instant | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Instant | ConditionCompare2$ EQ0 | SubAbility$ DBCopyKindred
+SVar:DBCopyKindred:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Kindred | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Kindred | ConditionCompare2$ EQ0 | SubAbility$ DBCopyPlaneswalker
+SVar:DBCopyPlaneswalker:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Planeswalker | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Planeswalker | ConditionCompare2$ EQ0 | SubAbility$ DBCopySorcery
+SVar:DBCopySorcery:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True | ConditionDefined$ Remembered | ConditionPresent$ Sorcery | ConditionDefined2$ TriggeredSpellAbility | ConditionPresent2$ Spell.Sorcery | ConditionCompare2$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ ClearRemembered
+SVar:Y:Count$ValidGraveyard Card.YouOwn
+AI:RemoveDeck:Random
+Oracle:Flying, ward {2}\nWhenever you cast a spell, exile any number of cards from your graveyard. For each card type among cards exiled this way other than that spell's card types, copy that spell. You may choose new targets for the copies.

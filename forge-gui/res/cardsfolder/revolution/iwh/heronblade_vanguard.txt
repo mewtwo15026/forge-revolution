@@ -1,0 +1,9 @@
+Name:Heronblade Vanguard
+ManaCost:3 W W
+Types:Creature Angel
+PT:3/5
+K:Flying
+K:First Strike
+S:Mode$ Continuous | Affected$ Creature.attacking+YouCtrl | AddPower$ 1 | Description$ Attacking creatures you control get +1/+0.
+SVar:PlayMain1:TRUE
+Oracle:Flying, first strike\nAttacking creatures you control get +1/+0.

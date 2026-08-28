@@ -1,0 +1,9 @@
+Name:Geistblaster's Breakthrough
+ManaCost:R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker. | NumDmg$ X | SpellDescription$ CARDNAME deals X damage to target creature or planeswalker, where X is 1 plus the number of differently named instant and sorcery cards in your graveyard.
+SVar:X:Count$ValidGraveyard Instant.YouOwn,Sorcery.YouOwn$DifferentCardNames/Plus.1
+T:Mode$ Discarded | ValidCard$ Card.Self | PlayerTurn$ True | Execute$ TrigBreakthrough | TriggerDescription$ When you discard this card during your turn, you may pay {3}{R}{R}. If you do, create a 5/5 red Elemental creature token with haste.
+SVar:TrigBreakthrough:AB$ Token | Cost$ 3 R R | TokenScript$ r_5_5_elemental_haste
+DeckHints:Type$Instant|Sorcery
+Oracle:Geistblaster's Breakthrough deals X damage to target creature or planeswalker, where X is 1 plus the number of differently named instant and sorcery cards in your graveyard.\nWhen you discard this card during your turn, you may pay {3}{R}{R}. If you do, create a 5/5 red Elemental creature token with haste.

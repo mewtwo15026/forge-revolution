@@ -1,0 +1,10 @@
+Name:Desperate Exorcism
+ManaCost:W U
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand+YouCtrl,Card.inZoneStack+YouCtrl | AITgts$ Spirit.nonLand+YouCtrl,Spirit.inZoneStack+YouCtrl | TgtZone$ Battlefield,Stack | TgtPrompt$ Select target spell or nonland permanent you control | Origin$ Battlefield,Stack | Destination$ Hand | RememberChanged$ True | SubAbility$ DBBounce | SpellDescription$ Return target spell or nonland permanent you control and target spell or nonland permanent you don't control to their owner's hands. If you returned a Spirit permanent or Spirit spell to your hand this way, create a 1/1 white Spirit creature token with flying.
+SVar:DBBounce:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+YouDontCtrl,Card.inZoneStack+YouDontCtrl | TgtZone$ Battlefield,Stack | TgtPrompt$ Select target spell or nonland permanent you don't control | IsCurse$ True | Origin$ Battlefield,Stack | Destination$ Hand | RememberChanged$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ w_1_1_spirit_flying | ConditionCheckSVar$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$Valid Spirit.YouOwn
+DeckNeeds:Type$Spirit
+Oracle:Return target spell or nonland permanent you control and target spell or nonland permanent you don't control to their owner's hands. If you returned a Spirit permanent or Spirit spell to your hand this way, create a 1/1 white Spirit creature token with flying.

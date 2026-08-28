@@ -1,0 +1,10 @@
+Name:Stromkirk Warlord
+ManaCost:3 R
+Types:Creature Vampire Soldier
+PT:2/3
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPump | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, you may have target creature you control get +2/+0 until end of turn. If it's a Vampire, it also gains trample until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | AITgts$ Vampire.YouCtrl+withHaste,Vampire.YouCtrl+!ThisTurnEntered | NumAtt$ +2 | SubAbility$ VampPump
+SVar:VampPump:DB$ Pump | Defined$ Targeted | ConditionDefined$ Targeted | ConditionPresent$ Vampire | KW$ Trample
+SVar:PlayMain1:TRUE
+DeckHints:Type$Vampire
+Oracle:At the beginning of combat on your turn, you may have target creature you control get +2/+0 until end of turn. If it's a Vampire, it also gains trample until end of turn.

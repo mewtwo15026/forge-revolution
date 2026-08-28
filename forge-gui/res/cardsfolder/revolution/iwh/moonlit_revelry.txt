@@ -1,0 +1,13 @@
+Name:Moonlit Revelry
+ManaCost:2 R G
+Types:Enchantment Aura
+K:Flash
+K:Enchant:Creature.YouCtrl:creature you control
+SVar:AttachAILogic:Pump
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | AddPower$ 2 | AddToughness$ 2 | Description$ Enchanted creature gets +2/+2.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When this Aura enters and whenever enchanted creature transforms, create a 2/2 green Wolf creature token.
+T:Mode$ Transformed | ValidCard$ Creature.EnchantedBy | Secondary$ True | Execute$ TrigToken | TriggerDescription$ When this Aura enters and whenever enchanted creature transforms, create a 2/2 green Wolf creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ g_2_2_wolf
+DeckHas:Ability$Token & Type$Wolf
+DeckHints:Type$Werewolf
+Oracle:Flash\nEnchant creature you control\nEnchanted creature gets +2/+2.\nWhen this Aura enters and whenever enchanted creature transforms, create a 2/2 green Wolf creature token.

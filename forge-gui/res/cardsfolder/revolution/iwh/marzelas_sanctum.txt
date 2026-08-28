@@ -1,0 +1,8 @@
+Name:Marzela's Sanctum
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ As CARDNAME enters, you may behold a Vampire. If you don't, it enters tapped. (To behold a Vampire, choose a Vampire you control or reveal a Vampire card from your hand.)
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ Self | UnlessCost$ Behold<1/Vampire> | UnlessPayer$ You | StackDescription$ enters tapped.
+A:AB$ Mana | Cost$ T | Produced$ Combo B R | SpellDescription$ Add {B} or {R}.
+DeckHints:Type$Vampire
+Oracle:As this land enters, you may behold a Vampire. If you don't, it enters the battlefield tapped. (To behold a Vampire, choose a Vampire you control or reveal a Vampire card from your hand.)\n{T}: Add {B} or {R}.

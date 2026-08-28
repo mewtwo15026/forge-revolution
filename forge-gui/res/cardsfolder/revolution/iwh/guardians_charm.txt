@@ -1,0 +1,8 @@
+Name:Guardian's Charm
+ManaCost:2 W
+Types:Instant
+A:SP$ Charm | Choices$ DBExile,DBPump,DBBounce
+SVar:DBExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+cmcLE4 | TgtPrompt$ Select target nonland permanent with mana value 4 or less | IsCurse$ True | SpellDescription$ Exile target nonland permanent with mana value 4 or less.
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ +1 | NumDef$ +1 | KW$ First Strike & Lifelink | SpellDescription$ Target creature gets +1/+1 and gains first strike and lifelink until end of turn.
+SVar:DBBounce:DB$ ChangeZone | ValidTgts$ Instant.inZoneStack,Sorcery.inZoneStack | TgtZone$ Stack | Origin$ Stack | Destination$ Hand | SpellDescription$ Return target instant or sorcery spell to its owner's hand.
+Oracle:Choose one -\n• Exile target nonland permanent with mana value 4 or less.\n• Target creature gets +1/+1 and gains first strike and lifelink until end of turn.\n• Return target instant or sorcery spell to its owner's hand.

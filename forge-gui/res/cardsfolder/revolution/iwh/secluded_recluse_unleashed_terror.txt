@@ -1,0 +1,25 @@
+Name:Secluded Recluse
+ManaCost:G
+Types:Creature Human Druid Werewolf
+PT:1/1
+S:Mode$ Continuous | Affected$ Card.Self+tapped | AddKeyword$ Hexproof | Description$ This creature has hexproof as long as it's tapped.
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When this creature transforms into CARDNAME, tap it and put a stun counter on it.
+SVar:TrigTap:DB$ Tap | Defined$ Self | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ Self | CounterType$ STUN | CounterNum$ 1
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+Oracle:This creature has hexproof as long as it's tapped.\nWhen this creature transforms into Secluded Recluse, tap it and put a stun counter on it.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Unleashed Terror
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:3/2
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigUntap | TriggerDescription$ When this creature transforms into CARDNAME, untap it.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:When this creature transforms into Unleashed Terror, untap it.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

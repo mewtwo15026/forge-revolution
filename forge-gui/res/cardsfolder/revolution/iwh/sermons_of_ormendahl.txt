@@ -1,0 +1,12 @@
+Name:Sermons of Ormendahl
+ManaCost:1 W B
+Types:Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ X | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, if you gained life or an opponent lost life this turn, create a 1/1 white and black Cleric creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ wb_1_1_cleric
+SVar:X:Count$LifeYouGainedThisTurn/Plus.Y
+SVar:Y:Count$LifeOppsLostThisTurn
+A:AB$ Draw | Cost$ 1 B | ActivationZone$ Battlefield | SubAbility$ DBLoseLife | SpellDescription$ Draw a card. You lose 2 life unless you sacrifice a creature.
+SVar:DBLoseLife:DB$ LoseLife | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You | LifeAmount$ 2
+DeckHas:Ability$Token|Sacrifice & Type$Cleric
+DeckHints:Ability$LifeGain
+Oracle:At the beginning of your end step, if you gained life or an opponent lost life this turn, create a 1/1 white and black Cleric creature token.\n{1}{B}: Draw a card. You lose 2 life unless you sacrifice a creature.

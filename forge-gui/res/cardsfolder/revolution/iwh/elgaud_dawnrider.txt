@@ -1,0 +1,16 @@
+Name:Elgaud Dawnrider
+ManaCost:2 R W
+Types:Creature Human Cleric Knight
+PT:3/3
+K:Vigilance
+K:Haste
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever this creature attacks, create a 1/1 white Human creature token that's tapped and attacking. Then if you control four or more creatures, other attacking creatures get +1/+0 until end of turn. You may have one of those creatures gain lifelink until end of turn.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_human | TokenTapped$ True | TokenAttacking$ True | SubAbility$ DBPumpAll
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.attacking+Other | NumAtt$ +1 | ConditionPresent$ Creature.YouCtrl | ConditionCompare$ GE4 | SubAbility$ DBChooseCard
+SVar:DBChooseCard:DB$ ChooseCard | Choices$ Creature.attacking+Other | ChoiceDesc$ another attacking creature | SubAbility$ DBPumpOne
+SVar:DBPumpOne:DB$ Pump | Defined$ ChosenCard | KW$ Lifelink | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+SVar:BuffedBy:Creature
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token|LifeGain
+Oracle:Vigilance, haste\nWhenever this creature attacks, create a 1/1 white Human creature token that's tapped and attacking. Then if you control four or more creatures, other attacking creatures get +1/+0 until end of turn. You may have one of those creatures gain lifelink until end of turn. 

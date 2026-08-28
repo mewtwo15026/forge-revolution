@@ -1,0 +1,10 @@
+Name:Lingering Presence
+ManaCost:1 U
+Types:Creature Spirit
+PT:1/3
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery,Spirit | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever you cast an instant, sorcery, or Spirit spell, this creature gets +1/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1
+SVar:BuffedBy:Instant,Sorcery,Spirit
+DeckHints:Type$Instant|Sorcery|Spirit
+Oracle:Flying\nWhenever you cast an instant, sorcery, or Spirit spell, this creature gets +1/+0 until end of turn.

@@ -1,0 +1,20 @@
+Name:Insatiable Elder
+ManaCost:2 B R
+Types:Creature Vampire Warlock
+PT:4/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGorge | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may have it gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)
+SVar:TrigGorge:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | CheckSVar$ Gorged | TriggerZones$ Battlefield | Execute$ TrigTorment | TriggerDescription$ At the beginning of your end step, if you discarded a card or sacrificed a creature this turn, each opponent loses 3 life unless they discard a card or sacrifice a creature.
+SVar:TrigTorment:DB$ GenericChoice | Defined$ Opponent | TempRemember$ Chooser | Choices$ SacNonland,Discard | FallbackAbility$ LoseLifeFallback | AILogic$ PayUnlessCost
+SVar:Discard:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3 | UnlessCost$ Discard<1/Card> | UnlessPayer$ Remembered | SpellDescription$ You lose 3 life unless you discard a card.
+SVar:SacNonland:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3 | UnlessCost$ Sac<1/Creature> | UnlessPayer$ Remembered | SpellDescription$ You lose 3 life unless you sacrifice a creature.
+SVar:LoseLifeFallback:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3
+SVar:Gorged:PlayerCountPropertyYou$CardsDiscardedThisTurn/Plus.Sacced
+SVar:Sacced:PlayerCountPropertyYou$SacrificedThisTurn Creature
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters
+DeckHints:Ability$Sacrifice|Discard
+Oracle:When this creature enters, you may have it gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)\nAt the beginning of your end step, if you discarded a card or sacrificed a creature this turn, each opponent loses 3 life unless they discard a card or sacrifice a creature.

@@ -1,0 +1,11 @@
+Name:Learn the Steps
+ManaCost:U U
+Types:Instant
+A:SP$ Mill | NumCards$ 2 | SubAbility$ DBExile | SpellDescription$ Mill two cards, then exile any number of cards from your graveyard. Counter target spell unless its controller pays {X}, where X is the number of card types among cards exiled this way.
+SVar:DBExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | ChangeNum$ Y | RememberChanged$ True | Hidden$ True | SubAbility$ DBCounter
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Remembered$Valid Card$CardTypes
+SVar:Y:Count$ValidGraveyard Card.YouOwn
+AI:RemoveDeck:All
+Oracle:Mill two cards, then exile any number of cards from your graveyard. Counter target spell unless its controller pays {X}, where X is the number of card types among cards exiled this way.

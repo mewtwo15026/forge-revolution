@@ -1,0 +1,8 @@
+Name:Vishanki Inc. 
+ManaCost:no cost
+Types:Enchantment Clique
+Colors:black,red,green
+A:AB$ Token | Cost$ 4 | PrecostDesc$ Pledge - | SorcerySpeed$ True | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token. Activate only as a sorcery unless you're making a pledge.
+A:AB$ Token | Cost$ 0 | PrecostDesc$ Pledge - | IsPresent$ Effect.YouCtrl+namedPledging | PresentZone$ Command | Secondary$ True | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token. Activate only as a sorcery unless you're making a pledge.
+# NOTE: if this doesn't work, try using DB$ ActivateAbility somehow
+Oracle:(This token is black, red, and green.)\nPledge - {4}: Create a Treasure token. Activate only as a sorcery unless you're making a pledge.

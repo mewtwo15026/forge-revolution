@@ -1,0 +1,29 @@
+Name:Nebelgast Retainer
+ManaCost:U
+Types:Creature Spirit Soldier
+PT:1/2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Battlefield | ValidCard$ Spirit.Other+YouCtrl | Execute$ TrigFlying | TriggerDescription$ Whenever another Spirit enters under your control, if it doesn't have flying, put a flying counter on it. Otherwise, this creature gets +1/+1 until end of turn.
+SVar:TrigFlying:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ0 | SubAbility$ TrigGrounded
+SVar:TrigGrounded:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ Flying | CounterNum$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1
+SVar:X:TriggeredCard$Valid Spirit.Other+YouCtrl+withoutFlying
+A:AB$ SetState | Cost$ 3 U | Defined$ Self | Mode$ Transform | IsPresent$ Creature.Other+YouCtrl+withFlying | PresentCompare$ GE2 | SpellDescription$ Transform this creature. Activate only as a sorcery and only if you control two or more other creatures with flying.
+SVar:BuffedBy:Creature.withFlying
+DeckHints:Type$Spirit & Keyword$Flying
+AlternateMode:DoubleFaced
+Oracle:Whenever another Spirit enters under your control, if it doesn't have flying, put a flying counter on it. Otherwise, this creature gets +1/+1 until end of turn.\n{3}{U}: Transform this creature. Activate only as a sorcery and only if you control two or more other creatures with flying.
+
+ALTERNATE
+
+Name:Host of Roiling Mist
+ManaCost:no cost
+Types:Creature Spirit Knight
+Colors:blue
+PT:2/3
+K:Flying
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigCounterAll | TriggerDescription$ When this creature transforms into Host of Roiling Mist, put a +1/+1 counter on each creature you control with flying. Whenever one of those creatures deals combat damage to a player this turn, draw a card.
+SVar:TrigCounterAll:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl+withFlying | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBRepeatEach
+SVar:DBRepeatEach:DB$ RepeatEach | RepeatCards$ Creature.YouCtrl+withFlying | Zone$ Battlefield | RepeatSubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | Triggers$ TrigDamageDone | ExileOnMoved$ Battlefield
+SVar:TrigDamageDone:Mode$ DamageDone | ValidSource$ Creature.IsRemembered | ValidTarget$ Player | Execute$ TrigDraw | CombatDamage$ True | TriggerDescription$ Whenever that creature deals combat damage to a player this turn, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Flying\nWhen this creature transforms into Host of Roiling Mist, put a +1/+1 counter on each creature you control with flying. Whenever one of those creatures deals combat damage to a player this turn, draw a card.

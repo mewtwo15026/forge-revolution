@@ -1,0 +1,10 @@
+Name:Tovolar Wolfbound
+ManaCost:R G
+Types:Legendary Creature Werewolf
+PT:3/2
+# TODO: figure out how to make the Panharmonicon optional
+T:Mode$ BecomesTarget | ValidSource$ SpellAbility.OppCtrl | ValidTarget$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever a savage creature you control becomes the target of a spell or ability an opponent controls, draw a card. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:TrigDraw:DB$ Draw
+S:Mode$ Panharmonicon | ValidCard$ Wolf.YouCtrl,Werewolf.YouCtrl | ValidMode$ Transformed | ValidCause$ Permanent.YouCtrl | Description$ If a permanent you control transforming would cause an ability of a Wolf or Werewolf you control to trigger, you may have that ability trigger an additional time.
+DeckHints:Type$Werewolf
+Oracle:Whenever a savage creature you control becomes the target of a spell or ability an opponent controls, draw a card. (A creature is savage if it's transformed or has power greater than its base power.)\nIf a permanent you control transforming would cause an ability of a Wolf or Werewolf you control to trigger, you may have that ability trigger an additional time.

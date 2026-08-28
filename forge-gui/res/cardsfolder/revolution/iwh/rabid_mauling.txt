@@ -1,0 +1,7 @@
+Name:Rabid Mauling
+ManaCost:2 G
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | NumAtt$ +1 | SubAbility$ SoulsDamage | SpellDescription$ Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to target creature or planeswalker an opponent controls.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature.OppCtrl,Planeswalker.OppCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature or planeswalker an opponent controls | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower
+Oracle:Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to target creature or planeswalker an opponent controls.

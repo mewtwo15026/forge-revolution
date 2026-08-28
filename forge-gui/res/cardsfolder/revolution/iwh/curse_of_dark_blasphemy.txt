@@ -1,0 +1,14 @@
+Name:Curse of Dark Blasphemy
+ManaCost:4 B B
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChoose | TriggerDescription$ When this Aura enters, enchanted player exiles a creature or planeswalker they control with the greatest mana value among creatures and planeswalkers they control.
+SVar:TrigChoose:DB$ ChooseCard | Defined$ EnchantedPlayer | Choices$ Creature.EnchantedPlayerCtrl+cmcEQX,Planeswalker.EnchantedPlayerCtrl+cmcEQX | ChoiceTitle$ Choose a creature or planeswalker with the greatest mana value among creatures and planeswalkers you control | Mandatory$ True | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+SVar:X:Count$Valid Creature.EnchantedPlayerCtrl,Planeswallker.EnchantedPlayerCtrl$GreatestCardManaCost
+T:Mode$ Drawn | ValidCard$ Card.EnchantedPlayerOwn | Execute$ TrigRepeat | TriggerDescription$ Whenever enchanted player draws a card, each of their opponents may pay 1 life. Each player that does draws a card.
+SVar:TrigRepeat:DB$ RepeatEach | RepeatPlayers$ Player.OpponentOf EnchantedPlayer | RepeatSubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | UnlessCost$ PayLife<1> | UnlessPayer$ Remembered | UnlessSwitched$ True | Defined$ Remembered
+Oracle:Enchant player\nWhen this Aura enters, enchanted player exiles a creature or planeswalker they control with the greatest mana value among creatures and planeswalkers they control.\nWhenever enchanted player draws a card, each of their opponents may pay 1 life. Each player that does draws a card.

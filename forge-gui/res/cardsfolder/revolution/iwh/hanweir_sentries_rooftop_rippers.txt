@@ -1,0 +1,22 @@
+Name:Hanweir Sentries
+ManaCost:4 R
+Types:Human Archer Werewolf
+PT:5/4
+K:Reach
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+Oracle:Reach\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Rooftop Rippers
+ManaCost:no cost
+Types:Creature
+Colors:red
+PT:6/5
+K:Menace
+K:Reach
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Menace, reach\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

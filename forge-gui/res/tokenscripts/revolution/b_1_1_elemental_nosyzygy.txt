@@ -1,0 +1,6 @@
+Name:Elemental Token
+ManaCost:no cost
+PT:1/1
+Colors:black
+Types:Creature Elemental
+Oracle:This creature can't block or be tapped for syzygy.

@@ -1,0 +1,22 @@
+Name:Benevolent Visitation
+ManaCost:1 W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a 1/1 white Spirit creature token with flying.
+SVar:TrigToken:DB$ Token | TokenScript$ w_1_1_spirit_flying
+A:AB$ ChangeZone | Cost$ 2 W Sac<1/Creature> | SorcerySpeed$ True | IsCurse$ True | ActivationZone$ Battlefield | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Permanent.nonLand+Other | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one other target nonland permanent | Duration$ UntilHostLeavesPlay | SubAbility$ DBTransform | SpellDescription$ Exile up to one other target nonland permanent until this enchantment leaves the battlefield, then transform this enchantment. Activate only as a sorcery.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:AIPreference:SacCost$Creature.token
+DeckHas:Ability$Sacrifice|Token & Type$Spirit
+AlternateMode:DoubleFaced
+Oracle:When this enchantment enters, create a 1/1 white Spirit creature token with flying.\n{2}{W}, Sacrifice a creature: Exile up to one other target nonland permanent until this enchantment leaves the battlefield, then transform this enchantment. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Malicious Haunting
+ManaCost:no cost
+Types:Enchantment
+Colors:black
+K:Ward:PayLife<3>
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, up to one target creature gets +1/+0 and gains indestructible until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | AITgts$ Creature.YouCtrl | NumAtt$ +1 | KW$ Indestructible
+Oracle:Ward-Pay 3 life. (Whenever this permanent becomes the target of a spell or ability an opponent controls, counter it unless that player pays 3 life.)\nAt the beginning of combat on your turn, up to one target creature gets +1/+0 and gains indestructible until end of turn.

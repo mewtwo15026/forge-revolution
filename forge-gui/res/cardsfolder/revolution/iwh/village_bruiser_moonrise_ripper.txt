@@ -1,0 +1,25 @@
+Name:Village Bruiser
+ManaCost:1 G
+Types:Creature Human Warrior Werewolf
+PT:1/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPutCounter | TriggerDescription$ When this creature enters, put a +1/+1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+DeckHas:Ability$Counters
+DeckHints:Type$Wolf|Werewolf
+AlternateMode:DoubleFaced
+Oracle:When this creature enters, put a +1/+1 counter on target creature you control.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Moonrise Ripper
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:2/1
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigWolfCounter | TriggerDescription$ Whenever this creature attacks, put a +1/+1 counter on another target Wolf or Werewolf you control.
+SVar:TrigWolfCounter:DB$ PutCounter | ValidTgts$ Wolf.Other+YouCtrl,Werewolf.Other+YouCtrl | TgtPrompt$ Select another target Wolf or Werewolf you control | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Whenever this creature attacks, put a +1/+1 counter on another target Wolf or Werewolf you control.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

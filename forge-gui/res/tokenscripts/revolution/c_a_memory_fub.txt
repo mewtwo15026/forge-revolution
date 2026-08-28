@@ -1,0 +1,10 @@
+Name:Memory Token
+ManaCost:no cost
+Types:Enchantment Memory
+R:Event$ Moved | ValidCard$ Permanent.YouCtrl | Origin$ Battlefield | Destination$ Command | ReplaceWith$ WriteMemory | IsPresent$ Card.Self+withoutRetrace | Description$ (Cache a permanent you control.)
+SVar:WriteMemory:DB$ ChangeZone | Defined$ ReplacedCard | Hidden$ True | Origin$ Battlefield | Destination$ Exile | WithCountersType$ CACHE | RememberChanged$ True | SubAbility$ DBNote
+SVar:DBNote:DB$ Animate | Duration$ Permanent | Keywords$ Retrace
+S:Mode$ Continuous | Affected$ Card.ExiledWithSource | MayLookAt$ You | AffectedZone$ Exile | Description$ If the cached card is face-down, you may look at it any time.
+A:AB$ Effect | Cost$ 2 Sac<1/CARDNAME/this token> | ImprintCards$ ValidExile Card.ExiledWithSource | Duration$ EndOfTurn | StaticAbilities$ STPlay | SpellDescription$ You may play the cached card this turn.
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsImprinted | AffectedZone$ Exile | Description$ You may play the cached card this turn.
+Oracle:If the cached card is face-down, you may look at it any time.\n{2}, Sacrifice this Memory: You may play the cached card this turn.

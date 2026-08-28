@@ -1,0 +1,8 @@
+Name:Solstice Circle
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ As CARDNAME enters, you may behold a Human. If you don't, it enters tapped. (To behold a Human, choose a Human you control or reveal a Human card from your hand.)
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ Self | UnlessCost$ Behold<1/Human> | UnlessPayer$ You | StackDescription$ enters tapped.
+A:AB$ Mana | Cost$ T | Produced$ Combo G W | SpellDescription$ Add {G} or {W}.
+DeckHints:Type$Human
+Oracle:As this land enters, you may behold a Human. If you don't, it enters the battlefield tapped. (To behold a Human, choose a Human you control or reveal a Human card from your hand.)\n{T}: Add {G} or {W}.

@@ -1,0 +1,24 @@
+Name:Bloodspill Ruffian
+ManaCost:3 R
+Types:Creature Human Berserker Werewolf
+PT:2/3
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPump | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, you may have target creature get +1/+0 and gain first strike until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | AITgts$ Creature.YouCtrl | NumAtt$ +1 | KW$ First Strike
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlayMain1:TRUE
+AlternateMode:DoubleFaced
+Oracle:At the beginning of combat on your turn, you may have target creature get +1/+0 and gain first strike until end of turn.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Bloodsoaked Brute
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:red
+PT:3/4
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigPump | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, you may have target creature get +1/+0 and gain double strike until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | AITgts$ Creature.YouCtrl | NumAtt$ +1 | KW$ Double Strike
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:At the beginning of combat on your turn, you may have target creature get +1/+0 and gain double strike until end of turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

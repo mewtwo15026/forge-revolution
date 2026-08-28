@@ -1,0 +1,12 @@
+Name:Ominous Marionette
+ManaCost:3 W
+Types:Artifact Creature Toy Horror
+PT:2/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSacPump | TriggerDescription$ Whenever this creature attacks, you may sacrifice another creature. If you do, creatures you control get +1/+1 until end of turn.
+SVar:TrigSacPump:AB$ Pump | Cost$ Sac<1/Creature.Other/other creature> | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+T:Mode$ ChangesZone | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigGainLife | TriggerDescription$ Whenever another creature you control dies, you gain 2 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 2
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Sacrifice|LifeGain
+Oracle:Whenever this creature attacks, you may sacrifice another creature. If you do, creatures you control get +1/+1 until end of turn.\nWhenever another creature you control dies, you gain 2 life.

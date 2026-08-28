@@ -1,0 +1,11 @@
+Name:Profane Sustenance
+ManaCost:1 B
+Types:Instant
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPumpCast | SpellDescription$ Put a +1/+1 counter on target creature. It gains lifelink and indestructible until end of turn.
+SVar:DBPumpCast:DB$ Pump | Defined$ Targeted | KW$ Lifelink & Indestructible
+T:Mode$ Discarded | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When you discard this card, you may pay {B}. If you do, target creature gets +1/+1 and gains lifelink until end of turn.
+SVar:TrigPump:AB$ Pump | Cost$ B | ValidTgts$ Creature | NumAtt$ +1 | NumDef$ +1 | KW$ Lifelink
+SVar:DiscardMe:1
+DeckHints:Ability$Discard
+DeckHas:Ability$Counters
+Oracle:Put a +1/+1 counter on target creature. It gains lifelink and indestructible until end of turn.\nWhen you discard this card, you may pay {B}. If you do, target creature gets +1/+1 and gains lifelink until end of turn.

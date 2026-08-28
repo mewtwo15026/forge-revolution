@@ -1,0 +1,10 @@
+Name:Drowntide Rising
+ManaCost:2 U U B
+Types:Sorcery
+A:SP$ ChangeZoneAll | ChangeType$ Creature.nonZombie | Origin$ Battlefield | Destination$ Hand | SubAbility$ DBExile | SpellDescription$ Return each non-Zombie creature to its owner's hand, then each opponent exiles a card from their hand.
+SVar:DBExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | DefinedPlayer$ Player.Opponent | Mandatory$ True | ChangeType$ Card | ChangeNum$ 1 | Hidden$ True | IsCurse$ True
+SVar:PlayMain1:TRUE
+SVar:NeedsToPlayVar:CountOpps GTCountOwn
+SVar:CountOpps:Count$Valid Creature.OppCtrl+nonZombie
+SVar:CountOwn:Count$Valid Creature.YouCtrl+nonZombie/LimitMax.5
+Oracle:Return each non-Zombie creature to its owner's hand, then each opponent exiles a card from their hand.

@@ -1,0 +1,10 @@
+Name:Devilthorn Hunter
+ManaCost:1 W
+Types:Creature Human Scout
+PT:2/2
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigEffect | TriggerDescription$ When this creature enters, until end of turn, permanents entering the battlefield don't cause abilities to trigger.
+SVar:TrigEffect:DB$ Effect | StaticAbilities$ STTorpor
+A:AB$ Effect | Cost$ 1 Sac<1/CARDNAME> | AILogic$ Never | StaticAbilities$ STTorpor | SpellDescription$ Until end of turn, creatures entering don't cause abilities to trigger.
+SVar:STTorpor:Mode$ DisableTriggers | ValidCause$ Permanent | ValidMode$ ChangesZone,ChangesZoneAll | Destination$ Battlefield | Description$ Until end of turn, creatures entering don't cause abilities to trigger.
+Oracle:Flash\nWhen this creature enters, until end of turn, permanents entering the battlefield don't cause abilities to trigger.\n{1}, Sacrifice this creature: Until end of turn, permanents entering the battlefield don't cause abilities to trigger.

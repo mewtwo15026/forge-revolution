@@ -1,0 +1,30 @@
+Name:Profane Invoker
+ManaCost:2 R
+Types:Creature Human Shaman Werewolf
+PT:3/2
+K:Haste
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever this creature enters or transforms into Profane Invoker, you may discard your hand. If you do, draw two cards.
+T:Mode$ Transformed | ValidCard$ Card.Self | Execute$ TrigDraw | Secondary$ True | TriggerDescription$ Whenever this creature enters or transforms into Profane Invoker, you may discard your hand. If you do, draw two cards.
+SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Hand> | Defined$ You | NumCards$ 2
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+DeckHas:Ability$Discard
+DeckHints:Type$Instant|Sorcery
+AlternateMode:DoubleFaced
+Oracle:Haste\nWhenever this creature enters or transforms into Profane Invoker, you may discard your hand. If you do, draw two cards.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+
+ALTERNATE
+
+Name:Mondronen Bloodcaster
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:red
+PT:4/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever this creature attacks, you may exile target instant or sorcery card with mana value 2 or less from your graveyard. If you do, cast a copy of it without paying its mana cost.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Instant.YouOwn+cmcLE2,Sorcery.YouOwn+cmcLE2 | TgtPrompt$ Select target instant or sorcery card with mana value 2 or less | RememberChanged$ True | SubAbility$ DBCopy
+SVar:DBCopy:DB$ Play | Defined$ Remembered | Controller$ You | CopyCard$ True | ValidSA$ Spell | Optional$ False | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever this creature attacks, you may exile target instant or sorcery card with mana value 2 or less from your graveyard. If you do, cast a copy of it without paying its mana cost.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

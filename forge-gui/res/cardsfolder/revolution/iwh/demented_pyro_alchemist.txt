@@ -1,0 +1,12 @@
+Name:Demented Pyro-Alchemist
+ManaCost:1 U
+Types:Creature Human Scientist
+PT:2/1
+T:Mode$ Phase | Phase$ BeginCombat | CheckSVar$ X | Execute$ TrigToken | TriggerDescription$ At the beginning of each combat, if you've cast an instant or sorcery spell this turn, create a 1/1 red Elemental creature token with flying and "This creature can't block."
+SVar:TrigToken:DB$ Token | TokenScript$ r_1_1_elemental_flying_cantblock
+SVar:X:Count$ThisTurnCast_Instant.YouCtrl,Sorcery.YouCtrl
+A:AB$ Effect | Cost$ 1 R | Triggers$ OnEnter | SpellDescription$ Whenever a creature you control with power 2 or less enters this turn, that creature gains haste until end of turn.
+SVar:OnEnter:Mode$ ChangesZone | ValidCard$ Creature.YouCtrl+powerLE2 | Destination$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever a creature you control with power 2 or less enters this turn, that creature gains haste until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredCardLKICopy | KW$ Haste
+DeckHints:Type$Instant|Sorcery
+Oracle:At the beginning of each combat, if you've cast an instant or sorcery spell this turn, create a 1/1 red Elemental creature token with flying and "This creature can't block."\n{1}{R}: Whenever a creature you control with power 2 or less enters this turn, that creature gains haste until end of turn.

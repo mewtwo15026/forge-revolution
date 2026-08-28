@@ -1,0 +1,14 @@
+Name:Sanguine Liturgy
+ManaCost:B R
+Types:Sorcery
+A:SP$ GenericChoice | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control to gorge | RememberTargets$ True | Choices$ GorgeDiscard,GorgeSac | Defined$ You | SpellDescription$ You may have target creature you control gorge. When it does, you may destroy target artifact or creature with mana value less than or equal to that creature's power. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.!targetedBy/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Remembered | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw | SubAbility$ DBImmeTrig
+SVar:DBImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Targeted | Execute$ TrigDestroy | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup | TriggerDescription$ When it does, you may destroy target artifact or creature with mana value less than or equal to that creature's power.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Artifact.cmcLEX,Creature.cmcLEX | TgtPrompt$ Select target artifact or creature with mana value less than or equal to the gorging creature's power | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TriggerRemembered$CardPower
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters
+Oracle:You may have target creature you control gorge. When it does, you may destroy target artifact or creature with mana value less than or equal to that creature's power. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)

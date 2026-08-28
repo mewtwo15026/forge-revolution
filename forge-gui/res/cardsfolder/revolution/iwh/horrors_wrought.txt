@@ -1,0 +1,7 @@
+Name:Horrors Wrought
+ManaCost:4 B R G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | WithCountersType$ Indestructible | ValidTgts$ Permanent.YouOwn | AITgts$ Planeswalker.cmcGE5,Creature.cmcGE5 | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target permanent card in your graveyard | SubAbility$ DBDamageAll | SpellDescription$ Return up to one target permanent card from your graveyard to the battlefield with an indestructible counter on it. CARDNAME deals 10 damage to each other creature and planeswalker.
+SVar:DBDamageAll:DB$ DamageAll | ValidCards$ Creature.NotDefinedTargeted,Planeswalker.NotDefinedTargeted | NumDmg$ 10 | ValidDescription$ each other creature and planeswalker.
+DeckHas:Ability$Graveyard
+Oracle:Return up to one target permanent card from your graveyard to the battlefield with an indestructible counter on it. Horrors Wrought deals 10 damage to each other creature and planeswalker.

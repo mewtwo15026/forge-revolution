@@ -1,0 +1,13 @@
+Name:Grizzled Ironwright
+ManaCost:G W
+Types:Creature Human Citizen
+PT:1/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a Weapon token and attach it to this creature.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_weapon_equip | RememberTokens$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Defined$ Self | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ ChangesZone | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Artifact.YouCtrl,Enchantment.YouCtrl | Execute$ TrigCounter | TriggerDescription$ Whenever an artifact or enchantment you control enters, you may pay {1}. If you do, put a +1/+1 counter on target Human.
+SVar:TrigCounter:AB$ PutCounter | Cost$ 1 | ValidTgts$ Human | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Token|Counters & Type$Equipment|Weapon
+DeckHints:Type$Artifact|Enchantment
+Oracle:When this creature enters, create a Weapon token and attach it to this creature. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")\nWhenever an artifact or enchantment you control enters, you may pay {1}. If you do, put a +1/+1 counter on target Human.

@@ -1,0 +1,9 @@
+Name:Hulking Horror
+ManaCost:3 U
+Types:Creature Zombie Horror
+PT:3/4
+T:Mode$ ChangesZone | ValidCard$ Card.Self,Zombie.Other+YouCtrl | Destination$ Battlefield | Execute$ TrigSurveil | TriggerDescription$ Whenever this creature or another Zombie enters under your control, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+DeckHints:Type$Zombie
+DeckHas:Ability$Surveil
+Oracle:Whenever this creature or another Zombie enters under your control, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)

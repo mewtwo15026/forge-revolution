@@ -1,0 +1,12 @@
+Name:Curse of Profane Offerings
+ManaCost:1 B
+Types:Enchantment Aura Curse
+K:Enchant:Player
+SVar:AttachAILogic:Curse
+T:Mode$ ChangesZone | ValidCard$ Creature.!ControlledBy EnchantedPlayer | Origin$ Battlefield | Destination$ Graveyard | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ Whenever a creature not controlled by enchanted player dies, its controller gains 1 life and may surveil 1.
+SVar:TrigGainLife:DB$ GainLife | Defined$ TriggeredCardController | LifeAmount$ 1 | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Defined$ TriggeredCardController | Amount$ 1 | Optional$ True
+A:AB$ LoseLife | Cost$ 3 B | Defined$ EnchantedPlayer | ActivationZone$ Battlefield | LifeAmount$ 1 | SubAbility$ DBToken | SpellDescription$ Enchanted player loses 1 life. Each of enchanted player's opponents creates a 0/1 white Sheep creature token.
+SVar:TrigToken:DB$ Token | TokenScript$ w_0_1_sheep | TokenOwner$ Player.OpponentOf EnchantedPlayer
+DeckHas:Ability$Token|LifeGain|Surveil & Type$Sheep
+Oracle:Enchant player\nWhenever a creature not controlled by enchanted player dies, its controller gains 1 life and may surveil 1.\n{3}{B}: Enchanted player loses 1 life. Each of enchanted player's opponents creates a 0/1 white Sheep creature token. 

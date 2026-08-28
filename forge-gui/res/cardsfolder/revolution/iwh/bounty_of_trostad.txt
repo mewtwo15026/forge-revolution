@@ -1,0 +1,7 @@
+Name:Bounty of Trostad
+ManaCost:3 B
+Types:Sorcery
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ ReduceCost | Relative$ True | EffectZone$ All | Description$ This spell costs {1} less to cast for each Zombie card it targets.
+SVar:ReduceCost:TargetedObjectsDistinct$Valid Zombie.inZoneGraveyard
+A:SP$ ChangeZone | ValidTgts$ Creature.YouCtrl | AITgts$ Creature.Zombie+YouCtrl | Origin$ Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creature cards in your graveyard | SpellDescription$ Return up to two target creature cards from your graveyard to your hand.
+Oracle:This spell costs {1} less to cast for each Zombie card it targets.\nReturn up to two target creature cards from your graveyard to your hand.

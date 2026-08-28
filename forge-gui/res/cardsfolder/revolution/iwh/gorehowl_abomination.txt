@@ -1,0 +1,10 @@
+Name:Gorehowl Abomination
+ManaCost:3 R R
+Types:Creature Wolf Horror
+PT:5/5
+S:Mode$ Continuous | EffectZone$ Battlefield | Affected$ Wolf.Other+YouCtrl,Werewolf.Other+YouCtrl | AddKeyword$ Trample | Description$ Other Wolves and Werewolves you control have trample.
+T:Mode$ AttackersDeclared | ValidAttackers$ Creature.YouCtrl+Transformed,Creature.YouCtrl+powerGTbasePower | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever one or more savage creatures you control attack, create a 2/2 green Wolf creature token that's tapped and attacking. (A creature is savage if it's transformed or has power greater than its base power.)
+SVar:TrigToken:DB$ Token | TokenScript$ g_2_2_wolf | TokenTapped$ True | TokenAttacking$ True
+DeckHas:Ability$Token
+DeckHints:Type$Wolf|Werewolf
+Oracle:Other Wolves and Werewolves you control have trample.\nWhenever one or more savage creatures you control attack, create a 2/2 green Wolf creature token that's tapped and attacking. (A creature is savage if it's transformed or has power greater than its base power.)

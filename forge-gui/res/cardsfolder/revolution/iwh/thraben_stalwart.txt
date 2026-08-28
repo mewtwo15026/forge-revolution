@@ -1,0 +1,10 @@
+Name:Thraben Stalwart
+ManaCost:2 W
+Types:Creature Human Soldier
+PT:3/2
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ This creature has first strike as long as it's your turn.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPrevent | CheckSVar$ Concord | SVarCompare$ GE4 | TriggerDescription$ Concord - Whenever this creature attacks, if there are four or more card types among permanents you control, prevent all damage that would be dealt to this creature this turn.
+SVar:TrigPrevent:DB$ Pump | Defined$ Self | KW$ Prevent all damage that would be dealt to CARDNAME.
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Type$Artifact|Enchantment|Planeswalker|Battle
+Oracle:This creature has first strike as long as it's your turn.\nConcord - Whenever this creature attacks, if there are four or more card types among permanents you control, prevent all damage that would be dealt to this creature this turn.

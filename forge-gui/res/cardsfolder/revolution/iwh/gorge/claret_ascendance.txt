@@ -1,0 +1,14 @@
+Name:Claret Ascendance
+ManaCost:R
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | RememberDamaged$ True | ReplaceDyingDefined$ Remembered.Permanent | SubAbility$ DBCleanup | SpellDescription$ CARDNAME deals 2 damage to any target. If a permanent dealt damage this way would die this turn, exile it instead.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Pump | Cost$ 2 R ExileFromGrave<1/CARDNAME> | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Creature.YouCtrl | TargetPrompt$ Select target creature you control | SubAbility$ GorgeChoice | StackDescription$ SpellDescription | SpellDescription$ You may have target creature you control gorge. Activate only as a sorcery. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeChoice:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You | ConditionPresent$ Creature.YouCtrl+targetedBy
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.!targetedBy/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw | ConditionDefined$ Targeted | ConditionPresent$ Creature.YouCtrl
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters|Graveyard
+DeckHints:Ability$Token|Graveyard & Keyword$Flashback
+Oracle:Claret Ascendance deals 2 damage to any target. If a permanent dealt damage this way would die this turn, exile it instead.\n{2}{R}, Exile this card from your graveyard: You may have target creature you control gorge. Activate only as a sorcery. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)

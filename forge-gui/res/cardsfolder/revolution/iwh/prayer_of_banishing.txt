@@ -1,0 +1,13 @@
+Name:Prayer of Banishing
+ManaCost:1 W
+Types:Instant
+A:SP$ Branch | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | BranchConditionSVar$ Concord | BranchConditionSVarCompare$ GE4 | TrueSubAbility$ PrayerChoice | FalseSubAbility$ PrayerBlink | SpellDescription$ Exile target creature or planeswalker, then return that card to the battlefield under its owner's control. Concord - If there are four or more card types among permanents you control, you may exile that permanent instead (and not return it to the battlefield).
+SVar:PrayerChoice:DB$ GenericChoice | Choices$ PrayerExile,PrayerBlink | Defined$ You
+SVar:PrayerExile:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Concord - Exile that permanent instead.
+SVar:PrayerBlink:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBReturn | SpellDescription$ Exile that permanent, then return it to the battlefield under its owner's control.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ All | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckNeeds:Type$Creature|Planeswalker
+DeckHints:Type$Artifact|Enchantment|Battle
+Oracle:Exile target creature or planeswalker, then return that card to the battlefield under its owner's control.\nConcord - If there are four or more card types among permanents you control, you may exile that permanent instead (and not return it to the battlefield).

@@ -1,0 +1,10 @@
+Name:Bloodpack Invoker
+ManaCost:2 R
+Types:Creature Vampire Shaman
+PT:1/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPumpAll | TriggerDescription$ Whenever this creature attacks, other attacking creatures get +1/+0 until end of turn.
+SVar:TrigPumpAll:DB$ PumpAll | ValidCards$ Creature.Other+attacking | NumAtt$ +1
+A:AB$ Token | Cost$ R T Discard<1/Card> | SorcerySpeed$ True | TokenScript$ g_2_2_wolf | SpellDescription$ Create a 2/2 green Wolf creature token. Activate only as a sorcery.
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Discard|Token & Type$Wolf
+Oracle:Whenever this creature attacks, other attacking creatures get +1/+0 until end of turn.\n{R}, {T}, Discard a card: Create a 2/2 green Wolf creature token. Activate only as a sorcery.

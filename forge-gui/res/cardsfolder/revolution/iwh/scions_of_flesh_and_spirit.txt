@@ -1,0 +1,11 @@
+Name:Scions of Flesh and Spirit
+ManaCost:2 U
+Types:Creature Spirit Zombie Wizard
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, you may sacrifice a creature. If you do, mill three cards. You may put a card from among the milled cards into your hand.
+SVar:TrigMill:AB$ Mill | Cost Sac<1/Creature> | NumCards$ 3 | RememberMilled$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | Hidden$ True | ChangeType$ Card.IsRemembered | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice|Mill
+Oracle:When this creature enters, you may sacrifice a creature. If you do, mill three cards. You may put a card from among the milled cards into your hand.

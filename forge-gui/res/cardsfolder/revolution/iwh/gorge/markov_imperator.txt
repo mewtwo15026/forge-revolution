@@ -1,0 +1,17 @@
+Name:Markov Imperator
+ManaCost:4 B B
+Types:Creature Vampire Soldier
+PT:2/2
+K:Flying
+K:Lifelink
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ This creature gets +X/+X, where X is the the number of creature cards in your graveyard.
+SVar:X:Count$ValidGraveyard Creature.YouOwn
+A:AB$ Pump | Cost$ 1 B Discard<1/CARDNAME> | ActivationZone$ Hand | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SubAbility$ GorgeRepeat | SpellDescription$ You may have target creature you control gorge, then you may have it gorge again. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:GorgeRepeat:DB$ Repeat | MaxRepeat$ 2 | RepeatSubAbility$ GorgeChoice | StackDescription$ None
+SVar:GorgeChoice:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.!targetedBy/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Targeted | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback,Card.Self
+DeckHas:Ability$Sacrifice|Discard|Counters|LifeGain
+Oracle:Flying, lifelink\nThis creature gets +X/+X, where X is the the number of creature cards in your graveyard.\n{1}{B}, Discard this card: You may have target creature you control gorge, then you may have it gorge again. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)

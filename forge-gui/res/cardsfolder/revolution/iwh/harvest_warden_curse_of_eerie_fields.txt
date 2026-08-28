@@ -1,0 +1,28 @@
+Name:Harvest Warden
+ManaCost:5 G G
+Types:Artifact Creature Treefolk Scarecrow
+PT:5/8
+K:Reach
+A:AB$ Pump | Cost$ 1 G | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBCurse | SpellDescription$ Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+SVar:DBCurse:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | AttachedToPlayer$ ParentTarget | AILogic$ Curse
+SVar:DiscardMe:2
+SVar:BuffedBy:Land
+DeckHas:Ability$Graveyard|Surveil|LifeGain & Type$Enchantment|Aura|Curse
+AlternateMode:DoubleFaced
+Oracle:Reach\n{1}{G}: Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Curse of Eerie Fields
+ManaCost:no cost
+Types:Enchantment Aura Curse
+Colors:green
+K:Enchant:Player
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | CheckSVar$ Yours | SVarCompare$ GTTheirs | Execute$ TrigSurveil | TriggerDescription$ Landfall — Whenever a land you control enters, if you control more lands than enchanted player, surveil 1 and you gain 1 life.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
+SVar:Yours:Count$Valid Land.YouCtrl
+SVar:Theirs:Count$Valid Land.ControlledBy Player.EnchantedBy
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this Aura would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Enchant player\nLandfall — Whenever a land you control enters, if you control more lands than enchanted player, surveil 1 and you gain 1 life.\nIf this Aura would be put into a graveyard from anywhere, exile it instead.

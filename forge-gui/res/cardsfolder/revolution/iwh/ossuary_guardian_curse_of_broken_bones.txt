@@ -1,0 +1,24 @@
+Name:Ossuary Guardian
+ManaCost:3 B
+Types:Creature Skeleton Soldier
+PT:5/3
+A:AB$ Pump | Cost$ 1 B | Defined$ Self | KW$ Menace | SpellDescription$ This creature gains menace until end of turn.
+A:AB$ Pump | Cost$ 3 B | SorcerySpeed$ True | ActivationZone$ Graveyard | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBCurse | SpellDescription$ Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+SVar:DBCurse:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Transformed$ True | AttachedToPlayer$ ParentTarget | AILogic$ Curse
+SVar:DiscardMe:2
+DeckHas:Ability$Graveyard & Type$Enchantment|Aura|Curse
+AlternateMode:DoubleFaced
+Oracle:{1}{B}: This creature gains menace until end of turn.\n{3}{B}: Return this card from your graveyard to the battlefield transformed and attached to target player. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Curse of Broken Bones
+ManaCost:no cost
+Types:Enchantment Aura Curse
+Colors:black
+K:Enchant:Player
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigLoseLife | TriggerDescription$ Whenever a creature you control dies, enchanted player loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ Player.EnchantedBy | LifeAmount$ 1
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Graveyard | ReplaceWith$ Exile | Description$ If this Aura would be put into a graveyard from anywhere, exile it instead.
+SVar:Exile:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Exile | Defined$ ReplacedCard
+Oracle:Enchant player\nWhenever a creature you control dies, enchanted player loses 1 life.\nIf this Aura would be put into a graveyard from anywhere, exile it instead.

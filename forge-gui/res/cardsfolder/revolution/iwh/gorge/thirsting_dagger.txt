@@ -1,0 +1,14 @@
+Name:Thirsting Dagger
+ManaCost:1
+Types:Artifact
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 2 | Description$ Equipped creature gets +1/+0. As long as it's your turn, it also has first strike.
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | Condition$ PlayerTurn | AddKeyword$ First Strike | Secondary$ True | Description$ Equipped creature gets +1/+0. As long as it's your turn, it also has first strike.
+T:Mode$ Attacks | ValidCard$ Creature.EquippedBy | Execute$ TrigGorge | TriggerDescription$ Whenever equipped creature attacks, you may have that creature gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on that creature and draw a card.)
+SVar:TrigGorge:DB$ GenericChoice | Choices$ GorgeDiscard,GorgeSac | Defined$ You
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ TriggeredAttackerLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+K:Equip:2
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters
+Oracle:Equipped creature gets +1/+0. As long as it's your turn, it also has first strike.\nWhenever equipped creature attacks, you may have it gorge. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)\nEquip {2}

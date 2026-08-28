@@ -1,0 +1,14 @@
+Name:Greedy Duelist
+ManaCost:B
+Types:Creature Vampire Soldier
+PT:1/2
+A:AB$ GenericChoice | Cost$ 1 B | ActivationLimit$ 1 | IsPresent$ Card.Self+attackedThisTurn | Choices$ GorgeDiscard,GorgeSac | Defined$ You | SpellDescription$ You may have this creature gorge. Activate only once each turn and only if this creature attacked this turn. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)
+SVar:GorgeDiscard:DB$ PutCounter | UnlessCost$ Discard<1/Card.nonLand/nonland card> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Discard a nonland card.
+SVar:GorgeSac:DB$ PutCounter | UnlessCost$ Sac<1/Creature.Other/another creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenPaid | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ GorgeDraw | SpellDescription$ Gorge - Sacrifice another creature.
+SVar:GorgeDraw:DB$ Draw
+A:AB$ ChangeZone | Cost$ 2 B | Origin$ Graveyard | Destination$ Hand | ActivationZone$ Graveyard | SpellDescription$ Return this card from your graveyard to your hand.
+SVar:SacMe:1
+SVar:DiscardMe:2
+SVar:AIPreference:SacCost$Creature.token | DiscardCost$Card.withFlashback
+DeckHas:Ability$Sacrifice|Discard|Counters|Graveyard
+Oracle:{1}{B}: You may have this creature gorge. Activate only once each turn and only if this creature attacked this turn. (To gorge, discard a nonland card or sacrifice another creature to put a +1/+1 counter on this creature and draw a card.)\n{2}{B}: Return this card from your graveyard to your hand.

@@ -1,0 +1,9 @@
+Name:Gisa's Breakthrough
+ManaCost:B
+Types:Instant
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ValidTgts$ Card | AITgts$ Card.OppCtrl | TgtPrompt$ Select target card in a graveyard | IsCurse$ True | Optional$ True | RememberChanged$ True | SubAbility$ DBToken | SpellDescription$ Exile up to one target card from a graveyard. You may create a tapped 2/2 black Zombie creature token if you exiled a creature token this way. If you didn't create a token, draw a card.
+SVar:DBToken:DB$ Token | TokenScript$ b_2_2_zombie | TokenTapped$ True | Optional$ True | RememberTokens$ True | ConditionDefined$ Remembered | ConditionPresent$ Creature | ConditionCompare$ GE1 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Permanent.token | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Token & Type$Zombie
+Oracle:Exile up to one target card from a graveyard. You may create a tapped 2/2 black Zombie creature token if you exiled a creature card this way. If you didn't create a token, draw a card.

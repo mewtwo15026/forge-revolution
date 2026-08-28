@@ -1,0 +1,24 @@
+Name:Wald-Cottage Crone
+ManaCost:1 G
+Types:Creature Human Peasant Werewolf
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ShuffleNonMandatory$ True
+T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+Oracle:When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n
+
+ALTERNATE
+
+Name:Somberwald Ripper
+ManaCost:no cost
+Types:Creature Werewolf
+Colors:green
+PT:3/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBite | TriggerDescription$ Whenever this creature attacks, you may pay {4}{G}. If you do, it deals damage equal to its power to target creature defending player controls.
+SVar:TrigBite:AB$ DealDamage | Cost$ 4 G | ValidTgts$ Creature.ControlledBy TriggeredDefendingPlayer | TgtPrompt$ Select target creature defending player controls | NumDmg$ X
+SVar:X:Count$CardPower
+T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+Oracle:Whenever this creature attacks, you may pay {4}{G}. If you do, it deals damage equal to its power to target creature defending player controls.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.

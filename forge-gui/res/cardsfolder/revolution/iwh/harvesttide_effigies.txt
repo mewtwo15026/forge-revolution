@@ -1,0 +1,13 @@
+Name:Harvesttide Effigies
+ManaCost:2
+Types:Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When this artifact enters, you may search your library for a basic land card, reveal it, put it into your hand or graveyard, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Library | ChangeType$ Land.Basic+YouOwn | ChangeNum$ 1 | RememberChanged$ True | Reveal$ True | Shuffle$ False | SubAbility$ DBDestination
+SVar:DBDestination:DB$ GenericChoice | Choices$ ToHand,ToGrave | Defined$ You | SubAbility$ DBCleanup
+SVar:ToHand:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Hand | Shuffle$ True | SpellDescription$ Put it into your hand.
+SVar:ToGrave:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Graveyard | Shuffle$ True | SpellDescription$ Put it into your graveyard.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Draw | Cost$ 1 T ExileFromGrave<1/Land> | CheckSVar$ Concord | SVarCompare$ GE4 | Draw a card. Activate only if there are there are four or more card types among permanents you control.
+SVar:Concord:Count$Valid Permanent.YouCtrl$CardTypes
+DeckHints:Types$Enchantment|Planeswalker|Battle
+Oracle:When this artifact enters, you may search your library for a basic land card, reveal it, put it into your hand or graveyard, then shuffle.\nConcord - {1}, {T}, Exile a land card from your graveyard: Draw a card. Activate only if there are there are four or more card types among permanents you control.
