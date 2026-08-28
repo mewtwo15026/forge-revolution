@@ -1,0 +1,13 @@
+Name:Temple of Origins
+ManaCost:no cost
+Types:Land
+# NOTE: ManaConversion doesn't seem to work with ChosenColor
+K:ETBReplacement:Other:ChooseColors
+SVar:ChooseColors:DB$ ChooseColor | Defined$ You | TwoColors$ True | AILogic$ MostProminentDualInComputerDeck | SubAbility$ ChoiceEffect | SpellDescription$ As CARDNAME enters, choose two colors. For as long as you control CARDNAME, you can't cast spells that aren't colorless and aren't at least one of the chosen colors.
+SVar:ChoiceEffect:DB$ Effect | Duration$ AsLongAsControl | StaticAbilities$ STCantCast
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card.!Colorless+!AnyChosenColor | Caster$ You | Description$ For as long as you control EFFECTSOURCE, you can't cast spells that aren't colorless and aren't at least one of the chosen colors.
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control two or fewer other lands.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Land.YouCtrl | ConditionCompare$ GT2
+A:AB$ Mana | Cost$ T | Produced$ Combo Chosen | SpellDescription$ Add one mana of one of the chosen colors.
+AI:RemoveDeck:Random
+Oracle:Temple of Origins enters tapped unless you control two or fewer other lands.\nAs Temple of Origins enters, choose two colors. For as long as you control Temple of Origins, you can't cast spells that aren't colorless and aren't at least one of the chosen colors.\n{T}: Add one mana of one of the chosen colors.

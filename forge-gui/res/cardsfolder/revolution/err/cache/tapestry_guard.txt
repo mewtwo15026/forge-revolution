@@ -1,0 +1,15 @@
+Name:Tapestry Guard
+ManaCost:3 W
+Types:Creature Human Soldier
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | OptionalDecider$ You | Execute$ TrigBranch | TriggerDescription$ When this creature enters, you may cache a card from your hand face down. When you do, destroy target enchantment.
+SVar:TrigBranch:DB$ Branch | BranchConditionSVar$ HandSize | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBChoose | FalseSubAbility$ DBBreak
+SVar:DBChoose:DB$ GenericChoice | Defined$ You | Choices$ DBCache,DBBreak | AILogic$ DBCache
+SVar:DBCache:DB$ Token | TokenScript$ c_a_memory_fdh | SubAbility$ DBExile | SpellDescription$ Cache a card from your hand face down
+SVar:DBExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | ExileFaceDown$ True | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True | SubAbility$ DBImmediateTrig
+SVar:DBImmediateTrig:DB$ ImmediateTrigger | Execute$ TrigDestroy | TriggerDescription$ When you do, destroy target enchantment.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Enchantment | TgtPrompt$ Select target enchantment
+SVar:DBBreak:DB$ Pump | SpellDescription$ Don't cache
+SVar:HandSize:Count$ValidHand Card.YouOwn
+DeckHas:Type$Artifact|Memory
+Oracle:When this creature enters, you may cache a card from your hand face down. When you do, destroy target enchantment. (To cache a card, exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

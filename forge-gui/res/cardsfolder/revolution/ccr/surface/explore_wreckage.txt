@@ -1,0 +1,11 @@
+Name:Explore Wreckage
+ManaCost:2 U U
+Types:Sorcery
+A:SP$ Draw | NumCards$ 3 | SpellDescription$ Draw three cards.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 5 U U | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {5}{U}{U}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Draw three cards.\nSurface {5}{U}{U} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

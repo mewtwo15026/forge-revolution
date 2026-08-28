@@ -1,0 +1,11 @@
+Name:Scripting Sage
+ManaCost:1 U R
+Types:Creature Elf Wizard
+PT:2/3
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Any | Destination$ Battlefield | ValidCard$ Subroutine.Other+YouCtrl | Execute$ TrigRun | TriggerDescription$ Whenever another Subroutine you control enters, you may pay {2}. If you do, it runs.
+SVar:TrigRun:DB$ PutCounter | UnlessCost$ 2 | UnlessPayer$ You | UnlessSwitched$ True | Defined$ TriggeredCardLKICopy | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ DBRemoveCounter
+SVar:DBRemoveCounter:DB$ RemoveCounter | Defined$ TriggeredCardLKICopy | CounterType$ CLICK | CounterNum$ All
+T:Mode$ CounterRemoved | TriggerZones$ Battlefield | ValidCard$ Subroutine.YouCtrl | CounterType$ CLICK | NewCounterAmount$ 0 | Execute$ TrigPump | TriggerDescription$ Whenever a Subroutine you control runs, this creature gets +1/+1 until end of turn.
+SVar:TrigPump:DB$ Pump | NumAtt$ +1 | NumDef$ +1
+DeckNeeds:Type$Subroutine
+Oracle:Whenever a Subroutine you control enters, you may pay {2}. If you do, it runs.\nWhenever a Subroutine you control runs, this creature gets +1/+1 until end of turn.

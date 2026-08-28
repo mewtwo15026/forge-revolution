@@ -1,0 +1,16 @@
+Name:Depths Ancient
+ManaCost:3 B B
+Types:Creature Fish
+PT:*/*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of cards in your graveyard plus the number of exiled cards you own with surface.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 5 B B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {5}{B}{B}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+SVar:X:SVar$GraveCount/Plus.ExileCount
+SVar:GraveCount:Count$ValidGraveyard Card.YouOwn
+SVar:ExileCount:Count$ValidExile Card.YouOwn+namedAqua Jet,Card.YouOwn+namedBeloved Poppet,Card.YouOwn+namedBlind Pursuit,Card.YouOwn+namedBuried Geode,Card.YouOwn+namedChum Chaser,Card.YouOwn+namedClaw Fossil,Card.YouOwn+namedDepths Ancient,Card.YouOwn+namedEntangled Fossil,Card.YouOwn+namedExplore Wreckage,Card.YouOwn+namedFloating Familiar,Card.YouOwn+namedFloe Master,Card.YouOwn+namedFortune Bearer,Card.YouOwn+namedHarvest Time,Card.YouOwn+namedKing of Currents,Card.YouOwn+namedMeteor Lobber,Card.YouOwn+namedMuddy Water,Card.YouOwn+namedPadpole,Card.YouOwn+namedReaper of the Deep,Card.YouOwn+namedRejuvenating Kappa,Card.YouOwn+namedRelentless Bats,Card.YouOwn+namedRiverbed Snapper,Card.YouOwn+namedRoot Fossil,Card.YouOwn+namedScuttling Cicada,Card.YouOwn+namedSeafloor Treasures,Card.YouOwn+namedSerrated Fossil,Card.YouOwn+namedShining Angler,Card.YouOwn+namedSoul's Sunset,Card.YouOwn+namedStarved Piranha,Card.YouOwn+namedWalk Among the Dead,Card.YouOwn+namedWarden of Depths,Card.YouOwn+namedWrecking Whale
+SVar:NeedsToPlayVar:X GE1
+DeckHas:Ability$Graveyard|Surface
+Oracle:Depths Ancient's power and toughness are each equal to the number of cards in your graveyard plus the number of exiled cards you own with surface.\nSurface {5}{B}{B} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

@@ -1,0 +1,9 @@
+Name:Dreamswept Duelist
+ManaCost:2 R
+Types:Creature Faerie Noble
+PT:3/2
+K:First Strike
+# TODO: implement cross-trigger ability
+# S:Mode$ CrossTrigger | EffectZone$ Battlefield | TriggerEvent$ AttackerBlocked | TriggerValidCard$ Creature.YouCtrl | CrossEvent$ DamagedDefender | Description$ Creatures you control becoming blocked causes abilities of that creature to trigger as if they dealt damage to the player or permanent they're attacking.
+AI:RemoveDeck:All
+Oracle:First strike\nCreatures you control becoming blocked causes abilities of that creature to trigger as if they dealt damage to the player or permanent they're attacking.

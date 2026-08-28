@@ -1,0 +1,15 @@
+Name:Placeholder_Asset
+ManaCost:6 W W
+Types:Creature Error
+PT:8/9
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExileAll | TriggerDescription$ When this creature enters, exile all other nontoken, non-Error creatures you control. For each card exiled this way, create a 8/9 white Error creature token. When that token leaves the battlefield, return the exiled card to the battlefield under your control.
+SVar:TrigExileAll:DB$ ChangeZoneAll | Defined$ You | Origin$ Battlefield | Destination$ Exile | ChangeType$ Creature.Other+!token+nonError | RememberChanged$ True | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | DefinedCards$ DirectRemembered | ClearRemembered$ True | RepeatSubAbility$ DBToken | ChangeZoneTable$ True | SubAbility$ DBCleanup
+SVar:DBToken:DB$ Token | TokenScript$ w_8_9_error | ImprintTokens$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | Triggers$ TrigLeaves | RememberObjects$ RememberedLKI | ForgetOnMoved$ Exile | ImprintCards$ Imprinted | Duration$ Permanent | SubAbility$ DBCleanImprint
+SVar:DBCleanImprint:DB$ Cleanup | ClearImprinted$ True
+SVar:TrigLeaves:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.IsImprinted | Execute$ DBReturn | TriggerZones$ Command | TriggerDescription$ When that token leaves the battlefield, return the exiled card to the battlefield under your control.
+SVar:DBReturn:DB$ ChangeZone | Defined$ RememberedLKI | Origin$ Exile | Destination$ Battlefield | GainControl$ True | SubAbility$ DBEndEffect
+SVar:DBEndEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When this creature enters, exile all other nontoken, non-Error creatures you control. For each card exiled this way, create a 8/9 white Error creature token. When that token leaves the battlefield, return the exiled card to the battlefield under your control.

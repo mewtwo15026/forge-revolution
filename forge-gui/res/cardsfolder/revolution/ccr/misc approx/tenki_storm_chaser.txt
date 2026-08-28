@@ -1,0 +1,27 @@
+Name:Tenki, Storm Chaser
+ManaCost:1 U
+Types:Legendary Creature Human Ranger
+PT:1/1
+# NOTE: tracking colored mana spent on abilities might be impossible
+#       tracking colored mana to cast spells is possible but requires the following horrible hack
+T:Mode$ NewGame | Execute$ ManaSpentTracker | Static$ True
+SVar:ManaSpentTracker:DB$ Effect | Name$ ManaSpentTracker | Duration$ Permanent | StaticAbilities$ AddCastTrigger | ConditionZone$ Command | ConditionPresent$ Effect.namedManaSpentTracker | ConditionCompare$ EQ0
+SVar:AddCastTrigger:Mode$ Continuous | Affected$ Card.nonLand | AffectedZone$ Stack | AddTrigger$ OnCast | AddSVar$ TrackExpentW & TrackExpentU & TrackExpentB & TrackExpentR & TrackExpentG | Description$ Tracks colors of mana spent this turn to cast spells.
+SVar:OnCast:Mode$ SpellCast | ValidSA$ Spell | ValidActivatingPlayer$ You | Execute$ TrackExpentW | Static$ True
+SVar:TrackExpentW:DB$ Effect | Name$ White Spent | EffectOwner$ TriggeredActivator | ConditionManaSpent$ W | ConditionZone$ Command | ConditionPresent$ Effect.YouCtrl+namedWhite Spent | ConditionCompare$ EQ0 | SubAbility$ TrackExpentU
+SVar:TrackExpentU:DB$ Effect | Name$ Blue Spent | EffectOwner$ TriggeredActivator | ConditionManaSpent$ U | ConditionZone$ Command | ConditionPresent$ Effect.YouCtrl+namedBlue Spent | ConditionCompare$ EQ0 | SubAbility$ TrackExpentB
+SVar:TrackExpentB:DB$ Effect | Name$ Black Spent | EffectOwner$ TriggeredActivator | ConditionManaSpent$ B | ConditionZone$ Command | ConditionPresent$ Effect.YouCtrl+namedBlack Spent | ConditionCompare$ EQ0 | SubAbility$ TrackExpentR
+SVar:TrackExpentR:DB$ Effect | Name$ Red Spent | EffectOwner$ TriggeredActivator | ConditionManaSpent$ R | ConditionZone$ Command | ConditionPresent$ Effect.YouCtrl+namedRed Spent | ConditionCompare$ EQ0 | SubAbility$ TrackExpentG
+SVar:TrackExpentG:DB$ Effect | Name$ Green Spent | EffectOwner$ TriggeredActivator | ConditionManaSpent$ G | ConditionZone$ Command | ConditionPresent$ Effect.YouCtrl+namedGreen Spent | ConditionCompare$ EQ0
+# NOTE: end horrible hack
+
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ AccliChange | TriggerDescription$ When NICKNAME enters, it acclimates.
+SVar:AccliChange:DB$ ChangeZone | Origin$ Graveyard,Sideboard | Destination$ Hand | ChangeType$ Weather.YouOwn | Reveal$ True | RememberChanged$ True | SubAbility$ AccliCounter
+SVar:AccliCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterNum$ 1 | CounterType$ P1P1 | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneHand | ConditionCompare$ EQ0 | SubAbility$ AccliCleanup
+SVar:AccliCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ CantSacrifice | ValidCard$ Enchantment.Weather+YouCtrl | Description$ You can't sacrifice Weather enchantments.
+S:Mode$ Continuous | Affected$ Card.Weather+YouCtrl+wasCast | AffectedZone$ Stack | AddKeyword$ Storm | CheckSVar$ X | SVarCompare$ EQ5 | Description$ As long as you've spent {W}{U}{B}{R}{G} this turn, Weather spells you cast have storm.
+SVar:X:Count$ValidCommand Effect.YouCtrl+namedWhite Spent,Effect.YouCtrl+namedBlue Spent,Effect.YouCtrl+namedBlack Spent,Effect.YouCtrl+namedRed Spent,Effect.YouCtrl+namedGreen Spent
+DeckHas:Ability$Counters
+DeckNeeds:Type$Weather
+Oracle:When Tenki enters, it acclimates. (You may put a Weather card from your graveyard or outside the game into your hand, or put a +1/+1 counter on this.)\nYou can't sacrifice Weather enchantments.\nAs long as you've spent {W}{U}{B}{R}{G} this turn, Weather spells you cast have storm.

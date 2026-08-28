@@ -1,0 +1,13 @@
+Name:Precognitive Combatant
+ManaCost:1 G U
+Types:Creature Human Ninja
+PT:3/3
+K:Sneak:3 G U
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigWish | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, you may put a creature card with mana value X or less that you own from outside the game onto the battlefield, where X is the total power of unblocked creatures you control that are attacking that player.
+SVar:TrigWish:DB$ ChangeZone | Origin$ Sideboard | Destination$ Battlefield | ChangeTypeDesc$ creature card with mana value X or less that they own | ChangeNum$ 1 | ChangeType$ Creature.cmcLEX+YouOwn
+SVar:X:TriggeredTarget$CombatDamageDealtThisTurn
+# NOTE: CombatDamageDealtThisTurn isn't accessible like this in vanilla Forge, so either use the following approximation or do a horrible hack
+# SVar:X:Count$SumPower_Creature.YouCtrl+unblocked+attacking TriggeredTarget
+# NOTE 2: this seems to circumvent replacement effects on the creature that is wished up
+Text:Designed by Zangy
+Oracle:Sneak {3}{G}{U} (You may cast this spell for {3}{G}{U} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nWhenever this creature deals combat damage to a player, you may put a creature card with mana value X or less that you own from outside the game onto the battlefield, where X is the amount of combat damage that has been dealt to that player this turn.\nDesigned by Zangy

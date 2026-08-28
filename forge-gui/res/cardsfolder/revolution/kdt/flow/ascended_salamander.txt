@@ -1,0 +1,9 @@
+Name:Ascended Salamander
+ManaCost:U
+Types:Creature Salamander Monk
+PT:1/1
+K:Flying
+A:AB$ Mill | PrecostDesc$ Flow — | Cost$ 3 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | NumCards$ 3 | ValidTgts$ Player | TgtPrompt$ Select target player | SpellDescription$ Target player mills three cards. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Mill
+Oracle:Flying\nFlow — {3}{U}: Target player mills three cards. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

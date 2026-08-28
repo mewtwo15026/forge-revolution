@@ -1,0 +1,10 @@
+Name:Data Visionary
+ManaCost:1 U
+Types:Creature Wolf Wizard
+PT:1/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When this creature enters, look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ 4 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Card.nonCreature+nonLand | RestRandomOrder$ True
+A:AB$ PutCounter | Cost$ 2 T | SorcerySpeed$ True | GameActivationLimit$ 1 | ValidTgts$ Subroutine.YouCtrl | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ DBRunRemove | SpellDescription$ Target Subroutine you control runs. Activate only once and only as a sorcery.
+SVar:DBRunRemove:DB$ RemoveCounter | Defined$ Targeted | CounterType$ CLICK | CounterNum$ All
+DeckHints:Type$Subroutine
+Oracle:When this creature enters, look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom in a random order.\n{2}, {T}: Target Subroutine you control runs. Activate only once and only as a sorcery.

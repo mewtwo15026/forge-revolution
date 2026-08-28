@@ -1,0 +1,7 @@
+Name:Bitscan Freerunner
+ManaCost:R
+Types:Creature Human Scout
+PT:1/2
+A:AB$ Pump | Cost$ R T | SorcerySpeed$ True | ValidTgts$ Creature | NumAtt$ +1 | KW$ Menace & Haste | SpellDescription$ Target creature gets +1/+0 and gains menace and haste until end of turn. Activate only as a sorcery.
+A:AB$ PumpAll | Cost$ 6 R R T | SorcerySpeed$ True | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | KW$ Menace & Haste | SpellDescription$ Creatures you control get +1/+0 and gain menace and haste until end of turn. Activate only as a sorcery.
+Oracle:{R}, {T}: Target creature gets +1/+0 and gains menace and haste until end of turn. Activate only as a sorcery.\n{6}{R}{R}, {T}: Creatures you control get +1/+0 and gain menace and haste until end of turn. Activate only as a sorcery.

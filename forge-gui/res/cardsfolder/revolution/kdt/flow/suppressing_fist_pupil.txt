@@ -1,0 +1,9 @@
+Name:Suppressing-Fist Pupil
+ManaCost:2 U
+Types:Creature Human Monk
+PT:2/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When this creature enters, tap up to one target creature.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature
+A:AB$ Tap | PrecostDesc$ Flow — | Cost$ 3 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+Oracle:When this creature enters, tap up to one target creature.\nFlow — {3}{U}: Tap target creature. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

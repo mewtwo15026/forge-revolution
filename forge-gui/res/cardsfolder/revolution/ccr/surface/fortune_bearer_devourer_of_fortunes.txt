@@ -1,0 +1,29 @@
+Name:Fortune Bearer
+ManaCost:1 U
+Types:Creature Oyster
+PT:0/4
+A:AB$ Mana | Cost$ T | Produced$ C | RestrictValid$ nonSpell,Spell.!wasCastFromYourHand | SpellDescription$ Add {C}. You can't spend this mana to cast a spell from your hand.
+A:AB$ Mana | Cost$ T Sac<1/CARDNAME> | Produced$ C | SpellDescription$ Add {C}.
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:5 U U | Description$ Surface {5}{U}{U}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Surface
+AlternateMode:DoubleFaced
+Oracle:{T}: Add {C}. You can't spend this mana to cast a spell from your hand.\n{T}, Sacrifice CARDNAME: Add {C}.\nSurface {5}{U}{U}. Fortune Bearer surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Devourer of Fortunes
+ManaCost:no cost
+Colors:blue
+Types:Creature Fish
+PT:6/5
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ Whenever CARDNAME enters or attacks, return up to one target instant or sorcery card in a graveyard or creature on the battlefield to its owner's hand. You may cast a copy of it, and may spend mana of any type to cast it. (You still pay its costs. If it's a permanent spell, it becomes a token.)
+T:Mode$ AttackersDeclared | Execute$ TrigReturn | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | Secondary$ True | TriggerDescription$ Whenever CARDNAME enters or attacks, return up to one target instant or sorcery card in a graveyard or creature on the battlefield to its owner's hand. You may cast a copy of it, and may spend mana of any type to cast it. (You still pay its costs. If it's a permanent spell, it becomes a token.)
+SVar:TrigReturn:DB$ ChangeZone | ValidTgts$ Instant.inZoneGraveyard,Sorcery.inZoneGraveyard,Creature | TgtPrompt$ Select target instant or sorcery card in a graveyard OR creature on the battlefield | TgtZone$ Battlefield,Graveyard | Origin$ Battlefield,Graveyard | Destination$ Hand | TargetMin$ 0 | TargetMax$ 1 | RememberChanged$ True | SubAbility$ DBPlay
+SVar:DBPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell | Optional$ True | CopyCard$ True | ManaConversion$ AnyType->AnyType | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever Devourer of Fortunes enters or attacks, return up to one target instant or sorcery card in a graveyard or creature on the battlefield to its owner's hand. You may cast a copy of it, and may spend mana of any type to cast it. (You still pay its costs. If it's a permanent spell, it becomes a token.)

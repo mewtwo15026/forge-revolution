@@ -1,0 +1,15 @@
+Name:Architect of the Intangible
+ManaCost:1 U
+Types:Creature Human Artificer
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill three cards, then you may exile an instant, sorcery, or Subroutine card from your graveyard. If you do, you may cast a copy of that card. If you don't, cache it.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You | SubAbility$ DBCastOrCache
+SVar:DBCastOrCache:DB$ GenericChoice | Defined$ You | Choices$ CastCard,CacheCard
+SVar:CastCard:DB$ ChangeZone | DefinedPlayer$ You | Origin$ Graveyard | Destination$ Exile | ChangeNum$ 1 | ChangeType$ Instant,Sorcery,Subroutine | Hidden$ True | RememberChanged$ True | SubAbility$ DBPlay | SpellDescription$ Exile that card. You may cast a copy of it.
+SVar:DBPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell | Optional$ True | CopyCard$ True | SubAbility$ DBCleanup
+SVar:CacheCard:DB$ Token | TokenScript$ c_a_memory_fug | SubAbility$ DBExile | SpellDescription$ Cache that card.
+SVar:DBExile:DB$ ChangeZone | DefinedPlayer$ You | Origin$ Graveyard | Destination$ Exile | ChangeNum$ 1 | ChangeType$ Instant,Sorcery,Subroutine | Hidden$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+DeckNeeds:Type$Instant|Sorcery|Subroutine
+DeckHas:Ability$Mill|Graveyard & Type$Artifact|Memory
+Oracle:When this creature enters, mill three cards, then you may exile an instant, sorcery, or Subroutine card from your graveyard. If you do, you may cast a copy of that card. If you don't, cache it. (You still pay its costs. To cache a card, exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

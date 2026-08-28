@@ -1,0 +1,8 @@
+Name:Weave Dispatcher
+ManaCost:1 W
+Types:Creature Human Advisor
+PT:2/1
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other+YouCtrl+!token | Execute$ TrigToken | TriggerDescription$ Whenever another nontoken creature you control enters, you may pay {1}. If you do, create a white Subroutine enchantment token named ALARM() with “Whenever this Subroutine runs, create a 1/1 white Citizen creature token.”
+SVar:TrigToken:DB$ Token | UnlessCost$ 1 | UnlessPayer$ You | UnlessSwitched$ True | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ w_e_sub_alarm
+DeckHas:Ability$Token & Type$Subroutine
+Oracle:Whenever another nontoken creature you control enters, you may pay {1}. If you do, create a white Subroutine enchantment token named ALARM() with “Whenever this Subroutine runs, create a 1/1 white Citizen creature token.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

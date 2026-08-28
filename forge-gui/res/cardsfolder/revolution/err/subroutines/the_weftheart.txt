@@ -1,0 +1,12 @@
+Name:The Weftheart
+ManaCost:1 R R G
+Types:Legendary Planeswalker Weft
+Loyalty:5
+A:AB$ Token | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | TokenScript$ rg_e_sub_save | SpellDescription$ Create a red and green Subroutine enchantment token named SAVE() with “Whenever this Subroutine runs, exile the top card of your library. You may play it this turn.”
+A:AB$ Sacrifice | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | Optional$ True | SacValid$ Enchantment | RememberSacrificed$ True | SubAbility$ DBChangeZone | SpellDescription$ You may sacrifice an enchantment. If you do, search your library for an enchantment card with mana value equal to 1 plus the sacrificed enchantment's mana value, put it onto the battlefield, then shuffle.
+SVar:DBChangeZone:DB$ ChangeZone | ConditionDefined$ Remembered | ConditionPresent$ Card | Origin$ Library | Destination$ Battlefield | ChangeType$ Enchantment.cmcEQX | ChangeTypeDesc$ enchantment card with mana value equal to 1 plus the sacrificed enchantment's mana value | ChangeNum$ 1 | SubAbility$ DBCleanup
+SVar:X:Remembered$CardManaCost/Plus.1
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Token|Sacrifice & Type$Subroutine
+DeckHints:Type$Enchantment
+Oracle:[-1]: Create a red and green Subroutine enchantment token named SAVE() with “Whenever this Subroutine runs, exile the top card of your library. You may play it this turn.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)\n[-1]: You may sacrifice an enchantment. If you do, search your library for an enchantment card with mana value equal to 1 plus the sacrificed enchantment's mana value, put it onto the battlefield, then shuffle.

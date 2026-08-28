@@ -1,0 +1,6 @@
+Name:Task Triage
+ManaCost:1 U
+Types:Instant
+A:SP$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBDig | SpellDescription$ Look at the top two cards of your library. Put one of them into your hand and cache the other face down.
+SVar:DBDig:DB$ Dig | DigNum$ 2 | NoReveal$ True | DestinationZone2$ Exile
+Oracle:Look at the top two cards of your library. Put one of them into your hand and cache the other face down. (Exile it face down and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

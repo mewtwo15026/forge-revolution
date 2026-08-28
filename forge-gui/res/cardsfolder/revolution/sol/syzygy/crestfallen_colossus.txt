@@ -1,0 +1,9 @@
+Name:Crestfallen Colossus
+ManaCost:4 G G
+Types:Creature Elemental Warrior
+PT:5/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Pump | PrecostDesc$ Syzygy — | Cost$ 2 G | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | KW$ Trample | SpellDescription$ CARDNAME gets +1/+1 and gains trample until end of turn.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{2}{G}: Crestfallen Colossus gets +1/+1 and gains trample until end of turn.

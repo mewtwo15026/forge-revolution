@@ -1,0 +1,8 @@
+Name:Revolt at the Palace
+ManaCost:4 W
+Types:Enchantment Saga
+K:kdt_Time loop
+K:Chapter:3:DBDig,DBDig,DBPumpAll
+SVar:DBDig:DB$ Dig | DigNum$ 6 | ChangeNum$ 1 | Optional$ True | ChangeValid$ Permanent.nonLand+cmcLE3 | DestinationZone$ Battlefield | RestRandomOrder$ True | SpellDescription$ Look at the top six cards of your library. Put up to one nonland permanent card with mana value 3 or less from among them onto the battlefield. Put the rest on the bottom of your library in a random order.
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.YouCtrl | KW$ Double Strike | SubAbility$ TimeLoop | SpellDescription$ Creatures you control gain double strike until end of turn.
+Oracle:Time loop (As this Saga enters and after your draw step, add a lore counter. Remove them all after III.)\nI, II — Look at the top six cards of your library. Put up to one nonland permanent card with mana value 3 or less from among them onto the battlefield. Put the rest on the bottom of your library in a random order.\nIII — Creatures you control gain double strike until end of turn.

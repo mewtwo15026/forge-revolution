@@ -1,0 +1,10 @@
+Name:Telepresence Axiom
+ManaCost:1 W
+Types:Artifact Creature Construct
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, cache the top card of your library face down.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+DeckHas:Type$Artifact|Memory
+Oracle:When this creature enters, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this:You may play the cached card this turn.”)

@@ -1,0 +1,10 @@
+Name:Unravel Thoughts
+ManaCost:1 U U
+Types:Instant
+# TODO: implement Chant stuff
+A:SP$ Charm | Choices$ DBCounter,DBBlink
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Card | SpellDescription$ Counter target spell.
+SVar:DBBlink:DB$ ChangeZone | ValidTgts$ Creature | AILogic$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creatures | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBReturn | SpellDescription$ Exile up to two target creatures, then return those cards to the battlefield under their owner's control.
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:As you cast this spell, you may add the chants of any number of creature cards in your graveyard to it. (You still pay the chant costs.)\nChoose one -\n• Counter target spell.\n• Exile up to two target creatures, then return those cards to the battlefield under their owner's control.

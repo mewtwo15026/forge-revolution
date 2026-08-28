@@ -1,0 +1,13 @@
+Name:Olis Mars, Final Archivist
+ManaCost:1 U R
+Types:Legendary Creature Human Wizard
+PT:2/3
+T:Mode$ SpellCast | ValidCard$ Instant.wasCastFromYourHandByYou,Sorcery.wasCastFromYourHandByYou | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigEffect | TriggerDescription$ Whenever you cast an instant or sorcery spell from your hand, cache it instead of putting it into your graveyard as it resolves.
+SVar:TrigEffect:DB$ Effect | ReplacementEffects$ MoveToExileReplace | Triggers$ StaticCache | RememberObjects$ TriggeredCard | ConditionDefined$ TriggeredCard | ConditionPresent$ Card.inZoneStack | ExileOnMoved$ Stack,Exile
+SVar:MoveToExileReplace:Event$ Moved | ValidCard$ Card.IsRemembered+YouOwn | Origin$ Stack | Destination$ Graveyard | Fizzle$ False | ReplaceWith$ ReplaceExile
+SVar:ReplaceExile:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Stack | Destination$ Exile
+SVar:StaticCache:Mode$ ChangesZone | ValidCard$ Card.IsRemembered+YouOwn | Origin$ Stack | Destination$ Exile | Static$ True | Execute$ TrigCache
+SVar:TrigCache:DB$ Token | TokenScript$ c_a_memory_repl | SubAbility$ CacheExile
+SVar:CacheExile:DB$ ChangeZone | Defined$ TriggeredCardLKICopy | Origin$ Exile | Destination$ Command
+DeckHints:Type$Instant|Sorcery
+Oracle:Whenever you cast an instant or sorcery spell from your hand, cache it instead of putting it into your graveyard as it resolves. (Exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

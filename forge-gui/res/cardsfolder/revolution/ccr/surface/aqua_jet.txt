@@ -1,0 +1,14 @@
+Name:Aqua Jet
+ManaCost:U
+Types:Sorcery
+A:SP$ Charm | Choices$ DBTap,DBUnblock
+SVar:DBTap:DB$ Tap | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
+SVar:DBUnblock:DB$ Effect | ValidTgts$ Creature | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | AILogic$ Pump | StackDescription$ {c:Targeted} can't be blocked this turn. | SpellDescription$ Target creature can't be blocked this turn. Draw a card.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ This creature can't be blocked this turn.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 2 U | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {2}{U}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Choose one —\n• Tap target creature.\n• Target creature can't be blocked this turn.\nSurface {2}{U} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

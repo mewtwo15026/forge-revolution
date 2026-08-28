@@ -1,0 +1,9 @@
+Name:Prism Catcher
+ManaCost:1 G
+Types:Creature Elemental Druid
+PT:1/3
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Mana | PrecostDesc$ Syzygy — | Cost$ 1 T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Produced$ Any | SpellDescription$ Add one mana of any color.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nReach\n{1}, {T}: Add one mana of any color.

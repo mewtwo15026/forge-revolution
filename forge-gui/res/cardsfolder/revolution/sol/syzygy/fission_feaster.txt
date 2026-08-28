@@ -1,0 +1,10 @@
+Name:Fission Feaster
+ManaCost:2 R
+Types:Creature Elemental Shaman
+PT:3/2
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+K:Haste
+A:AB$ Mana | PrecostDesc$ Syzygy — | Cost$ 3 R R T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Produced$ R | Amount$ 5 | AILogic$ Never | SpellDescription$ Add five {R}.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nHaste\n{3}{R}{R}, {T}: Add five {R}.

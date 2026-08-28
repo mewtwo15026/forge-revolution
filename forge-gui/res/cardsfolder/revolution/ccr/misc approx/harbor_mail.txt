@@ -1,0 +1,14 @@
+Name:Harbor Mail
+ManaCost:U
+Types:Sorcery
+A:SP$ Surveil | Amount$ 1 | SubAbility$ DBDraw | SpellDescription$ Surveil 1, then draw a card. Exile CARDNAME with a stamp counter on it. (Look at the top card of your library. You may put that card into your graveyard.)
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Exile | WithCountersType$ STAMP
+# WORKAROUND: Surface is not currently a keyword
+T:Mode$ ChangesZone | Origin$ Stack | Destination$ Exile | ValidCard$ Card.YouCtrl+wasCastFromGraveyard | TriggerZones$ Exile | IsPresent$ Card.StrictlySelf+counters_GE1_STAMP | PresentZone$ Exile | Execute$ TrigChangeZone | TriggerDescription$ Whenever you cast a spell for its surface cost, if CARDNAME is exiled with a stamp counter on it, you may pay {U} and put it into your graveyard. If you do, surveil 1, then draw a card.
+SVar:TrigChangeZone:DB$ ChangeZone | Cost$ U | Defined$ Self | RememberChanged$ True | Origin$ Exile | Destination$ Graveyard | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 1 | CheckSVar$ PostagePaid | SubAbility$ DBDraw2
+SVar:DBDraw2:DB$ Draw | Defined$ You | NumCards$ 1 | CheckSVar$ PostagePaid
+SVar:PostagePaid:Count$ValidGraveyard Card.IsRemembered
+DeckHints:Ability$Surface
+Oracle:Surveil 1, then draw a card. Exile Harbor Mail with a stamp counter on it. (To surveil 1, look at the top card of your library. You may put it into your graveyard.)\nWhen you cast a spell for its surface cost, if Harbor Mail is exiled with a stamp counter, you may pay {U} and put it into your graveyard. If you do, surveil 1, then draw a card.

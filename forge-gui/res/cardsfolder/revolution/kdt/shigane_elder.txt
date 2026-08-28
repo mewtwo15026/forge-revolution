@@ -1,0 +1,10 @@
+Name:Shigane Elder
+ManaCost:5 G G
+Types:Creature Human Ninja
+PT:7/7
+K:Sneak:6 G
+S:Mode$ ReduceCost | EffectZone$ All | ValidCard$ Card.Self | Type$ Spell | Amount$ X | Description$ This spell costs {X} less to cast, where X is the number of creatures that have attacked this turn.
+SVar:X:PlayerCountPlayers$AttackersDeclared
+K:Trample
+SVar:BuffedBy:Creature.withoutDefender
+Oracle:Sneak {6}{G} (You may cast this spell for {6}{G} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nThis spell costs {X} less to cast, where X is the number of creatures that have attacked this turn.\nTrample

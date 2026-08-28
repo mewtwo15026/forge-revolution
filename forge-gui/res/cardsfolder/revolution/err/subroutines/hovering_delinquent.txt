@@ -1,0 +1,9 @@
+Name:Hovering Delinquent
+ManaCost:2 B
+Types:Creature Human Rogue
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a black Subroutine enchantment token named TICK() with “Whenever this Subroutine runs, each opponent loses 1 life and you gain 1 life.”
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_e_sub_tick
+DeckHas:Ability$Token|LifeGain & Type$Subroutine
+Oracle:Flying\nWhen this creature enters, create a black Subroutine enchantment token named TICK() with “Whenever this Subroutine runs, each opponent loses 1 life and you gain 1 life.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

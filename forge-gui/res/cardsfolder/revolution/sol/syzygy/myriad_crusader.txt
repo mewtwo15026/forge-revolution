@@ -1,0 +1,10 @@
+Name:Myriad Crusader
+ManaCost:4 W
+Types:Creature Elemental Soldier
+PT:4/2
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ CARDNAME has first strike as long as it's your turn.
+A:AB$ PumpAll | PrecostDesc$ Syzygy — | Cost$ 3 W | TapCreaturesForMana$ True | SorcerySpeed$ True | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nMyriad Crusader has first strike as long as it's your turn.\n{3}{W}: Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.

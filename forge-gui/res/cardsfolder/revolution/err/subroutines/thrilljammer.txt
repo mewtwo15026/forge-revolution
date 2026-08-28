@@ -1,0 +1,8 @@
+Name:Thrilljammer
+ManaCost:2 R
+Types:Creature Ferret Warrior
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a red Subroutine enchantment token named BOOST() with “Whenever this Subroutine runs, add {R}.”
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ r_e_sub_boost
+DeckHas:Ability$Token & Type$Subroutine
+Oracle:When this creature enters, create a red Subroutine enchantment token named BOOST() with “Whenever this Subroutine runs, add {R}.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

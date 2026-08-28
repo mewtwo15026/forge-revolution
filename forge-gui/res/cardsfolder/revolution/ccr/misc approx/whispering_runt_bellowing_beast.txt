@@ -1,0 +1,23 @@
+Name:Whispering Runt
+ManaCost:W
+Types:Creature Beast
+PT:1/1
+K:Haste
+# NOTE: not sure how to identify which colors were spent to activate an ability
+A:AB$ Pump | Cost$ U R W | Defined$ Self | NumAtt$ 1 | NumDef$ 1 | SubAbility$ DBTransform | SpellDescription$ CARDNAME gets +1/+1 until end of turn. Transform CARDNAME.
+SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+A:AB$ Pump | Cost$ 3 | Defined$ Self | NumAtt$ 1 | NumDef$ 1 | SpellDescription$ CARDNAME gets +1/+1 until end of turn.
+DeckHints:Type$Island|Mountain
+AlternateMode:DoubleFaced
+Oracle:{3}: Whispering Runt gets +1/+1 until end of turn. If you spent at least {U}{R}{W} to activate this ability, you may transform Whispering Runt.
+
+ALTERNATE
+
+Name:Bellowing Beast
+ManaCost:no cost
+Colors:white
+Types:Creature Beast
+PT:3/3
+A:AB$ PumpAll | Cost$ U R W | ValidCards$ Creature.YouCtrl | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ Creatures you control get +1/+1 until end of turn.
+SVar:BuffedBy:Creature
+Oracle:{U}{R}{W}: Creatures you control get +1/+1 until end of turn.

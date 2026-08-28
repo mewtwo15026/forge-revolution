@@ -1,0 +1,16 @@
+Name:Lavis' Hydroponicist
+ManaCost:G
+Types:Creature Human Druid
+PT:1/2
+K:Level up:2 U
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ LandfallCache | SetPower$ 2 | SetToughness$ 4 | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+SVar:LandfallCache:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever a land you control enters, cache the top card of your library face down.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | ConditionPresent$ Card.YouOwn | ConditionZone$ Library | ConditionCompare$ GE1 | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+S:Mode$ Continuous | Affected$ Card.Self | AddTrigger$ LandfallDraw | SetPower$ 3 | SetToughness$ 6 | IsPresent$ Card.Self+counters_GE3_LEVEL
+SVar:LandfallDraw:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever a land you control enters, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+DeckHas:Ability$Token & Type$Artifact|Memory
+Oracle:Level up {2}{U} ({2}{U}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n2/4\nWhenever a land you control enters, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this Memory: You may play the cached card this turn.”)\nLEVEL 3+\n3/6\nWhenever a land you control enters, draw a card.

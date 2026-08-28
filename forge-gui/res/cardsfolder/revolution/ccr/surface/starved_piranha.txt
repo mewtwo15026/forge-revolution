@@ -1,0 +1,12 @@
+Name:Starved Piranha
+ManaCost:3 B
+Types:Creature Fish
+PT:3/2
+K:Menace
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 3 B B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {3}{B}{B}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Menace\nSurface {3}{B}{B} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

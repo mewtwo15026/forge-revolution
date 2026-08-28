@@ -1,0 +1,10 @@
+Name:Creative Commission
+ManaCost:1 R
+Types:Enchantment
+T:Mode$ CounterRemoved | ValidCard$ Subroutine.YouCtrl | CounterType$ CLICK | NewCounterAmount$ 0 | Execute$ TrigExile | TriggerDescription$ Whenever a Subroutine you control runs, exile the top card of your library face-down. (You can't look at it.)
+SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | ExileFaceDown$ True | NoReveal$ True
+A:AB$ ChangeZoneAll | Cost$ R Discard<0/Hand> Sac<1/CARDNAME> | ChangeType$ Card.ExiledWithSource | Origin$ Exile | Destination$ Hand | AILogic$ DiscardAllAndRetExiled.minAdv2 | SpellDescription$ Put all cards exiled with this enchantment into their owners' hands.
+AI:RemoveDeck:Random
+SVar:BuffedBy:Subroutine
+DeckNeeds:Type$Subroutine
+Oracle:Whenever a Subroutine you control runs, exile the top card of your library face-down. (You can't look at it.)\n{R}, Discard your hand, Sacrifice this enchantment: Put all cards exiled with this enchantment into your hand.

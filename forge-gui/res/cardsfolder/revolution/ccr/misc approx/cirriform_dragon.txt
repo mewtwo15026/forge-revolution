@@ -1,0 +1,11 @@
+Name:Cirriform Dragon
+ManaCost:3 W W
+Types:Creature Dragon
+PT:4/3
+K:Flying
+K:Lifelink
+A:SP$ UntapAll | Cost$ 2 W | ActivationLimit$ 1 | ValidCards$ Creature.YouCtrl+hasManaAbility,Creature.YouCtrl+hasNonManaActivatedAbility | RememberUntapped$ True | SubAbility$ DBPumpAll | SpellDescription$ Untap each creature you control that has an activated ability. They get +1/+1 and gain lifelink until end of turn. Activate only once each turn.
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Remembered | NumAtt$ +1 | NumDef$ +1 | KW$ Lifelink
+DeckHas:Ability$LifeGain
+SVar:BuffedBy:Creature.hasManaAbility,Creature.hasNonManaActivatedAbility
+Oracle:Flying, lifelink\n{2}{W}: Untap each creature you control that has an activated ability. They get +1/+1 and gain lifelink until end of turn. Activate only once each turn.

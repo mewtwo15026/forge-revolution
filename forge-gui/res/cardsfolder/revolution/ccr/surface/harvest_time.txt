@@ -1,0 +1,11 @@
+Name:Harvest Time
+ManaCost:G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | OriginAlternative$ Graveyard,Hand | Destination$ Hand | ChangeType$ Land.Basic+YouOwn | ShuffleNonMandatory$ False | SpellDescription$ Search your graveyard and/or library for a basic land card, reveal it, put it into your hand, then shuffle.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ G | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {G}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Search your graveyard and/or library for a basic land card, reveal it, put it into your hand, then shuffle.\nSurface {G} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

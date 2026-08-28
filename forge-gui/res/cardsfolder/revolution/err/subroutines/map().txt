@@ -1,0 +1,36 @@
+Name:MAP()
+ManaCost:1
+Types:Enchantment Subroutine
+
+# NOTE: designate the Subroutine's program
+K:ETBReplacement:Other:SubroutineChoice
+T:Mode$ ChangesController | ValidCard$ Card.Self | ValidOriginalController$ Player.Other | TriggerZones$ Battlefield | Execute$ SubroutineChoice | Static$ True
+SVar:SubroutineChoice:DB$ GenericChoice | Choices$ ProgramA,ProgramB,ProgramC | Defined$ You | SetChosenMode$ True | AILogic$ ProgramA | ShowChoice$ ExceptSelf | SpellDescription$ (As a Subroutine enters or you gain control of it, insert it into one of your three programs.)
+SVar:ProgramA:DB$ Pump | SpellDescription$ ProgramA
+SVar:ProgramB:DB$ Pump | SpellDescription$ ProgramB
+SVar:ProgramC:DB$ Pump | SpellDescription$ ProgramC
+
+# NOTE: initialize your program if necessary
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ ActiveProgram | SVarCompare$ EQ0 | Static$ True | Execute$ BootProgram | TriggerDescription$ (Move to your next program as your first main phase begins, starting at A and going back to A after C. All Subroutines in that program run.)
+SVar:BootProgram:DB$ Effect | Name$ Weft Programs | Triggers$ AdvanceProgram | Duration$ Permanent | SubAbility$ RunBranch
+SVar:AdvanceProgram:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | Static$ True | Execute$ ProgramBranch | IsPresent$ Subroutine.YouCtrl | TriggerDescription$ If you control a Subroutine, move to your next program as your first main phase begins. All Subroutines in that program run. (Start at A. After C, go back to A.)
+SVar:ProgramBranch:DB$ Branch | BranchConditionSVar$ ActiveProgram | BranchConditionSVarCompare$ GE3 | TrueSubAbility$ AdvanceBack | FalseSubAbility$ AdvanceForward
+SVar:ActiveProgram:Count$ValidCommand Effect.YouCtrl+namedWeft Programs
+SVar:AdvanceBack:DB$ ChangeZoneAll | Origin$ Command | Destination$ Exile | Defined$ You | ChangeType$ Effect.Other+YouCtrl+namedWeft Programs | SubAbility$ RunA
+SVar:AdvanceForward:DB$ Effect | Name$ Weft Programs | Duration$ Permanent | SubAbility$ RunBorC
+SVar:RunBranch:DB$ Branch | BranchConditionSVar$ ActiveProgram | BranchConditionSVarCompare$ EQ1 | TrueSubAbility$ RunA | FalseSubAbility$ RunBorC
+SVar:RunBorC:DB$ Branch | BranchConditionSVar$ ActiveProgram | BranchConditionSVarCompare$ EQ2 | TrueSubAbility$ RunB | FalseSubAbility$ RunC
+SVar:RunA:DB$ PutCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramA | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ RunAremove
+SVar:RunAremove:DB$ RemoveCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramA | CounterType$ CLICK | AllCounters$ True
+SVar:RunB:DB$ PutCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramB | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ RunBremove
+SVar:RunBremove:DB$ RemoveCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramB | CounterType$ CLICK | AllCounters$ True
+SVar:RunC:DB$ PutCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramC | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ RunCremove
+SVar:RunCremove:DB$ RemoveCounterAll | ValidCards$ Subroutine.YouCtrl+ChosenModeProgramC | CounterType$ CLICK | AllCounters$ True
+
+# NOTE: and now, finally, the Subroutine's actual text!
+T:Mode$ CounterRemoved | ValidCard$ Card.Self | CounterType$ CLICK | NewCounterAmount$ 0 | Execute$ TrigDraw | TriggerDescription$ Whenever this Subroutine runs, you may pay {X} and sacrifice it. If you do, draw a card, then add X mana in any combination of colors.
+SVar:TrigDraw:DB$ Draw | Cost$ X Sac<1/CARDNAME> | NumCards$ 1 | SubAbility$ DBMana
+SVar:DBMana:DB$ Mana | Produced$ Combo Any | Amount$ X
+SVar:X:Count$xPaid
+AI:RemoveDeck:All
+Oracle:(As this enters, insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)\nWhenever this Subroutine runs, you may pay {X} and sacrifice it. If you do, draw a card, then add X mana in any combination of colors.

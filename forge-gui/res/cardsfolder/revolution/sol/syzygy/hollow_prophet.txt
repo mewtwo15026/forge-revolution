@@ -1,0 +1,12 @@
+Name:Hollow Prophet
+ManaCost:1 B
+Types:Creature Elemental Cleric
+PT:2/2
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ ChangeZone | PrecostDesc$ Syzygy — | Cost$ X B | TapCreaturesForMana$ True | SorcerySpeed$ True | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card in your graveyard | ValidTgts$ Creature.YouOwn+cmcEQX | WithCountersType$ FINALITY | SorcerySpeed$ True | SpellDescription$ Return target creature card with mana value X from your graveyard onto the battlefield with a finality counter on it. Activate only as a sorcery.
+SVar:X:Count$xPaid
+DeckHas:Type$Graveyard
+DeckHints:Ability$Mill|Surveil|Discard|Graveyard
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{X}{B}, {T}: Return target creature card with mana value X from your graveyard to the battlefield with a finality counter on it. Activate only as a sorcery. (If a creature with a finality counter on it would die, exile it instead.)

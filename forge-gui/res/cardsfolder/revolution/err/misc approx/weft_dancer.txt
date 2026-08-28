@@ -1,0 +1,11 @@
+Name:Weft Dancer
+ManaCost:3 U B
+Types:Creature Spirit Warlock Bard
+PT:4/3
+K:Flying
+K:Deathtouch
+K:ETBReplacement:Copy:WeftDancerExile:Optional
+SVar:WeftDancerExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Creature.YouOwn | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ WeftDancerCopy
+SVar:WeftDancerCopy:DB$ Clone | ETB$ True | Defined$ Remembered | AddKeywords$ Flying & Deathtouch | ConditionPresent$ Card.IsRemembered | ConditionZone$ Exile | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flying, deathtouch\nAs this creature enters, you may exile a creature card from your graveyard. If you do, it enters as a copy of that card, except it has flying and deathtouch.

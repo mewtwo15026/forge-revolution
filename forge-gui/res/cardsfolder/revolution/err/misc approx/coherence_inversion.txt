@@ -1,0 +1,11 @@
+Name:Coherence_Inversion
+ManaCost:4 R R R
+Types:Legendary Creature Error
+PT:8/7
+S:Mode$ CantBeActivated | ValidCard$ Land.YouCtrl | ValidSA$ Activated.ManaAbility | Description$ Mana abilities of lands you control can't be activated.
+S:Mode$ Continuous | Affected$ Land.YouCtrl | AddAbility$ Ping | Description$ Lands you control have "{T}: This land deals 1 damage to any target."
+SVar:Ping:AB$ DealDamage | Cost$ T | ValidTgts$ Any | NumDmg$ 1 | SpellDescription$ This land deals 1 damage to any target.
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.nonLand+YouCtrl,Emblem.YouCtrl | PreventionEffect$ True | ReplaceWith$ CoherenceTokens | Description$ If a nonland source you control would deal damage, prevent that damage and create that many Treasure tokens.
+SVar:CoherenceTokens:DB$ Token | TokenAmount$ X | TokenScript$ c_a_treasure_sac | TokenOwner$ You
+SVar:X:ReplaceCount$DamageAmount
+Oracle:Mana abilities of lands you control can't be activated.\nLands you control have “{T}: This land deals 1 damage to any target.”\nIf a nonland source you control would deal damage, prevent that damage and create that many Treasure tokens.

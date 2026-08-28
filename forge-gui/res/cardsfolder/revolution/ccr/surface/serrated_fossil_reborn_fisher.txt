@@ -1,0 +1,30 @@
+Name:Serrated Fossil
+ManaCost:B
+Types:Artifact
+A:SP$ NameCard | Cost$ B Sac<1/CARDNAME> | ValidCards$ Card.nonLand | ValidDescription$ nonland | IsCurse$ True | SubAbility$ DBRevealHand | SorcerySpeed$ True | SpellDescription$ Until end of turn, target creature has base toughness 1. Activate only as a sorcery.
+SVar:RevealHand:DB$ RevealHand | RememberRevealed$ True | ValidTgts$ Player | TgtPrompt$ Select target player | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ Targeted | NumCards$ 1 | Mode$ TgtChoose | DiscardValid$ Card.NamedCard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearNamedCard$ True
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:3 B B | Description$ Surface {3}{B}{B}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$Surface
+AlternateMode:DoubleFaced
+Oracle:{B}, Sacrifice Serrated Fossil: Choose a nonland card name. Target player reveals their hand and discards a card with that name if able. Activate only as a sorcery.\nSurface {3}{B}{B}. Serrated Fossil surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Reborn Fisher
+ManaCost:no cost
+Colors:black
+Types:Creature Dinosaur Insect
+PT:3/2
+K:Ward:Discard<1/Card>
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+T:Mode$ AttackersDeclared | Execute$ TrigNameCard | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Whenever CARDNAME attacks, choose a nonland card name, then defending player reveals their hand and discards a card with that name if able.
+SVar:TrigNameCard:DB$ NameCard | ValidCards$ Card.nonLand | ValidDescription$ nonland | SubAbility$ DBRevealHand2
+SVar:RevealHand2:DB$ RevealHand | RememberRevealed$ True | Defined$ TriggeredDefendingPlayer | SubAbility$ DBDiscard2
+SVar:DBDiscard2:DB$ Discard | Defined$ TriggeredDefendingPlayer | NumCards$ 1 | Mode$ TgtChoose | DiscardValid$ Card.NamedCard | SubAbility$ DBCleanup
+SVar:DBCleanup2:DB$ Cleanup | ClearRemembered$ True | ClearNamedCard$ True
+SVar:HasAttackEffect:TRUE
+Oracle:Ward—Discard a card.\nWhenever Reborn Fisher attacks, choose a nonland card name, then defending player reveals their hand and discards a card with that name if able.

@@ -1,0 +1,9 @@
+Name:Memorivore
+ManaCost:4 G
+Types:Enchantment Creature Beast
+PT:4/4
+K:Deathtouch
+T:Mode$ TokenCreated | ValidPlayer$ You | ValidToken$ Memory | Execute$ TrigPump | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cache a card, this creature gets +2/+2 and gains indestructible until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +2 | NumDef$ +2 | KW$ Indestructible
+DeckHints:Type$Memory
+Oracle:Deathtouch\nWhenever you cache a card, this creature gets +2/+2 and gains indestructible until end of turn.

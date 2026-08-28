@@ -1,0 +1,23 @@
+Name:Claw Fossil
+ManaCost:1
+Types:Artifact
+A:AB$ Animate | Cost$ 1 Sac<1/CARDNAME> | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True | Toughness$ 1 | SorcerySpeed$ True | SpellDescription$ Until end of turn, target creature has base toughness 1. Activate only as a sorcery.
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:2 B | Description$ Surface {2}{B}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$Surface
+AlternateMode:DoubleFaced
+Oracle:{1}, Sacrifice Claw Fossil: Target creature has base toughness 1 until end of turn. Activate only as a sorcery.\nSurface {2}{B}. Claw Fossil surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Reborn Scuttler
+ManaCost:no cost
+Colors:black
+Types:Creature Dinosaur Insect
+PT:3/2
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+T:Mode$ AttackersDeclared | Execute$ TrigAnimate | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Whenever CARDNAME attacks, up to one target creature has base toughness 1 until end of turn.
+SVar:TrigAnimate:DB$ Animate | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True | TargetMin$ 0 | TargetMax$ 1 | Toughness$ 1
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever Reborn Scuttler attacks, up to one target creature has base toughness 1 until end of turn.

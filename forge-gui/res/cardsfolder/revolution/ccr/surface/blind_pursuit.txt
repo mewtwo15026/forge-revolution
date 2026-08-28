@@ -1,0 +1,14 @@
+Name:Blind Pursuit
+ManaCost:2 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature to get +2/+2 | NumAtt$ +2 | NumDef$ +2 | KW$ Trample & HIDDEN CARDNAME must be blocked if able. | AILogic$ Pump | SubAbility$ DBProvoke | SpellDescription$ Target creature gets +2/+2 until end of turn and must be blocked this turn if able. Untap up to one target creature. It blocks this turn if able.
+SVar:DBProvoke:DB$ Untap | ValidTgts$ Creature | TgtPrompt$ Select target creature to untap | IsCurse$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ MustBlock | RememberObjects$ Targeted | ExileOnMoved$ Battlefield | Description$ That creature blocks this turn if able.
+SVar:MustBlock:Mode$ MustBlock | ValidCreature$ Card.IsRemembered | Description$ This creature blocks this turn if able.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 4 G | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {4}{G}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Target creature gets +2/+2 until end of turn and must be blocked this turn if able. Untap up to one target creature. It blocks this turn if able.\nSurface {4}{G} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

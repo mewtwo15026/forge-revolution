@@ -1,0 +1,11 @@
+Name:Elder Tattooist
+ManaCost:2 W
+Types:Creature Human Monk
+PT:3/3
+K:Vigilance
+A:AB$ ChangeZone | PrecostDesc$ Flow — | Cost$ 4 W | TapCreaturesForMana$ True | SorcerySpeed$ True | ValidTgts$ Permanent.YouOwn+cmcLE3 | TgtPrompt$ Select target permanent card with mana value 3 or less from your graveyard | Origin$ Graveyard | Destination$ Exile | RememberLKI$ True | SubAbility$ DBCopy | SpellDescription$ Exile target permanent card with mana value 3 or less from your graveyard. Create a tapped token that's a copy of it. Activate only as a sorcery.
+SVar:DBCopy:DB$ CopyPermanent | Defined$ Remembered | TokenTapped$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token
+Oracle:Vigilance\nFlow — {4}{W}: Exile target permanent card with mana value 3 or less from your graveyard. Create a tapped token that's a copy of it. Activate only as a sorcery. (Each creature you tap while activating pays for {1}.)

@@ -1,0 +1,10 @@
+Name:Radiant Devotee
+ManaCost:W
+Types:Creature Nephilim Soldier
+PT:2/1
+# TODO: implement type-restricted convoke
+S:Mode$ Continuous | Affected$ Card.Angel+YouCtrl+wasCast | AffectedZone$ Stack | AddKeyword$ Convoke | Description$ Angel spells you cast have convoke. Only Soldiers can be tapped to convoke those spells.
+T:Mode$ AttackersDeclared | ValidAttackers$ Angel.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigUntapAll | TriggerDescription$ Whenever one or more Angels you control attack, untap all Soldiers you control.
+SVar:TrigUntapAll:DB$ UntapAll | ValidCards$ Soldier.YouCtrl
+AI:RemoveDeck:All
+Oracle:Angel spells you cast have convoke. Only Soldiers can be tapped to convoke those spells. (Your Soldiers can help cast Angel spells. Each Soldier you tap while casting an Angel spell pays for {1} or one mana of that Soldier's colors.)\nWhenever one or more Angels you control attack, untap all Soldiers you control.

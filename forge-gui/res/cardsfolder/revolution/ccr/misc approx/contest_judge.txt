@@ -1,0 +1,15 @@
+Name:Contest Judge
+ManaCost:3 W
+Types:Creature Human Performer
+PT:2/4
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddTrigger$ ActiTrig
+SVar:ActiTrig:Mode$ AbilityCast | ValidCard$ Card.Self | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigUntap | CheckSVar$ Judged | SVarCompare$ LTX | TriggerDescription$ Whenever you activate an ability of a creature you control, untap that creature and put a +1/+1 counter on it. Do this only once each turn.
+SVar:TrigUntap:DB$ Untap | Defined$ Self | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | Name$ Appeal Judged | StaticAbilities$ STJudged
+SVar:STJudged:Mode$ Continuous | Affected$ You | Description$ Whenever you activate an ability of a creature you control, untap that creature and put a +1/+1 counter on it. Do this only once each turn.
+SVar:Judged:Count$ValidCommand Effect.YouCtrl+namedAppeal Judged
+SVar:X:Count$Valid Permanent.YouCtrl+namedContest Judge
+SVar:BuffedBy:Creature.hasActivatedAbility
+DeckHas:Ability$Counters
+Oracle:Whenever you activate an ability of a creature you control, untap that creature and put a +1/+1 counter on it. Do this only once each turn.

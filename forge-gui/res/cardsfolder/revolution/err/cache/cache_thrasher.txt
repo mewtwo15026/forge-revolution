@@ -1,0 +1,14 @@
+Name:Cache Thrasher
+ManaCost:1 R
+Types:Creature Human Rogue
+PT:2/2
+K:Haste
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ First Strike | Condition$ PlayerTurn | Description$ As long as it's your turn, this creature has first strike.
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigSac | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, sacrifice a Memory.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Memory | SacMessage$ Memory
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature attacks, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+DeckHas:Type$Artifact|Memory
+Oracle:Haste\nAs long as it's your turn, this creature has first strike.\nAt the beginning of combat on your turn, sacrifice a Memory.\nWhenever this creature attacks, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

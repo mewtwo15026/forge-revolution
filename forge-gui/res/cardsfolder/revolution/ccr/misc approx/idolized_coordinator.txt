@@ -1,0 +1,18 @@
+Name:Idolized Coordinator
+ManaCost:U R W
+Types:Creature Human Performer
+PT:3/3
+# NOTE: this card, as printed, requires tracking and accessing the following information:
+#       - whether a given permanent has been targeted by a spell or ability this turn
+#       - whether an ability of a given permanent has activated an ability this turn
+#       - how much mana was spent to activate an ability
+#       I have not found a sensible way to do that so I've redesigned the card
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+hasAbility Activated | AddKeyword$ Ward:2 | Description$ Creatures you control with activated abilities have ward {2}.
+T:Mode$ BecomesTarget | ValidTarget$ Creature.YouCtrl+inZoneBattlefield | ValidSource$ SpellAbility.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever a creature you control becomes the target of a spell or ability you control, that creature gains ward {2} until end of turn. If it's the first time this ability has resolved this turn, you gain life equal to that creature's mana value.
+SVar:TrigPump:DB$ Pump | Defined$ TriggeredTarget | KW$ Ward:2 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ Wish | ConditionCheckSVar$ Pumped | ConditionSVarCompare$ EQ1
+SVar:Wish:TriggeredTarget$CardManaCost
+SVar:Pumped:Count$ResolvedThisTurn
+A:AB$ Pump | Cost$ X U R W | ThisDefinedAndTgts$ Self | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature | NumAtt$ +X | NumDef$ +X | KW$ Vigilance | SpellDescription$ CARDNAME and another target creature you control each get +X/+X and gain vigilance until end of turn.
+SVar:X:Count$xPaid
+Oracle:Creatures you control with activated abilities have ward {2}.\nWhenever a creature you control becomes the target of a spell or ability you control, that creature gains ward {2} until end of turn. If it's the first time this ability has resolved this turn, you gain life equal to that creature's mana value.\n{X}{U}{R}{W}: Idolized Coordinator and another target creature you control each get +X/+X and gain vigilance until end of turn.

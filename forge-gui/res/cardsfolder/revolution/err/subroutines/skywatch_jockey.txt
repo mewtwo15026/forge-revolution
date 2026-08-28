@@ -1,0 +1,9 @@
+Name:Skywatch Jockey
+ManaCost:2 G
+Types:Creature Elf Ranger Knight
+PT:2/3
+K:Reach
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a green Subroutine enchantment token named MOUNT() with “Whenever this Subroutine runs, target creature you control gets +2/+2 until end of turn.”
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ g_e_sub_mount
+DeckHas:Ability$Token & Type$Subroutine
+Oracle:Reach\nWhen this creature enters, create a green Subroutine enchantment token named MOUNT() with “Whenever this Subroutine runs, target creature you control gets +2/+2 until end of turn.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

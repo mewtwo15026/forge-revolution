@@ -1,0 +1,22 @@
+Name:Ayeshi, Time's Jailer
+ManaCost:2 G W U
+Types:Legendary Planeswalker Ayeshi
+Loyalty:4
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigTracker | Static$ True
+SVar:TrigTracker:DB$ Effect | Name$ SpellCastMV Tracker | RememberObjects$ TriggeredSpellAbility | Triggers$ ClearOnSameMV
+SVar:ClearOnSameMV:Mode$ SpellCast | ValidCard$ Card.cmcEQT | ValidActivatingPlayer$ You | Execute$ ClearMVTracker | Static$ True | SpellDescription$ (Remember each different mana value among spells you've cast this turn.)
+SVar:ClearMVTracker:DB$ Exile | Origin$ Command | Destination$ Exile | Defined$ Self
+SVar:T:Remembered$CardManaCost
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ Tracked | SpellDescription$ Draw a card for each different mana value among spells you've cast this turn.
+SVar:Tracked:Count$ValidCommand Effect.YouCtrl+namedSpellCastMV Tracker
+A:AB$ Token | Cost$ SubCounter<X/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent.nonLand+!token+cmcLEX | TgtPrompt$ Select target nonland, nontoken permanent with mana value less than or equal to X | TokenScript$ c_saga_tl_copy | RememberTokens$ True | SubAbility$ DBChangeZone
+SVar:DBExileToken:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Command | IsCurse$ True | ConditionDefined$ Remembered | ConditionPresent$ Saga.token+Colorless | SubAbility$ DBExileElse
+SVar:DBExileElse:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid
+A:AB$ RepeatEach | Cost$ SubCounter<8/LOYALTY> | Planeswalker$ True | Ultimate$ True | RepeatPlayers$ Opponent | RepeatSubAbility$ DBJailTurn | SubAbility$ DBYourTurn | SpellDescription$ You take an extra turn after this one, then each opponent takes an extra turn after that turn. You gain control of each opponent during that player's next turn.
+SVar:DBJailTurn:DB$ AddTurn | Defined$ Remembered | NumTurns$ 1 | SubAbility$ DBControl
+SVar:DBControl:DB$ ControlPlayer | Defined$ Remembered | Controller$ You
+SVar:DBYourTurn:DB$ AddTurn | NumTurns$ 1
+AI:RemoveDeck:All
+Oracle:[+1]: Draw a card for each different mana value among spells you've cast this turn.\n[-X]: Exile target nonland, nontoken permanent with mana value X or less. You create a colorless Saga enchantment token with time loop and “III — You may cast a copy of the exiled card without paying its mana cost.” (Remove all lore counters after III without sacrificing the Saga.)\n[-8]: You take an extra turn after this one, then each opponent takes an extra turn after that turn. You gain control of each opponent during that player's next turn.

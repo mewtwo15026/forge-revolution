@@ -1,0 +1,15 @@
+Name:Shining Angler
+ManaCost:2 B G U
+Types:Creature Fish
+PT:5/4
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigLure | Secondary$ True | TriggerDescription$ Whenever CARDNAME attacks, target creature an opponent controls blocks CARDNAME this turn, and other creatures can't block CARDNAME this turn.
+SVar:TrigLure:DB$ MustBlock | ValidTgts$ Creature.OppCtrl | TgtPrompt$ Select target creature an opponent controls | RememberTargets$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ KWCantBlock
+SVar:KWCantBlock:Mode$ CantBlockBy | ValidAttacker$ Card.EffectSource | ValidBlocker$ Card.!IsRemembered | Description$ Other creatures can't block EFFECTSOURCE this turn.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 4 B G U | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {4}{B}{G}{U}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Whenever Shining Angler attacks, target creature an opponent controls blocks Shining Angler this turn if able and other creatures can't block Shining Angler this turn.\nSurface {4}{B}{G}{U} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

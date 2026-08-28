@@ -1,0 +1,13 @@
+Name:Infinite_Loop
+ManaCost:6 R R
+Types:Creature Error
+PT:10/8
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When this creature enters, target Subroutine you control runs X times, where X is seven minus the number of cards in your hand. Sacrifice that Subroutine.
+SVar:TrigRepeat:DB$ Repeat | ValidTgts$ Subroutine.YouCtrl | TgtPrompt$ Select target Subroutine you control | MaxRepeat$ X | RepeatSubAbility$ DBPutCounter | SubAbility$ DBSacrifice
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ DBRemoveCounter
+SVar:DBRemoveCounter:DB$ RemoveCounter | Defined$ Targeted | CounterType$ CLICK | CounterNum$ All
+SVar:DBSacrifice:DB$ Sacrifice | Defined$ TargetedController | SacValid$ TargetedCard.Self
+SVar:X:Count$ValidHand Card.YouCtrl/NMinus.7
+DeckHints:Type$Subroutine
+Oracle:Trample\nWhen this creature enters, target Subroutine you control runs X times, where X is seven minus the number of cards in your hand. Sacrifice that Subroutine.

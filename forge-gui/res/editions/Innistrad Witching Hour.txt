@@ -1,0 +1,399 @@
+[metadata]
+Code=IWH
+Date=2026-05-01
+Name=Innistrad: Witching Hour
+Code2=IWH
+MciCode=iwh
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=AnyLand,RareMythic,Uncommon,Wildcard,Common
+Booster=1 AnyLand,1 RareMythic,3 Uncommon,2 Wildcard,7 Common
+FatPack=8
+FatPackExtraSlots=40 BasicLands IWH
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=
+# Set designed by Matt
+
+[Rare]
+Base=RareMythic:fromSheet("IWH cards")
+
+[Uncommon]
+Base=Uncommon:fromSheet("IWH cards")
+
+[Token]
+Base=Token:fromSheet("IWH cards")
+
+[Common]
+Base=Common:fromSheet("IWH cards")
+
+[AnyLand]
+Base=Basic:fromSheet("IWH cards")
+
+[Wildcard]
+Base=Uncommon:fromSheet("IWH cards")
+Replace=0.127F Rare:fromSheet("IWH cards")
+Replace=0.022F Mythic:fromSheet("IWH cards")
+Replace=0.464F Common:fromSheet("IWH cards")
+Replace=0.002F fromSheet("IWH buy a box")
+
+[cards]
+1 M Emrakul, Visage of Gore @Riccardo Gualdi
+2 C Angelic Purge @Aldebaran Francesca
+3 U Benevolent Visitation @jubjubjedi
+4 C Bewitching Hagmother @Clark Ocleasa
+5 R Beyond Comprehension @oneout
+6 C Bleachbark Dryad @Asya Yordanova
+7 U Blessings of a New Spring @Dominik Mayer
+8 C Cathar's Charm @joao-paulo
+9 C Chapel Soulguide @Yuming Li
+10 R Cloistered Haunt @Janos Brumar
+11 U Crofter's Charm @Lorenzo Mastroianni
+12 R Curse of Disturbed Tombs @Victoria K
+13 U Curse of Eerie Streets @Sidharth Chaturvedi
+14 U Dawnsmite Cavalier @The Elder Scrolls Legends
+15 U Departed Duelist @Wolkenwaechter
+16 U Devilthorn Hunter @Marcello Iozzoli
+17 M Eerie Nightdrifter @Luka Brico
+18 C Gavony Trapper @Caio Monteiro
+19 R Geist Marshal @artofandregarcia
+20 U Geist-Honored Warden @Sam Kanios
+21 R Guardian's Charm @Anna Marukhnich
+22 C Haunted Doll @Othon Nikolaidis
+23 U Heronblade Vanguard @Anna Helme
+24 R Heron's Grace Rescuer @Oleksii Chernik
+25 U Hollowhenge Martyr @Adam Brown
+26 C Lumberjack's Axe @Oleksandr Kozachenko
+27 U Moldgraf Stewards @Brian Valeza
+28 C Moonrapture @Yangtian Li
+29 M Moonsilver Archangel @Ursula Dorada
+30 C Mournwraith @andrewsonea
+31 C Nearheath Disciples @captdiablo
+32 M Night of the Long Silence @Vassilios Bayiokos
+33 U Ominous Marionette @Johannes Hjärpe
+34 U Parish Slayer @Anato Finnstark
+35 C Pious Friar @Aleksander Karcz
+36 U Practiced Occultist @Nia Kovalevski
+37 U Prayer of Banishing @Dominick Critelli
+38 R Restoring Presence @algenpfleger
+39 U Ritual Preparations @Riz Yangpeiv
+40 C Sacred Stag @laclillac
+41 C Saint-Blessed Priest @Anna Christenson
+42 C Saint's Salvation @Stephen Cornu
+43 C Sigardian Gryffknight @Sam Kanios
+44 R Silverflame Zealot @Jakub Jagoda
+45 R Thalia, the Guiding Blade @Svetoslav Petrov
+46 C Thalia's Skill @Mark Henry Bustamante
+47 C Thraben Stalwart @Sam Kanios
+48 U Traft's Embrace @Stephen Cornu
+49 R Westvale Cult Induction @Karol Bem
+50 M Ashiok, Your Worst Fear @Jin L
+51 U Ashiok's Manipulation @Leonardo Santanna
+52 R Breathstealer Spirit @Markus Stadlober
+53 R Collected Thoughts @jim-dreadjim
+54 U Cultist of the Drowntide @Vicki Pangestu
+55 U Curse of Insidious Thoughts @Martin de Diego
+56 R Curse of Wretched Secrets @Ellie Ouinonez
+57 U Demented Pyro-Alchemist @João Mileski
+58 C Distilled Essence @Steve Hamilton
+59 U Drogskol Duelist @Felipe Escobar
+60 C Enthralled Alchemist @Livia Prima
+61 C Geist of the Erdwal Road @Guillem H. Pongiluppi
+62 C Geist Researcher @Candice Broersma
+63 C Geralf's Studies @Slawomir Maniak
+64 U Grand Necrotect @Tatiana Pavlova
+65 U Grasping Dreams @Kai Stevens
+66 C Gravestitched Fledgling @Chun Lo
+67 R Havengul Prodigy @Livia Prima
+68 C Herald of Krothus @Grafit Studio
+69 R Herghast, Niblis Magister @ThingsThatLurk
+70 C Horrendous Experiment @Z 3 N I T H
+71 C Hulking Horror @Hua Lu
+72 U Learn the Steps @Max Mena
+73 C Lingering Presence @jens-lindfors
+74 U Looming Serpent @Jordan Van Der Merwe
+75 C March of the Drowntide @Eryk Szcygiel
+76 M Master Skaabstitcher @Anton Nazarenko
+77 M Misthollow Primarch @Dian Huynh
+78 R Mysteries of the Forbidden @Rafael Carvalho
+79 R Nebelgast Retainer @Sam Perin
+80 U Niblis of the Gloom @Lucas Torquato
+81 C Nightfright @Muhammad Fajri
+82 U Play on Their Fears @Kyle Pearson
+83 U Plunder the Grafs @Tom Zarka
+84 U Rancid Practitioner @Soren Falske
+85 C Scions of Flesh and Spirit @Pavel Kolomeyets
+86 U Scourge of Drunau Port @Daniel Valaisis
+87 U Selhoff Conduit @joe-stiller
+88 U Spectral Insurgent @Gun Gunawan
+89 C Storms over Nephalia @ValeryNeith
+90 R Subsuming Sludge @Ihor Reshetnikov
+91 R Thing from the Depths @Rutger van de Steeg
+92 C Thought Scour @Diana Franco
+93 C Tormented Bride @Oliver Harbour
+94 C Trapped in the Mirror @Nia Kovalevski
+95 R Unstable Masterpiece @Brian Adriel
+96 U Unwelcome Host @Nele Diel
+97 C Wailing Apparition @Marine Lannoy
+98 U Affliction of Undeath @Donald Caron
+99 U Ambitious Necrologist @Pedro Sena
+100 R Angel of Fading Dusk @Nate Rose
+101 U Anje's Thirst @Ilya Vatutin
+102 R Beckon the Beyond @Bruno Henrique
+103 C Bittersweet Parting @Thaldir
+104 U Bloodsire's Herald @Andre Reis
+105 U Bone Shards @Sperasoft Studio
+106 C Bounty of Trostad @Anthony Catillaz
+107 C Callous Killer @Mark Henry Bustamante
+108 R Captain Faulmorr @Andy Walsh
+109 U Ceaseless Horseman @Victor Garcia
+110 C Cornered by the Dead @David Auden Nash
+111 R Curse of Dark Blasphemy @Fred Gissubel
+112 U Curse of Profane Offerings @Erskine Designs
+113 C Deranged Ravager @Dan Rossi
+114 U Dirge of the Drowned @Darryl He
+115 R Disciple of Darker Powers @Jordan Kerbow
+116 C Festering Rats @Ismatulloh
+117 U Gisa's Breakthrough @Henrik Pettersson
+118 M Gloaming Demon @Nate Rose
+119 R Gravebutcher @Eryk Szczygiel
+120 U Greedy Duelist @2wenty
+121 R Horrific Stitching @Kun Vic
+122 R Hungering Coffin @Fabian Golz
+123 U Illicit Mortician @Shen Fei
+124 R Indulgent Patrician @Dan Rossi
+125 U It's Alive! @Katerina Ladon
+126 R Markov Imperator @drawingsofa
+127 C Mortis Infusion @TheComicArtist
+128 C Ossuary Guardian @Markus Neidel
+129 C Overfueled Abomination @Anatolii Leoshko
+130 C Overlord of Ashmouth @Svetoslav Petrov
+131 C Profane Sustenance @Alex Petruk
+132 U Putrid Bloodbag @Athavan(Ath)
+133 C Rotjaw Predator @Eedenartwork
+134 C Sacrificial Lamb @Victoria Smirnyh
+135 C Scorned Zombie @James Hayball
+136 U Shadowgrange Tormenter @Vlad MRK
+137 U Shambling Rotcap @Ivan Mikhalenko
+138 M Sorin, Errant Bloodlord @Steven Elim Tali
+139 C Sorin's Interrogation @OTL Miu
+140 C Stromkirk Vanguard @Leo Aveiro
+141 U Suspicious Carriage @Kerem Beyit
+142 C Thirsty Work @Isabeau M.
+143 U Voldaren Magister @Jason Engle
+144 C Voracious Assembly @d1eselx
+145 M Witching Hour @Matias Tapia
+146 R Ash-Addled Pyromaniac @ondrejhrdina
+147 U Ashmouth Intruders @Phroilan Gardner
+148 C Ashmouth Wolf @Anato Finnstark
+149 R Awoken Heir @Toni Spagnoletti
+150 U Bleeding Tithe @Zudarts Lee
+151 U Bloodpack Invoker @Kuryliuk Darya
+152 U Bloodspill Ruffian @Ben Guldemond
+153 C Cackling Igniter @Bastien Jez
+154 U Claret Ascendance @Calder Moore
+155 R Cordelia Stromkirk @Vergizov
+156 M Cordelia's Ripper @M.E. Morgan
+157 C Covetous Neonate @Alex V Ngo
+158 U Curse of Devilish Ire @Dariia Anfalova
+159 R Curse of Searing Ground @Tomasz Ryger
+160 U Devil's Breach Prowler @azany
+161 C Embers of a New Moon @Sam Kanios
+162 C Erdwal Fangseeker @Ardat
+163 C Falkenrath Executor @ArtOfBenG
+164 U Famished Twins @Guilherme Viana
+165 U Feasting Ceremony @Florian Herold
+166 M Feudrach of Ashmouth @Anato Finnstark
+167 C Feudrach's Hunger @Enrico Ottini
+168 C Full-Moon Assault @Ardika Priyata
+169 U Gatstaf Butcher @Gergely Nagy
+170 R Geistblaster's Breakthrough @Paolo Fraone
+171 R Gorehowl Abomination @Diana Franco
+172 C Goremare @Julie Cellarier
+173 M The Goremoon Unleashed @Igor Galkin
+174 C Hanweir Sentries @Aleksandr Kravchuk
+175 R The Haunting of Silbern @Seongkwang Ji
+176 C Herald of Ashmouth @Maciej Laszkiewicz
+177 U Hinterland Bandits @Zahir Aghakhani
+178 U Lunarblind Packmaster @Filip Storch
+179 C Moonlight Firemaker @Anthony Catillaz
+180 U Nightpack Alpha @Timi Honkanen
+181 C Odric's Fury @88grzes
+182 R Olivia's Debauchery @Benjamin Ee
+183 R Profane Invoker @Jakub Politzer
+184 C Ravenous Companions @Janna Sophia
+185 U Repressed Aristocrat @Alessandra Gava
+186 C Russetpack Predator @Diego Gisbert Llorens
+187 U Sanguinary Hexcaster @James Daly III
+188 U Silverflame Cathar @Márton Gyula Kiss
+189 C Stain with Crimson @Sam Kanios
+190 C Stormbrewer Alchemist @AERIAL48 Studio
+191 C Stromkirk Warlord @Thomas Elliott
+192 R Tempting Puzzlebox @Alan Graham
+193 U Wanton Display @Lie Setiawan
+194 U Arlinn's Kindred @Annwn Wolf
+195 C Backroads Incursion @Jakub Jagoda
+196 C Bloodtrail Reclaimer @barretfrymire
+197 U Boughbreak Lumberknot @east river
+198 R Call of the Ulvenvater @Samuel Mukiri Mburu
+199 U Consuming Grounds @Daniele Salis
+200 R Curse of Harvest's Reaping @Steve Hamilton
+201 U Curse of Warped Realities @Bishop Whitepine
+202 U Darkthicket Howler @Carlos Palma Cruchaga
+203 C Dawnhart Familiar @Johnny Morrow
+204 U Dawnhart Shepherd @Blizzard
+205 U Descent of the Mists @HouEvil
+206 R Devotion to Ghrin-Danu @Lukas Walzer
+207 C Dire-Strain Imbuer @Kenu W
+208 R Estwald Brigands @Erik Bragalyan
+209 C Foray into Stensia @BASTIEN LECOUFFE DEHARME
+210 R Gavony Watchman @Mitchell Malloy
+211 U Getander Wildlander @brolken
+212 C Gitrog's Spawn @Maciej Laszkiewicz
+213 R Griffin's Blessing @Sandara
+214 U Hamlet Guardians @2-Dpanda
+215 C Harvest Warden @RadoJavor
+216 R The Harvesttide Procession @Daarken
+217 C Hope's Trail Pilgrim @Nicola Silvani
+218 M Hope's Trail Ranger @Ardika Priyata
+219 U In the Face of Darkness @Adam Marton
+220 U Kessig Pathkeeper @Konstantin Vavilov
+221 U Lambholt Hunting Grounds @lei min
+222 C Looming Grafspider @Helge C. Balzer
+223 R Malignant Entangler @veera-hokkanen
+224 M Prying Eyedra @J. Meyers & Nutchapol
+225 C Rabid Mauling @boscopenciller
+226 R Runstalker Maiden @Diego Gisbert Llorens
+227 U Secluded Recluse @AERIAL48 Studio
+228 U Skulking Shadowbeast @Lucas Graciano
+229 C Somberwald Boar @Kay Tang
+230 C Speaker of Ghrin-Danu @AERIAL48 Studio
+231 U Sporecyst Toad @Oleksandr Kozachenko
+232 C Stewards of Ulvenwald @Kate_Y
+233 U Tovolar's Ire @Heraldo Ortega
+234 C Ulrich's Proclamation @Jakub Politzer
+235 R The Ulvenvater @Antonis Papantoniou
+236 M Vile Resurgence @Francesco Musiani
+237 C Village Bruiser @thomas-dumey
+238 U Wald-Cottage Crone @Dmitriy Galkin
+239 C Waldshadow Ambusher @David Szabo
+240 C Watching the Trails @ameeeeba
+241 C Wilderhunt Companions @Lunart Christophe LuNyarlathotep
+242 U Addled Psyche @Nadine Oestreich
+243 U Avacyn's Legacy @JB Casacop
+244 U Blight of Hamlets @Titus Lunter
+245 R Blood Bank @Rainer Petter
+246 M The Collabomination @artofandregarcia
+247 R Curse of Entomophobia @Sergey Vasnev
+248 R Dawnhart Augur @Dan Rossi
+249 R Desperate Exorcism @Yigit Koroglu
+250 R Drowntide Rising @Monztre
+251 R Elgaud Dawnrider @Ignacio Bazán Lazcano
+252 U Envoy of the Red Court @Oana Roxana Birtea (Yuuza)
+253 U Fangrite Mistress @Susu Dong
+254 R Ghrin-Danu Returned @Anato Finnstark
+255 M Gnarlwood's Claim @Dan Rossi
+256 M Goldnight Purgeblade @Benjamin Ee
+257 R Gravespore Guardian @Nino Is
+258 U Grizzled Ironwright @Grafit Studio
+259 U Guide of Faith @Xuan Zhang
+260 R Hope-Blessed Bow @Raluca Marinescu
+261 R Horrors Wrought @Stefan Celic
+262 R Hour of the Wolf @Anna Podedworna
+263 R Huntmaster of the Fells @Chris Rahn
+264 R Insatiable Elder @Marcello Finv
+265 R Lidern, the Goreblossom @Oksana Kerro
+266 U Moonlit Revelry @Márton Gyula Kiss
+267 R Nephalia Heartsewer @alexvnart
+268 R Odric, Traft's Anointed @Rohland DeMoss
+269 M Olivia, Sanguine Reveler @Bryan Fogaca Rosado
+270 M Ominous Frogs @Alekzander Zagorulko
+271 U Rally to Thraben @Gabriela Nascimento
+272 U Riding the Geistroads @Dominik Mayer
+273 U Sanguine Liturgy @BASTIEN LECOUFFE DEHARME
+274 R Sermons of Ormendahl @Agnieszka Firla
+275 M Sigarda, Hope's Accord @Elvira Vikman
+276 U Stonegraf Awakener @Iwo Widuliński
+277 U Teeming Secrets @Veera Hokkanen
+278 R Tethered Fettergeists @Veera Hokkanen
+279 M Tinua, of Whispered Pains @Anna Gotskaya
+280 M Tovolar Wolfbound @Crazy Mifon
+281 M Traft, Aiding the Worthy @Chelsea Harper
+282 U Unstable Experimentation @DirkLoechel
+283 R Urgent Investigations @Thaldir
+284 U Westvale Adherent @Anato Finnstark
+285 R Wildcaster Devil @Mauricio Herrera
+286 M Winterthorn Creeper @Anastasia
+287 U Fleshwrithe Apparatus @Maros Manhardt
+288 U Harvesttide Effigies @Daarken
+289 U Tarnished Swordsuit @applibot
+290 U Thirsting Dagger @Grundalug
+291 U Unmarked Headstones @Brian Flora
+292 U Wolf-Fang Talisman @Akkapoj T.
+293 U Abandoned Memorial @Malets Irina
+294 R Desolate Cemetery @Ruslan Skifonich
+295 R Desolate Garrison @Chang-Wei Chen
+296 R Desolate Harbor @Leon Tukker
+297 R Desolate Pinnacle @David Frasheski
+298 R Desolate Thicket @Florian Herold
+299 U Drowned Homestead @Markus Luotero
+300 C Evolving Wilds @Jon Pintar
+301 U Flooded Grafyards @Andre Bruniera
+302 U Lonely Cabin @Witold Justyniak
+303 U Marzela's Sanctum @BX Moon Art Studio
+304 U Niblis's Haunt @Shen Fei
+305 U Solstice Circle @Tatiana Yamshanova
+306 L Plains @Jung Park
+307 L Island @James Paick
+308 L Swamp @Vincent Proce
+309 L Mountain @Vincent Proce
+310 L Forest @Adam Paquette
+
+[buy a box]
+311 S Odric, Accursed Slayer @Young June Choi
+312 M Worn Semblance @Michelle Petrelli
+313 R Restoring Presence @Asur Misda
+314 R Collected Thoughts @Tatiana Pavlova
+319 S Moonsilver Archangel @Chengwei Pan
+321 S Ash-Addled Pyromaniac @Fred Augis
+324 S Teeming Secrets @Ngan Pham
+#315 S Gloaming Demon @
+#316 S Darkthicket Howler @
+#317 S Wildcaster Devil @
+#318 S Eerie Nightdrifter @
+#320 S Mysteries of the Forbidden @
+#322 S Horrors Wrought @
+#323 S Lidern, the Goreblossom @
+
+
+[tokens]
+1 w_4_4_angel_flying @Gibbs Santos
+2 w_3_4_angel_flying @Emmanuel Bou Roldan
+3 c_a_monument_anthem @Olivia Steenburgh
+4 w_e_cloister @Jamie Westaway
+5 w_1_1_human @Giuseppe De lure
+6 w_0_1_sheep @josefa de obidos
+7 w_1_1_spirit_flying @Christy Treekhem
+8 u_2_2_zombie @Fellipe Cesar
+9 u_3_3_zombie @Fellipe Cesar
+10 u_4_4_zombie @Fellipe Cesar
+11 u_8_8_zombie @Fellipe Cesar
+12 u_x_x_zombie @Fellipe Cesar
+13 b_1_1_bat_flying @Angelo Bortolini
+14 b_1_1_vampire_lifelink @Alessandra Gava
+15 b_2_2_vampire_flying_lifelink @Andrew Clark
+16 b_2_2_zombie @Crimson Clover
+17 r_e_ardor @Jakub Bazyluk
+18 r_1_1_devil_burn @Steve Prescott
+19 r_5_5_elemental_haste @Gosha Babko
+20 r_1_1_elemental_flying_cantblock @Zerahoc
+21 r_1_1_vampire_haste @Margarita Bourkova
+22 g_4_4_bear @Grafit Studio
+23 g_2_2_wolf @Tanya Podolskaia
+24 wb_1_1_cleric @martinpazromero
+25 gu_1_1_insect @Herckeim
+26 wubrg_0_1_a_offering @Mad 1984
+27 c_a_blood_draw @Michael Katchan
+28 c_a_food_sac @Amy Jugg
+30 c_a_treasure_sac @Lukas Svrcek
+31 c_a_weapon_equip @Paolo Puggioni

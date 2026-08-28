@@ -1,0 +1,16 @@
+Name:Wrecking Whale
+ManaCost:6 U U
+Types:Creature Whale
+PT:8/8
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Trample
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 3 U U | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {3}{U}{U}. CARDNAME surfaces tapped.
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+R:Event$ Moved | ValidCard$ Card.Self+token+wasCastFromGraveyard | Origin$ Stack | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME surfaces tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+DeckHints:Ability$Mill|Discard
+DeckHas:Ability$Graveyard|Surface
+Oracle:This spell can't be countered.\nTrample\nSurface {3}{U}{U}. Wrecking Whale surfaces tapped. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

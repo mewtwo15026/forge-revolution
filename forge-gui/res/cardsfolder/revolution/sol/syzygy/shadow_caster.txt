@@ -1,0 +1,9 @@
+Name:Shadow Caster
+ManaCost:1 B
+Types:Creature Elemental Cleric
+PT:2/1
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ LoseLife | PrecostDesc$ Syzygy — | Cost$ 5 B T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Defined$ Player.Opponent | LifeAmount$ 2 | SpellDescription$ Each opponent loses 2 life.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{5}{B}, {T}: Each opponent loses 2 life.

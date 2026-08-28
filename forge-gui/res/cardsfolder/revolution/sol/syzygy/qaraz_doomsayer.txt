@@ -1,0 +1,10 @@
+Name:Qaraz Doomsayer
+ManaCost:2 U
+Types:Creature Elemental Cleric
+PT:1/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Tap | PrecostDesc$ Syzygy — | Cost$ 1 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | ValidTgts$ Creature | SpellDescription$ Tap target creature.
+SVar:NonCombatPriority:1
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{1}{U}, {T}: Tap target creature.

@@ -1,0 +1,8 @@
+Name:Ratiocinate
+ManaCost:3 U
+Types:Sorcery
+A:SP$ Draw | NumCards$ 3 | SubAbility$ DBDiscard | SpellDescription$ Draw three cards. Then discard a card unless a Subroutine ran under your control this turn.
+SVar:DBDiscard:DB$ Discard | NumCards$ 1 | Mode$ TgtChoose | ConditionCheckSVar$ SubsRan | ConditionSVarCompare$ EQ0
+SVar:SubsRan:Count$CountersRemovedThisTurn CLICK Subroutine.YouCtrl
+DeckHints:Type$Subroutine
+Oracle:Draw three cards. Then discard a card unless a Subroutine ran under your control this turn.

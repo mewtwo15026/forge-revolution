@@ -1,0 +1,9 @@
+Name:Reprieve from Mortality
+ManaCost:3 W
+Types:Instant
+A:SP$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ +2 | SubAbility$ DBEffect | SpellDescription$ Creatures you control get +2/+0 until end of turn. Whenever a nontoken creature you control dies this turn, cache it as it dies.
+SVar:DBEffect:DB$ Effect | Triggers$ RfMDeath
+SVar:RfMDeath:Mode$ ChangesZone | ValidCard$ Creature.!token+YouCtrl | Origin$ Battlefield | Destination$ Graveyard | Execute$ CacheToken | Static$ True | TriggerDescription$ Whenever a nontoken creature you control dies this turn, cache it as it dies.
+SVar:CacheToken:DB$ Token | TokenScript$ c_a_memory_fug | SubAbility$ CacheExile
+SVar:CacheExile:DB$ ChangeZone | Defined$ TriggeredCardLKICopy | Origin$ Graveyard | Destination$ Exile
+Oracle:Creatures you control get +2/+0 until end of turn.\nWhenever a nontoken creature you control dies this turn, cache it as it dies. (Exile it from your graveyard and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

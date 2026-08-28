@@ -1,0 +1,12 @@
+Name:Catabolist
+ManaCost:1 B
+Types:Creature Vampire Warlock
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, create a black Subroutine enchantment token named TICK() with “Whenever this Subroutine runs, each opponent loses 1 life and you gain 1 life.” (Insert it into one of your three programs.)
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenScript$ b_e_sub_tick | TokenAmount$ 1
+A:AB$ ChangeZone | Cost$ 1 B | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | ActivationZone$ Graveyard | Tapped$ True | CheckSVar$ X | SVarCompare$ GE1 | SpellDescription$ Return this card from your graveyard to the battlefield tapped. Activate only if a card left your graveyard this turn.
+SVar:X:Count$LeftGraveyardThisTurn Card.YouOwn
+SVar:SacMe:2
+SVar:DiscardMe:2
+DeckHas:Ability$Token|LifeGain & Type$Subroutine
+Oracle:When this creature dies, create a black Subroutine enchantment token named TICK() with “Whenever this Subroutine runs, each opponent loses 1 life and you gain 1 life.” (Insert it into one of your three programs.)\n{1}{B}: Return this card from your graveyard to the battlefield tapped. Activate only if a card left your graveyard this turn.

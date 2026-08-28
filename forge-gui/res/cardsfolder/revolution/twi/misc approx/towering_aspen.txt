@@ -1,0 +1,15 @@
+Name:Towering Aspen
+ManaCost:5 U R
+Types:Legendary Creature Faerie Noble
+PT:5/4
+K:Affinity:Permanent.token:token
+K:Haste
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ Whenever CARDNAME attacks, ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBCopyToken,DBCloneCreature | CharmNum$ 1
+SVar:DBCopyToken:DB$ CopyPermanent | ValidTgts$ Permanent.token+YouCtrl | TgtPrompt$ Select target token you control to copy | SpellDescription$ Create a token that's a copy of target token you control.
+SVar:DBCloneCreature:DB$ Pump | ValidTgts$ Permanent.token | TgtPrompt$ Select target token to become a copy | AILogic$ Pump | SubAbility$ DBClone | SpellDescription$ Target token becomes a copy of target creature you control. You may have the copy become attacking.
+SVar:DBClone:DB$ Clone | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control to copy | CloneTarget$ ParentTarget | Duration$ Permanent
+# TODO: figure out how to make a permanent become attacking
+SVar:BuffedBy:Permanent.token
+DeckNeeds:Ability$Token
+Oracle:Affinity for tokens (This spell costs {1} less to cast for each token you control.)\nHaste\nWhenever Towering Aspen attacks, choose one —\n• Create a token that's a copy of target token you control.\n• Target token becomes a copy of target creature you control. You may have the copy become attacking.

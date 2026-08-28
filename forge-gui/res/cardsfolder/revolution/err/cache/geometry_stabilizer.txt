@@ -1,0 +1,15 @@
+Name:Geometry Stabilizer
+ManaCost:2
+Types:Artifact Creature Construct Scout
+PT:1/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | TriggerDescription$ When this creature enters, search your library for a basic land card, cache it, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Library | LibraryPosition$ 0 | ChangeType$ Land.Basic | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ DBToken
+SVar:DBFound:DB$ StoreSVar | SVar$ BasicFound | Type$ Number | Expression$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionZone$ Library
+SVar:DBBranch:DB$ Branch | BranchConditionSVar$ BasicFound | BranchConditionSVarCompare$ EQ1 | TrueSubAbility$ DBForget | FalseSubAbility$ DBClearFound
+SVar:DBForget:DB$ Cleanup | ClearRemembered$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_memory_ful | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | Hidden$ True | SubAbility$ DBClearFound
+SVar:DBClearFound:DB$ StoreSVar | SVar$ BasicFound | Type$ Number | Expression$ 0
+SVar:BasicFound:Number$0
+DeckHas:Type$Artifact|Memory
+Oracle:When this creature enters, search your library for a basic land card, cache it, then shuffle. (Exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

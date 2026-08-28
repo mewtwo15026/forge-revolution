@@ -1,0 +1,12 @@
+Name:Whisperthorn Weaver
+ManaCost:3 U
+Types:Creature Faerie Rogue
+PT:2/2
+K:Flying
+K:twi_Decoy
+# TODO: create condition for "unless all attacking [type] are blocked"
+S:Mode$ Continuous | Affected$ Illusion.YouCtrl+sharesNameWith Valid Faerie.attacking+YouCtrl | AddKeyword$ MustBeBlockedBy Creature | Description$ Illusions you control must be blocked if able as long as they have the same name as an attacking Faerie you control.
+SVar:HasAttackEffect:TRUE
+DeckHints:Keyword$Decoy
+DeckHas:Ability$Token & Keyword$Decoy & Type$Illusion
+Oracle:Flying\nDecoy (Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile the token at the beginning of the next end step.)\nIllusions you control must be blocked if able as long as they have the same name as an attacking Faerie you control.

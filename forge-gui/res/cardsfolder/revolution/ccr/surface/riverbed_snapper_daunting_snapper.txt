@@ -1,0 +1,22 @@
+Name:Riverbed Snapper
+ManaCost:1 U
+Types:Creature Crab
+PT:2/1
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:2 B G U | Description$ Surface {2}{B}{G}{U}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$Graveyard|Surface
+AlternateMode:DoubleFaced
+Oracle:Surface {2}{B}{G}{U}. Riverbed Snapper surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Daunting Snapper
+ManaCost:no cost
+Colors:black,green,blue
+Types:Creature Crab
+PT:6/4
+K:Ward:3
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ CARDNAME can't be blocked by creatures with power 2 or less.
+Oracle:(Daunting Snapper is black, green, and blue.)\nWard {3} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {3}.)\nDaunting Snapper can't be blocked by creatures with power 2 or less.

@@ -1,0 +1,10 @@
+Name:Confronting Time's Jailer
+ManaCost:2 U
+Types:Enchantment Saga
+K:kdt_Time loop
+K:Chapter:3:DBPhaseOut,DBDraw,DBToken
+SVar:DBPhaseOut:DB$ Phases | ValidTgts$ Permanent.nonLand+Other | TgtPrompt$ Select up to one other target nonland permanent | TargetMin$ 0 | TargetMax$ 1 | SpellDescription$ Up to one other target nonland permanent phases out.
+SVar:DBDraw:DB$ Draw | NumCards$ 2 | SpellDescription$ Draw two cards.
+SVar:DBToken:DB$ Token | TokenScript$ time_bubble | SubAbility$ TimeLoop | SpellDescription$ Create a blue enchantment token named Time Bubble with “Spells you cast cost {1} more to cast.”
+AI:RemoveDeck:Random
+Oracle:Time loop (As this Saga enters and after your draw step, add a lore counter. Remove them all after III.)\nI — Up to one other target nonland permanent phases out.\nII — Draw two cards.\nIII — Create a blue enchantment token named Time Bubble with “Spells you cast cost {1} more to cast.”

@@ -1,0 +1,11 @@
+Name:Helia Extinguisher
+ManaCost:2 R
+Types:Creature Elemental Cleric
+PT:3/1
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+K:Haste
+A:AB$ Token | PrecostDesc$ Syzygy — | Cost$ 4 R | TapCreaturesForMana$ True | SorcerySpeed$ True | TokenScript$ r_3_1_elemental_trample_haste | AtEOT$ Sacrifice | SpellDescription$ Create a 3/1 red Elemental creature token with trample and haste. Sacrifice it at the beginning of the next end step. Activate only as a sorcery.
+DeckHas:Ability$Token
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nHaste\n{4}{R}: Create a 3/1 red Elemental creature token with trample and haste. Sacrifice it at the beginning of the next end step. Activate only as a sorcery.

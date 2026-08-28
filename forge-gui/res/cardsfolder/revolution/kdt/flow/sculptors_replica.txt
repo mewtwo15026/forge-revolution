@@ -1,0 +1,9 @@
+Name:Sculptor's Replica
+ManaCost:1 W
+Types:Artifact Creature Golem Monk
+PT:2/2
+A:AB$ Token | PrecostDesc$ Flow — | Cost$ 4 W | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | TokenAmount$ 1 | TokenScript$ c_0_0_a_golem_total_artifacts | TokenTapped$ True | SpellDescription$ Create a tapped 0/0 colorless Golem artifact creature token with “This creature gets +1/+1 for each artifact you control.” You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Golem
+DeckHints:Type$Artifact
+Oracle:Flow — {4}{W}: Create a tapped 0/0 colorless Golem artifact creature token with “This creature gets +1/+1 for each artifact you control.” You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

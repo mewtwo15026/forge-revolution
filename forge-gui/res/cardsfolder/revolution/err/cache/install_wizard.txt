@@ -1,0 +1,12 @@
+Name:Install Wizard
+ManaCost:3 U
+Types:Creature Human Wizard
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, cache the top card of your library face down.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | ConditionPresent$ Card.YouOwn | ConditionZone$ Library | ConditionCompare$ GE1 | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+A:AB$ Draw | Cost$ 1 U Sac<1/Memory> | Defined$ You | NumCards$ 1 | SpellDescription$ Draw a card.
+DeckHints:Type$Memory
+DeckHas:Ability$Sacrifice & Type$Artifact|Memory
+Oracle:When this creature enters, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)\n{1}{U}, Sacrifice a Memory: Draw a card.

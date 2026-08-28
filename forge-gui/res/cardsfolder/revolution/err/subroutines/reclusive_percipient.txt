@@ -1,0 +1,7 @@
+Name:Reclusive Percipient
+ManaCost:1 U
+Types:Creature Human Monk
+PT:1/3
+A:AB$ Token | Cost$ T Discard<1/Card> | SorcerySpeed$ True | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ u_e_sub_read | SpellDescription$ Create a blue Subroutine enchantment token named READ() with “Whenever this Subroutine runs, draw a card.” Activate only as a sorcery.
+DeckHas:Ability$Discard|Token & Type$Subroutine
+Oracle:{T}, Discard a card: Create a blue Subroutine enchantment token named READ() with “Whenever this Subroutine runs, draw a card.” Activate only as a sorcery. (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

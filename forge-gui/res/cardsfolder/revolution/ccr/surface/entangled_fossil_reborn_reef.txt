@@ -1,0 +1,34 @@
+Name:Entangled Fossil
+ManaCost:G
+Types:Artifact
+A:AB$ Effect | Cost$ G Sac<1/CARDNAME> | RememberObjects$ Targeted | ValidTgts$ Card.nonLand+YouOwn | TgtZone$ Graveyard | TgtPrompt$ Select target nonland card in your graveyard | StaticAbilities$ SurfaceCost | Triggers$ SurfaceCast | SpellDescription$ Target nonland card in your graveyard gains surface until end of turn. The surface cost is equal to its mana cost. (It won't surface transformed if cast this way.)
+SVar:SurfaceCost:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Graveyard,Stack | MayPlay$ True | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface—Pay this card's mana cost. (You may cast a cop of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+SVar:SurfaceCast:Mode$ SpellCast | ValidCard$ Card.IsRemembered | Static$ True | Execute$ SurfCopy
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | IsPresent$ Card.IsRemembered | PresentZone$ Stack | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZoneAll | ChangeType$ Card.IsRemembered+inZoneStack | Origin$ Stack | Destination$ Exile | SubAbility$ SurfaceCleanup
+SVar:SurfaceCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:4 G G | Description$ Surface {4}{G}{G}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$Surface
+AlternateMode:DoubleFaced
+Oracle:{G}, Sacrifice Entangled Fossil: Target nonland card in your graveyard gains surface until end of turn. The surface cost is equal to its mana cost. (It won't surface transformed if cast this way.)\nSurface {4}{G}{G}. Entangled Fossil surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Reborn Reef
+ManaCost:no cost
+Colors:Green
+Types:Creature Plant
+PT:4/6
+K:Vigilance
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+T:Mode$ AttackersDeclared | Execute$ TrigEffect | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Whenever CARDNAME attacks, target nonland card in your graveyard gains surface until end of turn. The surface cost is equal to its mana cost.
+SVar:TrigEffect:DB$ Effect | Cost$ G Sac<1/CARDNAME> | RememberObjects$ Targeted | ValidTgts$ Card.nonLand+YouOwn | TgtZone$ Graveyard | TgtPrompt$ Select target nonland card in your graveyard | StaticAbilities$ SurfaceCost2 | Triggers$ SurfaceCast2 | SpellDescription$ Target nonland card in your graveyard gains surface until end of turn. The surface cost is equal to its mana cost. (It won't surface transformed if cast this way.)
+SVar:SurfaceCost2:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Graveyard,Stack | MayPlay$ True | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface—Pay this card's mana cost. (You may cast a cop of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+SVar:SurfaceCast2:Mode$ SpellCast | ValidCard$ Card.IsRemembered | Static$ True | Execute$ SurfCopy2 | CheckSVar$ Surfaced2
+SVar:SurfCopy2:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfaceCleanup2
+SVar:SurfaceCleanup2:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:Surfaced2:Count$AltCost.1.0
+SVar:HasAttackEffect:TRUE
+Oracle:Vigilance\nWhenever Reborn Reef attacks, target nonland card in your graveyard gains surface until end of turn. The surface cost is equal to its mana cost.

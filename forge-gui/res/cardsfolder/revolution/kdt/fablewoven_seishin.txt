@@ -1,0 +1,14 @@
+Name:Fablewoven Seishin
+ManaCost:R G
+Types:Creature Wolf Shapeshifter
+PT:2/2
+S:Mode$ Continuous | Affected$ Creature.Other+YouCtrl+HasCounters | AddTrigger$ RevLandfall | Description$ Revered (This creature shares the following abilities with other creatures you control that have counters on them.)
+SVar:RevLandfall:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature. If this is the second time this ability has resolved this turn, this creature gains trample and haste until end of turn.
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature. If this is the second time this ability has resolved this turn, this creature gains trample and haste until end of turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump
+SVar:DBPump:DB$ Pump | Defined$ Self | KW$ Trample & Haste | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ2
+SVar:X:Count$ResolvedThisTurn
+SVar:BuffedBy:Creature.HasCounters
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+Oracle:Revered (This creature shares the following abilities with other creatures you control that have counters on them.)\nLandfall — Whenever a land you control enters, put a +1/+1 counter on this creature. If this is the second time this ability has resolved this turn, this creature gains trample and haste until end of turn.

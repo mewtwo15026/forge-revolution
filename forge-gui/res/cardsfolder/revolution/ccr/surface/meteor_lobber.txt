@@ -1,0 +1,12 @@
+Name:Meteor Lobber
+ManaCost:4 G G
+Types:Creature Rhino Beast
+PT:6/5
+K:Reach
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 4 G G | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {4}{G}{G}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Reach\nSurface {4}{G}{G} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

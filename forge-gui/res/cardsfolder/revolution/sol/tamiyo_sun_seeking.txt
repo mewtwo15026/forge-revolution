@@ -1,0 +1,17 @@
+Name:Tamiyo, Sun-Seeking
+ManaCost:X U U
+Types:Legendary Planeswalker Tamiyo
+Loyalty:X
+SVar:X:Count$xPaid
+A:AB$ Mill | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Player | NumCards$ X | SpellDescription$ Target player mills two cards for every loyalty counter on NICKNAME.
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | NumCards$ Y | RememberDrawn$ True | SubAbility$ DBDiscard | SpellDescription$ Draw a card for every two loyalty counters on NICKNAME. If you drew one or more cards this way, discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ GE1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Tap | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | IsCurse$ True | SubAbility$ DBStun | SpellDescription$ Tap target creature. Put a stun counter on it for every three counters on CARDNAME.
+SVar:DBStun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ Z
+SVar:X:SVar$Loyal/Twice
+SVar:Y:SVar$Loyal/HalfDown
+SVar:Z:Count$CardCounters.ALL/ThirdDown
+SVar:Loyal:Count$CardCounters.LOYALTY
+DeckHas:Ability$Mill|Discard
+Oracle:[+1]: Target player mills two cards for every loyalty counter on Tamiyo.\n[+1]: Draw a card for every two loyalty counters on Tamiyo. If you drew one or more cards this way, discard a card.\n[+1]: Tap target creature. Put a stun counter on it for every three counters on Tamiyo.

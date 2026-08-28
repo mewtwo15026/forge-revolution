@@ -1,0 +1,28 @@
+Name:Giyama, Scion of Kage
+ManaCost:2 B R
+Types:Legendary Planeswalker Giyama
+Loyalty:3
+# NOTE: for emblem, reference Cryptic Pursuit
+A:AB$ GenericChoice | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Choices$ DBDiscardToDraw,DBSacToDraw,DBLifeToDraw | SpellDescription$ You may discard a card, sacrifice another nonland permanent, or pay 3 life. If you do, draw a card.
+SVar:DBDiscardToDraw:DB$ Draw | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Discard a card.
+SVar:DBSacToDraw:DB$ Draw | UnlessCost$ Sac<1/Permanent.nonLand+Other/other nonland permanent> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Sacrifice another nonland permanent.
+SVar:DBLifeToDraw:DB$ Draw | UnlessCost$ PayLife<3> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Pay 3 life.
+A:AB$ Pump | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Opponent | IsCurse$ True | SubAbility$ DBChoice | SpellDescription$ You may discard a card, sacrifice another nonland permanent, or pay 3 life. If you do, target opponent discards a card, sacrifices a nonland permanent, and loses 3 life.
+SVar:DBChoice:DB$ GenericChoice | Choices$ DBDiscardToSlug,DBSacToSlug,DBLifeToSlug
+SVar:DBDiscardToSlug:DB$ StoreSVar | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SVar$ GiyamaSVar | Type$ Number | Expression$ 1 | SubAbility$ DBDiscard | SpellDescription$ Discard a card.
+SVar:DBSacToSlug:DB$ StoreSVar | UnlessCost$ Sac<1/Permanent.nonLand+Other/other nonland permanent> | UnlessPayer$ You | UnlessSwitched$ True | SVar$ GiyamaSVar | Type$ Number | Expression$ 1 | SubAbility$ DBDiscard | SpellDescription$ Sacrifice another nonland permanent.
+SVar:DBLifeToSlug:DB$ StoreSVar | UnlessCost$ PayLife<3> | UnlessPayer$ You | UnlessSwitched$ True | SVar$ GiyamaSVar | Type$ Number | Expression$ 1 | SubAbility$ DBDiscard | SpellDescription$ Pay 3 life.
+SVar:DBDiscard:DB$ Discard | ConditionCheckSVar$ GiyamaSVar | Defined$ Targeted | NumCards$ 1 | Mode$ TgtChoose | SubAbility$ DBSac
+SVar:DBSac:DB$ Sacrifice | ConditionCheckSVar$ GiyamaSVar | Defined$ Targeted | SacValid$ Permanent.nonLand | Amount$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | ConditionCheckSVar$ GiyamaSVar | Defined$ Targeted | LifeAmount$ 3 | SubAbility$ ResetSVar
+SVar:ResetSVar:DB$ StoreSVar | SVar$ GiyamaSVar | Type$ Number | Expression$ 0
+SVar:GiyamaSVar:Number$0
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Name$ Emblem - Giyama, Scion of Kage | Image$ emblem_giyama_scion_of_kage | Triggers$ CreatureDies | Duration$ Permanent | SpellDescription$ You get an emblem with “Whenever a creature dies, you may exile it from its owner's graveyard. If you do, until your next end step, you may cast it, it has replicate, and the replicate cost equals its mana cost.”
+SVar:CreatureDies:Mode$ ChangesZone | ValidCard$ Creature | Origin$ Battlefield | Destination$ Graveyard | OptionalDecider$ You | Execute$ TrigExile | TriggerDescription$ Whenever a creature dies, you may exile it from its owner's graveyard. If you do, until your next end step, you may cast copies of the exiled card.
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | Defined$ TriggeredCard | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STCast,STReplicate | RememberObjects$ RememberedCard | Duration$ UntilYourNextEndStep | SubAbility$ DBCleanup | ForgetOnMoved$ Exile,Stack
+SVar:STCast:Mode$ Continuous | MayPlay$ True | Affected$ Card.nonLand+IsRemembered | AffectedZone$ Exile | Description$ Until your next end step, you may cast that card, and it has replicate.
+SVar:STReplicate:Mode$ Continuous | Affected$ Card.IsRemembered+wasCast | AddKeyword$ Replicate:CardManaCost | AffectedZone$ Stack
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Sacrifice|Discard
+Oracle:[+1]: You may discard a card, sacrifice another nonland permanent, or pay 3 life. If you do, draw a card.\n[-2]: You may discard a card, sacrifice another nonland permanent, or pay 3 life. If you do, target opponent discards a card, sacrifices a nonland permanent, and loses 3 life.\n[-6]: You get an emblem with “Whenever a creature dies, you may exile it from its owner's graveyard. If you do, until your next end step, you may cast it, it has replicate, and the replicate cost equals its mana cost.” (When you cast it, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)

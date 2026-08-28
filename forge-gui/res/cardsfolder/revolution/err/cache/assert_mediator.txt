@@ -1,0 +1,12 @@
+Name:Assert Mediator
+ManaCost:W
+Types:Creature Human Advisor
+PT:2/1
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ TrigChoose | TriggerDescription$ When this creature enters, each player may cache the top card of their library face down.
+SVar:TrigChoose:DB$ GenericChoice | TempRemember$ Chooser | ShowChoice$ ExceptSelf | Defined$ Player | AILogic$ Cache | Choices$ Cache,Cancel
+SVar:Cache:DB$ Token | TokenOwner$ Remembered | TokenAmount$ 1 | TokenScript$ c_a_memory_fdl | SubAbility$ DBExile | SpellDescription$ Cache
+SVar:DBExile:DB$ Dig | Defined$ Remembered | DigNum$ 1 | ForceReveal$ Remembered | DefinedExiler$ Remembered | ChangeNum$ All | DestinationZone$ Exile | ExileFaceDown$ True
+SVar:Cancel:DB$ Pump | SpellDescription$ Don't cache
+A:AB$ Pump | Cost$ 3 G | Defined$ Self | NumAtt$ +3 | NumDef$ +3 | ActivationLimit$ 1 | SpellDescription$ CARDNAME gets +3/+3 until end of turn. Activate only once each turn.
+DeckHas:Type$Artifact|Memory
+Oracle:When this creature enters, each player may cache the top card of their library face down. (To cache a card, look at it, exile it, and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)\n{3}{G}: This creature gets +3/+3 until end of turn. Activate only once each turn.

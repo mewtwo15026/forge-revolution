@@ -1,0 +1,21 @@
+Name:Scuttling Cicada
+ManaCost:U
+Types:Creature Insect
+PT:1/1
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:U | Description$ Surface {U}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$Graveyard|Surface
+AlternateMode:DoubleFaced
+Oracle:Surface {U}. Scuttling Cicada surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Buzzing Metamorph
+ManaCost:no cost
+Colors:blue
+Types:Creature Insect
+PT:3/2
+K:Flying
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+Oracle:Flying

@@ -1,0 +1,11 @@
+Name:Comet Conduit
+ManaCost:3 R
+Types:Creature Elemental Shaman
+PT:1/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+K:Reach
+A:AB$ Token | PrecostDesc$ Syzygy — | Cost$ 2 R T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | TokenScript$ c_a_treasure_sac | TokenTapped$ True | SpellDescription$ Create a tapped Treasure token.
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nReach\n{2}{R}, {T}: Create a tapped Treasure token.

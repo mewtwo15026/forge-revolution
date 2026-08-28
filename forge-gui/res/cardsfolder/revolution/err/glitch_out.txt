@@ -1,0 +1,6 @@
+Name:Glitch Out
+ManaCost:X R
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Creature | NumDmg$ X | SpellDescription$ CARDNAME deals X plus 1 damage to target creature.
+SVar:X:Count$xPaid/Plus.1
+Oracle:Glitch Out deals X plus 1 damage to target creature.

@@ -1,0 +1,7 @@
+Name:Error Tide
+ManaCost:R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ X | SpellDescription$ CARDNAME deals 2 damage to any target. If you control a permanent with mana value 4 or greater, it deals 3 damage to that target instead.
+SVar:X:Count$Compare Y GE1.3.2
+SVar:Y:Count$Valid Permanent.YouCtrl+cmcGE4
+Oracle:Error Tide deals 2 damage to any target. If you control a permanent with mana value 4 or greater, it deals 3 damage to that target instead.

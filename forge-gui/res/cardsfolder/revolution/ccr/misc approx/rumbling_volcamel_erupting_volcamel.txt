@@ -1,0 +1,23 @@
+Name:Rumbling Volcamel
+ManaCost:2 R R
+Types:Creature Elemental Camel
+PT:4/5
+A:AB$ Pump | Cost$ 1 R | Defined$ Self | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature | TargetMin$ 0 | TargetMax$ 1 | ThisDefinedAndTgts$ Self | NumAtt$ +1 | SpellDescription$ CARDNAME and up to one other target creature you control each get +1/+0 until end of turn.
+T:Mode$ AbilityCast | ValidActivatingPlayer$ Opponent | ValidSA$ SpellAbility.nonManaAbility+ManaSpent GE1 | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ Whenever you spend mana to activate a nonmana ability, if this is the third or greater time this ability has resolved this turn, transform CARDNAME.
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform | ConditionCheckSVar$ Activations | ConditionSVarCompare$ GE3
+SVar:Activations:Count$ResolvedThisTurn
+AlternateMode:DoubleFaced
+Oracle:{1}{R}: Rumbling Volcamel and up to one other target creature you control get +1/+0 until end of turn.\nWhenever you spend mana to activate a nonmana ability, if this is the third or greater time this ability has resolved this turn, transform Rumbling Volcamel.
+
+ALTERNATE
+
+Name:Erupting Volcamel
+ManaCost:no cost
+Colors:red
+Types:Creature Elemental Camel
+PT:8/5
+A:AB$ Pump | Cost$ 1 R | Defined$ Self | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature | TargetMin$ 0 | TargetMax$ 1 | ThisDefinedAndTgts$ Self | NumAtt$ +2 | SpellDescription$ CARDNAME and up to one other target creature you control each get +2/+0 until end of turn.
+T:Mode$ AbilityCast | ValidActivatingPlayer$ Opponent | ValidSA$ SpellAbility.nonManaAbility+ManaSpent GE1 | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ Whenever you spend mana to activate a nonmana ability, if this is the third or greater time this ability has resolved this turn, CARDNAME deals 2 damage to any target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | ConditionCheckSVar$ Activations | ConditionSVarCompare$ GE3
+SVar:Activations:Count$ResolvedThisTurn
+Oracle:{1}{R}: Erupting Volcamel and up to one other target creature you control get +2/+0 until end of turn.\nWhenever you spend mana to activate a nonmana ability, if this is the third or greater time this ability has resolved this turn, Erupting Volcamel deals 2 damage to any target.

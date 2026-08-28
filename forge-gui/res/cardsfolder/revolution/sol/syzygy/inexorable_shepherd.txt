@@ -1,0 +1,10 @@
+Name:Inexorable Shepherd
+ManaCost:4 B B
+Types:Creature Elemental Warrior
+PT:4/3
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Pump | PrecostDesc$ Syzygy — | Cost$ 3 BD | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Defined$ Self | KW$ Indestructible | SubAbility$ DBTap | SpellDescription$ Inexorable Shepherd gains indestructible until end of turn. Tap it.
+SVar:DBTap:DB$ Tap | Defined$ Self
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{3}{B}: Inexorable Shepherd gains indestructible until end of turn. Tap it.

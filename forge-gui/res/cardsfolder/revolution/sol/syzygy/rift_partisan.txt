@@ -1,0 +1,14 @@
+Name:Rift Partisan
+ManaCost:3 U
+Types:Creature Elemental Cleric
+PT:2/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ You | Description$ You may look at the top card of your library any time.
+A:AB$ ChangeZone | PrecostDesc$ Syzygy — | Cost$ X U T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ Play | SubAbility$ DBCleanup | ExileOnMoved$ Exile | ConditionDefined$ Remembered | ConditionPresent$ Card.cmcEQX
+SVar:Play:Mode$ Continuous | MayPlay$ True | MayPlayWithoutManaCost$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play remembered card.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$xPaid
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nYou may look at the top card of your library any time.\n{X}{U}, {T}: Exile the top card of your library. You may play that card without paying its mana cost this turn if it has mana value X.

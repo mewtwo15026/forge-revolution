@@ -1,0 +1,15 @@
+Name:Buoyant Datagrazer
+ManaCost:G U
+Types:Enchantment Creature Whale
+PT:2/2
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, cache the top card of your library face down. (Exile it and create a Memory enchantment token with "2, Sacrifice this: You may play the cached card this turn.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | ConditionPresent$ Card.YouOwn | ConditionZone$ Library | ConditionCompare$ GE1 | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+# TODO: implement a way to identify cached cards
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromExile | ValidActivatingPlayer$ You | CheckSVar$ Accessed | Execute$ TrigDrawCard | TriggerZones$ Battlefield | TriggerDescription$ Whenever you play a card from exile, if you've sacrificed a Memory this turn, draw a card.
+T:Mode$ LandPlayed | Origin$ Exile | ValidCard$ Land.YouCtrl | Secondary$ True | CheckSVar$ Accessed | Execute$ TrigDrawCard | TriggerZones$ Battlefield | TriggerDescription$ Whenever you play a card from exile, if you've sacrificed a Memory this turn, draw a card.
+SVar:TrigDrawCard:DB$ Draw | Defined$ You | NumCards$ 1
+DeckHints:Type$Memory
+Oracle:Flying\nWhen this creature enters, cache the top card of your library face down. (Exile it and create a Memory enchantment token with "2, Sacrifice this: You may play the cached card this turn.")\nWhenever you play a cached card, draw a card.

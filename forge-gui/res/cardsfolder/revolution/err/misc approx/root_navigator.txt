@@ -1,0 +1,7 @@
+Name:Root Navigator
+ManaCost:1 W
+Types:Creature Human Scout
+PT:3/1
+K:Flash
+S:Mode$ Continuous | Affected$ Player.Opponent | AddKeyword$ LimitSearchLibrary | Description$ If an opponent would search a library, that player searches the top four cards of that library instead.
+Oracle:Flash\nIf an opponent would search a library, that player searches the top four cards of that library instead.

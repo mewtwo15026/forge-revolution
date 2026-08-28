@@ -1,0 +1,11 @@
+Name:Nerve-Strike Disciple
+ManaCost:3 U
+Types:Creature Human Monk
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a 1/1 white Monk creature token with vigilance.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ w_1_1_monk_vigilance
+A:AB$ Effect | PrecostDesc$ Flow — | Cost$ 3 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | RememberObjects$ Self | ExileOnMoved$ Battlefield | StaticAbilities$ Unblockable | SpellDescription$ This creature can't be blocked this turn. You can't activate this ability during the declare attackers step.
+SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Description$ EFFECTSOURCE can't be blocked this turn.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Monk
+Oracle:When this creature enters, create a 1/1 white Monk creature token with vigilance.\nFlow — {3}{U}: This creature can't be blocked this turn. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

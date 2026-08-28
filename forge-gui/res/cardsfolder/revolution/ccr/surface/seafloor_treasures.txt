@@ -1,0 +1,11 @@
+Name:Seafloor Treasures
+ManaCost:1 U
+Types:Instant
+A:SP$ Dig | DigNum$ 2 | DestinationZone2$ Graveyard | NoReveal$ True | SpellDescription$ Look at the top two cards of your library. Put one into your hand and the other into your graveyard.
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 2 U | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {2}{U}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHas:Ability$Graveyard|Surface
+Oracle:Look at the top two cards of your library. Put one into your hand and the other into your graveyard.\nSurface {2}{U} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

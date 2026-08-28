@@ -1,0 +1,7 @@
+Name:Level Drain
+ManaCost:2 B
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | NumDmg$ 3 | SubAbility$ DBGainLife | SpellDescription$ CARDNAME deals 3 damage to target creature or planeswalker. You gain 3 life. Add {B}{B}. Spend this mana only to activate abilities of permanents you control with level up.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBMana
+SVar:DBMana:DB$ Mana | Produced$ B | Amount$ 2 | RestrictValid$ Activated.Permanent+YouCtrl+withLevel up
+Oracle:Level Drain deals 3 damage to target creature or planeswalker. You gain 3 life.\nAdd {B}{B}. Spend this mana only to activate abilities of permanents you control with level up.

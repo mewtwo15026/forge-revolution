@@ -1,0 +1,13 @@
+Name:Sire of Greatness
+ManaCost:3 G
+Types:Creature Elemental Cleric
+PT:3/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ ChangeZone | PrecostDesc$ Syzygy — | Cost$ 2 G T Sac<1/Creature.Other/another creature> | TapCreaturesForMana$ True | SorcerySpeed$ True | Origin$ Library | Destination$ Battlefield | ChangeType$ Creature.cmcEQX | ChangeNum$ 1 | AILogic$ SacAndUpgrade | StackDescription$ Search your library for a creature card with mana value equal to 1 plus the sacrificed creature's mana value, put that card onto the battlefield, then shuffle. | SpellDescription$ Search your library for a creature card with mana value equal to 1 plus the sacrificed creature's mana value, put that card onto the battlefield, then shuffle. Activate only as a sorcery.
+SVar:X:Sacrificed$CardManaCost/Plus.1
+# AI Preference is needed to make the AI consider the ability. Further constraints are defined by AILogic SacAndUpgrade.
+SVar:AIPreference:SacCost$Creature
+DeckHas:Ability$Sacrifice
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{2}{G}, {T}, Sacrifice another creature: Search your library for a creature card with mana value equal to 1 plus the sacrificed creature's mana value, put it onto the battlefield, then shuffle. Activate only as a sorcery.

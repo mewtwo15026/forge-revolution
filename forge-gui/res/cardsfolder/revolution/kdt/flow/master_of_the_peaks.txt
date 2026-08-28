@@ -1,0 +1,8 @@
+Name:Master of the Peaks
+ManaCost:4 W
+Types:Creature Human Monk
+PT:4/4
+K:Vigilance
+A:AB$ TapAll | PrecostDesc$ Flow — | Cost$ 7 W | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | ValidTgts$ Player | TgtPrompt$ Select target player | ValidCards$ Creature | SpellDescription$ Tap all creatures target player controls. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+Oracle:Vigilance\nFlow — {7}{W}: Tap all creatures target player controls. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

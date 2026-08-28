@@ -1,0 +1,8 @@
+Name:Uiki Initiate
+ManaCost:W
+Types:Creature Human Monk
+PT:1/2
+A:AB$ Animate | PrecostDesc$ Flow — | Cost$ 2 W | TapCreaturesForMana$ True | SorcerySpeed$ True | Power$ 1 | Toughness$ 1 | SpellDescription$ This creature has base power and toughness 4/4 until end of turn. Activate only as a sorcery.
+SVar:BuffedBy:Creature
+AI:RemoveDeck:Random
+Oracle:Flow — {2}{W}: This creature has base power and toughness 4/4 until end of turn. Activate only as a sorcery. (Each creature you tap while activating pays for {1}.)

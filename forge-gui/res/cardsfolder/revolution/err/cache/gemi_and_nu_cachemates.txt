@@ -1,0 +1,13 @@
+Name:Gemi and Nu, Cachemates
+ManaCost:2 G U
+Types:Legendary Creature Dog Cat
+PT:1/4
+T:Mode$ Drawn | ValidCard$ Card.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever you draw or cache a card, put a +1/+1 counter on up to one target land.
+T:Mode$ TokenCreated | ValidPlayer$ You | ValidToken$ Memory | Execute$ TrigPutCounter | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Whenever you draw or cache a card, put a +1/+1 counter on up to one target land.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Land | TargetMin$ 0 | TargetMax$ 1 | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigUntap | TriggerDescription$ At the beginning of combat on your turn, untap up to one target land you control. It becomes a 3/3 creature with vigilance, hexproof, and haste until end of turn. It's still a land.
+SVar:TrigUntap:DB$ Untap | ValidTgts$ Land.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target land you control | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Power$ 3 | Toughness$ 3 | Types$ Creature | Keywords$ Vigilance & Hexproof & Haste
+DeckHints:Type$Memory
+DeckHas:Ability$Counters
+Oracle:Whenever you draw or cache a card, put a +1/+1 counter on up to one target land.\nAt the beginning of combat on your turn, untap up to one target land you control. It becomes a 3/3 creature with vigilance, hexproof, and haste until end of turn. It's still a land.

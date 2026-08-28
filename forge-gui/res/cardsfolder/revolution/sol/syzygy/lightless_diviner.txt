@@ -1,0 +1,10 @@
+Name:Lightless Diviner
+ManaCost:3 B
+Types:Creature Elemental Cleric
+PT:2/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Draw | PrecostDesc$ Syzygy — | Cost$ 5 B | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | SubAbility$ DBLoseLife | SpellDescription$ You draw a card and you lose 1 life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{5}{B}, {T}: You draw a card and you lose 1 life.

@@ -1,0 +1,10 @@
+Name:Edge of Null
+ManaCost:4
+Types:ArtifactEquipment
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+K:Equip:4
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 4 | AddToughness$ 2 | Description$ Equipped creature gets +4/+2.
+A:AB$ Attach | PrecostDesc$ Syzygy — | Cost$ 4 | TapCreaturesForMana$ True | SorcerySpeed$ True | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SpellDescription$ Equip {4}
+Oracle:Syzygy (Each creature you tap while casting this spell or activating its abilities pays for {1}.)\nEquipped creature gets +4/+2.\nEquip {4}

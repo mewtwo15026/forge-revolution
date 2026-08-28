@@ -1,0 +1,17 @@
+Name:Rejuvenating Kappa
+ManaCost:3 G
+Types:Creature Plant Frog
+PT:3/3
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ GainCast | TriggerDescription$ At the beginning of your end step, you gain 2 life if you cast a spell from your graveyard this turn, then you gain 2 life if a card was put into your graveyard from your library this turn.
+SVar:GainCast:DB$ GainLife | Defined$ You | LifeAmount$ 2 | ConditionCheckSVar$ CastGY | SubAbility$ GainMilled
+SVar:GainMilled:DB$ GainLife | Defined$ You | LifeAmount$ 2 | ConditionCheckSVar$ Milled
+SVar:CastGY:Count$ThisTurnCast_Card.YouCtrl+wasCastFromYourGraveyard
+SVar:Milled:Count$ValidGraveyard Card.YouOwn+ThisTurnEnteredFrom_Library
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 4 G G | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {4}{G}{G}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+DeckHints:Ability$Mill|Surface
+DeckHas:Ability$Graveyard|Surface|LifeGain
+Oracle:At the beginning of your end step, you gain 2 life if you cast a spell from your graveyard this turn, then you gain 2 life if a card was put into your graveyard from your library this turn.\nSurface {4}{G}{G} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

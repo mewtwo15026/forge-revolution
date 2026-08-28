@@ -1,0 +1,9 @@
+Name:Avatar Exchange
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | Amount$ 1 | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 1 | RestrictValid$ Spell.withLevel up,Activated.Permanent+withLevel up | SpellDescription$ Add one mana of any color. Spend this mana only to cast creature spells with level up or activate abilities of permanents with level up.
+A:AB$ Clone | Cost$ X T | ValidTgts$ Creature.YouCtrl+withLevel up+cmcEQX | TgtPrompt$ Select target creature you control with level up to copy. | SpellDescription$ CARDNAME becomes a copy of target creature you control with level up and mana value X.
+SVar:X:Count$xPaid
+AI:RemoveDeck:Random
+Oracle:{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast creature spells with level up or activate abilities of permanents with level up.\n{X}, {T}: This land becomes a copy of target creature you control with level up and mana value X.

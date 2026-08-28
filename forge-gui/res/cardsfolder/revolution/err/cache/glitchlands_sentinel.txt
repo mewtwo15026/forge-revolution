@@ -1,0 +1,10 @@
+Name:Glitchlands Sentinel
+ManaCost:1 U
+Types:Creature Human Ranger
+PT:2/1
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, cache up to one other target permanent you control.
+SVar:TrigToken:DB$ Token | ValidTgts$ Permanent.Other+YouCtrl | TgtPrompt$ Select up to one other target permanent you control | TargetMin$ 0 | TargetMax$ 1 | TokenOwner$ TargetedController | TokenAmount$ 1 | TokenScript$ c_a_memory_fub | ConditionDefined$ Targeted | ConditionPresent$ Card | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Command | IsCurse$ True
+AI:RemoveDeck:Random
+Oracle:Flash\nWhen this creature enters, cache up to one other target permanent you control. (Exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

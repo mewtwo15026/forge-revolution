@@ -1,0 +1,10 @@
+Name:Resource_Inversion
+ManaCost:5 G G G
+Types:Legendary Creature Error
+PT:9/10
+# NOTE: second ability could be a Continuous but IDK how to limit it to your second main phase
+S:Mode$ CastWithFlash | ValidCard$ Permanent | ValidSA$ Spell | Caster$ You | Description$ You may cast permanent spells as though they had flash.
+T:Mode$ Phase | Phase$ Main | PhaseCount$ 2 | ValidPlayer$ You | TriggerZones$ Battlefield | Static$ True | Execute$ TrigUntapAll | TriggerDescription$ Untap all permanents you control that have abilities with {T} in their costs at the beginning of your second main phase.
+SVar:TrigUntapAll:DB$ UntapAll | ValidCards$ Permanent.YouCtrl+hasAbility Activated.hasTapCost
+SVar:PlayMain1:TRUE
+Oracle:You may cast permanent spells as though they had flash.\nUntap all permanents you control that have abilities with {T} in their costs at the beginning of your second main phase.

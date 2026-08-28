@@ -1,0 +1,11 @@
+Name:Aoushun's Presence
+ManaCost:BR BR
+Types:Legendary Enchantment
+T:Mode$ Phase | Phase$ EndCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ At the end of combat on your turn, you may sacrifice another creature. If you do, CARDNAME deals 2 damage to each opponent that creature attacked this turn and you draw a card.
+SVar:TrigDamage:DB$ DealDamage | Cost$ Sac<1/Creature.Other/another creature> | Defined$ Player.Opponent | NumDmg$ X | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+SVar:X:Count$Compare DidAttack EQ1.2.0
+SVar:DidAttack:Sacrificed$Valid Card.attackedThisTurn
+A:AB$ Animate | Cost$ B R | Defined$ Self | Power$ 3 | Toughness$ 2 | Types$ Creature,Dragon | Keywords$ Flying | SpellDescription$ CARDNAME becomes a 3/2 Dragon creature with flying in addition to its other types.
+DeckHas:Ability$Sacrifice & Type$Dragon
+Oracle:At the end of combat on your turn, you may sacrifice another creature. If you do, Aoushun's Presence deals 2 damage to each opponent that creature attacked this turn and you draw a card.\n{B}{R}: Aoushun's Presence becomes a 3/2 Dragon creature with flying in addition to its other types.

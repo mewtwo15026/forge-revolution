@@ -1,0 +1,10 @@
+Name:Staff of Balance
+ManaCost:1 W U
+Types:Artifact
+A:AB$ Surveil | Cost$ T | Amount$ 1 | SpellDescription$ Surveil 1.
+A:AB$ Tap | Cost$ 1 T | ValidTgts$ Creature | TgtPrompt$ Select target creature | SpellDescription$ Tap target creature.
+A:AB$ Draw | Cost$ 2 T | NumCards$ 1 | SpellDescription$ Draw a card.
+A:AB$ Untap | PrecostDesc$ Flow — | Cost$ 3 | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | SpellDescription$ Untap this artifact. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Surveil
+Oracle:{T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\n{1}, {T}: Tap target creature.\n{2}, {T}: Draw a card.\nFlow — {3}: Untap this artifact. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

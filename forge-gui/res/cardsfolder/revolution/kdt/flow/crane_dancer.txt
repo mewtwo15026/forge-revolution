@@ -1,0 +1,8 @@
+Name:Crane Dancer
+ManaCost:2 WU WU
+Types:Creature Human Monk
+PT:3/3
+K:Flying
+A:AB$ Pump | PrecostDesc$ Flow — | Cost$ 2 WU | TapCreaturesForMana$ True | SorcerySpeed$ True | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | KW$ Flying | SpellDescription$ Another target creature you control gains flying until end of turn. Activate only as a sorcery.
+SVar:BuffedBy:Creature
+Oracle:Flying\nFlow — {2}{WU}: Another target creature you control gains flying until end of turn. Activate only as a sorcery. (Each creature you tap while activating pays for {1}.)

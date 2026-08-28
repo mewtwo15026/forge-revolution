@@ -1,0 +1,12 @@
+Name:Web Surfer
+ManaCost:4 R
+Types:Creature Human Warrior
+PT:5/3
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 2 | EffectZone$ All | CheckSVar$ SubsRan | SVarCompare$ GE1 | Description$ This spell costs {2} less to cast if a Subroutine ran under your control this turn.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature dies, cache the top card of your library face down.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+SVar:SubsRan:Count$CountersRemovedThisTurn CLICK Subroutine.YouCtrl
+DeckNeeds:Type$Subroutine
+Oracle:This spell costs {2} less to cast if a Subroutine ran under your control this turn.\nWhen this creature dies, cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

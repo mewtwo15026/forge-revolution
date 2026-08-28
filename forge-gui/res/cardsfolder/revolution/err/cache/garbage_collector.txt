@@ -1,0 +1,10 @@
+Name:Garbage Collector
+ManaCost:1 G
+Types:Creature Human Druid
+PT:2/2
+A:AB$ Token | Cost$ G T Sac<1/Artifact,Enchantment/artifact or enchantment> | SorcerySpeed$ True | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek | SpellDescription$ Cache the top card of your library face down. Activate only as a sorcery.
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+SVar:AIPreference:SacCost$Artifact.cmcLE2,Enchantment.cmcLE2
+DeckHints:Ability$Token & Type$Artifact|Enchantment|Memory|Treasure|Food|Map|Blood|Berry|Shard
+Oracle:{G}, {T}, Sacrifice an artifact or enchantment: Cache the top card of your library face down. Activate only as a sorcery. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this:You may play the cached card this turn.”)

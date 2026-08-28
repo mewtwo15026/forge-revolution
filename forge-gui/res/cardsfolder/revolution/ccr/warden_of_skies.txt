@@ -1,0 +1,11 @@
+Name:Warden of Skies
+ManaCost:4 G G W
+Types:Legendary Creature Dragon Avatar
+PT:8/8
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Flying
+K:Vigilance
+K:Trample
+S:Mode$ CantBeCast | ValidCard$ Card | Origin$ Battlefield,Library,Graveyard,Exile,Command,Sideboard | Description$ Players can't cast spells from anywhere other than their hands.
+S:Mode$ SetCost | Activator$ Opponent | ValidTarget$ You,Spell.YouCtrl,Permanent.YouCtrl | Type$ Spell | Amount$ 5 | RaiseTo$ True | Description$ Spells your opponents cast that cost less than five mana to cast and target you and/or spells or permanents you control cost five mana to cast.
+Oracle:This spell can't be countered.\nFlying, vigilance, trample\nPlayers can't cast spells from anywhere other than their hands.\nSpells your opponents cast that cost less than five mana to cast and target you and/or spells or permanents you control cost five mana to cast.

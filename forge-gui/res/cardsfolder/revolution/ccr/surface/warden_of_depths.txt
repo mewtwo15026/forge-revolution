@@ -1,0 +1,20 @@
+Name:Warden of Depths
+ManaCost:3 U U B
+Types:Legendary Creature Leviathan Avatar
+PT:6/6
+S:Mode$ ReduceCost | OnlyFirstSpell$ True | PlayerTurn$ Opponent | Type$ Spell | ValidSpell$ Spell | Activator$ You | Amount$ 1 | Color$ U B | Description$ The first spell you cast during each of your opponent's turns cost {U}{B} less to cast.
+
+S:Mode$ Continuous | Phases$ End of Turn,Cleanup | Affected$ Card.nonLand+YouOwn+inZoneGraveyard | AffectedZone$ Graveyard | AddKeyword$ Flash | Description$ During each ending phase, nonland cards in your graveyard have flash and surface. The surface cost is equal to their mana cost. (You may cast a copy of a card with surface from your graveyard if there are six or more other cards there by exiling it and paying the surface cost. It won't surface transformed if cast this way.)
+S:Mode$ Continuous | Phases$ End of Turn,Cleanup | Affected$ Card.nonLand+YouOwn+inZoneGraveyard | AffectedZone$ Graveyard | MayPlay$ True | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7
+S:Mode$ CastWithFlash | Phases$ End of Turn,Cleanup | ValidCard$ Card.nonLand+YouOwn | ValidSA$ Spell | AffectedZone$ Graveyard | Caster$ You
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Static$ True | Phase$ End of Turn,Cleanup | TriggerZones$ Battlefield | Execute$ SurfCopy
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | IsPresent$ Card.sharesNameWith TriggeredSpellAbility | PresentZone$ Stack | SubAbility$ SurfaceExile
+SVar:SurfaceExile:DB$ ChangeZone | Defined$ TriggeredSpellAbility | Origin$ Stack | Destination$ Exile
+
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 6 U U B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {6}{U}{U}{B}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf | CheckSVar$ SurfacedSelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:SurfacedSelf:Count$AltCost.1.0
+DeckHas:Ability$Surface
+Oracle:The first spell you cast during each of your opponent's turns cost {U}{B} less to cast.\nDuring each ending phase, nonland cards in your graveyard have flash and surface. The surface cost is equal to their mana cost. (You may cast a copy of it from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)\nSurface {6}{U}{U}{B}

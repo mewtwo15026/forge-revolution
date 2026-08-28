@@ -1,0 +1,12 @@
+Name:Buried Geode
+ManaCost:2 G
+Types:Creature Elemental
+PT:3/2
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 3 G G | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {3}{G}{G}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+K:etbCounter:P1P1:1:ValidCard$ Card.Self+token+wasCastFromGraveyard:CARDNAME surfaces with a +1/+1 counter on it.
+DeckHas:Ability$Graveyard|Surface|Counters
+Oracle:Surface {3}{G}{G} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)\nBuried Geode surfaces with a +1/+1 counter.

@@ -1,0 +1,12 @@
+Name:Offset Daemon
+ManaCost:2 R W
+Types:Enchantment Creature Phoenix
+PT:3/2
+K:Flying
+K:Lifelink
+K:Haste
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+T:Mode$ ChangesZone | ValidCard$ Card.Self+wasCast | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When this creature enters, if it was cast, create a red and white Subroutine enchantment token named OVERFLOW() with “Whenever this Subroutine runs, you may sacrifice it. If you do, return target card named Offset Daemon from your graveyard to your hand.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)
+SVar:TrigToken:DB$ Token | TokenScript$ rw_e_sub_overflow
+DeckHas:Ability$LifeGain|Token & Type$Subroutine
+Oracle:Flying, lifelink, haste\nThis creature can't block.\nWhen this creature enters, if it was cast, create a red and white Subroutine enchantment token named OVERFLOW() with “Whenever this Subroutine runs, you may sacrifice it. If you do, return target card named Offset Daemon from your graveyard to your hand.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

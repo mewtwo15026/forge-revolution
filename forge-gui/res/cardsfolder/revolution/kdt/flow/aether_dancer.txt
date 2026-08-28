@@ -1,0 +1,12 @@
+Name:Aether Dancer
+ManaCost:1 W U
+Types:Creature Human Monk
+PT:2/3
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever you cast a noncreature spell, create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying
+A:AB$ Draw | PrecostDesc$ Flow — | Cost$ 10 W U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | NumCards$ X | SpellDescription$ Draw cards equal to half the number of cards in your library, rounded up. You can't activate this ability during the declare attackers step.
+SVar:X:Count$ValidLibrary Card.YouOwn/HalfUp
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Bird
+DeckHints:Type$Instant|Sorcery|Enchantment|Artifact|Planeswalker|Battle
+Oracle:Whenever you cast a noncreature spell, create a 1/1 blue Bird creature token with flying.\nFlow — {10}{W}{U}: Draw cards equal to half the number of cards in your library, rounded up. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

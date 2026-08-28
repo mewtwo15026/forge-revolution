@@ -1,0 +1,8 @@
+Name:Maiden of the Waters
+ManaCost:1 U
+Types:Creature Human Monk
+PT:1/4
+A:AB$ CopySpellAbility | PrecostDesc$ Flow — | Cost$ 3 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | TargetType$ Triggered.YouCtrl | ValidTgts$ Card,Emblem | TgtPrompt$ Choose target triggered ability you control | MayChooseTarget$ True | SpellDescription$ Copy target triggered ability you control. You may choose new targets for the copy. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+AI:RemoveDeck:All
+Oracle:Flow — {3}{U}: Copy target triggered ability you control. You may choose new targets for the copy. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

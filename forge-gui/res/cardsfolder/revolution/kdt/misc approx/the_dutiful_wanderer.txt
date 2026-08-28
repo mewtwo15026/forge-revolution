@@ -1,0 +1,14 @@
+Name:The Dutiful Wanderer
+ManaCost:3 W W
+Types:Legendary Planeswalker
+Loyalty:4
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ Player.Opponent | Execute$ TrigChoose | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on each opponent's turn, that player chooses any number of creatures they control with total power 4 or less. Other creatures they control can't attack this combat.
+SVar:TrigChoose:DB$ ChooseCard | Defined$ TriggeredPlayer | Choices$ Creature.RememberedPlayerCtrl | WithTotalPower$ 4 | Reveal$ True | RememberChosen$ True | AILogic$ NegativePowerFirst | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | Duration$ UntilEndOfCombat | RememberObjects$ Remembered | StaticAbilities$ CantAttack | SubAbility$ DBCleanup
+SVar:CantAttack:Mode$ CantAttack | ValidCard$ Creature.ActivePlayerCtrl+IsNotRemembered | Description$ Only the chosen creatures can attack this combat.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Animate | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Defined$ Self | Power$ 3 | Toughness$ 3 | Types$ Creature,Human,Samurai | Keywords$ Double Strike,Indestructible | RemoveCardTypes$ True | SpellDescription$ Until end of turn, CARDNAME becomes a 3/3 Human Samurai creature with double strike. (She doesn't lose loyalty while she's not a planeswalker.)
+A:AB$ ChangeZone | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature.YouCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you control | RememberTargets$ True | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBChangeZone | SpellDescription$ Exile up to one target creature you control and up to one target creature you don't control, then return the creature you controlled to the battlefield under its owner's control.
+SVar:DBChangeZone:DB$ ChangeZone | ValidTgts$ Creature.YouDontCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you don't control | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Defined$ Remembered | Origin$ Exile | Destination$ Battlefield | SubAbility$ DBCleanup
+Oracle:At the beginning of combat on each opponent's turn, that player chooses any number of creatures they control with total power 4 or less. Other creatures they control can't attack this combat.\n[+1]: Until end of turn, The Dutiful Wanderer becomes a 3/3 Human Samurai creature with double strike and indestructible. (She doesn't lose loyalty while she's not a planeswalker.)\n[-3]: Exile up to one target creature you control and up to one target creature you don't control, then return the creature you controlled to the battlefield under its owner's control.

@@ -1,0 +1,10 @@
+Name:Twilight Legion
+ManaCost:2 W
+Types:Creature Elemental Soldier
+PT:2/2
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ ChangeZone | PrecostDesc$ Syzygy — | Cost$ 2 U | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Origin$ Library | Destination$ Hand | ChangeType$ Card.namedTwilight Legion | ChangeNum$ 1 | SpellDescription$ Search your library for a card named Twilight Legion, reveal it, put it into your hand, then shuffle.
+DeckHints:Name$Twilight Legion
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{2}{W}, {T}: Search your library for a card named Twilight Legion, reveal it, put it into your hand, then shuffle.

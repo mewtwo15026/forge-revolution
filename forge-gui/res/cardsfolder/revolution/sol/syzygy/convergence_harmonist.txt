@@ -1,0 +1,10 @@
+Name:Convergence Harmonist
+ManaCost:3 U
+Types:Creature Elemental Cleric
+PT:3/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ CopySpellAbility | PrecostDesc$ Syzygy — | Cost$ 3 U T | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TargetType$ Spell | MayChooseTarget$ True | SpellDescription$ Copy target instant or sorcery spell you control. You may choose new targets for the copy.
+DeckNeeds:Type$Instant|Sorcery
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{3}{U}, {T}: Copy target instant or sorcery spell you control. You may choose new targets for the copy.

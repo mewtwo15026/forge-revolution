@@ -1,0 +1,29 @@
+Name:Chum Chaser
+ManaCost:3 B
+Types:Creature Shark
+PT:3/2
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigDrain | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell from your graveyard, each opponent loses 1 life and you gain 1 life.
+SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | AddKeyword$ Disturb:3 B B | Description$ Surface {3}{B}{B}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+DeckHas:Ability$LifeGain|Graveyard|Surface
+DeckHints:Ability$Surface
+AlternateMode:DoubleFaced
+Oracle:Whenever you cast a spell from your graveyard, each opponent loses 1 life and you gain 1 life.\n\nSurface {3}{B}{B}. Chum Chaser surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Ship Shredder
+ManaCost:no cost
+Colors:black
+Types:Creature Shark
+PT:5/3
+K:Menace
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopySelf
+SVar:SurfCopySelf:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExileSelf
+SVar:SurfExileSelf:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDrain2 | TriggerDescription$ When CARDNAME enters or whenever you cast a spell from your graveyard, each opponent loses 2 life and you gain 2 life.
+T:Mode$ SpellCast | ValidCard$ Card.wasCastFromYourGraveyard | ValidActivatingPlayer$ You | Execute$ TrigDrain2 | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ When CARDNAME enters or whenever you cast a spell from your graveyard, each opponent loses 2 life and you gain 2 life.
+SVar:TrigDrain2:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 2 | SubAbility$ DBGainLife2
+SVar:DBGainLife2:DB$ GainLife | Defined$ You | LifeAmount$ 2
+Oracle:Menace\nWhenever Ship Shredder enters or you cast a spell from your graveyard, each opponent loses 2 life and you gain 2 life.

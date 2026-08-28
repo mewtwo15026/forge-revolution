@@ -1,0 +1,15 @@
+Name:Olis's Axiom
+ManaCost:U
+Types:Artifact Creature Construct
+PT:0/2
+K:Level up:1 R
+SVar:maxLevel:3
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 1 | SetToughness$ 3 | AddTrigger$ CombatDmgOnce | IsPresent$ Card.Self+counters_GE1_LEVEL+counters_LE2_LEVEL
+SVar:CombatDmgOnce:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigRun | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, target Subroutine you control runs.
+SVar:DBRun:DB$ PutCounter | ValidTgts$ Subroutine.YouCtrl | TgtPrompt$ Select target Subroutine you control | CounterType$ CLICK | CounterNum$ 1 | SubAbility$ DBRemoveCounter
+SVar:DBRemoveCounter:DB$ RemoveCounter | Defined$ Targeted | CounterType$ CLICK | CounterNum$ All
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 2 | SetToughness$ 4 | AddTrigger$ CombatDmgTwice | IsPresent$ Card.Self+counters_GE3_LEVEL
+SVar:CombatDmgTwice:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | Execute$ TrigRepeat | CombatDamage$ True | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, target Subroutine you control runs twice.
+SVar:TrigRepeat:DB$ Repeat | ValidTgts$ Subroutine.YouCtrl | TgtPrompt$ Select target Subroutine you control | MaxRepeat$ 2 | RepeatSubAbility$ TrigRun
+DeckNeeds:Type$Subroutine
+Oracle:Level up {1}{R} ({1}{R}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 1-2\n1/3\nWhenever this creature deals combat damage to a player, target Subroutine you control runs.\nLEVEL 3+\n2/4\nWhenever this creature deals combat damage to a player, target Subroutine you control runs twice.

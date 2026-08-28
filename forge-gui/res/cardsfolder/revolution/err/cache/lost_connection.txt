@@ -1,0 +1,6 @@
+Name:Lost Connection
+ManaCost:W W
+Types:Instant
+A:SP$ Token | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | TokenOwner$ TargetedController | TokenAmount$ 1 | TokenScript$ c_a_memory_fub | SubAbility$ DBExile | SpellDescription$ Target nonland permanent's controller caches it.
+SVar:DBExile:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Command | IsCurse$ True
+Oracle:Target nonland permanent's controller caches it. (They exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

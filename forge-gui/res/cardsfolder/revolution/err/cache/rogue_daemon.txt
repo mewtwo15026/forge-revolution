@@ -1,0 +1,12 @@
+Name:Rogue Daemon
+ManaCost:4 U U
+Types:Enchantment Creature Jellyfish
+PT:4/5
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTarget | TriggerDescription$ When this creature enters, for each player, choose up to one other target nonland permanent that player controls. That player caches that permanent.
+SVar:TrigTarget:DB$ Pump | ValidTgts$ Permanent.Other+nonLand | TgtPrompt$ Select another target nonland permanent a player controls to be cached | TargetMin$ 0 | TargetMax$ OneEach | TargetsForEachPlayer$ True | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | RepeatPlayers$ Player | RepeatSubAbility$ DBToken | SubAbility$ DBExileAll
+SVar:DBToken:DB$ Token | TokenOwner$ Player.IsRemembered | TokenAmount$ 1 | TokenScript$ c_a_memory_fub | ConditionDefined$ Targeted | ConditionPresent$ Card.ControlledBy Player.IsRemembered
+SVar:DBExileAll:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Command | IsCurse$ True
+DeckHas:Type$Artifact|Memory & Ability$Token
+Oracle:Flying\nWhen this creature enters, for each player, choose up to one other target nonland permanent that player controls. That player caches that permanent. (They exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

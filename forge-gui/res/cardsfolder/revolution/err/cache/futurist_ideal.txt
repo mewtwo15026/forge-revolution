@@ -1,0 +1,11 @@
+Name:Futurist Ideal
+ManaCost:1 W W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Fabric - When this enchantment enters, target player reveals a number of cards from their hand equal to the number of enchantments you control. You choose one of them. That player caches that card.
+SVar:TrigToken:DB$ Token | ValidTgts$ Player | TokenAmount$ 1 | TokenScript$ c_a_memory_disc | TokenOwner$ TargetedPlayer | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ TargetedPlayer | Mode$ RevealYouChoose | RevealNumber$ Fabric | NumCards$ 1
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Creatures you control get +1/+1.
+SVar:Fabric:Count$Valid Enchantment.YouCtrl
+SVar:PlayMain1:TRUE
+DeckHints:Type$Enchantment
+Oracle:Fabric - When this enchantment enters, target player reveals a number of cards from their hand equal to the number of enchantments you control. You choose one of them. That player caches that card. (They exile it and create a Memory enchantment token with "{2}, Sacrifice this: You may play the cached card this turn.")\nCreatures you control get +1/+1.

@@ -1,0 +1,15 @@
+Name:Primordial Gateway
+ManaCost:2
+Types:Artifact
+K:ETBReplacement:Other:GateChoice
+SVar:GateChoice:DB$ GenericChoice | Choices$ Mourning,Oblation,Prayer | Defined$ You | SetChosenMode$ True | ShowChoice$ ExceptSelf | SpellDescription$ As this artifact enters, choose mourning, oblation, or prayer.
+SVar:Mourning:DB$ Pump | SpellDescription$ Mourning
+SVar:Oblation:DB$ Pump | SpellDescription$ Oblation
+SVar:Prayer:DB$ Pump | SpellDescription$ Prayer
+S:Mode$ Continuous | Affected$ Player | AddReplacementEffect$ MournReplace | IsPresent$ Card.Self+ChosenModeMourning | Description$ If a spell or ability causes its controller to discard a card, that player exiles that card instead of putting it into their graveyard.
+SVar:MournReplace:Event$ Moved | ActiveZones$ Battlefield | ValidCard$ Card | ValidCause$ SpellAbility.YouCtrl | Discard$ True | ReplaceWith$ MournExile | Description$ If a spell or ability you control causes you to discard a card, exile that card instead of putting it into your graveyard.
+SVar:MournExile:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Hand | Destination$ Exile
+S:Mode$ CantSacrifice | ValidCard$ Permanent.nonLand | ValidCause$ Spell,Activated | ForCost$ True | IsPresent$ Card.Self+ChosenModeOblation | Description$ Players can't sacrifice nonland permanents to cast spells or activate abilities.
+S:Mode$ CantPayLife | ValidPlayer$ Player | ValidCause$ Spell,Activated | ForCost$ True | IsPresent$ Card.Self+ChosenModePrayer | Description$ Players can't pay life to cast spells or activate abilities.
+AI:RemoveDeck:All
+Oracle:As this artifact enters, choose mourning, oblation, or prayer.\n• Mourning — If a spell or ability causes its controller to discard a card, that player exiles that card instead of putting it into their graveyard.\n• Oblation — Players can't sacrifice nonland permanents to cast spells or activate abilities.\n• Prayer — Players can't pay life to cast spells or activate abilities.

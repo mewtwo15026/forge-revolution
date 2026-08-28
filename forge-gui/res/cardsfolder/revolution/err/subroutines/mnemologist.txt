@@ -1,0 +1,8 @@
+Name:Mnemologist
+ManaCost:2 U
+Types:Creature Human Wizard
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create a blue Subroutine enchantment token named READ() with “Whenever this Subroutine runs, draw a card.”
+SVar:TrigToken:DB$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ u_e_sub_read
+DeckHas:Ability$Token & Type$Subroutine
+Oracle:When this creature enters, create a blue Subroutine enchantment token named READ() with “Whenever this Subroutine runs, draw a card.” (Insert it into one of your three programs. At your first main phase each turn, the next program runs all its Subroutines.)

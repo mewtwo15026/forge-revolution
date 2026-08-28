@@ -1,0 +1,19 @@
+Name:Unending Possibility
+ManaCost:2 U
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When this enchantment enters, cache any number of cards from your hand face down.
+SVar:TrigRepeat:DB$ Repeat | RepeatSubAbility$ CacheOrClose | RepeatCheckSVar$ GaveUp | RepeatSVarCompare$ EQ0 | SubAbility$ FinalClear
+SVar:CacheOrClose:DB$ GenericChoice | Defined$ You | Choices$ Cache,Close
+SVar:Cache:DB$ StoreSVar | SVar$ GaveUp | Type$ Number | Expression$ 1 | ConditionCheckSVar$ HandSize | ConditionSVarCompare$ EQ0 | SubAbility$ DBToken | SpellDescription$ Cache a card from your hand.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_memory_fdh | ConditionCheckSVar$ HandSize | ConditionSVarCompare$ GE1 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | ExileFaceDown$ True | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True
+SVar:Close:DB$ StoreSVar | SVar$ GaveUp | Type$ Number | Expression$ 1 | SpellDescription$ Done caching cards.
+SVar:FinalClear:DB$ StoreSVar | SVar$ GaveUp | Type$ Number | Expression$ 0
+SVar:HandSize:Count$ValidHand Card.YouOwn
+SVar:GaveUp:Number$0
+T:Mode$ SpellCast | ValidCard$ Card.nonLand+wasCastFromExile | ValidActivatingPlayer$ You | Execute$ TrigCopy | TriggerZones$ Battlefield | CheckSVar$ CountTrigs | SVarCompare$ LTMemSac | TriggerDescription$ Whenever you cast a cached spell, copy it. You may choose new targets for the copy.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+SVar:CountTrigs:Count$ResolvedThisTurn
+SVar:MemSac:PlayerCountPropertyYou$SacrificedThisTurn Memory
+AI:RemoveDeck:All
+Oracle:When this enchantment enters, cache any number of cards from your hand face down. (Exile them face down. For each of them, create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)\nWhenever you cast a cached spell, copy it. You may choose new targets for the copy.

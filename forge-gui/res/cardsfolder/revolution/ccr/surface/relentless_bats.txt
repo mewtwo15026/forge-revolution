@@ -1,0 +1,15 @@
+Name:Relentless Bats
+ManaCost:1 B
+Types:Creature Bat
+PT:1/1
+K:Flying
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 2 B B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | IsPresent2$ Creature.YouCtrl+namedRelentless Bats | PresentZone2$ Battlefield | PresentCompare2$ EQ0 | Description$ Surface {2}{B}{B}
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | IsPresent2$ Creature.YouCtrl+namedRelentless Bats | PresentZone2$ Battlefield | PresentCompare2$ GE1 | Description$ Surface {2}{B}{B}. This spell costs {1}{B}{B} less to cast if you control a creature named Relentless Bats.
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+K:A deck can have any number of cards named CARDNAME.
+DeckNeeds:Name$Relentless Bats
+DeckHas:Ability$Graveyard|Surface
+Oracle:Flying\nSurface {2}{B}{B}. This spell costs {1}{B}{B} less if you control a creature named Relentless Bats. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)\nA deck can have any number of cards named Relentless Bats.

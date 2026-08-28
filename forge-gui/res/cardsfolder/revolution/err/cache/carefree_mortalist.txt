@@ -1,0 +1,14 @@
+Name:Carefree Mortalist
+ManaCost:1 B
+Types:Creature Wolf Warlock
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Corrupt — When this creature enters, mill three cards. If you control a permanent with greater mana value than this creature, you may cache a creature card from your graveyard.
+SVar:TrigMill:DB$ Mill | Defined$ You | NumCards$ 3 | SubAbility$ DBBranch
+SVar:DBBranch:DB$ Branch | BranchConditionSVar$ Corrupt | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ DBMayCache | FalseSubAbility$ DBNull
+SVar:DBMayCache:DB$ GenericChoice | Defined$ You | Choices$ CacheCard,DBNull | AILogic$ CacheCard
+SVar:CacheCard:DB$ Token | TokenScript$ c_a_memory_fug | SubAbility$ DBExile | ConditionPresent$ Creature.YouOwn+inZoneGraveyard | ConditionPresentCompare$ GE1 | SpellDescription$ Cache a creature card from your graveyard.
+SVar:DBExile:DB$ ChangeZone | DefinedPlayer$ You | Origin$ Graveyard | Destination$ Exile | ChangeNum$ 1 | ChangeType$ Creature.YouOwn | Hidden$ True
+SVar:DBNull:DB$ Cleanup | SpellDescription$ Do not cache.
+SVar:Corrupt:Count$Valid Permanent.YouCtrl+cmcGE3
+DeckHas:Ability$Token|Graveyard|Mill & Type$Artifact|Memory
+Oracle:Corrupt — When this creature enters, mill three cards. If you control a permanent with greater mana value than this creature, you may cache a creature card from your graveyard. (Exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)

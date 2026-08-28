@@ -1,0 +1,10 @@
+Name:Immersive Moment
+ManaCost:G
+Types:Instant
+A:SP$ Charm | Choices$ DBPump,DBToken
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature | TgtPrompt$ Select target creature | KW$ Hexproof | SpellDescription$ Target creature gains hexproof until end of turn.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_memory_fdl | SubAbility$ DBPeek | SpellDescription$ Cache the top card of your library face down.
+SVar:DBPeek:DB$ PeekAndReveal | NoReveal$ True | SubAbility$ DBExileTop
+SVar:DBExileTop:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Exile | ExileFaceDown$ True
+DeckHas:Ability$Token & Type$Memory
+Oracle:Choose one —\n• Target creature gains hexproof until end of turn.\n• Cache the top card of your library face down. (Look at it, then exile it face down. Create a Memory enchantment token with “{2}, Sacrifice this Memory: You may play the cached card this turn.”)

@@ -1,0 +1,8 @@
+Name:Center of Attention
+ManaCost:4 W
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | Origin$ Battlefield | Destination$ Exile | SubAbility$ DBMana | SpellDescription$ Exile target nonland permanent.
+SVar:DBMana:DB$ Mana | Produced$ Combo Any | Amount$ X | RestrictValid$ Activated | SpellDescription$ Add X mana in any combination of colors, where X is the amount of mana spent to cast this spell minus 1. Spend this mana only to activate abilities.
+SVar:X:Count$CastTotalManaSpent/Minus.1
+SVar:BuffedBy:Card.hasActivatedAbility
+Oracle:Exile target nonland permanent.\nAdd X mana in any combination of colors, where X is the amount of mana spent to cast this spell minus 1. Spend this mana only to activate abilities.

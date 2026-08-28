@@ -1,0 +1,12 @@
+Name:Untethered Daemon
+ManaCost:2 G
+Types:Enchantment Creature Plant
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Optional$ True | Execute$ TrigReturn | TriggerDescription$ When this creature enters, return up to one permanent card from your graveyard to your hand. If you do, cache a card from your hand face down.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Permanent.YouOwn | Hidden$ True | RememberChanged$ True
+SVar:DBCache:DB$ Token | TokenScript$ c_a_memory_fdh | SubAbility$ DBExile | ConditionDefined$ Remembered | ConditionPresent$ Card
+SVar:DBExile:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | ExileFaceDown$ True | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+DeckHas:Ability$Token|Graveyard & Type$Enchantment|Memory
+Oracle:When this creature enters, return up to one permanent card from your graveyard to your hand. If you do, cache a card from your hand face down. (Exile it and create a Memory enchantment token with “{2}, Sacrifice this: You may play the cached card this turn.”)\n{T}: Add {G}.

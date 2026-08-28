@@ -1,0 +1,32 @@
+Name:Root Fossil
+ManaCost:1
+Types:Artifact
+A:AB$ Dig | Cost$ 2 Sac<1/CARDNAME> | DigNum$ 3 | ChangeNum$ 1 | ChangeValid$ Land | DestinationZone$ Graveyard | RememberChanged$ True | Optional$ True | DestinationZone2$ Library | LibraryPosition2$ 0 | SubAbility$ DBSurveil | SpellDescription$ Surveil 3. You may put a land card you surveilled this way from your graveyard onto the battlefield tapped.
+SVar:DBSurveil:DB$ Surveil | Amount$ X | SubAbility$ DBDropLand
+SVar:DBDropLand:DB$ ChangeZone | Hidden$ True | ChangeType$ Land.IsRemembered | SelectPrompt$ Choose a land to return | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$Compare Y GE1.2.3
+SVar:Y:Count$ValidGraveyard Card.IsRemembered
+A:ST$ Play | Name$ Surface | ActivationZone$ Graveyard | Cost$ 0 | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | PlayCost$ 2 G | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | CastTransformed$ True | RememberPlayed$ True | SubAbility$ SurfaceExile | Description$ Surface {2}{G}. CARDNAME surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+SVar:SurfaceExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ SurfaceCleanup
+SVar:SurfaceCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Surface|Surveil
+AlternateMode:DoubleFaced
+Oracle:{2}, Sacrifice Root Fossil: Surveil 3. You may put a land card you surveilled this way from your graveyard onto the battlefield tapped.\nSurface {2}{G}. Root Fossil surfaces transformed. (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)
+
+ALTERNATE
+
+Name:Reborn Lily
+ManaCost:no cost
+Colors:green
+Types:Creature Plant
+PT:2/4
+T:Mode$ AttackersDeclared | Execute$ TrigDig | ValidAttackers$ Card.Self | TriggerZones$ Battlefield | AttackingPlayer$ You | NoResolvingCheck$ True | TriggerDescription$ Whenever CARDNAME attacks, surveil 3. You may put a land card you surveilled this way from your graveyard onto the battlefield tapped.
+SVar:TrigDig:DB$ Dig | DigNum$ 3 | ChangeNum$ 1 | ChangeValid$ Land | DestinationZone$ Graveyard | RememberChanged$ True | Optional$ True | DestinationZone2$ Library | LibraryPosition2$ 0 | SubAbility$ DBSurveil2
+SVar:DBSurveil2:DB$ Surveil | Amount$ V | SubAbility$ DBDropLand2
+SVar:DBDropLand2:DB$ ChangeZone | Hidden$ True | ChangeType$ Land.IsRemembered | SelectPrompt$ Choose a land to return | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | SubAbility$ DBCleanup2
+SVar:DBCleanup2:DB$ Cleanup | ClearRemembered$ True
+SVar:V:Count$Compare W GE1.2.3
+SVar:W:Count$ValidGraveyard Card.IsRemembered
+SVar:HasAttackEffect:TRUE
+Oracle:Whenever Reborn Lily attacks, surveil 3. You may put a land card you surveilled this way from your graveyard onto the battlefield tapped. (To surveil 3, look at the top three cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)

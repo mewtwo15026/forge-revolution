@@ -1,0 +1,9 @@
+Name:Breach Herald
+ManaCost:4 G
+Types:Creature Elemental Cleric
+PT:4/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ DigUntil | PrecostDesc$ Syzygy — | Cost$ 4 G | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | Valid$ Card.Creature | ValidDescription$ creature | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True | FoundDestination$ Hand | SpellDescription$ Reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom in a random order.
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{4}{G}: Reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom in a random order.

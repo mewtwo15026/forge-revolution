@@ -1,0 +1,9 @@
+Name:Faces of the Faceless
+ManaCost:2
+Types:Artifact
+R:Event$ Moved | ActiveZones$ Battlefield | Origin$ Graveyard | Destination$ Battlefield,Exile,Hand,Library,Command,Stack | ValidLKI$ Card | Prevent$ True | Layer$ CantHappen | Description$ Cards can't leave graveyards. (This includes by casting them.)
+S:Mode$ CantBeCast | EffectZone$ Battlefield | Origin$ Graveyard | Secondary$ True
+S:Mode$ CantPlayLand | EffectZone$ Battlefield | Origin$ Graveyard | Secondary$ True
+K:Cycling:2
+AI:RemoveDeck:Random
+Oracle:Cards can't leave graveyards. (This includes by casting them.)\nCycling {2} ({2}, Discard this card: Draw a card.)

@@ -1,0 +1,10 @@
+Name:Ukina, Aethersong Basker
+ManaCost:W U
+Types:Legendary Creature Human Monk
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When NICKNAME enters, create a 1/1 blue Bird creature token with flying.
+SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ u_1_1_bird_flying
+A:AB$ Dig | PrecostDesc$ Flow — | Cost$ 5 WU | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | DigNum$ 2 | NoReveal$ True | SpellDescription$ Look at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library. You can't activate this ability during the declare attackers step.
+SVar:BuffedBy:Creature
+DeckHas:Ability$Token & Type$Bird
+Oracle:When Ukina enters, create a 1/1 blue Bird creature token with flying.\nFlow — {5}{WU}: Look at the top two cards of your library. Put one into your hand and the other on the bottom of your library. You can't activate this ability during the declare attackers step. (Each creature you tap while activating pays for {1}.)

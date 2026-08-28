@@ -1,0 +1,10 @@
+Name:Stardust Behemoth
+ManaCost:4 W W
+Types:Creature Elemental Soldier
+PT:4/4
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+A:AB$ Token | PrecostDesc$ Syzygy — | Cost$ 3 W | TapCreaturesForMana$ True | ActivationPhases$ Upkeep->BeginCombat,Declare Blockers->Cleanup | TokenScript$ b_1_1_elemental_nosyzygy | SpellDescription$ Create a 1/1 black Elemental creature token with "This creature can't block or be tapped for syzygy."
+DeckHas:Ability$Token
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\n{3}{W}: Create a 1/1 black Elemental creature token with "This creature can't block or be tapped for syzygy."

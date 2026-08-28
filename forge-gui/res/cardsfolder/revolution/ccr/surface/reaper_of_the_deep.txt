@@ -1,0 +1,16 @@
+Name:Reaper of the Deep
+ManaCost:4 B B
+Types:Creature Jellyfish
+PT:6/4
+K:Menace
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When CARDNAME enters, mill two cards. You may repeat this process until there are seven or more cards in your graveyard.
+SVar:TrigRepeat:DB$ Repeat | RepeatSubAbility$ DBMill | RepeatOptional$ True | RepeatCheckSVar$ ThresholdCheck | RepeatSVarCompare$ LE6
+SVar:DBMill:DB$ Mill | NumCards$ 2 | Defined$ You
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ Graveyard | Cost$ 5 B B | IsPresent$ Card.YouOwn | PresentZone$ Graveyard | PresentCompare$ GE7 | Description$ Surface {5}{B}{B}
+T:Mode$ SpellCast | ValidCard$ Card.Self | Static$ True | Execute$ SurfCopy | CheckSVar$ Surfaced
+SVar:SurfCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | SubAbility$ SurfExile
+SVar:SurfExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Stack | Destination$ Exile
+SVar:Surfaced:Count$AltCost.1.0
+SVar:ThresholdCheck:Count$ValidGraveyard Card.YouOwn
+DeckHas:Ability$Graveyard|Mill
+Oracle:Menace\nWhen Reaper of the Deep enters, mill two cards. You may repeat this process until there are seven or more cards in your graveyard.\nSurface {5}{B}{B} (You may cast a copy of this from your graveyard if there are six or more other cards there by exiling it and paying the surface cost.)

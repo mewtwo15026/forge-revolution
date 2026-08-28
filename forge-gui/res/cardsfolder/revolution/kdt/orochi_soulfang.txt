@@ -1,0 +1,10 @@
+Name:Orochi Soulfang
+ManaCost:G
+Types:Creature Spirit Snake
+PT:1/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Other+YouCtrl+powerGTX | TriggerZones$ Battlefield | Execute$ TrigCounter | OptionalDecider$ You | TriggerDescription$ Whenever another creature you control enters, if that creature's power is greater than this creature's power, you may put a +1/+1 counter on this creature.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:X:Count$CardPower
+A:AB$ MoveCounter | Cost$ 2 G | SorcerySpeed$ True | Source$ Self | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ P1P1 | CounterNum$ Any
+DeckHas:Ability$Counters
+Oracle:Whenever another creature you control enters, if that creature's power is greater than this creature's power, you may put a +1/+1 counter on this creature.\n{2}{G}: Move any number of +1/+1 counters from this creature to another target creature you control. Activate only as a sorcery.

@@ -1,0 +1,12 @@
+Name:Nullblade Artisan
+ManaCost:3 W
+Types:Creature Elemental Soldier
+PT:2/3
+# TODO: program syzygy
+# NOTE: syzygy abilities will likely be vulnerable to the same bug as KDT's flow - shutting them off during DA step is the current workaround
+K:Convoke
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSearch | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.
+SVar:TrigSearch:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card.Equipment | ChangeNum$ 1 | ShuffleNonMandatory$ True
+A:AB$ ChangeZone | PrecostDesc$ Syzygy — | Cost$ 2 W T | TapCreaturesForMana$ True | SorcerySpeed$ True | Origin$ Hand | Destination$ Battlefield | ChangeType$ Equipment | ChangeNum$ 1 | AILogic$ Main1 | SpellDescription$ You may put an Equipment card from your hand onto the battlefield. Activate only as a sorcery.
+DeckHints:Type$Equipment
+Oracle:Syzygy (Each other creature you tap while casting this spell or activating its abilities pays for {1}.)\nWhen Nullblade Artisan enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.\n{2}{W}, {T}: You may put an Equipment card from your hand onto the battlefield. Activate only as a sorcery.

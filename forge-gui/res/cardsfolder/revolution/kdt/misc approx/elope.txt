@@ -1,0 +1,13 @@
+Name:Elope
+ManaCost:1 U
+Types:Sorcery
+K:Tiered
+A:SP$ Charm | Choices$ DBElopeDiff,DBElopeSame
+SVar:DBElopeDiff:DB$ ChangeZone | ModeCost$ 0 | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select the first target nonland permanent | Origin$ Battlefield | Destination$ Hand | SubAbility$ DBSecondDiff | SpellDescription$  | SpellDescription$ This spell costs {4} more to cast unless it targets two nonland permanents with different owners.
+SVar:DBSecondDiff:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+!OwnedBy TargetedOwner | TgtPrompt$ Select a second target nonland permanent with a different owner | Origin$ Battlefield | Destination$ Hand
+SVar:DBElopeSame:DB$ ChangeZone | ModeCost$ 4 | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent | Origin$ Battlefield | Destination$ Hand | SubAbility$ DBSecondSame | SpellDescription$ Return up to two target nonland permanents to their owners' hands.
+SVar:DBSecondSame:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+OwnedBy TargetedOwner | TargetMin$ 0 | TargetMax$ 1 | TargetUnique$ True | TgtPrompt$ Select up to one other target nonland permanent with the same owner | Origin$ Battlefield | Destination$ Hand
+K:Cycling:2
+AI:RemoveDeck:All
+DeckHas:Ability$Discard
+Oracle:This spell costs {4} more to cast unless it targets two nonland permanents with different owners.\nReturn up to two target nonland permanents to their owners' hands.\nCycling {2} ({2}, Discard this card: Draw a card.)
