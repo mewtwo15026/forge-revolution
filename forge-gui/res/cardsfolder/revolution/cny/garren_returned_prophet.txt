@@ -1,0 +1,19 @@
+Name:Garren, Returned Prophet
+ManaCost:1 B R
+Types:Legendary Planeswalker Garren
+Loyalty:3
+A:AB$ Discard | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Defined$ You | NumCards$ 2 | Optional$ True | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw | SpellDescription$ Discard up to two cards, then draw that many cards.
+SVar:DBDraw:DB$ Draw | NumCards$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | ClearChosenCard$ True
+SVar:X:Remembered$Amount
+A:AB$ Sacrifice | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | Defined$ You | SacValid$ Creature | Optional$ True | RememberSacrificed$ True | SubAbility$ SacImmeTrig | SpellDescription$ You may sacrifice a creature. When you do, return target creature card with equal or lesser mana value from your graveyard to the battlefield tapped.
+SVar:SacImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Remembered | ConditionDefined$ RememberedLKI | ConditionPresent$ Creature | Execute$ TrigReturn | SubAbility$ DBCleanup | TriggerDescription$ When you do, return target creature card with equal or lesser mana value from your graveyard to the battlefield tapped.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouCtrl+cmcLEY | TgtPrompt$ Select target creature card with equal or lesser mana value | Tapped$ True
+SVar:Y:TriggerRemembered$CardManaCost
+A:AB$ ChooseCard | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | AILogic$ Never | ChoiceZone$ Graveyard | Choices$ Card.Creature+YouCtrl | ChoiceTitle$ Choose a creature card in your graveyard to exile | SubAbility$ DBExile | StackDescription$ SpellDescription | SpellDescription$ You may exile a creature card from your graveyard. When you do, NICKNAME deals damage equal to the exiled creature's power to target creature.
+SVar:DBExile:DB$ ChangeZone | RememberChanged$ True | Origin$ Graveyard | Destination$ Exile | Defined$ ChosenCard | SubAbility$ ExileImmeTrig | StackDescription$ None
+SVar:ExileImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Remembered | ConditionDefined$ RememberedLKI | ConditionPresent$ Creature | Execute$ TrigBurn | SubAbility$ DBCleanup | TriggerDescription$ When you do, NICKNAME deals damage equal to the exiled creature's power to target creature.
+SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Creature | NumDmg$ Z
+SVar:Z:TriggerRemembered$CardPower
+DeckHas:Ability$Discard|Sacrifice|Graveyard
+Oracle:[+1]: Discard up to two cards, then draw that many cards.\n[-1]: You may sacrifice a creature. When you do, return target creature card with equal or lesser mana value from your graveyard to the battlefield tapped.\n[-2]: You may exile a creature card from your graveyard. When you do, Garren deals damage equal to the exiled creature's power to target creature.

@@ -1,0 +1,8 @@
+Name:Renegade Banneret
+ManaCost:3 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, you may return target creature card with power 2 or less from your graveyard to your hand.

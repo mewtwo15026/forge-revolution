@@ -1,0 +1,8 @@
+Name:Semari Weaponsmith
+ManaCost:3 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:This creature has first strike during your turn.\nWhenever you cast your second spell each turn, create a Weapon token. You may attach it to another creature you control. (It's an Equipment artifact with equip {2} and \Equipped creature gets +1/+1.\)

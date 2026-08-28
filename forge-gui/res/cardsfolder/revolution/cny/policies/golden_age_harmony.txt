@@ -1,0 +1,30 @@
+Name:Golden Age
+ManaCost:G
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChange | Host$ True | TriggerDescription$ When CARDNAME enters, search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+SVar:TrigChange:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | ConditionPresent$ Card.Self+withComplete_B | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankCheck | Duration$ Permanent | Keywords$ Complete_C | SubAbility$ CompleteB | SpellDescription$ A, B, C - You've cast a multicolored spell this turn.
+SVar:CompleteB:DB$ Animate | ConditionPresent$ Card.Self+withComplete_A+withoutComplete_B | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ CompleteA
+SVar:CompleteA:DB$ Animate | ConditionPresent$ Card.Self+withoutComplete_A | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_C | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankCheck:Count$ThisTurnCast_Card.MultiColor+YouCtrl
+AlternateMode:DoubleFaced
+SVar:BuffedBy:Card.MultiColor
+DeckHints:Color$White|Blue|Black|Red
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform this.)\nWhen Golden Age enters, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nA, B, C — You've cast a multicolored spell this turn.
+
+ALTERNATE
+
+Name:Harmony
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:green
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigExile | OptionalDecider$ You | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, you may exile target multicolored card from your graveyard. If you do, you may cast a copy of it this turn. (You still pay its costs. A copy of a permanent spell becomes a token.)
+SVar:TrigExile:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target multicolored card in your graveyard | ValidTgts$ Card.MultiColor+YouOwn | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | Abilities$ MayCast | SubAbility$ DBCleanup
+SVar:MayCast:ST$ Play | Cost$ 0 | ActivationZone$ Command | ActivationLimit$ 1 | Valid$ Card.IsRemembered+nonLand | ValidZone$ Exile | Amount$ All | ValidSA$ Spell | CopyCard$ True | Mandatory$ True | SubAbility$ ClearEffect | Description$ You may cast a copy of that card this turn.
+SVar:ClearEffect:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:At the beginning of your upkeep, you may exile target multicolored card from your graveyard. If you do, you may cast a copy of it this turn. (You still pay its costs. A copy of a permanent spell becomes a token.)

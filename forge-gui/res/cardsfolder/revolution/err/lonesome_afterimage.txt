@@ -1,6 +1,6 @@
 Name:Lonesome Afterimage
 ManaCost:2 BG
-Types:Creature Elf Shaman
+Types:Creature Elf Druid
 PT:3/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill two cards.
 SVar:TrigMill:DB$ Mill | NumCards$ 2 | Defined$ You

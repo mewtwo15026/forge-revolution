@@ -1,0 +1,8 @@
+Name:Product of Nepotism
+ManaCost:1 B
+Types:Creature Human Noble
+PT:2/1
+T:Mode$ SpellCast | ValidCard$ Creature | ValidSA$ Spell.ManaFromArtifact | ValidActivatingPlayer$ You | Execute$ TrigDraw | TriggerZones$ Battlefield | ResolvedLimit$ 1 | TriggerDescription$ Whenever you cast a spell, if mana from an artifact source was spent to cast it, you may pay 1 life. If you do, draw a card. Do this only once each turn.
+SVar:TrigDraw:AB$ Draw | Cost$ PayLife<1>
+DeckHints:Type$Treasure
+Oracle:Whenever you cast a spell, if mana from an artifact source was spent to cast it, you may pay 1 life. If you do, draw a card. Do this only once each turn.

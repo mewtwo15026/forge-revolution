@@ -1,0 +1,31 @@
+Name:Ascend to Power
+ManaCost:2 B
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChoice | TriggerDescription$ When CARDNAME enters, you may sacrifice a creature, discard a card, or pay 3 life. If you do, draw two cards.
+SVar:TrigChoice:DB$ GenericChoice | Choices$ DBSacDraw,DBDiscardDraw,DBLifeDraw
+SVar:DBSacDraw:DB$ Draw | NumCards$ 2 | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Sacrifice a creature: Draw two cards.
+SVar:DBDiscardDraw:DB$ Draw | NumCards$ 2 | UnlessCost$ Discard<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Discard a card: Draw two cards.
+SVar:DBLifeDraw:DB$ Draw | NumCards$ 2 | UnlessCost$ PayLife<3> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ Pay 3 life: Draw two cards.
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2 | DiscardCost$Card
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankA | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked | SpellDescription$ A — You've sacrificed a nonland permanent this turn.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankB | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ PolicyMarked | SpellDescription$ B — You've discarded a card this turn.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankC | Duration$ Permanent | Keywords$ Complete_C | SubAbility$ PolicyMarked | SpellDescription$ C — You've lost life this turn.
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B+withComplete_C | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankA:PlayerCountPropertyYou$SacrificedThisTurn Permanent.nonLand
+SVar:PlankB:PlayerCountPropertyYou$CardsDiscardedThisTurn
+SVar:PlankC:PlayerCountPropertyYou$LifeLostThisTurn
+DeckHints:Ability$Sacrifice & Ability$Discard
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nWhen Ascend to Power enters, you may sacrifice a creature, discard a card, or pay 3 life. If you do, draw two cards.\nA — You've sacrificed a nonland permanent this turn.\nB — You've discarded a card this turn.\nC — You've lost life this turn.
+
+ALTERNATE
+
+Name:Omnipotence
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:black
+S:Mode$ Continuous | Affected$ You | SetMaxHandSize$ Unlimited | Description$ You have no maximum hand size.
+A:AB$ Draw | Cost$ PayLife<1> | NumCards$ 1 | SorcerySpeed$ True | AILogic$ YawgmothsBargain | AILifeThreshold$ 1 | SpellDescription$ Draw a card. Activate only as a sorcery.
+Oracle:Your maximum hand size is zero.\nPay 1 life: Draw a card. Activate only as a sorcery.

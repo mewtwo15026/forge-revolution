@@ -1,0 +1,15 @@
+Name:Ery, Leyfused
+ManaCost:1 G GU U
+Types:Legendary Creature Snake Druid
+PT:4/4
+K:Vigilance
+K:Reach
+S:Mode$ CastWithFlash | ValidCard$ Druid | ValidSA$ Spell | Caster$ You | Description$ You may cast Druid spells as though they had flash.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigUntap | TriggerDescription$ At the beginning of your end step, untap all lands you control if you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:TrigUntap:DB$ UntapAll | ValidCards$ Land.YouCtrl | ConditionCheckSVar$ Ancient
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+DeckHints:Type$Druid
+Oracle:Vigilance, reach\nYou may cast Druid spells as though they had flash.\nAt the beginning of your end step, untap all lands you control if you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

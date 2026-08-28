@@ -1,0 +1,8 @@
+Name:Chromatic Rift
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ Charm | Choices$ DBWrathGold,DBWrathMono,DBWrathBrown
+SVar:DBWrathGold:DB$ DestroyAll | ValidCards$ Creature.MultiColor | SpellDescription$ Destroy all multicolored creatures.
+SVar:DBWrathMono:DB$ DestroyAll | ValidCards$ Creature.MonoColor | SpellDescription$ Destroy all monocolored creatures.
+SVar:DBWrathBrown:DB$ DestroyAll | ValidCards$ Creature.Colorless | SpellDescription$ Destroy all colorless creatures.
+Oracle:Choose one -\n• Destroy all multicolored creatures.\n• Destroy all monocolored creatures.\n• Destroy all colorless creatures.

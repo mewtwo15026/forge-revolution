@@ -1,0 +1,11 @@
+Name:Sanctum Deathspeaker
+ManaCost:W B
+Types:Creature Snake Warlock
+PT:1/1
+K:Vigilance
+S:Mode$ Continuous | ActiveZones$ Battlefield | Affected$ Warlock.Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Warlocks you control get +1/+1.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.token+YouCtrl | Execute$ TrigPutCounter | ActivationLimit$ 1 | TriggerDescription$ Whenever a creature token you control dies, put a +1/+1 counter on this creature. This ability triggers only once each turn.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Counters
+DeckNeeds:Type$Warlock & Ability$Token
+Oracle:Vigilance\nOther Warlocks you control get +1/+1.\nWhenever a creature token you control dies, put a +1/+1 counter on this creature. This ability triggers only once each turn.

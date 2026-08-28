@@ -1,0 +1,10 @@
+Name:Wistful Strategist
+ManaCost:1 R
+Types:Creature Cat Rebel
+PT:2/1
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigRummage | OptionalDecider$ You | TriggerDescription$ Muster — Whenever you cast a creature spell, you may discard a card, then draw a card.
+SVar:TrigRummage:DB$ Discard | Mode$ TgtChoose | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+A:AB$ PutCounter | Cost$ ExileFromGrave<3/Card> | ActivationZone$ Battlefield | ActivationLimit$ 1 | ActivationPhases$ Upkeep->Main1,Main2->Cleanup | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1 | Put a +1/+1 counter on this creature. Activate only once each turn and only outside of combat.
+DeckHas:Ability$Discard|Counters|Graveyard
+Oracle:Muster - Whenever you cast a creature spell, you may discard a card, then draw a card.\nExile three cards from your graveyard: Put a +1/+1 counter on this creature. Activate only once each turn and only outside of combat.

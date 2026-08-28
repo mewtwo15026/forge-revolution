@@ -1,0 +1,12 @@
+Name:Vishanki District
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Swamp, a Mountain, and a Forest.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionCheckSVar$ Zoning | ConditionSVarCompare$ LT3
+A:AB$ Mana | Cost$ T | Produced$ Combo B R G | SpellDescription$ Add {B}, {R}, or {G}.
+SVar:Zoning:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Swamp.YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Mountain.YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Forest.YouCtrl/LimitMax.1
+Oracle:Vishanki District enters the battlefield tapped unless you control a Swamp, a Mountain, and a Forest.\n{T}: Add {B}, {R}, or {G}.

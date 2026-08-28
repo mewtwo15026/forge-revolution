@@ -1,0 +1,6 @@
+Name:Covet
+ManaCost:2 U
+Types:Sorcery
+K:Spectacle:1 U
+A:SP$ Draw | NumCards$ 2 | SpellDescription$ Draw two cards.
+Oracle:Spectacle {1}{U} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nDraw two cards.

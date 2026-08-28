@@ -1,0 +1,12 @@
+Name:Eo, the Great Equalizer
+ManaCost:R G W
+Types:Legendary Creature Giant Avatar
+PT:3/3
+K:Trample
+S:Mode$ Continuous | Affected$ Creature.Other | SetPower$ 3 | SetToughness$ 3 | Description$ Other creatures have base power and toughness 3/3.
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigSac | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, sacrifice NICKNAME unless you attacked this turn.
+SVar:TrigSac:DB$ Sacrifice | ConditionCheckSVar$ RaidTest | ConditionSVarCompare$ EQ0
+SVar:RaidTest:Count$AttackersDeclared
+SVar:NeedsToPlayVar:RaidTest GE1
+AI:RemoveDeck:Random
+Oracle:Trample\nOther creatures have base power and toughness 3/3.\nAt the beginning of your end step, sacrifice Eo unless you attacked this turn.

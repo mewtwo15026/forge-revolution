@@ -2,6 +2,6 @@ Name:Whipping Winds
 ManaCost:2 U
 Types:Sorcery
 S:Mode$ CastWithFlash | ValidCard$ Card.Self | ValidSA$ Spell | EffectZone$ All | Caster$ You | CheckSVar$ NumAct | SVarCompare$ GE1 | Description$ You may cast CARDNAME as though it had flash if you've activated a nonmana ability this turn.
-SVar:NumAct:Count$ThisTurnActivated_Activated.YouCtrl+nonManaAbility
+SVar:NumAct:Count$ThisTurnActivated_Activated.YouCtrl+!ManaAbility
 A:SP$ ChangeZone | ValidTgts$ Artifact,Creature | TgtPrompt$ Select target artifact or creature | AlternativeDecider$ TargetedOwner | Origin$ Battlefield | Destination$ Library | DestinationAlternative$ Library | LibraryPositionAlternative$ -1 | StackDescription$ {p:TargetedOwner} puts {c:Targeted} on the top or bottom of their library. | SpellDescription$ Target artifact's or creature's owner puts it on their choice of the top or bottom of their library.
 Oracle:You may cast this spell as though it had flash if you've activated a nonmana ability this turn.\nTarget artifact's or creature's owner puts it on their choice of the top or bottom of their library.

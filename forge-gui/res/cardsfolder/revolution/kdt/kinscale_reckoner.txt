@@ -2,9 +2,9 @@ Name:Kinscale Reckoner
 ManaCost:3 G U
 Types:Creature Dragon Ninja
 PT:4/4
-K:Ninjutsu:2 G U
+K:Sneak:2 G U
 T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigRamp | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, you may search your library for a land card, put it onto the battlefield tapped, then shuffle. That land becomes a 4/4 Dragon creature in addition to its other types.
 SVar:TrigRamp:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | Tapped$ True | ChangeType$ Land | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ DBAnimate
 SVar:DBAnimate:DB$ Animate | Defined$ Remembered | Power$ 4 | Toughness$ 4 | Types$ Creature,Dragon | Duration$ Permanent | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
-Oracle:Ninjutsu {2}{G}{U} ({2}{G}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, you may search your library for a land card, put it onto the battlefield tapped, then shuffle. That land becomes a 4/4 Dragon creature in addition to its other types.
+Oracle:Sneak {2}{G}{U} (You may cast this spell for {2}{G}{U} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nWhenever this creature deals combat damage to a player, you may search your library for a land card, put it onto the battlefield tapped, then shuffle. That land becomes a 4/4 Dragon creature in addition to its other types.

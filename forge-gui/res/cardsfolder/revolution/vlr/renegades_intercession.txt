@@ -1,0 +1,7 @@
+Name:Renegade's Intercession
+ManaCost:W
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Choose one or both -\n• Put a +1/+1 counter on target creature.\n• Return target creature you own to your hand.

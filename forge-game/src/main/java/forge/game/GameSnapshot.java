@@ -190,6 +190,7 @@ public class GameSnapshot {
 
         //REVOLUTION
         newPlayer.setSpellExpentThisTurn(origPlayer.getSpellExpentThisTurn());
+        newPlayer.setNoncreatureExpentThisTurn(origPlayer.getNoncreatureExpentThisTurn());
 
         // Copy mana pool
         copyManaPool(origPlayer, newPlayer);

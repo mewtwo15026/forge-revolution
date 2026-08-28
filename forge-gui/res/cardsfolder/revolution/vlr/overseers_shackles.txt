@@ -1,0 +1,7 @@
+Name:Overseer's Shackles
+ManaCost:1 W
+Types:Enchantment
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Enchant creature\nEnchanted creature can't attack or block.\n{4}{W}: Enchanted creature's controller sacrifices it. You gain 2 life and surveil 2.

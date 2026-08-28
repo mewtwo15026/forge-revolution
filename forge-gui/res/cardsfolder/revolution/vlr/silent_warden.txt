@@ -1,0 +1,12 @@
+Name:Silent Warden
+ManaCost:2 W U
+Types:Creature Angel
+PT:3/4
+K:Flying
+S:Mode$ CantBeCast | ValidCard$ Card | Caster$ Opponent | NumLimitEachTurn$ 1 | Description$ Each of your opponents can't cast more than one spell each turn.
+S:Mode$ ReduceCost | ValidCard$ Card | Type$ Spell | Activator$ You | Amount$ 1 | CheckSVar$ YouCast | SVarCompare$ EQ1 | Description$ The second spell you cast each turn costs {1} less to cast and can't be countered.
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | ActivatorThisTurnCast$ EQ2 | Execute$ TrigEffect | Static$ True
+SVar:DBEffect:DB$ Effect | ReplacementEffects$ AntiMagic | RememberObjects$ TriggeredCard | ForgetOnMoved$ Stack
+SVar:AntiMagic:Event$ Counter | ValidCard$ Card.IsRemembered | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+SVar:YouCast:Count$ThisTurnCast Card.YouCtrl
+Oracle:Flying\nEach of your opponents can't cast more than one spell each turn.\nThe second spell you cast each turn costs {1} less to cast and can't be countered.

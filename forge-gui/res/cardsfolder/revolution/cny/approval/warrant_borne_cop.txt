@@ -1,0 +1,11 @@
+Name:Warrant-Borne Cop
+ManaCost:2 B
+Types:Creature Human Soldier
+PT:2/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | TriggerDescription$ When CARDNAME enters, target player reveals X cards from their hand, where X is your approval. You choose one of them. That player discards that card. (Your approval contains up to one different permanent of each color.)
+SVar:TrigDiscard:DB$ Discard | ValidTgts$ Player | NumCards$ 1 | RevealNumber$ X | Mode$ RevealYouChoose | DiscardValid$ Card
+SVar:X:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless
+DeckHints:Color$White|Blue|Red|Green
+DeckHas:Ability$Discard
+Oracle:When Warrant-Borne Cop enters, target player reveals X cards from their hand, where X is your approval. You choose one of them. That player discards that card. (Your approval contains up to one different permanent of each color.)

@@ -1,6 +1,6 @@
 Name:Advance of the Sainted March
-ManaCost:1 W
-Types:Battle Operation
+ManaCost:2 W
+Types:Enchantment Battle Operation
 Defense:3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | Execute$ TrigEtbToken | TriggerDescription$ When CARDNAME enters, create two 1/1 red Berserker creature tokens.
 SVar:TrigEtbToken:DB$ Token | TokenAmount$ 2 | TokenScript$ r_1_1_berserker

@@ -1,0 +1,14 @@
+Name:Life from Death
+ManaCost:1 G
+Types:Enchantment
+T:Mode$ ChangesZoneAll | ValidCards$ Card.YouOwn | Origin$ Graveyard | Destination$ Any | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Whenever one or more cards leave your graveyard, put a +1/+1 counter on target creature you control.
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1
+# NOTE: Sacrificed triggers do not normally track Cause as a valid TriggerObject
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | ValidCard$ Card.Self | WhileKeyword$ Spell.Creature | Execute$ TrigEffect | TriggerDescription$ When you sacrifice this enchantment as a cost to cast a creature spell, that creature enters with an additional +1/+1 counter on it.
+SVar:TrigEffect:DB$ Effect | RememberObjects$ TriggeredCause | ForgetOnMoved$ Stack | ReplacementEffects$ ReplaceEnter
+SVar:ReplaceEnter:Event$ Moved | ValidCard$ Card.IsRemembered | Destination$ Battlefield | ReplaceWith$ AddExtraCounter | ReplacementResult$ Updated | Description$ That creature enters with an additional +1/+1 counter on it.
+SVar:AddExtraCounter:DB$ PutCounter | ETB$ True | Defined$ ReplacedCard | CounterTypes$ P1P1 | CounterNum$ 1 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+DeckHas:Ability$Counters
+DeckHints:Ability$Graveyard & Keyword$Flashback|Unearth|Jump-start|Retrace|ccr_Surface|vlr_Pursuit
+Oracle:Whenever one or more cards leave your graveyard, put a +1/+1 counter on target creature you control.\nWhen you sacrifice this enchantment as a cost to cast a creature spell, that creature enters with an additional +1/+1 counter on it.

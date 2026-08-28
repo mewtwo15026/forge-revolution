@@ -1,0 +1,10 @@
+Name:Political Prisoner
+ManaCost:1 U
+Types:Creature Human
+PT:3/3
+K:Defender
+S:Mode$ CanAttackDefender | ValidCard$ Card.Self | ValidAttacked$ Player.hasApproval_LTX | Description$ CARDNAME can attack as though it didn't have defender as long as your approval is greater than defending player's approval. (Your approval contains up to one different permanent of each color.)
+SVar:X:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless+nonBlue
+DeckHints:Color$White|Black|Red|Green
+Oracle:Defender\nPolitical Prisoner can attack as though it didn't have defender as long as your approval is greater than defending player's approval. (Your approval contains up to one different permanent of each color.)

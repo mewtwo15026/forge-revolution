@@ -1,0 +1,28 @@
+Name:Corrupt Congressman
+ManaCost:2 B
+Types:Creature Human Advisor
+PT:2/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPledge | TriggerDescription$ Whenever CARDNAME enters or attacks, make a pledge. (Create any black Clique enchantment token. If you already control a Clique, instead activate one of its Pledges without paying its cost.)
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigPledge | TriggerDescription$ Whenever CARDNAME enters or attacks, make a pledge. (Create any black Clique enchantment token. If you already control a Clique, instead activate one of its Pledges without paying its cost.)
+SVar:TrigPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Tiril,Hazakh,Vishanki
+SVar:Tiril:DB$ Token | TokenScript$ tiril_bureau | SpellDescription$ Tiril Bureau (Pledge - Surveil 2.)
+SVar:Hazakh:DB$ Token | TokenScript$ hazakh_arsenal | SpellDescription$ Hazakh Arsenal (Pledge - Create a 2/2 colorless Minion creature token with decayed.)
+SVar:Vishanki:DB$ Token | TokenScript$ vishanki_inc | SpellDescription$ Vishanki Inc. (Pledge - Create a Treasure token.)
+S:Mode$ Continuous | Affected$ Clique.YouCtrl | AddAbility$ PledgeCost & PledgeFree | AddSVar$ AIPref | Description$ Cliques you control have "Pledge - {4}: Each opponent loses 3 life unless they discard a card or sacrifice a creature. Activate only as a sorcery unless you're making a pledge."
+SVar:PledgeCost:AB$ GenericChoice | Cost$ 4 | PrecostDesc$ Pledge - | SorcerySpeed$ True | Defined$ Opponent | TempRemember$ Chooser | Choices$ Discard,SacCreature | FallbackAbility$ LoseLifeFallback | AILogic$ PayUnlessCost | SpellDescription$ Each opponent loses 3 life unless they discard a card or sacrifice a creature. Activate only as a sorcery unless you're making a pledge.
+SVar:PledgeFree:AB$ GenericChoice | Cost$ 0 | PrecostDesc$ Pledge - | IsPresent$ Effect.YouCtrl+namedPledging | PresentZone$ Command | Secondary$ True | 
+SVar:Discard:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3 | UnlessCost$ Discard<1/Card> | UnlessPayer$ Remembered | SpellDescription$ You lose 3 life unless you discard a card.
+SVar:SacCreature:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3 | UnlessCost$ Sac<1/Creature> | UnlessPayer$ Remembered | SpellDescription$ You lose 3 life unless you sacrifice a creature.
+SVar:LoseLifeFallback:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 3
+SVar:AIPref:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2 | DiscardCost$ Card
+DeckHas:Type$Enchantment|Clique
+Oracle:Whenever Corrupt Congressman enters or attacks, make a pledge. (Create any black Clique enchantment token. If you already control a Clique, instead activate one of its Pledges without paying its cost.)\nCliques you control have "Pledge - {4}: Each opponent loses 3 life unless they discard a card or sacrifice a creature. Activate only as a sorcery unless you're making a pledge."

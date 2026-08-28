@@ -1,0 +1,14 @@
+Name:Waylen, Bloodhunter
+ManaCost:2 G G
+Types:Legendary Creature Cat Mercenary
+PT:4/4
+K:Haste
+S:Mode$ MinMaxBlocker | ValidCard$ Card.Self | Max$ 1 | Description$ NICKNAME can't be blocked by more than one creature, and must be blocked by a creature with a bounty counter on it if able.
+K:MustBeBlockedBy Creature.counters_GE1_BOUNTY
+A:AB$ PutCounter | Cost$ 1 B | SorcerySpeed$ True | ValidTgts$ Creature.counters_EQ0_BOUNTY | AITgts$ Creature.OppCtrl+powerLTX+counters_EQ0_BOUNTY | IsCurse$ True | TgtPrompt$ Select target creature without a bounty counter | CounterType$ BOUNTY | CounterNum$ 1 | SubAbility$ DBAnimate | SpellDescription$ Put a bounty counter on target creature that doesn't have one. It gains "When this creature dies, each opponent draws a card and gains 2 life." Activate only as a sorcery.
+SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Triggers$ OnDies | Duration$ Permanent
+SVar:OnDies:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigBounty | TriggerDescription$ When this creature dies, each opponent draws a card and gains 2 life.
+SVar:TrigBounty:DB$ Draw | Defined$ Opponent | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ Opponent | LifeAmount$ 2
+SVar:X:Count$CardToughness
+Oracle:Haste\nWaylen can't be blocked by more than one creature, and must be blocked by a creature with a bounty counter on it if able.\n{1}{B}: Put a bounty counter on target creature that doesn't have one. It gains "When this creature dies, each opponent draws a card and gains 2 life." Activate only as a sorcery.

@@ -1,0 +1,13 @@
+Name:Envoy of the Fallen
+ManaCost:2 U B R
+Types:Creature Human Soldier
+PT:3/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+wasCast | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, if it was cast, return any number of target creature cards with total mana value 3 or less from your graveyard to the battlefield.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TargetMin$ 0 | TargetMax$ X | MaxTotalTargetCMC$ 3 | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select any number of target creature cards with total mana value 3 or less
+SVar:X:Count$ValidGraveyard Creature.YouOwn+cmcLE3
+A:AB$ Draw | Cost$ 2 Sac<1/Creature.Other/another creature> | NumCards$ 2 | SubAbility$ DBDiscard | SpellDescription$ Draw two cards, then discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Graveyard|Sacrifice|Discard
+DeckHints:Ability$Discard|Sacrifice
+Oracle:When Envoy of the Fallen enters, if it was cast, return any number of target creature cards with total mana value 3 or less from your graveyard to the battlefield.\n{2}, Sacrifice another creature: Draw two cards, then discard a card.

@@ -1,0 +1,11 @@
+Name:Rowdy Mob
+ManaCost:2 G W
+Types:Sorcery
+A:SP$ Token | TokenScript$ w_1_1_citizen | TokenAmount$ 2 | ImprintTokens$ True | SubAbility$ DBWeapons | SpellDescription$ Create two 1/1 white Citizen creature tokens, then create two Weapon tokens and attach one to each of those creatures. (They're Equipment artifacts with equip {2} and "Equipped creature gets +1/+1.")
+SVar:DBWeapons:DB$ Token | TokenScript$ c_a_weapon_equip | TokenAmount$ 2 | ImprintTokens$ True | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ RepeatEach | RepeatCards$ Creature.IsImprinted | RepeatSubAbility$ RepeatChoose | SubAbility$ DBCleanup
+SVar:RepeatChoose:DB$ ChooseCard | Choices$ Equipment.IsImprinted+!AttachedTo Creature | ChoiceTitle$ Choose one of the Weapon tokens to attach | SubAbility$ RepeatAttach
+SVar:RepeatAttach:DB$ Attach | Object$ ChosenCard | Defined$ Remembered
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True | ClearRemembered$ True | ClearImprinted$ True
+DeckHas:Ability$Token & Type$Citizen|Artifact|Equipment|Weapon
+Oracle:Create two 1/1 white Citizen creature tokens, then create two Weapon tokens and attach one to each of those creatures. (They're Equipment artifacts with equip {2} and "Equipped creature gets +1/+1.")

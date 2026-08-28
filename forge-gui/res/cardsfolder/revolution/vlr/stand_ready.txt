@@ -1,0 +1,7 @@
+Name:Stand Ready
+ManaCost:3 W
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Put a +1/+1 counter on each creature you control. Untap them.\nPrevent all damage that would be dealt to you and permanents you control this turn by sources you don't control.

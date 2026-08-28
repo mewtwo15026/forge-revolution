@@ -1,0 +1,11 @@
+Name:Memoriam
+ManaCost:2 U B
+Types:Instant
+A:SP$ Mill | NumCards$ 4 | SubAbility$ DBImmeTrig | SpellDescription$ Mill four cards. When you do, return up to one target creature card and up to one target instant or sorcery card from your graveyard to your hand. Exile CARDNAME.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigReturnCreature | TriggerDescription$ When you do, return up to one target creature card and up to one target instant or sorcery card from your graveyard to your hand. | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+SVar:TrigReturnCreature:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select up to one target creature card in your graveyard | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Creature.YouOwn | SubAbility$ TrigReturnSpell
+SVar:TrigReturnSpell:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select up to one target instant or sorcery card in your graveyard | TargetMin$ 0 | TargetMax$ 1 | ValidTgts$ Instant.YouOwn,Sorcery.YouOwn
+DeckHas:Ability$Mill
+DeckHints:Type$Creature & Type$Instant|Sorcery
+Oracle:Mill four cards. When you do, return up to one target creature card and up to one target instant or sorcery card from your graveyard to your hand.\nExile Memoriam.

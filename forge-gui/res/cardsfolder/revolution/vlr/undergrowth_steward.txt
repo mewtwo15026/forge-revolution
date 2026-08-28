@@ -1,0 +1,13 @@
+Name:Undergrowth Steward
+ManaCost:1 U
+Types:Creature Treefolk Druid
+PT:1/3
+S:Mode$ ReduceCost | ValidCard$ Instant,Sorcery | Type$ Spell | Activator$ You | Amount$ 1 | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, instant and sorcery spells you cast cost {1} less to cast. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+A:AB$ Mill | Cost$ T | Defined$ You | NumCards$ 2 | SpellDescription$ Mill two cards.
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+DeckHints:Type$Instant|Sorcery
+DeckHas:Ability$Mill
+Oracle:As long as you're ancient, instant and sorcery spells you cast cost {1} less to cast. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)\n{T}: Mill two cards.

@@ -1,0 +1,10 @@
+Name:Grand Larceny
+ManaCost:U R
+Types:Sorcery
+K:Spectacle:U R
+A:SP$ Charm | CharmNum$ X | Choices$ DBBurn,DBDraw | AdditionalDescription$ . If this spell's spectacle cost was paid, choose both instead.
+SVar:DBBurn:DB$ DealDamage | ValidTgts$ Any | TgtPrompt$ Select any target to distribute damage to | NumDmg$ 2 | TargetMin$ 1 | TargetMax$ 2 | DividedAsYouChoose$ 2 | SpellDescription$ CARDNAME deals 2 damage divided as you choose among one or two targets.
+SVar:DBDraw:DB$ Draw | SpellDescription$ Draw a card.
+SVar:X:Count$Compare Spectacular GE1.2.1
+SVar:Spectacular:Count$ValidStack Card.Self+spectacle
+Oracle:Spectacle {U}{R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nChoose one. If this spell's spectacle cost was paid, choose both instead.\n• Grand Larceny deals 2 damage divided as you choose among one or two targets.\n• Draw a card.

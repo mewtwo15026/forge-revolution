@@ -1,0 +1,8 @@
+Name:Culvert Inspector
+ManaCost:2 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:This creature can't be blocked by creatures with power 2 or less.\nAt the beginning of combat on your turn, if you're ancient, put a +1/+1 counter on target creature you control. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

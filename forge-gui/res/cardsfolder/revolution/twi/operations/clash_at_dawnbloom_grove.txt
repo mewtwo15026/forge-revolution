@@ -1,6 +1,6 @@
 Name:Clash at Dawnbloom Grove
 ManaCost:2 G
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDestroy | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may destroy target noncreature, nonland permanent.
 SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonCreature+nonLand | TgtPrompt$ Select target noncreature, nonland permanent

@@ -1,0 +1,8 @@
+Name:Shriek of the Shroud
+ManaCost:4 B B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Flying\nWhen this creature enters, each opponent discards a card and loses 2 life.\nBasic landcycling {1}{B} ({1}{B}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)

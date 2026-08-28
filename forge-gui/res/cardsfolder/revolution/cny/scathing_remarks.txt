@@ -1,0 +1,9 @@
+Name:Scathing Remarks
+ManaCost:2 R
+Types:Enchantment
+S:Mode$ CantGainLife | ValidPlayer$ Player | Description$ Players can't gain life.
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Player | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Whenever a player casts a spell, CARDNAME deals 1 damage to that player for each of that spell's colors.
+SVar:TrigBurn:DB$ DealDamage | Defined$ TriggeredActivator | NumDmg$ X
+SVar:X:TriggeredCard$CardNumColors
+AI:RemoveDeck:Random
+Oracle:Players can't gain life.\nWhenever a player casts a spell, Scathing Remarks deals 1 damage to that player for each of that spell's colors.

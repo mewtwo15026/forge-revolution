@@ -1,6 +1,6 @@
 Name:Gravebound Oath
 ManaCost:1 G
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:5
 S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ You | Description$ You may look at the top card of your library any time.
 S:Mode$ Continuous | IsPresent$ Card.Self+counters_LE4_DEFENSE | Affected$ Land.TopLibrary+YouCtrl | AffectedZone$ Library | MayPlay$ True | Description$ 4 Defense — You may play lands from the top of your library.

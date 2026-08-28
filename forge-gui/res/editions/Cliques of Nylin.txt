@@ -1,0 +1,356 @@
+[metadata]
+Code=CNY
+Date=2024-09-01
+Name=Cliques of Nylin
+Code2=CNY
+MciCode=cny
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=nullAnyLand,Rare,Uncommon,Wildcard,Token,Common
+Booster=1 AnyLand,1 Rare,3 Uncommon,2 Wildcard,1 Token,7 Common
+FatPack=8
+FatPackExtraSlots=40 BasicLands CNY
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+# Set designed by Stasis
+
+[Rare]
+Base=Rare:fromSheet("CNY cards")
+
+[Uncommon]
+Base=Uncommon:fromSheet("CNY cards")
+
+[Token]
+Base=Token:fromSheet("CNY cards")
+
+[Common]
+Base=Common:fromSheet("CNY cards")
+
+[AnyLand]
+Base=Basic:fromSheet("CNY cards")
+Replace=0.5F Common:fromSheet("CNY cards")
+
+[Wildcard]
+Base=Uncommon:fromSheet("CNY cards")
+Replace=0.11F Rare:fromSheet("CNY cards")
+Replace=0.017F Mythic:fromSheet("CNY cards")
+Replace=0.532F Common:fromSheet("CNY cards")
+
+[cards]
+1 M Tomer, Figurehead President @
+2 R Army Reserves @
+3 C Border Junction @
+4 C Brazen Blackcoats @
+5 C Change Allegiances @
+6 R Chromatic Rift @
+7 C Codename: Cicada @
+8 R Distributive Justice @A Dan & Nazar Hrabovyi
+9 C Eager Voter @
+10 C Enforcer's Baton @
+11 R Genotype Splicer @
+12 U Getaway Proxy @
+13 C Held in Contempt @
+14 M Incumbency @
+15 U Induced Evolution @
+16 U Laboratory Mentor @
+17 C Magnetic Rhetorician @
+18 C Medic's Implant @
+19 R Mellan, Defense Attorney @
+20 U Minister of Utility @
+21 U Overbearing Researcher @
+22 C Penrath Roperunner @
+23 L Plains @Hanna Damberg
+24 U Planned Obsolescence @
+25 U Prismatic Propagandist @
+26 U Prosperity Project @
+27 C Replicated Regiment @
+28 C Retaliatory Outburst @
+29 C Rogue Justiciar @
+30 C Seasoned Spymaster @
+31 U Selective Truthseeker @
+32 R Severin's Masterwork @
+33 C Abduct @
+34 U Ballot Registrar @
+35 C Bring to the Limelight @
+36 U Bug the Line @
+37 U Bureau Mentor @
+38 C Civic Copterist @
+39 C Codename: Bumblebee @
+40 C Combat Corporal @
+41 R Congressional Kraken @
+42 C Dampening Reconciliator @
+43 R Demographer @
+44 U Dormant Monstrosity @
+45 C Election Fraud @
+46 U Enlightenment @
+47 C Evasive Tactics @
+48 C Expendable Researcher @
+49 M Gaze Upon Civilization @
+50 C Informed Voter @
+51 C Invader of Privacy @
+52 L Island @毛 裤
+53 C Political Prisoner @
+54 R Quid Pro Quo @
+55 R Research Grant @Vladislav Dostavalov & Reto Scheiwiller
+56 C Rush for Results @
+57 U Sleeper Strix @
+58 C Stasis Chamber @
+59 R Sterling, Federal Informant @
+60 R Thesis on Mutation @
+61 U Trench Commander @
+62 U Verity Circle @Jort van Welbergen
+63 U Veto @
+64 U Arsenal Mentor @
+65 R Ascend to Power @Ben Moriconi & Kavindu Kaushalya
+66 C Blue Collar Bloodsucker @
+67 C Bureau Broodmother @
+68 C Climactic Drop @
+69 C Codename: Ant @
+70 U Corporate Espionage @
+71 R Corrupt Congressman @
+72 C Covert Infiltrator @
+73 R Cryptology @
+74 C Deadly Dispute @Joe Russano
+75 C Estranged Aristocrat @
+76 C Expendable Medic @
+77 U Extraction Mission @
+78 C Hazakh Conscriptor @
+79 R Judge, Jury, and Executioner @
+80 U Killing in the Name of . . . @
+81 C Lofty Voter @
+82 U Merciless Headsman @
+83 C Night Squad @
+84 U Noxious Conditions @
+85 M Old Times Ruminator @
+86 C Presidential Pardon @
+87 U Product of Nepotism @
+88 U Rank and Defile @
+89 C Rigged Trial @
+90 C Senators' Chauffeur @
+91 R Serve Again @
+92 L Swamp @Tyler Bradley
+93 R The Venerable Veteran @
+94 U Warrant-Borne Cop @
+95 R Alamer, Profit Rerecorder @
+96 C Ardent Voter @
+97 C Battlefield Tactician @
+98 C Capital Maglev @
+99 U Coercive Contractor @
+100 U Corporate Mentor @
+101 C Declamation Podium @
+102 U Expendable Arsonist @
+103 C Flags on High @
+104 R Flaw in the System @
+105 U Flock Favorites @
+106 U Gain Traction @
+107 U Gubernatorial Fundraiser @
+108 C Hazakh Commandos @
+109 C Hired Shot @
+110 C Inflammatory Declaimer @
+111 R Lightning Warmonger @
+112 C Main Street Hooligang @
+113 U Martyrize @
+114 L Mountain @Josef Barton
+115 U Patent Pending @
+116 R Penrath Firearm @
+117 R Puppet War @
+118 C Reckless Jailbreak @
+119 C Resourceful Hireling @
+120 C Revolutionary Throng @
+121 U Scathing Remarks @
+122 R Sparks of a Revolution @Donald Matiri & Mario Garcia Arevalo
+123 C Splintering Blast @
+124 C Up-and-Comer @
+125 M Venture Capitalist @
+126 C Anesthesiologist @
+127 R Aspiring Anarchist @
+128 C Bouncers-for-Hire @
+129 M Bulk Bioengineering @
+130 U Cabinet Recruiter @
+131 R Chromagoyf @
+132 C Demolition Team @
+133 R Disestablishmentarianism @
+134 C Escalated Tensions @
+135 L Forest @Gauvin REMY
+136 C Gerrymanderer @
+137 R Golden Age @Bastien Jez & Terraform Studios
+138 U Grassroots Campaigners @
+139 C Idealistic Voter @
+140 C Inner City Scout @
+141 U Instigating Directive @
+142 U Insurgency Mentor @
+143 C International Development @
+144 C Invest @
+145 C Mana Harvesters @
+146 U Prismatic Confluence @
+147 C Ram Through @Alisher Mirzoev
+148 C Ruinous Discovery @
+149 U Scourge of Capitalism @
+150 U Sillaman Regrafter @
+151 U Sleeper Insurgent @
+152 R Subsidized Market @
+153 U Sustainable Investments @
+154 C Test Subject Alpha @
+155 C Triumphant Herd @
+156 R Zeno, Planar Engineer @
+157 U Adaptive Hydra @
+158 U Assault Engine @
+159 R Axiomatic Shift @
+160 U Bioengineered Opus @
+161 U Black-Tie Gala @
+162 U Blackout @
+163 R Campaign Rally @
+164 U Carlisle, Grid Globalizer @
+165 U Central Processor @
+166 U Charity Match @
+167 M Chief Executive Dhante @
+168 U Chittering Gargantua @
+169 U Codename: Spyder @
+170 M The Connaistone @
+171 R Coup D'Etat @
+172 R Defect @Adrian L C
+173 U Devoted Lackeys @
+174 R Dhante's Inferno @
+175 C Diplomatic Alliance @
+176 U Dissect @
+177 R Empowered Revisionary @
+178 R Envoy of the Fallen @
+179 M Eo, the Great Equalizer @
+180 M Estrathian Gentrifiers @
+181 R Eyes of the Bureau @
+182 U The First Battalion @
+183 U Free Market @Anatoly Muschenko & Yun Yang Tan
+184 R Freightyard Scrappers @
+185 M Garren, Returned Prophet @
+186 R Gatherer of Grievances @
+187 U Genetics Prodigy @
+188 R Genome Project @
+189 R Hazakh Agenda @
+190 C Hazakh Ambassador @
+191 M High Senator Talpa @
+192 R Identity Forger @
+193 M Krint, Five Star @
+194 C Legislative Gridlock @
+195 U Liquidate @
+196 U Meeting of the Elites @Luciano Alberto & Neil Blevins
+197 U Mondo, Outcast Maverick @
+198 C Mutinous Inciter @
+199 R Neuralinked Hive @
+200 R Out With a Bang @
+201 C Patron of Arms @
+202 R Penrath Agenda @
+203 C Penrath Ambassador @
+204 R Penrath Dispatcher @
+205 R Prime for Innovation @
+206 M The Quindral Accords @
+207 U Reconnaissance Agent @
+208 R Scandalous Revelation @
+209 M Scrapyard Mecha @
+210 U Search and Seizure @
+211 U Security Initiative @Lazare Viennot & Dangiuz
+212 M Severin, Sparkmind @
+213 U Silence the Opposition @Max Hay & Rostyslav Zagornov
+214 R Sillaman Agenda @
+215 C Sillaman Ambassador @
+216 U Social Engineering @
+217 U Sola, Contraband Playboy @
+218 U Speculative Stockbroker @
+219 U Storm the Senate @
+220 M Survivors of the New World @
+221 R Tiril Agenda @
+222 C Tiril Ambassador @
+223 U Together in Arms @Mauro Sorghienti & Mateusz Katzig
+224 C Traumatic Recollection @
+225 U Underclass Hero @
+226 U Urban Twinmotors @
+227 U Vertical Integration @
+228 R Vishanki Agenda @
+229 C Vishanki Ambassador @
+230 R Vishanki Hellkite @
+231 R Whirring Inspector @
+232 R Work Safety Violation @
+233 C Debt Collectors @
+234 C Estrathian Philanthropist @
+235 U Eyes in the Sky @
+236 C Ignited Soul @
+237 U Loophole Exploiter @
+238 U Metropolitan Champion @
+239 U Nourishing Orator @
+240 C Pinnacle of Progress @
+241 U Private Investigators @
+242 C Projects Overseer @
+243 C Proletarian Rabble @
+244 C Rooftop Whistlesilencer @
+245 C Senate Filibuster @
+246 C Trailblazer Anarch @
+247 C Volatile Sergeant @
+248 M The Majority Whip @
+249 C Bustling Motorway @
+250 C Congressional Hall @
+251 C Controlled Ecosystem @
+252 R Estrathe, Center of Civilization @
+253 C Executive Office @
+254 C Groupthink Tank @
+255 U Hazakh District @
+256 C Interrogation Chamber @
+257 C Looming Skyscrapers @
+258 C Neglected Slums @
+259 C Open Air Boardwalk @
+260 U Penrath District @
+261 U Redeveloped Cityscape @
+262 U Sillaman District @
+263 U Tiril District @
+264 C Urban Sunscape @
+265 U Vishanki District @
+
+[borderless]
+266 R Chromatic Rift @Cleopatra Motzel
+267 M Incumbency @Damian Krzywonos
+268 R Severin's Masterwork @Kenza Morvan
+269 M Gaze Upon Civilization @Sylvain Sarrailh
+270 R Sparks of a Revolution @Tony Foti & Adrian Marc
+271 R Coup D'Etat @Argentics
+272 R Defect @Grzegorz Przybys
+273 U Search and Seizure @Eddie Mendoza
+274 R Vishanki Hellkite @Devin Elle Kurtz
+275 R Whirring Inspector @JB Casacop
+276 R Work Safety Violation @Anna Butova
+277 R Estrathe, Center of Civilization @Maxim Dadin
+
+[buy a box]
+278 S Liquidate @ginnaaaaaaan
+279 S Ignited Soul @ishir0se
+280 S Thesis on Mutation @zerochan923600
+281 R Serve Again @Anna Astrid
+282 S Research Grant @Leon Tukker
+283 S Genotype Splicer @Ognjen Sporin
+284 S Deadly Dispute @Ongjen Sporin
+285 S Chittering Gargantua @Ongjen Sporin
+287 S Flags on High @Tyler Miles Lockett
+288 S Sparks of a Revolution @YunaXD & Sina Hayati
+289 S Aspiring Anarchist @ThemeFinland
+290 S Survivors of the New World @Ognjen Sporin
+291 S Planned Obsolescence @stuz0r
+292 S Dormant Monstrosity @Vladimir Rikowski
+294 S Bulk Bioengineering @Riccardo Gualdi
+295 S Axiomatic Shift @Mariusz Lewandowski
+296 S Redeveloped Cityscape @Craig Shoji
+297 U Getaway Proxy @Matteo Spirito
+300 S Defect @Gabriela Birchal
+
+[tokens]
+2 c_2_2_minion_decayed @
+3 c_1_1_soldier @
+4 r_2_2_berserker_haste_cantblock @
+5 chaneryx_perfect_lifeform @
+6 hazakh_arsenal @
+7 penrath_insurgency @
+8 sillaman_laboratories @
+9 tiril_bureau @
+10 vishanki_inc @
+11 the_codex @
+12 c_a_equipment_p2p0 @
+13 c_a_0_0_robot @
+14 sentry_of_the_new_world @
+15 c_a_treasure_sac @

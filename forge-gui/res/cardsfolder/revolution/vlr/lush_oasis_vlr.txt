@@ -1,0 +1,6 @@
+Name:Lush Oasis (VLR)
+ManaCost:no cost
+Types:Land Forest Island
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ This land enters tapped unless you control a basic Forest or a basic Island.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionPresent$ Forest.Basic+YouCtrl,Island.Basic+YouCtrl | ConditionCompare$ EQ0
+Oracle:({T}: Add {G} or {U}.)\nThis land enters tapped unless you control a basic Forest or a basic Island.\nDesigned by Korakhos

@@ -1,6 +1,6 @@
 Name:Thorn and Trial
 ManaCost:1 W
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:5
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ When CARDNAME enters, return target creature or planeswalker card with mana value 3 or less from your graveyard to the battlefield.
 SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature or planeswalker card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl,Planeswalker.cmcLE3+YouCtrl

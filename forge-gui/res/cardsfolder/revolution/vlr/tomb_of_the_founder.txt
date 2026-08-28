@@ -1,0 +1,11 @@
+Name:Tomb of the Founder
+ManaCost:no cost
+Types:Land
+K:Hideaway:5
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Play | Cost$ 10 T | ReduceCost$ X | Defined$ ExiledWith | Amount$ All | Controller$ You | WithoutManaCost$ True | Optional$ True | SpellDescription$ You may play the exiled card without paying its mana cost. This ability costs {2} less to activate for each legendary creature and planeswalker you control.
+SVar:X:Count$Valid Creature.Legendary+YouCtrl,Planeswalker.Legendary+YouCtrl/Twice
+SVar:BuffedBy:Creature.Legendary,Planeswalker.Legendary
+DeckHas:Ability$Mana.Colorless
+DeckHints:Type$Legendary|Planeswalker
+Oracle:Hideaway 5 (When this land enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)\n{T}: Add {C}.\n{10}, {T}: You may play the exiled card without paying its mana cost. This ability costs {2} less to activate for each legendary creature and planeswalker you control.

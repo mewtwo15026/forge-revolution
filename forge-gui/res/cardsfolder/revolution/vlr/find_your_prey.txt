@@ -1,0 +1,7 @@
+Name:Find Your Prey
+ManaCost:1 G
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:This spell costs {1} less to cast if it targets a Mercenary.\nTarget creature gets +3/+3 and trample until end of turn.

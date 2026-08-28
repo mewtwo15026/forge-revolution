@@ -1,0 +1,8 @@
+Name:Blinded Arbiter
+ManaCost:2 WU
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Flying\nWhenever this creature attacks, target attacking creature without flying gains flying until end of turn.

@@ -5,5 +5,6 @@ PT:2/2
 A:AB$ ChangeZone | Cost$ G | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target card in a graveyard | ValidTgts$ Card | SubAbility$ DBGainLife | SpellDescription$ Exile target card from a graveyard. You gain 1 life.
 SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
 T:Mode$ ChangesZoneAll | Origin$ Graveyard | Destination$ Any | ValidCards$ Card.YouOwn | PlayerTurn$ True | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever one or more cards leave your graveyard during your turn, CARDNAME gets +1/+1 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1
 DeckHas:Ability$LifeGain
 Oracle:{G}: Exile target card from a graveyard. You gain 1 life.\nWhenever one or more cards leave your graveyard during your turn, Blightstalker gets +1/+1 until end of turn.

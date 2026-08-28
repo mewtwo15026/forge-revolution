@@ -1,0 +1,13 @@
+Name:Sunset Champion
+ManaCost:2 R R
+Types:Creature Snake Rebel
+PT:4/4
+K:Trample
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ Whenever this creature enters or attacks, exile the top card of your library. You may play that card until the end of your next turn.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigDig | TriggerDescription$ Whenever this creature enters or attacks, exile the top card of your library. You may play that card until the end of your next turn.
+SVar:TrigDig:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play that card until the end of your next turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:HasAttackEffect:TRUE
+Oracle:Trample\nWhenever this creature enters or attacks, exile the top card of your library. You may play that card until the end of your next turn.

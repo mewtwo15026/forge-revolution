@@ -1,0 +1,8 @@
+Name:Toxin Peddler
+ManaCost:1 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Deathtouch\nWhen this creature enters, up to one target creature you control gains deathtouch until end of turn.

@@ -1,0 +1,6 @@
+Name:Spice of Life
+ManaCost:2 R
+Types:Sorcery
+K:Spectacle:1 R
+A:SP$ DealDamage | ValidTgts$ Creature | NumDmg$ 4 | ReplaceDyingDefined$ Targeted | SpellDescription$ CARDNAME deals 4 damage to target creature. If that creature would die this turn, exile it instead.
+Oracle:Spectacle {1}{R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nSpice of Life deals 4 damage to target creature. If that creature would die this turn, exile it instead.

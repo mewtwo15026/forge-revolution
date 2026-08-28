@@ -1,0 +1,8 @@
+Name:Impatient Bandits
+ManaCost:2 R
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample\nThis creature can't attack alone.\nThis creature can't block.

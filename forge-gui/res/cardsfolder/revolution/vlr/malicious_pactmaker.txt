@@ -1,0 +1,13 @@
+Name:Malicious Pactmaker
+ManaCost:1 B
+Types:Creature Human Warlock
+PT:2/1
+K:Menace
+T:Mode$ Attacks | ValidCard$ Creature.Self | Execute$ TrigToken | TriggerDescription$ Whenever this creature attacks, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+SVar:TrigToken:DB$ Token | TokenScript$ acolyte
+T:Mode$ Surveil | ValidPlayer$ You | Execute$ TrigCounter | TriggerZones$ Battlefield | ActivationLimit$ 1 | TriggerDescription$ Whenever you surveil, put a +1/+1 counter on this creature. This ability triggers only once each turn.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:HasAttackEffect:TRUE
+DeckHints:Ability$Surveil
+DeckHas:Ability$Token|Counters|Sacrifice|Surveil
+Oracle:Menace\nWhenever this creature attacks, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")\nWhenever you surveil, put a +1/+1 counter on this creature. This ability triggers only once each turn.

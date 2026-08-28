@@ -1,0 +1,8 @@
+Name:Elite Aspirant
+ManaCost:1 B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature dies, create a Treasure token.

@@ -1,0 +1,32 @@
+Name:Soya, Nal Executioner
+ManaCost:1 B B
+Types:Legendary Creature Bird Mercenary
+PT:3/3
+T:Mode$ Attacks | Defined$ Card.Self | Execute$ TrigDiscard | TriggerDescription$ Whenever NICKNAME attacks, defending player discards a card. If they can't, you draw a card.
+SVar:TrigDiscard:DB$ Discard | Defined$ TriggeredDefendingPlayer | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ DiscardedAll | ValidPlayer$ Player | ValidCard$ Card | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever one or more players discard one or more cards, put a loyalty counter on NICKNAME.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ PutCounter | Cost$ G | SorcerySpeed$ True | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSpark | SpellDescription$ Put a loyalty counter on CARDNAME and transform her. Activate only as a sorcery.
+SVar:DBSpark:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Discard|Counters|LifeGain|Token
+AlternateMode:DoubleFaced
+Oracle:Whenever Soya attacks, defending player discards a card. If they can't, you draw a card.\nWhenever one or more players discard one or more cards, put a loyalty counter on Soya.\n{G}: Put a loyalty counter on Soya and transform her. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Soya, Guild Pariah
+ManaCost:no cost
+Types:Legendary Planeswalker Soya
+Colors:black,green
+Loyalty:0
+T:Mode$ DamageDone | ValidSource$ Creature | ValidTarget$ Card.Self | TriggerZones$ Battlefield | CombatDamage$ True | Execute$ VraskaGaze | TriggerDescription$ Whenever a creature deals combat damage to CARDNAME, destroy that creature.
+SVar:VraskaGaze:DB$ Destroy | Defined$ TriggeredSourceLKICopy
+A:AB$ LoseLife | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Defined$ Player.Opponent | LifeAmount$ 2 | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses 2 life and you gain 2 life. Surveil 2.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2 | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 2
+A:AB$ ChangeZone | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target nonlegendary permanent card in your graveyard | ValidTgts$ Permanent.nonLegendary+YouCtrl | SpellDescription$ Return target nonlegendary permanent card from your graveyard to your hand.
+A:AB$ Token | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | TokenScript$ bg_1_1_mercenary_deathtouch | SpellDescription$ Create a 1/1 black and green Mercenary creature token with deathtouch.
+Oracle:Whenever a creature deals combat damage to Soya, destroy that creature.\n[+1]: Each opponent loses 2 life and you gain 2 life. Surveil 2.\n[-1]: Return target nonlegendary permanent card from your graveyard to your hand.\n[-2]: Create a 1/1 black and green Mercenary creature token with deathtouch.

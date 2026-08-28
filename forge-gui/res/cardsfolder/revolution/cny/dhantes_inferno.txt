@@ -1,0 +1,11 @@
+Name:Dhante's Inferno
+ManaCost:2 B R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 4 | ExcessSVar$ Excess | ExcessSVarCondition$ Permanent | SubAbility$ DBToken | SpellDescription$ CARDNAME deals 4 damage to any target. Create a number of tapped Treasure tokens equal to the amount of excess damage dealt this way.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ Excess | ConditionCheckSVar$ Excess | TokenTapped$ True
+A:AB$ LoseLife | Cost$ X ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | ManaRestriction$ Artifact | Defined$ Player.Opponent | LifeAmount$ X | SubAbility$ DBGainLife | SpellDescription$ Each opponent loses X life and you gain X life. Spend only mana from artifact sources to activate this ability. Activate only as a sorcery.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$xPaid
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+DeckHints:Type$Treasure|Powerstone
+Oracle:Dhante's Inferno deals 4 damage to any target. Create a number of tapped Treasure tokens equal to the amount of excess damage dealt this way.\n{X}, Exile Dhante's Inferno from your graveyard: Each opponent loses X life and you gain X life. Spend only mana from artifact sources to activate this ability. Activate only as a sorcery.

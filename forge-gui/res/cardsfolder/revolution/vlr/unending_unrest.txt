@@ -1,0 +1,9 @@
+Name:Unending Unrest
+ManaCost:2 R R
+Types:Enchantment
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Defined$ You | Type$ Creature | SpellDescription$ As this enchantment enters, choose a creature type. | AILogic$ MostProminentInComputerDeck
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Battlefield | ValidCard$ Creature.YouCtrl+ChosenType | Execute$ TrigBurn | TriggerDescription$ Whenever a creature you control of the chosen type enters, it deals damage equal to its power to any target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X | DamageSource$ TriggeredCard
+SVar:X:TriggeredCard$CardPower
+Oracle:As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters, it deals damage equal to its power to any target.

@@ -1,0 +1,8 @@
+Name:Slinking Swiftblade
+ManaCost:2 B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Menace\nPursuit {2}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

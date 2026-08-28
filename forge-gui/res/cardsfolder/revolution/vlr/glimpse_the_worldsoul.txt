@@ -1,0 +1,11 @@
+Name:Glimpse the Worldsoul
+ManaCost:G U
+Types:Instant
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target card in your graveyard | ValidTgts$ Card.YouCtrl | SubAbility$ DBRestock | SpellDescription$ 
+SVar:DBRestock:DB$ ChangeZone | ConditionCheckSVar$ Ancient | ConditionSVarCompare$ GE8 | Origin$ Graveyard | Destination$ Library | ChangeType$ Card.YouOwn | ChangeNum$ 1 | Optional$ True
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+DeckHas:Ability$Graveyard
+Oracle:Return target card from your graveyard to your hand. Then if you're ancient, you may put a card from your graveyard on top of your library. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)\nExile Glimpse the Worldsoul.

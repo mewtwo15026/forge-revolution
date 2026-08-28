@@ -1,0 +1,19 @@
+Name:Killing in the Name of . . .
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Creature.MonoColor | TgtPrompt$ Select target monocolored creature | SubAbility$ DBPledge | SpellDescription$ Destroy target monocolored creature.  Make a pledge. (Create any black Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:DBPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Tiril,Hazakh,Vishanki
+SVar:Tiril:DB$ Token | TokenScript$ tiril_bureau | SpellDescription$ Tiril Bureau (Pledge - Surveil 2.)
+SVar:Hazakh:DB$ Token | TokenScript$ hazakh_arsenal | SpellDescription$ Hazakh Arsenal (Pledge - Create a 2/2 colorless Minion creature token with decayed.)
+SVar:Vishanki:DB$ Token | TokenScript$ vishanki_inc | SpellDescription$ Vishanki Inc. (Pledge - Create a Treasure token.)
+DeckHas:Type$Enchantment|Clique
+Oracle:Destroy target monocolored creature. Make a pledge. (Create any black Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)

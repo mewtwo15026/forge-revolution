@@ -1,0 +1,27 @@
+Name:Security Initiative
+ManaCost:W U
+Types:Enchantment Policy
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTwiddle | SpellDescription$ When CARDNAME enters, you may tap or untap target nonland permanent. Then draw a card.
+SVar:TrigTwiddle:DB$ TapOrUntap | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | ConditionPresent$ Card.Self+withComplete_A | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankCheck | SVarCompare$ GE3 | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ CompleteA | SpellDescription$ A, B — An opponent controls three or more tapped nonland permanents.
+SVar:CompleteB:SVar$ Animate | ConditionPresent$ Card.Self+withoutComplete_A | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankCheck:PlayerCountOpponents$HighestValid Permanent.nonLand+YouCtrl
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nFlash\nWhen Security Initiative enters, you may tap or untap target nonland permanent. Then draw a card.
+\nA, B — An opponent controls three or more tapped nonland permanents.
+
+ALTERNATE
+
+Name:Surveillance State
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:white,blue
+S:Mode$ CastWithFlash | ValidCard$ Card | ValidSA$ Spell | Caster$ You | Description$ You may cast spells as though they had flash.
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigTwiddleBack | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell, you may tap or untap target nonland permanent.
+SVar:TrigTwiddleBack:DB$ TapOrUntap | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent
+Oracle:You may cast spells as though they had flash.\nWhenever you cast a spell, you may tap or untap target nonland permanent.

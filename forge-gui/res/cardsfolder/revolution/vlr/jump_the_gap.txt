@@ -1,0 +1,11 @@
+Name:Jump the Gap
+ManaCost:1 U
+Types:Instant
+A:SP$ ChangeZone | ValidTgts$ Creature.YouOwn | TgtPrompt$ Select target creature you own | Origin$ Battlefield | Destination$ Exile | Mandatory$ True | IsCurse$ True | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile target creature you own.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STThieving | Duration$ Permanent | RememberObjects$ Remembered | ExileOnMoved$ Exile | SubAbility$ DBDelayedTrigger | SpellDescription$ For as long as that card remains exiled, you may cast it without paying its mana cost.
+SVar:STThieving:Mode$ Continuous | Affected$ Card.IsRemembered+nonLand | MayPlay$ True | MayPlayWithoutManaCost$ True | AffectedZone$ Exile | Description$ For as long as that card remains exiled, you may cast it without paying its mana cost.
+SVar:DBDelayedTrigger:DB$ DelayedTrigger | Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigReturn | IsPresent$ Card.IsTriggerRemembered | PresentZone$ Exile | RememberObjects$ Remembered | SubAbility$ DBCleanup | SpellDescription$ At the beginning of your next end step, if that card is still exiled, return it to your hand.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:TrigReturn:DB$ ChangeZone | Defined$ DelayTriggerRememberedLKI | Origin$ Exile | Destination$ Hand
+AI:RemoveDeck:All
+Oracle:Exile target creature you own. For as long as that card remains exiled, you may cast it without paying its mana cost. At the beginning of your next end step, if that card is still exiled, return it to your hand.

@@ -1,0 +1,7 @@
+Name:Spit Venom
+ManaCost:2 G
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Target creature you control gets +1/+0 and gains deathtouch until end of turn. Up to one target creature you don't control blocks it each combat this turn if able.

@@ -1,0 +1,7 @@
+Name:Disposable Dagger
+ManaCost:2
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Equipped creature gets +2/+0.\n{6}, Sacrifice this Equipment: Destroy target creature or planeswalker.\nEquip {2}

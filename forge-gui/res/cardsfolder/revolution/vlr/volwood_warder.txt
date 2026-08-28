@@ -1,0 +1,8 @@
+Name:Volwood Warder
+ManaCost:3 W W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Lifelink\nMuster - Whenever you cast a creature spell, put a +1/+1 counter on each nontoken creature you control.

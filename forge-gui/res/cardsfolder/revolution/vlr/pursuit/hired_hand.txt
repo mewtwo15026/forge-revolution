@@ -1,0 +1,8 @@
+Name:Hired Hand
+ManaCost:4 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nPursuit {3}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

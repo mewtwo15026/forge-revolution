@@ -1,0 +1,10 @@
+Name:Forsaken Shroudguard
+ManaCost:2 B
+Types:Creature Bird Warlock
+PT:2/3
+K:Flying
+S:Mode$ CantBlock | ValidCard$ Card.Self | Description$ This creature can't block.
+A:AB$ Mana | Cost$ Sac<1/Creature.Other/another creature> | Produced$ B | ActivationLimit$ 1 | PlayerTurn$ True | SpellDescription$ Add {B}. Activate only once each turn and only during your turn.
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice
+Oracle:Flying\nThis creature can't block.\nSacrifice another creature: Add {B}. Activate only once each turn and only during your turn.

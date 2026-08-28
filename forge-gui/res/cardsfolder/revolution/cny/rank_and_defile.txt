@@ -1,0 +1,8 @@
+Name:Rank and Defile
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Sacrifice | SacValid$ Creature | Defined$ Player | SpellDescription$ Each player sacrifices a creature.
+S:Mode$ Continuous | Affected$ Card.Self | CheckSVar$ Morbid | SVarCompare$ GE1 | EffectZone$ All | AffectedZone$ All | AddKeyword$ Flashback:2 B | Description$ As long as a creature card or creature token was put into your graveyard from anywhere this turn, Rank and Defile has flashback {2}{B}. (You may cast this card from your graveyard for its flashback cost. Then exile it.)
+SVar:Morbid:Count$Morbid.1.0
+AI:RemoveDeck:All
+Oracle:Each player sacrifices a creature.\nAs long as a creature card or creature token was put into your graveyard from anywhere this turn, Rank and Defile has flashback {2}{B}. (You may cast this card from your graveyard for its flashback cost. Then exile it.)

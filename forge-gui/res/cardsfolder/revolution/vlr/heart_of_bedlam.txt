@@ -1,0 +1,8 @@
+Name:Heart of Bedlam
+ManaCost:6
+Types:Artifact
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, you may sacrifice three nonland permanents. If you do, create a 5/5 red Skeleton Dragon creature token with flying.
+SVar:TrigToken:AB$ Token | Cost$ Sac<3/Permanent.nonLand/nonland permanents> | TokenScript$ r_5_5_skeleton_dragon_flying
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2,Permanent.nonCreature+cmcLE2
+DeckHas:Ability$Sacrifice
+Oracle:At the beginning of your end step, you may sacrifice three nonland permanents. If you do, create a 5/5 red Skeleton Dragon creature token with flying.

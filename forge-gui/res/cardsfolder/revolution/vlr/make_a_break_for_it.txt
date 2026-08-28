@@ -1,0 +1,10 @@
+Name:Make a Break for It
+ManaCost:6 R R
+Types:Sorcery
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each card type among cards in your graveyard.
+SVar:X:Count$ValidGraveyard Card.YouOwn$CardTypes
+A:SP$ Discard | Mode$ Hand | Defined$ You | SubAbility$ DBDraw | SpellDescription$ Discard your hand, then draw four cards. Exile CARDNAME.
+SVar:DBDraw:DB$ Draw | NumCards$ 4 | SubAbility$ DBExile
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+DeckHas:Ability$Delirium|Discard
+Oracle:This spell costs {1} less to cast for each card type among cards in your graveyard.\nDiscard your hand, then draw four cards. Exile Make a Break for It.

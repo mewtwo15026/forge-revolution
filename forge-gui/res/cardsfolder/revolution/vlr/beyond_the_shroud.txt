@@ -1,0 +1,8 @@
+Name:Beyond the Shroud
+ManaCost:B
+Types:Sorcery
+S:Mode$ OptionalCost | EffectZone$ All | ValidCard$ Card.Self | ValidSA$ Spell | Cost$ Sac<1/Creature> | Description$ As an additional cost to cast this spell, you may sacrifice a creature.
+A:SP$ ChangeZone | ValidTgts$ Creature | AITgts$ Creature.cmcLEX | ConditionDefined$ Targeted | ConditionPresent$ Creature.cmcLEX | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | SpellDescription$ Exile target creature or planeswalker if it has mana value 2 or less or if this spell's additional cost was paid.
+SVar:X:Count$OptionalGenericCostPaid.63.2
+DeckHas:Ability$Sacrifice
+Oracle:As an additional cost to cast this spell, you may sacrifice a creature.\nExile target creature or planeswalker if it has mana value 2 or less or if this spell's additional cost was paid.

@@ -1,0 +1,7 @@
+Name:Corner the Prey
+ManaCost:3 G G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | KW$ Trample & HIDDEN CARDNAME must be blocked if able. | SubAbility$ DBDraw | SpellDescription$ Choose target creature you control. Draw cards equal to its power. Until end of turn, that creature gains trample and must be blocked each combat if able.
+SVar:DBDraw:DB$ Draw | NumCards$ X
+SVar:X:Targeted$CardPower
+Oracle:Choose target creature you control. Draw cards equal to its power. Until end of turn, that creature gains trample and must be blocked each combat if able.

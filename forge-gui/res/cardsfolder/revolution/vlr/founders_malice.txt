@@ -1,0 +1,7 @@
+Name:Founder's Malice
+ManaCost:1 U B
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Permanent.nonLand | Origin$ Battlefield | TgtPrompt$ Select target nonland permanent | Destination$ Hand | SpellDescription$ Return target nonland permanent to its owner's hand. Then that player discard a card. | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ TargetedOwner | NumCards$ 1 | Mode$ TgtChoose
+K:Flashback:5 U B
+Oracle:Return target nonland permanent to its owner's hand. Then that player discards a card.\nFlashback {5}{U}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

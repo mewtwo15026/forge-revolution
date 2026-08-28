@@ -1,0 +1,34 @@
+Name:Distributive Justice
+ManaCost:1 W
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDistribute | TriggerDescription$ When CARDNAME enters, distribute up to two +1/+1 counters among one or two target creatures you control.
+SVar:TrigDistribute:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select one or two target creatures you control | CounterType$ P1P1 | TargetMin$ 1 | TargetMax$ 2 | DividedAsYouChoose$ 2 | DividedUpTo$ True
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankA | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked | SpellDescription$ A — You control two or more creatures with the same power.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankB | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ PolicyMarked | SpellDescription$ B — You control two or more creatures with the same toughness.
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankA:Count$Compare A LTX.1.0
+SVar:PlankB:Count$Compare B LTX.1.0
+SVar:A:Count$Valid Creature.YouCtrl$DifferentCardPower
+SVar:B:Count$Valid Creature.YouCtrl$DifferentCardToughness
+SVar:X:Count$Valid Creature.YouCtrl
+DeckHas:Ability$Counters
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nWhen Distributive Justice enters, distribute up to two +1/+1 counters among one or two target creatures you control.\nA — You control two or more creatures with the same power.\nB — You control two or more creatures with the same toughness.
+
+ALTERNATE
+
+Name:Equality
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:white
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, draw a card if you control two or more attacking creatures with the same power or the same toughness.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ Equality | ConditionSVarCompare$ GE1
+SVar:Equality:SVar$EqualPower/Plus.EqualToughness
+SVar:EqualPower:Count$Compare EP LTY.1.0
+SVar:EqualToughness:Count$Compare ET LTY.1.0
+SVar:EP:Count$Valid Creature.YouCtrl+attacking$DifferentCardPower
+SVar:ET:Count$Valid Creature.YouCtrl+attacking$DifferentCardToughness
+SVar:Y:Count$Valid Creature.YouCtrl+attacking
+Oracle:Whenever you attack, draw a card if you control two or more attacking creatures with the same power or the same toughness.

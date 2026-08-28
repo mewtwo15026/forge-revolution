@@ -1,0 +1,14 @@
+Name:Venture Capitalist
+ManaCost:1 R
+Types:Creature Human Noble
+PT:2/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTutor | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for an artifact card, exile it, then shuffle. You may play that card this turn.
+SVar:TrigTutor:DB$ ChangeZone | ChangeNum$ 1 | ChangeType$ Card | Mandatory$ True | SubAbility$ DBEffect | Origin$ Library | Destination$ Exile | RememberChanged$ True
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STPlay | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | MayLookAt$ You | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ For as long as that card remains exiled, you may play it.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Mana | Cost$ T Sac<1/Artifact> | Produced$ Any | SpellDescription$ Add one mana of any color.
+SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+!namedMox Pearl+!namedMox Sapphire+!namedMox Ruby+!namedMox Emerald+!namedMox Jet+!namedBlack Lotus+!namedLotus Petal,Artifact.cmcEQ1,Artifact.cmcEQ2
+DeckHas:Ability$Sacrifice
+DeckNeeds:Type$Artifact
+Oracle:When Venture Capitalist enters, you may search your library for an artifact card, exile it, then shuffle. You may play that card this turn.\n{T}, Sacrifice an artifact: Add one mana of any color.

@@ -1,0 +1,8 @@
+Name:Incursion Vanguard
+ManaCost:1 RW
+Types:Creature Bird Rebel
+PT:1/1
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ Muster — Whenever you cast a creature spell, put a +1/+1 counter on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+DeckHas:Ability$Counters
+Oracle:Muster - Whenever you cast a creature spell, put a +1/+1 counter on this creature.

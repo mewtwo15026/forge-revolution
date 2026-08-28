@@ -1,0 +1,9 @@
+Name:Renegade Recruiter
+ManaCost:2 W W
+Types:Creature Human Rebel
+PT:4/4
+K:Vigilance
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigTap | TriggerDescription$ Muster — Whenever you cast a creature spell, tap target creature you don't control.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+A:AB$ ChangeZone | Cost$ 1 W | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return another target creature you control to its owner's hand.
+Oracle:Vigilance\nMuster - Whenever you cast a creature spell, tap target creature you don't control.\n{1}{W}: Return another target creature you control to its owner's hand.

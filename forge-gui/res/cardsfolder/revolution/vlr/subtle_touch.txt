@@ -1,0 +1,8 @@
+Name:Subtle Touch
+ManaCost:1 U
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ Count$Compare Y GE1.2.1 | Choices$ DBCreatureBounce,DBNoncreatureBounce | AdditionalDescription$ If you control a Rogue, you may choose both instead.
+SVar:DBCreatureBounce:DB$ ChangeZone | ValidTgts$ Creature | TgtPrompt$ Select target creature | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target creature to its owner's hand.
+SVar:DBNoncreatureBounce:DB$ ChangeZone | ValidTgts$ Permanent.nonCreature+nonLand | TgtPrompt$ Select target noncreature, nonland permanent | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target noncreature, nonland permanent to its owner's hand.
+SVar:BuffedBy:Rogue
+Oracle:Choose one. If you control a Rogue, you may choose both instead.\n• Return target creature to its owner's hand.\n• Return target noncreature, nonland permanent to its owner's hand.

@@ -1,0 +1,8 @@
+Name:Het's Call
+ManaCost:3 B B
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ 3 | ValidTarget$ Card.cmcLE3 | EffectZone$ All | Description$ This spell costs {3} less to cast if it targets a card with mana value 3 or less.
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card in your graveyard | ValidTgts$ Creature.YouOwn | SubAbility$ DBPump | SpellDescription$ Return target creature card from your graveyard to the battlefield. It can't block this turn.
+SVar:DBPump:DB$ Pump | Defined$ Targeted | IsCurse$ True | KW$ HIDDEN CARDNAME can't block.
+DeckHas:Ability$Graveyard
+Oracle:This spell costs {3} less to cast if it targets a card with mana value 3 or less.\nReturn target creature card from your graveyard to the battlefield. It can't block this turn.

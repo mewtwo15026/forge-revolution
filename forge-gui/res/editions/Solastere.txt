@@ -1,0 +1,405 @@
+[metadata]
+Code=SOL
+Date=2025-12-01
+Name=Solastere
+Code2=SOL
+MciCode=sol
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=RareMythic,Uncommon,Common,AnyLand,Wildcard
+Booster=1 RareMythic,3 Uncommon,2 Wildcard,7 Common,1 AnyLand
+FatPack=8
+FatPackExtraSlots=40 BasicLands SOL
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
+# Set designed by Scribbl
+
+[RareMythic]
+Base=RareMythic:fromSheet("SOL cards")
+
+[Uncommon]
+Base=Uncommon:fromSheet("SOL cards")
+
+[Common]
+Base=Common:fromSheet("SOL cards")
+
+[AnyLand]
+Base=BasicLand:fromSheet("SOL cards")
+Replace=0.5F Land:fromSheet("SOL duals")
+
+[Wildcard]
+Base=Uncommon:fromSheet("SOL cards")
+Replace=0.144F Rare:fromSheet("SOL cards")
+Replace=0.012F Mythic:fromSheet("SOL cards")
+Replace=0.469F Common:fromSheet("SOL cards")
+
+[cards]
+1 C Acolyte of the Beyond @Jasric
+2 U Astral Prison @BenV94
+3 R Aureola Crusaris @Tim Barton
+4 U Aurora Glider @Yuliya Zabelina
+5 C Corporeal Benediction @Melissa Houpert
+6 R Creation Mythos @Exellero
+7 M Eltanaan, the Silent Star @Yuliya Zabelina
+8 R Evangel of the Long Night @Benjamin Hill
+9 C Existential Eclipse @Julie Dillon
+10 R Fateful Ascent @Luis Aguas
+11 R Foreign Frontiers @CREADFECTUS
+12 C Helia Eulogist @basha-art
+13 R Helia Ley-Spire @Philip Byers
+14 R Lacufae Kin-Caller @Dave Greco
+15 U Lacufae Ley-Tower @Leon Tukker
+16 C Lacufae Lightwarden @日昇日升 Rishengrisheng
+17 U Leonis Excirtus @Yuliya Zabelina
+18 U Lightless Vigil @Daniel Correia
+19 C Moon-Scarred Pilgrim @Alexandre Reynaud
+20 U Myriad Crusader @Mark Erskine
+21 R Nullblade Artisan @Mark Erskien
+22 M Oberys, Ley-Pilgrim @Nino Vecia
+23 U Oblivion's Escort @Evil-gilatio
+24 R Orbital Vacuum @Ryan Anelowe
+25 U Qaraz Monument @Federico Musetti
+26 R Radiant Pilgrim @Exellero
+27 U Renounce the Worldly @Harkale Linai
+28 C Sarsupei Houndmaster @ValhaHazred
+29 U Serpens Oblis @Aster Clarke
+30 U Skyray Tender @Evi-gilatio
+31 U Spatial Collapse @Games Revolted
+32 C Star-Touched Stalwart @Nino Vecia
+33 C Stardust Behemoth @Adrian Virlan
+34 C Starlit Sanctuary @Exellero
+35 C Tireless Pilgrimage @Darren Yeow
+36 C Turelion Ley-Pillar @Gaétan Weltzer
+37 U Turelion Visionary @alice haun
+38 C Twilight Legion @Mark Erskine
+39 U Void Prelate @Yan M.
+40 C Architect of Ascension @Ramza Ardyputra
+41 M Asulio, the Watchful Star @Plutus Su
+42 U Attuned Consciousness @Exellero
+43 U Balaenos Cresetis @Shaun Doogan
+44 U Beaconstorm @Muhamad Faizal Fikri
+45 R Cascade Channeller @Lourdes Saraiva
+46 C Celestial Insight @Merilliza Chan
+47 C Chart the Cosmos @Victoria Sokolova
+48 R Comazoa @doonamai
+49 U Convergence Harmonist @Mark Erskine
+50 C Cursory Glance @Venom-Rules-all
+51 R Draconos Magistus @Aster Clarke
+52 U Dream Physician @PointLineArea
+53 C Dream Snare @Chris Rallis
+54 U Eulogy of the Beyond @GuilleBot
+55 R Forbidden Treasure @Nailsen Ivanderlie
+56 C Grasp of Oblivion @小山 满
+57 C Humbled Invoker @Francis Tneh
+58 U Invoker's Guidebeast @Yuliya Zabelina
+59 R Master of Null @HeLin Lee
+60 R Medari Ley-Spire @Leonardo Sala
+61 C Moon-Scarred Mystic @Sanjin Halimic
+62 R Noveire, Omen of the Rift @Fei ren, lasso, & tuanz
+63 U Olfven Ley-Tower @Mark Erskine
+64 R Olfven Skylord @Cristina Samsa
+65 U Phase Seer @Aliya Chen
+66 U Piscus Duosia @Masaki Hsu
+67 C Qaraz Doomsayer @Donggeon Son
+68 C Qaraz Nullblade @JasonTN
+69 R Rift Partisan @bernardoerrteterters
+70 U Rift Tracing @LauraMarie
+71 U Scintillation Scion @Masaki Hsu
+72 C Slumberzoa @Margot Zussy
+73 U Stolen Singularity @Melissa Houpert
+74 M Tamiyo, Sun-Seeking @Sergio Roman
+75 C Unveil @Exellero
+76 C Zymith Ley-Pillar @Friis
+77 U Zymith Windreader @wawtman
+78 C Abyssal Retriever @Luz Sinuosa
+79 U Aspus Venefir @Jack Hsu
+80 C Caress of the Stars @Exellero
+81 U Daemos Letheus @Yuliya Zabelina
+82 R Darkstar Harbinger @Mark Erskine
+83 C Discordant Voidling @Vladimir Matyukhin
+84 U Dwindling Light @Exellero
+85 U Eyes Gone Dark @Guweiz
+86 R Fleshless Flayer @stephen mabee
+87 U Guidelight Gravehart @Cycle Circle
+88 R Hollow Prophet @Dante Liu
+89 C Inexorable Shepherd @G-Hamm
+90 U Lament of the Long Night @Maria Makovetskaya
+91 C Lightless Diviner @Mark Erskine
+92 U Manifest Naught @Exellero
+93 C Mantle of Dusk @A. K. Venrinn
+94 C March of the Long Night @Ava's Demon
+95 U Mercenary of Dusk @Rayden Chen
+96 C Nether Ponderings @Oleksii Chernik
+97 R Nightfall @Everton Lima
+98 U Nightshade Extricator @Bella Bergolts
+99 R Nihilmonger @ringasure
+100 R Nuillae Exidus @Carbon Colossal
+101 C Oblivion Surveyor @Exellero
+102 C Phemeros Ley-Pillar @AnastasiaSalmina
+103 R Phemeros Redeemer @demuraart
+104 R Qaraz Ley-Spire @Dorje Bellbrook
+105 U Qaraz Martyr @大 黑柱
+106 M Rastabahl, the Enduring Star @Era7
+107 C Relentless Huntmaster @Games Revolted
+108 R Rites of the Dying Sun @Armeid I
+109 C Sarsupei All-Seer @Irina Nordsol Kuzmina
+110 U Sarsupei Ley-Tower @Raja Nandepu
+111 U Shadow Caster @Vlashyrk
+112 U Stalking Delver @Brian Valeza
+113 U Tug of the Void @Quy Ho
+114 C Twilight Ambush @Luca Bancone
+115 M Zukar, Null Champion @Néstor Ossandón Leal
+116 C Aberrant Whispers @Veronika Kozlova
+117 U Black Dawn Sellsword @Coffeeandbiscuits
+118 U Caersol Ley-Tower @Kanmah
+119 C Caersol Valiant @Andrew Silver & Kan Liu
+120 U Cancri Asellos @Deadlydaemon ll Rex ll
+121 M Caphella, Endlight Catalyst @AIFI才华有限的态爷
+122 U Chronicle Calamity @Park Jun Seong / 박준성
+123 C Comet Conduit @Exellero
+124 C Cosmic Bounty @Farid Sandoval
+125 R Darkstar Severance @Yuliya Zabelina
+126 R Darksun Migrant @Nino Vecia
+127 U Dire Visionary @JasonTN
+128 R Divine Repurposing @Ayrton leux
+129 U Draconos Tyrannos @Tim Barton
+130 R Emblazoned Prophet @Daniel Correia
+131 R Endlight Crusade @Mark Erskine
+132 C Essence Ignition @John Hopkins
+133 R Fission Feaster @Aster Clarke
+134 C Frenetic Astronomer @Mike Pape
+135 U Helia Extinguisher @Exellero
+136 C Horizon Blotter @Aster Clarke
+137 U Inner Inferno @Spider Flash 23
+138 U Instill Absolution @Néstor Ossandón Leal
+139 C Malignant Moonbeam @Andrew Hou
+140 R Manticos Expurgis @Yuliya Zabelina
+141 C Nascent Vessel @JasonTN
+142 R Niliscant Ley-Spire @Heesuk Kim
+143 C Niliscant Strider @Crystal Chang
+144 U Nova Ravager @Yuliya Zabelina
+145 U Realm Reap @Darya Kuznetsova
+146 R Roseaun Firebrand @Ioannis Fiore
+147 C Roseaun Ley-Pillar @Ryan Anelowe
+148 C Skycleave @Manuel Castañón
+149 C Star-Touched Oracle @GerryArthur
+150 U Starsquall @Shahab Alizadeh
+151 U Stellar Flare @Opus Artz
+152 M Thubaran, the Fervent Star @Yuliya Zabelina
+153 U Towering Moonrazer @Grafit Studio
+154 M Alwanor, the Humbled Star @StockCake
+155 C Alwanor's Mark @Grafit Studio
+156 U Andir Ley-Tower @Frank Sun
+157 R Andir Wildsoul @George Vostrikov
+158 M Anhamei, Star Sower @Nino Vecia
+159 U Blightseer @li joshua
+160 R Blightstalker @Envar Studio
+161 C Blinding Ambush @Michael Komarck
+162 U Breach Herald @Benjamin Ee
+163 U Chasing Stars @Alex Rommel
+164 U Colossal Pathrazer @Logan Feliciano
+165 C Crestfallen Colossus @Definite Studios
+166 C Crust Gorger @Halycon450
+167 R Elorys the Pathfinder @John Riddle
+168 U Eternal Struggle @Dorje Bellbrook
+169 R Foes Unfed @John Silva
+170 C Glimmermare @mist XG
+171 C Gorion Gladehart @Andrew Silver & Kat Chan
+172 R Gorion Ley-Spire @Ncsoft
+173 C Horizon Vassal @Sephiroth Art
+174 C Kinox Ley-Pillar @Unheeded-Influences
+175 U Kinox Naturalist @Veronika Kozlova
+176 U Lost Pilgrim @Oleg Proshin
+177 U Lupensi Purseus @Yuliya Zabelina
+178 C Nebulous Rebirth @Julie Dillon
+179 U One Night of Serenity @CaioSantos
+180 R Plaguebane Hulk @NOIR Pen
+181 C Prism Catcher @Mark Erskine
+182 R Rex Tyrannos @Era7
+183 C Scintillating Vista @Ryan Anelowe
+184 R Sire of Greatness @Aster Clarke
+185 C Star-Touched Devout @Nekki Studio
+186 C Step Beyond @Shahab Alizadeh
+187 R Sunsower @Raluca Marinescu
+188 R Tumultovore @Exellero
+189 U Unbound Horizons @Ashley Nobes
+190 U Ursus Majora @Tim Barton
+191 U Ursus Minora @DigitalDreamWeaver
+192 U Vista Painter @Exellero
+193 U Advent Herald @Jason Engle
+194 R Aureleth the Sun Shard @Don Gendonz
+195 U Black Dawn Historian @小山 满
+196 C Cepheos Delugo @Tim Barton
+197 R Cereus Aegosa @Andrew Silver & Kan Li
+198 U Cleansing Starfire @Andrew Silver & Kat Chan
+199 R Cloud of Consciousness @Mark Erskine
+200 C Coria Portenus @Saad Irfan
+201 C Cornus Asarei @easygoingegotist
+202 U Cosmic Pilgrimage @Melissa Houpert
+203 U Cosmic Rebirth @Peter Westermann
+204 C Daemos Tormandus @Yuliya Zabelina
+205 R Draconos Iracus @Yuliya Zabelina
+206 R Earthly Absolution @rob joseph daapydz
+207 R Ecosa of the Old Blood @Alice Rose
+208 U Ethereal Exodus @mist XG
+209 U Florazoa @Art Engineer
+210 M Form of the Sun @小山 满
+211 C Gomada Lumenos @Yiğit Köroğlu
+212 U Grave Prophet @marcelamedeiros-arts
+213 U Halo Tracer @Exellero
+214 R Heavenly Descent @Jocelin Carmes
+215 R Ignavis Immatus @aerroscape
+216 R Interstellar Sage @Nolan Nasser
+217 U Invasion Campaign @klaufir
+218 M Last Wish @Ryan Anelowe
+219 C Leonis Concitare @Yuliya Zabelina
+220 R Levicta Visio @Derrick Walker
+221 R Lunar Awe @小山 满
+222 R Lupensi Tyrannos @dominicliam
+223 R Lutra Inquisos @Andrew Silver & Kan Liu
+224 R Matauros Tyrannos @Tim Barton
+225 U Medari Darkseer @G. Redon
+226 R Meteor Hellion @William Liu
+227 U Moon-Scarred Champion @Andrew Silver & Kan Liu
+228 U Nether Invocation @ilkerwarmaster
+229 C Noctere Ascentus @Brad Zylman
+230 U Oblivion Dispatcher @Federico Musetti
+231 U Omenmare @Mesrile Art
+232 U Psionic Backlash @Games Revolted
+233 U Reconstructed Flayer @Games Revolted
+234 R Saureus Duplixi @Meep--Merp
+235 C Serpens Surectus @Winterkeep
+236 U Star-Touched Host @marcelabolivar
+237 U Stellar Subjugation @mist XG
+238 R Sunweaver Lysele @Hell-Alka
+239 C Tigros Purseus @Mohamed Gambouz
+240 C Turintos Fulgeos @Axel Pontoppidan
+241 R Umbrus Surectus @Vlashyrk
+242 R Uquus Crusaris @Tim Barton
+243 R Waygate Bulwark @Biagio D'Alessandro
+244 U Wildermoon Compulsion @Numenera
+245 U Abyssal Burrower @PhillGonzo, jjeverson, & Peter Lee.
+246 U Ascended Zealot @Adrian Virlan
+247 R Astraling @Thomas Elliott
+248 C Attuned Lightbinder @IᐯETTO
+249 R Auroric Savior @Thomas Dumey - Locki
+250 C Awakened Aberration @Alejandro Arévalo
+251 C Blinded Herald @Nino Vecia
+252 U Blinded Visionary @Alexandr Elichev
+253 C Blinding Inquisitor @Tati Castellano González
+254 U Calming Oryx @Michael J. Lindee-Antonio
+255 U Crackling Moonkite @Francisco Badilla
+256 U Eclipsed Stargazer @Exellero
+257 C Elemental Advent @Mark Erskine
+258 C Ephemeral Leech @Mark Erskine
+259 R Guiding Gladehart @Mark Erskine
+260 R Invasive Progenitor @Wu Hu
+261 C Lacufae Pastor @Nino Vecia
+262 U Moonbeam Artisan @mist XG
+263 R Precursor to Calamity @Vlashyrk
+264 R Psionic Sage @Ioan Dumitrescu
+265 R Putregoyf @Adrian Virlan
+266 U Star-Touched Crusader @Hui Zou
+267 U Starcrossed Vessel @Nikita Cherkezov (Delfis)
+268 R Torpor Harvester @Alexandr Elichev
+269 R Transcendent Council @Kamilah Cole
+270 U Turelion Justiciar @Marcelo Vieira
+271 R Twilight Firebird @guillaume-phoenix
+272 C Voidborn Flayer @Slawomir Maniak
+273 C Zukar's Informant @Nekki Studio
+274 C Zymith Skyguide @Yuliya Zabelina
+275 R Astral Displacer @Kinchi_Lee
+276 M Atomic Core @Kinchi_Lee
+277 C Caersol Morningstar @Karskiy Karkovskiy
+278 M Cosmic Lotus @Claudya Schmidt
+279 U Cosmolith @G-Hamm
+280 U Edge of Null @Johanna Rupprecht
+281 U Elysian Turbine @Jinno Ning
+282 C Heraldic Ley-Pillar @MikeyPetrov
+283 U Ley-Tower Convergence @Doctor Kassagoth
+284 C Light-Pierced Envoy @Melissa Houpert
+285 U Meteor Golem @Robert Ardy
+286 C Meteoric Harvester @Biagio D'Alessandro
+287 C Nascent Star @Vadim Shchepilov
+288 M Planetary Orrery @Ryan Anelowe
+289 R Skyfall Sunderer @Matt DeMino
+290 R Solemn Simulacrum @Sean Sevestre
+291 C Waypoint Armillary @David Ko
+292 C Bloodfell Caves @Sviatoslav-SciFi
+293 C Blossoming Sands @Ellrieai
+294 U Budding Mire @Nicoleta Stavarache
+295 U Burgeoning Nebula @Alex Rommel
+296 R Caersol Observatory @Kudos Productions
+297 U Cascading Nebula @Alex Rommel
+298 C Dismal Backwater @Mitch Aseltine
+299 C Evolving Wilds @love--or--death
+300 L Forest @Peter Mohrbacher
+301 R Gorion Observatory @Josh Sun
+302 L Island @RAINMAN PAGE
+303 C Jungle Hollow @ShahzebKR
+304 R Lacufae Observatory @Frank Sun
+305 L Mountain @karlkka
+306 L Plains @karlkka
+307 R Prismatic Ley-Spire @Xu Zhang
+308 R Qaraz Observatory @Frank Sun
+309 U Resplendent Nebula @Jakub Jackowiak
+310 C Rugged Highlands @love--or--death
+311 C Scoured Barrens @Mark Erskine
+312 U Starless Nebula @Alex Rommel
+313 U Sulphurous Nebula @Alex Rommel
+314 L Swamp @Targete
+315 C Swiftwater Cliffs @Dorje Bellbrook
+316 C Thornwood Falls @James Griffiths
+317 C Tranquil Cove @Joe Grabenstetter
+318 C Wind-Scarred Crag @G-Hamm
+319 C Withered Waygate @Ryan Anelowe
+320 R Zymith Observatory @Tuomas Korpi
+
+[duals]
+1 Bloodfell Caves|SOL
+1 Blossoming Sands|SOL
+1 Dismal Backwater|SOL
+1 Jungle Hollow|SOL
+1 Rugged Highlands|SOL
+1 Scoured Barrens|SOL
+1 Swiftwater Cliffs|SOL
+1 Thornwood Falls|SOL
+1 Tranquil Cove|SOL
+1 Wind-Scarred Crag|SOL
+
+[tokens]
+2 w_1_1_bird_flying_cantblock @Ryan Bittner
+3 w_1_1_elemental_cantblock @Dariusz Kieliszek
+4 w_1_1_elf @Nipuni
+5 w_1_1_spirit @Tencent Pictures
+6 u_3_2_beast @Grimae
+7 cascade_channeller @Lourdes Saraiva
+8 u_2_1_fish_flying @Ryan Bittner
+9 u_6_6_fish_spirit @Masaki Hsu
+10 u_1_1_jellyfish_flying @Oleg Proshin
+11 b_2_2_dog @Mariya Sviridova
+12 b_4_4_dragon_flying @Aster Claire
+13 b_1_1_elemental_nosyzygy @Mark Erskine
+14 b_3_2_elemental @Dave Greco
+15 entropy_zukar @Xu Tianhua
+16 oblivion_zukar @Varadi Paszkal
+17 b_1_0_orb @HoDaRaKe
+18 b_1_1_spirit_wither_cantblock @Alexander Elichev
+19 r_3_3_beast @Art Engineer
+20 r_3_1_elemental_trample_haste @Anato Finnstark
+21 r_1_1_elemental @Mark Erskine
+22 r_2_1_spirit @Johnson Ting
+23 r_1_1_spirit_wither @Tencent Pictures
+24 r_x_x_spirit @sleepysymphonia
+25 g_4_4_bear @murtzart
+26 g_1_3_elf_mana @Nick Grey
+27 g_2_2_elf_druid_mana @India-Lee Crews
+28 g_3_3_elf_horror_mana @Like Ice
+30 g_x_x_spirit_total_creatures @Caym Artworks
+31 g_9_6_wolf_spirit_trample @Louise Goalby
+32 c_a_chart_sac @Arturo Guitierrez
+33 c_a_treasure_sac @Bastien Grivet
+34 c_a_0_4_wall_defender @Jelena Pilvic
+35 c_a_weapon_equip @Stephanie Folse
+36 lotus_spring @Wax Eye

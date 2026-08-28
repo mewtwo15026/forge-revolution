@@ -1,0 +1,9 @@
+Name:The Connaistone
+ManaCost:1 W U B
+Types:Legendary Artifact
+R:Event$ Draw | ActiveZones$ Battlefield | ValidPlayer$ You | IsPresent$ Card.YouOwn | PresentZone$ Library | PresentCompare$ EQ0 | Optional$ True | ReplaceWith$ Wish | Description$ If you would draw a card while your library has no cards in it, instead you may put a card you own from outside the game into your hand.
+SVar:Wish:DB$ ChangeZone | Origin$ Sideboard | Destination$ Hand | ChangeType$ Card.YouOwn | ChangeNum$ 1 | Hidden$ True
+A:AB$ Draw | Cost$ T | NumCards$ 2 | SubAbility$ DBDiscard | SpellDescription$ Draw two cards, then discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose
+DeckHas:Ability$Discard
+Oracle:If you would draw a card while your library has no cards in it, instead you may put a card you own from outside the game into your hand.\n{T}: Draw two cards, then discard a card.

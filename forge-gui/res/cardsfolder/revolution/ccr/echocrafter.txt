@@ -3,7 +3,7 @@ ManaCost:2 U R W
 Types:Creature Beast
 PT:4/4
 K:Vigilance
-T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Battlefield | Execute$ TrigCopy | ResolvedLimit$ 1 | OptionalDecider$ You | AILogic$ Always | TriggerDescription$ Whenever you activate a nonmana ability, you may copy it. If you do, you may choose new targets for the copy. Do this only once each turn.
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.!ManaAbility | TriggerZones$ Battlefield | Execute$ TrigCopy | ResolvedLimit$ 1 | OptionalDecider$ You | AILogic$ Always | TriggerDescription$ Whenever you activate a nonmana ability, you may copy it. If you do, you may choose new targets for the copy. Do this only once each turn.
 SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
 A:AB$ Tap | Cost$ 1 U R W | ValidTgts$ Creature | TgtPrompt$ Select target creature | IsCurse$ True | SubAbility$ DBPing | SpellDescription$ Tap target creature. CARDNAME deals 1 damage to that creature's controller.
 SVar:DBPing:DB$ DealDamage | NumDmg$ 1 | Defined$ TargetedController

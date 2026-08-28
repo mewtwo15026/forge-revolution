@@ -1,0 +1,10 @@
+Name:Delias, Savvy Smuggler
+ManaCost:1 R
+Types:Legendary Creature Snake Rogue
+PT:2/1
+# NOTE: changing cast timing based on mana colors spent isn't presently supported - this is the best approximation
+S:Mode$ Continuous | CharacteristicDefining$ True | MayPlay$ True | MayPlayAltManaCost$ U R | MayPlayDontGrantZonePermissions$ True | MayPlayWithFlash$ True | Description$ You may cast this spell as though it had flash by paying {U}{R} rather than its mana cost.
+S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | ValidBlocker$ Creature.powerLE1 | Description$ NICKNAME can't be blocked by creatures with power 1 or less.
+T:Mode$ Drawn | ValidCard$ Card.OppOwn | TriggerZones$ Battlefield | Execute$ TrigDamage | TriggerDescription$ Whenever an opponent draws a card, NICKNAME deals 1 damage to that player.
+SVar:TrigDamage:DB$ DealDamage | Defined$ TriggeredPlayer | NumDmg$ 1
+Oracle:You may cast this spell as though it had flash as long as {U} is spent to cast it.\nDelias can't be blocked by creatures with power 1 or less.\nWhenever an opponent draws a card, Delias deals 1 damage to them.

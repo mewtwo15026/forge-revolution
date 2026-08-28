@@ -1,0 +1,8 @@
+Name:Hymn of the Overseer
+ManaCost:1 B
+Types:Instant
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouOwn | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature card in your graveyard | SubAbility$ DBRegrow | SpellDescription$ Return up to one target creature card and up to one target Warlock card from your graveyard to your hand.
+SVar:DBRegrow:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Warlock.YouOwn | TargetUnique | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target Warlock card in your graveyard
+DeckHints:Type$Warlock
+DeckHas:Ability$Graveyard
+Oracle:Return up to one target creature card and up to one target Warlock card from your graveyard to your hand.

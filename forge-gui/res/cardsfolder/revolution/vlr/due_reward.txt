@@ -1,0 +1,11 @@
+Name:Due Reward
+ManaCost:G
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this enchantment enters, mill three cards. You may return a creature or land card from among the milled cards to your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You | Imprint$ True | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard,Exile | Destination$ Hand | ChangeType$ Creature.YouOwn+IsImprinted,Land.YouOwn+IsImprinted | Hidden$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearImprinted$ True
+A:AB$ GainLife | Cost$ 2 G Sac<1/CARDNAME> | LifeAmount$ 3 | SubAbility$ DBToken | SpellDescription$ You gain 3 life and create a Treasure token.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac
+DeckHas:Ability$Mill|Sacrifice|Token|LifeGain & Type$Artifact|Treasure
+Oracle:When this enchantment enters, mill three cards. You may return a creature or land card from among the milled cards to your hand.\n{2}{G}, Sacrifice this enchantment: You gain 3 life and create a Treasure token.

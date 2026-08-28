@@ -1,0 +1,7 @@
+Name:Stalker's Cowl
+ManaCost:3
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Equipped creature has skulk. (That creature can't be blocked by creatures with greater power.)\nWhenever equipped creature attacks and isn't blocked, it gets +2/+0 until end of turn.\nEquip {1}

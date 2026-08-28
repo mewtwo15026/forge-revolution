@@ -1,0 +1,8 @@
+Name:Defect
+ManaCost:1 U B
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:GainControl
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | GainControl$ You | Description$ You control enchanted creature.
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddKeyword$ Decayed | Description$ Enchanted creature has decayed. (It can't block. When it attacks, sacrifice it at end of combat.)
+Oracle:Enchant creature\nYou control enchanted creature.\nEnchanted creature has decayed. (It can't block. When it attacks, sacrifice it at end of combat.)

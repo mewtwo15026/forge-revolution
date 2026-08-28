@@ -1,0 +1,8 @@
+Name:Sanctum Enforcer
+ManaCost:3 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nWhenever another creature you control dies, you gain 1 life.

@@ -6,5 +6,5 @@ K:Prowess
 # TODO: implement Chant
 #S:Mode$ Continuous | EffectZone$ Battlefield | MayChantFromBattlefield$ True | Description$ As you cast an instant or sorcery spell, you may add the chants of any number of creatures you control to that spell. (You still pay the chant costs.)
 #DeckNeeds:Keyword$twi_Chant|twi_FlashChant
-Oracle:Prowess\n
-As you cast an instant or sorcery spell, you may add the chants of any number of creatures you control to that spell. (You still pay the chant costs.)
+K:Currentspeaking
+Oracle:Prowess\nAs you cast an instant or sorcery spell, you may add the chants of any number of creatures you control to that spell. (You still pay the chant costs.)

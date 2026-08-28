@@ -1,0 +1,11 @@
+Name:Herbalist's Satchel
+ManaCost:1
+Types:Artifact
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTutor | OptionalDecider$ You | TriggerDescription$ When this artifact enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.
+SVar:TrigTutor:DB$ ChangeZone | Origin$ Library | Destination$ Library | LibraryPosition$ 0 | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ShuffleNonMandatory$ True
+A:AB$ Draw | Cost$ 8 Sac<1/CARDNAME> | ReduceCost$ Ancient | NumCards$ 2 | SpellDescription$ Draw two cards. This ability costs {1} less to activate for each land you control and each land card in your graveyard.
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Oracle:When this artifact enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.\n{8}, Sacrifice this artifact: Draw two cards. This ability costs {1} less to activate for each land you control and each land card in your graveyard.

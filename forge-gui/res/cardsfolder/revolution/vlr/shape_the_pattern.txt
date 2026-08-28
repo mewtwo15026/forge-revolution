@@ -1,0 +1,10 @@
+Name:Shape the Pattern
+ManaCost:G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ConditionCheckSVar$ Ancient | ConditionSVarCompare$ LT8 | SubAbility$ DBChangeZone | SpellDescription$ Search your library for a basic land card. If you're ancient, instead search your library for a creature or land card. Reveal that card, put it into your hand, then shuffle. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land,Creature | ChangeNum$ 1 | ConditionCheckSVar$ Ancient | ConditionSVarCompare$ GE8
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Oracle:Search your library for a basic land card. If you're ancient, instead search your library for a creature or land card. Reveal that card, put it into your hand, then shuffle. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

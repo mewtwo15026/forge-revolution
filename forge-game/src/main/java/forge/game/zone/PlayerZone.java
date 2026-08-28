@@ -56,9 +56,11 @@ public class PlayerZone extends Zone {
 
             // Keywords like Flashback/Escape create alternative SAs at play time,
             // not stored on the card or in the mayPlay map. Check directly.
+            // REVOLUTION - includes new keywords
             if (PlayerZone.this.is(ZoneType.Graveyard) && (c.hasKeyword(Keyword.FLASHBACK)
                     || c.hasKeyword(Keyword.RETRACE) || c.hasKeyword(Keyword.JUMP_START)
-                    || c.hasKeyword(Keyword.ESCAPE) || c.hasKeyword(Keyword.DISTURB))) {
+                    || c.hasKeyword(Keyword.ESCAPE) || c.hasKeyword(Keyword.DISTURB)
+                    || c.hasKeyword(Keyword.CCR_SURFACE) || c.hasKeyword(Keyword.VLR_PURSUIT))) {
                 return true;
             }
             if (PlayerZone.this.is(ZoneType.Exile) && (c.isForetold() || c.isOnAdventure())) {

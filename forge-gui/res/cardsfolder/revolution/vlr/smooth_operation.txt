@@ -1,0 +1,7 @@
+Name:Smooth Operation
+ManaCost:1 U R
+Types:Enchantment
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Whenever you cast a noncreature spell, this enchantment deals 1 damage to target opponent. \nWhenever an opponent is dealt damage by one or more sources you control for the third time each turn, draw a card.

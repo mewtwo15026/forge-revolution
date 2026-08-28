@@ -170,14 +170,14 @@ Replace=.016F fromSheet("KDT buy a box")
 131 C Balance of the Realms @Nora Zhang
 132 C Basking Kitsune @Asfodelo
 133 R Breath of the Spirit Realm @rodmendez
-134 R Brutal Throatcrusher @Le Vuong
+134 C Brutal Throatcrusher @Le Vuong
 135 U Cartographer's Skill @yuogle
 136 C Deadly Combatant @Narendra B Adi
 137 U Distinguished Weaverkin @Liew Yu Liang John
 138 U Ethereal Blossom @Renata Herrero Mier
 139 C Gifts of the Kitsune @fionahsieh
 140 C Mapper's Wanderings @Joseph Oiu
-141 C Master of Stances @Michael Adams
+141 R Master of Stances @Michael Adams
 142 C Mirageform Shinobi @Rayven Studios
 143 C Momentous Strike @Sam Yang
 144 R Orochi Soulfang @Edward Chee
@@ -225,7 +225,7 @@ Replace=.016F fromSheet("KDT buy a box")
 186 U Dynasty's Benediction @Hai Hoang
 187 U Eager Eelpup @Kuroi-kisin
 188 U Ensorcell @Moky lin
-189 R Fablewoven Kitsune @Shiranui
+189 R Fablewoven Seishin @Shiranui
 190 C Fatal Flourish @Leaf Art
 191 U Foreign Encounter @Vlashryk
 192 U Frolicking Tatsuko @Nube

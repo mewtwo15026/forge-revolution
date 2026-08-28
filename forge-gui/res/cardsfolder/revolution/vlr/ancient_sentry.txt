@@ -1,0 +1,7 @@
+Name:Ancient Sentry
+ManaCost:3
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, create a Weapon token. (It's an Equipment artifact with equip {2} and \Equipped creature gets +1/+1.\)\nEquip abilities you activate cost {1} less to activate.

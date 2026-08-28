@@ -1,0 +1,11 @@
+Name:Intangibility
+ManaCost:U
+Types:Enchantment Aura
+K:Enchant:Creature
+SVar:AttachAILogic:Curse
+S:Mode$ Continuous | Affected$ Creature.EnchantedBy | SetPower$ 1 | SetToughness$ 1 | AddType$ Creature & Spirit | RemoveAllAbilities$ True | Description$ Enchanted creature loses all abilities and is a Spirit creature with base power and toughness 1/1 in addition to its other types.
+S:Mode$ CantBlock | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature can't block and can't be blocked.
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self
+SVar:NonStackingAttachEffect:True
+AI:RemoveDeck:All
+Oracle:Enchant creature\nEnchanted creature loses all abilities and is a Spirit creature with base power and toughness 1/1 in addition to its other types.\nEnchanted creature can't block and can't be blocked.

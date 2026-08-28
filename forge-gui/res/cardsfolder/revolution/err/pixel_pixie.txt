@@ -4,7 +4,7 @@ Types:Creature Faerie Wizard
 PT:2/2
 K:Flying
 K:Level up:UR
-SVar:maxLevel:5
-S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 3 | SetToughness$ 3 | AddKeyword$ Prowess | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE4_LEVEL | Description$ LEVEL 2-4 3/3 Flying, prowess
-S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 4 | AddKeyword$ Prowess & Prowess & Prowess | IsPresent$ Card.Self+counters_GE5_LEVEL | Description$ LEVEL 5+ 4/4 Flying, prowess, prowess, prowess
-Oracle:Flying\nLevel up {UR} ({UR}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-4\n3/3\nFlying, prowess\nLEVEL 5+\n4/4\nFlying, prowess, prowess, prowess
+SVar:maxLevel:4
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 3 | SetToughness$ 3 | AddKeyword$ Prowess | IsPresent$ Card.Self+counters_GE2_LEVEL+counters_LE3_LEVEL | Description$ LEVEL 2-3 3/3 Flying, prowess
+S:Mode$ Continuous | Affected$ Card.Self | SetPower$ 4 | SetToughness$ 4 | AddKeyword$ Prowess & Prowess & Prowess | IsPresent$ Card.Self+counters_GE4_LEVEL | Description$ LEVEL 4+ 4/4 Flying, prowess, prowess, prowess
+Oracle:Flying\nLevel up {UR} ({UR}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-3\n3/3\nFlying, prowess\nLEVEL 4+\n4/4\nFlying, prowess, prowess, prowess

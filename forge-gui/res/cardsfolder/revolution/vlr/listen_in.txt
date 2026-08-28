@@ -1,0 +1,8 @@
+Name:Listen In
+ManaCost:B
+Types:Sorcery
+A:SP$ RevealHand | Defined$ Targeted | ValidTgts$ Player.Opponent | IsCurse$ True | SubAbility$ ExileHand | StackDescription$ SpellDescription | SpellDescription$ Target opponent reveals their hand. You choose a creature or enchantment card from it, then choose a creature or enchantment card from their graveyard. Exile the chosen cards.
+SVar:ExileHand:DB$ ChangeZone | Origin$ Hand | Destination$ Exile | DefinedPlayer$ Targeted | Chooser$ You | ChangeType$ Creature,Enchantment | ChangeNum$ 1 | Mandatory$ True | SubAbility$ ExileGrave
+SVar:ExileGrave:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | DefinedPlayer$ Targeted | Chooser$ You | ChangeType$ Creature,Enchantment | ChangeNum$ 1 | Mandatory$ True
+Text:Designed by PTM
+Oracle:Target opponent reveals their hand. You choose a creature or enchantment card from it, then choose a creature or enchantment card from their graveyard. Exile the chosen cards.\nDesigned by PTM

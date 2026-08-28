@@ -1,0 +1,12 @@
+Name:Sillaman District
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Forest, a Plains, and an Island.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionCheckSVar$ Zoning | ConditionSVarCompare$ LT3
+A:AB$ Mana | Cost$ T | Produced$ Combo G W U | SpellDescription$ Add {G}, {W}, or {U}.
+SVar:Zoning:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Forest.YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Plains.YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Island.YouCtrl/LimitMax.1
+Oracle:Sillaman District enters the battlefield tapped unless you control a Forest, a Plains, and an Island.\n{T}: Add {G}, {W}, or {U}.

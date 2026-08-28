@@ -2,7 +2,8 @@ Name:Moonblade Ninja
 ManaCost:2 U
 Types:Creature Human Ninja
 PT:3/1
-K:Ninjutsu:2 U
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZone | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may return another creature you control to its owner's hand.
-SVar:TrigChangeZone:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | Hidden$ True | Mandatory$ True | ChangeType$ Creature.Other+YouCtrl | SelectPrompt$ Select another target creature you control
-Oracle:Ninjutsu {2}{U} ({2}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, you may return another creature you control to its owner's hand.
+K:Sneak:1 U
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may return another creature you control to its owner's hand. If you do, surveil 2.
+SVar:TrigSurveil:AB$ Surveil | Cost$ Return<1/Creature.other/other creature> | Amount$ 2
+DeckHas:Ability$Surveil
+Oracle:Sneak {1}{U} (You may cast this spell for {1}{U} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nWhen this creature enters, you may return another creature you control to its owner's hand. If you do, surveil 2.

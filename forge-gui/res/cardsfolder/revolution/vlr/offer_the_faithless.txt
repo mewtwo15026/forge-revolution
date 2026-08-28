@@ -1,0 +1,10 @@
+Name:Offer the Faithless
+ManaCost:B
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this enchantment enters, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+SVar:TrigToken:DB$ Token | TokenScript$ acolyte
+A:AB$ Surveil | Cost$ 1 B PayLife<1> Sac<1/Creature> | Amount$ 1 | SubAbility$ DBDraw | SpellDescription$ Surveil 1. Draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Token|Sacrifice|Surveil & Type$Warlock
+Oracle:When this enchantment enters, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")\n{1}{B}, Pay 1 life, Sacrifice a creature: Surveil 1. Draw a card.

@@ -1,0 +1,12 @@
+Name:Eyes of the Bureau
+ManaCost:1 W U
+Types:Creature Bird Scout
+PT:2/2
+K:Flying
+K:Vigilance
+R:Event$ Draw | ActiveZones$ Battlefield | ValidPlayer$ You | Optional$ True | ReplaceWith$ EyesTrigger | Description$ If you would draw a card, you may exile a card from your graveyard instead. When you do, reveal cards from the top of your library until you reveal a card that shares a card type with the exiled card. Put that card into your hand, and the rest on the bottom in a random order.
+SVar:EyesTrigger:DB$ ImmediateTrigger | UnlessCost$ ExileFromGrave<1/Card> | UnlessPayer$ You | UnlessSwitched$ True | RememberObjects$ ExiledCards | Execute$ TrigDigUntil | UnlessResolveSubs$ WhenNotPaid | SubAbility$ EyesDraw | TriggerDescription$ When you do, reveal cards from the top of your library until you reveal a card that shares a card type with the exiled card. Put that card into your hand, and the rest on the bottom in a random order.
+SVar:EyesDraw:DB$ Draw
+SVar:TrigDigUntil:DB$ DigUntil | Defined$ You | Valid$ Card.sharesCardTypeWith DelayTriggerRememberedLKI | FoundDestination$ Hand | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True
+AI:RemoveDeck:All
+Oracle:Flying, vigilance\nIf you would draw a card, you may exile a card from your graveyard instead. When you do, reveal cards from the top of your library until you reveal a card that shares a card type with the exiled card. Put that card into your hand, and the rest on the bottom in a random order.

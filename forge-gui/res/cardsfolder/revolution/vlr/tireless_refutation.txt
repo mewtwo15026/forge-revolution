@@ -1,0 +1,9 @@
+Name:Tireless Refutation
+ManaCost:2 U U
+Types:Instant
+A:SP$ Charm | Choices$ DBCounter,DBDraw
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | SpellDescription$ Counter target spell.
+SVar:DBDraw:DB$ Draw | NumCards$ 3 | SubAbility$ DBDiscard | SpellDescription$ Draw three cards, then discard a card.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose
+DeckHas:Ability$Discard
+Oracle:Choose one -\n• Counter target spell.\n• Draw three cards, then discard a card.

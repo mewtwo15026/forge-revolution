@@ -1,0 +1,7 @@
+Name:Cryptology
+ManaCost:1 B
+Types:Sorcery
+A:SP$ ChangeZone | Cost$ 1 B ExileFromGrave<1/Card> | Origin$ Library | Destination$ Hand | ChangeType$ Card.cmcEQX | ChangeTypeDesc$ card with the same mana value as the exiled card | ChangeNum$ 1 | SubAbility$ DBLoseLife | SpellDescription$ Search your library for a card with the same mana value as the exiled card, reveal it, put it into your hand, then shuffle. You lose 2 life.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2
+SVar:X:Exiled$CardPower
+Oracle:As an additional cost to cast this spell, exile a card from your graveyard.\nSearch your library for a card with the same mana value as the exiled card, reveal it, put it into your hand, then shuffle. You lose 2 life.

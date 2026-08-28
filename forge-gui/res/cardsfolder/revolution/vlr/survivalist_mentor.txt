@@ -1,0 +1,8 @@
+Name:Survivalist Mentor
+ManaCost:3 U
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nWhenever this creature or another Druid you control enters, you may draw a card. If you do, discard a card.

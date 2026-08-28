@@ -1,0 +1,8 @@
+Name:Backalley Minstrel
+ManaCost:3 W W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, choose one -\n• Put a +1/+1 counter on each creature you control.\n• Create two 1/1 white Citizen creature tokens.

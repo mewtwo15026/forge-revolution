@@ -1,0 +1,27 @@
+Name:Mellan, Defense Attorney
+ManaCost:W
+Types:Legendary Creature Human Advisor
+PT:1/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPledge | TriggerDescription$ When CARDNAME enters, make a pledge. (Create any white Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:TrigPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Penrath,Sillaman,Tiril
+SVar:Penrath:DB$ Token | TokenScript$ penrath_insurgency | SpellDescription$ Penrath Insurgency (Pledge - Up to one target creature gets +2/+2 until end of turn.)
+SVar:Sillaman:DB$ Token | TokenScript$ sillaman_laboratories | SpellDescription$ Sillaman Laboratories (Pledge - Tap up to one target untapped creature. You may put a +1/+1 counter on it.)
+SVar:Tiril:DB$ Token | TokenScript$ tiril_bureau | SpellDescription$ Tiril Bureau (Pledge - Surveil 2.)
+A:AB$ ChooseColor | Cost$ T | Defined$ You | ColorsFrom$ Valid Permanent.Other+YouCtrl | AILogic$ MostProminentInHumanDeck | SubAbility$ DBPump | SpellDescription$ Choose a color from among other permanents you control. Another target creature you control gains hexproof from that color until end of turn. It can't be blocked by creatures of that color this turn.
+SVar:DBPump:DB$ Pump | ValidTgts$ Creature.YouCtrl+Other | TgtPrompt$ Select another target creature you control | KW$ Hexproof:ChosenColor | DefinedKW$ ChosenColor | SubAbility$ DBEffect | StackDescription$ {c:Targeted} gains hexproof from that color until end of turn.
+SVar:DBEffect:DB$ Effect | RememberObjects$ Targeted | StaticAbilities$ CantBlockBy | SubAbility$ DBCleanup | SpellDescription$ It can't be blocked by creatures of that color this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearChosenColor$ True
+SVar:CantBlockBy:Mode$ CantBlockBy | ValidAttacker$ Creature.IsRemembered | ValidBlocker$ Creature.ChosenColor | Description$ This creature can't be blocked by creatures of the chosen color this turn.
+SVar:BuffedBy:Permanent.nonColorless
+SVar:NonCombatPriority:1
+DeckHas:Type$Enchantment|Clique
+Oracle:When Mellan, Defense Attorney enters, make a pledge. (Create any white Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)\n{T}: Choose a color from among other permanents you control. Another target creature you control gains hexproof from that color until end of turn. It can't be blocked by creatures of that color this turn.

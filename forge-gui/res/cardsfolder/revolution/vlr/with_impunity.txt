@@ -1,0 +1,8 @@
+Name:With Impunity
+ManaCost:3 B
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | EffectZone$ All | Type$ Spell | Amount$ 2 | CheckSVar$ X | Description$ This spell costs {2} less to cast if you've sacrificed a permanent this turn.
+SVar:X:PlayerCountPropertyYou$SacrificedThisTurn Permanent
+A:SP$ ChangeZone | ValidTgts$ Creature | Origin$ Battlefield | Destination$ Exile | SpellDescription$ Exile target creature.
+DeckHints:Ability$Sacrifice
+Oracle:This spell costs {2} less to cast if you've sacrificed a permanent this turn.\nExile target creature.

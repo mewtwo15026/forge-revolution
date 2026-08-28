@@ -1,0 +1,17 @@
+Name:Penrath Agenda
+ManaCost:R G W
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ PenrathCount | Choices$ DBToken,DBPumpAll,DBBurn
+SVar:DBToken:DB$ Token | TokenScript$ r_2_2_berserker_haste_cantblock | ValidTgts$ Player | TokenScript$ Select target player to create a token | TokenOwner$ TargetedPlayer | StackDescription$ SpellDescription | SpellDescription$ Target player creates a 2/2 red Berserker creature token with haste and "This creature can't block."
+SVar:DBPumpAll:DB$ PumpAll | ValidTgts$ Player | TgtPrompt$ Select target player to pump | ValidCards$ Creature | NumAtt$ +1 | KW$ Trample | SpellDescription$ Creatures target player controls get +1/+0 and gain trample until end of turn.
+SVar:DBBurn:DB$ DealDamage | ValidTgts$ Creature | NumDmg$ W | SpellDescription$ CARDNAME deals damage equal to the number of creatures you control to target creature.
+SVar:W:Count$Valid Creature.YouCtrl
+SVar:PenrathCount:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Permanent.Red+YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Permanent.Green+YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Permanent.White+YouCtrl/LimitMax.1
+SVar:NeedsToPlayVar:PenrathCount GE1
+SVar:BuffedBy:Permanent.Red,Permanent.Green,Permanent.White
+DeckHas:Ability$Token & Type$Berserker
+Oracle:Choose up to one for each color among red, green, and white among permanents you control.\n• Target player creates a 2/2 red Berserker creature token with haste and "This creature can't block."\n• Creatures target player controls get +1/+0 and gain trample until end of turn.\n• Penrath Agenda deals damage equal to the number of creatures you control to target creature.

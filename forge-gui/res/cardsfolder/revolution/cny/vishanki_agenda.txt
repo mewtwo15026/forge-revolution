@@ -1,0 +1,20 @@
+Name:Vishanki Agenda
+ManaCost:B R G
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ VishankiCount | Choices$ DBRestock,DBDig,DBToken
+SVar:DBRestock:DB$ ChangeZone | Origin$ Graveyard | Destination$ Library | LibraryPosition$ 0 | TgtPrompt$ Select up to two target nonland cards in graveyards | ValidTgts$ Card | TargetMin$ 0 | TargetMax$ 2 | Chooser$ You | SubAbility$ DBExile | SpellDescription$ Put up to two target nonland cards from graveyards on top of their owners' libraries in any order.
+SVar:DBDig:DB$ Dig | ValidTgts$ Player | TgtPrompt$ Select target player to exile the top two cards | DigNum$ 2 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top two cards of target player's library. Until the end of your next turn, you may play those cards.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STMayPlay | Duration$ UntilTheEndOfYourNextTurn | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STMayPlay:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Exile | MayPlay$ True | Description$ Until the end of your next turn, you may play those cards.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True | SubAbility$ DBExile
+SVar:DBToken:DB$ Token | ValidTgts$ Player | TgtPrompt$ Select target player to create two tapped Treasure tokens | TokenOwner$ TargetedPlayer | TokenScript$ c_a_treasure_sac | TokenAmount$ 2 | TokenTapped$ True | SubAbility$ DBExile | SpellDescription$ Target player creates two tapped Treasure tokens.
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile | SpellDescription$ Exile CARDNAME.
+SVar:VishankiCount:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Permanent.Black+YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Permanent.Red+YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Permanent.Green+YouCtrl/LimitMax.1
+SVar:NeedsToPlayVar:VishankiCount GE1
+SVar:BuffedBy:Permanent.Black,Permanent.Red,Permanent.Green
+DeckHas:Ability$Token & Type$Treasure
+Oracle:Choose up to one for each color among black, red, and green among permanents you control.\n• Put up to two target nonland cards from graveyards on top of their owners' libraries in any order.\n• Exile the top two cards of target player's library. Until the end of your next turn, you may play those cards.\n• Target player creates two tapped Treasure tokens.\nExile Vishanki Agenda.

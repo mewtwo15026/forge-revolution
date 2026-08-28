@@ -1,0 +1,11 @@
+Name:Sustainable Investments
+ManaCost:2 G
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+S:Mode$ Continuous | Affected$ Treasure.YouCtrl | AddAbility$ AnyMana | Description$ Treasures you control have "{T}: Add one mana of any color."
+SVar:AnyMana:AB$ Mana | Cost$ T | Produced$ Any | Amount$ 1 | SpellDescription$ Add one mana of any color.
+SVar:BuffedBy:Treasure
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+DeckNeeds:Ability$Treasure
+Oracle:When Sustainable Investments enters, create a Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")\nTreasures you control have "{T}: Add one mana of any color."

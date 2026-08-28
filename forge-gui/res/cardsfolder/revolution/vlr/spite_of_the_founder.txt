@@ -1,0 +1,8 @@
+Name:Spite of the Founder
+ManaCost:3 W W
+Types:Sorcery
+A:SP$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ ExileTheirs | FalseSubAbility$ ExileAll | SpellDescription$ Exile all creatures. If you control a Tesh planeswalker, exile all creatures you don't control instead.
+SVar:ExileAll:DB$ ChangeZoneAll | ChangeType$ Creature | Origin$ Battlefield | Destination$ Exile
+SVar:ExileTheirs:DB$ ChangeZoneAll | ChangeType$ Creature.YouDontCtrl | Origin$ Battlefield | Destination$ Exile
+SVar:X:Count$Valid Planeswalker.Tesh+YouCtrl
+Oracle:Exile all creatures. If you control a Tesh planeswalker, exile all creatures you don't control instead.

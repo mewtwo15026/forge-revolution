@@ -1,0 +1,11 @@
+Name:Attuned Rebuttal
+ManaCost:1 U
+Types:Instant
+A:SP$ Counter | ValidTgts$ Card | AITgts$ Creature | TargetType$ Spell | TgtPrompt$ Select target spell | ConditionCheckSVar$ X | SpellDescription$ Counter target spell if it's a creature spell or if you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:X:Targeted$Valid Creature/Plus.Y
+SVar:Y:Count$Compare Ancient GE8.1.0
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Oracle:Counter target spell if it's a creature spell or if you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

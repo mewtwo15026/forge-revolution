@@ -1,0 +1,8 @@
+Name:Ascendant Judge
+ManaCost:1 W W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Flying \nWhenever this creature attacks, create an Acolyte token. (It's a 0/1 white and black Warlock creature with \{1}, Sacrifice this token: Surveil 1.\)

@@ -1,0 +1,10 @@
+Name:Humming Furnace
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | Optional$ True | ReplaceWith$ ETBTapped | Description$ You may have this land enter tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+T:Mode$ ChangesZone | ValidCard$ Card.Self+tapped | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When this land enters tapped, create a Weapon token. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_weapon_equip
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+DeckHas:Type$Artifact|Equipment|Weapon & Ability$Token|Mana.Colorless
+Oracle:You may have this land enter tapped.\nWhen this land enters tapped, create a Weapon token. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")\n{T}: Add {C}.

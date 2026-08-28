@@ -1,0 +1,7 @@
+Name:Pickpocket
+ManaCost:1 U U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Card | SubAbility$ DBEffect | SpellDescription$ 
+SVar:DBEffect:DB$ Effect | RememberObjects$ Targeted | StaticAbilities$ CantCast | Duration$ UntilTheEndOfYourNextTurn | EffectOwner$ TargetedController
+SVar:CantCast:Mode$ CantBeCast | ValidCard$ Card.nonLand+sharesNameWith Remembered | Caster$ You | Description$ You can't cast spells with the same name as that spell until the end of your next turn.
+Oracle:Counter target spell. That spell's owner can't cast spells with the same name as that spell until the end of their next turn.

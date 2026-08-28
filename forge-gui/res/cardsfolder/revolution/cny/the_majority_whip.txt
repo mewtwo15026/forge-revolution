@@ -1,0 +1,10 @@
+Name:The Majority Whip
+ManaCost:1
+Types:Legendary Artifact Equipment
+S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Ward:AffectedX | Description$ Equipped creature gets +2/+2 and has ward {X}, where X is the number of colors it is.
+SVar:AffectedX:Count$CardNumColors
+T:Mode$ Attacks | TriggerZones$ Battlefield | ValidCard$ Creature.Legendary+YouCtrl | Execute$ TrigAttach | TriggerDescription$ Whenever a legendary creature you control attacks, you may attach CARDNAME to it.
+SVar:TrigAttach:DB$ Attach | Defined$ TriggeredAttackerLKICopy
+K:Equip:3
+DeckHints:Type$Legendary
+Oracle:Equipped creature gets +2/+2 and has ward {X}, where X is the number of colors it is.\nWhenever a legendary creature you control attacks, you may attach The Majority Whip to it.\nEquip {3}

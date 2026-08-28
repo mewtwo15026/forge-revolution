@@ -1,0 +1,7 @@
+Name:Defend the Groves
+ManaCost:1 G
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Put a +1/+1 counter on target creature you control if it's a Druid. Then it fights target creature an opponent controls.

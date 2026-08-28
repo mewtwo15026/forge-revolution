@@ -8,5 +8,12 @@ SVar:TrigAddTurn:DB$ AddTurn | ConditionExtraTurn$ False | NumTurns$ 1
 #TODO: implement Chant
 #K:twi_Chant:1 U U B B
 #A:SP$ Chant | Mode$ AddTurn | ConditionExtraTurn$ False | NumTurns$ 1 | SpellDescription$ If it's not an extra turn, take an extra turn after this one.
-Oracle:Trample\nWhenever The Ever-Gnashing Dark deals combat damage to a player, [if it's not an extra turn, take an extra turn after this one.]\n
-Chant {1}{U}{U}{B}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {1}{U}{U}{B}{B} - If it's not an extra turn, take an extra turn after this one.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {1}{U}{U}{B}{B} - If it's not an extra turn, take an extra turn after this one.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {1}{U}{U}{B}{B} - If it's not an extra turn, take an extra turn after this one.
+SVar:TrigChant:AB$ Effect | Cost$ 1 U U B B ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigAddTurn | TriggerDescription$ Chant - If it's not an extra turn, take an extra turn after this one.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ 1 U U B B | Execute$ TrigAddTurn | TriggerDescription$ Chant - If it's not an extra turn, take an extra turn after this one.
+DeckHints:Type$Instant|Sorcery
+Oracle:Trample\nWhenever The Ever-Gnashing Dark deals combat damage to a player, [if it's not an extra turn, take an extra turn after this one.]\nChant {1}{U}{U}{B}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)

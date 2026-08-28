@@ -1,0 +1,7 @@
+Name:Blade Flourish
+ManaCost:R
+Types:Instant
+A:SP$ Charm | CharmNum$ 1 | Choices$ BurnCreaturePW,BurnOther
+SVar:BurnCreaturePW:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature | NumDmg$ 2 | ExcessDamage$ TargetedController | SpellDescription$ CARDNAME deals 2 damage to target creature or planeswalker. Excess damage is dealt to that permanent's controller instead.
+SVar:BurnOther:DB$ DealDamage | ValidTgts$ Player,Battle | TgtPrompt$ Select target player or battle | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to target player or battle.
+Oracle:Blade Flourish deals 2 damage to any target. Excess damage dealt to a creature or planeswalker this way is dealt to its controller instead.

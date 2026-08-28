@@ -1,0 +1,10 @@
+Name:Trespass the Volwood
+ManaCost:2 G
+Types:Enchantment
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Land & Forest | Description$ As long as this enchantment is on the battlefield, it's a Forest land in addition to its other types. (It has "{T}: Add {G}.")
+S:Mode$ Continuous | Affected$ Card.Self | AddType$ Creature & Treefolk | SetPower$ 5 | SetToughness$ 5 | AddKeyword$ Vigilance & Reach & Haste | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, this enchantment is a 5/5 Treefolk creature in addition to its other types and it has vigilance, reach, and haste. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Oracle:As long as this enchantment is on the battlefield, it's a Forest land in addition to its other types. (It has "{T}: Add {G}.")\nAs long as you're ancient, this enchantment is a 5/5 Treefolk creature in addition to its other types and it has vigilance, reach, and haste. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

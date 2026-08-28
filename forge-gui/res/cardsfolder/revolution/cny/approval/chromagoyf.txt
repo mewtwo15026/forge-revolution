@@ -1,0 +1,10 @@
+Name:Chromagoyf
+ManaCost:G
+Types:Creature Lhurgoyf
+PT:*/1+*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ Y | Description$ CARDNAME's power is equal to your approval and its toughness is equal to that number plus 1. (Your approval contains up to one different permanent of each color.)
+SVar:X:Count$Approval
+SVar:Y:SVar$X/Plus.1
+SVar:BuffedBy:Permanent.nonColorless
+DeckHints:Color$White|Blue|Black|Red
+Oracle:Chromagoyf's power is equal to your approval and its toughness is equal to that number plus 1. (Your approval contains up to one different permanent of each color.)

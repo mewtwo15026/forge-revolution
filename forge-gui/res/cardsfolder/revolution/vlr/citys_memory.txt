@@ -1,0 +1,7 @@
+Name:City's Memory
+ManaCost:1 W
+Types:Enchantment
+A:AB$ ChangeZone | Cost$ 2 | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature card in a graveyard | ValidTgts$ Card | SubAbility$ DBToken | SpellDescription$ Exile target creature card from a graveyard. Create a 1/1 colorless Spirit creature token. It can't block this turn.
+SVar:DBToken:DB$ Token | TokenScript$ c_1_1_spirit | PumpKeywords$ HIDDEN CARDNAME can't block. | PumpDuration$ EOT
+DeckHas:Ability$Token & Type$Spirit
+Oracle:{2}: Exile target creature card from a graveyard. Create a 1/1 colorless Spirit creature token. It can't block this turn.

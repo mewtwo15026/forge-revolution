@@ -1,0 +1,9 @@
+Name:The Shrouded Seas
+ManaCost:no cost
+Types:Legendary Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigDraw | TriggerDescription$ When CARDNAME is put into your graveyard from the battlefield, draw a card.
+SVar:TrigDraw:DB$ Draw
+SVar:SacMe:1
+DeckHas:Ability$Mana.Colorless
+Oracle:{T}: Add {C}.\nWhen The Shrouded Seas is put into your graveyard from the battlefield, draw a card.

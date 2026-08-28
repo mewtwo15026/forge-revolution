@@ -1,0 +1,24 @@
+Name:Free Market
+ManaCost:1 R G
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When CARDNAME enters, target creature gets +2/+2 until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | NumAtt$ +2 | NumDef$ +2
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | IsPresent2$ Creature.YouCtrl+powerGE4 | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked | SpellDescription$ A — You control a creature with power 4 or greater.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | IsPresent2$ Creature.YouCtrl+toughnessGE4 | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ PolicyMarked | SpellDescription$ B — You control a creature with toughness 4 or greater.
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Creature.powerGE4,Creature.toughnessGE4
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)/nWhen Free Market enters, target creature gets +2/+2 until end of turn./nA — You control a creature with power 4 or greater./nB — You control a creature with toughness 4 or greater.
+
+ALTERNATE
+
+Name:Industrialism
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:red,green
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigDouble | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, double target attacking creature's power and toughness until end of turn.
+SVar:TrigDouble:DB$ Pump | ValidTgts$ Creature.attacking | NumAtt$ Double | NumDef$ Double
+Oracle:Whenever you attack, double target attacking creature's power and toughness until end of turn.

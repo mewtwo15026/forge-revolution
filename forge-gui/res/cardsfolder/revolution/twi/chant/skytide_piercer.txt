@@ -7,5 +7,13 @@ A:AB$ Counter | Cost$ U Sac<1/CARDNAME> | TargetType$ Spell | ValidTgts$ Card.no
 # TODO: implement Chant
 #K:twi_Chant:U
 #A:SP$ Chant | Mode$ Counter | TargetType$ Spell | ValidTgts$ Card.nonCreature | TgtPrompt$ Select target noncreature spell | UnlessCost$ 2 | SpellDescription$ Counter target noncreature spell unless its controller pays {2}.
-Oracle:Flying\n{U}, Sacrifice Skytide Piercer: [Counter target noncreature spell unless its controller pays {2}.]\n
-Chant {U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {U} - Counter target noncreature spell unless its controller pays {2}.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - Counter target noncreature spell unless its controller pays {2}.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - Counter target noncreature spell unless its controller pays {2}.
+SVar:TrigChant:AB$ Effect | Cost$ U ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigCounter | TriggerDescription$ Chant - Counter target noncreature spell unless its controller pays {2}.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ U | Execute$ TrigCounter | TriggerDescription$ Chant - Counter target noncreature spell unless its controller pays {2}.
+SVar:TrigCounter:DB$ Counter | TargetType$ Spell | ValidTgts$ Card.nonCreature | TgtPrompt$ Select target noncreature spell | UnlessCost$ 2
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying\n{U}, Sacrifice Skytide Piercer: [Counter target noncreature spell unless its controller pays {2}.]\nChant {U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

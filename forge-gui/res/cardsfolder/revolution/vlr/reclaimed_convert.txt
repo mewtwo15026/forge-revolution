@@ -1,0 +1,8 @@
+Name:Reclaimed Convert
+ManaCost:1 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nMuster - Whenever you cast a creature spell, this creature gains first strike until end of turn.

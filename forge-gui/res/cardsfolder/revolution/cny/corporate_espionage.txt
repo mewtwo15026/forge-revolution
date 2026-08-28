@@ -1,0 +1,8 @@
+Name:Corporate Espionage
+ManaCost:1 B
+Types:Enchantment
+T:Mode$ DamageDone | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever a creature you control deals combat damage to a player, you may sacrifice it. If you do, draw a card. Otherwise, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)
+SVar:DBDraw:DB$ Draw | UnlessCost$ Sac<1/Card.TriggeredSource/that creature> | UnlessPayer$ You | UnlessSwitched$ True | UnlessResolveSubs$ WhenNotPaid | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 1
+AI:RemoveDeck:Random
+Oracle:Whenever a creature you control deals combat damage to a player, you may sacrifice it. If you do, draw a card. Otherwise, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)

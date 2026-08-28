@@ -3,11 +3,11 @@ ManaCost:1 W
 Types:Enchantment
 T:Mode$ ChangesZone | ValidCard$ Card.Self,Enchantment.Other+YouCtrl | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigCharge | TriggerDescription$ Whenever CARDNAME or another enchantment you control enters, put a charge counter on CARDNAME.
 SVar:TrigCharge:DB$ PutCounter | Defined$ Self | CounterType$ CHARGE | CounterNum$ 1
-T:Mode$ ChangesZone | ValidCard$ Artifact.YouCtrl | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigRemove | TriggerDescription$ Whenever an artifact you control enters, remove a charge counter from CARDNAME. If you do, draw a card and CARDNAME becomes a 3/3 Elemental enchantment creature with flying until end of turn.
+T:Mode$ ChangesZone | ValidCard$ Artifact.YouCtrl | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigRemove | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once each turn, when an artifact you control enters, you may remove a charge counter from CARDNAME. If you do, draw a card and CARDNAME becomes a 3/3 Elemental enchantment creature with flying until end of turn.
 SVar:TrigRemove:DB$ RemoveCounter | Defined$ Self | CounterType$ CHARGE | CounterNum$ 1 | RememberRemoved$ True | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | ConditionCheckSVar$ CheckRemoved | SubAbility$ DBAnimate
 SVar:DBAnimate:DB$ Animate | ConditionCheckSVar$ CheckRemoved | Defined$ Self | Power$ 3 | Toughness$ 3 | Keywords$ Flying | Types$ Enchantment,Creature,Elemental | RemoveCardTypes$ True | RemoveCreatureTypes$ True | SubAbility$ DBCleanup
 SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 SVar:CheckRemoved:Count$RememberedSize
 DeckNeeds:Type$Enchantment & Type$Artifact
-Oracle:Whenever Qaraz Monument or another enchantment you control enters, put a charge counter on Qaraz Monument.\nWhenever an artifact you control enters, remove a charge counter from Qaraz Monument. If you do, draw a card and it becomes a 3/3 Elemental enchantment creature with flying until end of turn. 
+Oracle:Whenever Qaraz Monument or another enchantment you control enters, put a charge counter on Qaraz Monument.\nOnce each turn, when an artifact you control enters, you may remove a charge counter from Qaraz Monument. If you do, draw a card and it becomes a 3/3 Elemental enchantment creature with flying until end of turn. 

@@ -1,9 +1,12 @@
 Name:Nimble Mentor
 ManaCost:G G U U
 Types:Creature Human Ninja
-PT:4/4
-K:Ninjutsu:2 G U
-S:Mode$ AlternativeCost | ValidSA$ Activated.Ninjutsu | ValidPlayer$ You | Cost$ Return<1/Creature.unblocked/unblocked attacker> | CostDesc$ 0 | CheckSVar$ X | SVarCompare$ LT1 | Description$ You may pay {0} rather than pay the ninjutsu cost of the first ninjutsu ability you activate each turn.
-SVar:X:Count$ThisTurnActivated_Activated.Ninjutsu+YouCtrl
-DeckNeeds:Keyword$Ninjutsu
-Oracle:Ninjutsu {2}{G}{U} ({2}{G}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nYou may pay {0} rather than pay the ninjutsu cost of the first ninjutsu ability you activate each turn.
+PT:3/3
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+wasCast | Execute$ TrigExile | TriggerDescription$ When this creature enters, if it was cast, you may exile a creature, instant, or sorcery card with mana value 2 or less from your hand or graveyard. If you do, copy the exiled card. You may cast the copy without paying its mana cost.
+SVar:TrigExile:DB$ ChangeZone | ChangeType$ Creature.YouOwn,Instant.YouOwn,Sorcery.YouOwn | ChangeNum$ 1 | Origin$ Hand,Graveyard | Hidden$ True | Destination$ Exile | RememberChanged$ True | SubAbility$ DBCopy
+SVar:DBCopy:DB$ Play | Valid$ Card.IsRemembered | ValidZone$ Exile | ValidSA$ Spell | Optional$ True | CopyCard$ True | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:BuffedBy:Creature.cmcLE2,Instant.cmcLE2,Sorcery.cmcLE2
+Oracle:Flash\nFlying\nWhen this creature enters, if it was cast, you may exile a creature, instant, or sorcery card with mana value 2 or less from your hand or graveyard. If you do, copy the exiled card. You may cast the copy without paying its mana cost.

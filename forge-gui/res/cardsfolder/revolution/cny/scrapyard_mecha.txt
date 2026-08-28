@@ -1,0 +1,12 @@
+Name:Scrapyard Mecha
+ManaCost:1 U B
+Types:Artifact Vehicle
+PT:5/5
+T:Mode$ DamageAll | TriggerZones$ Battlefield | ValidSource$ Creature.YouCtrl | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | OptionalDecider$ You | TriggerDescription$ Whenever one or more creatures you control deal combat damage to a player, you may draw that many cards. If you do, discard a card.
+SVar:TrigDraw:AB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose | Cost$ Draw<X/You>
+SVar:X:TriggerObjectsSources$Amount
+A:AB$ Animate | Cost$ ExileFromGrave<2/Creature> | Defined$ Self | Types$ Artifact,Creature | SpellDescription$ CARDNAME becomes an artifact creature until end of turn.
+K:Crew:2
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Discard
+Oracle:Whenever one or more creatures you control deal combat damage to a player, you may draw that many cards. If you do, discard a card.\nExile two creature cards from your graveyard: Scrapyard Mecha becomes an artifact creature until end of turn. Activate only as a sorcery.\nCrew 2

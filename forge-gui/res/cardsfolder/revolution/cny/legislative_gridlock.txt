@@ -1,0 +1,9 @@
+Name:Legislative Gridlock
+ManaCost:1 W U
+Types:Instant
+A:SP$ Charm | Choices$ DBCounter,DBGainLife
+SVar:DBCounter:DB$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | UnlessCost$ 3 | SpellDescription$ Counter target spell unless its controller pays {3}.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBDraw | SpellDescription$ You gain 3 life and draw a card.
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$LifeGain
+Oracle:Choose one -\n• Counter target spell unless its controller pays {3}.\n• You gain 3 life and draw a card.

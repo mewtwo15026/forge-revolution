@@ -1,0 +1,7 @@
+Name:Work Safety Violation
+ManaCost:B R G
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SubAbility$ DBToken | SpellDescription$ Destroy target nonland permanent. Create a Treasure token.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+Oracle:Destroy target nonland permanent. Create a Treasure token.

@@ -1,0 +1,7 @@
+Name:Vicuro Informant
+ManaCost:U
+Types:Creature Human Rogue
+PT:1/2
+K:Ward:1
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | Description$ CARDNAME can't be blocked.
+Oracle:Ward {1}\nThis creature can't be blocked.

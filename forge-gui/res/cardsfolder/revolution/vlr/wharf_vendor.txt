@@ -1,0 +1,8 @@
+Name:Wharf Vendor
+ManaCost:1 G W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Whenever a creature token you control enters, put a +1/+1 counter on it.\nWhenever a noncreature token you control enters, put a +1/+1 counter on this creature.

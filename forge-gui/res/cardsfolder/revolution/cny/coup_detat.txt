@@ -1,0 +1,7 @@
+Name:Coup D'Etat
+ManaCost:X U B R
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature | AITgts$ Creature.OppCtrl+powerLE3+toughnessGE4,Creature.YourTeamCtrl+powerGE4+toughnessLE3 | TargetMin$ 0 | TargetMax$ X | KW$ HIDDEN CARDNAME's power and toughness are switched | SubAbility$ DBShrink | SpellDescription$ Choose up to X target creatures. Switch their power and toughness until end of turn. All creatures get -3/-3 until end of turn.
+SVar:DBShrink:DB$ PumpAll | ValidCards$ Creature | NumAtt$ -3 | NumDef$ -3
+SVar:X:Count$xPaid
+Oracle:Choose up to X target creatures. Switch their power and toughness until end of turn.\nAll creatures get -3/-3 until end of turn.

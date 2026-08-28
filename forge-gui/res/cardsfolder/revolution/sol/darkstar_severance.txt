@@ -3,8 +3,8 @@ ManaCost:2 R R
 Types:Enchantment
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChart | TriggerDescription$ When CARDNAME enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")
 SVar:TrigChart:DB$ Token | TokenScript$ c_a_chart_sac
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of combat on your turn, sacrifice a nonland permanent, then create a 3/1 red Elemental creature token with trample and haste.
-SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Permanent.nonLand | SubAbility$ DBElemental
+T:Mode$ Phase | Phase$ Main1 | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of your first main phase, sacrifice a nonland, non-Elemental permanent, then create a 3/1 red Elemental creature token with trample and haste.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | SacValid$ Permanent.nonLand+nonElemental | SubAbility$ DBElemental
 SVar:DBElemental:DB$ Token | TokenScript$ r_3_1_elemental_trample_haste
 DeckHas:Ability$Token|Sacrifice & Type$Chart|Elemental
-Oracle:When Darkstar Severance enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nAt the beginning of combat on your turn, sacrifice a nonland permanent, then create a 3/1 red Elemental creature token with trample and haste.
+Oracle:When Darkstar Severance enters, create a Chart token. (It has "{2}, Sacrifice this artifact: Reveal cards from the top of your library until you reveal a land card. Put it into your hand and the rest on the bottom in a random order.")\nAt the beginning of your first main phase, sacrifice a nonland, non-Elemental permanent, then create a 3/1 red Elemental creature token with trample and haste.

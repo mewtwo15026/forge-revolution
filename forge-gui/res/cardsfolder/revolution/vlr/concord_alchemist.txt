@@ -1,0 +1,8 @@
+Name:Concord Alchemist
+ManaCost:1 GU
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nWhen this creature enters, surveil 2.

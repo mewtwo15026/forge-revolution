@@ -1,0 +1,7 @@
+Name:Memorial to the First Shaper
+ManaCost:2
+Types:Artifact
+T:Mode$ AbilityTriggered | ValidDestination$ Battlefield | ValidMode$ ChangesZone,ChangesZoneAll | ValidCause$ Permanent.nonLand | ValidSource$ Permanent | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Whenever a nonland permanent entering causes a triggered ability of a permanent to trigger, counter that ability unless its controller pays {2}.
+SVar:TrigCounter:DB$ Counter | Defined$ TriggeredSpellAbility | UnlessCost$ 2 | UnlessPayer$ TriggeredSpellAbilityController
+AI:RemoveDeck:Random
+Oracle:Whenever a nonland permanent entering causes a triggered ability of a permanent to trigger, counter that ability unless its controller pays {2}.

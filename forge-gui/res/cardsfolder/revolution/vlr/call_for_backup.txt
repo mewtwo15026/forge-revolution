@@ -1,0 +1,5 @@
+Name:Call for Backup
+ManaCost:1 W
+Types:Instant
+A:SP$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Creature.cmcLE3 | ChangeNum$ 1 | SpellDescription$ Search your library for a creature card with mana value 3 or less, reveal it, put it into your hand, then shuffle.
+Oracle:Search your library for a creature card with mana value 3 or less, reveal it, put it into your hand, then shuffle.

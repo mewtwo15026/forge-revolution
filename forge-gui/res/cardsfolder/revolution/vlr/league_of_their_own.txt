@@ -1,0 +1,15 @@
+Name:League of Their Own
+ManaCost:3 B B
+Types:Creature Human Mercenary
+PT:5/5
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ Whenever this creature enters or attacks, exile up to one target card from a graveyard. If a creature card is exiled this way, you gain 3 life. If a land card is exiled this way, you create a Treasure token. If a noncreature, nonland card is exiled this way, draw a card.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigExile | TriggerDescription$ Whenever this creature enters or attacks, exile up to one target card from a graveyard. If a creature card is exiled this way, you gain 3 life. If a land card is exiled this way, you create a Treasure token. If a noncreature, nonland card is exiled this way, draw a card.
+SVar:TrigExile:DB$ ChangeZone | ValidTgts$ Card | Origin$ Graveyard | TargetMin$ 0 | TargetMax$ 1 | Destination$ Exile | TgtPrompt$ Select up to one target card from a graveyard | RememberChanged$ True | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | ConditionDefined$ Remembered | ConditionPresent$ Creature | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenOwner$ You | ConditionDefined$ Remembered | ConditionPresent$ Land | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionDefined$ Remembered | ConditionPresent$ Card.nonCreature+nonLand | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Token|Sacrifice|Graveyard|LifeGain & Type$Treasure
+Oracle:Menace\nWhenever this creature enters or attacks, exile up to one target card from a graveyard. If a creature card is exiled this way, you gain 3 life. If a land card is exiled this way, you create a Treasure token. If a noncreature, nonland card is exiled this way, draw a card.

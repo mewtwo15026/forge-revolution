@@ -1,0 +1,13 @@
+Name:Swift-Step Robber
+ManaCost:1 U
+Types:Creature Human Rogue
+PT:2/1
+K:Flash
+K:Flying
+S:Mode$ CantBlock | ValidCard$ Creature.Self | Description$ This creature can't block.
+T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$ TrigRob | TriggerDescription$ When this creature enters, put a robbed counter on up to one other target creature.
+SVar:TrigRob:DB$ PutCounter | ValidTgts$ Creature.Other | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one other target creature | CounterType$ ROBBED | CounterNum$ 1 | AITgts$ Creature.YouCtrl+token+powerLE2,Creature.OppCtrl+blocked+powerGE3,Creature.OppCtrl+withFlying+powerGE3
+S:Mode$ Continuous | Affected$ Creature.counters_GE1_ROBBED | SetPower$ 2 | SetToughness$ 1 | RemoveAllAbilities$ True | AddKeyword$ Flying | AddStaticAbility$ CantBlock | Description$ Creatures with robbed counters on them have base power and toughness 2/1, have flying and "This creature can't block" and lose all other abilities.
+Text:Designed by DrChipmunk
+DeckHas:Ability$Counters
+Oracle:Flash\nFlying\nThis creature can't block.\nWhen this creature enters, put a robbed counter on up to one other target creature.\nCreatures with robbed counters on them have base power and toughness 2/1, have flying and "This creature can't block" and lose all other abilities.\nDesigned by DrChipmunk

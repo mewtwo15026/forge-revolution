@@ -1,6 +1,6 @@
 Name:Clash at the Shaded Maw
 ManaCost:1 B
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZoneAll | TriggerDescription$ When CARDNAME enters, exile each player's graveyard.
 SVar:TrigChangeZoneAll:DB$ ChangeZoneAll | ChangeType$ Card | Origin$ Graveyard | Destination$ Exile

@@ -1,0 +1,7 @@
+Name:Wanton Destruction
+ManaCost:3 B B G
+Types:Sorcery
+A:SP$ SacrificeAll | ValidCards$ Permanent.nonLand | RememberSacrificed$ True | SubAbility$ DBReturn | SpellDescription$ Each player sacrifices all nonland permanents they control. You may return a permanent card you own sacrificed this way from your graveyard to your hand.
+SVar:DBReturn:DB$ ChangeZone | ChangeType$ Card.YouOwn+IsRemembered | ChangeNum$ 1 | Origin$ Graveyard | Destination$ Hand | Hidden$ True | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Each player sacrifices all nonland permanents they control. You may return a permanent card you own sacrificed this way from your graveyard to your hand.

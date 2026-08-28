@@ -1,0 +1,8 @@
+Name:Done Deal
+ManaCost:2 B B
+Types:Instant
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBLoseLife | SpellDescription$ You draw two cards and you lose 2 life. Create two tapped Treasure tokens.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2 | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ 2 | TokenTapped$ True
+DeckHas:Ability$Token & Type$Artifact|Treasure
+Oracle:You draw two cards and lose 2 life. Create two tapped Treasure tokens.

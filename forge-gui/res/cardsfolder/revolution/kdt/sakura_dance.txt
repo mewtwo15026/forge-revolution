@@ -1,7 +1,8 @@
 Name:Sakura Dance
-ManaCost:6 U U
+ManaCost:4 U U
 Types:Enchantment
-T:Mode$ Discarded | ValidCard$ Card.nonLand+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever you discard a nonland card, copy it. You may cast the copy without paying its mana cost.
+T:Mode$ Discarded | ValidCard$ Card.nonLand+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigCopy | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Once each turn, when you discard a nonland card, you may copy it. You may cast the copy without paying its mana cost.
 SVar:TrigCopy:DB$ Play | Defined$ TriggeredCard | Amount$ All | WithoutManaCost$ True | ValidSA$ Spell | Optional$ True | CopyCard$ True
+K:Cycling:2
 DeckNeeds:Ability$Discard & Keyword$Cycling
-Oracle:Whenever you discard a nonland card, copy it. You may cast the copy without paying its mana cost.
+Oracle:Once each turn, when you discard a nonland card, you may copy it. You may cast the copy without paying its mana cost.\nCycling {2} ({2}, Discard this card: Draw a card.)

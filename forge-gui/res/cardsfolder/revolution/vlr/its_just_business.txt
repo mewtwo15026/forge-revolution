@@ -1,0 +1,8 @@
+Name:It's Just Business
+ManaCost:B
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | TriggerDescription$ When this enchantment enters, each opponent discards a card.
+SVar:TrigDiscard:DB$ Discard | Defined$ Opponent | Mode$ TgtChoose
+A:AB$ LoseLife | Cost$ 2 B Sac<1/CARDNAME> | Defined$ Player.Opponent | LifeAmount$ 2 | SubAbility$ DBToken | SpellDescription$ Each opponent loses 2 life. Create a Treasure token.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac
+Oracle:When this enchantment enters, each opponent discards a card.\n{2}{B}, Sacrifice this enchantment: Each opponent loses 2 life. Create a Treasure token.

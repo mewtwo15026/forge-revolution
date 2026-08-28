@@ -1,0 +1,7 @@
+Name:Pattern's Abundance
+ManaCost:2 G
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Search your library for up to two basic land cards, put one onto the battlefield tapped and the other into your graveyard, then shuffle.

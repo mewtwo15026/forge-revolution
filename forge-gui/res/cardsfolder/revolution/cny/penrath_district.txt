@@ -1,0 +1,12 @@
+Name:Penrath District
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Mountain, a Forest, and a Plains.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionCheckSVar$ Zoning | ConditionSVarCompare$ LT3
+A:AB$ Mana | Cost$ T | Produced$ Combo R G W | SpellDescription$ Add {R}, {G}, or {W}.
+SVar:Zoning:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Mountain.YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Forest.YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Plains.YouCtrl/LimitMax.1
+Oracle:Penrath District enters the battlefield tapped unless you control a Mountain, a Forest, and a Plains.\n{T}: Add {R}, {G}, or {W}.

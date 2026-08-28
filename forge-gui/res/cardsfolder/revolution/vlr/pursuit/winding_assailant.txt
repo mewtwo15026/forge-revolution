@@ -1,0 +1,15 @@
+Name:Winding Assailant
+ManaCost:1 G G
+Types:Creature Snake Mercenary
+PT:4/4
+K:Trample
+K:vlr_Pursuit:3 G G G
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 3 G G G Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {3}{G}{G}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitTrigger
+SVar:PursuitTrigger:DB$ ImmediateTrigger | RememberObjects$ Remembered | Execute$ TrigCopy | ConditionDefined$ Remembered | ConditionPresent$ Card.inZoneStack | SubAbility$ PursuitCleanup | TriggerDescription$ When you cast this spell for its pursuit cost, copy it. (The copy becomes a token.)
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+# TODO: figure out a way to make this a SpellCast trigger instead of an ImmediateTrigger
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ DelayTriggerRemembered
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard|Sacrifice
+Oracle:Trample\nPursuit {3}{G}{G}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)\nWhen you cast this spell for its pursuit cost, copy it. (The copy becomes a token.)

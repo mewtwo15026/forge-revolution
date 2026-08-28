@@ -1,0 +1,10 @@
+Name:The First Battalion
+ManaCost:2 U B R
+Types:Legendary Creature Soldier
+PT:2/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 2/2 colorless Minion creature tokens with decayed. (They can't block. When one attacks, sacrifice it at end of combat.)
+SVar:TrigToken:DB$ Token | TokenScript$ c_2_2_minion_decayed | TokenAmount$ 2
+S:Mode$ Continuous | Affected$ Minion.YouCtrl | RemoveAllAbilities$ True | Description$ Minions you control lose all abilities.
+DeckHas:Ability$Token
+DeckHints:Type$Minion
+Oracle:When The First Battalion enters, create two 2/2 colorless Minion creature tokens with decayed. (They can't block. When one attacks, sacrifice it at end of combat.)\nMinions you control lose all abilities.

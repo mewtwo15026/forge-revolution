@@ -1,0 +1,8 @@
+Name:Social Engineering
+ManaCost:W U
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Creature | Origin$ Battlefield | Destination$ Hand | RememberLKI$ True | SubAbility$ DBCopy | SpellDescription$ Return target creature to its owner's hand. If you controlled it, create a token that's a copy of it. Otherwise, create a 0/0 colorless Robot artifact creature token with a +1/+1 counter on it.
+SVar:DBCopy:DB$ CopyPermanent | Defined$ RememberedLKI | ConditionDefined$ RememberedLKI | ConditionPresent$ Card.YouCtrl | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | ConditionDefined$ RememberedLKI | ConditionPresent$ Card.YouDontCtrl | TokenScript$ c_a_0_0_robot | WithCountersType$ P1P1 | WithCountersAmount$ 1
+DeckHas:Ability$Token
+Oracle:Return target creature to its owner's hand. If you controlled it, create a token that's a copy of it. Otherwise, create a 0/0 colorless Robot artifact creature token with a +1/+1 counter on it.

@@ -1,0 +1,12 @@
+Name:Kane, Unyielding
+ManaCost:2 R W
+Types:Legendary Creature Treefolk Rebel
+PT:2/5
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Muster — Whenever you cast a creature spell, you may pay {2}. If you do, copy that spell. (The copy becomes a token.)
+SVar:TrigCopy:AB$ CopySpellAbility | Cost$ 2 | Defined$ TriggeredSpellAbility | AILogic$ Always
+K:ETBReplacement:Other:AddExtraCounter:Mandatory:Battlefield:Rebel.YouCtrl+Other
+SVar:AddExtraCounter:DB$ PutCounter | ETB$ True | Defined$ ReplacedCard | CounterType$ P1P1 | CounterNum$ X | SpellDescription$ Other Rebels you control enter with an additional +1/+1 counter on them for each other creature you controlled that entered this turn.
+SVar:X:Count$ThisTurnEntered_Battlefield_Creature.YouCtrl/Minus.1
+DeckHas:Ability$Token|Counters
+DeckHints:Type$Rebel
+Oracle:Muster - Whenever you cast a creature spell, you may pay {2}. If you do, copy that spell. (The copy becomes a token.)\nOther Rebels you control enter with an additional +1/+1 counter on them for each other creature you controlled that entered this turn.

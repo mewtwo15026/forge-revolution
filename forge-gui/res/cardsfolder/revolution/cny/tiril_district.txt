@@ -1,0 +1,12 @@
+Name:Tiril District
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control a Plains, an Island, and a Swamp.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionCheckSVar$ Zoning | ConditionSVarCompare$ LT3
+A:AB$ Mana | Cost$ T | Produced$ Combo W U B | SpellDescription$ Add {W}, {U}, or {B}.
+SVar:Zoning:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Plains.YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Island.YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Swamp.YouCtrl/LimitMax.1
+Oracle:Tiril District enters the battlefield tapped unless you control a Plains, an Island, and a Swamp.\n{T}: Add {W}, {U}, or {B}.

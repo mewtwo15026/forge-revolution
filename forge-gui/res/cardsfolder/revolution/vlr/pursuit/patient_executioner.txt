@@ -1,0 +1,14 @@
+Name:Patient Executioner
+ManaCost:2 B
+Types:Creature Bird Mercenary
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When this creature enters, each player sacrifices a creature or planeswalker of their choice.
+SVar:TrigSac:DB$ Sacrifice | Defined$ Player | SacValid$ Creature,Planeswalker
+K:vlr_Pursuit:1 B B
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 1 B B Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard|Sacrifice
+SVar:NeedsToPlay:Creature.OppCtrl,Planeswalker.OppCtrl
+Oracle:When this creature enters, each player sacrifices a creature or planeswalker of their choice.\nPursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

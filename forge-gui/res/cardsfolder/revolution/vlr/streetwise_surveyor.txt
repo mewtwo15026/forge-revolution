@@ -1,0 +1,8 @@
+Name:Streetwise Surveyor
+ManaCost:4 R
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Spectacle {2}{R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nWhen this creature enters, exile the top card of your library. You may play it until the end of your next turn.

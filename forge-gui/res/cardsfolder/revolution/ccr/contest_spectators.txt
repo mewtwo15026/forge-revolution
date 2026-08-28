@@ -2,6 +2,6 @@ Name:Contest Spectators
 ManaCost:1 W
 Types:Creature Human Performer
 PT:2/2
-T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Battlefield | Execute$ TrigGainLife | ActivationLimit$ 1 | TriggerDescription$ Whenever you activate a nonmana ability, you gain 2 life. This ability triggers only once each turn.
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.!ManaAbility | TriggerZones$ Battlefield | Execute$ TrigGainLife | ActivationLimit$ 1 | TriggerDescription$ Whenever you activate a nonmana ability, you gain 2 life. This ability triggers only once each turn.
 SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 2
 Oracle:Once each turn, when you activate a nonmana ability, you gain 2 life.

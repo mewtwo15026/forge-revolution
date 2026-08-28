@@ -1,0 +1,9 @@
+Name:Starry-Eyed Scholar
+ManaCost:1 W U
+Types:Creature Cat Wizard
+PT:1/4
+T:Mode$ SpellCast | ValidCard$ Card.YouCtrl | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigGainLife | ActivatorThisTurnCast$ EQ2 | TriggerDescription$ Whenever you cast your second spell each turn, you gain 1 life and draw a card.
+SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1 | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+DeckHas:Ability$LifeGain
+Oracle:Whenever you cast your second spell each turn, you gain 1 life and draw a card.

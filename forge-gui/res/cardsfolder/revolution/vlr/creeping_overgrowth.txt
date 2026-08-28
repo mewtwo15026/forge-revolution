@@ -1,0 +1,7 @@
+Name:Creeping Overgrowth
+ManaCost:X X G
+Types:Instant
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TargetMin$ X | TargetMax$ X | TgtPrompt$ Choose X target cards to return from your graveyard | TargetsWithDifferentCMC$ True | ValidTgts$ Card.YouOwn | RememberChanged$ True | SubAbility$ DBExile | SpellDescription$ Return up to X target cards with different mana values from your graveyard to your hand.
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile | SubAbility$ DBCleanup | SpellDescription$ Exile CARDNAME.
+DeckHas:Ability$Graveyard
+Oracle:Return up to X target cards with different mana values from your graveyard to your hand. Exile Creeping Overgrowth.

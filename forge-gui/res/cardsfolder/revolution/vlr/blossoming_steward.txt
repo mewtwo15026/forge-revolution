@@ -1,0 +1,10 @@
+Name:Blossoming Steward
+ManaCost:1 G
+Types:Creature Treefolk Druid
+PT:2/2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigGainLife | TriggerDescription$ Landfall - Whenever a land you control enters, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+A:AB$ ChangeZone | Cost$ 1 T Sac<1/Land> | ValidTgts$ Land.YouOwn | Origin$ Graveyard | TgtPrompt$ Select target land card in your graveyard | Destination$ Battlefield | Tapped$ True | SpellDescription$ Return another target land card from your graveyard to the battlefield tapped.
+SVar:AIPreference:SacCost$Land.tapped
+SVar:BuffedBy:Land
+Oracle:Landfall - Whenever a land you control enters, you gain 1 life.\n{1}, {T}, Sacrifice a land: Return another target land card from your graveyard to the battlefield tapped.

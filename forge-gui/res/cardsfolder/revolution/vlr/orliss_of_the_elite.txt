@@ -1,0 +1,15 @@
+Name:Orliss of the Elite
+ManaCost:1 B BG G
+Types:Legendary Creature Snake Mercenary Noble
+PT:2/5
+K:Deathtouch
+T:Mode$ TurnBegin | ValidPlayer$ Player | Execute$ DBForget | Static$ True
+SVar:DBForget:DB$ Cleanup | ClearRemembered$ True
+T:Mode$ Sacrificed | ValidPlayer$ You | ValidCard$ Permanent.nonLand | Static$ True | Execute$ DBRememberSac
+SVar:DBRememberSac:DB$ Pump | RememberObjects$ TriggeredCard
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigRepeatTypes | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, for each card type among nonland permanents you've sacrificed this turn, each opponent loses 2 life unless they sacrifice a permanent of that type of their choice.
+SVar:TrigRepeatTypes:DB$ RepeatEach | RepeatTypesFrom$ ValidAll Card.IsRemembered | RepeatSubAbility$ DBRepeatOpps | StackDescription$ None
+SVar:DBRepeatOpps:DB$ RepeatEach | RepeatSubAbility$ DBLoseLife | RepeatPlayers$ Opponent | StackDescription$ None
+SVar:DBLoseLife:DB$ LoseLife | Defined$ Remembered | LifeAmount$ 2 | UnlessCost$ Sac<1/Permanent.ChosenType/permanent of that type> | UnlessPayer$ Remembered | StackDescription$ None
+DeckHints:Ability$Sacrifice & Type$Artifact|Enchantment|Treasure|Blood|Chart|Map|Memory
+Oracle:Deathtouch\nAt the beginning of your end step, for each card type among nonland permanents you've sacrificed this turn, each opponent loses 2 life unless they sacrifice a permanent of that type of their choice.

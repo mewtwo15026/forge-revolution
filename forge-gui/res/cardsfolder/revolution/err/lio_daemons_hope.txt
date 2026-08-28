@@ -4,7 +4,7 @@ Types:Legendary Enchantment Creature Cat
 PT:1/1
 K:Vigilance
 K:Ward:1
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Creature.Enchantment+Other+YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME or another enchantment creature you control enters,
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self,Creature.Enchantment+Other+YouCtrl | Execute$ TrigPutCounter | TriggerDescription$ Whenever CARDNAME or another enchantment creature you control enters, put a +1/+1 counter on that creature. You gain 1 life and draw a card.
 SVar:TrigPutCounter:DB$ PutCounter | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBGainLife
 SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1 | SubAbility$ DBDraw
 SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1

@@ -1,0 +1,12 @@
+Name:Lightning Warmonger
+ManaCost:2 R
+Types:Creature Human Soldier
+PT:3/2
+NOTE: doesn't seem to be a way to add more than one type of counter via AddsCounters parameters so we do this instead
+A:AB$ Mana | Cost$ T | Produced$ R | Amount$ 3 | RestrictValid$ Spell.Creature | TriggersWhenSpent$ TrigSpent | SpellDescription$ Add {R}{R}{R}. Spend this mana only to cast creature spells. If that mana is spent on a creature spell, it enters with an additional haste counter and decayed counter on it. (It can't block. When it attacks, sacrifice it at end of combat.)
+SVar:TrigSpent:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | Execute$ TrigEffect | Static$ True
+SVar:TrigEffect:DB$ Effect | RememberObjects$ TriggeredCard | ExileOnMoved$ Stack | ReplacementEffects$ ReplaceEnter
+SVar:ReplaceEnter:Event$ Moved | ValidCard$ Card.IsRemembered | Destination$ Battlefield | ReplaceWith$ AddExtraCounter | ReplacementResult$ Updated | Description$ That creature enters with an additional haste counter and decayed counter on it.
+SVar:AddExtraCounter:DB$ PutCounter | ETB$ True | Defined$ ReplacedCard | CounterTypes$ Haste,Decayed | CounterNum$ 1
+DeckHas:Ability$Counters
+Oracle:{T}: Add {R}{R}{R}. Spend this mana only to cast creature spells. If that mana is spent on a creature spell, it enters with an additional haste counter and decayed counter on it. (It can't block. When it attacks, sacrifice it at end of combat.)

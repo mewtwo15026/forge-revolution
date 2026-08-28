@@ -1,0 +1,8 @@
+Name:Bloodletting (VLR)
+ManaCost:1 B B
+Types:Sorcery
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True | SubAbility$ DBEffect | SpellDescription$ Creatures get -2/-2 until end of turn. Whenever a creature you control dies this turn, each opponent loses 1 life.
+SVar:DBEffect:DB$ Effect | Triggers$ OnDeath
+SVar:OnDeath:Mode$ ChangesZone | ValidCard$ Creature.YouCtrl | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigLoseLife | TriggerDescription$ Whenever a creature you control dies this turn, each opponent loses 1 life.
+SVar:TrigLoseLife:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
+Oracle:Creatures get -2/-2 until end of turn. Whenever a creature you control dies this turn, each opponent loses 1 life.

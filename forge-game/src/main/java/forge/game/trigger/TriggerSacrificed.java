@@ -73,13 +73,17 @@ public class TriggerSacrificed extends Trigger {
     /** {@inheritDoc} */
     @Override
     public final void setTriggeringObjects(final SpellAbility sa, Map<AbilityKey, Object> runParams) {
-        sa.setTriggeringObjectsFrom(runParams, AbilityKey.Card);
+        // REVOLUTION
+        sa.setTriggeringObjectsFrom(runParams, AbilityKey.Card, AbilityKey.Cause);
     }
 
     @Override
     public String getImportantStackObjects(SpellAbility sa) {
         return Localizer.getInstance().getMessage("lblSacrificed") + ": " +
                 sa.getTriggeringObject(AbilityKey.Card);
+                // REVOLUTION - put this back if you need to debug
+                // Localizer.getInstance().getMessage("lblCause") + ": " +
+                // sa.getTriggeringObject(AbilityKey.Cause);
     }
 
 }

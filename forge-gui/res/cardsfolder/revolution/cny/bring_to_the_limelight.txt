@@ -1,0 +1,8 @@
+Name:Bring to the Limelight
+ManaCost:U
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | IsCurse$ True | NumAtt$ -X | SubAbility$ DBDraw | SpellDescription$ Target creature gets -X/-0 until end of turn, where X is the number of cards in your graveyard.
+SVar:DBDraw:DB$ Draw | NumCards$ 1 | SpellDescription$ Draw a card.
+SVar:X:Count$ValidGraveyard Card.YouOwn
+DeckHints:Ability$Mill|Surveil|Discard
+Oracle:Target creature gets -X/-0 until end of turn, where X is the number of cards in your graveyard.\nDraw a card.

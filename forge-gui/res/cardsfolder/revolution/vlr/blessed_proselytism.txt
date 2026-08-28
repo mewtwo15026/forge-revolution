@@ -1,0 +1,7 @@
+Name:Blessed Proselytism
+ManaCost:2 W
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Create two Acolyte tokens, then put a +1/+1 counter on each of them. (They're 0/1 white and black Warlock creatures with \{1}, Sacrifice this token: Surveil 1.\)

@@ -1,0 +1,11 @@
+Name:Codename: Spyder
+ManaCost:1 W U B
+Types:Legendary Creature Insect Scout
+PT:2/4
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill three cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You
+T:Mode$ ChangesZoneAll | Origin$ Library | Destination$ Graveyard | TriggerZones$ Battlefield | ValidCards$ Card.YouOwn | Execute$ TrigReturn | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever one or more cards are put into your graveyard from your library, you may return up to one of those cards to your hand. Do this only once each turn.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | ChangeNum$ 1 | Destination$ Hand | Hidden$ True | ChooseFromDefined$ TriggeredCards | Mandatory$ True
+DeckHas:Ability$Mill|Graveyard
+DeckHints:Ability$Mill|Surveil
+Oracle:When Codename: Spyder enters, mill three cards.\nWhenever one or more cards are put into your graveyard from your library, you may return up to one of those cards to your hand. Do this only once each turn.

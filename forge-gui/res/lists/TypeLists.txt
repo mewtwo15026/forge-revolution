@@ -30,6 +30,7 @@ Archer:Archers
 Archon:Archons
 Armadillo:Armadillos
 Artificer:Artificers
+Artist:Artists
 Army:Armies
 Assassin:Assassins
 Assembly-Worker:Assembly-Workers
@@ -75,6 +76,7 @@ Coyote:Coyotes
 Crab:Crabs
 Crocodile:Crocodiles
 Cyberman:Cybermen
+Cyborg:Cyborgs
 Cyclops:Cyclopes
 Dalek:Daleks
 Detective:Detectives
@@ -110,6 +112,8 @@ Error:Errors
 Eternal:Eternals
 Eye:Eyes
 Faerie:Faeries
+Fan:Fans
+Farmer:Farmers
 Ferret:Ferrets
 Fish:Fish
 Flagbearer:Flagbearers
@@ -223,6 +227,7 @@ Otter:Otters
 Ouphe:Ouphes
 Ox:Oxen
 Oyster:Oysters
+Panda:Pandas
 Pangolin:Pangolins
 Peasant:Peasants
 Pegasus:Pegasi
@@ -266,6 +271,7 @@ Scion:Scions
 Scorpion:Scorpions
 Scout:Scouts
 Sculpture:Sculptures
+Seahorse:Seahorses
 Seal:Seals
 Serf:Serfs
 Serpent:Serpents
@@ -306,6 +312,7 @@ Surrakar:Surrakars
 Symbiote:Symbiotes
 Synth:Synths
 Survivor:Survivors
+Tapir:Tapirs
 Tentacle:Tentacles
 Tetravite:Tetravites
 Thalakos:Thalakoses
@@ -313,6 +320,7 @@ Thopter:Thopters
 Thrull:Thrulls
 Tiefling:Tieflings
 Time Lord:Time Lords
+Totem:Totems
 Toy:Toys
 Treefolk:Treefolk
 Trilobite:Trilobites
@@ -327,6 +335,7 @@ Varmint:Varmints
 Vedalken:Vedalkens
 Villain:Villains
 Volver:Volvers
+Vukoroq:Vukoroq
 Wall:Walls
 Warlock:Warlocks
 Warrior:Warriors
@@ -334,6 +343,7 @@ Weasel:Weasels
 Weird:Weirds
 Werewolf:Werewolves
 Whale:Whales
+Witness:Witnesses
 Wizard:Wizards
 Wolf:Wolves
 Wolverine:Wolverines
@@ -360,9 +370,10 @@ Blessing
 Cartouche
 Case
 Class
-Clique
+Clique:Cliques
 Cloister
 Curse:Curses
+Memory:Memories
 Plan:Plans
 Policy:Policies
 Role
@@ -390,7 +401,6 @@ Infinity
 Junk
 Lander:Landers
 Map
-Memory:Memories
 Monument
 Mutagen
 Powerstone:Powerstones
@@ -454,6 +464,7 @@ Jack
 Jared
 Jaya
 Jeska
+Juniper
 Kaito
 Karina
 Karn
@@ -462,6 +473,7 @@ Kaya
 Kazimierz
 Kiora
 Koth
+Leiowen
 Liliana
 Lolth
 Lucien
@@ -486,13 +498,16 @@ Sarkhan
 Serra
 Severin
 Simul
+Siurne
 Sorin
+Soya
 Stone
 Sylvia
 Szat
 Tamiyo
 Tasha
 Teferi
+Tesh
 Teyo
 Tezzeret
 Thoveus
@@ -503,6 +518,7 @@ Ugin
 Urza
 Vasilisa
 Venser
+Vie
 Vivien
 Vraska
 Vronos

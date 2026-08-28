@@ -1,0 +1,8 @@
+Name:Hand of the Overseer
+ManaCost:3 B B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, you draw a card and lose 2 life.\nAt the beginning of each end step, each opponent loses 2 life and you gain 2 life if another Warlock you controlled died this turn.

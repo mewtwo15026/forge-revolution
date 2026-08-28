@@ -1,0 +1,8 @@
+Name:Leybound Ritualist
+ManaCost:2 G
+Types:Creature Treefolk Druid
+PT:3/3
+R:Event$ Moved | ValidCard$ Land.YouCtrl | Destination$ Battlefield | ReplaceWith$ ETBUntapped | ReplacementResult$ Updated | ActiveZones$ Battlefield | Description$ Lands you control enter untapped.
+SVar:ETBUntapped:DB$ Untap | ETB$ True | Defined$ ReplacedCard
+A:AB$ Dig | Cost$ 3 G G G | DigNum$ 3 | Reveal$ True | ChangeNum$ Any | ChangeValid$ Permanent | RestRandomOrder$ True | SpellDescription$ Reveal the top three cards of your library. Put any number of permanent cards from among them into your hand and the rest on the bottom in a random order.
+Oracle:Lands you control enter untapped.\n{3}{G}{G}{G}: Reveal the top three cards of your library. Put any number of permanent cards from among them into your hand and the rest on the bottom in a random order.

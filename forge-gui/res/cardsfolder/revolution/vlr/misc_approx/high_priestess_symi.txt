@@ -1,0 +1,11 @@
+Name:High Priestess Symi
+ManaCost:2 B B
+Types:Legendary Creature Human Warlock
+PT:2/4
+# NOTE: Sacrificed triggers do not normally track Cause as a valid TriggerObject
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl | WhileKeyword$ Spell,Activated.!ManaAbility | Execute$ TrigCopy | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever you sacrifice one or more creatures as a cost to cast a spell or activate an ability that isn't a mana ability, you may copy that spell or ability and choose new targets for the copy. Do this only once each turn.
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredCause | MayChooseTarget$ True
+A:AB$ Token | Cost$ 1 W ExileFromGrave<2/Card> | TokenScript$ acolyte | SorcerySpeed$ True | SpellDescription$ Create an Acolyte token. Activate only as a sorcery. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+DeckHas:Ability$Sacrifice|Surveil|Token
+DeckHints:Ability$Sacrifice
+Oracle:Whenever you sacrifice one or more creatures as a cost to cast a spell or activate an ability that isn't a mana ability, you may copy that spell or ability and choose new targets for the copy. Do this only once each turn.\n{1}{W}, Exile two cards from your graveyard: Create an Acolyte token. Activate only as a sorcery. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")

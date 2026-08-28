@@ -1,0 +1,9 @@
+Name:Juniper's Awakening
+ManaCost:3 U U
+Types:Enchantment
+# NOTE: vanilla Forge does not track YourNoncreatureManaExpent
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ At the beginning of your end step, create a tapped X/X green Elemental creature token, where X is the amount of mana you've spent to cast noncreature spells this turn.
+SVar:TrigToken:DB$ Token | TokenScript$ g_x_x_elemental | TokenPower$ X | TokenToughness$ X | TokenTapped$ True
+SVar:X:Count$YourNoncreatureManaExpent
+SVar:BuffedBy:Instant,Sorcery,Artifact,Enchantment,Planeswalker,Battle
+Oracle:At the beginning of your end step, create a tapped X/X green Elemental creature token, where X is the amount of mana you've spent to cast noncreature spells this turn.

@@ -1,0 +1,11 @@
+Name:Dormant Monstrosity
+ManaCost:1 U
+Types:Creature Squid Horror
+PT:4/4
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ EntersTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped with three stun counters on it. (If it would become untapped, remove a stun counter from it instad.)
+SVar:EntersTapped:DB$ Tap | Defined$ Self | ETB$ True | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | ETB$ True | CounterType$ STUN | CounterNum$ 3
+A:AB$ Draw | Cost$ 1 U RemoveAnyCounter<1/Any/CARDNAME> | SpellDescription$ Draw a card.
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+Oracle:Dormant Monstrosity enters tapped with three stun counters on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)\n{1}{U}, Remove a counter from Dormant Monstrosity: Draw a card.

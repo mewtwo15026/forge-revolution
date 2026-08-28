@@ -1,0 +1,9 @@
+Name:Loresk, Ever-Curious
+ManaCost:3 U U
+Types:Legendary Creature Treefolk Druid
+PT:3/5
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | TriggerZones$ Battlefield | ValidCard$ Land.YouCtrl | Execute$ TrigDraw | TriggerDescription$ Landfall — Whenever a land you control enters, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+A:AB$ ChangeZone | Cost$ 2 G | SorcerySpeed$ True | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Select target land card in your graveyard | ValidTgts$ Land.YouOwn | Tapped$ True | SpellDescription$ Return target land card from your graveyard to the battlefield tapped. Activate only as a sorcery.
+Oracle:Vigilance\nLandfall - Whenever a land you control enters, draw a card.\n{2}{G}: Return target land card from your graveyard to the battlefield tapped. Activate only as a sorcery.

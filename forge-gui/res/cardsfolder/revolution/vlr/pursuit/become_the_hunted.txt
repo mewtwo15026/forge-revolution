@@ -1,0 +1,11 @@
+Name:Become the Hunted
+ManaCost:1 B
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Choose target creature card with mana value 3 or less in your graveyard | ValidTgts$ Creature.cmcLE3+YouCtrl | SpellDescription$ Return target creature card with mana value 3 or less from your graveyard to the battlefield.
+K:vlr_Pursuit:1 B B
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 1 B B Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard|Sacrifice
+Oracle:Return target creature card with mana value 3 or less from your graveyard to the battlefield.\nPursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

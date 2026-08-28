@@ -1,0 +1,23 @@
+Name:Severin, Sparkmind
+ManaCost:1 G W U
+Types:Legendary Planeswalker Severin
+Loyalty:3
+Text:You may remove +1/+1 counters from creatures you control as though they were loyalty counters on CARDNAME to pay its loyalty costs.
+# NOTE: figure out how to apply the above effect to arbitrary loyalty abilities
+A:AB$ Token | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | TokenScript$ c_a_0_0_robot | WithCountersType$ P1P1 | WithCountersAmount$ 2 | SpellDescription$ Create a 0/0 colorless Robot artifact creature token with two +1/+1 counters on it.
+A:AB$ Pump | Announce$ Xa | AnnounceMax$ 2 | AnnounceTitle$ number of loyalty counters to remove from CARDNAME | Cost$ RemoveAnyCounter<Y/P1P1/Creature> SubCounter<Xa/LOYALTY> | Planeswalker$ True | AILogic$ Never | ValidTgts$ Permanent | TargetMin$ 0 | TargetMax$ 3 | TgtPrompt$ Select up to three target permanents | SubAbility$ DBRepeat | StackDescription$ SpellDescription | SpellDescription$ Tap or untap each of up to three target permanents.
+A:AB$ Pump | Announce$ Xa | AnnounceMax$ 2 | AnnounceTitle$ number of +1/+1 counters to remove from creatures you control | Cost$ RemoveAnyCounter<Xa/P1P1/Creature> SubCounter<Y/LOYALTY> | Planeswalker$ True | Secondary$ True | AILogic$ Never | ValidTgts$ Permanent | TargetMin$ 0 | TargetMax$ 3 | TgtPrompt$ Select up to three target permanents | SubAbility$ DBRepeat | StackDescription$ SpellDescription | SpellDescription$ Tap or untap each of up to three target permanents.
+SVar:DBRepeat:DB$ RepeatEach | DefinedCards$ Targeted | RepeatSubAbility$ DBTwiddle | StackDescription$ None
+SVar:DBTwiddle:DB$ TapOrUntap | Defined$ Remembered | StackDescription$ None
+#SVar:DBTwiddleSecond:DB$ TapOrUntap | ValidTgts$ Permanent | TgtPrompt$ Select target permanent (2) | TargetUnique$ True | SubAbility$ DBTwiddleThird
+#SVar:DBTwiddleThird:DB$ TapOrUntap | ValidTgts$ Permanent | TgtPrompt$ Select target permanent (3) | TargetUnique$ True
+# NOTE: "isn't an extra turn" doesn't work in vanilla
+A:AB$ AddTurn | Announce$ Xb | AnnounceMax$ 7 | AnnounceTitle$ number of loyalty counters to remove from CARDNAME | Cost$ RemoveAnyCounter<Z/P1P1/Creature> SubCounter<Xb/LOYALTY> | Planeswalker$ True | Ultimate$ True | ConditionExtraTurn$ False | NumTurns$ 1 | SpellDescription$ If it isn't an extra turn, take an extra turn after this one.
+A:AB$ AddTurn | Announce$ Xb | AnnounceMax$ 7 | AnnounceTitle$ number of +1/+1 counters to remove from creatures you control | Cost$ RemoveAnyCounter<Xb/P1P1/Creature> SubCounter<Z/LOYALTY> | Planeswalker$ True | Ultimate$ True | Secondary$ True | ConditionExtraTurn$ False | NumTurns$ 1 | SpellDescription$ If it isn't an extra turn, take an extra turn after this one.
+SVar:Xa:Number$0
+SVar:Xb:Number$0
+SVar:Y:Number$2/Minus.Xa
+SVar:Z:Number$7/Minus.Xb
+DeckHas:Ability$Token|Counters & Type$Artifact|Robot
+DeckHints:Ability$Counters
+Oracle:You may remove +1/+1 counters from creatures you control as though they were loyalty counters on Severin, Sparkmind to pay its loyalty costs.\n[0]: Create a 0/0 colorless Robot artifact creature token with two +1/+1 counters on it.\n[-2]: You may tap or untap each of up to three target permanents.\n[-7]: If it isn't an extra turn, take an extra turn after this one.

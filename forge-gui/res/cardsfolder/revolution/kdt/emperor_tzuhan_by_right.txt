@@ -1,7 +1,7 @@
 Name:Emperor Tzuhan
-ManaCost:2 W
+ManaCost:1 W
 Types:Legendary Creature Human Noble
-PT:3/3
+PT:1/3
 T:Mode$ Cycled | ValidCard$ Card.Other+YouOwn | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cycle a card, exile up to one other target creature you control. Return that card to the battlefield under its owner's control at the beginning of the next end step.
 SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.Other+YouCtrl | TargetMin$ 0 | TargetMax$ 1 | RememberChanged$ True | TgtPrompt$ Select up to one other target creature you control | SubAbility$ DelTrig
 SVar:DelTrig:DB$ DelayedTrigger | Mode$ Phase | Phase$ End of Turn | Execute$ TrigReturn | RememberObjects$ RememberedLKI | TriggerDescription$ Return exiled card to the battlefield. | SubAbility$ DBCleanup

@@ -1,0 +1,10 @@
+Name:Forsaken Penitents
+ManaCost:1 W
+Types:Creature Human Warlock
+PT:1/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Permanent.YouCtrl+token | TriggerZones$ Battlefield | Execute$ TrigToken | ActivationLimit$ 1 | TriggerDescription$ Whenever a token you control enters, create an Acolyte token. This ability triggers only once each turn. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+SVar:TrigToken:DB$ Token | TokenScript$ acolyte
+SVar:BuffedBy:Permanent.token
+DeckHints:Ability$Token
+DeckHas:Ability$Sacrifice|Surveil|Token
+Oracle:Whenever a token you control enters, create an Acolyte token. This ability triggers only once each turn. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")

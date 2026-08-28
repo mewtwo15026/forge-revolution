@@ -1,0 +1,9 @@
+Name:Chandelier Slink
+ManaCost:2 U U
+Types:Creature Cat Rogue
+PT:2/2
+K:Spectacle:1 U U
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | Description$ This creature can't be blocked.
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Spectacle {1}{U}{U} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nThis creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card.

@@ -1,10 +1,8 @@
 Name:Expert Bladework
-ManaCost:U
+ManaCost:1 U
 Types:Instant
-A:SP$ Draw | NumCards$ 1 | SubAbility$ DBEffect | SpellDescription$ Draw a card. The next ninjutsu ability you activate this turn costs {1} less to activate.
-SVar:DBEffect:DB$ Effect | StaticAbilities$ ReduceCost | Triggers$ ActiNinjutsu
-SVar:ReduceCost:Mode$ ReduceCost | ValidCard$ Card | ValidSpell$ Activated.Ninjutsu | Activator$ You | Amount$ 1 | Description$ The next ninjutsu ability you activate this turn costs {1} less to activate.
-SVar:ActiNinjutsu:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ Activated.Ninjutsu | TriggerZones$ Battlefield | ActivatorThisTurnCast$ EQ1 | Execute$ TrigClearEffect | Static$ True
-SVar:TrigClearEffect:DB$ ChangeZone | Origin$ Command | Destination$ Exile
-DeckHints:Keyword$Ninjutsu
-Oracle:Draw a card. The next ninjutsu ability you activate this turn costs {1} less to activate.
+K:Sneak:1 U
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBDiscard | SpellDescription$ Draw two cards. Then discard a card unless this spell's sneak cost was paid.
+SVar:DBDiscard:DB$ Discard | Mode$ TgtChoose | ConditionCheckSVar$ X
+SVar:X:Count$ValidStack Card.Self+sneaked
+Oracle:Draw two cards. Then discard a card unless this spell's sneak cost was paid.

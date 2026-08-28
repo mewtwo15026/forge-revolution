@@ -1,0 +1,23 @@
+Name:International Development
+ManaCost:2 G
+Types:Enchantment Aura
+K:Enchant:Land
+SVar:AttachAILogic:Pump
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPledge | TriggerDescription$ When CARDNAME enters, make a pledge. (Create any green Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:TrigPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Vishanki,Penrath,Sillaman
+SVar:Vishanki:DB$ Token | TokenScript$ vishanki_inc | SpellDescription$ Vishanki Inc. (Pledge - Create a Treasure token.)
+SVar:Penrath:DB$ Token | TokenScript$ penrath_insurgency | SpellDescription$ Penrath Insurgency (Pledge - Up to one target creature gets +2/+2 until end of turn.)
+SVar:Sillaman:DB$ Token | TokenScript$ sillaman_laboratories | SpellDescription$ Sillaman Laboratories (Pledge - Tap up to one target untapped creature. You may put a +1/+1 counter on it.)
+S:Mode$ Continuous | Affected$ Card.EnchantedBy | AddAbility$ TapTwoColors | Description$ Enchanted land has "{T}: Add two mana of different colors."
+SVar:TapTwoColors:AB$ Mana | Cost$ T | Amount$ 2 | Produced$ Combo AnyDifferent | SpellDescription$ Add two mana of different colors.
+DeckHas:Type$Clique
+Oracle:Enchant land\nWhen International Development enters, make a pledge. (Create any green Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)\nEnchanted land has "{T}: Add two mana of different colors."

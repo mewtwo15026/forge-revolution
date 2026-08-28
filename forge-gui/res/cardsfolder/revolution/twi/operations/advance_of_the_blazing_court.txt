@@ -1,6 +1,6 @@
 Name:Advance of the Blazing Court
 ManaCost:1 R
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two Blood tokens.
 SVar:TrigToken:DB$ Token | TokenAmount$ 2 | TokenScript$ c_a_blood_draw

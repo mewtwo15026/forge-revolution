@@ -1,0 +1,29 @@
+Name:Research Grant
+ManaCost:2 U
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill four cards. When you do, return target noncreature, nonland card from your graveyard to your hand.
+SVar:TrigMill:DB$ Mill | Defined$ You | NumCards$ 4 | RememberMilled$ True | SubAbility$ DBImmediateTrig
+SVar:DBImmediateTrig:DB$ ImmediateTrigger | Execute$ TrigChangeZone | TriggerAmount$ Remembered$Amount/DivideEvenlyDown.4 | SubAbility$ DBCleanup | TriggerDescription$ When you do, return target noncreature, nonland card from your graveyard to your hand.
+SVar:TrigChangeZone:DB$ ChangeZone | ValidTgts$ Card.nonCreature+nonLand+YouOwn | TgtPrompt$ Select target noncreature, nonland card in your graveyard | Origin$ Graveyard | Destination$ Hand
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankA | SVarCompare$ GE2 | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked | SpellDescription$ A — You've cast two or more spells this turn.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankB | SVarCompare$ GE2 | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ PolicyMarked | SpellDescription$ B — You've drawn two or more cards this turn.
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankA:Count$ThisTurnCast_Card.YouCtrl
+SVar:PlankB:Count$YouDrewThisTurn
+DeckHints:Type$Instant|Sorcery|Artifact|Enchantment|Battle|Planeswalker
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nWhen Research Grant enters, mill four cards. When you do, return target noncreature, nonland card from your graveyard to your hand.\nA — You've cast two or more spells this turn.\nB — You've drawn two or more cards this turn.
+
+ALTERNATE
+
+Name:Progress
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:blue
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | Execute$ TrigCopy | TriggerZones$ Battlefield | ResolvedLimit$ 1 | TriggerDescription$ Whenever you cast a spell, you may pay {X}, where X is that spell's mana value. If you do, copy it. You may choose new targets for the copy. Do this only once each turn. (A copy of a permanent spell becomes a token.)
+SVar:TrigCopy:AB$ CopySpellAbility | Cost$ X | Defined$ TriggeredSpellAbility | AILogic$ Always | MayChooseTarget$ True
+SVar:X:TriggeredCard$CardManaCost
+Oracle:Whenever you cast a spell, you may pay {X}, where X is that spell's mana value. If you do, copy it. You may choose new targets for the copy. Do this only once each turn. (A copy of a permanent spell becomes a token.)

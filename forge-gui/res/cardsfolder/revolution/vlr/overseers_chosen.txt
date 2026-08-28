@@ -1,0 +1,10 @@
+Name:Overseer's Chosen
+ManaCost:1 W
+Types:Creature Bird Warlock
+PT:3/1
+A:AB$ Pump | Cost$ 1 Sac<1/Creature.Other/another creature> | Defined$ Self | KW$ Indestructible | SubAbility$ DBTap | SpellDescription$ This creature gains indestructible until end of turn. Tap it. Surveil 1.
+SVar:DBTap:DB$ Tap | Defined$ Self | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 1
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice|Surveil
+Oracle:{1}, Sacrifice another creature: This creature gains indestructible until end of turn. Tap it. Surveil 1.

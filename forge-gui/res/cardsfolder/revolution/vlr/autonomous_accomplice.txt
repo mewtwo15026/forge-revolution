@@ -1,0 +1,7 @@
+Name:Autonomous Accomplice
+ManaCost:4
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Autonomous Accomplice is also a Warlock, Rogue, Mercenary, Rebel, and Druid.\nWhen this creature enters, choose one -\n• Put a +1/+1 counter on this creature.\n• Exile target player's graveyard.\n• Create a Treasure token.

@@ -1,0 +1,9 @@
+Name:Serve Again
+ManaCost:2 B
+Types:Enchantment
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.!token+YouCtrl | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever a nontoken creature you control dies, you may exile it. If you do, create a token that's a copy of it, except it's a Minion and has decayed. (It loses all other creature types. It can't block. When it attacks, sacrifice it at end of combat.)
+SVar:TrigExile:DB$ ChangeZone | Defined$ TriggeredNewCardLKICopy | Origin$ Graveyard | Destination$ Exile | RememberChanged$ True | SubAbility$ DBCopy
+SVar:DBCopy:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | AddTypes$ Minion | RemoveCreatureTypes$ True | AddKeywords$ Decayed | ConditionDefined$ Remembered | ConditionPresent$ Card | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Token & Type$Minion
+Oracle:Whenever a nontoken creature you control dies, you may exile it. If you do, create a token that's a copy of it, except it's a Minion and has decayed. (It loses all other creature types. It can't block. When it attacks, sacrifice it at end of combat.)

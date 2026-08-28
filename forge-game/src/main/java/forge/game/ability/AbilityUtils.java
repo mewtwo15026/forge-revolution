@@ -2284,6 +2284,9 @@ public class AbilityUtils {
         if (sq[0].equals("YourSpellManaExpent")) {
             return doXMath(player.getSpellExpentThisTurn(), expr, c, ctb);
         }
+        if (sq[0].equals("YourNoncreatureManaExpent")) {
+            return doXMath(player.getNoncreatureExpentThisTurn(), expr, c, ctb);
+        }
 
         if (sq[0].equals("YourStartingLife")) {
             return doXMath(player.getStartingLife(), expr, c, ctb);
@@ -2638,6 +2641,65 @@ public class AbilityUtils {
 
             return doXMath(Math.min(chosenParty.size() + wildcard, 4), expr, c, ctb);
         }
+
+        // REVOLUTION - approval (CNY)
+        if (sq[0].contains("Approval")) {
+            Set<String> chosenApproval = Sets.newHashSet();
+            int wildcard = 0;
+            ListMultimap<String, Card> multicolored = MultimapBuilder.hashKeys().arrayListValues().build();
+            List<Card> chosenMulti = Lists.newArrayList();
+
+            // Figure out how to count each class separately.
+            for (Card card : player.getCardsIn(ZoneType.Battlefield)) {
+                ColorSet colors = card.getColor();
+                Set<String> permColors = Sets.newHashSet();
+
+                // shortcut for others
+                if(colors.hasWhite()) permColors.add("white");
+                if(colors.hasBlue()) permColors.add("blue");
+                if(colors.hasBlack()) permColors.add("black");
+                if(colors.hasRed()) permColors.add("red");
+                if(colors.hasGreen()) permColors.add("green");
+
+                switch (permColors.size()) {
+                    case 0:
+                        continue;
+                    case 5:
+                        wildcard++;
+                        break;
+                    case 1:
+                        chosenApproval.addAll(permColors);
+                        break;
+                    default:
+                        for (String t : permColors) {
+                            multicolored.put(t, card);
+                        }
+                }
+
+                // found enough
+                if (chosenApproval.size() + wildcard >= 5) {
+                    break;
+                }
+            }
+
+            if (chosenApproval.size() + wildcard < 5) {
+                multicolored.keySet().removeAll(chosenApproval);
+
+                // sort by amount of members
+                Multimaps.asMap(multicolored).entrySet().stream()
+                        .sorted(Map.Entry.<String, List<Card>>comparingByValue(Comparator.<List<Card>>comparingInt(Collection::size)))
+                        .forEach(e -> {
+                            e.getValue().removeAll(chosenMulti);
+                            if (e.getValue().size() > 0) {
+                                chosenApproval.add(e.getKey());
+                                chosenMulti.add(e.getValue().get(0));
+                            }
+                        });
+            }
+
+            return doXMath(Math.min(chosenApproval.size() + wildcard, 5), expr, c, ctb);
+        }
+        // end REVOLUTION
 
         // TODO make AI part to understand Sunburst better so this isn't needed
         if (sq[0].startsWith("UniqueManaColorsProduced")) {
@@ -3662,6 +3724,11 @@ public class AbilityUtils {
             return doXMath(player.getOpponentsAssignedDamage(), m, source, ctb);
         }
 
+        // REVOLUTION
+        if (value.contains("CombatDamageDealtThisTurn")) {
+            return doXMath(player.getAssignedCombatDamage(), m, source, ctb);
+        }
+
         if (value.contains("NonCombatDamageDealtThisTurn")) {
             return doXMath(player.getAssignedDamage() - player.getAssignedCombatDamage(), m, source, ctb);
         }
@@ -3700,6 +3767,65 @@ public class AbilityUtils {
             }
             return doXMath(found, m, source, ctb);
         }
+
+        // REVOLUTION - approval (CNY)
+        if (value.contains("Approval")) {
+            Set<String> chosenApproval = Sets.newHashSet();
+            int wildcard = 0;
+            ListMultimap<String, Card> multicolored = MultimapBuilder.hashKeys().arrayListValues().build();
+            List<Card> chosenMulti = Lists.newArrayList();
+
+            // Figure out how to count each class separately.
+            for (Card card : player.getCardsIn(ZoneType.Battlefield)) {
+                ColorSet colors = card.getColor();
+                Set<String> permColors = Sets.newHashSet();
+
+                // shortcut for others
+                if(colors.hasWhite()) permColors.add("white");
+                if(colors.hasBlue()) permColors.add("blue");
+                if(colors.hasBlack()) permColors.add("black");
+                if(colors.hasRed()) permColors.add("red");
+                if(colors.hasGreen()) permColors.add("green");
+
+                switch (permColors.size()) {
+                    case 0:
+                        continue;
+                    case 5:
+                        wildcard++;
+                        break;
+                    case 1:
+                        chosenApproval.addAll(permColors);
+                        break;
+                    default:
+                        for (String t : permColors) {
+                            multicolored.put(t, card);
+                        }
+                }
+
+                // found enough
+                if (chosenApproval.size() + wildcard >= 5) {
+                    break;
+                }
+            }
+
+            if (chosenApproval.size() + wildcard < 5) {
+                multicolored.keySet().removeAll(chosenApproval);
+
+                // sort by amount of members
+                Multimaps.asMap(multicolored).entrySet().stream()
+                        .sorted(Map.Entry.<String, List<Card>>comparingByValue(Comparator.<List<Card>>comparingInt(Collection::size)))
+                        .forEach(e -> {
+                            e.getValue().removeAll(chosenMulti);
+                            if (e.getValue().size() > 0) {
+                                chosenApproval.add(e.getKey());
+                                chosenMulti.add(e.getValue().get(0));
+                            }
+                        });
+            }
+
+            return doXMath(Math.min(chosenApproval.size() + wildcard, 5), m, source, ctb);
+        }
+        // end REVOLUTION
 
         return doXMath(0, m, source, ctb);
     }

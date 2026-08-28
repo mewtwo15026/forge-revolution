@@ -7,7 +7,14 @@ T:Mode$ ChangesZone | ValidCard$ Card.Self | Destination$ Battlefield | Execute$
 SVar:TrigTap:DB$ Tap | ValidTgts$ Artifact.OppCtrl,Creature.OppCtrl | TgtPrompt$ Select target artifact or creature an opponent controls | SubAbility$ DBPutCounter
 SVar:DBPutCounter:DB$ PutCounter | Defined$ Targeted | CounterType$ Stun | CounterNum$ 1
 # TODO: implement Chant
-#K:twi_Chant:
+#K:twi_Chant:{U}
 #A:SP$ Chant | Mode$ Tap | ValidTgts$ Artifact.OppCtrl,Creature.OppCtrl | TgtPrompt$ Select target artifact or creature an opponent controls | SubAbility$ DBPutCounter | SpellDescription$ Tap target creature you don't control and put a stun counter on it.
-Oracle:Vigilance\nWhen Seer of Shackled Breath enters, [tap target creature you don't control and put a stun counter on it.]\n
-Chant (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {U} - Tap target creature you don't control and put a stun counter on it.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - Tap target creature you don't control and put a stun counter on it.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - Tap target creature you don't control and put a stun counter on it.
+SVar:TrigChant:AB$ Effect | Cost$ U ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigTap | TriggerDescription$ Chant - Tap target creature you don't control and put a stun counter on it.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ U | Execute$ TrigTap | TriggerDescription$ Chant - Tap target creature you don't control and put a stun counter on it.
+DeckHints:Type$Instant|Sorcery
+Oracle:Vigilance\nWhen Seer of Shackled Breath enters, [tap target creature you don't control and put a stun counter on it.]\nChant {U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

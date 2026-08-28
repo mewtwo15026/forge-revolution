@@ -1,0 +1,10 @@
+Name:Chapel Crasher
+ManaCost:W
+Types:Creature Human Rebel
+PT:1/1
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Whenever you cast a creature spell, this creature gets +1/+1 until end of turn. If it's a Rebel spell, instead put a +1/+1 counter on this creature.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | NumDef$ +1 | ConditionDefined$ TriggeredCard | ConditionPresent$ Rebel | ConditionCompare$ EQ0 | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | ConditionDefined$ TriggeredCard | ConditionPresent$ Rebel
+SVar:BuffedBy:Creature.Rebel
+DeckHints:Type$Rebel
+Oracle:Muster - Whenever you cast a creature spell, this creature gets +1/+1 until end of turn. If it's a Rebel spell, instead put a +1/+1 counter on this creature.

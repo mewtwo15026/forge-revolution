@@ -1,6 +1,6 @@
 Name:Advance of Rot and Ruin
 ManaCost:1 G
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When CARDNAME enters, mill three cards. You gain 3 life.
 SVar:TrigMill:DB$ Mill | NumCards$ 3 | Defined$ You | SubAbility$ DBLifeGain

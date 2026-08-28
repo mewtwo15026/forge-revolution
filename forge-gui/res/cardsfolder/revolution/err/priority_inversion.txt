@@ -2,7 +2,7 @@ Name:Priority_Inversion
 ManaCost:4 W W W
 Types:Legendary Creature Error
 PT:9/5
-T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | LifeTotal$ You | LifeAmount$ GE40 | Execute$ TrigWin | TriggerDescription$ At the beginning of your upkeep, if you have 50 or more life, you win the game.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | LifeTotal$ You | LifeAmount$ GE50 | Execute$ TrigWin | TriggerDescription$ At the beginning of your upkeep, if you have 50 or more life, you win the game.
 SVar:TrigWin:DB$ WinsGame | Defined$ You
 T:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Battlefield | Execute$ TrigGainLife | TriggerDescription$ At the beginning of each end step, you gain life equal to twice the amount of life you’ve lost this turn.
 SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X

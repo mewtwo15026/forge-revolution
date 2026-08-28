@@ -1,0 +1,8 @@
+Name:Flags on High
+ManaCost:1 R
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 1/1 colorless Soldier creature tokens.
+SVar:TrigToken:DB$ Token | TokenScript$ c_1_1_soldier | TokenAmount$ 2
+A:AB$ Pump | Cost$ 1 R Sac<1/CARDNAME> | SorcerySpeed$ True | ValidTgts$ Creature.YouControl | TgtPrompt$ Select target creature you control | NumAtt$ +1 | KW$ Haste | SpellDescription$ Target creature you control gets +1/+0 and gains haste until end of turn. Activate only as a sorcery.
+DeckHas:Ability$Token|Sacrifice & Type$Soldier
+Oracle:When Flags on High enters, create two 1/1 colorless Soldier creature tokens.\n{1}{R}, Sacrifice Flags on High: Target creature you control gets +1/+0 and gains haste until end of turn. Activate only as a sorcery.

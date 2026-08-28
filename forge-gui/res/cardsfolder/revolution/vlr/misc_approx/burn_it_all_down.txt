@@ -1,0 +1,9 @@
+Name:Burn It All Down
+ManaCost:1 R R
+Types:Sorcery
+A:SP$ DamageAll | ValidCards$ Creature,Planeswalker | NumDmg$ 3 | SubAbility$ DBEffect | SpellDescription$ CARDNAME deals 3 damage to each creature and each planeswalker. Until end of turn, permanents dying don't cause abilities to trigger.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STDisableAll
+# NOTE: Forge only checks battlefield for DisableTriggers effects, so to do that from the command zone we do this workaround
+SVar:STDisableAll:Mode$ Continuous | Affected$ Permanent | AffectedZone$ Battlefield | AddStaticAbility$ STDisable | Description$ Until end of turn, permanents dying don't cause abilities to trigger.
+SVar:STDisable:Mode$ DisableTriggers | ValidCause$ Card.Self | ValidMode$ ChangesZone,ChangesZoneAll | Origin$ Battlefield | Destination$ Graveyard | Description$ Until end of turn, this permanent dying doesn't cause abilities to trigger.
+Oracle:Burn It All Down deals 3 damage to each creature and each planeswalker. Until end of turn, permanents dying don't cause abilities to trigger.

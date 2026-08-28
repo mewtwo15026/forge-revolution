@@ -1,0 +1,16 @@
+Name:Valiant Firebrand
+ManaCost:1 R W
+Types:Creature Human Rebel
+PT:4/3
+S:Mode$ CantBlock | ValidCard$ Creature.token | Description$ Creature tokens can't block.
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ Whenever you attack, you may discard a card. If you do, draw a card.
+SVar:TrigDraw:AB$ Draw | Cost$ Discard<1/Card>
+T:Mode$ Discarded | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ Whenever you discard a creature card, you may exile that card from your graveyard. If you do, you may play that card this turn.
+SVar:TrigExile:DB$ ChangeZone | Defined$ TriggeredCard | Origin$ Graveyard | Destination$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ Remembered | ForgetOnMoved$ Exile | SubAbility$ DBCleanup
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card this turn.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:DiscardCost$Creature.cmcLE3
+DeckHints:Ability$Discard
+DeckHas:Ability$Discard
+Oracle:Creature tokens can't block.\nWhenever you attack, you may discard a card. If you do, draw a card.\nWhenever you discard a creature card, you may exile that card from your graveyard. If you do, you may play that card this turn.

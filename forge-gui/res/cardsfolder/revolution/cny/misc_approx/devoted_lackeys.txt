@@ -1,0 +1,9 @@
+Name:Devoted Lackeys
+ManaCost:B R
+Types:Creature Human Assassin
+PT:2/2
+K:Deathtouch
+# NOTE: Sacrificed triggers do not normally track Cause as a valid TriggerObject
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | ValidCard$ Card.Self | WhileKeyword$ Spell,Activated.!ManaAbility | Execute$ TrigCopy | TriggerDescription$ When you sacrifice CARDNAME as a cost to cast a spell or activate an ability that isn't a mana ability, copy that spell or ability. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredCause | MayChooseTarget$ True
+Oracle:Deathtouch\nWhen you sacrifice Devoted Lackeys as a cost to cast a spell or activate an ability that isn't a mana ability, copy that spell or ability. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)

@@ -1,0 +1,12 @@
+Name:Reckless Show-Off
+ManaCost:3 R R
+Types:Creature Bird Rogue
+PT:4/4
+K:Spectacle:3 R R
+K:Flying
+K:Haste
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+spectacle | Execute$ TrigUntap | TriggerDescription$ When this creature enters, if its spectacle cost was paid, untap up to one creature that attacked this turn. If it's your main phase, there is an additional combat phase after this phase followed by an additional main phase.
+SVar:TrigUntap:DB$ Untap | UntapUpTo$ True | UntapType$ Creature.attackedThisTurn | Amount$ 1 | SubAbility$ DBAddPhase
+SVar:DBAddPhase:DB$ AddPhase | ExtraPhase$ Combat | FollowedBy$ Main2 | ConditionPlayerTurn$ True | ConditionPhases$ Main1,Main2
+DeckHints:Keyword$Vigilance
+Oracle:Spectacle {3}{R}{R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nFlying, haste\nWhen this creature enters, if its spectacle cost was paid, untap up to one creature that attacked this turn. If it's your main phase, there is an additional combat phase after this phase followed by an additional main phase.

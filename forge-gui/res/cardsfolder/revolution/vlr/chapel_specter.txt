@@ -1,0 +1,8 @@
+Name:Chapel Specter
+ManaCost:3 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Flying\nWhenever a card or token is put into your graveyard from anywhere, you gain 1 life.

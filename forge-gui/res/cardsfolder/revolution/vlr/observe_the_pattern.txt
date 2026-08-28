@@ -1,0 +1,13 @@
+Name:Observe the Pattern
+ManaCost:2 U
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When this enchantment enters, surveil 2.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 2
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, creatures your opponents control get -1/-0. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Surveil
+Oracle:When this enchantment enters, surveil 2.\nAs long as you're ancient, creatures your opponents control get -1/-0. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

@@ -1,7 +1,7 @@
 Name:Forced Shutdown
 ManaCost:1 B
 Types:Sorcery
-A:SP$ Destroy | ValidTgts$ Creature,Enchantment,Battle | TgtPrompt$ Select target creature, enchantment, or battle | SubAbility$ DBLoseLife | SpellDescription$ Destroy target creature, enchantment, or battle. You lose life equal to that permanent's mana value.
+A:SP$ Destroy | ValidTgts$ Creature,Enchantment | TgtPrompt$ Select target creature or enchantment | SubAbility$ DBLoseLife | SpellDescription$ Destroy target creature or enchantment. You lose life equal to its mana value.
 SVar:DBLoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ X
 SVar:X:Targeted$CardManaCost
-Oracle:Destroy target creature, enchantment, or battle. You lose life equal to that permanent's mana value.
+Oracle:Destroy target creature or enchantment. You lose life equal to its mana value.

@@ -1,0 +1,5 @@
+Name:Prismatic Confluence
+ManaCost:3 G
+Types:Sorcery
+A:SP$ DigMultiple | DigNum$ 5 | Reveal$ True | ChangeValid$ Permanent.Colorless,Permanent.MonoColor,Permanent.MultiColor | Optional$ True | SpellDescription$ Reveal the top five cards of your library. You may put a colorless permanent card, a monocolored permanent card, and/or a multicolored permanent card from among them into your hand. Put the rest on the bottom of your library in any order.
+Oracle:Reveal the top five cards of your library. You may put a colorless permanent card, a monocolored permanent card, and/or a multicolored permanent card from among them into your hand. Put the rest on the bottom of your library in any order.

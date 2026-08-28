@@ -97,3 +97,23 @@ ScryfallCode=REV
 89 M Casus Belli @Giacoma Bussaglia
 90 M Transgressive Trendsetter @eoryuu_
 91 M Shigane Manor Burns @Liiga Smilshkalne
+92 M Privilege_Escalation @Deraken
+93 M Crumbling Tower @Eliot Baum and Viv Tanner
+94 M Crystal Lion @Nizo A.N.I.M.E
+95 M Cityscape Dragon @Sunken Cost
+96 M Windbeaten Stones @Timi Honkanen
+97 M Smiling Sludge @PeabPot
+98 M Pact Beyond Death @Aerryi
+99 M Sanctum of Repression @KingCael
+100 M Nightfall @rookshocksshack
+101 M Duress @kankan33333
+102 M Path of Scales @brbarou
+103 M Stargazing @Vincent Van Gogh
+104 M Alwanor, the Humbled Star @Stephanie Law
+105 M Witching Hour @Felix Oesinghaus
+106 M The Founder's Cage @greyopals
+107 M Iviana, Dragon Tamer @Radiohyo
+108 M Worn Semblance @Saint Greaver
+109 M Lunar Awe @toni infante
+110 M Shape the Pattern @Asur-Misoa
+111 M Blade Flourish @Anato Finnstark

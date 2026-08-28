@@ -1,0 +1,8 @@
+Name:Wharf Patrol
+ManaCost:2
+Types:Artifact Creature Construct
+PT:2/1
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Defined$ You | Type$ Creature | SpellDescription$ As this creature enters, choose a creature type. | AILogic$ MostProminentInHumanDeck
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Protection:ChosenType | Description$ This creature has protection from the chosen type. (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything with that type.)
+Oracle:As this creature enters, choose a creature type.\nThis creature has protection from the chosen type. (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything with that type.)

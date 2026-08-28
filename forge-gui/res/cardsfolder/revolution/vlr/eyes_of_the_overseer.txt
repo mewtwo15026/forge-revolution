@@ -1,0 +1,8 @@
+Name:Eyes of the Overseer
+ManaCost:B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Whenever another creature you control dies, each opponent loses 1 life and you gain 1 life. This ability triggers only once each turn.

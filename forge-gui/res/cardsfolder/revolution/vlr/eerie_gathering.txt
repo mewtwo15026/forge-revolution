@@ -1,0 +1,8 @@
+Name:Eerie Gathering
+ManaCost:2 W B
+Types:Instant
+A:SP$ Token | TokenScript$ acolyte | TokenAmount$ 3 | SubAbility$ DBPumpAll | SpellDescription$ Create three Acolyte tokens. (They're 0/1 white and black Warlock creatures with "{1}, Sacrifice this token: Surveil 1.")
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.token+YouCtrl | NumAtt$ +1 | SpellDescription$ Until end of turn, creature tokens you control get +1/+0.
+SVar:BuffedBy:Creature.token
+DeckHas:Ability$Token|Sacrifice|Surveil & Type$Warlock
+Oracle:Create three Acolyte tokens. (They're 0/1 white and black Warlock creatures with "{1}, Sacrifice this token: Surveil 1.")\nUntil end of turn, creature tokens you control get +1/+0.

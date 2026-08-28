@@ -1,0 +1,11 @@
+Name:End the Chase
+ManaCost:1 G
+Types:Sorcery
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | AILogic$ PowerDmg | TgtPrompt$ Select target creature you control | SubAbility$ SoulsDamage | StackDescription$ None | SpellDescription$ Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.
+SVar:SoulsDamage:DB$ DealDamage | ValidTgts$ Creature.YouDontCtrl,Planeswalker.YouDontCtrl | TgtPrompt$ Select target creature or planeswalker you don't control | AILogic$ PowerDmg | TgtPrompt$ Select target creature you don't control | NumDmg$ X | DamageSource$ ParentTarget
+SVar:X:ParentTargeted$CardPower
+K:vlr_Pursuit:3 G G
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 3 G G Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {3}{G}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.\nPursuit {3}{G}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

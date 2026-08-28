@@ -1,6 +1,6 @@
 Name:Eclipse of the Divine
 ManaCost:1 R R
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, exile the top three cards of your library.
 SVar:TrigExile:DB$ Dig | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile

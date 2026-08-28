@@ -1,0 +1,8 @@
+Name:Liberated Convert
+ManaCost:1 R
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Muster - Whenever you cast a creature spell, this creature gets +1/+1 until end of turn.

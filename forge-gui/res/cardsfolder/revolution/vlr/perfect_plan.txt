@@ -1,0 +1,9 @@
+Name:Perfect Plan
+ManaCost:2 U U
+Types:Enchantment
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Defined$ You | Type$ Creature | AILogic$ MostProminentComputerControlsOrOwns | SpellDescription$ As this enchantment enters, choose a creature type.
+S:Mode$ CastWithFlash | ValidCard$ Creature.ChosenType | ValidSA$ Spell | Caster$ You | Description$ You may cast spells of the chosen type as though they had flash.
+T:Mode$ SpellCast | ValidCard$ Creature.ChosenType | ValidActivatingPlayer$ You | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a creature spell of the chosen type, draw a card.
+SVar:TrigDraw:DB$ Draw | Defined$ You
+Oracle:As this enchantment enters, choose a creature type.\nYou may cast spells of the chosen type as though they had flash.\nWhenever you cast a spell of the chosen type, draw a card.

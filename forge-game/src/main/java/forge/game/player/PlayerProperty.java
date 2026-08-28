@@ -287,7 +287,13 @@ public class PlayerProperty {
             if (!sp.getRootAbility().isTargeting(player)) {
                 return false;
             }
-        } else if (property.startsWith("controls")) {
+        }
+        // REVOLUTION - approval (CNY)
+        else if (property.startsWith("hasApproval")) {
+
+        }
+        // end REVOLUTION stuff
+        else if (property.startsWith("controls")) {
             // this allows escaping _ with \ in case of complex restrictions (used on Turf War)
             List<String> type = new ArrayList<>();
             Pattern regex = Pattern.compile("(?:\\\\.|[^_\\\\]++)+");

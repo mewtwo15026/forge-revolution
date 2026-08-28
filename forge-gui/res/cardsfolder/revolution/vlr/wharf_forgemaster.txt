@@ -1,0 +1,16 @@
+Name:Wharf Forgemaster
+ManaCost:2 G W
+Types:Creature Human Artificer
+PT:2/2
+K:Vigilance
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When this creature enters, create two Weapon tokens. You may attach each to a creature you control. (They're Equipment artifacts with equip {2} and "Equipped creature gets +1/+1.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_weapon_equip | TokenAmount$ 2 | RememberTokens$ True | SubAbility$ DBRepeatEach
+SVar:DBRepeatEach:DB$ RepeatEach | UseImprinted$ True | RepeatCards$ Card.IsRemembered | RepeatSubAbility$ EachAttach | SubAbility$ DBCleanup
+SVar:EachAttach:DB$ Attach | Object$ Imprinted | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose a creature you control | Optional$ True
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+S:Mode$ Continuous | Affected$ Card.YouCtrl | Affected$ Card.YouCtrl | Condition$ PlayerTurn | AffectedZone$ Stack | AddKeyword$ Affinity:Permanent.token:token | CheckSVar$ Y | SVarCompare$ EQ0 | Description$ The first spell you cast during each of your turns has affinity for tokens. (They cost {1} less to cast for each token you control.)
+SVar:Y:Count$ThisTurnCast_Card.YouCtrl
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token & Type$Artifact|Equipment|Weapon
+DeckHints:Ability$Token
+Oracle:Vigilance\nWhen this creature enters, create two Weapon tokens. You may attach each to a creature you control. (They're Equipment artifacts with equip {2} and "Equipped creature gets +1/+1.")\nThe first spell you cast during each of your turns has affinity for tokens. (They cost {1} less to cast for each token you control.)

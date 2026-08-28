@@ -1,0 +1,11 @@
+Name:Coffers Altar
+ManaCost:2 B
+Types:Artifact
+A:AB$ Charm | Cost$ T Sac<1/Creature> | SorcerySpeed$ True | CharmNum$ X | Choices$ DBToken,DBDraw
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac
+SVar:DBDraw:DB$ Draw | NumCards$ 1
+SVar:X:Count$Compare NontokenSac EQ1.2.1
+SVar:NontokenSac:Sacrificed$Valid Card.!token
+SVar:AIPreference:SacCost$Creature.!token+cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice|Token & Type$Treasure
+Oracle:{T}, Sacrifice a creature: Choose one. If you sacrificed a nontoken creature, you may choose both instead. Activate only as a sorcery.\n• Create a Treasure token.\n• Draw a card.

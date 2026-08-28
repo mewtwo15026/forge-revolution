@@ -1,0 +1,36 @@
+Name:Leiowen, Escape Artist
+ManaCost:1 U
+Types:Legendary Creature Cat Rogue
+PT:1/3
+K:Skulk
+T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever NICKNAME deals combat damage to a player, draw a card, then discard a card. Put a loyalty counter on NICKNAME.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBDiscardFront
+SVar:DBDiscardFront:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ 1 | SubAbility$ DBCounter
+SVar:DBCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ PutCounter | Cost$ R | SorcerySpeed$ True | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSpark | SpellDescription$ Put a loyalty counter on NICKNAME and transform her. Activate only as a sorcery.
+SVar:DBSpark:DB$ SetState | Defined$ Self | Mode$ Transform
+DeckHas:Ability$Discard|Counters
+DeckHints:Ability$Mill|Surveil
+AlternateMode:DoubleFaced
+Oracle:Skulk (This creature can't be blocked by creatures with greater power.)\nWhenever Leiowen deals combat damage to a player, draw a card, then discard a card. Put a loyalty counter on Leiowen.\n{R}: Put a loyalty counter on Leiowen and transform her. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Leiowen, Ghost of Vicuro
+ManaCost:no cost
+Types:Legendary Planeswalker Leiowen
+Colors:blue,red
+Loyalty:0
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Skulk | Description$ Creatures you control have skulk. (They can't be blocked by creatures with greater power.)
+A:AB$ Pump | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature to get +1/+0 | NumAtt$ +1 | SubAbility$ DBShrink | SpellDescription$ Until end of turn, up to one target creature gets +1/+0 and up to one other target creature gets -1/-0.
+SVar:DBShrink:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TargetUnique$ True | TgtPrompt$ Select up to one other target creature to get -1/-0 | NumAtt$ -1
+A:AB$ Draw | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | SubAbility$ DBDiscardBack | SpellDescription$ Draw a card, then discard a card.
+SVar:DBDiscardBack:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ 1
+A:AB$ ChangeZone | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | AILogic$ Never | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | ChangeNum$ YardSize | RememberChanged$ True | SubAbility$ DBImmeTrig | SpellDescription$ Exile any number of cards from your graveyard. When you do, NICKNAME deals that much damage to any nonplayer target.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Remembered | Execute$ TrigDamage | SubAbility$ DBCleanup | TriggerDescription$ When you do, NICKNAME deals that much damage to any nonplayer target.
+SVar:TrigDamage:DB$ DealDamage | ValidTgts$ Creature,Planeswalker,Battle | NumDmg$ X
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TriggerRemembered$Amount
+SVar:YardSize:Count$ValidGraveyard Card.YouOwn
+SVar:BuffedBy:Creature.powerLE2
+Oracle:Creatures you control have skulk. (They can't be blocked by creatures with greater power.)\n[+1]: Until end of turn, up to one target creature gets +1/+0 and up to one other target creature gets -1/-0.\n[+1]: Draw a card, then discard a card.\n[-2]: Exile any number of cards from your graveyard. When you do, Leiowen deals that much damage to any nonplayer target.

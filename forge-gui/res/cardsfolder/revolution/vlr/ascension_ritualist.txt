@@ -1,0 +1,12 @@
+Name:Ascension Ritualist
+ManaCost:2 W
+Types:Creature Cat Warlock
+PT:2/2
+K:First Strike
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever this creature attacks, you may sacrifice another creature. If you do, surveil 1 and put a +1/+1 counter on each creature you control.
+SVar:TrigSurveil:AB$ Surveil | Cost$ Sac<1/Creature.Other/another creature> | Amount$ 1 | SubAbility$ DBPutCounterAll
+SVar:DBPutCounterAll:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+SVar:HasAttackEffect:TRUE
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Counters|Sacrifice|Surveil
+Oracle:First strike\nWhenever this creature attacks, you may sacrifice another creature. If you do, surveil 1 and put a +1/+1 counter on each creature you control.

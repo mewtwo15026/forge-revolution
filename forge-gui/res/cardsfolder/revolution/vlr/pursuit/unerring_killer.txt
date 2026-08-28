@@ -1,0 +1,8 @@
+Name:Unerring Killer
+ManaCost:3 G G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample\nThis creature has haste as long as it entered from a graveyard or was cast from a graveyard this turn.\nPursuit {3}{G}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

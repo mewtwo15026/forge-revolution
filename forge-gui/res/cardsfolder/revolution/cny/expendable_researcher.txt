@@ -1,0 +1,10 @@
+Name:Expendable Researcher
+ManaCost:U
+Types:Creature Minion
+PT:2/2
+K:Decayed
+A:AB$ ChangeZone | Cost$ 2 U ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | SorcerySpeed$ True | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Choose target instant or sorcery card in your graveyard | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | SpellDescription$ Return target instant or sorcery card from your graveyard to your hand. Activate only as a sorcery.
+SVar:SacMe:1
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard
+Oracle:Decayed (This can't block. When it attacks, sacrifice it at end of combat.)\n{2}{U}, Exile Expendable Researcher from your graveyard: Return target instant or sorcery card from your graveyard to your hand. Activate only as a sorcery.

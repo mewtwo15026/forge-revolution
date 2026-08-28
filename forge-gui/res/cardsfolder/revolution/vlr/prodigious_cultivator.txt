@@ -1,0 +1,12 @@
+Name:Prodigious Cultivator
+ManaCost:2 U U
+Types:Creature Human Druid
+PT:3/4
+K:Vigilance
+R:Event$ Draw | ActiveZones$ Battlefield | ValidPlayer$ You | ReplaceWith$ PCMill | Optional$ True | Description$ If you would draw a card, instead you may mill three cards, then return a noncreature card from your graveyard to your hand.
+SVar:PCMill:DB$ Mill | NumCards$ 3 | SubAbility$ DBReturn
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Card.nonCreature+YouOwn | Hidden$ True
+R:Event$ Moved | ActiveZones$ Battlefield | Origin$ Battlefield,Hand,Exile,Stack,Sideboard | Destination$ Graveyard | ValidCard$ Card.YouOwn | ReplaceWith$ DBExile | Description$ If a nonland card would be put into your graveyard from anywhere other than your library, exile it instead.
+SVar:DBExile:DB$ ChangeZone | Hidden$ True | Origin$ All | Deestination$ Exile | Defined$ ReplacedCard
+DeckHas:Ability$Mill|Graveyard
+Oracle:Vigilance\nIf you would draw a card, instead you may mill three cards, then return a noncreature card from your graveyard to your hand.\nIf a nonland card would be put into your graveyard from anywhere other than your library, exile it instead.

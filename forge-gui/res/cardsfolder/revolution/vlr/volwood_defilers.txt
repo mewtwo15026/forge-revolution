@@ -1,0 +1,14 @@
+Name:Volwood Defilers
+ManaCost:1 U B
+Types:Creature Dog Horror
+PT:*/3
+K:Menace
+K:Ward:1
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ CARDNAME's power is equal to the number of cards put into your graveyard from anywhere this turn.
+SVar:X:Count$ThisTurnEntered_Graveyard_Card.YouOwn+!token
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ Whenever this creature attacks, mill three cards.
+SVar:TrigMill:DB$ Mill | Defined$ You | NumCards$ 3
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Mill
+DeckHints:Ability$Mill|Discard|Sacrifice
+Oracle:Menace, ward {1}\nVolwood Defilers's power is equal to the number of cards put into your graveyard from anywhere this turn.\nWhenever this creature attacks, mill three cards.

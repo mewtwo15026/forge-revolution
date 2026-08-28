@@ -1,0 +1,7 @@
+Name:Redeveloped Cityscape
+ManaCost:no cost
+Types:Land
+A:AB$ ChangeZone | Cost$ T Sac<1/CARDNAME> | ChangeType$ Land.Basic | ChangeNum$ 1 | Origin$ Library | Destination$ Battlefield | Tapped$ True | Shuffle$ False | SubAbility$ DBTutor | StackDescription$ SpellDescription | SpellDescription$ Search your library for a basic land card and put it onto the battlefield tapped. Then you may exile a land card from your hand. If you do, search your library for a basic land card, reveal it, and put it into your hand. Then shuffle.
+SVar:DBTutor:DB$ ChangeZone | UnlessCost$ ExileFromHand<1/Land> | UnlessPayer$ You | UnlessSwitched$ True | ChangeType$ Land.Basic | ChangeNum$ 1 | Origin$ Library | Destination$ Hand | Tapped$ True | Shuffle$ False | SubAbility$ DBShuffle
+SVar:DBShuffle:DB$ Shuffle | Defined$ You
+Oracle:{T}, Sacrifice Redeveloped Cityscape: Search your library for a basic land card and put it onto the battlefield tapped. Then you may exile a land card from your hand. If you do, search your library for a basic land card, reveal it, and put it into your hand. Then shuffle.

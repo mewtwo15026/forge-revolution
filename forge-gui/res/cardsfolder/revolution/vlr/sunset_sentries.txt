@@ -1,0 +1,9 @@
+Name:Sunset Sentries
+ManaCost:2 W
+Types:Creature Human Rebel
+PT:2/2
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each spell you've cast this turn.
+SVar:X:Count$ThisTurnCast_Card.YouCtrl
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When this creature enters, draw a card.
+SVar:TrigDraw:DB$ Draw
+Oracle:This spell costs {1} less to cast for each spell you've cast this turn.\nWhen this creature enters, draw a card.

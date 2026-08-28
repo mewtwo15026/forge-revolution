@@ -1,0 +1,10 @@
+Name:Traumatic Recollection
+ManaCost:U B
+Types:Sorcery
+A:SP$ Mill | NumCards$ 2 | Defined$ You | Optional$ True | SubAbility$ DBDestroy | SpellDescription$ You may mill two cards. Then destroy target creature if its mana value is less than or equal to the number of cards in your graveyard.
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Creature | AITgts$ Creature.cmcLEY | ConditionDefined$ Targeted | ConditionPresent$ Creature.cmcLEX | ConditionCompare$ EQ1
+SVar:X:Count$ValidGraveyard Card.YouOwn
+SVar:Y:SVar$X/Plus.2
+DeckHas:Ability$Mill
+DeckHints:Ability$Mill|Surveil|Discard
+Oracle:You may mill two cards. Then destroy target creature if its mana value is less than or equal to the number of cards in your graveyard.

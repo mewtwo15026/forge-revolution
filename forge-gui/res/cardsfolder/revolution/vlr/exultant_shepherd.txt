@@ -1,0 +1,10 @@
+Name:Exultant Shepherd
+ManaCost:1 B
+Types:Creature Spirit Warlock
+PT:2/1
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ At the beginning of your upkeep, draw a card. Then you lose 3 life unless you sacrifice another creature.
+SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 3 | UnlessCost$ Sac<1/Creature.Other/other creature> | UnlessPayer$ You
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice
+Oracle:At the beginning of your upkeep, draw a card. Then you lose 3 life unless you sacrifice another creature.

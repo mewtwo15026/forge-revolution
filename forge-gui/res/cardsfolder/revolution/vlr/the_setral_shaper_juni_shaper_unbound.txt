@@ -1,0 +1,30 @@
+Name:The Setral Shaper
+ManaCost:1 G
+Types:Legendary Creature Azra Druid
+PT:2/3
+T:Mode$ ChangesZone | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Destination$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Landfall — Whenever a land you control enters, put a loyalty counter on CARDNAME. Surveil 1.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSurveil
+SVar:DBSurveil:DB$ Surveil | Amount$ 1
+A:AB$ PutCounter | Cost$ 2 U | SorcerySpeed$ True | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSpark | SpellDescription$ Put a loyalty counter on CARDNAME and transform her. Activate only as a sorcery.
+SVar:DBSpark:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+SVar:BuffedBy:Land
+DeckHas:Ability$Surveil|Counters|Token
+Oracle:Landfall — Whenever a land you control enters, put a loyalty counter on The Setral Shaper. Surveil 1.\n{2}{U}: Put a loyalty counter on The Setral Shaper and transform her. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Juni, Shaper Unbound
+ManaCost:no cost
+Types:Legendary Planeswalker Juniper
+Colors:blue,green
+Loyalty:0
+S:Mode$ NumLoyaltyAct | ValidCard$ Card.Self | Twice$ True | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, you may activate NICKNAME's loyalty abilities twice each turn rather than only once. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+A:AB$ Tap | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Permanent.nonLand | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent | SpellDescription$ Tap up to one target nonland permanent.
+A:AB$ Surveil | Cost$ SubCounter<1/LOYALTY> | Planeswalker$ True | Amount$ 1 | SubAbility$ DBDraw | SpellDescription$ Surveil 1, then draw a card.
+SVar:DBDraw:DB$ Draw
+A:AB$ Token | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | TokenScript$ g_x_x_elemental | TokenPower$ AField | TokenToughness$ AField | SpellDescription$ Create an X/X green Elemental creature token, where X is the number of lands you control.
+Oracle:As long as you're ancient, you may activate the loyalty abilities of Juni twice each turn rather than only once. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)\n[+1]: Tap up to one target nonland permanent.\n[-1]: Surveil 1, then draw a card.\n[-3]: Create an X/X green Elemental creature token, where X is the number of lands you control.

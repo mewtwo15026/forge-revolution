@@ -1,0 +1,12 @@
+Name:Sillaman Regrafter
+ManaCost:G
+Types:Creature Human Artificer
+PT:0/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCounter | TriggerDescription$ When this creature enters, put a +1/+1 counter on target creature you control.
+SVar:TrigCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigEffect | TriggerDescription$ Whenever a creature you control dies, you may move a counter from it onto another target creature.
+SVar:TrigEffect:DB$ Effect | Name$ SillamanRegraft | SubAbility$ DBPrepCounters
+SVar:DBPrepCounters:DB$ PutCounter | Defined$ ValidCommand Effect.YouCtrl+namedSillamanRegraft | CounterType$ EachFromSource | EachFromSource$ TriggeredCardLKICopy | SubAbility$ DBMoveCounter
+SVar:DBMoveCounter:DB$ MoveCounter | Source$ ValidCommand Effect.YouCtrl+namedSillamanRegraft | ValidTgts$ Creature | TgtPrompt$ Select a creature to move a counter onto | CounterType$ Any | CounterNum$ 1
+DeckHas:Ability$Counters
+Oracle:When Sillaman Regrafter enters, put a +1/+1 counter on target creature you control.\nWhenever a creature you control dies, you may move a counter from it onto another target creature.

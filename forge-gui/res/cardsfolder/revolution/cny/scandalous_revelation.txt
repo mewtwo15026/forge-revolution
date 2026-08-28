@@ -1,0 +1,12 @@
+Name:Scandalous Revelation
+ManaCost:2 W U B
+Types:Sorcery
+A:SP$ Draw | NumCards$ 3 | SubAbility$ DBDiscard | SpellDescription$ Draw three cards, then discard any number of cards. When you do, destroy all nonland permanents with mana value X or less, where X is the number of cards you discarded. You gain X life.
+SVar:DBDiscard:DB$ Discard | Defined$ You | AnyNumber$ True | Mode$ TgtChoose | Optional$ True | RememberDiscarded$ True | SubAbility$ DBImmeTrig
+SVar:DBImmeTrig:DB$ ImmediateTrigger | RememberObjects$ Remembered | Execute$ TrigWrath | SubAbility$ DBCleanup | TriggerDescription$ When you do, destroy all nonland permanents with mana value X or less, where X is the number of cards you discarded. You gain X life.
+SVar:TrigWrath:DB$ DestroyAll | ValidCards$ Permanent.nonLand+cmcLEX | SubAbility$ TrigGainLife
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:TriggerRemembered$Amount
+AI:RemoveDeck:All
+Oracle:Draw three cards, then discard any number of cards. When you do, destroy all nonland permanents with mana value X or less, where X is the number of cards you discarded. You gain X life.

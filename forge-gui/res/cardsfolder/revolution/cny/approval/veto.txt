@@ -1,0 +1,10 @@
+Name:Veto
+ManaCost:X U
+Types:Instant
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ Y | EffectZone$ All | Description$ This spell costs {1} less to cast for each color in your approval. (Your approval contains up to one different permanent of each color.)
+A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target noncreature spell | ValidTgts$ Card.nonCreature | UnlessCost$ X | SpellDescription$ Counter target noncreature spell unless its controller pays {X}.
+SVar:X:Count$xPaid
+SVar:Y:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless
+DeckHints:Color$White|Black|Red|Green
+Oracle:This spell costs {1} less to cast for each color in your approval. (Your approval contains up to one different permanent of each color.)\nCounter target noncreature spell unless its controller pays {X}.

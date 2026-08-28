@@ -1,0 +1,30 @@
+Name:Vie, the First Hero
+ManaCost:R
+Types:Legendary Creature Cat Rebel
+PT:2/1
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Muster — Whenever you cast a creature spell, put a loyalty counter on NICKNAME.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ PutCounter | Cost$ 1 W | SorcerySpeed$ True | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSpark | SpellDescription$ Put a loyalty counter on NICKNAME and transform her. Activate only as a sorcery.
+SVar:DBSpark:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:BuffedBy:Creature.!token
+DeckHas:Ability$Counters
+AlternateMode:DoubleFaced
+Oracle:Muster — Whenever you cast a creature spell, put a loyalty counter on Vie.\n{1}{W}: Put a loyalty counter on CARDNAME and transform her. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Vie, Fallen Hope
+ManaCost:no cost
+Types:Legendary Planeswalker Vie
+Colors:white,red
+Loyalty:0
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigCounterBack | TriggerDescription$ Muster — Whenever you cast a creature spell, put a loyalty counter on NICKNAME.
+SVar:TrigCounterBack:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ ChangeZone | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.YouOwn | AITgts$ Creature.!token+!hasXCost,Creature.OppCtrl | TgtPrompt$ Select target creature you own | RememberTargets$ True | SubAbility$ DBPlay | SpellDescription$ Exile target creature you own, then cast that card without paying its mana cost.
+SVar:DBPlay:DB$ Play | Defined$ Remembered | Amount$ All | WithoutManaCost$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+A:AB$ DealDamage | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Any | NumDmg$ 3 | SpellDescription$ NICKNAME deals 3 damage to any target.
+A:AB$ Dig | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | Defined$ You | DigNum$ 3 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect | SpellDescription$ Exile the top three cards of your library. Until the end of your next turn, you may play those cards.
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ STPlay | SubAbility$ DBCleanup | ForgetOnMoved$ Exile | Duration$ UntilTheEndOfYourNextTurn
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ Until the end of your next turn, you may play the exiled cards.
+Oracle:Muster - Whenever you cast a creature spell, put a loyalty counter on Vie.\n[0]: Exile target creature you own, then cast that card without paying its mana cost.\n[-2]: Vie deals 3 damage to any target.\n[-3]: Exile the top three cards of your library. You may play those cards until the end of your next turn.

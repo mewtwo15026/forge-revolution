@@ -1,0 +1,18 @@
+Name:Zeno, Planar Engineer
+ManaCost:2 G
+Types:Legendary Artifact Creature Human Artificer
+PT:3/3
+T:Mode$ CounterAdded | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigStoreCurrent | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever a counter is put on another creature you control, you may put a counter of the same kind on NICKNAME. Then if there are no other counters of that kind on NICKNAME, draw a card. Do this only once each turn.
+SVar:TrigStoreCounters:DB$ StoreSVar | SVar$ CountersOld | Type$ CountSVar | Expression$ Y | SubAbility$ DBStoreKinds
+SVar:DBStoreKinds:DB$ StoreSVar | SVar$ KindsOld | Type$ CountSVar | Expression$ X | SubAbility$ DBMeToo
+SVar:DBMeToo:DB$ PutCounter | Defined$ Self | Placer$ TriggeredSource | TriggeredCounterMap$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | ConditionCheckSVar$ Z | ConditionSVarCompare$ GE1
+SVar:Z:SVar$CheckKinds/Plus.CheckCounters
+SVar:CheckKinds:Count$Compare KindsOld GTX.1.0
+SVar:CheckCounters:Count$Compare CountersOld LEY.1.0
+SVar:X:Count$DifferentCounterKinds_Card.Self
+SVar:Y:Count$CardCounters.ALL
+SVar:CountersOld:Number$0
+SVar:KindsOld:Number$0
+DeckNeeds:Ability$Counters
+Oracle:Whenever a counter is put on another creature you control, you may put a counter of the same kind on Zeno. Then if there are no other counters of that kind on Zeno, draw a card. Do this only once each turn.

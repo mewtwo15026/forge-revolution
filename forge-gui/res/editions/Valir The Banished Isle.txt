@@ -1,0 +1,345 @@
+[metadata]
+Code=VLR
+Date=2026-05-01
+Name=Valir: The Banished Isle
+Code2=VLR
+MciCode=vlr
+Type=Expansion
+#BoosterCovers=1
+BoosterSlots=nullAnyLand,Rare,Uncommon,Wildcard,Token,Common
+Booster=1 AnyLand,1 Rare,3 Uncommon,2 Wildcard,1 Token,7 Common
+FatPack=8
+FatPackExtraSlots=40 BasicLands VLR
+Prerelease=6 Boosters, 1 RareMythic+
+BoosterBox=36
+ChaosDraftThemes=
+# Set designed by CovetedPeacock
+
+[Rare]
+Base=Rare:fromSheet("VLR cards")
+
+[Uncommon]
+Base=Uncommon:fromSheet("VLR cards")
+
+[Token]
+Base=Token:fromSheet("VLR cards")
+
+[Common]
+Base=Common:fromSheet("VLR cards")
+
+[AnyLand]
+Base=BasicLand:fromSheet("VLR cards")
+Replace=0.5F Card:fromSheet("VLR duals")
+
+[Wildcard]
+Base=Uncommon:fromSheet("VLR cards")
+Replace=0.116F Rare:fromSheet("VLR cards")
+Replace=0.02F Mythic:fromSheet("VLR cards")
+Replace=0.473F Common:fromSheet("VLR cards")
+
+[cards]
+1 M Tesh, Fragmented Founder @
+2 U Ascendant Judge @
+3 R Ascension Ritualist @
+4 U Backalley Minstrel @
+5 C Blessed Proselytism @
+6 U Call for Backup @
+7 U Chapel Crasher @
+8 U Chapel Specter @
+9 U City's Memory @
+10 C Clash of Courage @
+11 C Congregation Minister @
+12 U Consult the Offerings @
+13 U Depart @
+14 C Fell the Nonbeliever @
+15 R Forsaken Penitents @
+16 M The Great Singularity @
+17 R Ivari, Liberated Mentor @
+18 C Midnight Warden @
+19 U Offer Yourself @
+20 U Outskirts Mentor @
+21 U Overseer's Chosen @
+22 U Overseer's Entrancer @
+23 C Overseer's Shackles @
+24 C Preacher of Singularity @
+25 C Reclaimed Convert @
+26 C Renegade Banneret @
+27 R Renegade Recruiter @
+28 U Renegade Trueheart @
+29 C Renegade's Intercession @
+30 C Sanctum Enforcer @
+31 U Semari Weaponsmith @
+32 M Siurne, Covetous Creation @
+33 R Solemn Procession @
+34 R Spite of the Founder @
+35 C Stand as One @
+36 R Stand Ready @
+37 C Sunset Sentries @
+38 M Volwood Warder @
+39 C Aspiring Shaper @
+40 C Attuned Rebuttal @
+41 C Beneath the Tide @
+42 U Chandelier Slink @
+43 U Chicanery @
+44 C Covet @
+45 C Enigmatic Apothecary @
+46 U Evasive Flourish @
+47 U Expert Infiltration @
+48 C Heist Lookout @
+49 R Innovative Alchemist @
+50 C Intangibility @
+51 U Into the Grove @
+52 U Jump the Gap @
+53 R Juniper's Awakening @
+54 M Leiowen, Ghost of Vicuro @
+55 R Loresk, Ever-Curious @
+56 U Observe the Pattern @
+57 R On Top of the World @
+58 R Perfect Plan @
+59 U Pickpocket @
+60 M Planar Archives @
+61 M Prodigious Cultivator @
+62 R Rooftop Observer @
+63 U Rooftop Runner @
+64 C Semari Pilferer @
+65 C Setral Sentry @
+66 U Setral Shoresculptor @
+67 C Shaper's Rites @
+68 C Slip Through the Streets @
+69 C Subtle Touch @
+70 U Survivalist Mentor @
+71 R Swift-Step Robber @
+72 U Tireless Refutation @
+73 U Undergrowth Steward @
+74 U Vicuro Informant @
+75 C Vicuro Pathmaker @
+76 U Become the Hunted @
+77 U Bedlam's Vessel @
+78 C Beyond the Shroud @
+79 U Bloodletting (VLR) @
+80 R Coffers Altar @
+81 C Crypt Caretaker @
+82 U Crypt Tiller @
+83 U Desperate Ambusher @
+84 C Disciple of Surola @
+85 U Done Deal @
+86 C Elite Aspirant @
+87 M Exultant Shepherd @
+88 C Eyes of the Overseer @
+89 U Forsaken Shroudguard @
+90 R The Founder's Hunt Begins @
+91 U Go for the Gut @
+92 U Hand of the Overseer @
+93 M Het, False God @
+94 C Het's Call @
+95 R High Priestess Symi @
+96 C Hymn of the Overseer @
+97 C It's Just Business @
+98 R League of Their Own @
+99 U Listen In @
+100 U Madness of Ages @
+101 R Malicious Pactmaker @
+102 U Offer the Faithless @
+103 U Patient Executioner @
+104 R Race for the Glory @
+105 C Shriek of the Shroud @
+106 C Slinking Swiftblade @
+107 C South-Street Scoundrel @
+108 M Soya, Guild Pariah @
+109 U Thing in the Dark @
+110 C Tragic Accident @
+111 R Veteran Hunter @
+112 C With Impunity @
+113 U Blade Flourish @
+114 M Brazen Burglar @
+115 R Burn It All Down @
+116 U Daring Escapees @
+117 R Delias, Savvy Smuggler @
+118 C Disgruntled Crook @
+119 U Friendly Misdirection @
+120 U Frontline Victor @
+121 C Furious Resolve @
+122 U Herald of Emergence @
+123 C Impatient Bandits @
+124 C Impromptu Exit @
+125 C Liberated Convert @
+126 R Make a Break for It @
+127 U Makeshift Justice @
+128 C Patrol Veteran @
+129 U Reap the Rewards @
+130 R Reckless Show-Off @
+131 U Scatter Evidence @
+132 U Scrawny Pursesnatcher @
+133 C Shroudwalker @
+134 U Sieging Volleymage @
+135 C Spice of Life @
+136 U Split the Loot @
+137 C Strangle @
+138 C Streetwise Surveyor @
+139 U Sunder the Cage @
+140 R Sunset Champion @
+141 C Sunset Recruit @
+142 C Tear Down @
+143 U Tenacious Thief @
+144 R Unending Unrest @
+145 M Vie, Fallen Hope @
+146 R Vie's Lieutenant @
+147 U Wistful Strategist @
+148 C Yoink! @
+149 U Blossoming Steward @
+150 R Call of the Grove @
+151 R Corner the Prey @
+152 U Creeping Overgrowth @
+153 U Culvert Inspector @
+154 C Defend the Groves @
+155 C Dockside Hawker @
+156 C Due Reward @
+157 U End the Chase @
+158 M Esteemed Exterminator @
+159 C Find Your Prey @
+160 C Gutter Rat @
+161 C Hired Hand @
+162 C Leonin Revivalist @
+163 R Leybound Ritualist @
+164 U Life from Death @
+165 C Outskirts Steward @
+166 C Pattern's Abundance @
+167 C Pick Your Poison @
+168 U Reckless Smashing @
+169 U Ruthless Duo @
+170 R Setral Arborist @
+171 U Setral Mender @
+172 M Juni, Shaper Unbound @
+173 R Shape the Pattern @
+174 U Shroudpiercer @Allan Santos
+175 U Spit Venom @
+176 U Sprouting Sproutling @
+177 C Titanic Mycoid @
+178 C Toxin Peddler @
+179 U Trespass the Volwood @
+180 U Unerring Killer @
+181 U Volwood Deadeye @
+182 C Volwood Sentry @
+183 R Waylen, Bloodhunter @
+184 R Winding Assailant @
+185 M Avarice @
+186 R Divine Liberation @
+187 U Eerie Gathering @
+188 R Evrax, Enlightened Endling @
+189 U Founder's Echo @
+190 U Founder's Malice @
+191 U Glimpse the Worldsoul @
+192 U Grand Larceny @
+193 R Greedy Deserter @
+194 U Guild Elite @
+195 R In Tune @
+196 R Kane, Unyielding @
+197 R Malicious Throng @
+198 U Melodious Mallard @
+199 R Memoriam @
+200 U Orliss's Edict @
+201 U Overprepared Accomplice @
+202 R Profane Scripture @
+203 U Rally the Rabble @
+204 U Rowdy Mob @
+205 R Ruthless Stalker @
+206 U Sanctum Deathspeaker @
+207 R Shroudwarder Phoenix @
+208 R Silent Warden @
+209 U Siurne's Betrayal @
+210 R Smolder Away @
+211 R Smooth Operation @
+212 U Soulcage @
+213 U Starry-Eyed Scholar @
+214 R Surola, Vile Preacher @
+215 U Tale of Bedlam @
+216 R Torvel, Scion of Rot @
+217 R Turen, Untouchable @
+218 U Umber Grovetender @
+219 R Valiant Firebrand @
+220 R Voice of the Old Grove @
+221 U Volwood Defilers @
+222 U Volwood Stalwart @
+223 R Wanton Destruction @
+224 R Wharf Forgemaster @
+225 U Wharf Vendor @
+226 M Arital, Grand Adjudicator @
+227 C Blinded Arbiter @
+228 C Concord Alchemist @
+229 C Encroaching Voidborn @
+230 M Ery, Leyfused @
+231 C Fledgling Sycophant @
+232 C Incursion Vanguard @
+233 C Killer-for-Hire @
+234 C Kindly Tavernkeep @
+235 C Lucrative Larcenist @
+236 M Marle, Vicuro Head @
+237 M Orliss of the Elite @
+238 M Sahra, Siege Captain @
+239 C Shroud Scholar @
+240 C Thoroughfare Busker @
+241 U Ancient Sentry @
+242 C Autonomous Accomplice @
+243 C Bounty Wall @
+244 C Disposable Dagger @
+245 U Dormant Godkiller @
+246 M The Founder's Cage @
+247 R Heart of Bedlam @
+248 U Herbalist's Satchel @
+249 R Memorial to the First Shaper @
+250 U Morbid Missive @
+251 R Prized Possession @
+252 C Scrounging Sensor @
+253 U Smoke Bomb @
+254 U Stalker's Cowl @
+255 U Wharf Patrol @
+256 C Flooded Morass @
+257 C Flourishing Crevasse @
+258 C Forgotten Foundation @
+259 C Frostfire Geysers @
+260 C Fungal Mire @
+261 C Gloomcover Steppe @
+262 C Heart of the Glade @
+263 U Humming Furnace @
+264 C Illicit Marketplace @
+265 C Lavatorn Fields @
+266 C Lush Oasis (VLR) @
+267 C Pool of Light @
+268 U Secluded Courtyard @
+269 R The Shrouded Seas @
+270 C Spiraling Canyon @
+271 R Tomb of the Founder @
+272 U The Volwood @
+273 L Plains @
+274 L Island @
+275 L Swamp @
+276 L Mountain @
+277 L Forest @
+
+[buy a box]
+293 U Shroudpiercer @7Nulls
+
+[duals]
+1 Flooded Morass|VLR
+1 Flourishing Crevasse|VLR
+1 Frostfire Geysers|VLR
+1 Fungal Mire|VLR
+1 Gloomcover Steppe|VLR
+1 Heart of the Glade|VLR
+1 Lavatorn Fields|VLR
+1 Lush Oasis (VLR)|VLR
+1 Pool of Light|VLR
+1 Spiraling Canyon|VLR
+
+[tokens]
+2 c_1_1_spirit @
+3 w_1_1_citizen @
+4 r_5_5_skeleton_dragon_flying @
+5 g_x_x_elemental @
+6 acolyte @
+7 bg_1_1_mercenary_deathtouch @
+8 c_a_treasure_sac @
+9 c_a_weapon_equip @
+
+[other]
+1 copy @

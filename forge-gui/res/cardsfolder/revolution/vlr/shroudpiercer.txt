@@ -1,0 +1,10 @@
+Name:Shroudpiercer
+ManaCost:G
+Types:Creature Horror
+PT:1/1
+K:Deathtouch
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ When this creature enters, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+A:AB$ Surveil | Cost$ 1 G ExileFromGrave<1/CARDNAME> | ActivationZone$ Graveyard | Amount$ 1 | SpellDescription$ Surveil 1.
+DeckHas:Ability$Surveil
+Oracle:Deathtouch\nWhen this creature enters, surveil 1.\n{1}{G}, Exile this card from your graveyard: Surveil 1.

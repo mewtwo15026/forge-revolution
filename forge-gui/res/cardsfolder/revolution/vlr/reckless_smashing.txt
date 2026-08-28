@@ -1,0 +1,7 @@
+Name:Reckless Smashing
+ManaCost:3 G G
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Creatures you control get +2/+2 and gain trample until end of turn. Whenever one or more creatures you control deal combat damage to a player this turn, destroy target noncreature, nonland permanent that player controls.

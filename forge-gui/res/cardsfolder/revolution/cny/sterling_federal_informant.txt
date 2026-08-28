@@ -1,0 +1,13 @@
+Name:Sterling, Federal Informant
+ManaCost:3 U
+Types:Legendary Creature Rat Advisor
+PT:1/3
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBChooseOpp | Layer$ Control | Description$ CARDNAME enters under the control of an opponent of your choice.
+SVar:DBChooseOpp:DB$ ChoosePlayer | Defined$ You | Choices$ Player.Opponent | ChoiceTitle$ Choose an opponent to give control to | AILogic$ Curse | SubAbility$ MoveToPlay
+SVar:MoveToPlay:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Battlefield | Defined$ ReplacedCard | GainControl$ ChosenPlayer
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigSurveil | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ Player | Description$ Play with the top card of your library revealed.
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | Condition$ NotPlayerTurn | MayPlay$ True | MayPlayPlayer$ Player.Active+Opponent | MayPlayIgnoreType$ True | Description$ Your opponents may play lands and cast spells from the top of your library during their turns, and they may spend mana of any type to cast spells this way.
+SVar:SacMe:4
+Oracle:Sterling enters under the control of an opponent of your choice.\nAt the beginning of your upkeep, surveil 1.\nPlay with the top card of your library revealed.\nYour opponents may play lands and cast spells from the top of your library during their turns, and they may spend mana of any type to cast spells this way.

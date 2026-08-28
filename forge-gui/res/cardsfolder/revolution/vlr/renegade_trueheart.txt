@@ -1,0 +1,13 @@
+Name:Renegade Trueheart
+ManaCost:1 W
+Types:Creature Bird Rebel
+PT:1/1
+K:Flash
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigBounce | TriggerDescription$ When this creature enters, return up to one other target creature you control to its owner's hand. If you do, put a +1/+1 counter on this creature.
+SVar:TrigBounce:DB$ ChangeZone | ValidTgts$ Creature.Other+YouCtrl | AITgts$ Creature.cmcLE2 | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one other target creature you control | Origin$ Battlefield | Destination$ Hand | Hidden$ True | RememberChanged$ True | SubAbility$ DBCounter
+SVar:DBCounter:DB$ PutCounter | ConditionDefined$ Remembered | ConditionPresent$ Card | Defined$ TriggeredCardLKICopy | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$LifeGain|Counters
+Oracle:Flash\nFlying, lifelink\nWhen this creature enters, return up to one other target creature you control to its owner's hand. If you do, put a +1/+1 counter on this creature.

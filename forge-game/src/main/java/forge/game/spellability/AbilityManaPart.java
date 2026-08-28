@@ -443,6 +443,10 @@ public class AbilityManaPart implements java.io.Serializable {
                 return !sa.isSpell() || !sa.getHostCard().isCreature();
             }
 
+            if (restriction.equals("CantCastNoncreatureSpells")) {
+                return !sa.isSpell() || sa.getHostCard().isCreature();
+            }
+
             // TODO refactor to differ between ForCost and ForEffect
             // the payment is for a resolving SA, currently no other restrictions would allow that
             if (getSourceCard().getGame().getStack().getInstanceMatchingSpellAbilityID(sa.getRootAbility()) != null) {

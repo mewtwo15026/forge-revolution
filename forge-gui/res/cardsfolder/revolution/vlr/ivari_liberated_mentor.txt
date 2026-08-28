@@ -1,0 +1,11 @@
+Name:Ivari, Liberated Mentor
+ManaCost:2 W
+Types:Legendary Creature Snake Rebel
+PT:2/3
+S:Mode$ Panharmonicon | ValidMode$ SpellCast | ValidCard$ Permanent.YouCtrl | ValidCause$ Creature | ValidActivator$ You | Description$ If you casting a creature spell would cause a triggered ability of a permanent you control to trigger, that ability triggers an additional time.
+S:Mode$ OptionalCost | EffectZone$ Battlefield | ValidCard$ Creature | ValidSA$ Spell | Cost$ R | Activator$ You | Description$ As an additional cost to cast creature spells, you may pay {R}. If you do, that spell can't be countered and gains haste.
+S:Mode$ Continuous | Affected$ Card.Creature+YouCtrl+wasCast | AffectedZone$ Stack | AddReplacementEffect$ Insistent | AddTrigger$ OnCastWithCost
+SVar:Insistent:Event$ Counter | ValidCards$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | CheckSVar$ CastSA>Count$OptionalGenericCostPaid.1.0 | Description$ This spell can't be countered.
+SVar:OnCastWithCost:Mode$ SpellCast | Static$ True | ValidCard$ Card.Self | CheckSVar$ CastSA>Count$OptionalGenericCostPaid.1.0 | Execute$ TrigAnimate
+SVar:TrigAnimate:DB$ Animate | Defined$ TriggeredCardLKICopy | Keywords$ Haste | Duration$ Permanent
+Oracle:If you casting a creature spell would cause a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\nAs an additional cost to cast creature spells, you may pay {R}. If you do, that spell can't be countered and gains haste.

@@ -1,0 +1,8 @@
+Name:Esteemed Exterminator
+ManaCost:2 G G
+Types:Creature Human Mercenary
+PT:5/5
+R:Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+K:Ward:2
+S:Mode$ CantBlockBy | ValidAttacker$ Creature.Self | ValidBlocker$ Creature.powerLE2 | Description$ This creature can't be blocked by creatures with power 2 or less.
+Oracle:This spell can't be countered.\nWard {2}\nThis creature can't be blocked by creatures with power 2 or less.

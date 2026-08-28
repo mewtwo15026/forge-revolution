@@ -1,0 +1,8 @@
+Name:Bedlam's Vessel
+ManaCost:2 B B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature dies, create a 5/5 red Skeleton Dragon creature token with flying.

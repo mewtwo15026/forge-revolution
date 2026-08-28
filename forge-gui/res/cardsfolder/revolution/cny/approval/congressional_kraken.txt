@@ -1,0 +1,11 @@
+Name:Congressional Kraken
+ManaCost:5 U U
+Types:Creature Kraken
+PT:6/7
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChangeZoneAll | TriggerDescription$ When CARDNAME enters, return each nonland permanent with mana value X or less to its owner's hand, where X is your approval. (Your approval contains up to one different permanent of each color.)
+SVar:TrigChangeZoneAll:DB$ ChangeZoneAll | Origin$ Battlefield | Destination$ Hand | ChangeType$ Permanent.cmcLEX+nonLand
+SVar:X:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless
+DeckHints:Color$White|Black|Red|Green
+Oracle:Flash\nWhen Congressional Kraken enters, return each nonland permanent with mana value less than or equal to your approval to their owners' hands. (Your approval contains up to one different permanent of each color.)

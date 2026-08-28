@@ -1,6 +1,6 @@
 Name:Mystic of Returns
 ManaCost:1 G
-Types:Creature Human Shaman
+Types:Creature Human Druid
 PT:2/3
 K:Level up:WB
 SVar:maxLevel:7

@@ -1,0 +1,10 @@
+Name:Flaw in the System
+ManaCost:1 R
+Types:Artifact Creature Human Rebel
+PT:2/2
+K:Haste
+# TODO: figure out how to trigger this on costs paid during resolution of abilities
+T:Mode$ SpellAbilityCast | ValidCard$ Card,Emblem | ValidSA$ SpellAbility.ManaFromCard.nonBasic | TriggerZones$ Battlefield | Execute$ TrigPing | TriggerDescription$ Whenever a player casts a spell or activates an ability, if mana from a nonbasic source was spent to cast or activate it, CARDNAME deals 1 damage to that player.
+SVar:TrigPing:DB$ DealDamage | Defined$ TriggeredActivator | NumDmg$ 1
+AI:RemoveDeck:Random
+Oracle:Haste\nWhenever a player spends one or more mana from a nonbasic source, Flaw in the System deals 1 damage to that player.

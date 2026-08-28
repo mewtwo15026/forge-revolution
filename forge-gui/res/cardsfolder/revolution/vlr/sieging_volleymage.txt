@@ -1,0 +1,7 @@
+Name:Sieging Volleymage
+ManaCost:R
+Types:Creature Human Rebel Wizard
+PT:1/2
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigBurn | TriggerDescription$ Muster — Whenever you cast a creature spell, this creature deals 1 damage to each opponent.
+SVar:TrigBurn:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1
+Oracle:Muster - Whenever you cast a creature spell, this creature deals 1 damage to each opponent.

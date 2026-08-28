@@ -1,0 +1,9 @@
+Name:Puppet War
+ManaCost:4 R R
+Types:Sorcery
+A:SP$ GainControl | ValidTgts$ Creature | LoseControl$ EOT | Untap$ True | AddKWs$ Haste | SubAbility$ DBEffect | SpellDescription$ Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.
+SVar:DBEffect:DB$ Effect | StaticAbilities$ DeclareCombatants | Duration$ UntilEndOfCombat | SpellDescription$ You choose which creatures block this turn and how those creatures block.
+SVar:DeclareCombatants:Mode$ Continuous | Affected$ Player | DeclaresBlockers$ You | Description$ You choose which creatures block this combat and how those creatures block.
+# SVar:PlayMain1:ALWAYS
+AI:RemoveDeck:All
+Oracle:Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\nYou choose which creatures block this turn and how those creatures block.

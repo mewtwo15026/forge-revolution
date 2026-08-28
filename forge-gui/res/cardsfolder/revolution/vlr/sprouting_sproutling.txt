@@ -1,0 +1,10 @@
+Name:Sprouting Sproutling
+ManaCost:5 G G
+Types:Creature Plant
+PT:5/4
+K:Affinity:Permanent.token:token
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ When this creature enters, up to two target creatures get +2/+2 and gain trample until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 2 | TgtPrompt$ Select up to two target creatures | NumAtt$ +2 | NumDef$ +2 | KW$ Trample
+SVar:PlayMain1:TRUE
+DeckHints:Ability$Token
+Oracle:Affinity for tokens (This spell costs {1} less to cast for each token you control.)\nWhen this creature enters, up to two target creatures get +2/+2 and gain trample until end of turn.

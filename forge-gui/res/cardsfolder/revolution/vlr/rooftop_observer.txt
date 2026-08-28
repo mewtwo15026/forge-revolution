@@ -1,0 +1,9 @@
+Name:Rooftop Observer
+ManaCost:3 U
+Types:Creature Cat Rogue
+PT:3/4
+K:Spectacle:1 U U
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayLookAt$ You | Description$ You may look at the top card of your library any time.
+S:Mode$ Continuous | Affected$ Card.TopLibrary+YouCtrl | AffectedZone$ Library | MayPlay$ True | Condition$ PlayerTurn | CheckSVar$ X | Description$ During your turn, you may play cards from the top of your library as long as an opponent lost life this turn.
+SVar:X:Count$LifeOppsLostThisTurn
+Oracle:Spectacle {1}{U}{U} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nYou may look at the top card of your library at any time.\nDuring your turn, you may play cards from the top of your library as long as an opponent lost life this turn.

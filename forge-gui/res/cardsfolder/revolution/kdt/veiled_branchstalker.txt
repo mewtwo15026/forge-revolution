@@ -9,5 +9,5 @@ SVar:X:Count$LeftBattlefieldThisTurn Creature.!token+YouCtrl/Minus.Y
 SVar:Y:Count$ThisTurnEntered_Graveyard_from_Battlefield_Creature.!token+YouCtrl
 K:Cycling:2
 DeckHas:Ability$Discard
-DeckHints:Keyword$Ninjutsu
+DeckHints:Keyword$Ninjutsu|Sneak|twi_Rapture
 Oracle:Flying\nWhen this creature enters, if a nontoken creature you controlled left the battlefield without dying this turn, draw a card.\nCycling {2} ({2}, Discard this card: Draw a card.)

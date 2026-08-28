@@ -1,0 +1,26 @@
+Name:Incumbency
+ManaCost:1 W
+Types:Sorcery
+A:SP$ Draw | SubAbility$ DBGainLife | SpellDescription$ Draw a card, gain 3 life, then make a pledge. (Create any white Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.) If you've cast four or more spells named Incumbency this game and there are five colors among permanents you control, you win the game.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 3 | SubAbility$ DBPledge
+SVar:DBPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm | StackDescription$ Make a pledge. (Create any white Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.) If you've cast four or more spells named Incumbency this game and there are five colors among permanents you control, you win the game.
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile | SubAbility$ DBEffect
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Penrath,Sillaman,Tiril
+SVar:Penrath:DB$ Token | TokenScript$ penrath_insurgency | SubAbility$ DBEffect | SpellDescription$ Penrath Insurgency (Pledge - Up to one target creature gets +2/+2 until end of turn.)
+SVar:Sillaman:DB$ Token | TokenScript$ sillaman_laboratories | SubAbility$ DBEffect | SpellDescription$ Sillaman Laboratories (Pledge - Tap up to one target untapped creature. You may put a +1/+1 counter on it.)
+SVar:Tiril:DB$ Token | TokenScript$ tiril_bureau | SubAbility$ DBEffect | SpellDescription$ Tiril Bureau (Pledge - Surveil 2.)
+SVar:DBEffect:DB$ Effect | Duration$ Permanent | Name$ Incumbency Effect | SubAbility$ DBWin
+SVar:DBWin:DB$ WinsGame | Defined$ You | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ9
+SVar:X:SVar$Y/Plus.Z
+SVar:Y:Count$ValidCommand Effect.YouCtrl+namedIncumbency Effect/LimitMax.4
+SVar:Z:Count$Valid Permanent.YouCtrl$Colors
+DeckHas:Type$Enchantment|Clique
+DeckHints:Name$Incumbency
+Oracle:Draw a card, gain 3 life, then make a pledge. (Create any white Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)\nIf you've cast four or more spells named Incumbency this game and there are five colors among permanents you control, you win the game.

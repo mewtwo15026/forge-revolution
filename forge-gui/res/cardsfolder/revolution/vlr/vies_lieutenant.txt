@@ -1,0 +1,11 @@
+Name:Vie's Lieutenant
+ManaCost:1 R
+Types:Creature Cat Rebel
+PT:2/2
+K:First Strike
+T:Mode$ SpellCast | ValidCard$ Creature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPump | TriggerDescription$ Muster — Whenever you cast a creature spell, this creature gets +1/+0 until end of turn. If this is the second time this ability has resolved this turn, instead all nontoken creatures you control get +1/+0 until end of turn.
+SVar:TrigPump:DB$ Pump | Defined$ Self | NumAtt$ +1 | ConditionCheckSVar$ X | ConditionSVarCompare$ NE2 | SubAbility$ DBPumpAll
+SVar:DBPumpAll:DB$ PumpAll | ValidCards$ Creature.!token+YouCtrl | NumAtt$ +1 | ConditionCheckSVar$ X | ConditionSVarCompare$ EQ2
+SVar:X:Count$ResolvedThisTurn
+SVar:BuffedBy:Creature.!token
+Oracle:First strike\nMuster - Whenever you cast a creature spell, this creature gets +1/+0 until end of turn. If this is the second time this ability has resolved this turn, instead all nontoken creatures you control get +1/+0 until end of turn.

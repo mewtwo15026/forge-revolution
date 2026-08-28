@@ -1,0 +1,9 @@
+Name:Semari Pilferer
+ManaCost:U
+Types:Creature Bird Rogue
+PT:1/1
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When this creature enters, tap up to one target nonland permanent.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select up to one target nonland permanent | TargetMin$ 0 | TargetMax$ 1
+Oracle:Flash\nFlying\nWhen this creature enters, tap up to one target nonland permanent.

@@ -1,0 +1,9 @@
+Name:Malicious Throng
+ManaCost:1 W B
+Types:Creature Human Warlock
+PT:2/3
+K:Vigilance
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self,Creature.!token+Other+YouCtrl | TriggerZones$ Battlefield | Execute$ TrigToken | TriggerDescription$ Whenever this creature or another nontoken creature you control dies, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+SVar:TrigToken:DB$ Token | TokenScript$ acolyte
+DeckHas:Ability$Token|Sacrifice|Surveil
+Oracle:Vigilance\nWhenever this creature or another nontoken creature you control dies, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")

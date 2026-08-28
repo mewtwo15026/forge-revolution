@@ -1,0 +1,17 @@
+Name:Adaptive Hydra
+ManaCost:X B R G
+Types:Artifact Creature Hydra
+PT:3/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeat | TriggerDescription$ When CARDNAME enters, teach it your choice of haste, menace, or vigilance. Then repeat this process X times. (To teach a keyword, put a keyword counter of that kind on it. If it already has that keyword, put a +1/+1 counter on it instead.)
+SVar:TrigRepeat:DB$ Repeat | RepeatSubAbility$ DBEnroll | MaxRepeat$ Y | AILogic$ MaxX | StackDescription$ Teach it your choice of haste, menace, or vigilance. Then repeat this process X times.
+SVar:DBEnroll:DB$ GenericChoice | Choices$ TeachHaste,TeachMenace,TeachVigilance
+SVar:TeachHaste:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withHaste | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBHaste | SpellDescription$ Teach this creature haste.
+SVar:DBHaste:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withoutHaste | CounterType$ Haste | CounterNum$ 1
+SVar:TeachMenace:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withMenace | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBMenace | SpellDescription$ Teach this creature menace.
+SVar:DBMenace:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withoutMenace | CounterType$ Menace | CounterNum$ 1
+SVar:TeachVigilance:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withVigilance | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBVigilance | SpellDescription$ Teach this creature vigilance.
+SVar:DBVigilance:DB$ PutCounter | Defined$ Self | ConditionPresent$ Card.Self+withoutVigilance | CounterType$ Vigilance | CounterNum$ 1
+SVar:Y:SVar$X/Plus.1
+SVar:X:Count$xPaid
+DeckHas:Ability$Counters
+Oracle:When Adaptive Hydra enters, teach it your choice of haste, menace, or vigilance. Then repeat this process X times. (To teach a keyword, put a keyword counter of that kind on it. If it already has that keyword, put a +1/+1 counter on it instead.)

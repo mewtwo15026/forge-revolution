@@ -1,0 +1,8 @@
+Name:Gutter Rat
+ManaCost:2 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample\nWhen this creature enters, choose up to one card with pursuit you own in exile. Put that card into your graveyard.

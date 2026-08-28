@@ -1,0 +1,14 @@
+Name:The Founder's Hunt Begins
+ManaCost:3 B B
+Types:Sorcery
+A:SP$ Charm | Choices$ DBTutor,DBWish
+SVar:DBTutor:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Card | ChangeNum$ 1 | Mandatory$ True | SpellDescription$ Search your library for a card, put that card into your hand, then shuffle.
+SVar:DBWish:DB$ ChangeZone | Origin$ Sideboard | Destination$ Hand | ChangeType$ Card.YouOwn | ChangeTypeDesc$ card they own | ChangeNum$ 1 | Mandatory$ True | Hidden$ True | SpellDescription$ Put a card you own from outside the game into your hand.
+K:vlr_Pursuit:1 B B
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 1 B B PayLife<3> Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:2
+DeckHas:Ability$Graveyard|Sacrifice
+AI:RemoveDeck:Random
+Oracle:Choose one -\n• Search your library for a card, put it into your hand, then shuffle.\n• Put a card you own from outside the game into your hand.\nPursuit-{1}{B}{B}, Pay 3 life. (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

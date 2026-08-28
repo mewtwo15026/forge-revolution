@@ -1,0 +1,9 @@
+Name:Illicit Marketplace
+ManaCost:no cost
+Types:Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ 1 T | Produced$ Any | SpellDescription$ Add one mana of any color.
+A:AB$ Token | Cost$ 2 T tapXType<1/Creature> | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.")
+AI:RemoveDeck:Random
+DeckHas:Type$Artifact|Treasure & Ability$Token|Sacrifice|Mana.Colorless
+Oracle:{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{2}, {T}, Tap an untapped creature you control: Create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.")

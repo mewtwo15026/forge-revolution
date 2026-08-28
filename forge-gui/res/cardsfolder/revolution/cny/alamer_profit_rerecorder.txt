@@ -1,0 +1,9 @@
+Name:Alamer, Profit Rerecorder
+ManaCost:3 R
+Types:Legendary Creature Human Noble
+PT:3/3
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | CheckSVar$ X | Execute$ TrigCopy | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever you cast a spell, if mana from an artifact source was spent to cast it, you may copy that spell, and you may choose new targets for the copy. Do this only once each turn. (A copy of a permanent spell becomes a token.)
+SVar:TrigCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | AILogic$ Always | MayChooseTarget$ True
+SVar:X:Count$CastTotalManaSpent Artifact
+DeckNeeds:Type$Artifact|Treasure|Powerstone
+Oracle:Whenever you cast a spell, if mana from an artifact source was spent to cast it, you may copy that spell, and you may choose new targets for the copy. Do this only once each turn. (A copy of a permanent spell becomes a token.)

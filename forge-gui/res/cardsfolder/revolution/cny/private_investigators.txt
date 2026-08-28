@@ -1,0 +1,9 @@
+Name:Private Investigators
+ManaCost:2 WU
+Types:Creature Human Scout
+PT:2/3
+K:Vigilance
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+withVigilance | AddAbility$ ABDraw | Description$ Creatures you control with vigilance have "{W}{U}, {T}: Draw a card. Activate this ability only if this creature attacked this turn."
+SVar:ABDraw:AB$ Draw | Cost$ W U T | IsPresent$ Card.Self+attackedThisTurn | SpellDescription$ Draw a card. Activate this ability only if this creature attacked this turn.
+DeckHints:Keyword$Vigilance
+Oracle:Vigilance\nCreatures you control with vigilance have "{W}{U}, {T}: Draw a card. Activate this ability only if this creature attacked this turn."

@@ -1,0 +1,8 @@
+Name:Frontline Victor
+ManaCost:1 R R
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample, haste\nAt the beginning of your second main phase, you may return target Rebel you control to its owner's hand. If you do, the next spell you cast this turn costs {2} less to cast.

@@ -1,0 +1,7 @@
+Name:Dormant Godkiller
+ManaCost:4
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample\nThis creature enters tapped with six stun counters on it.\nThis creature doesn't untap during your untap step.\nWhenever one or more cards are put into your graveyard from anywhere, untap this creature.

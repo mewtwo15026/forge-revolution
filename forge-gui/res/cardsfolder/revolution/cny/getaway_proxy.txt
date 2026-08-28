@@ -1,0 +1,13 @@
+Name:Getaway Proxy
+ManaCost:W
+Types:Creature Human Rebel
+PT:1/1
+K:Flash
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChoose | TriggerDescription$ When CARDNAME enters, you may choose another creature you control. Move any number of counters from that creature onto CARDNAME. Attach to CARDNAME any number of Auras that are attached to that creature. Then return that creature to its owner's hand.
+SVar:TrigChoose:DB$ ChooseCard | Defined$ You | Choices$ Creature.YouCtrl+Other | SubAbility$ DBMoveCounters
+SVar:DBMoveCounters:DB$ MoveCounter | Source$ ChosenCard | Defined$ Self | CounterType$ All | CounterNum$ Any | SubAbility$ DBReattach
+SVar:DBReattach:DB$ Attach | Object$ Valid Aura.AttachedTo ChosenCard | Optional$ True | SubAbility$ DBBounce
+SVar:DBBounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | Defined$ ChosenCard | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenCard$ True
+AI:RemoveDeck:All
+Oracle:Flash\nWhen Getaway Proxy enters, you may choose another creature you control. Move any number of counters from that creature onto Getaway Proxy. Attach to Getaway Proxy any number of Auras that are attached to that creature. Then return that creature to its owner's hand.

@@ -1,0 +1,13 @@
+Name:Reap the Rewards
+ManaCost:3 R
+Types:Enchantment
+T:Mode$ DamageDoneOnce | CombatDamage$ True | ValidSource$ Creature.YouCtrl | TriggerZones$ Battlefield | ValidTarget$ Player | Execute$ TrigToken | TriggerDescription$ Whenever one or more creatures you control deal combat damage to a player,
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+A:AB$ Shuffle | Cost$ W U B R G | SorcerySpeed$ True | Defined$ You | AILogic$ OwnMain2 | SubAbility$ DBExile | SpellDescription$ Shuffle your library, then exile the top card. Until end of turn, you may play that card without paying its mana cost. Activate only as a sorcery.
+SVar:DBExile:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | RememberObjects$ RememberedCard | StaticAbilities$ DBPlay | SubAbility$ DBCleanup | ExileOnMoved$ Exile
+SVar:DBPlay:Mode$ Continuous | MayPlay$ True | MayPlayWithoutManaCost$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play the exiled card without paying its mana cost.
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Token|Sacrifice & Type$Artifact|Treasure
+SVar:PlayMain1:TRUE
+Oracle:Whenever one or more creatures you control deal combat damage to a player, create a Treasure token.\n{W}{U}{B}{R}{G}: Shuffle your library, then exile the top card. Until end of turn, you may play that card without paying its mana cost. Activate only as a sorcery.

@@ -1,0 +1,27 @@
+Name:Silence the Opposition
+ManaCost:1 U B
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, draw two cards, then discard a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 2 | SubAbility$ DBDiscard
+SVar:DBDiscard:DB$ Discard | Defined$ You | NumCards$ 1 | Mode$ TgtChoose
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | ConditionPresent$ Card.Self+withComplete_B | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankCheck | Duration$ Permanent | Keywords$ Complete_C | SubAbility$ CompleteB | SpellDescription$ A, B, C — A creature card or creature token was put into your graveyard from anywhere this turn.
+SVar:CompleteB:DB$ Animate | ConditionPresent$ Card.Self+withComplete_A+withoutComplete_B | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ CompleteA
+SVar:CompleteA:DB$ Animate | ConditionPresent$ Card.Self+withoutComplete_A | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B+withComplete_C | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankCheck:Count$ThisTurnEntered_Graveyard_Creature.YouOwn
+DeckHints:Ability$Mill|Discard|Sacrifice
+DeckHas:Ability$Discard
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nWhen Silence the Opposition enters, draw two cards, then discard a card.\nA, B, C — A creature card or creature token was put into your graveyard from anywhere this turn. 
+
+ALTERNATE
+
+Name:Authoritarianism
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:blue,black
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ 1 | Description$ Creatures you control get +1/+0.
+S:Mode$ Continuous | Affected$ Creature.YouDontCtrl | AddPower$ -1 | Description$ Creatures you don't control get -1/-0.
+Oracle:Creatures you control get +1/+0.\nCreatures you don't control get -1/-0.

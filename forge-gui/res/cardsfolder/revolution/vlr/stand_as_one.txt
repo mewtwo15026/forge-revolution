@@ -1,0 +1,7 @@
+Name:Stand as One
+ManaCost:1 W
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Rebels you control get +2/+1 until end of turn. Other creatures you control get +1/+1 until end of turn.

@@ -1,0 +1,7 @@
+Name:Beneath the Tide
+ManaCost:3 U
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Target creature's owner puts it on their choice of the top or bottom of their library.\nBasic landcycling {1}{U} ({1}{U}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)

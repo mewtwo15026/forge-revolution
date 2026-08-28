@@ -1,0 +1,15 @@
+Name:Krint, Five Star
+ManaCost:4 U B R
+Types:Legendary Creature Human Warrior
+PT:5/5
+K:Flash
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ X | EffectZone$ All | Description$ This spell costs {1} less to cast for each creature that died this turn.
+SVar:X:Count$ThisTurnEntered_Graveyard_from_Battlefield_Creature
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | ValidCard$ Card.Self | Origin$ Any | Destination$ Battlefield | Execute$ DBReturn | TriggerDescription$ When CARDNAME enters, choose any number of target creature cards in graveyards that were put there from the battlefield this turn. Return them to the battlefield under your control. You lose life equal to their total mana value.
+SVar:DBReturn:DB$ ChangeZone | TargetMin$ 0 | TargetMax$ NumCreatures | ValidTgts$ Creature.ThisTurnEnteredFrom_Battlefield | TgtPrompt$ Choose any number of target creature cards in graveyards that were put there from the battlefield this turn | Origin$ Graveyard | Destination$ Battlefield | GainControl$ True | RememberLKI$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ Y | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:NumCreatures:Count$ValidGraveyard Creature.ThisTurnEnteredFrom_Battlefield
+SVar:Y:RememberedLKI$CardManaCost
+AI:RemoveDeck:All
+Oracle:Flash\nThis spell costs {1} less to cast for each creature that died this turn.\nWhen Krint enters, choose any number of target creature cards in graveyards that were put there from the battlefield this turn. Return them to the battlefield under your control. You lose life equal to their total mana value.

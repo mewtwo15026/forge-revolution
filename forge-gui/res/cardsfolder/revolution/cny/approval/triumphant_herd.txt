@@ -1,0 +1,10 @@
+Name:Triumphant Herd
+ManaCost:4 G G
+Types:Creature Elephant
+PT:7/6
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigGainLife | TriggerDescription$ When CARDNAME enters, you gain X life, where X is your approval. (Your approval contains up to one different permanent of each color.)
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ X
+SVar:X:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless+nonGreen
+DeckHints:Color$White|Blue|Black|Red
+Oracle:When Triumphant Herd enters, you gain X life, where X is your approval. (Your approval contains up to one different permanent of each color.)

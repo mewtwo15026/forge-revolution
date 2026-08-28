@@ -1,0 +1,12 @@
+Name:Hazakh District
+ManaCost:no cost
+Types:Land
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ LandTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped unless you control an Island, a Swamp, and a Mountain.
+SVar:LandTapped:DB$ Tap | Defined$ Self | ETB$ True | ConditionCheckSVar$ Zoning | ConditionSVarCompare$ LT3
+A:AB$ Mana | Cost$ T | Produced$ Combo U B R | SpellDescription$ Add {U}, {B}, or {R}.
+SVar:Zoning:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Island.YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Swamp.YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Mountain.YouCtrl/LimitMax.1
+Oracle:Hazakh District enters the battlefield tapped unless you control  an Island, a Swamp, and a Mountain.\n{T}: Add {U}, {B}, or {R}.

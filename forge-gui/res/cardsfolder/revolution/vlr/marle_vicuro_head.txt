@@ -1,0 +1,10 @@
+Name:Marle, Vicuro Head
+ManaCost:U UR R
+Types:Legendary Creature Human Rogue
+PT:3/2
+R:Event$ DrawCards | ActiveZones$ Battlefield | ValidPlayer$ You | NotFirstCardInDrawStep$ True | ReplaceWith$ DrawPlusOne | Description$ If you would draw one or more cards except the first one you draw in each of your draw steps, draw that many cards plus one instead.
+SVar:DrawPlusOne:DB$ Draw | NumCards$ ReplaceCount$Number/Plus.1
+R:Event$ DamageDone | ActiveZones$ Battlefield | ValidSource$ Card.Other+YouCtrl,Emblem.YouCtrl | ValidTarget$ Player.Opponent,Permanent.OppCtrl | ReplaceWith$ DmgPlusOne | Description$ If another source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 1 instead.
+SVar:DmgPlus1:DB$ ReplaceEffect | VarName$ DamageAmount | VarValue$ X
+SVar:X:ReplaceCount$DamageAmount/Plus.1
+Oracle:If you would draw one or more cards except the first one you draw in each of your draw steps, draw that many cards plus one instead.\nIf another source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 1 instead.

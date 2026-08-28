@@ -1,0 +1,12 @@
+Name:Army Reserves
+ManaCost:X W W
+Types:Creature Human Soldier
+PT:2/2
+# NOTE: defender counters do not inherently do anything in vanilla Forge
+K:ETBReplacement:Other:DBPutCounter:Mandatory
+SVar:DBPutCounter:DB$ PutCounter | ETB$ True | Defined$ Self | CounterType$ P1P1 | CounterNum$ X | SubAbility$ DBPutCounter2 | SpellDescription$ CARDNAME enters with X +1/+1 counters and a defender counter on it.
+SVar:DBPutCounter2:DB$ PutCounter | ETB$ True | Defined$ Self | CounterType$ Defender
+SVar:X:Count$xPaid
+A:AB$ MoveCounter | Cost$ 1 | SorcerySpeed$ True | Source$ Self | ValidTgts$ Creature.Other | TgtPrompt$ Select another target creature | CounterType$ Any | CounterNum$ 1 | SpellDescription$ Move a counter from CARDNAME onto another target creature. Activate only as a sorcery.
+DeckHas:Ability$Counters
+Oracle:Army Reserves enters with X +1/+1 counters and a defender counter on it.\n{1}: Move a counter from Army Reserves onto another target creature. Activate only as a sorcery.

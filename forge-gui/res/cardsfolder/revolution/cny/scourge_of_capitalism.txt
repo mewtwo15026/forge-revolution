@@ -1,0 +1,9 @@
+Name:Scourge of Capitalism
+ManaCost:7 G
+Types:Creature Giant Insect Beast
+PT:8/8
+K:Trample
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigFight | TriggerDescription$ When this creature enters, it fights target creature with the greatest power or tied for the greatest power among creatures you don't control. Excess damage is dealt to that creature's controller instead.
+SVar:TrigFight:DB$ Fight | Defined$ Self | ValidTgts$ Creature.YouDontCtrl+greatestPowerControlledByOpponent | TgtPrompt$ Select target creature with the greatest power among creatures you don't control | ExcessDamage$ TargetedController | ExcessDamageCondition$ Creature.targetedBy+YouDontCtrl
+# SVar:DBTrample:DB$ DealDamage | Defined$ TargetedController | Amount$ Excess
+Oracle:Trample\nWhen Scourge of Capitalism enters, it fights target creature with the greatest power or tied for the greatest power among creatures you don't control. Excess damage is dealt to that creature's controller instead.

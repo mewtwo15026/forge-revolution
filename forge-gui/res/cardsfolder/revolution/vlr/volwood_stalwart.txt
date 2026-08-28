@@ -1,0 +1,8 @@
+Name:Volwood Stalwart
+ManaCost:2 R W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Vigilance\nAt the beginning of each of your main phases, add {R} or {W}. Spend this mana only to cast Rebel spells.

@@ -1,0 +1,16 @@
+Name:Ruthless Stalker
+ManaCost:B G
+Types:Creature Rat Mercenary
+PT:2/2
+K:Menace
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | CheckSVar$ SacCheck | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, if you sacrificed a nonland permanent this turn, put a +1/+1 counter on this creature.
+SVar:TrigPutCounter:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+SVar:SacCheck:PlayerCountPropertyYou$SacrificedThisTurn Permanent.nonLand
+K:vlr_Pursuit:2 B G
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 2 B G Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {2}{B}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:1
+DeckHints:Ability$Sacrifice
+DeckHas:Ability$Graveyard|Sacrifice
+Oracle:Menace\nAt the beginning of your end step, if you sacrificed a nonland permanent this turn, put a +1/+1 counter on this creature.\nPursuit {2}{B}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

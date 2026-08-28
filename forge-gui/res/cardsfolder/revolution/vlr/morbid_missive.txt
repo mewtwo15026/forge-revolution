@@ -1,0 +1,7 @@
+Name:Morbid Missive
+ManaCost:3
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:As this artifact enters, choose a creature type.\nSpells you cast of the chosen type cost {1} less to cast.\n{1}, {T}, Sacrifice this artifact: Return target card of the chosen type from your graveyard to your hand. Activate only as a sorcery.

@@ -1,0 +1,9 @@
+Name:Charity Match
+ManaCost:G W
+Types:Instant
+A:SP$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | RememberTargets$ True | AILogic$ Fight | ConditionDefined$ Targeted | ConditionPresent$ Creature.withLifelink | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBTeach | SpellDescription$ Teach target creature you control lifelink. It fights up to one target creature you don't control. (To teach lifelink, put a lifelink counter on it. If it already has lifelink, put a +1/+1 counter on it instead.)
+SVar:DBTeach:DB$ PutCounter | Defined$ Remembered | ConditionDefined$ Remembered | ConditionPresent$ Creature.withoutLifelink | CounterType$ Lifelink | CounterNum$ 1 | SubAbility$ DBFight
+SVar:DBFight:DB$ Fight | Defined$ Remembered | ValidTgts$ Creature.YouDontCtrl | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature you don't control | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Counters|LifeGain
+Oracle:Teach target creature you control lifelink. It fights up to one target creature you don't control. (To teach lifelink, put a lifelink counter on it. If it already has lifelink, put a +1/+1 counter on it instead.)

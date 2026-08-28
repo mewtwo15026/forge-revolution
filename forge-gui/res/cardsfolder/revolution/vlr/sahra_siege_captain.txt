@@ -1,0 +1,16 @@
+Name:Sahra, Siege Captain
+ManaCost:R RW W
+Types:Legendary Creature Cat Rebel
+PT:*/4
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ NICKNAME's power is equal to the number of nontoken creatures you control.
+SVar:X:Count$Valid Creature.!token+YouCtrl
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPlay | TriggerDescription$ Whenever NICKNAME attacks, you may cast a creature spell with mana value 2 or less from your hand without paying its mana cost. It enters tapped and attacking.
+SVar:TrigPlay:DB$ Play | Valid$ Creature.YouOwn+cmcLE2 | ValidSA$ Spell | ValidZone$ Hand | WithoutManaCost$ True | Amount$ 1 | Optional$ True | RememberPlayed$ True | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | ConditionDefined$ Remembered | ConditionPresent$ Card | RememberObjects$ Remembered | ReplacementEffects$ ReMoved | Duration$ UntilEndOfCombat | ExileOnMoved$ Stack | SubAbility$ DBCleanup
+SVar:ReMoved:Event$ Moved | Origin$ Stack | ValidCard$ Card.IsRemembered | Destination$ Battlefield | ReplaceWith$ ETBAngry
+SVar:ETBAngry:DB$ ChangeZone | Hidden$ True | Origin$ All | Destination$ Battlefield | Defined$ ReplacedCard | Tapped$ True | Attacking$ True | SubAbility$ EffectExile
+SVar:EffectExile:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Creature.!token
+Oracle:Sahra's power is equal to the number of nontoken creatures you control.\nWhenever Sahra attacks, you may cast a creature spell with mana value 2 or less from your hand without paying its mana cost. It enters tapped and attacking.

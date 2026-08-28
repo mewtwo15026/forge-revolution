@@ -2,11 +2,10 @@ Name:Kaluthax, Dungeon Master
 ManaCost:1 W B
 Types:Legendary Creature Skeleton Wizard
 PT:2/3
-T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a level counter on another target creature you control. If it doesn't have level up, it gains level up {2} and "This creature gets +1/+1 for each level counter on it." (The creature gains "{2}: Put a level counter on this as a sorcery.")
-SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.Other+YouCtrl | TgtPrompt$ Select another target creature you control | CounterType$ LEVEL | CounterNum$ 1 | SubAbility$ DBAnimate
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigPutCounter | TriggerDescription$ At the beginning of combat on your turn, put a level counter on target creature you control. If it doesn't have level up, it gains level up {2} and "This creature gets +1/+1 for each level counter on it." (The creature gains "{2}: Put a level counter on this as a sorcery.")
+SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ LEVEL | CounterNum$ 1 | SubAbility$ DBAnimate
 SVar:DBAnimate:DB$ Animate | Defined$ Targeted | Keywords$ Level up:2 | sVars$ X | staticAbilities$ LevelPump | Duration$ Permanent | ConditionDefined$ Targeted | ConditionPresent$ Creature.withoutLevel up
 SVar:LevelPump:Mode$ Continuous | Affected$ Card.Self | AddPower$ X | AddToughness$ X | Description$ This creature gets +1/+1 for each level counter on it.
 SVar:X:Count$CardCounters.LEVEL
-SVar:BuffedBy:Creature
 DeckHas:Ability$Counters & Keyword$Level up
-Oracle:At the beginning of combat on your turn, put a level counter on another target creature you control. If it doesn't have level up, it gains level up {2} and "This creature gets +1/+1 for each level counter on it." (The creature gains "{2}: Put a level counter on this as a sorcery.")
+Oracle:At the beginning of combat on your turn, put a level counter on target creature you control. If it doesn't have level up, it gains level up {2} and "This creature gets +1/+1 for each level counter on it." (The creature gains "{2}: Put a level counter on this as a sorcery.")

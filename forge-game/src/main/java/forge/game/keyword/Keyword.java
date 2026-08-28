@@ -222,14 +222,23 @@ public enum Keyword {
     CYB_SOLIDARITY("cyb_Solidarity", SimpleKeyword.class, false, "Whenever you attack with six or more different creature types, create a Solidarity enchantment token with \"Attacking creatures you control get +1/+0\" if you haven't this turn."),
     CCR_SURFACE("ccr_Surface", KeywordWithCost.class, false, "You may cast a copy of this card from your graveyard by paying its surface cost and exiling it from your graveyard as long as there are six or more other cards in your graveyard."),
     KDT_REVERED("kdt_Revered", SimpleKeyword.class, false, "Each other creature you control with one or more counters on it has the abilities printed below this one."),
-    KDT_TIME_LOOP("kdt_Time loop", SimpleKeyword.class, true, "As this Saga's final chapter ability resolves, remove all lore counters from it."),
+    KDT_TIME_LOOP("kdt_Time loop", SimpleKeyword.class, true, "As this Saga enters and after your draw step, put a lore counter on it. Remove them all as its final chapter ability resolves."),
     TWI_CHANT("twi_Chant", KeywordWithCost.class, false, "You may exile this card from your hand as you cast an instant or sorcery spell. If you do, that card gains the text found within square brackets in this card's rules text and you pay %s as an additional cost to cast that spell. You may cast this card as long as this card remains exiled."),
     TWI_DECOY("twi_Decoy", SimpleKeyword.class, false, "Whenever this creature attacks, create a tapped and attacking token that’s a copy of it, except it's a 1/1 Illusion instead of its other creature types. Exile that token at the beginning of the next end step."),
     TWI_RAPTURE("twi_Rapture", SimpleKeyword.class, false, "When this creature dies, return it to the battlefield with a haze counter on it. As long as it has a haze counter on it, it loses all abilities and can't block."),
     TWI_REPRIEVE("twi_Reprieve", SimpleKeyword.class, false, "As this creature enters, you may return a creature you control without reprieve to its owner's hand."),
     SOL_SYZYGY("sol_Syzygy", SimpleKeyword.class, true, "Each other creature you tap while casting this spell or activating its abilities pays for {1}."),
     IWH_POSSESS("iwh_Possess", SimpleKeyword.class, true, "When this dies as a creature, you may return it to the battlefield as an Aura attached to target creature."),
-    IWH_SKAABS("Skaabstitching", SimpleKeyword.class, false, "As you stitch a token, it gains \"Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.\"")
+    VLR_PURSUIT("vlr_Pursuit", KeywordWithCost.class, false, "You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent."),
+
+    // stuff that we're using keywords to handle for now
+    CNY_MARKED("MarkedThisTurn", SimpleKeyword.class, true, "Marked this turn"),
+    CNY_COMPLETEA("Complete_A", SimpleKeyword.class, true, "Marked_A"),
+    CNY_COMPLETEB("Complete_B", SimpleKeyword.class, true, "Marked_B"),
+    CNY_COMPLETEC("Complete_C", SimpleKeyword.class, true, "Marked_C"),
+    TWI_SOC("Currentspeaking", SimpleKeyword.class, true, "As you cast an instant or sorcery spell, you may add the chants of any number of creatures you control to that spell. (You still pay the chant costs.)"),
+    IWH_MSS("Masterstitching", SimpleKeyword.class, false, "As you stitch a token, it gains \"Whenever this creature deals combat damage to a player, copy an instant or sorcery card stitched with it. You may cast the copy without paying its mana cost.\""),
+    IWH_SGA("Stonestitching", SimpleKeyword.class, true, "You may exile a Zombie card from your graveyard to stitch rather than exile a creature card and an instant or sorcery card.")
     ;
 
     protected final Class<? extends KeywordInstance<?>> type;

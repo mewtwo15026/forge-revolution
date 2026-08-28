@@ -1,0 +1,8 @@
+Name:Sunset Recruit
+ManaCost:R
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:First strike, haste\n{1}{R}, {T}: Target creature with power 2 or less can't be blocked this turn.

@@ -1,0 +1,12 @@
+Name:Tiril Ambassador
+ManaCost:2 W U B
+Types:Creature Human Advisor
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigReturn | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may return target nonland card from your graveyard to your hand. You lose life equal to its mana value.
+SVar:TrigReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | TgtPrompt$ Select target nonland card in your graveyard | ValidTgts$ Card.nonLand+YouCtrl | RememberLKI$ True | SubAbility$ DBLoseLife
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ X | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:X:RememberedLKI$CardManaCost
+K:TypeCycling:Basic:1 U
+DeckHas:Ability$Graveyard|Discard
+Oracle:When Tiril Ambassador enters, you may return target nonland card from your graveyard to your hand. You lose life equal to its mana value.\nBasic landcycling {1}{U} ({1}{U}, Discard this card: Search your library for a basic land card, reveal it, and put it into your hand, then shuffle.)

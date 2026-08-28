@@ -2,5 +2,6 @@ Name:Shigane Cyclone
 ManaCost:5 G
 Types:Creature Human Ninja
 PT:6/6
-K:Ninjutsu:4 G
-Oracle:Ninjutsu {4}{G} ({4}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)
+K:Sneak:4 G
+K:Trample
+Oracle:Sneak {4}{G} (You may cast this spell for {4}{G} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nTrample

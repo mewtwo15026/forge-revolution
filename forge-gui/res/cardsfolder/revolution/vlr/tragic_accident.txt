@@ -1,0 +1,7 @@
+Name:Tragic Accident
+ManaCost:2 B
+Types:Instant
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Each opponent sacrifices a nontoken creature of their choice. If you control a Mercenary, create a Treasure token.

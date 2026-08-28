@@ -1,0 +1,13 @@
+Name:Enigmatic Apothecary
+ManaCost:1 U
+Types:Creature Snake Druid
+PT:1/3
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill two cards.
+SVar:TrigMill:DB$ Mill | NumCards$ 2
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 3 | AddToughness$ 1 | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, this creature gets +3/+1. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+DeckHas:Ability$Mill
+Oracle:When this creature enters, mill two cards.\nAs long as you're ancient, this creature gets +3/+1. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

@@ -1,0 +1,10 @@
+Name:Setral Mender
+ManaCost:2 G G
+Types:Creature Treefolk Druid
+PT:4/3
+K:Reach
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigMill | TriggerDescription$ When this creature enters, mill three cards. Then you may return a Druid or land card from your graveyard to your hand.
+SVar:TrigMill:DB$ Mill | NumCards$ 3 | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ChangeType$ Druid.YouOwn,Land.YouOwn | Hidden$ True | Optional$ True
+DeckHints:Type$Druid
+Oracle:Reach\nWhen this creature enters, mill three cards. Then you may return a Druid or land card from your graveyard to your hand.

@@ -1,0 +1,19 @@
+Name:Thesis on Mutation
+ManaCost:1 U
+Types:Sorcery
+A:SP$ Draw | ConditionPresent$ Creature.YouCtrl+withFlying | SubAbility$ DBDrawFirstStrike | SpellDescription$ Draw a card if a creature you control has flying. Do the same for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.
+SVar:DrawFirstStrike:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withFirst Strike | SubAbility$ DBDrawDoubleStrike
+SVar:DrawDoubleStrike:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withDouble Strike | SubAbility$ DBDrawDeathtouch
+SVar:DrawDeathtouch:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withDeathtouch | SubAbility$ DBDrawHaste
+SVar:DrawHaste:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withHaste | SubAbility$ DBDrawHexproof
+SVar:DrawHexproof:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withHexproof | SubAbility$ DBDrawIndestructible
+SVar:DrawIndestructible:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withIndestructible | SubAbility$ DBDrawLifelink
+SVar:DrawLifelink:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withLifelink | SubAbility$ DBDrawMenace
+SVar:DrawMenace:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withMenace | SubAbility$ DBDrawReach
+SVar:DrawReach:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withReach | SubAbility$ DBDrawTrample
+SVar:DrawTrample:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withTrample | SubAbility$ DBDrawVigilance
+SVar:DrawVigilance:DB$ Draw | ConditionPresent$ Creature.YouCtrl+withVigilance
+SVar:NeedsToPlayVar:X GE1
+SVar:X:Count$Valid Creature.YouCtrl+withFlying,Creature.YouCtrl+withFirst Strike,Creature.YouCtrl+withDouble Strike,Creature.YouCtrl+withDeathtouch,Creature.YouCtrl+withHaste,Creature.YouCtrl+withHexproof,Creature.YouCtrl+withIndestructible,Creature.YouCtrl+withLifelink,Creature.YouCtrl+withMenace,Creature.YouCtrl+withReach,Creature.YouCtrl+withTrample,Creature.YouCtrl+withVigilance
+DeckNeeds:Keyword$Flying|First Strike|Double Strike|Deathtouch|Haste|Hexproof|Indestructible|Lifelink|Menace|Reach|Trample|Vigilance
+Oracle:Draw a card if a creature you control has flying. Do the same for first strike, double strike, deathtouch, haste, hexproof, indestructible, lifelink, menace, reach, trample, and vigilance.

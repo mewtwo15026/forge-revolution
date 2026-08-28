@@ -1,0 +1,8 @@
+Name:Setral Sentry
+ManaCost:3 U U
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Flying\nWhen this creature enters, return up to one target noncreature, nonland card from your graveyard to your hand.

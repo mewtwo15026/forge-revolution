@@ -1,0 +1,18 @@
+Name:Tiril Agenda
+ManaCost:W U B
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ TirilCount | Choices$ DBReturnArtiEnch,DBReturnInstSorc,DBReturnCreatPW
+SVar:DBReturnArtiEnch:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Artifact.YouCtrl,Enchantment.YouCtrl | TgtPrompt$ Select target artifact or enchantment card in your graveyard | SubAbility$ DBExile | SpellDescription$ Return target artifact or enchantment card from your graveyard to your hand.
+SVar:DBReturnInstSorc:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard | SubAbility$ DBExile | SpellDescription$ Return target instant or sorcery card from your graveyard to your hand.
+SVar:DBReturnCreatPW:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Creature.YouCtrl,Planeswalker.YouCtrl | TgtPrompt$ Select target creature or planeswalker card in your graveyard | SubAbility$ DBExile | SpellDescription$ Return target creature or planeswalker card from your graveyard to your hand.
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile | SpellDescription$ Exile CARDNAME.
+SVar:TirilCount:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Permanent.White+YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Permanent.Blue+YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Permanent.Black+YouCtrl/LimitMax.1
+SVar:NeedsToPlayVar:TirilCount GE1
+SVar:BuffedBy:Permanent.White,Permanent.Blue,Permanent.Black
+DeckHints:Type$Instant|Sorcery & Type$Artifact|Enchantment
+DeckHas:Ability$Graveyard
+Oracle:Choose up to one for each color among white, blue, and black among permanents you control.\n• Return target artifact or enchantment card from your graveyard to your hand.\n• Return target instant or sorcery card from your graveyard to your hand.\n• Return target creature or planeswalker card from your graveyard to your hand.\nExile Tiril Agenda.

@@ -1,0 +1,10 @@
+Name:Melodious Mallard
+ManaCost:R G
+Types:Creature Bird Bard
+PT:1/2
+T:Mode$ SpellCast | ValidCard$ Card.cmcGE4 | ValidActivatingPlayer$ You | Execute$ TrigCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a spell with mana value 4 or greater, put a +1/+1 counter on target creature you control.
+SVar:TrigCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+SVar:BuffedBy:Card.cmcGE4
+DeckHas:Ability$Counters
+Oracle:Whenever you cast a spell with mana value 4 or greater, put a +1/+1 counter on target creature you control.\n{T}: Add one mana of any color.

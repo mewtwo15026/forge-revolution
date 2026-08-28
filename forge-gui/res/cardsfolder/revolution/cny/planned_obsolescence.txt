@@ -1,0 +1,10 @@
+Name:Planned Obsolescence
+ManaCost:W
+Types:Enchantment Aura
+K:Enchant:Artifact,Creature,Planeswalker:artifact, creature, or planeswalker
+SVar:AttachAILogic:Curse
+T:Mode$ Always | TriggerZones$ Battlefield | IsPresent$ Permanent.YouCtrl+cmcGTX | IsPresent2$ Permanent.EnchantedBy | Execute$ TrigExile | TriggerDescription$ When you control a permanent with mana value greater than enchanted permanent's mana value, exile enchanted permanent.
+SVar:TrigExile:DB$ ChangeZone | Defined$ Enchanted | Origin$ Battlefield | Destination$ Exile
+SVar:X:Enchanted$CardManaCost
+AI:RemoveDeck:Random
+Oracle:Enchant artifact, creature, or planeswalker\nWhen you control a permanent with mana value greater than enchanted permanent's mana value, exile enchanted permanent.

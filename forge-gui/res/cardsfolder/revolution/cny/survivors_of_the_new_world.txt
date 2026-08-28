@@ -1,0 +1,9 @@
+Name:Survivors of the New World
+ManaCost:2 G W
+Types:Creature Mutant Survivor
+PT:1/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigClone | TriggerDescription$ When CARDNAME enters, if you cast it, create two tokens that are copies of it.
+SVar:TrigClone:DB$ CopyPermanent | Defined$ TriggeredCardLKICopy | NumCopies$ 2
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When CARDNAME dies, reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom of your library in a random order.
+SVar:TrigDig:DB$ DigUntil | Valid$ Card.Creature | ValidDescription$ creature | RevealedDestination$ Library | RevealedLibraryPosition$ -1 | RevealRandomOrder$ True | FoundDestination$ Hand
+Oracle:When Survivors of the New World enters, if you cast it, create two tokens that are copies of it.\nWhen Survivors of the New World dies, reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom of your library in a random order.

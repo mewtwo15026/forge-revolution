@@ -1,0 +1,9 @@
+Name:Call of the Grove
+ManaCost:4 G G G
+Types:Enchantment
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Defined$ You | Type$ Creature | SpellDescription$ As CARDNAME enters, choose a creature type. | AILogic$ MostProminentInComputerDeck
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDig | TriggerDescription$ When this enchantment enters and at the beginning of your upkeep, reveal the top five cards of your library. You may put a creature card of the chosen type or a land card from among them onto the battlefield, then put the rest on the bottom in a random order.
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Secondary$ True | Execute$ TrigDig | TriggerDescription$ When this enchantment enters and at the beginning of your upkeep, reveal the top five cards of your library. You may put a creature card of the chosen type or a land card from among them onto the battlefield, then put the rest on the bottom in a random order.
+SVar:TrigDig:DB$ Dig | DigNum$ 5 | Reveal$ True | ChangeNum$ 1 | ChangeValid$ Creature.ChosenType,Land | DestinationZone$ Battlefield | LibraryPosition2$ 0 | RestRandomOrder$ True | Optional$ True
+Oracle:As this enchantment enters, choose a creature type.\nWhen this enchantment enters and at the beginning of your upkeep, reveal the top five cards of your library. You may put a creature card of the chosen type or a land card from among them onto the battlefield, then put the rest on the bottom in a random order.

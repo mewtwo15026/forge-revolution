@@ -1,0 +1,13 @@
+Name:Chief Executive Dhante
+ManaCost:2 B R G
+Types:Legendary Creature Dragon Noble
+PT:4/4
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters or attacks, create a Treasure token, then you may pay {X}. Spend only mana from artifact sources, and X can't be 0. When you do, destroy target nonland permanent with mana value X or less.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigToken | TriggerDescription$ Whenever CARDNAME enters or attacks, create a Treasure token, then you may pay {X}. Spend only mana from artifact sources, and X can't be 0. When you do, destroy target nonland permanent with mana value X or less.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac | SubAbility$ ABImmeTrig
+SVar:ABImmeTrig:AB$ ImmediateTrigger | Cost$ XMin1 X | ManaRestriction$ Artifact | XAnnounceTitle$ any amount of mana from artifact sources to pay | Execute$ TrigDestroy | TriggerDescription$ When you do, destroy target nonland permanent with mana value X or less.
+SVar:TrigDestroy:DB$ Destroy | ValidTgts$ Permanent.nonLand+cmcLEX | TgtPrompt$ Select target nonland permanent with mana value X or less
+SVar:X:Count$xPaid
+AI:RemoveDeck:Random
+Oracle:Flying\nWhenever Chief Executive Dhante enters or attacks, create a Treasure token, then you may pay {X}. Spend only mana from artifact sources, and X can't be 0. When you do, destroy target nonland permanent with mana value X or less.

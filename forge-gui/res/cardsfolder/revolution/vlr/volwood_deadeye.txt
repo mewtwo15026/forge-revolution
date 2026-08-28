@@ -1,0 +1,12 @@
+Name:Volwood Deadeye
+ManaCost:1 G
+Types:Creature Azra Mercenary
+PT:2/2
+K:Reach
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Battlefield | ValidCard$ Mercenary.Other+YouCtrl | Execute$ TrigToken | ActivationLimit$ 1 | TriggerDescription$ Whenever another Mercenary you control enters, create a Weapon token. You may attach it to a creature you control. This ability triggers only once each turn. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_weapon_equip | RememberTokens$ True | SubAbility$ DBAttach
+SVar:DBAttach:DB$ Attach | Object$ Remembered | Choices$ Creature.YouCtrl | ChoiceTitle$ Choose a creature you control | Optional$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHints:Type$Mercenary
+DeckHas:Ability$Token & Type$Artifact|Equipment|Weapon
+Oracle:Reach\nWhenever another Mercenary you control enters, create a Weapon token. You may attach it to a creature you control. This ability triggers only once each turn. (It's an Equipment artifact with equip {2} and "Equipped creature gets +1/+1.")

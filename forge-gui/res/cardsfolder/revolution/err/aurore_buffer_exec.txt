@@ -6,7 +6,7 @@ K:Trample
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever NICKNAME enters or attacks, surveil 3, then return up to three land cards from your graveyard to the battlefield tapped.
 T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerZones$ Battlefield | Secondary$ True | TriggerDescription$ Whenever NICKNAME enters or attacks, surveil 3, then return up to three land cards from your graveyard to the battlefield tapped.
 SVar:TrigSurveil:DB$ Surveil | Amount$ 3 | SubAbility$ DBReturn
-SVar:DBReturn:DB$ ChangeZoneAll | ChangeType$ Land.YouCtrl | ChangeNum$ 3 | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True
+SVar:DBReturn:DB$ ChangeZone | ChangeType$ Land.YouOwn | ChangeNum$ 3 | Origin$ Graveyard | Destination$ Battlefield | Hidden$ True | Tapped$ True | SelectPrompt$ Select up to three land cards in your graveyard
 DeckHas:Ability$Surveil|Graveyard
 DeckHints:Ability$Mill|Surveil|Graveyard
 Oracle:Trample\nWhenever Aurore enters or attacks, surveil 3, then return up to three land cards from your graveyard to the battlefield tapped.

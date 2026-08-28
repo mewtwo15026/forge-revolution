@@ -1,0 +1,11 @@
+Name:Crypt Tiller
+ManaCost:1 B
+Types:Creature Rat Warlock
+PT:2/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDiscard | OptionalDecider$ You | TriggerDescription$ When this creature enters, you may have all players discard a card. Then if you discarded a nonland card this way, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")
+SVar:TrigDiscard:DB$ Discard | Defined$ Player | NumCards$ 1 | Mode$ TgtChoose | RememberDiscarded$ True | SubAbility$ DBToken
+SVar:DBToken:DB$ Token | TokenScript$ acolyte | ConditionDefined$ Remembered | ConditionPresent$ Card.nonLandYouOwn | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:AIPreference:DiscardCost$Card.nonLand+cmcLE2
+DeckHas:Ability$Discard|Token|Surveil|Sacrifice
+Oracle:When this creature enters, you may have all players discard a card. Then if you discarded a nonland card this way, create an Acolyte token. (It's a 0/1 white and black Warlock creature with "{1}, Sacrifice this token: Surveil 1.")

@@ -1,0 +1,6 @@
+Name:Chicanery
+ManaCost:3 U
+Types:Sorcery
+K:Spectacle:1 U
+A:SP$ CopyPermanent | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | SpellDescription$ Create a token that's a copy of target creature you control.
+Oracle:Spectacle {1}{U} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nCreate a token that's a copy of target creature you control.

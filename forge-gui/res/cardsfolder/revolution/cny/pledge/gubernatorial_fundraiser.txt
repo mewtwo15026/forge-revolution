@@ -1,0 +1,23 @@
+Name:Gubernatorial Fundraiser
+ManaCost:1 R
+Types:Creature Human Advisor
+PT:2/1
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigPledge | TriggerDescription$ When CARDNAME enters, make a pledge. (Create any red Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:TrigPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Hazakh,Vishanki,Penrath
+SVar:Hazakh:DB$ Token | TokenScript$ hazakh_arsenal | SpellDescription$ Hazakh Arsenal (Pledge - Create a 2/2 colorless Minion creature token with decayed.)
+SVar:Vishanki:DB$ Token | TokenScript$ vishanki_inc | SpellDescription$ Vishanki Inc. (Pledge - Create a Treasure token.)
+SVar:Penrath:DB$ Token | TokenScript$ penrath_insurgency | SpellDescription$ Penrath Insurgency (Pledge - Up to one target creature gets +2/+2 until end of turn.)
+T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | ValidSA$ Spell.ManaSpent GE3 | Execute$ TrigToken | TriggerDescription$ Whenever you spend three or more colors of mana to cast a spell, create a Treasure token.
+SVar:TrigToken:DB$ Token | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3 | TokenScript$ c_a_treasure_sac
+SVar:X:TriggeredCard$Converge
+DeckHas:Ability$Sacrifice|Token & Type$Artifact|Enchantment|Clique|Treasure
+Oracle:When Gubernatorial Fundraiser enters, make a pledge. (Create any red Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)\nWhenever you spend three or more colors of mana to cast a spell, create a Treasure token.

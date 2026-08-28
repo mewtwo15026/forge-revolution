@@ -1,0 +1,8 @@
+Name:Encroaching Voidborn
+ManaCost:1 BR
+Types:Creature Horror
+PT:1/3
+K:Menace
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, you may exile exactly two cards from your graveyard. If you do, it gets +2/+0 until end of turn.
+SVar:TrigPump:AB$ Pump | Cost$ ExileFromGrave<2/Card> | Defined$ TriggeredAttackerLKICopy | NumAtt$ +2
+Oracle:Menace\nWhenever this creature attacks, you may exile exactly two cards from your graveyard. If you do, it gets +2/+0 until end of turn.

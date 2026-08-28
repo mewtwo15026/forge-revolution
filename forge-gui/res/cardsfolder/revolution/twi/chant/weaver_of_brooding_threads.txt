@@ -9,7 +9,13 @@ SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
 # TODO: implement Chant
 #K:twi_Chant:3 B
 #A:SP$ Chant | Mode$ Token | TokenOwner$ You | TokenAmount$ 1 | TokenScript$ b_4_4_horror | TriggerDescription$ Create a 4/4 black Horror creature token.
-DeckHints:Ability$Graveyard
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {3}{B} - Create a 4/4 black Horror creature token.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {3}{B} - Create a 4/4 black Horror creature token.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {3}{B} - Create a 4/4 black Horror creature token.
+SVar:TrigChant:AB$ Effect | Cost$ 3 B ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ DBToken | TriggerDescription$ Chant - Create a 4/4 black Horror creature token.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ 3 B | Execute$ DBToken | TriggerDescription$ Chant - Create a 4/4 black Horror creature token.
+DeckHints:Ability$Graveyard & Type$Instant|Sorcery
 DeckHas:Type$Horror
-Oracle:When Weaver of Brooding Threads enters, if it entered from your graveyard or you cast it from your graveyard, exile it. If you do, [create a 4/4 black Horror creature token.]\n
-Chant {3}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+Oracle:When Weaver of Brooding Threads enters, if it entered from your graveyard or you cast it from your graveyard, exile it. If you do, [create a 4/4 black Horror creature token.]\nChant {3}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

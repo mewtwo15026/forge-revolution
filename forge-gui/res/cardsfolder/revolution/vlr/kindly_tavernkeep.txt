@@ -1,0 +1,8 @@
+Name:Kindly Tavernkeep
+ManaCost:2 GW
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, create a 1/1 white Citizen creature token.

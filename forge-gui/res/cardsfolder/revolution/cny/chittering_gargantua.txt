@@ -1,0 +1,15 @@
+Name:Chittering Gargantua
+ManaCost:8 U B
+Types:Artifact Creature Insect
+PT:4/4
+A:SP$ PermanentCreature | Cost$ 8 U B | AnnounceTitle$ how many times to pay add'l cost (first sacrifice, then exile) | Announce$ AdditionalTimesSac,AdditionalTimesExile
+S:Mode$ RaiseCost | ValidCard$ Card.Self | Type$ Spell | Cost$ Sac<1/Creature> | Amount$ AdditionalTimesSac | EffectZone$ All | Description$ As an additional cost to cast this spell, sacrifice any number of creatures, then exile any number of creature cards from your graveyard. This spell costs {2} less to cast for each creature sacrificed or card exiled this way.
+S:Mode$ RaiseCost | ValidCard$ Card.Self | Type$ Spell | Cost$ ExileFromGrave<1/Creature> | Amount$ AdditionalTimesExile | EffectZone$ All
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ SVar$AdditionalTimesSac/Twice | EffectZone$ All | Relative$ True | Secondary$ True | Description$ This spell costs {2} less to cast for each creature sacrificed or card exiled this way.
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ SVar$AdditionalTimesExile/Twice | EffectZone$ All | Relative$ True
+SVar:AdditionalTimesSac:Number$0
+SVar:AdditionalTimesExile:Number$0
+K:Flying
+SVar:AIPreference:SacCost$Creature.token+powerLE2,Creature.cmcLE2+powerLE2
+DeckHas:Ability$Sacrifice
+Oracle:As an additional cost to cast this spell, sacrifice any number of creatures, then exile any number of creature cards from your graveyard. This spell costs {2} less to cast for each card or token sacrificed or exiled this way.\nFlying

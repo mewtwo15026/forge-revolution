@@ -1,0 +1,15 @@
+Name:Setral Arborist
+ManaCost:G
+Types:Creature Cat Druid
+PT:1/2
+K:Vigilance
+K:Reach
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSurveil | TriggerDescription$ Whenever this creature attacks, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+S:Mode$ Continuous | Affected$ Card.Self | AddPower$ 2 | AddToughness$ 2 | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ As long as you're ancient, this creature gets +2/+2. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+DeckHas:Ability$Surveil
+Oracle:Vigilance, reach\nWhenever this creature attacks, surveil 1.\nAs long as you're ancient, this creature gets +2/+2. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

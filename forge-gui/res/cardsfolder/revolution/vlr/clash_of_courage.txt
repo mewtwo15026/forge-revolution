@@ -1,0 +1,8 @@
+Name:Clash of Courage
+ManaCost:1 W
+Types:Instant
+A:SP$ Charm | Choices$ DBDestroyArtifact,DBDestroyEnchantment,DBDestroyToken
+SVar:DBDestroyArtifact:DB$ Destroy | ValidTgts$ Artifact | SpellDescription$ Destroy target artifact.
+SVar:DBDestroyEnchantment:DB$ Destroy | ValidTgts$ Enchantment | SpellDescription$ Destroy target enchantment.
+SVar:DBDestroyToken:DB$ Destroy | ValidTgts$ Permanent.token+nonLand | TgtPrompt$ Select target nonland token | SpellDescription$ Destroy target nonland token.
+Oracle:Choose one -\n• Destroy target artifact.\n• Destroy target enchantment.\n• Destroy target nonland token.

@@ -1,0 +1,7 @@
+Name:Into the Grove
+ManaCost:4 U U
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Choose up to two target nonland permanents owned by the same opponent. They return one to their hand and put the other on their choice of the top or bottom of their library.

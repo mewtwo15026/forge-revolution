@@ -1,0 +1,16 @@
+Name:Hazakh Agenda
+ManaCost:U B R
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ HazakhCount | Choices$ DBToken,DBDraw,DBDebuffAll
+SVar:DBToken:DB$ Token | TokenScript$ c_2_2_minion_decayed | TokenAmount$ 2 | SpellDescription$ Create two 2/2 colorless Minion creature tokens with decayed.
+SVar:DBDraw:DB$ Draw | NumCards$ 2 | UnlessCost$ Sac<1/Creature> | UnlessPayer$ You | UnlessSwitched$ True | SpellDescription$ You may sacrifice a creature. If you do, draw two cards.
+SVar:DBDebuffAll:DB$ AnimateAll | ModeCost$ 1 | ValidCards$ Creature | RemoveAllAbilities$ True | SpellDescription$ Until end of turn, creatures lose all abilities.
+SVar:HazakhCount:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Permanent.Blue+YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Permanent.Black+YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Permanent.Red+YouCtrl/LimitMax.1
+SVar:NeedsToPlayVar:HazakhCount GE1
+SVar:BuffedBy:Permanent.Blue,Permanent.Black,Permanent.Red
+DeckHas:Ability$Token|Sacrifice & Type$Minion
+Oracle:Choose up to one for each color among blue, black, and red among permanents you control.\n• Create two 2/2 colorless Minion creature tokens with decayed.\n• You may sacrifice a creature. If you do, draw two cards.\n• Until end of turn, creatures lose all abilities.

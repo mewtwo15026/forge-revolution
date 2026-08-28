@@ -10,5 +10,21 @@ SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 # TODO: implement Chant
 #K:twi_FlashChant:U B
 #A:SP$ Chant | Mode$ ReplacementEffect | Event$ Counter | ValidCard$ Card.Self | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
-Oracle:[Flash]\n[This spell can't be countered.]\nWard {3}\nStag of the Broken Crown enters tapped if it was cast from exile.\n
-Chant {U}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)
+A:ST$ Effect | Cost$ U B ExileFromHand<1/CARDNAME> | CheckSVar$ X | SVarCompare$ EQ0 | ActivationZone$ Hand | Name$ Chant of the Broken Crown | StaticAbilities$ FlashPre,QuickenStA | Triggers$ OnCast | SubAbility$ DBChant | SpellDescription$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:FlashPre:Mode$ Continuous | Affected$ Card.Instant+YouCtrl+wasCast,Card.Sorcery+YouCtrl+wasCast | AffectedZone$ Stack | AddKeyword$ Flash | Description$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:QuickenStA:Mode$ CastWithFlash | ValidCard$ Instant,Sorcery | ValidSA$ Spell | Caster$ You | Secondary$ True | Description$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:OnCast:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | Execute$ DBEffect | Static$ True | Secondary$ True | TriggerDescription$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:DBEffect:DB$ Effect | ReplacementEffects$ AntiMagic | StaticAbilities$ FlashPost | RememberObjects$ TriggeredCard | ForgetOnMoved$ Stack | SubAbility$ ExileSelf
+SVar:FlashPre:Mode$ Continuous | Affected$ Card.IsRemembered | AffectedZone$ Stack | AddKeyword$ Flash | Description$ Flash
+SVar:AntiMagic:Event$ Counter | ValidCard$ Card.IsRemembered | ValidSA$ Spell | Layer$ CantHappen | Description$ This spell can't be countered.
+SVar:ExileSelf:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Exile
+SVar:DBChant:DB$ Effect | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+A:ST$ Effect | Cost$ U B | AILogic$ Never | CheckSVar$ X | SVarCompare$ EQ0 | ActivationZone$ Graveyard | Name$ Chant of the Broken Crown | StaticAbilities$ FlashPreU,QuickenStAU | Triggers$ OnCastU | SpellDescription$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:FlashPre:Mode$ Continuous | Affected$ Card.YouCtrl+wasCast+namedUnravel Thoughts | AffectedZone$ Stack | AddKeyword$ Flash | Description$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:QuickenStA:Mode$ CastWithFlash | ValidCard$ Card.namedUnravel Thoughts | ValidSA$ Spell | Caster$ You | Secondary$ True | Description$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:OnCast:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | Execute$ DBEffect | Static$ True | Secondary$ True | TriggerDescription$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+A:ST$ Effect | Cost$ U B | AILogic$ Never | CheckSVar$ X | SVarCompare$ EQ0 | ActivationZone$ Battlefield | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Secondary$ True | Name$ Chant of the Broken Crown | StaticAbilities$ FlashPre,QuickenStA | Triggers$ OnCast | SpellDescription$ Chant {U}{B} - The next instant or sorcery spell you cast this turn gains flash and can't be countered.
+SVar:X:Count$ValidCommand Effect.YouCtrl+namedChant of the Broken Crown
+AI:RemoveDeck:Random
+Oracle:[Flash]\n[This spell can't be countered.]\nWard {3}\nStag of the Broken Crown enters tapped if it was cast from exile.\nChant {U}{B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add its bracketed effects to that spell. You may cast this later from exile.)

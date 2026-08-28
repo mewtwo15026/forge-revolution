@@ -1,0 +1,5 @@
+Name:Sunder the Cage
+ManaCost:2 R R R
+Types:Sorcery
+A:SP$ DealDamage | ValidTgts$ Any | TgtPrompt$ Select any target to distribute damage to | NumDmg$ 5 | TargetMin$ 0 | TargetMax$ 5 | DividedAsYouChoose$ 5 | SpellDescription$ CARDNAME deals 5 damage divided as you choose among any number of targets.
+Oracle:Sunder the Cage deals 5 damage divided as you choose among any number of targets.

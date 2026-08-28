@@ -1,0 +1,7 @@
+Name:Hired Shot
+ManaCost:2 R
+Types:Instant
+S:Mode$ AlternativeCost | ValidSA$ Spell.Self | EffectZone$ All | Cost$ R | ManaRestriction$ Artifact | Description$ You may pay {R} rather than pay this spell's mana cost. Spend only mana produced by artifact sources to cast it this way.
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 3 | SpellDescription$ CARDNAME deals 3 damage to any target.
+DeckHints:Type$Treasure
+Oracle:You may pay {R} rather than pay this spell's mana cost. Spend only mana produced by artifact sources to cast it this way.\nHired Shot deals 3 damage to any target.

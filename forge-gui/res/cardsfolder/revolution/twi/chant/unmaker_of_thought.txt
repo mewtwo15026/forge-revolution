@@ -3,11 +3,18 @@ ManaCost:1 B
 Types:Creature Human Warlock
 PT:1/1
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRepeatEach | TriggerDescription$ When CARDNAME enters, each opponent with two or more cards in hand discards a card.
-SVar:TrigRepeatEach:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDiscard
+SVar:TrigRepeatEach:DB$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDiscard | StackDescription$ Each opponent with two or more cards in hand discards a card.
 SVar:DBDiscard:DB$ Discard | Defined$ Player.IsRemembered | NumCards$ 1 | Mode$ TgtChoose | ConditionCheckSVar$ X | ConditionSVarCompare$ GE2
 SVar:X:PlayerCountRemembered$CardsInHand
 # TODO: implement Chant
 #K:twi_Chant:B
 #A:SP$ Chant | Mode$ RepeatEach | RepeatPlayers$ Opponent | RepeatSubAbility$ DBDiscard
-Oracle:When Unmaker of Thought enters, [each opponent with two or more cards in hand discards a card.]\n
-Chant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {B} - Each opponent with two or more cards in hand discards a card.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {B} - Each opponent with two or more cards in hand discards a card.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {B} - Each opponent with two or more cards in hand discards a card.
+SVar:TrigChant:AB$ Effect | Cost$ B ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigRepeatEach | TriggerDescription$ Chant - Each opponent with two or more cards in hand discards a card.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ B | Execute$ TrigRepeatEach | TriggerDescription$ Chant - Each opponent with two or more cards in hand discards a card.
+DeckHints:Type$Instant|Sorcery
+Oracle:When Unmaker of Thought enters, [each opponent with two or more cards in hand discards a card.]\nChant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

@@ -1,0 +1,7 @@
+Name:Siurne's Betrayal
+ManaCost:2 B R
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:As an additional cost to cast this spell, you may exile three cards from your graveyard. If you do, this spell costs {2} less to cast.\nGain control of target creature until end of turn. Untap that creature. It gains menace and haste until end of turn.

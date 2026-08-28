@@ -1,0 +1,7 @@
+Name:Split the Loot
+ManaCost:4 R R
+Types:Instant
+A:SP$ Fight | ValidTgts$ Creature | TargetMin$ 2 | TargetMax$ 2 | SubAbility$ DTOnDeath | SpellDescription$ Target creature fights another target creature. Whenever one of those creatures dies this turn, create a Treasure token.
+SVar:DTOnDeath:DB$ DelayedTrigger | Mode$ ChangesZone | RememberObjects$ Targeted | ValidCard$ Card.IsTriggerRemembered | Origin$ Battlefield | Destination$ Graveyard | ThisTurn$ True | Execute$ TrigToken | TriggerDescription$ Whenever one of those creatures dies this turn, create a Treasure token.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+Oracle:Target creature fights another target creature. Whenever one of those creatures dies this turn, create a Treasure token. (Each deals damage equal to its power to the other.)

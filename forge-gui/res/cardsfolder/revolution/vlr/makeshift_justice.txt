@@ -1,0 +1,6 @@
+Name:Makeshift Justice
+ManaCost:R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | TgtPrompt$ Select target creature you control | NumAtt$ +X | KW$ First Strike | SpellDescription$ Target creature you control gets +X/+0 and gains first strike until end of turn, where X is the number of spells you've cast this turn.
+SVar:X:Count$ThisTurnCast_Card.YouCtrl
+Oracle:Target creature you control gets +X/+0 and gains first strike until end of turn, where X is the number of spells you've cast this turn.

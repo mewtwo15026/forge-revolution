@@ -1,0 +1,8 @@
+Name:Volwood Sentry
+ManaCost:3 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Defender, reach\nAs long as you're ancient, this creature can attack as though it doesn't have defender. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)

@@ -1,0 +1,29 @@
+Name:Siurne, Eternal Sentinel
+ManaCost:2 W
+Types:Legendary Creature Angel Warlock
+PT:3/3
+K:Flying
+T:Mode$ ChangesZone | ValidCard$ Creature.Other+YouCtrl | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | Execute$ TrigCounter | TriggerDescription$ Whenever another creature you control dies, put a loyalty counter on NICKNAME. You gain 1 life.
+SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 1
+A:AB$ PutCounter | Cost$ B | SorcerySpeed$ True | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1 | SubAbility$ DBSpark | SpellDescription$ Put a loyalty counter on NICKNAME and transform her. Activate only as a sorcery.
+SVar:DBSpark:DB$ SetState | Defined$ Self | Mode$ Transform
+AlternateMode:DoubleFaced
+DeckHas:Ability$Token|Sacrifice|Surveil|LifeGain
+Oracle:Flying\nWhenever another creature you control dies, put a loyalty counter on Siurne. You gain 1 life.\n{B}: Put a loyalty counter on Siurne and transform her. Activate only as a sorcery.
+
+ALTERNATE
+
+Name:Siurne, Covetous Creation
+ManaCost:no cost
+Types:Legendary Planeswalker Siurne
+Colors:white,black
+Loyalty:0
+A:AB$ Surveil | Cost$ Sac<1/Creature> | SorcerySpeed$ True | Amount$ 1 | SubAbility$ DBCounter | SpellDescription$ Surveil 1. Put a loyalty counter on NICKNAME. Activate only as a sorcery.
+SVar:DBCounter:DB$ PutCounter | Defined$ Self | CounterType$ LOYALTY | CounterNum$ 1
+A:AB$ Token | Cost$ AddCounter<0/LOYALTY> | Planeswalker$ True | TokenScript$ acolyte | TokenAmount$ 2 | SpellDescription$ Create two Acolyte tokens. (They're 0/1 white and black Warlock creatures with "{1}, Sacrifice this token: Surveil 1.")
+A:AB$ ChangeZone | Cost$ SubCounter<3/LOYALTY> | Planeswalker$ True | Origin$ Graveyard | Destination$ Battlefield | TgtPrompt$ Select target non-Angel, non-Elder creature card in your graveyard | ValidTgts$ Creature.YouCtrl+nonAngel+nonElder | SpellDescription$ Return target non-Angel, non-Elder creature card from your graveyard to the battlefield.
+A:AB$ ChangeZone | Cost$ SubCounter<X/LOYALTY> | Planeswalker$ True | Origin$ Battlefield | Destination$ Exile | IsCurse$ True | TgtPrompt$ Select target nonland permanent with mana value X | ValidTgts$ Permanent.nonLand+cmcEQX | SpellDescription$ Exile target nonland permanent with mana value X.
+SVar:X:Count$xPaid
+SVar:AIPreference:SacCost$Creature.token
+Oracle:Sacrifice a creature: Surveil 1. Put a loyalty counter on Siurne. Activate only as a sorcery.\n[0]: Create two Acolyte tokens. (They're 0/1 white and black Warlock creatures with "{1}, Sacrifice this token: Surveil 1.")\n[-3]: Return target non-Angel, non-Elder creature card from your graveyard to the battlefield.\n[-X]: Exile target nonland permanent with mana value X.

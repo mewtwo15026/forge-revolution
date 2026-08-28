@@ -1,0 +1,15 @@
+Name:Arital, Grand Adjudicator
+ManaCost:2 W WB B
+Types:Legendary Creature Bird Warlock
+PT:5/5
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ When NICKNAME enters, you may sacrifice any number of other permanents, then draw that many cards. Put a +1/+1 counter on each other creature you control.
+SVar:TrigSac:DB$ Sacrifice | Defined$ You | Amount$ SacX | SacValid$ Permanent.Other | RememberSacrificed$ True | Optional$ True | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ DrawX | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounterAll | ValidCards$ Creature.StrictlyOther+YouCtrl | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:SacX:Count$Valid Permanent.YouCtrl+Other
+SVar:DrawX:Remembered$Amount
+AI:RemoveDeck:All
+Oracle:Flying, lifelink\nWhen Arital enters, you may sacrifice any number of other creatures you control, then draw that many cards. Put a +1/+1 counter on each other creature you control.

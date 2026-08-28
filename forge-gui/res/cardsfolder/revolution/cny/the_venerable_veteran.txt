@@ -1,0 +1,10 @@
+Name:The Venerable Veteran
+ManaCost:1 B
+Types:Legendary Creature Minion
+PT:3/3
+K:Decayed
+S:Mode$ Continuous | Affected$ Card.Self | AffectedZone$ Graveyard | EffectZone$ Graveyard | MayPlay$ True | Description$ You may cast CARDNAME from your graveyard.
+SVar:SacMe:2
+SVar:DiscardMe:3
+DeckHas:Ability$Graveyard
+Oracle:Decayed (This can't block. When it attacks, sacrifice it at end of combat.)\nYou may cast The Venerable Veteran from your graveyard.

@@ -7,5 +7,5 @@ T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.S
 SVar:TrigBurn:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | SubAbility$ DBGainLife
 SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2
 DeckHas:Ability$LifeGain
-DeckHints:Ability$Sacrifice & Keyword$Ninjutsu
+DeckHints:Ability$Sacrifice & Keyword$Ninjutsu|Sneak
 Oracle:Trample\nWhenever Iwai and Oda or another permanent you control leaves the battlefield, Iwai and Oda deals 2 damage to any target and you gain 2 life.

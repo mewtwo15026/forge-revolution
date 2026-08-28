@@ -1,0 +1,6 @@
+Name:Liquidate
+ManaCost:B R
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature,Planeswalker | TgtPrompt$ Select target creature or planeswalker | SubAbility$ DBToken | SpellDescription$ Destroy target creature or planeswalker. Its controller creates a Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenOwner$ TargetedController | TokenAmount$ 1
+Oracle:Destroy target creature or planeswalker. Its controller creates a Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")

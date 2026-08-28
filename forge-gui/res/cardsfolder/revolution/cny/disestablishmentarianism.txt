@@ -1,0 +1,7 @@
+Name:Disestablishmentarianism
+ManaCost:1 G
+Types:Enchantment
+S:Mode$ CantBeActivated | AffectedZone$ Battlefield | ValidCard$ Artifact.Other+cmcLE3,Enchantment.Other+cmcLE3 | ValidSA$ Activated | Description$ Activated abilities of other artifacts and enchantments with mana value 3 or less can't be activated.
+A:AB$ ChangeZone | Cost$ 1 Sac<1/CARDNAME> | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | IsCurse$ True | SpellDescription$ Exile target artifact or enchantment.
+AI:RemoveDeck:Random
+Oracle:Activated abilities of other artifacts and enchantments with mana value 3 or less can't be activated.\n{1}, Sacrifice Disestablishmentarianism: Exile target artifact or enchantment.

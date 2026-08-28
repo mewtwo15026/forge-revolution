@@ -1,0 +1,11 @@
+Name:Consult the Offerings
+ManaCost:W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target creature card with mana value 3 or less in your graveyard | ValidTgts$ Creature.YouCtrl+cmcLE3 | AITgts$ Card.nonLand | RememberChanged$ True | SubAbility$ DBPlay | SpellDescription$ Exile target creature card with mana value 3 or less from your graveyard. Cast a copy of it without paying its mana cost. It enters the battlefield tapped.
+SVar:DBPlay:DB$ Play | Defined$ Remembered | ValidSA$ Spell | Optional$ True | CopyCard$ True | WithoutManaCost$ True | RememberPlayed$ True | ForgetOtherRemembered$ True | SubAbility$ DBAnimate
+SVar:DBAnimate:DB$ Animate | Replacements$ OnEnters | Defined$ Remembered | SubAbility$ DBCleanup
+SVar:OnEnters:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Graveyard
+Oracle:Exile target creature card with mana value 3 or less from your graveyard. Cast a copy of it without paying its mana cost. It enters the battlefield tapped.

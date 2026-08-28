@@ -506,6 +506,21 @@ public final class GameActionUtil {
                 final Cost cost = new Cost("Sac<1/" + type + ">", false);
                 costs.add(new OptionalCostValue(OptionalCost.Offering, cost));
             }
+            // REVOLUTION
+            /**
+            else if (keyword.startsWith("ccr_Surface")) {
+                if (source.isInZone(ZoneType.Graveyard)) {
+                    String[] k = keyword.split(":");
+                    final Cost cost = new Cost(k[1], false);
+                    costs.add(new OptionalCostValue(OptionalCost.CCR_Surface, cost));
+                }
+            } else if (keyword.startsWith("vlr_Pursuit")) {
+                if (source.isInZone(ZoneType.Graveyard)) {
+                    String[] k = keyword.split(":");
+                    final Cost cost = new Cost(k[1] + " Sac<1/Permanent.nonLand/nonland permanent", false);
+                    costs.add(new OptionalCostValue(OptionalCost.VLR_Pursuit, cost));
+                }
+            } */
         }
 
         // reset static abilities

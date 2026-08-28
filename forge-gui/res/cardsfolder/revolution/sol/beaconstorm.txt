@@ -1,8 +1,8 @@
 Name:Beaconstorm
 ManaCost:3 U
 Types:Instant
-A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ 2 | Choices$ DBHand,DBGraveyard | SubAbility$ DBExile
-SVar:DBHand:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SpellDescription$ Return target nonland permanent to its owner's hand.
-SVar:DBGraveyard:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard | SpellDescription$ Return target instant or sorcery card from your graveyard to your hand.
+A:SP$ Charm | MinCharmNum$ 1 | CharmNum$ 2 | Choices$ DBHand,DBGraveyard
+SVar:DBHand:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Permanent.nonLand | TgtPrompt$ Select target nonland permanent | SubAbility$ DBExile | SpellDescription$ Return target nonland permanent to its owner's hand.
+SVar:DBGraveyard:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Instant.YouCtrl,Sorcery.YouCtrl | TgtPrompt$ Select target instant or sorcery card in your graveyard | SubAbility$ DBExile | SpellDescription$ Return target instant or sorcery card from your graveyard to your hand.
 SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile | SpellDescription$ Exile CARDNAME.
 Oracle:Choose one or both -\n• Return target nonland permanent to its owner's hand.\n• Return target instant or sorcery card from your graveyard to your hand.\nExile Beaconstorm.

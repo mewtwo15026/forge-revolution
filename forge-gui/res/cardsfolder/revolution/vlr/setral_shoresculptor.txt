@@ -1,0 +1,12 @@
+Name:Setral Shoresculptor
+ManaCost:2 U
+Types:Creature Human Druid
+PT:3/2
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSurveil | TriggerDescription$ At the beginning of your upkeep, surveil 1.
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Graveyard | ValidCard$ Land.YouOwn | Execute$ TrigTap | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever a land card is put into your graveyard from anywhere, you may tap target creature and put a stun counter on it. Do this only once each turn.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature | AITgts$ Creature.OppCtrl | SubAbility$ DBStun
+SVar:DBStun:DB$ PutCounter | Defined$ Targeted | CounterType$ Stun | CounterNum$ 1
+DeckHas:Ability$Surveil
+DeckHints:Ability$Surveil|Mill
+Oracle:At the beginning of your upkeep, surveil 1.\nWhenever a land card is put into your graveyard from anywhere, you may tap target creature and put a stun counter on it. Do this only once each turn.

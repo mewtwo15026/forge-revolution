@@ -1,0 +1,8 @@
+Name:Thoroughfare Busker
+ManaCost:2 RG
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Whenever you attack, add {R} or {G}. Until end of turn, you don't lose this mana as steps and phases end.

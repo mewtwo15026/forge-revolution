@@ -1,0 +1,25 @@
+Name:Demographer
+ManaCost:U
+Types:Creature Human Advisor
+PT:0/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, draw a card, then discard a card. When you discard a nonland card this way, make a pledge. (Create any blue Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:TrigDraw:DB$ Draw | SubAbility$ DBDiscard
+A:AB$ Draw | Cost$ 2 T | SubAbility$ DBDiscard | SpellDescription$ Draw a card, then discard a card. When you discard a nonland card this way, make a pledge.
+SVar:DBDiscard:DB$ Discard | Defined$ You | Mode$ TgtChoose | Optional$ True | NumCards$ 1 | RememberDiscarded$ True | SubAbility$ DBImmediateTrig | StackDescription$ None
+SVar:DBImmediateTrig:DB$ ImmediateTrigger | ConditionDefined$ Remembered | ConditionPresent$ Land | ConditionCompare$ EQ0 | Execute$ TrigPledge | SubAbility$ DBCleanup | TriggerDescription$ When you discard a nonland card this way, make a pledge. (Create any blue Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:TrigPledge:DB$ Branch | BranchConditionSVar$ InClique | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ PledgeEffect | FalseSubAbility$ PledgeCharm
+SVar:InClique:Count$Valid Clique.YouCtrl
+SVar:PledgeEffect:DB$ Effect | Name$ Pledging | Triggers$ OnPledge | StaticAbilities$ STCantCast,STCantActivate | SubAbility$ PledgeActivate
+SVar:STCantCast:Mode$ CantBeCast | ValidCard$ Card
+SVar:STCantActivate:Mode$ CantBeActivated | ValidCard$ Card.nonClique+YouDontCtrl | ValidSA$ Activated.!ManaAbility
+SVar:OnPledge:Mode$ AbilityCast | ValidCard$ Clique | ValidActivatingPlayer$ You | Execute$ TrigCleanup | Static$ True | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:TrigCleanup:DB$ ChangeZone | Defined$ Self | Origin$ Command | Destination$ Exile
+SVar:PledgeActivate:DB$ ImmediateTrigger | Execute$ PledgeCleanup | TriggerDescription$ (Activate the Pledge of a Clique you control without paying its mana cost.)
+SVar:PledgeCleanup:DB$ ChangeZoneAll | ChangeType$ Effect.YouCtrl+namedPledging | Origin$ Command | Destination$ Exile
+SVar:PledgeCharm:DB$ GenericChoice | Choices$ Sillaman,Tiril,Hazakh
+SVar:Sillaman:DB$ Token | TokenScript$ sillaman_laboratories | SpellDescription$ Sillaman Laboratories (Pledge - Tap up to one target untapped creature. You may put a +1/+1 counter on it.)
+SVar:Tiril:DB$ Token | TokenScript$ tiril_bureau | SpellDescription$ Tiril Bureau (Pledge - Surveil 2.)
+SVar:Hazakh:DB$ Token | TokenScript$ hazakh_arsenal | SpellDescription$ Hazakh Arsenal (Pledge - Create a 2/2 colorless Minion creature token with decayed.)
+DeckHas:Ability$Discard & Type$Enchantment|Clique
+Oracle:When Demographer enters, draw a card, then discard a card. When you discard a nonland card this way, make a pledge. (Create any blue Clique enchantment token. If you already control a Clique, instead activate its Pledge without paying its cost.)\n{2}, {T}: Draw a card, then discard a card. When you discard a nonland card this way, make a pledge.

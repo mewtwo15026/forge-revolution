@@ -1,0 +1,10 @@
+Name:Subsidized Market
+ManaCost:3 G
+Types:Artifact
+A:AB$ Token | Cost$ T | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token.
+A:AB$ PutCounter | Cost$ T Sac<1/Treasure> | SorcerySpeed$ True | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | SpellDescription$ Put a +1/+1 counter on target creature. Activate only as a sorcery.
+A:AB$ Token | Cost$ T Sac<2/Treasure> | TokenScript$ c_a_0_0_robot | WithCountersType$ P1P1 | WithCountersAmount$ 4 | SpellDescription$ Create a 0/0 colorless Robot artifact creature token with four +1/+1 counters on it. Activate only as a sorcery.
+A:AB$ Untap | Cost$ 3 | SpellDescription$ Untap CARDNAME.
+DeckHas:Ability$Sacrifice|Token|Counters & Type$Treasure|Robot
+DeckHints:Type$Treasure
+Oracle:{T}: Create a Treasure token.\n{T}, Sacrifice a Treasure: Put a +1/+1 counter on target creature. Activate only as a sorcery.\n{T}, Sacrifice two Treasures: Create a 0/0 colorless Robot artifact creature token with four +1/+1 counters on it. Activate only as a sorcery.\n{3}: Untap Subsidized Market.

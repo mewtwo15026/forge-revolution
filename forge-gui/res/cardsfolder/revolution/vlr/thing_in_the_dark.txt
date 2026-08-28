@@ -1,0 +1,13 @@
+Name:Thing in the Dark
+ManaCost:1 B
+Types:Creature Horror
+PT:5/5
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ EntersTapped | ReplacementResult$ Updated | Description$ This creature enters tapped with four stun counters on it. (If it would become untapped, remove a stun counter from it instad.)
+SVar:EntersTapped:DB$ Tap | Defined$ Self | ETB$ True | SubAbility$ DBPutCounter
+SVar:DBPutCounter:DB$ PutCounter | Defined$ Self | ETB$ True | CounterType$ STUN | CounterNum$ 4
+T:Mode$ ChangesZoneAll | TriggerZones$ Battlefield | ValidCards$ Card.YouOwn | Origin$ Graveyard | Destination$ Any | Execute$ TrigUntap | TriggerDescription$ Whenever one or more cards leave your graveyard, untap this creature.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+A:AB$ Draw | Cost$ 1 B ExileFromGrave<2/Card> | IsPresent$ Card.Self+counters_GE1_STUN | SubAbility$ DBLoseLife | SpellDescription$ You draw a card and lose 1 life. Activate only if this creature has a stun counter on it.
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 1
+DeckHints:Ability$Graveyard & Keyword$Flashback|Jump-start|Unearth|ccr_Surface|vlr_Pursuit
+Oracle:This creature enters tapped with four stun counters on it.\nWhenever one or more cards leave your graveyard, untap this creature.\n{1}{B}, Exile two cards from your graveyard: You draw a card and lose 1 life. Activate only if this creature has a stun counter on it.

@@ -1,0 +1,14 @@
+Name:Voice of the Old Grove
+ManaCost:G U
+Types:Creature Azra Druid
+PT:1/1
+S:Mode$ Continuous | Affected$ Card.Self | AddKeyword$ Flying & Vigilance | CheckSVar$ Ancient | SVarCompare$ GE8 | Description$ This creature has flying and vigilance as long as you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)
+T:Mode$ ChangesZone | ValidCard$ Land.YouCtrl | Destination$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigCounter | TriggerDescription$ Landfall - Whenever a land you control enters, put a +1/+1 counter on target creature you control.
+SVar:TrigCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Text:Designed by SilverParabellum
+DeckHas:Ability$Counters
+Oracle:This creature has flying and vigilance as long as you're ancient. (You're ancient as long as you have eight or more total lands in play or in your graveyard.)\nLandfall - Whenever a land you control enters, put a +1/+1 counter on target creature you control.\nDesigned by SilverParabellum

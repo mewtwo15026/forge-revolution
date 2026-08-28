@@ -1,0 +1,18 @@
+Name:Innovative Alchemist
+ManaCost:2 U
+Types:Creature Human Druid
+PT:2/4
+T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSurveil | TriggerDescription$ Whenever you cast a noncreature spell, surveil 1. Then if you're ancient and haven't done so yet this turn, you may copy that spell. You may choose new targets for the copy. (You're ancient as long as you have eight or more total lands in play or in your graveyard. A copy of a permanent spell becomes a token.)
+SVar:TrigSurveil:DB$ Surveil | Amount$ 1 | SubAbility$ DBCopy
+SVar:DBCopy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | AILogic$ Always | MayChooseTarget$ True | RememberCopies$ True | Optional$ True | ConditionCheckSVar$ X | ConditionSVarCompare$ GE8
+# TEST: make sure this remembers copied instants/sorceries
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Static$ True | Execute$ TrigForget
+T:Mode$ TurnBegin | Static$ True | Execute$ TrigForget
+SVar:TrigForget:DB$ Cleanup | ClearRemembered$ True
+SVar:X:Count$Compare Y EQ0.Ancient.0
+SVar:Y:Remembered$Valid Card
+SVar:Ancient:SVar$AField/Plus.AGrave
+SVar:AField:Count$Valid Land.YouCtrl
+SVar:AGrave:Count$ValidGraveyard Land.YouOwn
+SVar:BuffedBy:Land
+Oracle:Whenever you cast a noncreature spell, surveil 1. Then if you're ancient and haven't done so yet this turn, you may copy that spell. You may choose new targets for the copy. (You're ancient as long as you have eight or more total lands in play or in your graveyard. A copy of a permanent spell becomes a token.)

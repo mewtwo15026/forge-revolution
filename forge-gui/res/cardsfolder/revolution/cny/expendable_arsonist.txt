@@ -1,0 +1,8 @@
+Name:Expendable Arsonist
+ManaCost:1 R
+Types:Creature Minion
+PT:4/4
+K:Trample
+K:Haste
+K:Decayed
+Oracle:Trample, haste\nDecayed (This can't block. When it attacks, sacrifice it at end of combat.)

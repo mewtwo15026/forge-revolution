@@ -1,0 +1,10 @@
+Name:Race for the Glory
+ManaCost:1 B B
+Types:Enchantment
+K:ETBReplacement:Other:ChooseCT
+SVar:ChooseCT:DB$ ChooseType | Defined$ You | Type$ Creature | AILogic$ MostProminentComputerControlsOrOwns | SpellDescription$ As this enchantment enters, choose a creature type.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl+ChosenType | PlayerTurn$ True | Execute$ TrigShift | OptionalDecider$ You | TriggerDescription$ Whenever a creature you control of the chosen type dies during your turn, you may return another target creature card of the chosen type with lesser mana value from your graveyard to the battlefield.
+SVar:TrigShift:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.Other+ChosenType+!TriggeredNewCard+cmcLTX+YouOwn | TgtPrompt$ Select another target creature card of the chosen type with lesser mana value from your graveyard
+SVar:X:TriggeredCard$CardManaCost
+DeckHas:Ability$Graveyard
+Oracle:As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type dies during your turn, you may return another target creature card of the chosen type with lesser mana value from your graveyard to the battlefield.

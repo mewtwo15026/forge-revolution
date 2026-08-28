@@ -1,0 +1,8 @@
+Name:Planar Archives
+ManaCost:1 U
+Types:Artifact
+A:AB$ Draw | Cost$ 2 T ExileFromGrave<1/Card> | SpellDescription$ Draw a card.
+A:AB$ AddTurn | Cost$ 5 T Exile<1/CARDNAME> | SorcerySpeed$ True | CheckSVar$ X | SVarCompare$ GE5 | NumTurns$ 1 | SpellDescription$ Take an extra turn after this one. Activate only as a sorcery and only if there are five or more cards exiled with this artifact.
+SVar:X:ExiledWith$Amount
+Text:Designed by PTM & DrChipmunk
+Oracle:{2}, {T}, Exile a card from your graveyard: Draw a card.\n{5}, {T}, Exile this artifact: Take an extra turn after this one. Activate only as a sorcery and only if there are five or more cards exiled with this artifact.\nDesigned by PTM & DrChipmunk

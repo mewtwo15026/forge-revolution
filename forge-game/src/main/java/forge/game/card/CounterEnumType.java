@@ -493,7 +493,7 @@ public enum CounterEnumType implements CounterType {
 
     //REVOLUTION
 
-    HAZE ("HAZE", 252, 211, 178)
+    HAZE ("HAZE", 252, 211, 178, CounterAiCategory.Negative)
 
     ;
 

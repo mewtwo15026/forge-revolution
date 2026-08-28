@@ -1,0 +1,9 @@
+Name:Severin's Masterwork
+ManaCost:3 W
+Types:Legendary Enchantment
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigCounters | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, put a +1/+1 counter on each tapped creature you control.
+SVar:TrigCounters:DB$ PutCounterAll | ValidCards$ Creature.tapped+YouCtrl | CounterType$ P1P1 | CounterNum$ 1
+A:AB$ Token | Cost$ G W U RemoveAnyCounter<5/Any/Creature> Sac<1/CARDNAME> | TokenScript$ chaneryx_perfect_lifeform | SpellDescription$ Create Chaneryx, Perfect Lifeform, a legendary 10/10 green, white, and blue Leviathan creature token with ward {10}.
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+Oracle:At the beginning of your end step, put a +1/+1 counter on each tapped creature you control.\n{G}{W}{U}, Remove five counters from among creatures you control, Sacrifice Severin's Masterwork: Create Chaneryx, Perfect Lifeform, a legendary 10/10 green, white, and blue Leviathan creature token with ward {10}.

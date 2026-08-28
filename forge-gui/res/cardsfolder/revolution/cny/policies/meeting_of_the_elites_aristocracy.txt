@@ -1,0 +1,28 @@
+Name:Meeting of the Elites
+ManaCost:B R
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create a tapped Treasure token. (It's an artifact with “{T}, Sacrifice this artifact: Add one mana of any color.”)
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | ConditionPresent$ Card.Self+withComplete_A | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankCheck | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ CompleteA | SpellDescription$ A, B — You've sacrificed a nonland permanent this turn.
+SVar:CompleteB:SVar$ Animate | ConditionPresent$ Card.Self+withoutComplete_A | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+SVar:PlankCheck:PlayerCountPropertyYou$SacrificedThisTurn Permanent.nonLand
+DeckHas:Ability$Token & Type$Artifact|Treasure
+DeckNeeds:Ability$Sacrifice
+DeckHints:Type$Treasure|Clue|Chart|Memory|Map|Blood
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform it.)\nWhen Meeting of the Elites enters, create a tapped Treasure token. (It's an artifact with “{T}, Sacrifice this artifact: Add one mana of any color.”)\nA, B — You've sacrificed a nonland permanent this turn.
+
+ALTERNATE
+
+Name:Aristocracy
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:black,red
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigExile | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, exile the top card of your library.
+SVar:TrigExile:DB$ Dig | Defined$ You | DestinationZone$ Exile | DigNum$ 1 | ChangeNum$ All
+S:Mode$ Continuous | Affected$ Card.ExiledWithSource | AffectedZone$ Exile | MayPlay$ True | CheckSVar$ X | Description$ You may play cards exiled with CARDNAME as long as you've sacrificed a nonland permanent this turn.
+SVar:X:PlayerCountPropertyYou$SacrificedThisTurn Permanent.nonLand
+Oracle:At the beginning of your upkeep, exile the top card of your library.\nYou may play cards exiled with Aristocracy as long as you've sacrificed a nonland permanent this turn.

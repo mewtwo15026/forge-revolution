@@ -1,0 +1,10 @@
+Name:Rally the Rabble
+ManaCost:1 R W
+Types:Enchantment
+T:Mode$ SpellCast | ValidCard$ Creature+wasCastFromYourHandByYou | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigDig | TriggerDescription$ Muster — Whenever you cast a creature spell, if you cast it from your hand, exile the top card of your library. During your next turn, you may play that card from exile.
+SVar:TrigDig:DB$ Dig | Defined$ You | DigNum$ 1 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBDelay
+SVar:DBDelay:DB$ DelayedTrigger | Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ DBEffect | RememberObjects$ Remembered | Static$ True | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DBEffect:DB$ Effect | StaticAbilities$ STPlay | RememberObjects$ DelayTriggerRemembered | ForgetOnMoved$ Exile
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play the exiled card.
+Oracle:Muster - Whenever you cast a creature spell, if you cast it from your hand, exile the top card of your library. During your next turn, you may play that card from exile.

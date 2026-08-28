@@ -1,0 +1,13 @@
+Name:Herald of Emergence
+ManaCost:3 R R
+Types:Creature Horror
+PT:3/4
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self+wasCastByYou | Execute$ TrigCopy | TriggerDescription$ When this creature enters, if you cast it, create a token that's a copy of target creature you control, except it has haste and "At the beginning of your end step, sacrifice this creature."
+SVar:TrigCopy:DB$ CopyPermanent | ValidTgts$ Creature.YouCtrl | AddKeywords$ Haste | AddTriggers$ OnEOT | AddSVars$ EOTLP
+SVar:OnEOT:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigSac | TriggerDescription$ At the beginning of your end step, sacrifice this creature.
+SVar:TrigSac:DB$ Sacrifice | SacValid$ Self
+SVar:EOTLP:EndOfTurnLeavePlay:True
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token|Sacrifice
+Oracle:Menace\nWhen this creature enters, if you cast it, create a token that's a copy of target creature you control, except it has haste and "At the beginning of your end step, sacrifice this creature."

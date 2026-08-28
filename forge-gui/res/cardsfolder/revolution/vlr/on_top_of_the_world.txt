@@ -1,0 +1,6 @@
+Name:On Top of the World
+ManaCost:2 U U
+Types:Sorcery
+A:SP$ ChooseCard | Defined$ You | Amount$ 1 | Mandatory$ True | Choices$ Creature | ChoiceTitle$ Choose a creature | AILogic$ Duneblast | SubAbility$ DBBounceAll | SpellDescription$ Choose a creature. Return the rest to their owners' hands.
+SVar:DBBounceAll:DB$ ChangeZoneAll | ChangeType$ Creature.nonChosenCard | Origin$ Battlefield | Destination$ Hand
+Oracle:Choose a creature. Return the rest to their owners' hands.

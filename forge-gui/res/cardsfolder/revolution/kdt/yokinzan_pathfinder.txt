@@ -8,5 +8,5 @@ SVar:Unblockable:Mode$ CantBlockBy | ValidAttacker$ Card.IsRemembered | Descript
 SVar:EOCBounce:Mode$ Phase | Phase$ EndCombat | Execute$ TrigBounce | TriggerDescription$ Return this creature to its owner's hand at end of combat.
 SVar:TrigBounce:Mode$ ChangeZone | Defined$ Remembered | Origin$ Battlefield | Destination$ Hand
 SVar:PlayMain1:TRUE
-DeckHints:Keyword$Ninjutsu
+DeckHints:Keyword$Ninjutsu|Sneak
 Oracle:Whenever you attack, up to one target creature you control can't be blocked this turn. Return that creature to its owner's hand at end of combat.

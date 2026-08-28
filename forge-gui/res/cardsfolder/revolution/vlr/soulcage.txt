@@ -1,0 +1,7 @@
+Name:Soulcage
+ManaCost:2 W U
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Put a +1/+1 counter on target creature you control. Then cast a copy of that creature without paying its mana cost. It enters with an additional +1/+1 counter on it.

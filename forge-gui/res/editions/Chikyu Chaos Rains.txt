@@ -7,7 +7,7 @@ MciCode=ccr
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common, 3 Uncommon, 1 RareMythic, 1 Wildcard, 1 AnyLand
+Booster=7 Common, 3 Uncommon, 1 RareMythic, 2 Wildcard, 1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands CCR
 Prerelease=6 Boosters, 1 RareMythic+
@@ -21,15 +21,15 @@ ChaosDraftThemes=CHIKYU;CUSTOM;REV_T1;REV_T2
 #1.25 / (% of cards at rarity with shinies)
 [Common]
 Base=Common:fromSheet("CCR cards")
-Replace=.006F Common:fromSheet("CCR alternate art")
+Replace=.011F Common:fromSheet("CCR alternate art")
 
 [Uncommon]
 Base=Uncommon:fromSheet("CCR cards")
-Replace=.012F Uncommon:fromSheet("CCR alternate art")
+Replace=.021F Uncommon:fromSheet("CCR alternate art")
 
 [RareMythic]
 Base=RareMythic:fromSheet("CCR cards")
-Replace=.036F RareMythic:fromSheet("CCR alternate art")
+Replace=.046F RareMythic:fromSheet("CCR alternate art")
 
 [AnyLand]
 Base=fromSheet("CCR duals")
@@ -42,6 +42,7 @@ Replace=.006F Common:fromSheet("CCR alternate art")
 Replace=.417F Uncommon:fromSheet("CCR cards")
 Replace=.005F Uncommon:fromSheet("CCR alternate art")
 Replace=.012F RareMythic:fromSheet("CCR cards")
+Replace=.001F RareMythic:fromSheet("CCR alternate art")
 Replace=.020F fromSheet("CCR buy a box")
 
 [cards]

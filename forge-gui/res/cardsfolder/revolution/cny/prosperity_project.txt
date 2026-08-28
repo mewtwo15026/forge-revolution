@@ -1,0 +1,8 @@
+Name:Prosperity Project
+ManaCost:3 W
+Types:Enchantment
+T:Mode$ LifeGained | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigToken | OptionalDecider$ You | ResolvedLimit$ 1 | TriggerDescription$ Whenever you gain life, you may create a 0/0 colorless Robot artifact creature token with X +1/+1 counters on it, where X is the amount of life you gained. Do this only once each turn.
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_0_0_robot | WithCountersType$ P1P1 | WithCountersAmount$ X
+SVar:X:TriggerCount$LifeAmount
+DeckNeeds:Ability$LifeGain
+Oracle:Whenever you gain life, you may create a 0/0 colorless Robot artifact creature token with X +1/+1 counters on it, where X is the amount of life you gained. Do this only once each turn.

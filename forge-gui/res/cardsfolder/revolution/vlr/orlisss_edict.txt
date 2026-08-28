@@ -1,0 +1,9 @@
+Name:Orliss's Edict
+ManaCost:1 B G
+Types:Enchantment
+T:Mode$ ChangesZone | ValidCard$ Self | Destination$ Battlefield | Execute$ TrigChoose | TriggerDescription$ When this enchantment enters, choose a nonland card type. Each opponent sacrifices a permanent of their choice of that type.
+A:AB$ ChooseType | Cost$ 1 B G Sac<1/CARDNAME> | SorcerySpeed$ True | IsPresent$ Mercenary.YouCtrl | Defined$ You | Type$ Card | InvalidTypes$ Instant,Sorcery,Land | SubAbility$ DBSac | SpellDescription$ Choose a nonland card type. Each opponent sacrifices a permanent of their choice of that type. Activate only as a sorcery and only if you control a Mercenary.
+SVar:TrigChoose:DB$ ChooseType | Defined$ You | Type$ Card | InvalidTypes$ Instant,Sorcery,Land | SubAbility$ DBSac
+SVar:DBSac:DB$ Sacrifice | SacValid$ Permanent.ChosenType | Defined$ Opponent | SubAbility$ DBCleanup
+SVar:DBCleanup:DB$ Cleanup | ClearChosenType$ True
+Oracle:When this enchantment enters, choose a nonland card type. Each opponent sacrifices a permanent of their choice of that type.\n{1}{B}{G}, Sacrifice this enchantment: Choose a nonland card type. Each opponent sacrifices a permanent of their choice of that type. Activate only as a sorcery and only if you control a Mercenary.

@@ -1,0 +1,7 @@
+Name:Bulk Bioengineering
+ManaCost:2 G
+Types:Enchantment
+S:Mode$ CantBeCast | ValidCard$ Card.nonCreature | Caster$ You | Description$ You can't cast noncreature spells.
+S:Mode$ ReduceCost | ValidCard$ Creature | Type$ Spell | Activator$ You | Amount$ X | Description$ Creature spells you cast cost {X} less to cast, where X is the greatest power among creatures you control.
+SVar:X:Count$Valid Creature.YouCtrl$GreatestCardPower
+Oracle:You can't cast noncreature spells.\nCreature spells you cast cost {X} less to cast, where X is the greatest power among creatures you control.

@@ -1,0 +1,11 @@
+Name:Overprepared Accomplice
+ManaCost:1 U R
+Types:Creature Human Rogue
+PT:3/3
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, up to one other target attacking creature gains menace until end of turn.
+SVar:TrigPump:DB$ Pump | ValidTgts$ Creature.Other+attacking | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one other target attacking creature | KW$ Menace
+T:Mode$ DamageDone | TriggerZones$ Battlefield | ValidSource$ Rogue.YouCtrl | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerDescription$ Whenever a Rogue you control deals combat damage to a player, draw a card.
+SVar:TrigDraw:DB$ Draw | NumCards$ 1
+SVar:HasAttackEffect:TRUE
+DeckHints:Type$Rogue
+Oracle:Whenever this creature attacks, up to one other target attacking creature gains menace until end of turn.\nWhenever a Rogue you control deals combat damage to a player, draw a card.

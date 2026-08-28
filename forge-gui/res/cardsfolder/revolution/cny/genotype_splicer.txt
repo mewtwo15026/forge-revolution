@@ -1,0 +1,18 @@
+Name:Genotype Splicer
+ManaCost:1 W
+Types:Creature Human Artificer Mutant
+PT:2/1
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ ImmeTrig | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of combat on your turn, you may pay {X}. When you do, choose up to X. Each mode must have different targets.
+SVar:ImmeTrig:AB$ ImmediateTrigger | Cost$ X | AIXMax$ TargetCount | Execute$ TrigCharm | TriggerDescription$ When you do, ABILITY
+SVar:TrigCharm:DB$ Charm | MinCharmNum$ 0 | CharmNum$ X | Choices$ TeachFlying,TeachLifelink,TeachVigilance
+SVar:TeachFlying:DB$ PutCounter | ValidTgts$ Creature | TargetUnique$ True | TgtPrompt$ Select target creature to teach flying | ConditionDefined$ Targeted | ConditionPresent$ Creature.withFlying | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBFlying | SpellDescription$ Teach target creature flying.
+SVar:DBFlying:DB$ PutCounter | Defined$ ParentTarget | ConditionDefined$ ParentTarget | ConditionPresent$ Creature.withoutFlying | CounterType$ Flying | CounterNum$ 1
+SVar:TeachLifelink:DB$ PutCounter | ValidTgts$ Creature | TargetUnique$ True | TgtPrompt$ Select target creature to teach lifelink | ConditionDefined$ Targeted | ConditionPresent$ Creature.withLifelink | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBLifelink | SpellDescription$ Teach target creature lifelink.
+SVar:DBLifelink:DB$ PutCounter | Defined$ ParentTarget | ConditionDefined$ ParentTarget | ConditionPresent$ Creature.withoutLifelink | CounterType$ Lifelink | CounterNum$ 1
+SVar:TeachVigilance:DB$ PutCounter | ValidTgts$ Creature | TargetUnique$ True | TgtPrompt$ Select target creature to teach vigilance | ConditionDefined$ Targeted | ConditionPresent$ Creature.withVigilance | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBVigilance | SpellDescription$ Teach target creature vigilance.
+SVar:DBVigilance:DB$ PutCounter | Defined$ ParentTarget | ConditionDefined$ ParentTarget | ConditionPresent$ Creature.withoutVigilance | CounterType$ Vigilance | CounterNum$ 1
+SVar:X:Count$xPaid
+SVar:TargetCount:Count$Valid Creature.YourTeamCtrl/LimitMax.3
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Counters|LifeGain
+Oracle:At the beginning of combat on your turn, you may pay {X}. When you do, choose up to X. Each mode must have different targets.\n• Teach target creature flying. (To teach a keyword, put a counter of that kind on it. If it already has that keyword, put a +1/+1 counter on it instead.)\n• Teach target creature lifelink.\n• Teach target creature vigilance.

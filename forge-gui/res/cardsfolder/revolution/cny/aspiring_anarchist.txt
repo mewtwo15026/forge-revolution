@@ -1,0 +1,13 @@
+Name:Aspiring Anarchist
+ManaCost:G
+Types:Creature Crocodile Rebel
+PT:1/1
+K:Trample
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigTarget | OptionalDecider$ You | TriggerDescription$ Whenever this creature attacks, you may have its base power and toughness become equal to the power and toughness of another target attacking creature until end of turn.
+SVar:TrigTarget:DB$ Pump | ValidTgts$ Creature.attacking+Other | TgtPrompt$ Select another attacking creature | SubAbility$ DBAnimate | StackDescription$ None
+SVar:DBAnimate:DB$ Animate | Defined$ Self | Power$ X | Toughness$ Y
+SVar:X:Targeted$CardPower
+SVar:Y:Targeted$CardToughness
+SVar:HasAttackEffect:TRUE
+SVar:BuffedBy:Creature.withoutDefender+powerGT1,Creature.withoutDefender+toughnessGT1
+Oracle:Trample\nWhenever Aspiring Anarchist attacks, you may have its base power and toughness become equal to the power and toughness of another target attacking creature until end of turn.

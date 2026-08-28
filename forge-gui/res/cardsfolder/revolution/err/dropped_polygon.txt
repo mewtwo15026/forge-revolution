@@ -1,7 +1,7 @@
 Name:Dropped_Polygon
 ManaCost:4 B B
 Types:Creature Error
-PT:6/7
+PT:6/5
 K:Menace
 K:TypeCycling:Swamp:2
 DeckHas:Ability$Discard

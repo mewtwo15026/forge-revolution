@@ -1,6 +1,6 @@
 Name:Mirage Model
 ManaCost:1 G
-Types:Creature Human Shaman
+Types:Creature Human Druid
 PT:1/1
 A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
 A:AB$ Mana | Cost$ T | Amount$ 2 | Produced$ G | RestrictValid$ nonSpell | SpellDescription$ Add {G}{G}. You can't spend this mana to cast spells.

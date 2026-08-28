@@ -1,0 +1,7 @@
+Name:Leonin Revivalist
+ManaCost:1 G
+Types:Creature Cat Druid
+PT:1/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRamp | TriggerDescription$ When this creature enters, you may put a basic land card from your hand or graveyard onto the battlefield tapped.
+SVar:TrigRamp:DB$ ChangeZone | ChangeType$ Land.Basic+YouOwn | ChangeNum$ 1 | Origin$ Hand,Graveyard | Hidden$ True | Tapped$ True | Destination$ Battlefield
+Oracle:When this creature enters, you may put a basic land card from your hand or graveyard onto the battlefield tapped.

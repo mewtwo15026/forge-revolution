@@ -1,0 +1,14 @@
+Name:The Great Singularity
+ManaCost:2 W W W
+Types:Legendary Enchantment
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Destination$ Battlefield | ValidCard$ Creature.YouCtrl | Execute$ TrigGainLife | TriggerDescription$ Whenever a creature you control enters, attacks, or dies, you gain 1 life.
+T:Mode$ Attacks | TriggerZones$ Battlefield | ValidCard$ Creature.YouCtrl | Execute$ TrigGainLife | Secondary$ True | TriggerDescription$ Whenever a creature you control enters, attacks, or dies, you gain 1 life.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.YouCtrl | Execute$ TrigGainLife | Secondary$ True | TriggerDescription$ Whenever a creature you control enters, attacks, or dies, you gain 1 life.
+SVar:TrigGainLife:DB$ GainLife | LifeAmount$ 1
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | LifeTotal$ You | LifeAmount$ GE50 | Execute$ TrigWin | TriggerDescription$ At the beginning of your upkeep, if you have 50 or more life, you win the game.
+SVar:TrigWin:DB$ WinsGame | Defined$ You
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Creature
+DeckHas:Ability$LifeGain
+DeckHints:Ability$LifeGain
+Oracle:Whenever a creature you control enters, attacks, or dies, you gain 1 life.\nAt the beginning of your upkeep, if you have 50 or more life, you win the game.

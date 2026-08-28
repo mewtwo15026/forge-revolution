@@ -1,0 +1,10 @@
+Name:Noxious Conditions
+ManaCost:3 B
+Types:Instant
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -2 | NumDef$ -2 | IsCurse$ True | RememberPumped$ True | SubAbility$ DBEffect | SpellDescription$ All creatures get -2/-2 until end of turn. Until end of turn, whenever one of those creatures dies, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:DBEffect:DB$ Effect | RememberObjects$ Remembered | ForgetOnMoved$ Battlefield | Triggers$ OnDies | SubAbility$ DBCleanup
+SVar:OnDies:DB$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.IsRemembered | Execute$ TrigToken | TriggerDescription$ Until end of turn, whenever one of those creatures dies, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")
+SVar:TrigToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenTapped$ True
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+DeckHas:Ability$Sacrifice & Type$Treasure
+Oracle:All creatures get -2/-2 until end of turn. Until end of turn, whenever one of those creatures dies, create a tapped Treasure token. (It's an artifact with "{T}, Sacrifice this artifact: Add one mana of any color.")

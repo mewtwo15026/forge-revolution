@@ -2,8 +2,10 @@ Name:Emblazoned Prophet
 ManaCost:R
 Types:Creature Human Shaman
 PT:1/1
-K:Menace
-T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to the player or permanent it's attacking for each spell you've cast this turn.
-SVar:TrigBurn:DB$ DealDamage | Defined$ TriggeredDefender.Opponent & Valid Permanent.TriggeredDefender | NumDmg$ X
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigBurn | TriggerZones$ Battlefield | TriggerDescription$ Whenever CARDNAME attacks, it deals 1 damage to defending player for each spell you've cast this turn.
+SVar:TrigBurn:DB$ DealDamage | Defined$ TriggeredDefendingPlayer | NumDmg$ X
 SVar:X:Count$ThisTurnCast_Card.YouCtrl
-Oracle:Menace\nWhenever Emblazoned Prophet attacks, it deals 1 damage to the player or permanent it's attacking for each spell you've cast this turn.
+A:AB$ Dig | Cost$ 4 R | SorcerySpeed$ True | Defined$ You | DigNum$ 4 | ChangeNum$ All | DestinationZone$ Exile | RememberChanged$ True | SubAbility$ DBPlay | StackDescription$ SpellDescription | SpellDescription$ Exile the top four cards of your library. You may cast a spell exiled this way with mana value 3 or less without paying its mana cost. Activate only as a sorcery.
+SVar:DBPlay:DB$ Play | Valid$ Card.IsRemembered+YouOwn+nonLand+cmcLE3 | ValidSA$ Spell | ValidZone$ Exile | Controller$ You | WithoutManaCost$ True | Optional$ True | Amount$ 1 | SubAbility$ DBCleanup | StackDescription$ None
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Menace\nWhenever Emblazoned Prophet attacks, it deals 1 damage to defending player for each spell you've cast this turn.\n{4}{R}: Exile the top four cards of your library. You may cast a spell exiled this way with mana value 3 or less without paying its mana cost. Activate only as a sorcery.

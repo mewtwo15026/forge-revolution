@@ -1,0 +1,14 @@
+Name:Guild Elite
+ManaCost:B G
+Types:Creature Human Mercenary Noble
+PT:2/2
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigPump | TriggerDescription$ Whenever this creature attacks, you may sacrifice another nonland permanent. If you do, it gets +2/+2 until end of turn.
+SVar:TrigPump:AB$ Pump | Cost$ Sac<1/Permanent.nonLand+Other/another nonland permanent> | Defined$ Self | NumAtt$ +2 | NumDef$ +2
+K:vlr_Pursuit:1 B G
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 1 B G Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {1}{B}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:1
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Graveyard|Sacrifice
+Oracle:Whenever this creature attacks, you may sacrifice another nonland permanent. If you do, it gets +2/+2 until end of turn.\nPursuit {1}{B}{G} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

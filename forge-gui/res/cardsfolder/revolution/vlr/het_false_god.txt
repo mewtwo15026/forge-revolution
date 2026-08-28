@@ -1,0 +1,11 @@
+Name:Het, False God
+ManaCost:5 B B
+Types:Legendary Creature Elder Spirit
+PT:7/7
+K:Flying
+K:Lifelink
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.nonToken | TriggerZones$ Battlefield | Execute$ TrigCopy | TriggerDescription$ Whenever a nontoken creature dies, you may pay 3 life. If you do, create a token that's a copy of it, except it's a 0/1 Warlock and it has "{1}, Sacrifice this creature: Surveil 1."
+SVar:TrigCopy:AB$ CopyPermanent | Cost$ PayLife<3> | Defined$ TriggeredCardLKICopy | SetPower$ 0 | SetToughness$ 1 | RemoveSubTypes$ True | AddTypes$ Warlock | AddAbilities$ Sacolyte
+SVar:Sacolyte:AB$ Surveil | Cost$ 1 Sac<1/CARDNAME> | Amount$ 1 | SpellDescription$ Surveil 1.
+DeckHints:Ability$LifeGain
+Oracle:Flying, lifelink\nWhenever a nontoken creature dies, you may pay 3 life. If you do, create a token that's a copy of it, except it's a 0/1 Warlock and it has "{1}, Sacrifice this creature: Surveil 1."

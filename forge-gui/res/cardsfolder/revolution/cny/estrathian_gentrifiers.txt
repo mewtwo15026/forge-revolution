@@ -1,0 +1,12 @@
+Name:Estrathian Gentrifiers
+ManaCost:1 R G
+Types:Creature Human Artificer
+PT:*/3
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | Description$ CARDNAME's power is equal to the number of differently named lands you control.
+SVar:X:Count$Valid Land.YouCtrl$DifferentCardNames
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRotate | TriggerDescription$ Whenever CARDNAME enters or attacks, you may sacrifice a basic land. If you do, search your library for a land card, put it onto the battlefield, then shuffle.
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigRotate | TriggerDescription$ Whenever CARDNAME enters or attacks, you may sacrifice a basic land. If you do, search your library for a land card, put it onto the battlefield, then shuffle.
+SVar:TrigRotate:AB$ ChangeZone | Cost$ Sac<1/Land.Basic/basic land> | Origin$ Library | Destination$ Battlefield | ChangeType$ Land | ChangeNum$ 1
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Sacrifice
+Oracle:Estrathian Gentrifiers's power is equal to the number of differently named lands you control.\nWhenever Estrathian Gentrifiers enters or attacks, you may sacrifice a basic land. If you do, search your library for a land card, put it onto the battlefield, then shuffle.

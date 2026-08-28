@@ -1,0 +1,13 @@
+Name:Turen, Untouchable
+ManaCost:1 U R
+Types:Legendary Creature Azra Rogue
+PT:3/2
+K:Haste
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTap | TriggerDescription$ When NICKNAME enters, tap target creature you don't control.
+SVar:TrigTap:DB$ Tap | ValidTgts$ Creature.YouDontCtrl | TgtPrompt$ Select target creature you don't control
+T:Mode$ DamageDone | ValidSource$ Rogue.YouCtrl | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigBounceA | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever a Rogue you control deals combat damage to a player or becomes blocked, you may return it to its owner's hand.
+T:Mode$ AttackerBlocked | ValidCard$ Rogue.YouCtrl | Execute$ TrigBounceB | Secondary$ True | TriggerZones$ Battlefield | OptionalDecider$ You | TriggerDescription$ Whenever a Rogue you control deals combat damage to a player or becomes blocked, you may return it to its owner's hand.
+SVar:TrigBounceA:DB$ ChangeZone | Defined$ TriggeredSourceLKICopy | Origin$ Battlefield | Destination$ Hand
+SVar:TrigBounceB:DB$ ChangeZone | Defined$ TriggeredBlockerLKICopy | Origin$ Battlefield | Destination$ Hand
+AI:RemoveDeck:All
+Oracle:Haste\nWhen Turen enters, tap target creature you don't control.\nWhenever a Rogue you control deals combat damage to a player or becomes blocked, you may return it to its owner's hand.

@@ -1,0 +1,18 @@
+Name:Sillaman Agenda
+ManaCost:G W U
+Types:Instant
+A:SP$ Charm | MinCharmNum$ 0 | CharmNum$ SillamanCount | Choices$ DBCounter,DBDraw,DBUntap
+SVar:DBCounter:DB$ PutCounter | ValidTgts$ Creature | AITgts$ Creature.YouCtrl | CounterType$ P1P1 | CounterNum$ 2 | SpellDescription$ Put two +1/+1 counters on target creature.
+SVar:DBDraw:DB$ Draw | NumCards$ W | ValidTgts$ Player | TgtPrompt$ Select target player to draw cards | SpellDescription$ Target player draws a card for each creature they control with a counter on it.
+SVar:W:Count$Valid Creature.HasCounters+TargetedPlayerCtrl
+SVar:DBUntap:DB$ UntapAll | ValidTgts$ Player | TgtPrompt$ Select target player to untap their nonland permanents | ValidCards$ Permanent.nonLand | SpellDescription$ Untap all nonland permanents target player controls.
+SVar:SillamanCount:SVar$XY/Plus.Z
+SVar:XY:SVar$X/Plus.Y
+SVar:X:Count$Valid Permanent.Green+YouCtrl/LimitMax.1
+SVar:Y:Count$Valid Permanent.White+YouCtrl/LimitMax.1
+SVar:Z:Count$Valid Permanent.Blue+YouCtrl/LimitMax.1
+SVar:NeedsToPlayVar:SillamanCount GE1
+SVar:BuffedBy:Permanent.Green,Permanent.White,Permanent.Blue
+DeckHas:Ability$Counters
+DeckHints:Ability$Counters
+Oracle:Choose up to one for each color among green, white, and blue among permanents you control.\n• Put two +1/+1 counters on target creature.\n• Target player draws a card for each creature they control with a counter on it.\n• Untap all nonland permanents target player controls.

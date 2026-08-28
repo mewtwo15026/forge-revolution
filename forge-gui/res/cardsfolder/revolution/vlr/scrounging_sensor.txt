@@ -1,0 +1,7 @@
+Name:Scrounging Sensor
+ManaCost:2
+Types:Artifact
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Menace\nWhen this creature enters, you may search your library for a basic land card, exile it, then shuffle. You may put that card on top of your library. If you don't, put it into your graveyard.

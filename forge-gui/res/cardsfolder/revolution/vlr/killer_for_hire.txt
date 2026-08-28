@@ -1,0 +1,8 @@
+Name:Killer-for-Hire
+ManaCost:2 BG BG
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Deathtouch\nWhen this creature enters, create a Treasure token.

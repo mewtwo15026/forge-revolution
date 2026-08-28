@@ -1,0 +1,8 @@
+Name:Estrathe, Center of Civilization
+ManaCost:no cost
+Types:Legendary Land
+A:AB$ Mana | Cost$ T | Produced$ C | SpellDescription$ Add {C}.
+A:AB$ Mana | Cost$ 2 T | Produced$ Special EachColorAmong_Valid Permanent.YouCtrl | SpellDescription$ For each color among permanents you control, add one mana of that color.
+SVar:BuffedBy:Permanent.MultiColor
+DeckHas:Ability$Mana.Colorless
+Oracle:{T}: Add {C}.\n{2}, {T}: For each color among permanents you control, add one mana of that color.

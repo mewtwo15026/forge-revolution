@@ -1,0 +1,7 @@
+Name:Tear Down
+ManaCost:3 R
+Types:Sorcery
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Tear Down deals 6 damage to target creature. Creature tokens can't block this turn.

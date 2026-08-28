@@ -1,0 +1,8 @@
+Name:Tomer, Figurehead President
+ManaCost:4
+Types:Legendary Creature Human Advisor
+PT:4/4
+S:Mode$ Continuous | Affected$ Card.Self | CharacteristicDefining$ True | SetColor$ All | AddAllCreatureTypes$ True | Description$ CARDNAME is all colors and all creature types.
+S:Mode$ Continuous | AddKeyword$ Conspire | Affected$ Card.YouCtrl+wasCast | AffectedZone$ Stack | EffectZone$ Battlefield | Description$ Spells you cast have conspire. (As you cast a spell with conspire, you may tap two untapped creatures you control that share a color with it. When you do, copy it.)
+Text:Designed by AllWhoWander
+Oracle:Tomer, Figurehead President is all colors and all creature types.\nSpells you cast have conspire. (As you cast a spell with conspire, you may tap two untapped creatures you control that share a color with it. When you do, copy it.)\nDesigned by AllWhoWander

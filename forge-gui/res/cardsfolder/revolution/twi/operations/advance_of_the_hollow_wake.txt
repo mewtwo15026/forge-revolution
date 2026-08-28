@@ -1,6 +1,6 @@
 Name:Advance of the Hollow Wake
 ManaCost:1 B B
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigToken | TriggerDescription$ When CARDNAME enters, create two 2/2 black Zombie creature tokens with “This creature can't block.”
 SVar:TrigToken:DB$ Token | TokenScript$ b_2_2_zombie_cantblock | TokenAmount$ 2

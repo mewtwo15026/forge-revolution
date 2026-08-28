@@ -1,0 +1,11 @@
+Name:Solemn Procession
+ManaCost:X W W
+Types:Sorcery
+A:SP$ ChooseType | Cost$ XMin1 X W W | AILogic$ MaxX | Type$ Creature | AILogic$ MostProminentInComputerGraveyard | SubAbility$ DBStore | SpellDescription$ Choose a creature type. For each mana value from 1 to X, you may return a creature card with that mana value and the chosen type to the battlefield. X can't be 0. Exile CARDNAME.
+SVar:DBStore:DB$ StoreSVar | SVar$ TargetMV | Type$ Number | Expression$ 1 | SubAbility$ DBRepeat
+SVar:DBRepeat:DB$ Repeat | RepeatCheckSVar$ TargetMV | RepeatSVarCompare$ LEX | RepeatSubAbility$ RepeatReturn | SubAbility$ DBExile | StackDescription$ None
+SVar:RepeatReturn:DB$ ChangeZone | ChangeType$ Creature.ChosenType+YouOwn+cmcEQTargetMV | Origin$ Graveyard | Destination$ Battlefield | ChangeNum$ 1 | Hidden$ True | SubAbility$ RepeatIncr
+SVar:RepeatIncr:DB$ StoreSVar | SVar$ TargetMV | Type$ CountSVar | Expression$ TargetMV/Plus.1
+SVar:DBExile:DB$ ChangeZone | Origin$ Stack | Destination$ Exile
+SVar:X:Count$xPaid
+Oracle:Choose a creature type. For each mana value from 1 to X, you may return a creature card with that mana value and the chosen type to the battlefield. X can't be 0.\nExile Solemn Procession.

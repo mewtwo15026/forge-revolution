@@ -2,7 +2,7 @@
 Code=PIO
 Date=2024-12-10
 Name=Pioneer Masters
-Type=Reprint
+Type=Online
 ScryfallCode=PIO
 # https://magic.wizards.com/en/news/mtg-arena/collecting-pioneer-masters
 BoosterSlots=Common,Variety,Uncommon,RareMythic,Guildgate,BonusSheet

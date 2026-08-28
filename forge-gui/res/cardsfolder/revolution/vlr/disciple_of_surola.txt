@@ -1,0 +1,8 @@
+Name:Disciple of Surola
+ManaCost:2 B
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, create an Acolyte token. (It's a 0/1 white and black Warlock creature with \{1}, Sacrifice this token: Surveil 1.\)\n{B}, Sacrifice another creature: This creature gets +2/+0 until end of turn.

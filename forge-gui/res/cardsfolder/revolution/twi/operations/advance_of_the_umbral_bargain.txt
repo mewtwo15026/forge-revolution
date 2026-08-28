@@ -1,6 +1,6 @@
 Name:Advance of the Umbral Bargain
 ManaCost:1 B
-Types:Battle Operation
+Types:Enchantment Battle Operation
 Defense:4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigRemove | TriggerDescription$ When CARDNAME enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card. If they do, you lose 1 life.
 SVar:TrigRemove:DB$ Discard | ValidTgts$ Opponent | NumCards$ 1 | Mode$ RevealYouChoose | DiscardValid$ Card.nonLand | RememberDiscarded$ True | SubAbility$ DBLoseLife

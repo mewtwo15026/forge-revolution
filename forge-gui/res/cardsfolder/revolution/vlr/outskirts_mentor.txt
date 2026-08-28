@@ -1,0 +1,8 @@
+Name:Outskirts Mentor
+ManaCost:2 W
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Muster - Whenever you cast a creature spell, put a +1/+1 counter on up to one target creature you control. That creature gains first strike until end of turn.

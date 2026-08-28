@@ -2,7 +2,7 @@ Name:Feeble Fish
 ManaCost:1 U
 Types:Creature Fish
 PT:0/1
-T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.nonManaAbility | TriggerZones$ Command | Execute$ TrigCounter | ResolvedLimit$ 1 | OptionalDecider$ You | TriggerDescription$ Whenever you activate a nonmana ability, you may put a +1/+1 counter on CARDNAME. Then if there are three or more +1/+1 counters on it, remove them all and transform it. Do this only once each turn.
+T:Mode$ AbilityCast | ValidActivatingPlayer$ You | ValidSA$ SpellAbility.!ManaAbility | TriggerZones$ Command | Execute$ TrigCounter | ResolvedLimit$ 1 | OptionalDecider$ You | TriggerDescription$ Whenever you activate a nonmana ability, you may put a +1/+1 counter on CARDNAME. Then if there are three or more +1/+1 counters on it, remove them all and transform it. Do this only once each turn.
 SVar:TrigCounter:DB$ PutCounter | Defined$ Self | CounterNum$ 1 | CounterType$ P1P1 | SubAbility$ DBTransform
 SVar:DBTransform:DB$ SetState | Defined$ Self | Mode$ Transform | ConditionDefined$ Self | ConditionPresent$ Card.counters_GE3_P1P1
 DeckHas:Ability$Counters

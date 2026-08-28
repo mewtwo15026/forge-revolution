@@ -1,0 +1,9 @@
+Name:Enlightenment
+ManaCost:4 U
+Types:Enchantment
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigDraw | TriggerDescription$ When CARDNAME enters, draw a card for each color of mana spent to cast it.
+SVar:TrigDraw:DB$ Draw | NumCards$ X
+SVar:X:TriggeredCard$Converge
+S:Mode$ Continuous | Affected$ You | SetMaxHandSize$ Unlimited | Description$ You have no maximum hand size.
+DeckHints:Color$White|Black|Red|Green
+Oracle:When Enlightenment enters, draw a card for each color of mana spent to cast it.\nYou have no maximum hand size.

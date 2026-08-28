@@ -7,6 +7,13 @@ SVar:TrigGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 2
 # TODO: implement Chant
 #K:twi_Chant:B
 #A:SP$ Chant | Mode$ GainLife | LifeAmount$ 2 | SpellDescription$ You gain 2 life.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {B} - You gain 2 life.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - You gain 2 life.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {U} - You gain 2 life.
+SVar:TrigChant:AB$ Effect | Cost$ B ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigGainLife | TriggerDescription$ Chant - You gain 2 life.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ B | Execute$ TrigGainLife | TriggerDescription$ Chant - You gain 2 life.
+DeckHints:Type$Instant|Sorcery
 DeckHas:Ability$LifeGain
-Oracle:Whenever you cast a noncreature spell, [you gain 2 life.]\n
-Chant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+Oracle:Whenever you cast a noncreature spell, [you gain 2 life.]\nChant {B} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

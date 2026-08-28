@@ -1,0 +1,14 @@
+Name:Surola, Vile Preacher
+ManaCost:W B
+Types:Legendary Creature Rat Warlock
+PT:2/2
+K:Lifelink
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Warlock.Other+YouCtrl | Execute$ TrigDrain | TriggerDescription$ Whenever another Warlock you control dies, each opponent loses 1 life and you gain 1 life.
+SVar:TrigDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1 | SubAbility$ DBGainLife
+SVar:DBGainLife:DB$ GainLife | Defined$ You | LifeAmount$ 1
+T:Mode$ Phase | Phase$ End of Turn | ValidPlayer$ You | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your end step, draw a card if you've gained 3 or more life this turn.
+SVar:TrigDraw:DB$ Draw | ConditionCheckSVar$ X | ConditionSVarCompare$ GE3
+SVar:X:Count$LifeYouGainedThisTurn
+DeckHas:Ability$LifeGain
+DeckHints:Type$Warlock & Ability$LifeGain
+Oracle:Lifelink\nWhenever another Warlock you control dies, each opponent loses 1 life and you gain 1 life.\nAt the beginning of your end step, draw a card if you've gained 3 or more life this turn.

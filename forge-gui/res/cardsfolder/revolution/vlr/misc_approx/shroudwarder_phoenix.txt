@@ -1,0 +1,16 @@
+Name:Shroudwarder Phoenix
+ManaCost:2 R G
+Types:Creature Phoenix
+PT:3/2
+K:Flying
+K:Trample
+K:Haste
+T:Mode$ Phase | Phase$ BeginCombat | ValidPlayer$ You | Execute$ TrigReturn | TriggerZones$ Graveyard | CheckSVar$ X | OptionalDecider$ You | TriggerDescription$ At the beginning of combat on your turn, if you've cast a spell with mana value 4 or greater this turn, you may return this card from your graveyard to the battlefield tapped and attacking with a finality counter on it. (If a creature with a finality counter on it would die, exile it instead.)
+# NOTE: this doesn't work, so we give it "it attacks this combat if able" a la Raving Dead
+# SVar:TrigReturn:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | Attacking$ True | WithCountersType$ FINALITY
+SVar:TrigReturn:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Battlefield | WithCountersType$ FINALITY | SubAbility$ DBEffect
+SVar:DBEffect:DB$ Effect | StaticAbilities$ AttackChosen | Duration$ UntilEndOfCombat
+SVar:AttackChosen:Mode$ MustAttack | ValidCreature$ Card.EffectSource | Description$ EFFECTSOURCE attacks this combat if able.
+SVar:X:Count$ThisTurnCast_Card.YouCtrl+cmcGE4
+DeckHas:Ability$Graveyard
+Oracle:Flying, trample, haste\nAt the beginning of combat on your turn, if you've cast a spell with mana value 4 or greater this turn, you may return this card from your graveyard to the battlefield tapped and attacking with a finality counter on it. (If a creature with a finality counter on it would die, exile it instead.)

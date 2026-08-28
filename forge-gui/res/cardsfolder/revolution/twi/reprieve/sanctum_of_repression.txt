@@ -8,4 +8,4 @@ SVar:X:Count$Compare Y GE1.31.3
 SVar:Y:Count$Valid Card.Self+HasReprieved
 SVar:PlayMain1:TRUE
 SVar:NeedsToPlay:Permanent.nonLand+YouDontCtrl+cmcLE3
-Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Sanctum of Repression enters, you may destroy target artifact or enchantment if it has mana value 1 or less or if Sanctum of Repression reprieved a creature.
+Oracle:Reprieve (As this permanent enters, you may return a creature you control without reprieve to its owner's hand.)\nWhen Sanctum of Repression enters, exile target nonland permanent you don't control until Sanctum of Repression leaves the battlefield if it reprieved a creature or that permanent's mana value is 3 or less.

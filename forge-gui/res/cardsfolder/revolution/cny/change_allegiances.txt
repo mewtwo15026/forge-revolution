@@ -1,0 +1,8 @@
+Name:Change Allegiances
+ManaCost:1 W
+Types:Sorcery
+A:SP$ Charm | Choices$ DBReturn,DBDestroy
+SVar:DBReturn:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Artifact.YouCtrl,Enchantment.YouCtrl | TgtPrompt$ Select target artifact or enchantment card in your graveyard | SpellDescription$ Return target artifact or enchantment card from your graveyard to your hand.
+SVar:DBDestroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment | TgtPrompt$ Select target artifact or enchantment | SpellDescription$ Destroy target artifact or enchantment.
+DeckHints:Type$Artifact|Enchantment
+Oracle:Choose one -\n• Return target artifact or enchantment card from your graveyard to your hand.\n• Destroy target artifact or enchantment.

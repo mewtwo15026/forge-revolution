@@ -1,0 +1,11 @@
+Name:Judge, Jury, and Executioner
+ManaCost:3 B
+Types:Creature Human Advisor Citizen Assassin
+PT:3/2
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigExile | TriggerDescription$ When CARDNAME enters, exile up to one target creature with mana value less than or equal to your approval. (Your approval contains up to one different permanent of each color.)
+SVar:TrigExile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.cmcLEX | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature with mana value less than or equal to your approval | IsCurse$ True
+SVar:X:Count$Approval
+SVar:BuffedBy:Permanent.nonColorless
+DeckHints:Color$White|Blue|Red|Green
+Oracle:Flying\nWhen Judge, Jury, and Executioner enters, exile up to one target creature with mana value less than or equal to your approval. (Your approval contains up to one different permanent of each color.)

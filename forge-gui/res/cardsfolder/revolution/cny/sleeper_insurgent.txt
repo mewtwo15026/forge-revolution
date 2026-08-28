@@ -1,0 +1,8 @@
+Name:Sleeper Insurgent
+ManaCost:1 G
+Types:Creature Human Rebel
+PT:4/3
+R:Event$ Untap | ValidCard$ Card.Self | ValidStepTurnToController$ You | Layer$ CantHappen | Description$ CARDNAME doesn't untap during your untap step.
+T:Mode$ BecomesTarget | ValidTarget$ Card.Self | ValidSource$ SpellAbility.YouCtrl | TriggerZones$ Battlefield | Execute$ TrigUntap | ActivationLimit$ 1 | TriggerDescription$ Whenever CARDNAME becomes the target of a spell or ability you control, untap it. This ability triggers only once each turn.
+SVar:TrigUntap:DB$ Untap | Defined$ Self
+Oracle:Sleeper Insurgent doesn't untap during your untap step.\nWhenever Sleeper Insurgent becomes the target of a spell or ability you control, untap it. This ability triggers only once each turn.

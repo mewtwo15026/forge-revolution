@@ -1,0 +1,8 @@
+Name:Bug the Line
+ManaCost:2 U
+Types:Sorcery
+A:SP$ Draw | NumCards$ 2 | SubAbility$ DBGainLife | SpellDescription$ Draw two cards. If {W} was spent to cast this spell, you gain 2 life. If {B} was spent to cast this spell, each opponent loses 2 life.
+SVar:DBGainLife:DB$ GainLife | LifeAmount$ 2 | ConditionManaSpent$ W | SubAbility$ DBDrain
+SVar:DBDrain:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 2 | ConditionManaSpent$ B
+DeckHints:Color$White|Black
+Oracle:Draw two cards. If {W} was spent to cast this spell, you gain 2 life. If {B} was spent to cast this spell, each opponent loses 2 life.

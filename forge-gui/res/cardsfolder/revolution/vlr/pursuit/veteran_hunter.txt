@@ -1,0 +1,17 @@
+Name:Veteran Hunter
+ManaCost:2 B
+Types:Creature Rat Mercenary
+PT:3/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChoose | TriggerDescription$ When this creature enters, choose up to one target creature. Its controller sacrifices it unless they pay 3 life or discard a card.
+SVar:TrigChoose:DB$ ChooseCard | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target creature | SubAbility$ DBChoice
+SVar:DBChoice:DB$ GenericChoice | Choices$ PayLife,PayDisc | Defined$ TargetedController | FallbackAbility$ SacFallback | AILogic$ PayUnlessCost
+SVar:PayLife:DB$ SacrificeAll | Defined$ Targeted | UnlessCost$ PayLife<3> | UnlessPayer$ TargetedController | SpellDescription$ Pay 3 life.
+SVar:PayDisc:DB$ SacrificeAll | Defined$ Targeted | UnlessCost$ Discard<1/Card> | UnlessPayer$ TargetedController | SpellDescription$ Discard a card.
+SVar:SacFallback:DB$ SacrificeAll | Defined$ Targeted
+K:vlr_Pursuit:1 B B
+A:ST$ Play | Name$ Pursuit | ActivationZone$ Graveyard | Cost$ 0 | PlayCost$ 1 B B Sac<1/Permanent.nonLand> | Defined$ Self | ValidSA$ Spell.CouldCastTiming | ValidZone$ Graveyard | CopyCard$ True | RememberPlayed$ True | SubAbility$ PursuitExile | SpellDescription$ Pursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)
+SVar:PursuitExile:DB$ ChangeZone | Defined$ Self | Origin$ Graveyard | Destination$ Exile | ConditionDefined$ Remembered | ConditionZone$ Stack | ConditionPresent$ Card | SubAbility$ PursuitCleanup
+SVar:PursuitCleanup:DB$ Cleanup | ClearRemembered$ True
+SVar:DiscardMe:1
+DeckHas:Ability$Graveyard|Sacrifice
+Oracle:When this creature enters, choose up to one target creature. Its controller sacrifices it unless they pay 3 life or discard a card.\nPursuit {1}{B}{B} (You may cast a copy of this card from your graveyard for its pursuit cost by exiling it and sacrificing a nonland permanent.)

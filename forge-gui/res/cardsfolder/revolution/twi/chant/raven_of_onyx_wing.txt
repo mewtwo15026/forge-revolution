@@ -8,5 +8,12 @@ SVar:TrigChangeZone:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+YouDontCtrl | 
 # TODO: implement Chant
 #K:twi_Chant:1 U
 #A:SP$ Chant | Mode$ ChangeZone | ValidTgts$ Permanent.nonLand+YouDontCtrl | TgtPrompt$ Select target nonland permanent you don't control | Origin$ Battlefield | Destination$ Hand | SpellDescription$ Return target nonland permanent you don't control to its owner's hand.
-Oracle:Flying\nWhen Raven of Onyx Wing enters, [return target nonland permanent you don't control to its owner's hand.]\n
-Chant {1}{U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Hand | OptionalDecider$ You | Execute$ TrigChant | Static$ True | TriggerDescription$ Chant {1}{U} - Return target nonland permanent you don't control to its owner's hand.
+T:Mode$ SpellCast | ValidCard$ Card.namedUnravel Thoughts | ValidActivatingPlayer$ You | TriggerZones$ Graveyard | OptionalDecider$ You | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {1}{U} - Return target nonland permanent you don't control to its owner's hand.
+T:Mode$ SpellCast | ValidCard$ Instant,Sorcery | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | IsPresent$ Permanent.YouCtrl+withCurrentspeaking | Execute$ TrigChantNopitch | Secondary$ True | Static$ True | TriggerDescription$ Chant {1}{U} - Return target nonland permanent you don't control to its owner's hand.
+SVar:TrigChant:AB$ Effect | Cost$ 1 U ExileFromHand<1/CARDNAME> | RememberObjects$ Self | StaticAbilities$ MayPlay | ForgetOnMoved$ Exile | Duration$ Permanent | SubAbility$ DBImmeTrig
+SVar:MayPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may cast this card as long as it remains exiled.
+SVar:DBImmeTrig:DB$ ImmediateTrigger | Execute$ TrigChangeZone | TriggerDescription$ Chant - Return target nonland permanent you don't control to its owner's hand.
+SVar:TrigChantNopitch:AB$ ImmediateTrigger | Cost$ 1 U | Execute$ TrigChangeZone | TriggerDescription$ Chant - Return target nonland permanent you don't control to its owner's hand.
+DeckHints:Type$Instant|Sorcery
+Oracle:Flying\nWhen Raven of Onyx Wing enters, [return target nonland permanent you don't control to its owner's hand.]\nChant {1}{U} (As you cast an instant or sorcery, you may exile this from hand and pay its chant cost to add this card's bracketed effects to that spell. You may cast this later from exile.)

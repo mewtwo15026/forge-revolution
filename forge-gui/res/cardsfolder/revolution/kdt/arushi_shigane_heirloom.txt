@@ -2,9 +2,11 @@ Name:Arushi, Shigane Heirloom
 ManaCost:G
 Types:Legendary Artifact Equipment
 S:Mode$ Continuous | Affected$ Creature.EquippedBy | AddPower$ 1 | AddToughness$ 1 | Description$ Equipped creature gets +1/+1.
-S:Mode$ ReduceCost | ValidCard$ Card | ValidSpell$ Activated.Ninjutsu | Activator$ You | Amount$ 1 | Description$ Ninjutsu abilities you activate cost {1} less to activate.
-T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Ninja+YouCtrl | TriggerZones$ Battlefield | Execute$ HeroAttach | OptionalDecider$ You | TriggerDescription$ Whenever a Ninja creature you control enters, you may attach NICKNAME to that creature.
+T:Mode$ DamageDone | ValidSource$ Creature.EquippedBy | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigDraw | TriggerZones$ Battlefield | TriggerDescription$ Whenever equipped creature deals combat damage to a player, draw a card.
+SVar:TrigDraw:DB$ Draw
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Creature.Ninja+YouCtrl | TriggerZones$ Battlefield | CheckSVar$ YourMainPhase | Execute$ HeroAttach | OptionalDecider$ You | TriggerDescription$ Whenever a creature you control enters, if it isn't your main phase, you may attach NICKNAME to that creature.
 SVar:HeroAttach:DB$ Attach | Defined$ TriggeredCardLKICopy
-K:Equip:1
-DeckHints:Type$Ninja & Keyword$Changeling|Ninjutsu
-Oracle:Equipped creature gets +1/+1.\nNinjutsu abilities you activate cost {1} less to activate.\nWhenever a Ninja creature you control enters, you may attach Arushi to that creature.\nEquip {1}
+K:Equip:3
+SVar:YourMainPhase:Count$InOwnMainPhase.0.1
+DeckHints:Keyword$Flash|Ninjutsu|Sneak
+Oracle:Equipped creature gets +1/+1.\nWhenever equipped creature deals combat damage to a player, draw a card.\nWhenever a creature you control enters, if it isn't your main phase, you may attach Arushi to that creature.\nEquip {3}

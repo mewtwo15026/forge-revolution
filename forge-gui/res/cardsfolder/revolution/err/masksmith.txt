@@ -1,6 +1,6 @@
 Name:Masksmith
 ManaCost:1 G
-Types:Creature
+Types:Creature Elf Druid
 PT:3/2
 A:AB$ Charm | Cost$ 1 Sac<1/CARDNAME> | Choices$ DBDestroyArtifact,DBDestroyEnchantment,DBExile
 SVar:DBDestroyArtifact:DB$ Destroy | ValidTgts$ Artifact | TgtPrompt$ Select target artifact | SpellDescription$ Destroy target artifact.

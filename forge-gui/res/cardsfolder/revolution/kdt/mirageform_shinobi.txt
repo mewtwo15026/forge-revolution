@@ -2,8 +2,8 @@ Name:Mirageform Shinobi
 ManaCost:1 G
 Types:Creature Human Ninja
 PT:2/1
-K:Ninjutsu:G
+K:Sneak:G
 T:Mode$ DamageDone | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | Execute$ TrigPutCounter | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, put a +1/+1 counter on target creature you control that doesn't have a +1/+1 counter on it.
 SVar:TrigPutCounter:DB$ PutCounter | ValidTgts$ Creature.YouCtrl+counters_EQ0_P1P1 | TgtPrompt$ Select target creature you control that doesn't have a +1/+1 counter on it | CounterType$ P1P1 | CounterNum$ 1
 DeckHas:Ability$Counters
-Oracle:Ninjutsu {G} ({G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, put a +1/+1 counter on target creature you control that doesn't have a +1/+1 counter on it.
+Oracle:Sneak {G} (You may cast this spell for {G} if you also return an unblocked attacker you control to hand during the declare blockers step. It enters tapped and attacking.)\nWhenever this creature deals combat damage to a player, put a +1/+1 counter on target creature you control that doesn't have a +1/+1 counter on it.

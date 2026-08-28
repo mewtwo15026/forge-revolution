@@ -1,0 +1,27 @@
+Name:Sparks of a Revolution
+ManaCost:R
+Types:Enchantment Policy
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigSpark | TriggerDescription$ When CARDNAME enters, create a 1/1 colorless Soldier creature token. It gains haste until end of turn.
+SVar:TrigSpark:DB$ Token | TokenScript$ c_1_1_soldier | PumpKeywords$ Haste | PumpDuration$ EndOfTurn
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankA | SVarCompare$ GE3 | Duration$ Permanent | Keywords$ Complete_A | SubAbility$ PolicyMarked | SpellDescription$ A - Three or more sources you controlled dealt damage this turn.
+A:ST$ Animate | Cost$ 0 | SorcerySpeed$ True | IsPresent$ Card.Self+withoutMarkedThisTurn | CheckSVar$ PlankB | SVarCompare$ GE3 | Duration$ Permanent | Keywords$ Complete_B | SubAbility$ PolicyMarked | SpellDescription$ B - A source you controlled dealt 3 or more damage this turn.
+SVar:PolicyMarked:DB$ Pump | Defined$ Self | KW$ MarkedThisTurn | SubAbility$ CompleteTrig
+SVar:CompleteTrig:DB$ ImmediateTrigger | IsPresent$ Card.Self+withComplete_A+withComplete_B | Execute$ TrigTransform | TriggerDescription$ Policy (When all conditions are complete, transform this.)
+SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform
+# CheckDefinedPlayer$ You.damageDoneSingleSource GE3
+SVar:PlankA:Count$NumDamageThisTurn Card.YouCtrl,Emblem.YouCtrl Player,Permanent
+SVar:PlankB:Count$damageDoneSingleSource
+SVar:PlayMain1:TRUE
+DeckHas:Ability$Token & Type$Soldier
+AlternateMode:DoubleFaced
+Oracle:(Once a turn, as a sorcery, mark a condition as complete. When all are complete, transform this.)\nWhen Sparks of a Revolution enters, create a 1/1 colorless Soldier creature token. It gains haste until end of turn.\nA — Three or more sources you controlled dealt damage this turn.\nB — A source you controlled dealt 3 or more damage this turn.
+
+ALTERNATE
+
+Name:Freedom
+ManaCost:no cost
+Types:Legendary Enchantment
+Colors:red
+T:Mode$ AttackersDeclared | AttackingPlayer$ You | Execute$ TrigToken | TriggerZones$ Battlefield | TriggerDescription$ Whenever you attack, create a 1/1 colorless Soldier creature token that's tapped and attacking.
+SVar:TrigToken:DB$ Token | TokenScript$ c_1_1_soldier | TokenOwner$ You | TokenTapped$ True | TokenAttacking$ True
+Oracle:Whenever you attack, create a 1/1 colorless Soldier creature token that's tapped and attacking.

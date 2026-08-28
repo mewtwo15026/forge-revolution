@@ -1,0 +1,8 @@
+Name:Heist Lookout
+ManaCost:2 U
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:When this creature enters, tap target creature you don't control and put a stun counter on it.

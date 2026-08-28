@@ -1,0 +1,17 @@
+Name:Whirring Inspector
+ManaCost:W U B
+Types:Artifact Creature Insect Eye
+PT:3/2
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigLook | TriggerDescription$ When CARDNAME enters, look at target player's hand. You may exile a nonland card from among them until your next turn. When you don't, exile up to one target nonland permanent that player controls until your next turn. (That card returns to its owner's hand, or that permanent returns to the battlefield under its owner's control.)
+SVar:DBChooseCard:DB$ ChooseCard | ChoiceZone$ Hand | Choices$ Card.nonLand+IsRemembered | ChoiceTitle$ You may exile a nonland card from it | MinAmount$ 0 | Amount$ 1 | SubAbility$ DBChangeZone
+SVar:DBChangeZone:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Hand | Destination$ Exile | RememberChanged$ True | SubAbility$ DBHandTrig
+SVar:DBHandTrig:DB$ DelayedTrigger | Mode$ TurnBegin | ValidPlayer$ You | RememberObjects$ RememberedLKI | Execute$ DBReturnHand | Static$ True | SubAbility$ DBImmeTrig
+SVar:DBReturnHand:DB$ ChangeZone | Origin$ Exile | Destination$ Hand | Defined$ DelayTriggerRememberedLKI
+SVar:DBImmeTrig:DB$ ImmediateTrigger | ConditionDefined$ Remembered | ConditionPresent$ Card | ConditionCompare$ EQ0 | Execute$ DBFlicker | RememberObjects$ Targeted | SubAbility$ DBCleanup | TriggerDescription$ When you don't, exile up to one target nonland permanent that player controls until your next turn.
+SVar:DBFlicker:DB$ ChangeZone | ValidTgts$ Permanent.nonLand+ControlledBy Player.IsRemembered | TargetMin$ 0 | TargetMax$ 1 | TgtPrompt$ Select up to one target nonland permanent that player controls | Origin$ Battlefield | Destination$ Exile | RememberChanged$ True | SubAbility$ DBPlayTrig
+SVar:DBPlayTrig:DB$ DelayedTrigger | Mode$ TurnBegin | ValidPlayer$ You | RememberObjects$ RememberedLKI | Execute$ DBReturnPlay | Static$ True | SubAbility$ DBCleanup
+SVar:DBReturnPlay:DB$ ChangeZone | Origin$ Exile | Destination$ Battlefield | Defined$ DelayTriggerRememberedLKI
+SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Flash\nFlying\nWhen Whirring Inspector enters, look at target player's hand. You may exile a nonland card from among them until your next turn. When you don't, exile up to one target nonland permanent that player controls until your next turn. (That card returns to its owner's hand, or that permanent returns to the battlefield under its owner's control.)

@@ -1,0 +1,12 @@
+Name:Reconnaissance Agent
+ManaCost:W U B
+Types:Creature Human Insect Scout
+PT:2/2
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may ABILITY
+SVar:TrigCharm:DB$ Charm | Choices$ DBScooze,DBBanish
+SVar:DBScooze:DB$ ChangeZone | Origin$ Graveyard | Destination$ Exile | TgtPrompt$ Select target card in your graveyard | ValidTgts$ Card.YouCtrl | SpellDescription$ Exile target card from your graveyard.
+SVar:DBBanish:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | TgtPrompt$ Select another target creature | ValidTgts$ Creature.Other | IsCurse$ True | SpellDescription$ Exile another target creature.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Any | ValidCard$ Card.Self | Execute$ TrigReturn | TriggerDescription$ When CARDNAME leaves the battlefield, return the exiled card to its owner's hand.
+SVar:TrigReturn:DB$ ChangeZone | Defined$ ExiledWith | Origin$ Exile | Destination$ Hand
+SVar:PlayMain1:TRUE
+Oracle:When Reconnaissance Agent enters, you may choose one -\n• Exile target card from your graveyard.\n• Exile another target creature.\nWhen Reconnaissance Agent leaves the battlefield, return the exiled card to its owner's hand.

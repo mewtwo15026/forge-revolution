@@ -1,0 +1,6 @@
+Name:Divine Liberation
+ManaCost:2 R W
+Types:Sorcery
+A:SP$ GainControl | ValidTgts$ Permanent.nonLand | Untap$ True | AddKW$ Haste | SubAbility$ DBPump | SpellDescription$ 
+SVar:DBPump:DB$ Pump | Defined$ Targeted | AtEOT$ Exile
+Oracle:Untap target nonland permanent and gain control of it until end of turn. It gains haste until end of turn. At the beginning of the next end step, exile it.

@@ -2024,6 +2024,15 @@ public class CardFactoryUtil {
             trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
 
             inst.addTrigger(trigger);
+        } else if (keyword.equals("kdt_Time loop")) {
+            String strTrig = "Mode$ AbilityResolves | ValidSource$ Card.Self | ValidSpellAbility$ Ability.LastChapter | "
+                    + "TriggerZones$ Battlefield | Static$ True | TriggerDescription$ Time loop (" + inst.getReminderText() + ")";
+            final String effect = "DB$ RemoveCounter | CounterType$ LORE | CounterNum$ All";
+
+            final Trigger trigger = TriggerHandler.parseTrigger(strTrig, card, intrinsic);
+            trigger.setOverridingAbility(AbilityFactory.getAbility(effect, card));
+
+            inst.addTrigger(trigger);
         } else if (keyword.equals("twi_Decoy")) {
             String strTrig = "Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | "
                     + "TriggerDescription$ Decoy (" + inst.getReminderText() + ")";

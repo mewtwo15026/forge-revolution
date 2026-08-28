@@ -7,13 +7,17 @@ MciCode=err
 Type=Expansion
 #BoosterCovers=1
 BoosterSlots=Common,Uncommon,RareMythic,AnyLand,Wildcard
-Booster=9 Common,3 Uncommon,1 RareMythic,1 Wildcard,1 AnyLand
+Booster=7 Common,3 Uncommon,1 RareMythic,2 Wildcard,1 AnyLand
 FatPack=8
 FatPackExtraSlots=40 BasicLands ERR
 Prerelease=6 Boosters, 1 RareMythic+
 BoosterBox=36
 ChaosDraftThemes=CUSTOM;REV_T1;REV_T2
 # Set designed by DrChipmunk
+# REMOVED CARDS:
+# U Data Staff @Almanegra
+# C Shock @Casey Weeks
+# C Downlink Overload @Christopher Balaskas
 
 #Numbers from https://mtgscribe.com/2024/07/14/play-booster-fact-sheet-bloomburrow/
 [Common]
@@ -87,7 +91,7 @@ Replace=.020F fromSheet("ERR buy a box")
 45 R Convol, Archive Exec @Liiga Smilshkalne
 46 U COPY() @Anderson Nioule
 47 C Cybersaurus @Daniela Naumovski
-48 U Data Staff @Almanegra
+48 U Data Visionary @Imiak
 49 U Decryption Puzzlemancer @Dan Cohen
 50 U Denotation Failure @HybridGothica
 51 R Echo Choreographer @Josh Hutchinson
@@ -129,7 +133,7 @@ Replace=.020F fromSheet("ERR buy a box")
 87 U Cheat Code @SzrnArts
 88 U Death's Believers @Bart Tchorzewski
 89 U Do_Not_Respond @Max Hay
-90 C Downlink Overload @Christopher Balaskas
+90 C Dead Weight @Christopher Balaskas
 91 C Draconic Dungeoneer @Elkir
 92 C Dropped_Polygon @Tithi Luathong
 93 U Earworm DJ @Friedrich Pierbaumer
@@ -189,7 +193,7 @@ Replace=.020F fromSheet("ERR buy a box")
 147 R Red-Hot Rider @Amarihel
 148 U Rowhammer @Scott Uminga
 149 C Segmentation_Fault @Eric Michelsen
-150 C Shock @Casey Weeks
+150 C Glitch Out @Casey Weeks
 151 U Threadripper @Dinkartworks
 152 C Thrilljammer @Lauren Natvig
 153 U Token_Limit @Allesandro Rossi

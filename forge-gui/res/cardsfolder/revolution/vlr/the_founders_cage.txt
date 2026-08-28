@@ -1,0 +1,10 @@
+Name:The Founder's Cage
+ManaCost:2
+Types:Legendary Artifact
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ EnterTapped | ReplacementResult$ Updated | Description$ CARDNAME enters tapped with five loyalty counters on it.
+SVar:EnterTapped:DB$ Tap | Defined$ Self | ETB$ True | SubAbility$ DBAddCounter
+SVar:DBAddCounter:DB$ PutCounter | Defined$ Self | ETB$ True | CounterType$ LOYALTY | CounterNum$ 5
+A:AB$ Charm | Cost$ T RemoveAnyCounter<1/LOYALTY/Permanent> | Choices$ CharmMana,CharmLoyalty
+SVar:CharmMana:DB$ Mana | Produced$ Any | SpellDescription$ Add one mana of any color.
+SVar:CharmLoyalty:DB$ PutCounter | ValidTgts$ Planeswalker | AITgts$ Planeswalker.YouCtrl | CounterType$ LOYALTY | CounterNum$ 1 | SpellDescription$ Put a loyalty counter on target planeswalker.
+Oracle:The Founder's Cage enters tapped with five loyalty counters on it.\n{T}, Remove a loyalty counter from a permanent you control: Choose one -\n• Add one mana of any color.\n• Put a loyalty counter on target planeswalker.

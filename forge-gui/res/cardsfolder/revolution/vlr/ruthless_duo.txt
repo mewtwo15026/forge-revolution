@@ -1,0 +1,8 @@
+Name:Ruthless Duo
+ManaCost:3 G
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Trample\nWhen this creature enters, create a 1/1 black and green Mercenary creature token with deathtouch.

@@ -1,13 +1,13 @@
 Name:Menagerie Mechanic
-ManaCost:2 G
+ManaCost:2 G G
 Types:Creature Human Artificer
-PT:3/4
+PT:4/5
 T:Mode$ DamageDone | ValidSource$ Card.Self | Execute$ TrigToken | CombatDamage$ True | ValidTarget$ Player | TriggerZones$ Battlefield | TriggerDescription$ Whenever this creature deals combat damage to a player, create an X/X colorless Construct artifact creature token, where X is 1 plus the number of counters on this creature.
 SVar:TrigToken:DB$ Token | TokenAmount$ 1 | TokenScript$ c_x_x_a_construct | TokenOwner$ You | TokenPower$ X | TokenToughness$ X
 SVar:X:TriggeredCard$CardCounters.ALL/Plus.1
-A:AB$ PutCounter | Cost$ 1 Sac<1/Artifact;Enchantment/artifact or enchantment> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump | SpellDescription$ Put a +1/+1 counter on this creature. It gains trample until end of turn.
-SVar:DBPump:DB$ Pump | Defined$ Self | KW$ Trample
+A:AB$ PutCounter | Cost$ 1 Sac<1/Artifact;Enchantment/artifact or enchantment> | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBPump | SpellDescription$ Put a +1/+1 counter on this creature. It gains trample and indestructible until end of turn.
+SVar:DBPump:DB$ Pump | Defined$ Self | KW$ Trample & Indestructible
 SVar:AIPreference:SacCost$Artifact.token,Artifact.cmcEQ0+nonLegendary+notnamedBlack Lotus,Artifact.cmcGE1+cmcLE3,Enchantment.token,Enchantment.cmcGE1+cmcLE3
-DeckHints:Type$Artifact|Enchantment|Memory|Map|Blood|Shard|Food|Treasure|Clue|Junk
+DeckHints:Type$Artifact|Enchantment|Memory|Map|Blood|Shard|Food|Treasure|Clue|Junk|Weapon
 DeckHas:Ability$Token|Sacrifice|Counters
-Oracle:Whenever this creature deals combat damage to a player, create an X/X colorless Construct artifact creature token, where X is 1 plus the number of counters on this creature.\n{1}, Sacrifice an artifact or enchantment: Put a +1/+1 counter on this creature. It gains trample until end of turn.
+Oracle:Whenever this creature deals combat damage to a player, create an X/X colorless Construct artifact creature token, where X is 1 plus the number of counters on this creature.\n{1}, Sacrifice an artifact or enchantment: Put a +1/+1 counter on this creature. It gains trample and indestructible until end of turn.

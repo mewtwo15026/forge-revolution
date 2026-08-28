@@ -1,0 +1,8 @@
+Name:Vicuro Pathmaker
+ManaCost:3 U U
+Types:Creature
+PT:0/0
+
+# remove this line after card script is finished
+AI:RemoveDeck:All
+Oracle:Spectacle {2}{U} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nWhen this creature enters, return up to one target creature to its owner's hand.

@@ -1,0 +1,8 @@
+Name:Tenacious Thief
+ManaCost:3 R
+Types:Creature Human Rogue
+PT:4/3
+K:Spectacle:1 R Discard<1/Card>
+K:Trample
+S:Mode$ Continuous | Affected$ Card.Self | MayPlay$ True | ValidSA$ Spell.Spectacle | AffectedZone$ Graveyard | EffectZone$ Graveyard | Description$ You may cast this spell from your graveyard for its spectacle cost. If you do, it enters the battlefield tapped.
+Oracle:Spectacle-{1}{R}, Discard a card. (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nTrample\nYou may cast this spell from your graveyard for its spectacle cost. If you do, it enters the battlefield tapped.

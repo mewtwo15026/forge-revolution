@@ -1,0 +1,11 @@
+Name:Neuralinked Hive
+ManaCost:2 W U
+Types:Creature Human Drone
+PT:3/3
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+HasCounters | AffectedZone$ Battlefield | EffectZone$ Battlefield | AddStaticAbility$ Neuralink | Description$ Each creature you control with a counter on it has all activated abilities of other creatures you control with counters on them.
+SVar:Neuralink:Mode$ Continuous | Affected$ Card.Self | EffectZone$ Battlefield | GainsAbilitiesOf$ Creature.Other+YouCtrl+HasCounters
+A:AB$ PutCounter | Cost$ 1 T | ValidTgts$ Creature | TargetUnique$ True | TgtPrompt$ Select target creature to teach vigilance | ConditionDefined$ Targeted | ConditionPresent$ Creature.withVigilance | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ DBVigilance | SpellDescription$ Teach target creature vigilance. (Put a vigilance counter on it. If it already has vigilance, put a +1/+1 counter on it instead.)
+SVar:DBVigilance:DB$ PutCounter | Defined$ ParentTarget | ConditionDefined$ ParentTarget | ConditionPresent$ Creature.withoutVigilance | CounterType$ Vigilance | CounterNum$ 1
+SVar:BuffedBy:Creature.hasAbility Activated
+DeckHas:Ability$Counters
+Oracle:Creatures you control with counters on them have all activated abilities of other creatures you control with counters on them.\n{1}, {T}: Teach target creature vigilance. (Put a vigilance counter on it. If it already has vigilance, put a +1/+1 counter on it instead.)

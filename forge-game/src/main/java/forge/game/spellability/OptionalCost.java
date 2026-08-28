@@ -23,6 +23,9 @@ public enum OptionalCost {
     AltCost("", ""),
     Flash("Flash", ""), // used for Pay Extra for Flash
     Generic("Generic", ""); // used by "Dragon Presence" and pseudo-kicker cards
+    //REVOLUTION
+    //CCR_Surface("Surface",""),
+    //VLR_Pursuit("Pursuit", "");
 
     private String name;
     private String pip;

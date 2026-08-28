@@ -1,0 +1,17 @@
+Name:Freightyard Scrappers
+ManaCost:4 B R G
+Types:Creature Dwarf Goblin Human
+PT:7/7
+# NOTE: the way this handles the optional cost is jank - to opt out of it, you have to select a CMC that you don't control
+A:SP$ PermanentCreature | Cost$ 4 B R G | AnnounceTitle$ the mana value of the nonland permanent to sacrifice | Announce$ AddlSac
+S:Mode$ RaiseCost | ValidCard$ Card.Self | Type$ Spell | Cost$ Sac<1/Permanent.nonLand+cmcEQAddlSac/nonland permanent> | Amount$ 1 | EffectZone$ All | IsPresent$ Permanent.nonLand+YouCtrl+cmcEQAddlSac | Description$ As an additional cost to cast this spell, you may sacrifice a nonland permanent.
+S:Mode$ ReduceCost | ValidCard$ Card.Self | Type$ Spell | Amount$ AddlSac | EffectZone$ All | Relative$ True | IsPresent$ Permanent.nonLand+YouCtrl+cmcEQAddlSac | Description$ If you do, this spell costs {X} less to cast, where X is the sacrificed permanent's mana value.
+SVar:AddlSac:Number$0
+SVar:Z:Count$Valid Permanent.nonLand+YouCtrl$GreatestCardManaCost
+K:Ward:Sac<1/Permanent.nonLand/nonland permanent>
+T:Mode$ Attacks | ValidCard$ Card.Self | Execute$ TrigSac | TriggerDescription$ Whenever CARDNAME attacks, each opponent sacrifices a nonland permanent.
+SVar:TrigSac:DB$ Sacrifice | Defined$ Opponent | SacValid$ Permanent.nonLand | SacMessage$ nonland permanent
+SVar:AIPreference:SacCost$Permanent.nonLand+cmcGE1
+SVar:HasAttackEffect:TRUE
+DeckHas:Ability$Sacrifice
+Oracle:As an additional cost to cast this spell, you may sacrifice a nonland permanent. If you do, it costs {X} less to cast, where X is that permanent's mana value.\nWard-Sacrifice a nonland permanent.\nWhenever Freightyard Scrappers attacks, each opponent sacrifices a nonland permanent.

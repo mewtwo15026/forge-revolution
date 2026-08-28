@@ -1,0 +1,5 @@
+Name:Impromptu Exit
+ManaCost:R
+Types:Sorcery
+A:SP$ DamageAll | ValidCards$ Creature.OppCtrl,Planeswalker.OppCtrl | ValidPlayers$ Player.Opponent | NumDmg$ 1 | ValidDescription$ each opponent and each creature and planeswalker they control | SpellDescription$ CARDNAME deals 1 damage to each opponent and each creature and planeswalker they control.
+Oracle:Impromptu Exit deals 1 damage to each opponent and each creature and planeswalker they control.

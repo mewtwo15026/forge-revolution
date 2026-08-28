@@ -1,0 +1,9 @@
+Name:Brazen Burglar
+ManaCost:1 R R
+Types:Creature Human Rogue
+PT:3/3
+K:Haste
+S:Mode$ CantGainLife | ValidPlayer$ Player | Description$ Players can't gain life.
+T:Mode$ ChangesZone | ValidCard$ Creature.OppCtrl | Origin$ Battlefield | TriggerZones$ Battlefield | Execute$ TrigPing | TriggerDescription$ Whenever a creature an opponent controls leaves the battlefield, this creature deals 1 damage to that player.
+SVar:TrigPing:DB$ DealDamage | NumDmg$ 1 | Defined$ TriggeredCardController
+Oracle:Haste\nPlayers can't gain life.\nWhenever a creature an opponent controls leaves the battlefield, this creature deals 1 damage to that player.

@@ -123,6 +123,7 @@ public class Player extends GameEntity implements Comparable<Player> {
 
     //REVOLUTION
     private int spellExpentThisTurn;
+    private int noncreatureExpentThisTurn;
 
     private List<Card> discardedThisTurn = new ArrayList<>();
     private List<Card> sacrificedThisTurn = new ArrayList<>();
@@ -2521,6 +2522,7 @@ public class Player extends GameEntity implements Comparable<Player> {
 
         //REVOLUTION
         setSpellExpentThisTurn(0);
+        setNoncreatureExpentThisTurn(0);
 
         damageReceivedThisTurn.clear();
         planeswalkedToThisTurn.clear();
@@ -3938,6 +3940,9 @@ public class Player extends GameEntity implements Comparable<Player> {
     // TODO do this the new way
     public int getSpellExpentThisTurn() { return spellExpentThisTurn; }
     public void setSpellExpentThisTurn(int v) { spellExpentThisTurn = v; }
+
+    public int getNoncreatureExpentThisTurn() { return noncreatureExpentThisTurn; }
+    public void setNoncreatureExpentThisTurn(int v) { noncreatureExpentThisTurn = v; }
 
     public void visitAttractions(int light) {
         CardCollection attractions = CardLists.filter(getCardsIn(ZoneType.Battlefield), CardPredicates.isAttractionWithLight(light));

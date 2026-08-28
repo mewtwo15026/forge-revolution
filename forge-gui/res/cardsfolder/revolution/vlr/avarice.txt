@@ -1,0 +1,15 @@
+Name:Avarice
+ManaCost:2 B B R R
+Types:Creature Incarnation
+PT:6/6
+K:Menace
+T:Mode$ ChangesZone | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigCharm | TriggerDescription$ Whenever this creature enters or attacks, ABILITY
+T:Mode$ Attacks | ValidCard$ Card.Self | Secondary$ True | Execute$ TrigCharm | TriggerDescription$ Whenever this creature enters or attacks, ABILITY
+SVar:TrigCharm:DB$ Charm | CharmNum$ 2 | Choices$ DBLoseLife,DBWheel,DBSac
+SVar:DBLoseLife:DB$ LoseLife | LifeAmount$ 2 | Defined$ Player | SpellDescription$ Each player loses 2 life.
+SVar:DBWheel:DB$ Discard | Mode$ Hand | Defined$ You | SubAbility$ DBDraw | SpellDescription$ Discard your hand, then draw two cards.
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 2
+SVar:DBSac:DB$ Sacrifice | SacValid$ Land | SubAbility$ DBToken | SpellDescription$ Sacrifice a land. Create two tapped Treasure tokens.
+SVar:DBToken:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ 2 | TokenTapped$ True
+DeckHas:Ability$Discard|Sacrifice|Token & Type$Treasure
+Oracle:Menace\nWhenever this creature enters or attacks, choose two -\n• Each player loses 2 life.\n• Discard your hand, then draw two cards.\n• Sacrifice a land. Create two tapped Treasure tokens.
